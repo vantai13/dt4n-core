@@ -25,6 +25,7 @@ VÌ SAO KHÔNG CHẠY ĐƯỢC `python3 collector.py`?
     in-process, KHÔNG phải bug. Muốn chạy -> dùng runner run_phase1.py.
 """
 
+import math
 import json
 import os
 import shlex
@@ -351,6 +352,21 @@ def compute_rate(now_val, prev_val, dt):
     return delta / dt
 
 
+def rate_validity(prev_present, dt, deltas):
+    """Add validity alongside numeric rates; ML must mask invalid samples."""
+    if not prev_present:
+        return False, 'warmup'
+    if not math.isfinite(dt):
+        return False, 'invalid_dt'
+    if dt <= 0:
+        return False, 'nonpositive_dt'
+    if any(not math.isfinite(d) for d in deltas):
+        return False, 'invalid_counter'
+    if any(d < 0 for d in deltas):
+        return False, 'counter_reset'
+    return True, 'ok'
+
+
 def parse_ovs_dump_ports_state(text):
     """Return switch state from `ovs-ofctl dump-ports` output.
 
@@ -524,7 +540,8 @@ class Collector:
                 'attributes': {'type': 'host',
                                'role': 'server' if name in self.server_names else 'client'},
                 'features': {
-                    'traffic': {'rxBytes': None, 'txBytes': None, 'rxRate': 0.0, 'txRate': 0.0},
+                    'traffic': {'rxBytes': None, 'txBytes': None, 'rxRate': 0.0, 'txRate': 0.0,
+                                'rateValid': False, 'rateReason': 'interface_unavailable'},
                     'status': {'state': 'unknown'},
                 },
             }
@@ -538,6 +555,8 @@ class Collector:
             dt = now_ts - prev[2]                 # Δt THẬT (timestamp now - prev)
             rx_rate = compute_rate(rx, prev[0], dt)
             tx_rate = compute_rate(tx, prev[1], dt)
+        rate_valid, rate_reason = rate_validity(
+            prev is not None, dt, () if prev is None else (rx - prev[0], tx - prev[1]))
         self._prev[name] = (rx, tx, now_ts)       # lưu cho chu kỳ sau
 
         # Trạng thái vật lý thật của host: interface chính có cờ UP hay không.
@@ -550,7 +569,8 @@ class Collector:
                            'role': 'server' if name in self.server_names else 'client'},
             'features': {
                 'traffic': {'rxBytes': rx, 'txBytes': tx,
-                            'rxRate': round(rx_rate, 2), 'txRate': round(tx_rate, 2)},
+                            'rxRate': round(rx_rate, 2), 'txRate': round(tx_rate, 2),
+                            'rateValid': rate_valid, 'rateReason': rate_reason},
                 'status': {'state': 'up' if is_up else 'down'},
             },
         }
@@ -625,6 +645,7 @@ class Collector:
                 if prev is None:
                     rx_rate = tx_rate = 0.0
                     loss_pct = 0.0
+                    rate_valid, rate_reason = rate_validity(False, 0, ())
                 else:
                     dt = now_ts - prev['ts']
                     rx_rate = compute_rate(
@@ -639,6 +660,9 @@ class Collector:
                     total = d_tx + d_drop
                     loss_pct = (100.0 * d_drop / total) if total > 0 else 0.0
                     loss_pct = max(0.0, min(100.0, loss_pct))
+                    rate_valid, rate_reason = rate_validity(
+                        True, dt, (counters['rx_bytes'] - prev['rx_bytes'],
+                                   counters['tx_bytes'] - prev['tx_bytes']))
                 self._prev_link[key] = {
                     'rx_bytes': counters['rx_bytes'],
                     'tx_bytes': counters['tx_bytes'],
@@ -656,6 +680,7 @@ class Collector:
                     # chieu nao. Hai truong nay duoc SUY tu ban do, khong KHAI.
                     'utilIntf': util_intf.name,
                     'utilDirectionSource': link_direction_source(link),
+                    'rateValid': rate_valid, 'rateReason': rate_reason,
                 }
                 qdiscs = {intf.name: read_qdisc_drops(intf)
                           for intf in (link.intf1, link.intf2)}
@@ -667,6 +692,11 @@ class Collector:
                 features['traffic']['lossSource'] = 'tc_leaf_qdisc_both_egress'
                 features['traffic']['qdiscCounters'] = qdiscs
                 self._prev_qdisc[key] = qdiscs
+            else:
+                features['traffic'] = {'rxRate': 0.0, 'txRate': 0.0,
+                    'rateValid': False, 'rateReason': 'interface_unavailable',
+                    'qdiscValid': False, 'qdiscReason': 'unavailable', 'lossPct': None,
+                    'utilIntf': util_intf.name, 'utilDirectionSource': link_direction_source(link)}
         return {
             'attributes': {'type': 'link', 'endpointA': a, 'endpointB': b},
             'features': features,

@@ -59,6 +59,18 @@ if feature_audit:
            'Test Lesson 5.1: 51 passed, 4 skipped; xem phase5_pytest.xml. Chưa train hoặc impute. Báo cáo: ../../docs/phase-5/01-feature-audit.md; CSV/JSON/plot: feature_audit*.',
            'Pilot còn confound protocol/tải và thứ tự run; injection không có onset/baseline. AUC này là thống kê đơn biến trên dữ liệu đã audit.']
 
+missing_analysis=load('missing_analysis.json')
+if missing_analysis:
+ missing_unit=ET.parse(out/'phase52_pytest.xml').getroot().find('testsuite').attrib
+ missing_pass=int(missing_unit['tests'])-sum(int(missing_unit[k]) for k in ['skipped','failures','errors'])
+ policy=missing_analysis['policy_applied']
+ lines += ['', '## Lesson 5.2 — Dữ liệu thiếu', '',
+           f"Kiểm thử: {missing_pass} passed, {missing_unit['skipped']} skipped.",
+           f"Missing loss: {missing_analysis['total_pct_cells_missing']}%; bỏ {policy['rows_dropped_warmup']}/{policy['rows_before']} dòng warmup, giữ {policy['rows_after_warmup_drop']}; còn {policy['cells_missing_after']} ô loss thiếu.",
+           'Collector thêm rateValid/rateReason; flatten giữ timestamp Thing. Audit GIỮ41/CHẤT VẤN11/LOẠI48, BỎ QUA74 (16 timestamp mới).',
+           'MAR cho warmup quan sát được, chưa kết luận cơ chế tổng quát. Wilson/Fisher theo ô chỉ mô tả vì link/tick phụ thuộc. Chưa triển khai detector inference.',
+           'Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; log: ../../logs/missing_analysis.log.']
+
 (out/'ACCEPTANCE.md').write_text('\n'.join(lines))
 body='<h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: '+html.escape(datetime.datetime.now(datetime.timezone.utc).isoformat())+'</p>'
 body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p>'
@@ -92,6 +104,15 @@ if ml:
   d=load(name+'.json')
   if d and d.get('result'):
    x=d['result'];body+=f"<p>{name}: n={x['n']}, p50={x['p50_ms']:.2f} ms, p95={x['p95_ms']:.2f} ms.</p>"
+if missing_analysis:
+ body+='<h2 id="missing-data">Lesson 5.2 — Dữ liệu thiếu</h2>'
+ body+=f"<p>{missing_pass} passed, {missing_unit['skipped']} skipped. Missing loss: {missing_analysis['total_pct_cells_missing']}% (24/1200 ô), đều warmup tick 0.</p>"
+ body+=f"<p>DT4N-M1: bỏ {policy['rows_dropped_warmup']}/{policy['rows_before']} dòng; giữ {policy['rows_after_warmup_drop']}; còn {policy['cells_missing_after']} ô loss thiếu. Collector đã thêm rateValid/rateReason.</p>"
+ body+='<p>Audit vẫn GIỮ 41 / CHẤT VẤN 11 / LOẠI 48; thêm 16 timestamp metadata → 174 cột, BỎ QUA 74. Chưa train mô hình.</p>'
+ body+='<p><a href="docs/phase-5/02-missing-data.md">Báo cáo Lesson 5.2</a> · <a href="results/report/missing_analysis.json">JSON và manifest</a> · <a href="logs/missing_analysis.log">Output phân tích</a> · <a href="logs/phase52_pytest.log">Log kiểm thử</a></p>'
+ body+='<p>MAR cho warmup quan sát được; chưa kết luận missingness tổng quát. CI/Fisher theo ô chỉ mô tả vì mẫu phụ thuộc.</p>'
+ body+='<img style="width:100%" src="results/report/missing_analysis.png" alt="Missingness theo profile và chính sách DT4N-M1">'
+
 if feature_audit:
  phase_unit=ET.parse(out/'phase5_pytest.xml').getroot().find('testsuite').attrib
  phase_pass=int(phase_unit['tests'])-sum(int(phase_unit[k]) for k in ['skipped','failures','errors'])

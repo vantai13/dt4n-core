@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T11:04:40.594491+00:00
+Cập nhật UTC: 2026-09-15T11:38:16.194631+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -80,7 +80,15 @@ HTTP outbox POST của agent là thông báo mới, không phải Ditto Protocol
 
 ## Lesson 5.1 — Feature audit
 
-150 snapshot × 158 cột; quyết định: {'BO_QUA': 58, 'LOAI': 48, 'GIU': 41, 'CHAT_VAN': 11}.
+150 snapshot × 174 cột; quyết định: {'BO_QUA': 74, 'LOAI': 48, 'GIU': 41, 'CHAT_VAN': 11}.
 Gate: 37 feature được GIỮ có auc_dist >0.5; kết quả True.
 Test Lesson 5.1: 51 passed, 4 skipped; xem phase5_pytest.xml. Chưa train hoặc impute. Báo cáo: ../../docs/phase-5/01-feature-audit.md; CSV/JSON/plot: feature_audit*.
 Pilot còn confound protocol/tải và thứ tự run; injection không có onset/baseline. AUC này là thống kê đơn biến trên dữ liệu đã audit.
+
+## Lesson 5.2 — Dữ liệu thiếu
+
+Kiểm thử: 80 passed, 4 skipped.
+Missing loss: 2.0%; bỏ 3/150 dòng warmup, giữ 147; còn 0 ô loss thiếu.
+Collector thêm rateValid/rateReason; flatten giữ timestamp Thing. Audit GIỮ41/CHẤT VẤN11/LOẠI48, BỎ QUA74 (16 timestamp mới).
+MAR cho warmup quan sát được, chưa kết luận cơ chế tổng quát. Wilson/Fisher theo ô chỉ mô tả vì link/tick phụ thuộc. Chưa triển khai detector inference.
+Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; log: ../../logs/missing_analysis.log.

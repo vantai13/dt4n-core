@@ -1,0 +1,451 @@
+{
+  "dataset": "pilot v2 (3 segments, 150 snapshot)",
+  "thing_timestamp_span_ms": {
+    "n": 150,
+    "p50": 62.059998512268066,
+    "p95": 65.60300588607788,
+    "max": 70.3284740447998
+  },
+  "sources": {
+    "logs/ml_normal_v2.jsonl": {
+      "sha256": "5999da0a215ed44ed6d8b6a08f0cedd435b3f1460293341c5605030fb5c86672",
+      "meta": {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "is_fault": 0
+      }
+    },
+    "logs/ml_flood_v2.jsonl": {
+      "sha256": "70e9dd75dffd156b66d8143dfceacd1ed3acd4947cef3eb52900af612daddce1",
+      "meta": {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "is_fault": 1
+      }
+    },
+    "logs/ml_injection_v2.jsonl": {
+      "sha256": "d81dc49b9e0c49db870f53d0edb22e27a91b36d8a05160103f4d713a4eda4c25",
+      "meta": {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "is_fault": 1
+      }
+    }
+  },
+  "total_pct_cells_missing": 2.0,
+  "gate_total_lt_5pct": true,
+  "by_profile": [
+    {
+      "profile": "normal",
+      "is_fault": 0,
+      "n_rows": 60,
+      "rows_missing": 1,
+      "pct_rows_missing": 1.667,
+      "n_cells": 480,
+      "cells_missing": 8,
+      "pct_cells_missing": 1.667,
+      "cell_ci95_lo_pct": 0.847,
+      "cell_ci95_hi_pct": 3.254
+    },
+    {
+      "profile": "flood",
+      "is_fault": 1,
+      "n_rows": 60,
+      "rows_missing": 1,
+      "pct_rows_missing": 1.667,
+      "n_cells": 480,
+      "cells_missing": 8,
+      "pct_cells_missing": 1.667,
+      "cell_ci95_lo_pct": 0.847,
+      "cell_ci95_hi_pct": 3.254
+    },
+    {
+      "profile": "injection",
+      "is_fault": 1,
+      "n_rows": 30,
+      "rows_missing": 1,
+      "pct_rows_missing": 3.333,
+      "n_cells": 240,
+      "cells_missing": 8,
+      "pct_cells_missing": 3.333,
+      "cell_ci95_lo_pct": 1.699,
+      "cell_ci95_hi_pct": 6.439
+    }
+  ],
+  "by_reason": [
+    {
+      "profile": "flood",
+      "reason": "warmup",
+      "count": 8
+    },
+    {
+      "profile": "injection",
+      "reason": "warmup",
+      "count": 8
+    },
+    {
+      "profile": "normal",
+      "reason": "warmup",
+      "count": 8
+    }
+  ],
+  "by_tick_position": {
+    "normal": {
+      "bad_ticks": [
+        0
+      ],
+      "all_within_head": true,
+      "n_head": 1
+    },
+    "flood": {
+      "bad_ticks": [
+        0
+      ],
+      "all_within_head": true,
+      "n_head": 1
+    },
+    "injection": {
+      "bad_ticks": [
+        0
+      ],
+      "all_within_head": true,
+      "n_head": 1
+    }
+  },
+  "mnar_evidence": {
+    "table_fault_missing_vs_present": [
+      [
+        16,
+        704
+      ],
+      [
+        8,
+        472
+      ]
+    ],
+    "pct_missing_fault": 2.222,
+    "pct_missing_normal": 1.667,
+    "ci95_fault_pct": [
+      1.372,
+      3.579
+    ],
+    "ci95_normal_pct": [
+      0.847,
+      3.254
+    ],
+    "fisher_p_two_sided": 0.536857,
+    "note_confounder": "tỉ lệ thô bị LẪN bởi độ dài run: thiếu dồn ở đầu run nên run ngắn có tỉ lệ cao hơn. Xem khối post_warmup.",
+    "post_warmup": {
+      "table_fault_missing_vs_present": [
+        [
+          0,
+          704
+        ],
+        [
+          0,
+          472
+        ]
+      ],
+      "pct_missing_fault": 0.0,
+      "pct_missing_normal": 0.0,
+      "ci95_fault_pct": [
+        0.0,
+        0.543
+      ],
+      "ci95_normal_pct": [
+        0.0,
+        0.807
+      ]
+    },
+    "reasons_seen": [
+      "warmup"
+    ],
+    "all_missing_cells_accounted_for": true,
+    "missing_cells_with_warmup_flag": 24,
+    "statistical_unit_caveat": "Wilson/Fisher cell results assume independent samples; links share warmup and ticks are serially dependent. Descriptive only, not calibrated inference for this pilot.",
+    "only_structural_warmup": true,
+    "all_missing_in_run_head": true,
+    "mechanism_identified": true,
+    "conclusion": "MAR cho warmup quan sát được — mọi ô thiếu có cờ/lý do warmup ở tick 0; không kết luận cơ chế tổng quát",
+    "power_caveat": "Fisher p lớn KHÔNG chứng minh không có MNAR. Với pilot chỉ có warmup, phép test gần như không có công suất. PHẢI chạy lại sau Lesson 5.4 với fault mạnh hơn."
+  },
+  "rate_fabrication_channel_b": {
+    "n_findings": 30,
+    "by_kind": {
+      "warmup_no_prev": 30
+    },
+    "findings": [
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      }
+    ],
+    "auditable_things": [
+      "host-h1",
+      "host-h2",
+      "host-h3",
+      "host-srv1",
+      "host-srv2"
+    ],
+    "limitation": "link-*.traffic.rxRate/txRate KHÔNG kiểm toán được: snapshot không phơi bộ đếm cộng dồn của link. Đã vá bằng cờ rateValid trong collector."
+  },
+  "policy_applied": {
+    "policy": "DT4N-M1",
+    "invalid_rate_mask": {
+      "n_columns_masked": 0,
+      "cells_masked": {},
+      "total_cells_masked": 0
+    },
+    "warmup_ticks": 1,
+    "rows_before": 150,
+    "rows_dropped_warmup": 3,
+    "rows_after_warmup_drop": 147,
+    "rows_with_residual_missing": 0,
+    "cells_missing_after": 0,
+    "rule_text": "bỏ tick đầu mỗi run (warmup, tiền định); giữ mọi dòng còn lại kèm n_loss_missing; không bao giờ fillna(0)"
+  },
+  "decision": {
+    "name": "DT4N-M1",
+    "tier1_structural": "bỏ 1 tick đầu mỗi run (warmup)",
+    "tier2_residual": "giữ dòng + cột n_loss_missing; KHÔNG bỏ dòng",
+    "tier3_train_only": "dòng còn NaN ở feature train thì bỏ, có đếm",
+    "inference_counterpart": "Phase 7: detector KHÔNG phát trong warmup và ghi anomalyStatus=\"unknown\" khi thiếu, không ghi \"normal\"",
+    "forbidden": "fillna(0) cho lossPct ở mọi tầng"
+  }
+}

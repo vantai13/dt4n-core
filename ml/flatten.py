@@ -31,6 +31,8 @@ def flatten_snapshot(snap: dict) -> dict:
         'cycle_scan_ms': snap.get('cycle_scan_ms'),
     }
     for thing_id, thing in (snap.get('things') or {}).items():
+        if 't_source' in thing:
+            row[f'{thing_id}.t_source'] = thing['t_source']
         features = thing.get('features') or {}
         for fname, fval in features.items():
             if not isinstance(fval, dict):

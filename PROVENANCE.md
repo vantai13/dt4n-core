@@ -29,3 +29,7 @@ Không viết lại commit 8660edf; tài liệu upstream của bản v1 vẫn c�
 ## Lesson 5.1 — Feature audit
 
 Từ commit 9192649, triển khai hướng dẫn đính kèm về schema/flatten/audit và plot, bổ sung map TriangleTopo. Sửa gate chỉ đếm feature được giữ, bỏ cycle_scan_ms khỏi ứng viên, bảo toàn null/unknown state và kiểm tra nhãn. Dùng pooled sample std và AUC có nửa điểm khi hòa; không sao chép các kết luận tổng quát về missingness hoặc hiệu năng mô hình từ hướng dẫn. SHA-256 raw v2 bảo tồn trong feature_audit_summary.json; báo cáo thực tế tại docs/phase-5/01-feature-audit.md.
+
+## Lesson5.2 — Dữ liệu thiếu
+
+Từ f4b8a19, thêm module missing, validity rate collector, timestamp Thing metadata, phân tích/biểu đồ và test. Giữ numeric rate theo hợp đồng cũ, mask invalid ở ML. Sửa gate yêu cầu mọi ô thiếu được giải thích, kiểm toán rate theo run thay vì profile, đếm feature vắng hoàn toàn là không đủ điều kiện train. Wilson/Fisher theo ô không được diễn giải như các mẫu độc lập của pilot. JSONL nguồn giữ nguyên SHA-256.

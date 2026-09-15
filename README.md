@@ -131,3 +131,12 @@ Lệnh dashboard dùng Ditto `timeout=0`, sau đó xác nhận trạng thái qua
 ```
 
 Chạy trên dữ liệu v2 có sẵn, không cần khởi động Mininet/Ditto. Báo cáo và giới hạn: [docs/phase-5/01-feature-audit.md](docs/phase-5/01-feature-audit.md). CSV/JSON/biểu đồ ở `results/report/feature_audit*`; chưa huấn luyện mô hình.
+
+Kiểm tra dữ liệu thiếu (Lesson5.2):
+
+```bash
+.venv/bin/python -m scripts.analyze_missing
+.venv/bin/python -m scripts.plot_missing
+```
+
+Chính sách và giới hạn: [docs/phase-5/02-missing-data.md](docs/phase-5/02-missing-data.md). Rate mới phải kiểm `rateValid`; dữ liệu v2 cũ giữ nguyên.

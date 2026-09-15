@@ -21,11 +21,12 @@ META_COLS = (
 )
 
 # --- hậu tố xác định LOẠI cột --------------------------------------------
+META_SUFFIX = ('.t_source',)
 TEXT_SUFFIX = ('.utilIntf', '.utilDirectionSource', '.lossSource',
-               '.qdiscReason', '.dump', '.state')
+               '.qdiscReason', '.rateReason', '.dump', '.state')
 CUMULATIVE_SUFFIX = ('.rxBytes', '.txBytes')
 CONFIG_SUFFIX = ('.bwMbps',)
-BOOL_SUFFIX = ('.qdiscValid',)
+BOOL_SUFFIX = ('.qdiscValid', '.rateValid')
 
 # --- lý do loại trừ, viết một lần, dùng khắp nơi --------------------------
 REASON = {
@@ -45,7 +46,7 @@ REASON = {
 
 def column_kind(name: str) -> str:
     """Trả về loại của một cột: meta / text / cumulative / config / bool / numeric."""
-    if name in META_COLS:
+    if name in META_COLS or name.endswith(META_SUFFIX):
         return 'meta'
     if name.endswith(CUMULATIVE_SUFFIX):
         return 'cumulative'

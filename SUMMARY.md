@@ -64,3 +64,9 @@ Báo cáo, bảng so sánh và giới hạn: [ML_PREFLIGHT.md](results/report/ML
 Kiểm thử: **51 passed, 4 skipped**, không lỗi; 4 skip cần môi trường live. Báo cáo: [01-feature-audit.md](docs/phase-5/01-feature-audit.md). Bảng: [feature_audit.csv](results/report/feature_audit.csv); JSON: [feature_audit_summary.json](results/report/feature_audit_summary.json); biểu đồ: [feature_audit_dist.png](results/report/feature_audit_dist.png); log: [phase5_pytest.log](logs/phase5_pytest.log).
 
 Pilot chưa chứng minh hiệu quả mô hình; còn confound TCP/UDP và tải, injection không có baseline/onset, s2-s3 chưa tách biệt và chỉ một đoạn thu/profile. Lesson 5.2–5.3 chưa triển khai trong đợt này.
+
+## Lesson 5.2 — Dữ liệu thiếu
+
+Đã thêm rateValid/rateReason vào collector, giữ16 timestamp Thing và chính sách DT4N-M1 không fillna(0). Pilot thiếu24/1200 ô loss (2%), đều warmup tick0; bỏ3/150 dòng, còn147 và0 missing loss. Rate host có30 warmup zero, không thấy zero giả giữa run; rate link v2 chưa có counter/cờ để kiểm toán.
+
+Test **80 passed,4 skipped**. Audit mới150×174, GIỮ41/CHẤT VẤN11/LOẠI48/BỎ QUA74;37 ứng viên mạnh không đổi. Báo cáo: [02-missing-data.md](docs/phase-5/02-missing-data.md); output: [missing_analysis.json](results/report/missing_analysis.json), [log](logs/missing_analysis.log), [biểu đồ](results/report/missing_analysis.png). CI/Fisher theo ô chỉ mô tả vì mẫu phụ thuộc; không kết luận MNAR tổng quát.

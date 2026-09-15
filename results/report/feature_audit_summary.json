@@ -1,8 +1,8 @@
 {
   "n_snapshots": 150,
-  "n_columns": 158,
+  "n_columns": 174,
   "by_decision": {
-    "BO_QUA": 58,
+    "BO_QUA": 74,
     "LOAI": 48,
     "GIU": 41,
     "CHAT_VAN": 11
