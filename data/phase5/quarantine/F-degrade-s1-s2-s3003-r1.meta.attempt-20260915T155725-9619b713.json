@@ -1,0 +1,224 @@
+{
+  "run_id": "F-degrade-s1-s2-s3003-r1",
+  "sha256": "9616d15d5c0c804e8e4160e9b088f53c19e16a8733e72b1a3e6c5b64f430954e",
+  "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "collection_provenance": {
+    "git_hash": "3ecaf6aabfa3f444f2504d1a1fd5f317ec47a435",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "data/phase5/quarantine/C-load2M-s2001-r1.initial.meta.json",
+      "data/phase5/quarantine/C-load2M-s2001-r1.meta.json",
+      "data/phase5/quarantine/C-vary-s2002-r1.initial.meta.json",
+      "data/phase5/quarantine/C-vary-s2002-r1.meta.json",
+      "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.initial.meta.json",
+      "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.meta.attempt-20260915T155316-fa06833e.json",
+      "data/phase5/quarantine/N-load1M-s1001-r1.initial.meta.json",
+      "data/phase5/quarantine/N-load1M-s1001-r1.meta.json",
+      "data/phase5/quarantine/N-vary-s1007-r1.initial.meta.json",
+      "data/phase5/quarantine/N-vary-s1007-r1.meta.json",
+      "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+      "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+      "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+      "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+      "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+      "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+      "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+      "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+      "data/phase5/raw/N-load2M-s1003-r1.meta.json",
+      "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+      "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+      "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+      "data/phase5/raw/N-vary-s1008-r2.meta.json",
+      "logs/ml_campaign.log",
+      "logs/ml_campaign_retry.log",
+      "logs/ml_dataset_controller.log",
+      "logs/ml_dataset_startup.log",
+      "logs/ml_dataset_stdout.log",
+      "logs/ml_gen_C-load2M-s2001-r1.log",
+      "logs/ml_gen_C-vary-s2002-r1.log",
+      "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+      "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+      "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+      "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+      "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+      "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+      "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+      "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+      "logs/ml_gen_N-load1M-s1001-r1.log",
+      "logs/ml_gen_N-load1M-s1002-r2.log",
+      "logs/ml_gen_N-load2M-s1003-r1.log",
+      "logs/ml_gen_N-load2M-s1004-r2.log",
+      "logs/ml_gen_N-load4M-s1005-r1.log",
+      "logs/ml_gen_N-load4M-s1006-r2.log",
+      "logs/ml_gen_N-vary-s1007-r1.log",
+      "logs/ml_gen_N-vary-s1008-r2.log",
+      "results/report/campaign_collection_history.json",
+      "results/report/ml_dataset_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "record": {
+    "run_id": "F-degrade-s1-s2-s3003-r1",
+    "group": "F",
+    "split": "test",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "degrade",
+    "fault_target": "s1-s2",
+    "seed": 3003,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "duration_sec": 60,
+    "expected_links": [
+      "h1-s1",
+      "h3-s1",
+      "s1-s2",
+      "s2-srv1"
+    ],
+    "exec_index": 1,
+    "fault_parameters": {
+      "link_key": "s1-s2",
+      "factor": 0.8274722320107196,
+      "delay": "2ms",
+      "baseline": 20.0
+    }
+  },
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "hard",
+    "reset_total_s": 38.77677183199921,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.492640830998425,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.04046774864196777,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4291,
+      "attempts": 1,
+      "recovered_by_hard_reset": true
+    },
+    "active_scenarios": [],
+    "timings": {
+      "hard_reset": 9.954029603999516,
+      "start_traffic": 2.5958610070010764,
+      "steady_wait": 6.492640830998425,
+      "refresh_twin": 0.17408989599789493,
+      "data_fresh_wait": 0.06477532799908658,
+      "health_gate": 19.486147161998815
+    }
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.083374,
+      "t_source": 1789487663.262874,
+      "completed_t_rel": 20.104667,
+      "apply_ms": 21.3,
+      "scenario": {
+        "type": "LinkDegrade",
+        "link_key": "s1-s2",
+        "factor": 0.8274722320107196,
+        "delay": "2ms",
+        "baseline": 20.0
+      }
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.094862,
+      "t_source": 1789487683.2759824,
+      "completed_t_rel": 40.117839,
+      "apply_ms": 23.0
+    }
+  ],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 160,
+    "qdisc_invalid_ok": true,
+    "qdisc_invalid_fraction_fault": 0.0063,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 160,
+    "rate_invalid_ok": true,
+    "rate_invalid_fraction_fault": 0.0,
+    "events_complete": true,
+    "event_ticks_ok": true,
+    "inject_t_rel": 20.083374,
+    "revert_t_rel": 40.094862,
+    "inject_on_time": true,
+    "revert_on_time": true,
+    "per_link": {
+      "link-h1-s1": {
+        "rxRate": 0.138,
+        "txRate": 0.459,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-h3-s1": {
+        "rxRate": 0.127,
+        "txRate": 0.087,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s1-s2": {
+        "rxRate": 0.266,
+        "txRate": 11.554,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s2-srv1": {
+        "rxRate": 0.265,
+        "txRate": 11.55,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      }
+    },
+    "max_separation": 11.554,
+    "signal_present": true,
+    "passed": false,
+    "failed_gates": [
+      "runtime_log_ok"
+    ],
+    "runtime_error_count": 1,
+    "runtime_log_ok": false
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-15T15:53:16Z",
+  "finished_utc": "2026-09-15T15:55:03Z",
+  "status": "failed"
+}

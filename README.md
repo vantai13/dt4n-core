@@ -141,7 +141,7 @@ Kiểm tra dữ liệu thiếu (Lesson5.2):
 
 Chính sách và giới hạn: [docs/phase-5/02-missing-data.md](docs/phase-5/02-missing-data.md). Rate mới phải kiểm `rateValid`; dữ liệu v2 cũ giữ nguyên.
 
-Thiết kế chiến dịch Lesson5.3 (chưa thu mạng):
+Thiết kế chiến dịch Lesson5.3 đã khóa trước thu:
 
 ```bash
 .venv/bin/python -m scripts.build_matrix
@@ -156,4 +156,10 @@ Kiểm chứng harness chuẩn bị Lesson5.4:
 .venv/bin/python -m scripts.check_ml_campaign
 ```
 
-[Báo cáo phạm vi và phần runner còn lại](docs/phase-5/04-data-generation.md). Lệnh chỉ kiểm tra hợp đồng/kế hoạch, không khởi động mạng.
+[Báo cáo chuẩn bị và thu mạng thật](docs/phase-5/04-data-generation.md). Lệnh chỉ kiểm tra hợp đồng/kế hoạch, không khởi động mạng.
+
+### Chiến dịch Lesson5.4 đã thu và nghiệm thu
+
+18/18 run đạt, 1.080 snapshot; base rate test160/590=27,12%. 163testpassed/4skipped; 0ERROR/CRITICAL/Traceback trong18logaccepted. [Kết quả và cách chạy lại](docs/phase-5/04-data-generation.md), [manifest](results/report/ml_dataset_manifest.json), [audit](results/report/campaign_feature_audit.csv), [missing](results/report/campaign_missing_analysis.json).
+
+Raw được giữ local và có archive đã kiểm checksum18/18 theo [backup receipt](results/report/campaign_raw_backup.json); không nằm trong GitHub. Muốn audit/train từ clone cần khôi phục raw trước. Chưa đánh giá detector.

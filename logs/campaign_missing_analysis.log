@@ -1,0 +1,52 @@
+{
+  "gates": {
+    "complete": true,
+    "18_runs_ok": true,
+    "no_runtime_error_in_run_logs": true,
+    "base_rate_10_to_40pct": true,
+    "all_fault_signals_ge_1": true,
+    "normal_links_stay_up": true,
+    "source_clean": true
+  },
+  "passed": true,
+  "run_log_errors": {
+    "N-load1M-s1001-r1": 0,
+    "N-load1M-s1002-r2": 0,
+    "N-load2M-s1003-r1": 0,
+    "N-load2M-s1004-r2": 0,
+    "N-load4M-s1005-r1": 0,
+    "N-load4M-s1006-r2": 0,
+    "N-vary-s1007-r1": 0,
+    "N-vary-s1008-r2": 0,
+    "C-load2M-s2001-r1": 0,
+    "C-vary-s2002-r1": 0,
+    "F-admin_down-s1-s2-s3001-r1": 0,
+    "F-admin_down-s1-s3-s3002-r1": 0,
+    "F-degrade-s1-s2-s3003-r1": 0,
+    "F-degrade-s2-s3-s3004-r1": 0,
+    "F-flood-h1_to_srv1-s3005-r1": 0,
+    "F-flood-h2_to_srv2-s3006-r1": 0,
+    "F-shift-s1-s2-s3007-r1": 0,
+    "F-shift-s1-s3-s3008-r1": 0
+  },
+  "base_rate": {
+    "usable_test_ticks": 590,
+    "anomalous_test_ticks": 160,
+    "base_rate_measured": 0.2712,
+    "dumb_always_normal_accuracy": 0.7288,
+    "base_rate_nominal": 0.2712
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "contract_integrity": {
+    "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "match": true
+  },
+  "n_raw_snapshots": 1080,
+  "n_after_warmup": 1062,
+  "state_up_variable_columns": [
+    "link-s1-s2.status.state_up",
+    "link-s1-s3.status.state_up"
+  ]
+}

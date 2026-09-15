@@ -1,0 +1,93 @@
+2026-09-15 16:03:07,412 [INFO] env_runner: HARD reset
+2026-09-15 16:03:07,412 [INFO] sync_agent: Sync Agent dừng sau 81 chu kỳ.
+2026-09-15 16:03:07,803 [INFO] command_agent: Command Agent dừng.
+2026-09-15 16:03:07,803 [INFO] env_runner: EnvRunner.close(): stopping Mininet
+2026-09-15 16:03:08,440 [INFO] env_runner: EnvRunner.start()
+2026-09-15 16:03:12,151 [INFO] sync_agent: Sync Agent start: period=1.000s, tol=0.500, ping_every=20, reconcile_every=30, mode=None
+2026-09-15 16:03:12,152 [INFO] command_agent: Command Agent start (bản 4.4: nghe + thực thi + response). controller=org.dt4n.ml:controller
+2026-09-15 16:03:12,155 [INFO] command_agent: SSE kết nối OK, đang nghe lệnh tại http://localhost:8080/api/2/things/org.dt4n.ml:controller/inbox/messages
+2026-09-15 16:03:12,296 [INFO] sync_agent: Cycle #1 [RECONCILE]: 16/16 patch, elapsed=144ms
+2026-09-15 16:03:13,280 [INFO] sync_agent: Cycle #2 [delta]: 13/13 patch, elapsed=128ms
+2026-09-15 16:03:14,273 [INFO] sync_agent: Cycle #3 [delta]: 11/11 patch, elapsed=121ms
+2026-09-15 16:03:15,163 [INFO] env_runner: EnvRunner started in 6.7s, startup iperf=0; episode iperf baseline pending
+2026-09-15 16:03:15,289 [INFO] sync_agent: Cycle #4 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 16:03:16,251 [INFO] sync_agent: Cycle #5 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 16:03:18,289 [INFO] sync_agent: Cycle #7 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 16:03:19,286 [INFO] sync_agent: Cycle #8 [delta]: 13/13 patch, elapsed=133ms
+2026-09-15 16:03:20,289 [INFO] sync_agent: Cycle #9 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 16:03:21,302 [INFO] sync_agent: Cycle #10 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:03:22,290 [INFO] sync_agent: Cycle #11 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 16:03:23,299 [INFO] sync_agent: Cycle #12 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 16:03:24,314 [INFO] sync_agent: Cycle #13 [delta]: 13/13 patch, elapsed=160ms
+2026-09-15 16:03:24,557 [INFO] env_runner: Calibrated episode iperf baseline=7
+2026-09-15 16:03:25,286 [INFO] sync_agent: Cycle #14 [delta]: 13/13 patch, elapsed=132ms
+2026-09-15 16:03:26,277 [INFO] sync_agent: Cycle #15 [delta]: 13/13 patch, elapsed=122ms
+2026-09-15 16:03:27,288 [INFO] sync_agent: Cycle #16 [delta]: 11/11 patch, elapsed=134ms
+2026-09-15 16:03:28,293 [INFO] sync_agent: Cycle #17 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 16:03:29,299 [INFO] sync_agent: Cycle #18 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:03:30,297 [INFO] sync_agent: Cycle #19 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 16:03:31,294 [INFO] sync_agent: Cycle #20 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 16:03:32,300 [INFO] sync_agent: Cycle #21 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:03:33,304 [INFO] sync_agent: Cycle #22 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:03:34,304 [INFO] sync_agent: Cycle #23 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:03:35,300 [INFO] sync_agent: Cycle #24 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:36,309 [INFO] sync_agent: Cycle #25 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 16:03:37,304 [INFO] sync_agent: Cycle #26 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:03:38,300 [INFO] sync_agent: Cycle #27 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:39,302 [INFO] sync_agent: Cycle #28 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 16:03:40,301 [INFO] sync_agent: Cycle #29 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:41,301 [INFO] sync_agent: Cycle #30 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:42,323 [INFO] sync_agent: Cycle #31 [RECONCILE]: 16/16 patch, elapsed=165ms
+2026-09-15 16:03:43,310 [INFO] sync_agent: Cycle #32 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 16:03:44,306 [INFO] sync_agent: Cycle #33 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 16:03:45,317 [INFO] sync_agent: Cycle #34 [delta]: 13/13 patch, elapsed=159ms
+2026-09-15 16:03:46,305 [INFO] sync_agent: Cycle #35 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 16:03:47,302 [INFO] sync_agent: Cycle #36 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:48,303 [INFO] sync_agent: Cycle #37 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:03:49,302 [INFO] sync_agent: Cycle #38 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 16:03:50,302 [INFO] sync_agent: Cycle #39 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 16:03:51,317 [INFO] sync_agent: Cycle #40 [delta]: 13/13 patch, elapsed=157ms
+2026-09-15 16:03:52,301 [INFO] sync_agent: Cycle #41 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 16:03:53,305 [INFO] sync_agent: Cycle #42 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:03:54,303 [INFO] sync_agent: Cycle #43 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:55,302 [INFO] sync_agent: Cycle #44 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 16:03:56,305 [INFO] sync_agent: Cycle #45 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:03:57,306 [INFO] sync_agent: Cycle #46 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:03:58,320 [INFO] sync_agent: Cycle #47 [delta]: 13/13 patch, elapsed=158ms
+2026-09-15 16:03:59,309 [INFO] sync_agent: Cycle #48 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 16:04:00,310 [INFO] sync_agent: Cycle #49 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:04:01,308 [INFO] sync_agent: Cycle #50 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 16:04:02,304 [INFO] sync_agent: Cycle #51 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 16:04:03,313 [INFO] sync_agent: Cycle #52 [delta]: 13/13 patch, elapsed=150ms
+2026-09-15 16:04:04,306 [INFO] sync_agent: Cycle #53 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:04:05,310 [INFO] sync_agent: Cycle #54 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 16:04:06,316 [INFO] sync_agent: Cycle #55 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 16:04:07,312 [INFO] sync_agent: Cycle #56 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:04:08,309 [INFO] sync_agent: Cycle #57 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 16:04:09,308 [INFO] sync_agent: Cycle #58 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:04:10,305 [INFO] sync_agent: Cycle #59 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 16:04:11,312 [INFO] sync_agent: Cycle #60 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 16:04:12,330 [INFO] sync_agent: Cycle #61 [RECONCILE]: 16/16 patch, elapsed=165ms
+2026-09-15 16:04:13,314 [INFO] sync_agent: Cycle #62 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 16:04:14,311 [INFO] sync_agent: Cycle #63 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 16:04:15,315 [INFO] sync_agent: Cycle #64 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 16:04:16,307 [INFO] sync_agent: Cycle #65 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 16:04:17,306 [INFO] sync_agent: Cycle #66 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 16:04:18,310 [INFO] sync_agent: Cycle #67 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:04:19,318 [INFO] sync_agent: Cycle #68 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 16:04:20,313 [INFO] sync_agent: Cycle #69 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 16:04:21,324 [INFO] sync_agent: Cycle #70 [delta]: 13/13 patch, elapsed=157ms
+2026-09-15 16:04:22,307 [INFO] sync_agent: Cycle #71 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 16:04:23,315 [INFO] sync_agent: Cycle #72 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 16:04:24,311 [INFO] sync_agent: Cycle #73 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:04:25,310 [INFO] sync_agent: Cycle #74 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:04:26,311 [INFO] sync_agent: Cycle #75 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:04:27,312 [INFO] sync_agent: Cycle #76 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:04:28,321 [INFO] sync_agent: Cycle #77 [delta]: 13/13 patch, elapsed=153ms
+2026-09-15 16:04:29,312 [INFO] sync_agent: Cycle #78 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 16:04:30,313 [INFO] sync_agent: Cycle #79 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:04:31,313 [INFO] sync_agent: Cycle #80 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 16:04:32,309 [INFO] sync_agent: Cycle #81 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 16:04:32,334 [INFO] sync_agent: Sync Agent dừng sau 81 chu kỳ.
+2026-09-15 16:04:32,733 [INFO] command_agent: Command Agent dừng.
+2026-09-15 16:04:32,733 [INFO] env_runner: EnvRunner.close(): stopping Mininet

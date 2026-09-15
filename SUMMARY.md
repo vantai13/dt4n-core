@@ -63,7 +63,7 @@ Báo cáo, bảng so sánh và giới hạn: [ML_PREFLIGHT.md](results/report/ML
 
 Kiểm thử: **51 passed, 4 skipped**, không lỗi; 4 skip cần môi trường live. Báo cáo: [01-feature-audit.md](docs/phase-5/01-feature-audit.md). Bảng: [feature_audit.csv](results/report/feature_audit.csv); JSON: [feature_audit_summary.json](results/report/feature_audit_summary.json); biểu đồ: [feature_audit_dist.png](results/report/feature_audit_dist.png); log: [phase5_pytest.log](logs/phase5_pytest.log).
 
-Pilot chưa chứng minh hiệu quả mô hình; còn confound TCP/UDP và tải, injection không có baseline/onset, s2-s3 chưa tách biệt và chỉ một đoạn thu/profile. Lesson 5.2–5.3 chưa triển khai trong đợt này.
+Pilot chưa chứng minh hiệu quả mô hình; còn confound TCP/UDP và tải, injection không có baseline/onset, s2-s3 chưa tách biệt và chỉ một đoạn thu/profile. Kết quả triển khai5.2–5.4 xem các mục tiếp theo.
 
 ## Lesson 5.2 — Dữ liệu thiếu
 
@@ -75,10 +75,14 @@ Test **80 passed,4 skipped**. Audit mới150×174, GIỮ41/CHẤT VẤN11/LOẠI
 
 18run:8train normal,2test-control,8test-fault;4loại fault. Base rate test nominal160/590=27,1%, hypothesis coverage8/8link. Thêm LinkAdminDown, seeded scenario đúng target, varying load và cleanup process group. Train varying lịchA hai seed; test-control lịchB.
 
-Test116 passed/4skipped; audit và missing giữ số. Chưa thu18run. [Báo cáo](docs/phase-5/03-experiment-matrix.md), [JSON](results/report/experiment_matrix.json), [bảng](docs/phase-5/03-experiment-matrix.generated.md), [timeline](results/report/experiment_matrix.png), [log](logs/phase53_pytest.log). CSV audit chỉnh sẵn được giữ local.
+Test116 passed/4skipped; audit và missing giữ số. Đây là số thiết kế trước thu; nghiệm thu thu thật ở Lesson5.4. [Báo cáo](docs/phase-5/03-experiment-matrix.md), [JSON](results/report/experiment_matrix.json), [bảng](docs/phase-5/03-experiment-matrix.generated.md), [timeline](results/report/experiment_matrix.png), [log](logs/phase53_pytest.log). CSV audit chỉnh sẵn được giữ local.
 
-## Lesson5.4 — Chuẩn bị trước thu
+## Lesson5.4 — Chiến dịch thu thật đã nghiệm thu
 
-Đã thêm campaign logic, Collector run_meta/on_tick với monotonic, flatten metadata/tick invariant và pre-roll schedule; raw/quarantine JSONL được ignore. Ba precheck đạt, integrity match True,18plan,iperf75s kết thúc t_rel70. Python hệ thống không nạp numpy/pandas.
+Đã bổ sung runner/launcher và sửa namespace host/policy, lỗi health sau forced refresh, cổng log và resume. Smoke admin-down đạt trước khi chạy chiến dịch. Giữ lịch sử 7 lần thu bị loại do health ERROR; thu lại 5 run sau sửa, không đổi hợp đồng hoặc ghi đè dữ liệu.
 
-Full test152passed/4skipped. [Báo cáo](docs/phase-5/04-data-generation.md), [JSON precheck](results/report/phase54_prechecks.json), [log](logs/phase54_prepare_pytest.log). Chưa viết launcher/runner đầy đủ hoặc thu18run trong phần hướng dẫn này.
+**18/18 run đạt; 1080 snapshot raw, 1062 sau warmup; base rate test 27.12%; 0 ERROR/CRITICAL/Traceback trong 18 log được chấp nhận.** Tất cả 8 run fault separation ≥1, normal/control không down ngoài dự kiến. Test163passed/4skipped.
+
+Audit: {'BO_QUA': 106, 'LOAI': 65, 'GIU': 34, 'CHAT_VAN': 18}; 2 cột state_up của link admin-down thay đổi. Loss thiếu raw 1.7593%; còn 8 ô sau warmup, giữ NaN/dòng và giải thích counter_reset. Không kết luận MNAR tổng quát. Ngưỡng đơn biến cũ của pilot không đạt:0feature cóauc_dist>0.5 trên nhãn point-wise gộp; chưa chứng minh hiệu quả detector.
+
+[Báo cáo và file kết quả](docs/phase-5/04-data-generation.md) · [Manifest](results/report/ml_dataset_manifest.json) · [Nghiệm thu](results/report/campaign_acceptance.json) · [Audit](results/report/campaign_feature_audit.csv) · [Missing](results/report/campaign_missing_analysis.json). Raw ở data/phase5/raw; backup local: /home/ubuntu/dt4n-core-phase5-raw-20260915.tar.gz, SHA và kiểm archive trong [receipt](results/report/campaign_raw_backup.json). Raw không được đưa vào GitHub theo quy tắc đã chốt.

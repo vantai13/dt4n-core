@@ -1,0 +1,41 @@
+{
+  "backup_path": "/home/ubuntu/dt4n-core-phase5-raw-20260915.tar.gz",
+  "sha256": "6fb6cdaae90b4c81b797a724c2501b4c516c6686293b97afd5b13694b8a29ebf",
+  "size_bytes": 768573,
+  "n_accepted_jsonl": 18,
+  "raw_primary_path": "/home/ubuntu/dt4n-core/data/phase5/raw",
+  "raw_collection_copy_path": "/home/ubuntu/dt4n-core-campaign/data/phase5/raw",
+  "storage_scope": "local machine; archive not uploaded to external storage or GitHub",
+  "restore_command": "tar -xzf /home/ubuntu/dt4n-core-phase5-raw-20260915.tar.gz -C /path/to/dt4n-core",
+  "files": {
+    "N-vary-s1008-r2.jsonl": "d2fb08ed0a418d26e9a5f3a45611a50e462f2bc8c04ddc79d6a36c86bbca560b",
+    "F-flood-h2_to_srv2-s3006-r1.jsonl": "42dca477ab5883ade989b1798f45075f79e390fceb9ee88bf3021f21b26c7a2d",
+    "N-load4M-s1006-r2.jsonl": "01282e06bb4ff646c00b50d027012ffea2f8dcb7f439612212bce79e48b86e9b",
+    "F-shift-s1-s2-s3007-r1.jsonl": "0a19412fcd423f4f1f4b6a826dc3075de52104cfd6c97cdeaf5712eef5b71077",
+    "C-vary-s2002-r1.jsonl": "2dfa67711b330ec1892fafa960b15d7a9d96ab29285818a433f8bbebe1d2c15b",
+    "N-load2M-s1004-r2.jsonl": "e31d593e5d773dee9bc5cd83d783efb0bdcd18505d23bbe65a026d9e7d552be6",
+    "F-flood-h1_to_srv1-s3005-r1.jsonl": "6cdb9c2833f6ccef1393bb2e4e2776085700c51cf784a3f9b802a2824aeb23de",
+    "N-load4M-s1005-r1.jsonl": "4859b7c5087764f3d35b0d70632b14a95e4c6bd84e50e6acbf7191cff9b13a9d",
+    "C-load2M-s2001-r1.jsonl": "d78a90c00bd4e0648fe1e1328859b6723f9c5d6ba0724ddfafa079388621b5ea",
+    "F-degrade-s2-s3-s3004-r1.jsonl": "7f260b4eb682b79aa2eba6d94bfe3055ed84173ab0ae9d1ec47b88d52522c983",
+    "N-load1M-s1002-r2.jsonl": "5e0c42a294af0a86c44acc143b563b92b6c04b3f7282b642943c88a543a24945",
+    "N-load1M-s1001-r1.jsonl": "d6f38aed2ed498f112135ad2887846c9dbf378a24ae19235f3235f42498341ae",
+    "F-admin_down-s1-s3-s3002-r1.jsonl": "e3814964b498b26a58d0c9f78162e2e8b4d11225ef94ad189dcef017c7cb6566",
+    "N-vary-s1007-r1.jsonl": "69431ef7058d0d5a32d412a7379cd175dae6c775618be97628c840797477afe6",
+    "N-load2M-s1003-r1.jsonl": "39c9baeb3213a6bdffb26fb5fc9f8e71d4a4c35178d61b96ac322738da21eba1",
+    "F-shift-s1-s3-s3008-r1.jsonl": "ed2f81bc213dae5bf26bbc73c09dbccf782c0d2ddde22bba231b1eeab8795bed",
+    "F-admin_down-s1-s2-s3001-r1.jsonl": "0ceb7616c8bec9904a80cc2c6fcafea1d6d9fa302d0f9ce03c25ed9cf4638004",
+    "F-degrade-s1-s2-s3003-r1.jsonl": "7cc50aff2a0fe7ad41b2b921e36ee4d551cd6172d7ac8d14c691666c0eb92b30"
+  },
+  "rejected_files": {
+    "N-vary-s1007-r1.attempt-20260915T155852-4dd18112.jsonl": "c7dc483af79f092db1b9de55746ed6584e25d741cec9dc28d9b11460583c9937",
+    "F-degrade-s1-s2-s3003-r1.attempt-20260915T155316-fa06833e.jsonl": "d5aee2963391a2ebd23681f8b4ae7764ccec8dad352ed366ba27ae0f73315c1e",
+    "N-vary-s1007-r1.attempt-20260915T155503-31de4652.jsonl": "742adbeeba4413c7c483ba48cab96506ab097edc50037681199c150f4c7cdcb3",
+    "C-load2M-s2001-r1.attempt-20260915T160307-0e6f8ece.jsonl": "570cfcc91a8dc49b971053db4fce03e8b101b0a3d3dcaa736f4ae038a2f0ff4a",
+    "C-vary-s2002-r1.attempt-20260915T160017-b631e3a4.jsonl": "fc3e14f1d5f08780efd1e81713a01976a62494d9adbb7620305ea9818dfa8420",
+    "F-degrade-s1-s2-s3003-r1.attempt-20260915T155725-9619b713.jsonl": "9616d15d5c0c804e8e4160e9b088f53c19e16a8733e72b1a3e6c5b64f430954e",
+    "N-load1M-s1001-r1.attempt-20260915T160142-5238f14d.jsonl": "4bfc76ad5db6679a53c2c43be424a5f68f6662a53d28e7d2d48be263f92fb36a"
+  },
+  "n_rejected_jsonl": 7,
+  "archive_raw_checksums_verified": true
+}

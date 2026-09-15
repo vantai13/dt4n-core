@@ -1,0 +1,1044 @@
+{
+  "non_warmup_invalid_events": [
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "tick": 21,
+      "link": "link-s1-s2",
+      "reason": "counter_reset",
+      "is_fault": 1
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "tick": 41,
+      "link": "link-s1-s2",
+      "reason": "counter_reset",
+      "is_fault": 0
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "tick": 21,
+      "link": "link-s2-s3",
+      "reason": "counter_reset",
+      "is_fault": 1
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "tick": 41,
+      "link": "link-s2-s3",
+      "reason": "counter_reset",
+      "is_fault": 0
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "tick": 21,
+      "link": "link-s1-s2",
+      "reason": "counter_reset",
+      "is_fault": 1
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "tick": 41,
+      "link": "link-s1-s2",
+      "reason": "counter_reset",
+      "is_fault": 0
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "tick": 21,
+      "link": "link-s1-s3",
+      "reason": "counter_reset",
+      "is_fault": 1
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "tick": 41,
+      "link": "link-s1-s3",
+      "reason": "counter_reset",
+      "is_fault": 0
+    }
+  ],
+  "window_rule": "Warmup excluded from quality fractions; background includes pre-inject and post-revert. Sidecar baseline/fault fractions are also retained.",
+  "by_sidecar_baseline_fault": {
+    "N-load1M-s1001-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-load1M-s1002-r2": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-load2M-s1003-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-load2M-s1004-r2": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-load4M-s1005-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-load4M-s1006-r2": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-vary-s1007-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "N-vary-s1008-r2": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "C-load2M-s2001-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "C-vary-s2002-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_baseline": 0.0
+    },
+    "F-admin_down-s1-s2-s3001-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-admin_down-s1-s3-s3002-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-degrade-s1-s2-s3003-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0063,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-degrade-s2-s3-s3004-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0063,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-flood-h1_to_srv1-s3005-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-flood-h2_to_srv2-s3006-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-shift-s1-s2-s3007-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0063,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    },
+    "F-shift-s1-s3-s3008-r1": {
+      "qdisc_invalid_fraction_baseline": 0.0,
+      "qdisc_invalid_fraction_fault": 0.0063,
+      "rate_invalid_fraction_baseline": 0.0,
+      "rate_invalid_fraction_fault": 0.0
+    }
+  },
+  "aggregate_by_actual_event_window": [
+    {
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 4,
+      "total": 7216,
+      "fraction_invalid": 0.0005543237250554324
+    },
+    {
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 11726,
+      "fraction_invalid": 0.0
+    },
+    {
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 4,
+      "total": 1280,
+      "fraction_invalid": 0.003125
+    },
+    {
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 2080,
+      "fraction_invalid": 0.0
+    }
+  ],
+  "n_raw_snapshots": 1080,
+  "total_pct_loss_cells_missing": 1.7592592592592593,
+  "policy_applied": {
+    "policy": "DT4N-M1",
+    "invalid_rate_mask": {
+      "n_columns_masked": 26,
+      "cells_masked": {
+        "host-h1.traffic.rxRate": 18,
+        "host-h1.traffic.txRate": 18,
+        "host-h2.traffic.rxRate": 18,
+        "host-h2.traffic.txRate": 18,
+        "host-h3.traffic.rxRate": 18,
+        "host-h3.traffic.txRate": 18,
+        "host-srv1.traffic.rxRate": 18,
+        "host-srv1.traffic.txRate": 18,
+        "host-srv2.traffic.rxRate": 18,
+        "host-srv2.traffic.txRate": 18,
+        "link-h1-s1.traffic.rxRate": 18,
+        "link-h1-s1.traffic.txRate": 18,
+        "link-h2-s1.traffic.rxRate": 18,
+        "link-h2-s1.traffic.txRate": 18,
+        "link-h3-s1.traffic.rxRate": 18,
+        "link-h3-s1.traffic.txRate": 18,
+        "link-s1-s2.traffic.rxRate": 18,
+        "link-s1-s2.traffic.txRate": 18,
+        "link-s1-s3.traffic.rxRate": 18,
+        "link-s1-s3.traffic.txRate": 18,
+        "link-s2-s3.traffic.rxRate": 18,
+        "link-s2-s3.traffic.txRate": 18,
+        "link-s2-srv1.traffic.rxRate": 18,
+        "link-s2-srv1.traffic.txRate": 18,
+        "link-s3-srv2.traffic.rxRate": 18,
+        "link-s3-srv2.traffic.txRate": 18
+      },
+      "total_cells_masked": 468
+    },
+    "warmup_ticks": 1,
+    "rows_before": 1080,
+    "rows_dropped_warmup": 18,
+    "rows_after_warmup_drop": 1062,
+    "rows_with_residual_missing": 8,
+    "cells_missing_after": 8,
+    "rule_text": "bỏ tick đầu mỗi run (warmup, tiền định); giữ mọi dòng còn lại kèm n_loss_missing; không bao giờ fillna(0)"
+  },
+  "rate_fabrication_channel_b": {
+    "n_findings": 180,
+    "by_kind": {
+      "warmup_no_prev": 180
+    },
+    "findings": [
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1001-r1",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load1M-s1002-r2",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1003-r1",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h3",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-h3",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-srv1",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-srv1",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-srv2",
+        "field": "rxRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      },
+      {
+        "profile": "normal",
+        "run_id": "N-load2M-s1004-r2",
+        "thing": "host-srv2",
+        "field": "txRate",
+        "tick": 0,
+        "kind": "warmup_no_prev"
+      }
+    ],
+    "auditable_things": [
+      "host-h1",
+      "host-h2",
+      "host-h3",
+      "host-srv1",
+      "host-srv2"
+    ],
+    "limitation": "link-*.traffic.rxRate/txRate KHÔNG kiểm toán được: snapshot không phơi bộ đếm cộng dồn của link. Đã vá bằng cờ rateValid trong collector."
+  },
+  "by_reason": [
+    {
+      "profile": "normal",
+      "link": "link-h1-s1",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-h2-s1",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-h3-s1",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-s1-s2",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-s1-s2",
+      "reason": "counter_reset",
+      "count": 4
+    },
+    {
+      "profile": "normal",
+      "link": "link-s1-s3",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-s1-s3",
+      "reason": "counter_reset",
+      "count": 2
+    },
+    {
+      "profile": "normal",
+      "link": "link-s2-s3",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-s2-s3",
+      "reason": "counter_reset",
+      "count": 2
+    },
+    {
+      "profile": "normal",
+      "link": "link-s2-srv1",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal",
+      "link": "link-s3-srv2",
+      "reason": "warmup",
+      "count": 15
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-h1-s1",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-h2-s1",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-h3-s1",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-s1-s2",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-s1-s3",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-s2-s3",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-s2-srv1",
+      "reason": "warmup",
+      "count": 3
+    },
+    {
+      "profile": "normal_varying",
+      "link": "link-s3-srv2",
+      "reason": "warmup",
+      "count": 3
+    }
+  ],
+  "by_actual_event_window": [
+    {
+      "run_id": "N-load1M-s1001-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load1M-s1001-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-load1M-s1002-r2",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load1M-s1002-r2",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-load2M-s1003-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load2M-s1003-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-load2M-s1004-r2",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load2M-s1004-r2",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-load4M-s1005-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load4M-s1005-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-load4M-s1006-r2",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-load4M-s1006-r2",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-vary-s1007-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-vary-s1007-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "N-vary-s1008-r2",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "N-vary-s1008-r2",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "C-load2M-s2001-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "C-load2M-s2001-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "C-vary-s2002-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 472
+    },
+    {
+      "run_id": "C-vary-s2002-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 767
+    },
+    {
+      "run_id": "F-admin_down-s1-s2-s3001-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 312
+    },
+    {
+      "run_id": "F-admin_down-s1-s2-s3001-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-admin_down-s1-s2-s3001-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 160
+    },
+    {
+      "run_id": "F-admin_down-s1-s2-s3001-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-admin_down-s1-s3-s3002-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 312
+    },
+    {
+      "run_id": "F-admin_down-s1-s3-s3002-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-admin_down-s1-s3-s3002-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 160
+    },
+    {
+      "run_id": "F-admin_down-s1-s3-s3002-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 312
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 160
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 312
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 160
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-flood-h1_to_srv1-s3005-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 312
+    },
+    {
+      "run_id": "F-flood-h1_to_srv1-s3005-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-flood-h1_to_srv1-s3005-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 160
+    },
+    {
+      "run_id": "F-flood-h1_to_srv1-s3005-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-flood-h2_to_srv2-s3006-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 312
+    },
+    {
+      "run_id": "F-flood-h2_to_srv2-s3006-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-flood-h2_to_srv2-s3006-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 0,
+      "total": 160
+    },
+    {
+      "run_id": "F-flood-h2_to_srv2-s3006-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 312
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 160
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "window": "background",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 312
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "window": "background",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 507
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "window": "fault",
+      "flag": "qdiscValid",
+      "invalid": 1,
+      "total": 160
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "window": "fault",
+      "flag": "rateValid",
+      "invalid": 0,
+      "total": 260
+    }
+  ],
+  "interpretation": "Compare fault/background rates after accounting for warmup and counter reset reasons. Association alone does not prove MNAR."
+}

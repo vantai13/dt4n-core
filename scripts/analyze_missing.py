@@ -25,6 +25,10 @@ TOTAL_LIMIT_PCT = 5.0     # gate của plan
 
 
 def main() -> int:
+    import sys
+    if "--campaign" in sys.argv:
+        from scripts.analyze_ml_campaign import analyze
+        return analyze(ROOT)
     df = load_many({ROOT / p: m for p, m in PILOT.items()})
     assert_no_fabricated_zero_in_loss(df)          # bất biến, kiểm TRƯỚC mọi thứ
 

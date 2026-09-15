@@ -41,3 +41,9 @@ Từ5518cca, thêm design/matrix, metadata/provenance, faultfactory seeded đún
 ## Lesson5.4 — Harness chuẩn bị
 
 Từ7aa1c03, triển khai campaign vàpatch từ hướng dẫn:hash3phía,scenario đọcparams JSON,verification/builder,metadata hookmono vàprefixpre-roll. Bổ sungschema chốngleak label,missingflag tínhinvalid,finiteprobe vàcửasổsaucallback+1. ContractJSON/SHA không đổi;rawJSONL ignored nhưng sidecar/manifest chưa sinh bởi campaign thật. GiữCSV người dùng cósẵn ởlocal.
+
+## Lesson5.4 — Thu mạng thật
+
+Hợp đồng SHA vẫn 80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c. Source của run accepted: 9075f6e26ee6f105cdbacd57a740e9b2b1028540 (5), 6ad5d905f750073820229efbade8b755dab29c90 (12), 8ca440556d06740bc53bf0b7f6e6ee384eaac0ee (1). source_dirty=false; git_dirty runtime được giữ nguyên. Thiết kế và thu có provenance riêng.
+
+Giữ18rawaccepted và7rawrejected tại máy, có archive checksum đã kiểm18/18; receipt results/report/campaign_raw_backup.json. Github không chứa raw. Run bị loại và manifest trước sửa trong results/report/campaign_collection_history.json; không thay seed/fault/split sau xem dữ liệu.

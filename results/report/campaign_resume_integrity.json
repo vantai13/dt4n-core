@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "N-load1M-s1001-r1": true,
+    "N-load1M-s1002-r2": true,
+    "N-load2M-s1003-r1": true,
+    "N-load2M-s1004-r2": true,
+    "N-load4M-s1005-r1": true,
+    "N-load4M-s1006-r2": true,
+    "N-vary-s1007-r1": true,
+    "N-vary-s1008-r2": true,
+    "C-load2M-s2001-r1": true,
+    "C-vary-s2002-r1": true,
+    "F-admin_down-s1-s2-s3001-r1": true,
+    "F-admin_down-s1-s3-s3002-r1": true,
+    "F-degrade-s1-s2-s3003-r1": true,
+    "F-degrade-s2-s3-s3004-r1": true,
+    "F-flood-h1_to_srv1-s3005-r1": true,
+    "F-flood-h2_to_srv2-s3006-r1": true,
+    "F-shift-s1-s2-s3007-r1": true,
+    "F-shift-s1-s3-s3008-r1": true
+  },
+  "n_verified": 18,
+  "no_network_started": true,
+  "verification": "Read-only already_done: raw checksum + exact record + design SHA + passed checks"
+}

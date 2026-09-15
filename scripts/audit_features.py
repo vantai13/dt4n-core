@@ -73,6 +73,10 @@ def pilot_diagnostics(df: pd.DataFrame) -> dict:
 
 
 def main() -> int:
+    import sys
+    if "--campaign" in sys.argv:
+        from scripts.analyze_ml_campaign import analyze
+        return analyze(ROOT)
     spec = {ROOT / p: m for p, m in PILOT.items()}
     df = load_many(spec)
     audit = audit_features(df, fault_col='is_fault')

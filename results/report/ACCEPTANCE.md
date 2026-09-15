@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T15:08:23.914108+00:00
+Cập nhật UTC: 2026-09-15T16:06:03.109135+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -97,12 +97,18 @@ Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; l
 
 18 run dự kiến: 8train/10test; base rate test 27.1%; coverage giả thuyết 8/8link.
 Test: 116 passed, 4 skipped. GATE PASS: True.
-Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; chưa thu18run hoặc train mô hình.
+Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; trạng thái thu thật xem Lesson5.4.
 Báo cáo: ../../docs/phase-5/03-experiment-matrix.md; hợp đồng: experiment_matrix.json; timeline: experiment_matrix.png.
 
 ## Lesson5.4 — Harness chuẩn bị
 
 Integrity match: True; 18plan,iperf75s,t_rel_end70s.
 Test 152 passed, 4 skipped. Python hệ thống không nạp numpy/pandas/matplotlib.
-Collector hook/metadata/monotonic, flatten tick check vàpre-roll đã triển khai; chưa thu chiến dịch hoặc có runner đầy đủ.
+Kết quả chuẩn bị trước thu; nghiệm thu chiến dịch thật được trình bày riêng bên dưới.
 Báo cáo: ../../docs/phase-5/04-data-generation.md; JSON:phase54_prechecks.json; log:../../logs/phase54_prechecks.log.
+
+## Lesson5.4 — Chiến dịch mạng thật
+
+18/18 run đạt; complete=True; 1080 snapshot, 1062 sau warmup.
+Base rate đo: 27.12%; nghiệm thu: True.
+File: ml_dataset_manifest.json, campaign_acceptance.json, campaign_feature_audit.csv, campaign_missing_analysis.json.

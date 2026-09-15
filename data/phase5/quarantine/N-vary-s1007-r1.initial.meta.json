@@ -1,0 +1,203 @@
+{
+  "run_id": "N-vary-s1007-r1",
+  "sha256": "742adbeeba4413c7c483ba48cab96506ab097edc50037681199c150f4c7cdcb3",
+  "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "collection_provenance": {
+    "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+      "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+      "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+      "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+      "logs/ml_campaign.log",
+      "logs/ml_dataset_controller.log",
+      "logs/ml_dataset_startup.log",
+      "logs/ml_dataset_stdout.log",
+      "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+      "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+      "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+      "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+      "logs/ml_gen_N-vary-s1007-r1.log",
+      "results/report/ml_dataset_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "record": {
+    "run_id": "N-vary-s1007-r1",
+    "group": "N",
+    "split": "train",
+    "profile": "normal_varying",
+    "load_mbps_per_client": null,
+    "load_schedule": [
+      [
+        0,
+        1.0
+      ],
+      [
+        10,
+        3.0
+      ],
+      [
+        20,
+        2.0
+      ],
+      [
+        30,
+        5.0
+      ],
+      [
+        40,
+        1.0
+      ],
+      [
+        50,
+        4.0
+      ]
+    ],
+    "fault": null,
+    "fault_target": null,
+    "seed": 1007,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 60,
+    "expected_links": [],
+    "exec_index": 3,
+    "fault_parameters": {}
+  },
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "traffic_plan": {
+    "mode": "varying",
+    "schedule_nominal": [
+      [
+        0,
+        1.0
+      ],
+      [
+        10,
+        3.0
+      ],
+      [
+        20,
+        2.0
+      ],
+      [
+        30,
+        5.0
+      ],
+      [
+        40,
+        1.0
+      ],
+      [
+        50,
+        4.0
+      ]
+    ],
+    "schedule_with_preroll": [
+      [
+        0,
+        1.0
+      ],
+      [
+        5,
+        1.0
+      ],
+      [
+        15,
+        3.0
+      ],
+      [
+        25,
+        2.0
+      ],
+      [
+        35,
+        5.0
+      ],
+      [
+        45,
+        1.0
+      ],
+      [
+        55,
+        4.0
+      ]
+    ],
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 25.72307373500007,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.510320868001145,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.03662629127502441,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4289,
+      "attempts": 1,
+      "recovered_by_hard_reset": true
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.673001629067585e-06,
+      "kill_iperf": 0.37223121900024125,
+      "restore_links": 0.1691828959992563,
+      "flush_arp": 0.00684614100100589,
+      "reset_cache": 8.533999789506197e-06,
+      "start_traffic": 2.6037395909988845,
+      "steady_wait": 6.510320868001145,
+      "refresh_twin": 0.14972667800248018,
+      "data_fresh_wait": 0.06373987900224165,
+      "health_gate": 15.839824252001563
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 472,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 472,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": true,
+    "failed_gates": []
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-15T15:32:51Z",
+  "finished_utc": "2026-09-15T15:34:25Z",
+  "status": "ok"
+}

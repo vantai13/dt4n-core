@@ -1,0 +1,4404 @@
+{
+  "initial_collection_manifest": {
+    "campaign": "phase5-core-18run",
+    "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "contract_integrity": {
+      "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "match": true
+    },
+    "collection_provenance": {
+      "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "data/phase5/raw/C-load2M-s2001-r1.meta.json",
+        "data/phase5/raw/C-vary-s2002-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+        "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+        "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+        "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+        "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+        "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+        "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+        "data/phase5/raw/N-load2M-s1003-r1.meta.json",
+        "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+        "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+        "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+        "data/phase5/raw/N-vary-s1007-r1.meta.json",
+        "data/phase5/raw/N-vary-s1008-r2.meta.json",
+        "logs/ml_campaign.log",
+        "logs/ml_dataset_controller.log",
+        "logs/ml_dataset_startup.log",
+        "logs/ml_dataset_stdout.log",
+        "logs/ml_gen_C-load2M-s2001-r1.log",
+        "logs/ml_gen_C-vary-s2002-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+        "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+        "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+        "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+        "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+        "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+        "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+        "logs/ml_gen_N-load1M-s1001-r1.log",
+        "logs/ml_gen_N-load1M-s1002-r2.log",
+        "logs/ml_gen_N-load2M-s1003-r1.log",
+        "logs/ml_gen_N-load2M-s1004-r2.log",
+        "logs/ml_gen_N-load4M-s1005-r1.log",
+        "logs/ml_gen_N-load4M-s1006-r2.log",
+        "logs/ml_gen_N-vary-s1007-r1.log",
+        "logs/ml_gen_N-vary-s1008-r2.log",
+        "results/report/ml_dataset_manifest.json"
+      ],
+      "source_dirty_files": [],
+      "source_dirty": false
+    },
+    "design_provenance": {
+      "git_hash": "5518cca1492ef84e6b0418433ebcde01aa544797",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "mininet/traffic.py",
+        "results/report/feature_audit.csv",
+        "rl/scenarios.py",
+        "docs/phase-5/03-experiment-matrix.generated.md",
+        "logs/build_matrix.log",
+        "logs/phase53_pytest.log",
+        "ml/design.py",
+        "results/report/experiment_matrix.json",
+        "results/report/phase53_pytest.xml",
+        "scripts/build_matrix.py",
+        "test/test_ml_design.py"
+      ]
+    },
+    "constants": {
+      "duration_sec": 60,
+      "pre_roll_sec": 5,
+      "warmup_ticks": 1,
+      "period_sec": 1.0,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "collector_version": "v3-qdisc-ratevalid",
+      "exec_order_seed": 20260915
+    },
+    "started_utc": "2026-09-15T15:28:33Z",
+    "finished_utc": "2026-09-15T15:52:22Z",
+    "n_runs_expected": 18,
+    "n_runs_ok": 18,
+    "n_runs_failed": 0,
+    "runs_not_attempted": [],
+    "complete": true,
+    "split": {
+      "train": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r2"
+      ],
+      "test": [
+        "C-load2M-s2001-r1",
+        "C-vary-s2002-r1",
+        "F-admin_down-s1-s2-s3001-r1",
+        "F-admin_down-s1-s3-s3002-r1",
+        "F-degrade-s1-s2-s3003-r1",
+        "F-degrade-s2-s3-s3004-r1",
+        "F-flood-h1_to_srv1-s3005-r1",
+        "F-flood-h2_to_srv2-s3006-r1",
+        "F-shift-s1-s2-s3007-r1",
+        "F-shift-s1-s3-s3008-r1"
+      ]
+    },
+    "runs": {
+      "F-admin_down-s1-s2-s3001-r1": {
+        "status": "ok",
+        "sha256": "0ceb7616c8bec9904a80cc2c6fcafea1d6d9fa302d0f9ce03c25ed9cf4638004",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.080925,
+          "revert_t_rel": 40.093572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.004,
+              "txRate": 0.007,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.009,
+              "txRate": 0.023,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.198,
+              "txRate": 53.754,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.016,
+              "txRate": 0.124,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.080925,
+            "t_source": 1789486028.3611262,
+            "completed_t_rel": 20.085529,
+            "apply_ms": 4.6,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s2"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.093572,
+            "t_source": 1789486048.3717782,
+            "completed_t_rel": 40.09629,
+            "apply_ms": 2.7
+          }
+        ],
+        "started_utc": "2026-09-15T15:26:31Z",
+        "finished_utc": "2026-09-15T15:27:48Z",
+        "collection_provenance": {
+          "git_hash": "8ca440556d06740bc53bf0b7f6e6ee384eaac0ee",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "status": "ok",
+        "sha256": "0a19412fcd423f4f1f4b6a826dc3075de52104cfd6c97cdeaf5712eef5b71077",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.093689,
+          "revert_t_rel": 40.100982,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.326,
+              "txRate": 0.726,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.492,
+              "txRate": 16.643,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.818,
+              "txRate": 22.901,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.531,
+              "lossPct": 749.597,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.838,
+              "txRate": 22.891,
+              "lossPct": 156.526,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.01,
+              "txRate": 35.527,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.597,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.093689,
+            "t_source": 1789486160.4335809,
+            "completed_t_rel": 20.453394,
+            "apply_ms": 359.7,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s2",
+              "factor": 0.8735327491524845,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 23
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.100982,
+            "t_source": 1789486180.128507,
+            "completed_t_rel": 40.148363,
+            "apply_ms": 47.4
+          }
+        ],
+        "started_utc": "2026-09-15T15:28:43Z",
+        "finished_utc": "2026-09-15T15:30:00Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "status": "ok",
+        "sha256": "d5aee2963391a2ebd23681f8b4ae7764ccec8dad352ed366ba27ae0f73315c1e",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.086353,
+          "revert_t_rel": 40.095096,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.136,
+              "txRate": 0.452,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.131,
+              "txRate": 0.099,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.268,
+              "txRate": 11.556,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.265,
+              "txRate": 11.555,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 11.556,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.086353,
+            "t_source": 1789486254.9712868,
+            "completed_t_rel": 20.107863,
+            "apply_ms": 21.5,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s1-s2",
+              "factor": 0.8274722320107196,
+              "delay": "2ms",
+              "baseline": 20.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.095096,
+            "t_source": 1789486274.9803095,
+            "completed_t_rel": 40.116901,
+            "apply_ms": 21.8
+          }
+        ],
+        "started_utc": "2026-09-15T15:30:00Z",
+        "finished_utc": "2026-09-15T15:31:34Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "status": "ok",
+        "sha256": "7f260b4eb682b79aa2eba6d94bfe3055ed84173ab0ae9d1ec47b88d52522c983",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.08677,
+          "revert_t_rel": 40.098005,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 14.465,
+              "lossPct": 288.827,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.003,
+              "txRate": 0.048,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.018,
+              "txRate": 14.503,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 288.827,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.08677,
+            "t_source": 1789486331.5916758,
+            "completed_t_rel": 20.10819,
+            "apply_ms": 21.4,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s2-s3",
+              "factor": 0.82029833678748,
+              "delay": "2ms",
+              "baseline": 5.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.098005,
+            "t_source": 1789486351.602566,
+            "completed_t_rel": 40.119077,
+            "apply_ms": 21.1
+          }
+        ],
+        "started_utc": "2026-09-15T15:31:34Z",
+        "finished_utc": "2026-09-15T15:32:51Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-vary-s1007-r1": {
+        "status": "ok",
+        "sha256": "742adbeeba4413c7c483ba48cab96506ab097edc50037681199c150f4c7cdcb3",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:32:51Z",
+        "finished_utc": "2026-09-15T15:34:25Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-load4M-s1005-r1": {
+        "status": "ok",
+        "sha256": "4859b7c5087764f3d35b0d70632b14a95e4c6bd84e50e6acbf7191cff9b13a9d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:34:25Z",
+        "finished_utc": "2026-09-15T15:35:41Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "C-vary-s2002-r1": {
+        "status": "ok",
+        "sha256": "fc3e14f1d5f08780efd1e81713a01976a62494d9adbb7620305ea9818dfa8420",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:35:41Z",
+        "finished_utc": "2026-09-15T15:37:25Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "status": "ok",
+        "sha256": "42dca477ab5883ade989b1798f45075f79e390fceb9ee88bf3021f21b26c7a2d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.083954,
+          "revert_t_rel": 40.096821,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.598,
+              "txRate": 222.92,
+              "lossPct": 348.672,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.598,
+              "txRate": 223.004,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.593,
+              "txRate": 196.183,
+              "lossPct": 76.136,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 348.672,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.083954,
+            "t_source": 1789486683.7943778,
+            "completed_t_rel": 20.422148,
+            "apply_ms": 338.2,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h2",
+              "dst": "srv2",
+              "rate_mbps": 34
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.096821,
+            "t_source": 1789486703.4941053,
+            "completed_t_rel": 40.121855,
+            "apply_ms": 25.0
+          }
+        ],
+        "started_utc": "2026-09-15T15:37:25Z",
+        "finished_utc": "2026-09-15T15:38:43Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "status": "ok",
+        "sha256": "6cdb9c2833f6ccef1393bb2e4e2776085700c51cf784a3f9b802a2824aeb23de",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.09392,
+          "revert_t_rel": 40.099717,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.599,
+              "txRate": 223.006,
+              "lossPct": 499.847,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.032,
+              "txRate": 196.001,
+              "lossPct": 6.485,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 1.028,
+              "txRate": 196.027,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 499.847,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.09392,
+            "t_source": 1789486760.3993554,
+            "completed_t_rel": 20.433698,
+            "apply_ms": 339.8,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h1",
+              "dst": "srv1",
+              "rate_mbps": 47
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.099717,
+            "t_source": 1789486780.0891926,
+            "completed_t_rel": 40.123621,
+            "apply_ms": 23.9
+          }
+        ],
+        "started_utc": "2026-09-15T15:38:43Z",
+        "finished_utc": "2026-09-15T15:40:00Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "status": "ok",
+        "sha256": "ed2f81bc213dae5bf26bbc73c09dbccf782c0d2ddde22bba231b1eeab8795bed",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.086859,
+          "revert_t_rel": 40.097572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.168,
+              "txRate": 0.36,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.168,
+              "txRate": 7.416,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.535,
+              "lossPct": 749.276,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.848,
+              "txRate": 0.382,
+              "lossPct": 75.161,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.164,
+              "txRate": 28.244,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.276,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.086859,
+            "t_source": 1789486837.397975,
+            "completed_t_rel": 20.447321,
+            "apply_ms": 360.5,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s3",
+              "factor": 0.9199889245291656,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 20
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.097572,
+            "t_source": 1789486857.093479,
+            "completed_t_rel": 40.142874,
+            "apply_ms": 45.3
+          }
+        ],
+        "started_utc": "2026-09-15T15:40:00Z",
+        "finished_utc": "2026-09-15T15:41:17Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-load1M-s1001-r1": {
+        "status": "ok",
+        "sha256": "4bfc76ad5db6679a53c2c43be424a5f68f6662a53d28e7d2d48be263f92fb36a",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:41:17Z",
+        "finished_utc": "2026-09-15T15:42:55Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-vary-s1008-r2": {
+        "status": "ok",
+        "sha256": "d2fb08ed0a418d26e9a5f3a45611a50e462f2bc8c04ddc79d6a36c86bbca560b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:42:55Z",
+        "finished_utc": "2026-09-15T15:44:11Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "status": "ok",
+        "sha256": "e3814964b498b26a58d0c9f78162e2e8b4d11225ef94ad189dcef017c7cb6566",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.096926,
+          "revert_t_rel": 40.112515,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.001,
+              "txRate": 0.129,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.599,
+              "txRate": 26.828,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.004,
+              "txRate": 0.005,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.096926,
+            "t_source": 1789487095.854887,
+            "completed_t_rel": 20.10194,
+            "apply_ms": 5.0,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s3"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.112515,
+            "t_source": 1789487115.8681183,
+            "completed_t_rel": 40.115123,
+            "apply_ms": 2.6
+          }
+        ],
+        "started_utc": "2026-09-15T15:44:11Z",
+        "finished_utc": "2026-09-15T15:45:35Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "N-load4M-s1006-r2": {
+        "status": "ok",
+        "sha256": "01282e06bb4ff646c00b50d027012ffea2f8dcb7f439612212bce79e48b86e9b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:45:35Z",
+        "finished_utc": "2026-09-15T15:46:52Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-load1M-s1002-r2": {
+        "status": "ok",
+        "sha256": "5e0c42a294af0a86c44acc143b563b92b6c04b3f7282b642943c88a543a24945",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:46:52Z",
+        "finished_utc": "2026-09-15T15:48:09Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-load2M-s1004-r2": {
+        "status": "ok",
+        "sha256": "e31d593e5d773dee9bc5cd83d783efb0bdcd18505d23bbe65a026d9e7d552be6",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:48:09Z",
+        "finished_utc": "2026-09-15T15:49:26Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "N-load2M-s1003-r1": {
+        "status": "ok",
+        "sha256": "39c9baeb3213a6bdffb26fb5fc9f8e71d4a4c35178d61b96ac322738da21eba1",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:49:26Z",
+        "finished_utc": "2026-09-15T15:50:43Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      },
+      "C-load2M-s2001-r1": {
+        "status": "ok",
+        "sha256": "570cfcc91a8dc49b971053db4fce03e8b101b0a3d3dcaa736f4ae038a2f0ff4a",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:50:43Z",
+        "finished_utc": "2026-09-15T15:52:20Z",
+        "reset_dirty": false,
+        "reset_mode": "soft"
+      }
+    },
+    "base_rate": {
+      "usable_test_ticks": 590,
+      "anomalous_test_ticks": 160,
+      "base_rate_measured": 0.2712,
+      "dumb_always_normal_accuracy": 0.7288,
+      "base_rate_nominal": 0.2712
+    },
+    "missing_data_rule": "Kh\u00f4ng fillna \u1edf t\u1ea7ng thu. M\u1eabu qdiscValid/rateValid = false \u0111\u01b0\u1ee3c GHI nguy\u00ean tr\u1ea1ng; vi\u1ec7c l\u1ecdc do ml/dataset.py \u1edf Lesson 5.6 quy\u1ebft \u0111\u1ecbnh.",
+    "warmup_rule": "Tick warmup \u0111\u01b0\u1ee3c GHI, kh\u00f4ng b\u1ecb x\u00f3a. L\u1ecdc tick < warmup_ticks \u1edf t\u1ea7ng n\u1ea1p. Nh\u1edd v\u1eady \u0111\u1ed5i quy t\u1eafc warmup kh\u00f4ng ph\u1ea3i ch\u1ea1y l\u1ea1i chi\u1ebfn d\u1ecbch."
+  },
+  "rejected_runtime_runs": {
+    "F-degrade-s1-s2-s3003-r1": {
+      "sha256": "d5aee2963391a2ebd23681f8b4ae7764ccec8dad352ed366ba27ae0f73315c1e",
+      "runtime_error_count": 1,
+      "source_commit": "6ad5d905f750073820229efbade8b755dab29c90"
+    },
+    "N-vary-s1007-r1": {
+      "sha256": "742adbeeba4413c7c483ba48cab96506ab097edc50037681199c150f4c7cdcb3",
+      "runtime_error_count": 1,
+      "source_commit": "6ad5d905f750073820229efbade8b755dab29c90"
+    },
+    "C-vary-s2002-r1": {
+      "sha256": "fc3e14f1d5f08780efd1e81713a01976a62494d9adbb7620305ea9818dfa8420",
+      "runtime_error_count": 1,
+      "source_commit": "6ad5d905f750073820229efbade8b755dab29c90"
+    },
+    "N-load1M-s1001-r1": {
+      "sha256": "4bfc76ad5db6679a53c2c43be424a5f68f6662a53d28e7d2d48be263f92fb36a",
+      "runtime_error_count": 1,
+      "source_commit": "6ad5d905f750073820229efbade8b755dab29c90"
+    },
+    "C-load2M-s2001-r1": {
+      "sha256": "570cfcc91a8dc49b971053db4fce03e8b101b0a3d3dcaa736f4ae038a2f0ff4a",
+      "runtime_error_count": 1,
+      "source_commit": "6ad5d905f750073820229efbade8b755dab29c90"
+    }
+  },
+  "hard_every_one_retry_manifest_before_refresh_fix": {
+    "campaign": "phase5-core-18run",
+    "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "contract_integrity": {
+      "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "match": true
+    },
+    "collection_provenance": {
+      "git_hash": "3ecaf6aabfa3f444f2504d1a1fd5f317ec47a435",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "data/phase5/quarantine/C-load2M-s2001-r1.initial.meta.json",
+        "data/phase5/quarantine/C-load2M-s2001-r1.meta.json",
+        "data/phase5/quarantine/C-vary-s2002-r1.initial.meta.json",
+        "data/phase5/quarantine/C-vary-s2002-r1.meta.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.initial.meta.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.meta.attempt-20260915T155316-fa06833e.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.meta.json",
+        "data/phase5/quarantine/N-load1M-s1001-r1.initial.meta.json",
+        "data/phase5/quarantine/N-load1M-s1001-r1.meta.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.initial.meta.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.meta.attempt-20260915T155503-31de4652.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+        "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+        "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+        "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+        "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+        "data/phase5/raw/N-load2M-s1003-r1.meta.json",
+        "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+        "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+        "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+        "data/phase5/raw/N-vary-s1008-r2.meta.json",
+        "logs/ml_campaign.log",
+        "logs/ml_campaign_retry.log",
+        "logs/ml_dataset_controller.log",
+        "logs/ml_dataset_startup.log",
+        "logs/ml_dataset_stdout.log",
+        "logs/ml_gen_C-load2M-s2001-r1.log",
+        "logs/ml_gen_C-vary-s2002-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+        "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+        "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+        "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+        "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+        "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+        "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+        "logs/ml_gen_N-load1M-s1001-r1.log",
+        "logs/ml_gen_N-load1M-s1002-r2.log",
+        "logs/ml_gen_N-load2M-s1003-r1.log",
+        "logs/ml_gen_N-load2M-s1004-r2.log",
+        "logs/ml_gen_N-load4M-s1005-r1.log",
+        "logs/ml_gen_N-load4M-s1006-r2.log",
+        "logs/ml_gen_N-vary-s1007-r1.log",
+        "logs/ml_gen_N-vary-s1008-r2.log",
+        "results/report/campaign_collection_history.json",
+        "results/report/ml_dataset_manifest.json"
+      ],
+      "source_dirty_files": [],
+      "source_dirty": false
+    },
+    "design_provenance": {
+      "git_hash": "5518cca1492ef84e6b0418433ebcde01aa544797",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "mininet/traffic.py",
+        "results/report/feature_audit.csv",
+        "rl/scenarios.py",
+        "docs/phase-5/03-experiment-matrix.generated.md",
+        "logs/build_matrix.log",
+        "logs/phase53_pytest.log",
+        "ml/design.py",
+        "results/report/experiment_matrix.json",
+        "results/report/phase53_pytest.xml",
+        "scripts/build_matrix.py",
+        "test/test_ml_design.py"
+      ]
+    },
+    "constants": {
+      "duration_sec": 60,
+      "pre_roll_sec": 5,
+      "warmup_ticks": 1,
+      "period_sec": 1.0,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "collector_version": "v3-qdisc-ratevalid",
+      "exec_order_seed": 20260915
+    },
+    "started_utc": "2026-09-15T15:53:06Z",
+    "finished_utc": "2026-09-15T15:56:49Z",
+    "n_runs_expected": 18,
+    "n_runs_ok": 13,
+    "n_runs_failed": 5,
+    "runs_not_attempted": [],
+    "complete": false,
+    "split": {
+      "train": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r2"
+      ],
+      "test": [
+        "C-load2M-s2001-r1",
+        "C-vary-s2002-r1",
+        "F-admin_down-s1-s2-s3001-r1",
+        "F-admin_down-s1-s3-s3002-r1",
+        "F-degrade-s1-s2-s3003-r1",
+        "F-degrade-s2-s3-s3004-r1",
+        "F-flood-h1_to_srv1-s3005-r1",
+        "F-flood-h2_to_srv2-s3006-r1",
+        "F-shift-s1-s2-s3007-r1",
+        "F-shift-s1-s3-s3008-r1"
+      ]
+    },
+    "runs": {
+      "N-load1M-s1001-r1": {
+        "status": "failed",
+        "sha256": "4bfc76ad5db6679a53c2c43be424a5f68f6662a53d28e7d2d48be263f92fb36a",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": false,
+          "failed_gates": [
+            "runtime_log_ok"
+          ],
+          "runtime_log_ok": false,
+          "runtime_error_count": 1
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:41:17Z",
+        "finished_utc": "2026-09-15T15:42:55Z"
+      },
+      "N-load1M-s1002-r2": {
+        "status": "ok",
+        "sha256": "5e0c42a294af0a86c44acc143b563b92b6c04b3f7282b642943c88a543a24945",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:46:52Z",
+        "finished_utc": "2026-09-15T15:48:09Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load2M-s1003-r1": {
+        "status": "ok",
+        "sha256": "39c9baeb3213a6bdffb26fb5fc9f8e71d4a4c35178d61b96ac322738da21eba1",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:49:26Z",
+        "finished_utc": "2026-09-15T15:50:43Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+            "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load2M-s1003-r1.log",
+            "logs/ml_gen_N-load2M-s1004-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load2M-s1004-r2": {
+        "status": "ok",
+        "sha256": "e31d593e5d773dee9bc5cd83d783efb0bdcd18505d23bbe65a026d9e7d552be6",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:48:09Z",
+        "finished_utc": "2026-09-15T15:49:26Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load2M-s1004-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load4M-s1005-r1": {
+        "status": "ok",
+        "sha256": "4859b7c5087764f3d35b0d70632b14a95e4c6bd84e50e6acbf7191cff9b13a9d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:34:25Z",
+        "finished_utc": "2026-09-15T15:35:41Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load4M-s1006-r2": {
+        "status": "ok",
+        "sha256": "01282e06bb4ff646c00b50d027012ffea2f8dcb7f439612212bce79e48b86e9b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:45:35Z",
+        "finished_utc": "2026-09-15T15:46:52Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-vary-s1007-r1": {
+        "status": "failed",
+        "sha256": "c7dc483af79f092db1b9de55746ed6584e25d741cec9dc28d9b11460583c9937",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": false,
+          "failed_gates": [
+            "runtime_log_ok"
+          ],
+          "runtime_error_count": 1,
+          "runtime_log_ok": false
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:55:03Z",
+        "finished_utc": "2026-09-15T15:56:48Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "N-vary-s1008-r2": {
+        "status": "ok",
+        "sha256": "d2fb08ed0a418d26e9a5f3a45611a50e462f2bc8c04ddc79d6a36c86bbca560b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:42:55Z",
+        "finished_utc": "2026-09-15T15:44:11Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "C-load2M-s2001-r1": {
+        "status": "failed",
+        "sha256": "570cfcc91a8dc49b971053db4fce03e8b101b0a3d3dcaa736f4ae038a2f0ff4a",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": false,
+          "failed_gates": [
+            "runtime_log_ok"
+          ],
+          "runtime_log_ok": false,
+          "runtime_error_count": 1
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:50:43Z",
+        "finished_utc": "2026-09-15T15:52:20Z"
+      },
+      "C-vary-s2002-r1": {
+        "status": "failed",
+        "sha256": "fc3e14f1d5f08780efd1e81713a01976a62494d9adbb7620305ea9818dfa8420",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": false,
+          "failed_gates": [
+            "runtime_log_ok"
+          ],
+          "runtime_log_ok": false,
+          "runtime_error_count": 1
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:35:41Z",
+        "finished_utc": "2026-09-15T15:37:25Z"
+      },
+      "F-admin_down-s1-s2-s3001-r1": {
+        "status": "ok",
+        "sha256": "0ceb7616c8bec9904a80cc2c6fcafea1d6d9fa302d0f9ce03c25ed9cf4638004",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.080925,
+          "revert_t_rel": 40.093572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.004,
+              "txRate": 0.007,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.009,
+              "txRate": 0.023,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.198,
+              "txRate": 53.754,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.016,
+              "txRate": 0.124,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.080925,
+            "t_source": 1789486028.3611262,
+            "completed_t_rel": 20.085529,
+            "apply_ms": 4.6,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s2"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.093572,
+            "t_source": 1789486048.3717782,
+            "completed_t_rel": 40.09629,
+            "apply_ms": 2.7
+          }
+        ],
+        "started_utc": "2026-09-15T15:26:31Z",
+        "finished_utc": "2026-09-15T15:27:48Z",
+        "collection_provenance": {
+          "git_hash": "8ca440556d06740bc53bf0b7f6e6ee384eaac0ee",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "status": "ok",
+        "sha256": "e3814964b498b26a58d0c9f78162e2e8b4d11225ef94ad189dcef017c7cb6566",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.096926,
+          "revert_t_rel": 40.112515,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.001,
+              "txRate": 0.129,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.599,
+              "txRate": 26.828,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.004,
+              "txRate": 0.005,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.096926,
+            "t_source": 1789487095.854887,
+            "completed_t_rel": 20.10194,
+            "apply_ms": 5.0,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s3"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.112515,
+            "t_source": 1789487115.8681183,
+            "completed_t_rel": 40.115123,
+            "apply_ms": 2.6
+          }
+        ],
+        "started_utc": "2026-09-15T15:44:11Z",
+        "finished_utc": "2026-09-15T15:45:35Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "status": "failed",
+        "sha256": "9616d15d5c0c804e8e4160e9b088f53c19e16a8733e72b1a3e6c5b64f430954e",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.083374,
+          "revert_t_rel": 40.094862,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.138,
+              "txRate": 0.459,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.127,
+              "txRate": 0.087,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.266,
+              "txRate": 11.554,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.265,
+              "txRate": 11.55,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 11.554,
+          "signal_present": true,
+          "passed": false,
+          "failed_gates": [
+            "runtime_log_ok"
+          ],
+          "runtime_error_count": 1,
+          "runtime_log_ok": false
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.083374,
+            "t_source": 1789487663.262874,
+            "completed_t_rel": 20.104667,
+            "apply_ms": 21.3,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s1-s2",
+              "factor": 0.8274722320107196,
+              "delay": "2ms",
+              "baseline": 20.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.094862,
+            "t_source": 1789487683.2759824,
+            "completed_t_rel": 40.117839,
+            "apply_ms": 23.0
+          }
+        ],
+        "started_utc": "2026-09-15T15:53:16Z",
+        "finished_utc": "2026-09-15T15:55:03Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "status": "ok",
+        "sha256": "7f260b4eb682b79aa2eba6d94bfe3055ed84173ab0ae9d1ec47b88d52522c983",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.08677,
+          "revert_t_rel": 40.098005,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 14.465,
+              "lossPct": 288.827,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.003,
+              "txRate": 0.048,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.018,
+              "txRate": 14.503,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 288.827,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.08677,
+            "t_source": 1789486331.5916758,
+            "completed_t_rel": 20.10819,
+            "apply_ms": 21.4,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s2-s3",
+              "factor": 0.82029833678748,
+              "delay": "2ms",
+              "baseline": 5.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.098005,
+            "t_source": 1789486351.602566,
+            "completed_t_rel": 40.119077,
+            "apply_ms": 21.1
+          }
+        ],
+        "started_utc": "2026-09-15T15:31:34Z",
+        "finished_utc": "2026-09-15T15:32:51Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "status": "ok",
+        "sha256": "6cdb9c2833f6ccef1393bb2e4e2776085700c51cf784a3f9b802a2824aeb23de",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.09392,
+          "revert_t_rel": 40.099717,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.599,
+              "txRate": 223.006,
+              "lossPct": 499.847,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.032,
+              "txRate": 196.001,
+              "lossPct": 6.485,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 1.028,
+              "txRate": 196.027,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 499.847,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.09392,
+            "t_source": 1789486760.3993554,
+            "completed_t_rel": 20.433698,
+            "apply_ms": 339.8,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h1",
+              "dst": "srv1",
+              "rate_mbps": 47
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.099717,
+            "t_source": 1789486780.0891926,
+            "completed_t_rel": 40.123621,
+            "apply_ms": 23.9
+          }
+        ],
+        "started_utc": "2026-09-15T15:38:43Z",
+        "finished_utc": "2026-09-15T15:40:00Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "status": "ok",
+        "sha256": "42dca477ab5883ade989b1798f45075f79e390fceb9ee88bf3021f21b26c7a2d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.083954,
+          "revert_t_rel": 40.096821,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.598,
+              "txRate": 222.92,
+              "lossPct": 348.672,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.598,
+              "txRate": 223.004,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.593,
+              "txRate": 196.183,
+              "lossPct": 76.136,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 348.672,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.083954,
+            "t_source": 1789486683.7943778,
+            "completed_t_rel": 20.422148,
+            "apply_ms": 338.2,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h2",
+              "dst": "srv2",
+              "rate_mbps": 34
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.096821,
+            "t_source": 1789486703.4941053,
+            "completed_t_rel": 40.121855,
+            "apply_ms": 25.0
+          }
+        ],
+        "started_utc": "2026-09-15T15:37:25Z",
+        "finished_utc": "2026-09-15T15:38:43Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "status": "ok",
+        "sha256": "0a19412fcd423f4f1f4b6a826dc3075de52104cfd6c97cdeaf5712eef5b71077",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.093689,
+          "revert_t_rel": 40.100982,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.326,
+              "txRate": 0.726,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.492,
+              "txRate": 16.643,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.818,
+              "txRate": 22.901,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.531,
+              "lossPct": 749.597,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.838,
+              "txRate": 22.891,
+              "lossPct": 156.526,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.01,
+              "txRate": 35.527,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.597,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.093689,
+            "t_source": 1789486160.4335809,
+            "completed_t_rel": 20.453394,
+            "apply_ms": 359.7,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s2",
+              "factor": 0.8735327491524845,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 23
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.100982,
+            "t_source": 1789486180.128507,
+            "completed_t_rel": 40.148363,
+            "apply_ms": 47.4
+          }
+        ],
+        "started_utc": "2026-09-15T15:28:43Z",
+        "finished_utc": "2026-09-15T15:30:00Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "status": "ok",
+        "sha256": "ed2f81bc213dae5bf26bbc73c09dbccf782c0d2ddde22bba231b1eeab8795bed",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.086859,
+          "revert_t_rel": 40.097572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.168,
+              "txRate": 0.36,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.168,
+              "txRate": 7.416,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.535,
+              "lossPct": 749.276,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.848,
+              "txRate": 0.382,
+              "lossPct": 75.161,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.164,
+              "txRate": 28.244,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.276,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.086859,
+            "t_source": 1789486837.397975,
+            "completed_t_rel": 20.447321,
+            "apply_ms": 360.5,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s3",
+              "factor": 0.9199889245291656,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 20
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.097572,
+            "t_source": 1789486857.093479,
+            "completed_t_rel": 40.142874,
+            "apply_ms": 45.3
+          }
+        ],
+        "started_utc": "2026-09-15T15:40:00Z",
+        "finished_utc": "2026-09-15T15:41:17Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      }
+    },
+    "base_rate": {
+      "usable_test_ticks": 413,
+      "anomalous_test_ticks": 140,
+      "base_rate_measured": 0.339,
+      "dumb_always_normal_accuracy": 0.661,
+      "base_rate_nominal": 0.2712
+    },
+    "missing_data_rule": "Kh\u00f4ng fillna \u1edf t\u1ea7ng thu. M\u1eabu qdiscValid/rateValid = false \u0111\u01b0\u1ee3c GHI nguy\u00ean tr\u1ea1ng; vi\u1ec7c l\u1ecdc do ml/dataset.py \u1edf Lesson 5.6 quy\u1ebft \u0111\u1ecbnh.",
+    "warmup_rule": "Tick warmup \u0111\u01b0\u1ee3c GHI, kh\u00f4ng b\u1ecb x\u00f3a. L\u1ecdc tick < warmup_ticks \u1edf t\u1ea7ng n\u1ea1p. Nh\u1edd v\u1eady \u0111\u1ed5i quy t\u1eafc warmup kh\u00f4ng ph\u1ea3i ch\u1ea1y l\u1ea1i chi\u1ebfn d\u1ecbch."
+  },
+  "final_after_refresh_fix_manifest": {
+    "campaign": "phase5-core-18run",
+    "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "contract_integrity": {
+      "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+      "match": true
+    },
+    "collection_provenance": {
+      "git_hash": "9075f6e26ee6f105cdbacd57a740e9b2b1028540",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "data/phase5/quarantine/C-load2M-s2001-r1.initial.meta.json",
+        "data/phase5/quarantine/C-load2M-s2001-r1.meta.attempt-20260915T160307-0e6f8ece.json",
+        "data/phase5/quarantine/C-vary-s2002-r1.initial.meta.json",
+        "data/phase5/quarantine/C-vary-s2002-r1.meta.attempt-20260915T160017-b631e3a4.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.initial.meta.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.meta.attempt-20260915T155316-fa06833e.json",
+        "data/phase5/quarantine/F-degrade-s1-s2-s3003-r1.meta.attempt-20260915T155725-9619b713.json",
+        "data/phase5/quarantine/N-load1M-s1001-r1.initial.meta.json",
+        "data/phase5/quarantine/N-load1M-s1001-r1.meta.attempt-20260915T160142-5238f14d.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.initial.meta.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.meta.attempt-20260915T155503-31de4652.json",
+        "data/phase5/quarantine/N-vary-s1007-r1.meta.attempt-20260915T155852-4dd18112.json",
+        "data/phase5/raw/C-load2M-s2001-r1.meta.json",
+        "data/phase5/raw/C-vary-s2002-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+        "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+        "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+        "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+        "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+        "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+        "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+        "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+        "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+        "data/phase5/raw/N-load2M-s1003-r1.meta.json",
+        "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+        "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+        "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+        "data/phase5/raw/N-vary-s1007-r1.meta.json",
+        "data/phase5/raw/N-vary-s1008-r2.meta.json",
+        "logs/ml_campaign.log",
+        "logs/ml_campaign_retry.log",
+        "logs/ml_campaign_retry_fixed.log",
+        "logs/ml_dataset_controller.log",
+        "logs/ml_dataset_startup.log",
+        "logs/ml_dataset_stdout.log",
+        "logs/ml_gen_C-load2M-s2001-r1.log",
+        "logs/ml_gen_C-vary-s2002-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+        "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+        "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+        "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+        "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+        "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+        "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+        "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+        "logs/ml_gen_N-load1M-s1001-r1.log",
+        "logs/ml_gen_N-load1M-s1002-r2.log",
+        "logs/ml_gen_N-load2M-s1003-r1.log",
+        "logs/ml_gen_N-load2M-s1004-r2.log",
+        "logs/ml_gen_N-load4M-s1005-r1.log",
+        "logs/ml_gen_N-load4M-s1006-r2.log",
+        "logs/ml_gen_N-vary-s1007-r1.log",
+        "logs/ml_gen_N-vary-s1008-r2.log",
+        "results/report/campaign_collection_history.json",
+        "results/report/ml_dataset_manifest.json"
+      ],
+      "source_dirty_files": [],
+      "source_dirty": false
+    },
+    "design_provenance": {
+      "git_hash": "5518cca1492ef84e6b0418433ebcde01aa544797",
+      "git_dirty": true,
+      "git_dirty_files": [
+        "logs/command_flow.log",
+        "mininet/traffic.py",
+        "results/report/feature_audit.csv",
+        "rl/scenarios.py",
+        "docs/phase-5/03-experiment-matrix.generated.md",
+        "logs/build_matrix.log",
+        "logs/phase53_pytest.log",
+        "ml/design.py",
+        "results/report/experiment_matrix.json",
+        "results/report/phase53_pytest.xml",
+        "scripts/build_matrix.py",
+        "test/test_ml_design.py"
+      ]
+    },
+    "constants": {
+      "duration_sec": 60,
+      "pre_roll_sec": 5,
+      "warmup_ticks": 1,
+      "period_sec": 1.0,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "collector_version": "v3-qdisc-ratevalid",
+      "exec_order_seed": 20260915
+    },
+    "started_utc": "2026-09-15T15:57:15Z",
+    "finished_utc": "2026-09-15T16:04:33Z",
+    "n_runs_expected": 18,
+    "n_runs_ok": 18,
+    "n_runs_failed": 0,
+    "runs_not_attempted": [],
+    "complete": true,
+    "split": {
+      "train": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r2"
+      ],
+      "test": [
+        "C-load2M-s2001-r1",
+        "C-vary-s2002-r1",
+        "F-admin_down-s1-s2-s3001-r1",
+        "F-admin_down-s1-s3-s3002-r1",
+        "F-degrade-s1-s2-s3003-r1",
+        "F-degrade-s2-s3-s3004-r1",
+        "F-flood-h1_to_srv1-s3005-r1",
+        "F-flood-h2_to_srv2-s3006-r1",
+        "F-shift-s1-s2-s3007-r1",
+        "F-shift-s1-s3-s3008-r1"
+      ]
+    },
+    "runs": {
+      "N-load1M-s1001-r1": {
+        "status": "ok",
+        "sha256": "d6f38aed2ed498f112135ad2887846c9dbf378a24ae19235f3235f42498341ae",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": [],
+          "runtime_error_count": 0,
+          "runtime_log_ok": true
+        },
+        "events": [],
+        "started_utc": "2026-09-15T16:01:42Z",
+        "finished_utc": "2026-09-15T16:03:07Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "N-load1M-s1002-r2": {
+        "status": "ok",
+        "sha256": "5e0c42a294af0a86c44acc143b563b92b6c04b3f7282b642943c88a543a24945",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:46:52Z",
+        "finished_utc": "2026-09-15T15:48:09Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load2M-s1003-r1": {
+        "status": "ok",
+        "sha256": "39c9baeb3213a6bdffb26fb5fc9f8e71d4a4c35178d61b96ac322738da21eba1",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:49:26Z",
+        "finished_utc": "2026-09-15T15:50:43Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+            "data/phase5/raw/N-load2M-s1004-r2.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load2M-s1003-r1.log",
+            "logs/ml_gen_N-load2M-s1004-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load2M-s1004-r2": {
+        "status": "ok",
+        "sha256": "e31d593e5d773dee9bc5cd83d783efb0bdcd18505d23bbe65a026d9e7d552be6",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:48:09Z",
+        "finished_utc": "2026-09-15T15:49:26Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1002-r2.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1006-r2.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load1M-s1002-r2.log",
+            "logs/ml_gen_N-load2M-s1004-r2.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load4M-s1005-r1": {
+        "status": "ok",
+        "sha256": "4859b7c5087764f3d35b0d70632b14a95e4c6bd84e50e6acbf7191cff9b13a9d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:34:25Z",
+        "finished_utc": "2026-09-15T15:35:41Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-load4M-s1006-r2": {
+        "status": "ok",
+        "sha256": "01282e06bb4ff646c00b50d027012ffea2f8dcb7f439612212bce79e48b86e9b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:45:35Z",
+        "finished_utc": "2026-09-15T15:46:52Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s3-s3002-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-load4M-s1006-r2.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "N-vary-s1007-r1": {
+        "status": "ok",
+        "sha256": "69431ef7058d0d5a32d412a7379cd175dae6c775618be97628c840797477afe6",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": [],
+          "runtime_error_count": 0,
+          "runtime_log_ok": true
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:58:52Z",
+        "finished_utc": "2026-09-15T16:00:17Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "N-vary-s1008-r2": {
+        "status": "ok",
+        "sha256": "d2fb08ed0a418d26e9a5f3a45611a50e462f2bc8c04ddc79d6a36c86bbca560b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [],
+        "started_utc": "2026-09-15T15:42:55Z",
+        "finished_utc": "2026-09-15T15:44:11Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "C-load2M-s2001-r1": {
+        "status": "ok",
+        "sha256": "d78a90c00bd4e0648fe1e1328859b6723f9c5d6ba0724ddfafa079388621b5ea",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": [],
+          "runtime_error_count": 0,
+          "runtime_log_ok": true
+        },
+        "events": [],
+        "started_utc": "2026-09-15T16:03:07Z",
+        "finished_utc": "2026-09-15T16:04:32Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "C-vary-s2002-r1": {
+        "status": "ok",
+        "sha256": "2dfa67711b330ec1892fafa960b15d7a9d96ab29285818a433f8bbebe1d2c15b",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 472,
+          "qdisc_invalid_ok": true,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 472,
+          "rate_invalid_ok": true,
+          "links_down_in_normal_run": [],
+          "no_unexpected_down": true,
+          "events_complete": true,
+          "passed": true,
+          "failed_gates": [],
+          "runtime_error_count": 0,
+          "runtime_log_ok": true
+        },
+        "events": [],
+        "started_utc": "2026-09-15T16:00:17Z",
+        "finished_utc": "2026-09-15T16:01:42Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "F-admin_down-s1-s2-s3001-r1": {
+        "status": "ok",
+        "sha256": "0ceb7616c8bec9904a80cc2c6fcafea1d6d9fa302d0f9ce03c25ed9cf4638004",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.080925,
+          "revert_t_rel": 40.093572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.004,
+              "txRate": 0.007,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.009,
+              "txRate": 0.023,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.198,
+              "txRate": 53.754,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.016,
+              "txRate": 0.124,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.080925,
+            "t_source": 1789486028.3611262,
+            "completed_t_rel": 20.085529,
+            "apply_ms": 4.6,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s2"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.093572,
+            "t_source": 1789486048.3717782,
+            "completed_t_rel": 40.09629,
+            "apply_ms": 2.7
+          }
+        ],
+        "started_utc": "2026-09-15T15:26:31Z",
+        "finished_utc": "2026-09-15T15:27:48Z",
+        "collection_provenance": {
+          "git_hash": "8ca440556d06740bc53bf0b7f6e6ee384eaac0ee",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "status": "ok",
+        "sha256": "e3814964b498b26a58d0c9f78162e2e8b4d11225ef94ad189dcef017c7cb6566",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.096926,
+          "revert_t_rel": 40.112515,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.001,
+              "txRate": 0.129,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.599,
+              "txRate": 26.828,
+              "lossPct": 0.0,
+              "state_up": 100.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.004,
+              "txRate": 0.005,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 100.0,
+          "signal_present": true,
+          "admin_down_observed": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.096926,
+            "t_source": 1789487095.854887,
+            "completed_t_rel": 20.10194,
+            "apply_ms": 5.0,
+            "scenario": {
+              "type": "LinkAdminDown",
+              "link_key": "s1-s3"
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.112515,
+            "t_source": 1789487115.8681183,
+            "completed_t_rel": 40.115123,
+            "apply_ms": 2.6
+          }
+        ],
+        "started_utc": "2026-09-15T15:44:11Z",
+        "finished_utc": "2026-09-15T15:45:35Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s3-s3008-r1.meta.json",
+            "data/phase5/raw/N-load1M-s1001-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "data/phase5/raw/N-vary-s1008-r2.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s3-s3002-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load1M-s1001-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "logs/ml_gen_N-vary-s1008-r2.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "status": "ok",
+        "sha256": "7cc50aff2a0fe7ad41b2b921e36ee4d551cd6172d7ac8d14c691666c0eb92b30",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.114181,
+          "revert_t_rel": 40.117703,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.131,
+              "txRate": 0.359,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.127,
+              "txRate": 0.513,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.258,
+              "txRate": 11.486,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.262,
+              "txRate": 11.485,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 11.486,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": [],
+          "runtime_error_count": 0,
+          "runtime_log_ok": true
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.114181,
+            "t_source": 1789487892.574436,
+            "completed_t_rel": 20.134489,
+            "apply_ms": 20.3,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s1-s2",
+              "factor": 0.8274722320107196,
+              "delay": "2ms",
+              "baseline": 20.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.117703,
+            "t_source": 1789487912.5823317,
+            "completed_t_rel": 40.142407,
+            "apply_ms": 24.7
+          }
+        ],
+        "started_utc": "2026-09-15T15:57:25Z",
+        "finished_utc": "2026-09-15T15:58:52Z",
+        "reset_dirty": false,
+        "reset_mode": "hard"
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "status": "ok",
+        "sha256": "7f260b4eb682b79aa2eba6d94bfe3055ed84173ab0ae9d1ec47b88d52522c983",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.08677,
+          "revert_t_rel": 40.098005,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 14.465,
+              "lossPct": 288.827,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 0.003,
+              "txRate": 0.048,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.018,
+              "txRate": 14.503,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 288.827,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.08677,
+            "t_source": 1789486331.5916758,
+            "completed_t_rel": 20.10819,
+            "apply_ms": 21.4,
+            "scenario": {
+              "type": "LinkDegrade",
+              "link_key": "s2-s3",
+              "factor": 0.82029833678748,
+              "delay": "2ms",
+              "baseline": 5.0
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.098005,
+            "t_source": 1789486351.602566,
+            "completed_t_rel": 40.119077,
+            "apply_ms": 21.1
+          }
+        ],
+        "started_utc": "2026-09-15T15:31:34Z",
+        "finished_utc": "2026-09-15T15:32:51Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "status": "ok",
+        "sha256": "6cdb9c2833f6ccef1393bb2e4e2776085700c51cf784a3f9b802a2824aeb23de",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.09392,
+          "revert_t_rel": 40.099717,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.599,
+              "txRate": 223.006,
+              "lossPct": 499.847,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 1.032,
+              "txRate": 196.001,
+              "lossPct": 6.485,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 1.028,
+              "txRate": 196.027,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 499.847,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.09392,
+            "t_source": 1789486760.3993554,
+            "completed_t_rel": 20.433698,
+            "apply_ms": 339.8,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h1",
+              "dst": "srv1",
+              "rate_mbps": 47
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.099717,
+            "t_source": 1789486780.0891926,
+            "completed_t_rel": 40.123621,
+            "apply_ms": 23.9
+          }
+        ],
+        "started_utc": "2026-09-15T15:38:43Z",
+        "finished_utc": "2026-09-15T15:40:00Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "status": "ok",
+        "sha256": "42dca477ab5883ade989b1798f45075f79e390fceb9ee88bf3021f21b26c7a2d",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.083954,
+          "revert_t_rel": 40.096821,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.598,
+              "txRate": 222.92,
+              "lossPct": 348.672,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.598,
+              "txRate": 223.004,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.593,
+              "txRate": 196.183,
+              "lossPct": 76.136,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 348.672,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.083954,
+            "t_source": 1789486683.7943778,
+            "completed_t_rel": 20.422148,
+            "apply_ms": 338.2,
+            "scenario": {
+              "type": "TrafficFlood",
+              "src": "h2",
+              "dst": "srv2",
+              "rate_mbps": 34
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.096821,
+            "t_source": 1789486703.4941053,
+            "completed_t_rel": 40.121855,
+            "apply_ms": 25.0
+          }
+        ],
+        "started_utc": "2026-09-15T15:37:25Z",
+        "finished_utc": "2026-09-15T15:38:43Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "status": "ok",
+        "sha256": "0a19412fcd423f4f1f4b6a826dc3075de52104cfd6c97cdeaf5712eef5b71077",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.093689,
+          "revert_t_rel": 40.100982,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h1-s1": {
+              "rxRate": 0.326,
+              "txRate": 0.726,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-h3-s1": {
+              "rxRate": 0.492,
+              "txRate": 16.643,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s2": {
+              "rxRate": 0.818,
+              "txRate": 22.901,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.531,
+              "lossPct": 749.597,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.838,
+              "txRate": 22.891,
+              "lossPct": 156.526,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.01,
+              "txRate": 35.527,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.597,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.093689,
+            "t_source": 1789486160.4335809,
+            "completed_t_rel": 20.453394,
+            "apply_ms": 359.7,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s2",
+              "factor": 0.8735327491524845,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 23
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.100982,
+            "t_source": 1789486180.128507,
+            "completed_t_rel": 40.148363,
+            "apply_ms": 47.4
+          }
+        ],
+        "started_utc": "2026-09-15T15:28:43Z",
+        "finished_utc": "2026-09-15T15:30:00Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "status": "ok",
+        "sha256": "ed2f81bc213dae5bf26bbc73c09dbccf782c0d2ddde22bba231b1eeab8795bed",
+        "checks": {
+          "n_snapshots": 60,
+          "expected_ticks": 60,
+          "embedded_ticks_ok": true,
+          "tick_count_ok": true,
+          "run_id_uniform": true,
+          "collector_version": [
+            "v3-qdisc-ratevalid"
+          ],
+          "collector_version_uniform": true,
+          "t_rel_monotonic": true,
+          "baseline_link_presence_ok": true,
+          "qdisc_invalid_fraction_baseline": 0.0,
+          "qdisc_samples_baseline": 160,
+          "qdisc_invalid_ok": true,
+          "qdisc_invalid_fraction_fault": 0.0063,
+          "rate_invalid_fraction_baseline": 0.0,
+          "rate_samples_baseline": 160,
+          "rate_invalid_ok": true,
+          "rate_invalid_fraction_fault": 0.0,
+          "events_complete": true,
+          "event_ticks_ok": true,
+          "inject_t_rel": 20.086859,
+          "revert_t_rel": 40.097572,
+          "inject_on_time": true,
+          "revert_on_time": true,
+          "per_link": {
+            "link-h2-s1": {
+              "rxRate": 0.168,
+              "txRate": 0.36,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s1-s3": {
+              "rxRate": 0.168,
+              "txRate": 7.416,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            },
+            "link-s2-s3": {
+              "rxRate": 0.0,
+              "txRate": 35.535,
+              "lossPct": 749.276,
+              "state_up": 0.0
+            },
+            "link-s2-srv1": {
+              "rxRate": 221.848,
+              "txRate": 0.382,
+              "lossPct": 75.161,
+              "state_up": 0.0
+            },
+            "link-s3-srv2": {
+              "rxRate": 0.164,
+              "txRate": 28.244,
+              "lossPct": 0.0,
+              "state_up": 0.0
+            }
+          },
+          "max_separation": 749.276,
+          "signal_present": true,
+          "passed": true,
+          "failed_gates": []
+        },
+        "events": [
+          {
+            "kind": "inject",
+            "tick": 20,
+            "t_rel": 20.086859,
+            "t_source": 1789486837.397975,
+            "completed_t_rel": 20.447321,
+            "apply_ms": 360.5,
+            "scenario": {
+              "type": "CongestionShift",
+              "degrade_link": "s1-s3",
+              "factor": 0.9199889245291656,
+              "delay": "2ms",
+              "baseline": 20.0,
+              "flood_src": "srv1",
+              "flood_dst": "srv2",
+              "rate_mbps": 20
+            }
+          },
+          {
+            "kind": "revert",
+            "tick": 40,
+            "t_rel": 40.097572,
+            "t_source": 1789486857.093479,
+            "completed_t_rel": 40.142874,
+            "apply_ms": 45.3
+          }
+        ],
+        "started_utc": "2026-09-15T15:40:00Z",
+        "finished_utc": "2026-09-15T15:41:17Z",
+        "collection_provenance": {
+          "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+          "git_dirty": true,
+          "git_dirty_files": [
+            "logs/command_flow.log",
+            "data/phase5/raw/C-vary-s2002-r1.meta.json",
+            "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+            "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+            "data/phase5/raw/F-degrade-s2-s3-s3004-r1.meta.json",
+            "data/phase5/raw/F-flood-h1_to_srv1-s3005-r1.meta.json",
+            "data/phase5/raw/F-flood-h2_to_srv2-s3006-r1.meta.json",
+            "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+            "data/phase5/raw/N-load4M-s1005-r1.meta.json",
+            "data/phase5/raw/N-vary-s1007-r1.meta.json",
+            "logs/ml_campaign.log",
+            "logs/ml_dataset_controller.log",
+            "logs/ml_dataset_startup.log",
+            "logs/ml_dataset_stdout.log",
+            "logs/ml_gen_C-vary-s2002-r1.log",
+            "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+            "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+            "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+            "logs/ml_gen_F-flood-h1_to_srv1-s3005-r1.log",
+            "logs/ml_gen_F-flood-h2_to_srv2-s3006-r1.log",
+            "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+            "logs/ml_gen_F-shift-s1-s3-s3008-r1.log",
+            "logs/ml_gen_N-load4M-s1005-r1.log",
+            "logs/ml_gen_N-vary-s1007-r1.log",
+            "results/report/ml_dataset_manifest.json"
+          ],
+          "source_dirty_files": [],
+          "source_dirty": false
+        }
+      }
+    },
+    "base_rate": {
+      "usable_test_ticks": 590,
+      "anomalous_test_ticks": 160,
+      "base_rate_measured": 0.2712,
+      "dumb_always_normal_accuracy": 0.7288,
+      "base_rate_nominal": 0.2712
+    },
+    "missing_data_rule": "Kh\u00f4ng fillna \u1edf t\u1ea7ng thu. M\u1eabu qdiscValid/rateValid = false \u0111\u01b0\u1ee3c GHI nguy\u00ean tr\u1ea1ng; vi\u1ec7c l\u1ecdc do ml/dataset.py \u1edf Lesson 5.6 quy\u1ebft \u0111\u1ecbnh.",
+    "warmup_rule": "Tick warmup \u0111\u01b0\u1ee3c GHI, kh\u00f4ng b\u1ecb x\u00f3a. L\u1ecdc tick < warmup_ticks \u1edf t\u1ea7ng n\u1ea1p. Nh\u1edd v\u1eady \u0111\u1ed5i quy t\u1eafc warmup kh\u00f4ng ph\u1ea3i ch\u1ea1y l\u1ea1i chi\u1ebfn d\u1ecbch."
+  },
+  "health_refresh_fix_source_commit": "9075f6e26ee6f105cdbacd57a740e9b2b1028540"
+}

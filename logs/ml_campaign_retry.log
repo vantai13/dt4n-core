@@ -1,0 +1,7 @@
+[launch] hợp đồng khớp: 80b94fb9a53e
+[launch] 18 run, base rate nominal 0.2712
+[launch] source_clean=True git_dirty=True commit=3ecaf6aabfa3f444f2504d1a1fd5f317ec47a435
+[launch] mn -c (một lần duy nhất)
+[launch] controller sẵn sàng, namespace=org.dt4n.ml
+[launch] runner exit=1
+[launch] log: logs/ml_dataset_stdout.log

@@ -1,0 +1,181 @@
+{
+  "run_id": "F-degrade-s2-s3-s3004-r1",
+  "sha256": "7f260b4eb682b79aa2eba6d94bfe3055ed84173ab0ae9d1ec47b88d52522c983",
+  "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "collection_provenance": {
+    "git_hash": "6ad5d905f750073820229efbade8b755dab29c90",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "data/phase5/raw/F-admin_down-s1-s2-s3001-r1.meta.json",
+      "data/phase5/raw/F-degrade-s1-s2-s3003-r1.meta.json",
+      "data/phase5/raw/F-shift-s1-s2-s3007-r1.meta.json",
+      "logs/ml_campaign.log",
+      "logs/ml_dataset_controller.log",
+      "logs/ml_dataset_startup.log",
+      "logs/ml_dataset_stdout.log",
+      "logs/ml_gen_F-admin_down-s1-s2-s3001-r1.log",
+      "logs/ml_gen_F-degrade-s1-s2-s3003-r1.log",
+      "logs/ml_gen_F-degrade-s2-s3-s3004-r1.log",
+      "logs/ml_gen_F-shift-s1-s2-s3007-r1.log",
+      "results/report/ml_dataset_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "record": {
+    "run_id": "F-degrade-s2-s3-s3004-r1",
+    "group": "F",
+    "split": "test",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "degrade",
+    "fault_target": "s2-s3",
+    "seed": 3004,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "duration_sec": 60,
+    "expected_links": [
+      "s2-s3",
+      "s2-srv1",
+      "s3-srv2"
+    ],
+    "exec_index": 2,
+    "fault_parameters": {
+      "link_key": "s2-s3",
+      "factor": 0.82029833678748,
+      "delay": "2ms",
+      "baseline": 5.0
+    }
+  },
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 8.890861342999415,
+    "reset_steady_ok": true,
+    "reset_wait_s": 5.440706669000065,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.038820867538452146,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4348,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.3290016290266067e-06,
+      "kill_iperf": 0.37505491900083143,
+      "restore_links": 0.16898844399838708,
+      "flush_arp": 0.006901691998791648,
+      "reset_cache": 8.94000186235644e-06,
+      "start_traffic": 2.6015692010005296,
+      "steady_wait": 5.440706669000065,
+      "refresh_twin": 0.1602662750010495,
+      "data_fresh_wait": 0.06460861199957435,
+      "health_gate": 0.06554489400150487
+    }
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.08677,
+      "t_source": 1789486331.5916758,
+      "completed_t_rel": 20.10819,
+      "apply_ms": 21.4,
+      "scenario": {
+        "type": "LinkDegrade",
+        "link_key": "s2-s3",
+        "factor": 0.82029833678748,
+        "delay": "2ms",
+        "baseline": 5.0
+      }
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.098005,
+      "t_source": 1789486351.602566,
+      "completed_t_rel": 40.119077,
+      "apply_ms": 21.1
+    }
+  ],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 160,
+    "qdisc_invalid_ok": true,
+    "qdisc_invalid_fraction_fault": 0.0063,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 160,
+    "rate_invalid_ok": true,
+    "rate_invalid_fraction_fault": 0.0,
+    "events_complete": true,
+    "event_ticks_ok": true,
+    "inject_t_rel": 20.08677,
+    "revert_t_rel": 40.098005,
+    "inject_on_time": true,
+    "revert_on_time": true,
+    "per_link": {
+      "link-s2-s3": {
+        "rxRate": 0.0,
+        "txRate": 14.465,
+        "lossPct": 288.827,
+        "state_up": 0.0
+      },
+      "link-s2-srv1": {
+        "rxRate": 0.003,
+        "txRate": 0.048,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s3-srv2": {
+        "rxRate": 0.018,
+        "txRate": 14.503,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      }
+    },
+    "max_separation": 288.827,
+    "signal_present": true,
+    "passed": true,
+    "failed_gates": []
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-15T15:31:34Z",
+  "finished_utc": "2026-09-15T15:32:51Z",
+  "status": "ok"
+}

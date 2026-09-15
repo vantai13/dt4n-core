@@ -116,6 +116,6 @@ tar -xzf /home/ubuntu/dt4n-core-phase5-raw-20260915.tar.gz -C /path/to/dt4n-core
 
 Launcher dùng checkout collection sạch ở /home/ubuntu/dt4n-core-campaign và .venv tuyệt đối của repo chính. Khi chạy lại, phải giữ source sạch; artifacts runtime được ghi đúng dirty state. DT4N_CAMPAIGN_NAMESPACE tùy chỉnh namespace; DT4N_RYU tùy chỉnh binary.
 
-Bằng chứng: [manifest](../../results/report/ml_dataset_manifest.json), [nghiệm thu](../../results/report/campaign_acceptance.json), [audit CSV](../../results/report/campaign_feature_audit.csv), [missing JSON](../../results/report/campaign_missing_analysis.json), [history](../../results/report/campaign_collection_history.json), [backup receipt](../../results/report/campaign_raw_backup.json), [full test](../../logs/phase54_runner_final_pytest.log), [precheck](../../logs/phase54_runner_prechecks.log).
+Bằng chứng: [manifest](ml_dataset_manifest.json), [nghiệm thu](campaign_acceptance.json), [audit CSV](campaign_feature_audit.csv), [missing JSON](campaign_missing_analysis.json), [history](campaign_collection_history.json), [backup receipt](campaign_raw_backup.json), [full test](../../logs/phase54_runner_final_pytest.log), [precheck](../../logs/phase54_runner_prechecks.log).
 
 Chưa train hoặc đánh giá detector; bước kế tiếp là Lesson5.5 ground truth.

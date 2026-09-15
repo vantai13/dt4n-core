@@ -1,0 +1,7 @@
+2026-09-15 15:57:15,153 [INFO] env_runner: EnvRunner.start()
+2026-09-15 15:57:22,442 [INFO] sync_agent: Sync Agent start: period=1.000s, tol=0.500, ping_every=20, reconcile_every=30, mode=None
+2026-09-15 15:57:22,442 [INFO] command_agent: Command Agent start (bản 4.4: nghe + thực thi + response). controller=org.dt4n.ml:controller
+2026-09-15 15:57:22,446 [INFO] command_agent: SSE kết nối OK, đang nghe lệnh tại http://localhost:8080/api/2/things/org.dt4n.ml:controller/inbox/messages
+2026-09-15 15:57:22,603 [INFO] sync_agent: Cycle #1 [RECONCILE]: 16/16 patch, elapsed=161ms
+2026-09-15 15:57:23,576 [INFO] sync_agent: Cycle #2 [delta]: 13/13 patch, elapsed=133ms
+2026-09-15 15:57:25,454 [INFO] env_runner: EnvRunner started in 10.3s, startup iperf=0; episode iperf baseline pending

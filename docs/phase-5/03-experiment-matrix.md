@@ -1,6 +1,6 @@
 # Lesson 5.3 — Thiết kế ma trận thí nghiệm
 
-**Trạng thái: đã thiết kế, chưa thu dữ liệu.** Triển khai tiếp từ commit `5518cca` trên nhánh `phase/5-dataset`. JSON ma trận, thứ tự và phân công train/test được commit trước Lesson 5.4. Không dùng kết quả mô hình để chọn split.
+**Trạng thái tại thời điểm khóa Lesson5.3: đã thiết kế, chưa thu dữ liệu.** Thu và nghiệm thu sau đó ở [Lesson5.4](04-data-generation.md). Triển khai tiếp từ commit `5518cca` trên nhánh `phase/5-dataset`. JSON ma trận, thứ tự và phân công train/test được commit trước Lesson 5.4. Không dùng kết quả mô hình để chọn split.
 
 ## Hợp đồng 18 run
 
