@@ -14,6 +14,7 @@ VÌ SAO `mn -c` CHỈ CHẠY MỘT LẦN VÀ CHẠY Ở ĐÂY:
     Đây là chỗ PHASE_5.md mâu thuẫn với kiến trúc của repo này.
 """
 import os
+import argparse
 import json
 import socket
 import subprocess
@@ -46,7 +47,10 @@ def main():
         raise SystemExit('Commit source changes before collection: %s' % prov['source_dirty_files'])
     print('[launch] source_clean=True git_dirty=%s commit=%s' % (prov['git_dirty'],prov['git_hash']),flush=True)
     from scripts.generate_ml_dataset import already_done
-    selected = sys.argv[sys.argv.index('--only')+1:] if '--only' in sys.argv else None
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--only', nargs='+')
+    parser.add_argument('--hard-every', type=int, default=6)
+    selected = parser.parse_args().only
     if selected and not set(selected) <= {r['run_id'] for r in contract['runs']}:
         raise SystemExit('Unknown run ID')
     done = {r['run_id']:already_done(r,integrity['stored']) for r in contract['runs']}
