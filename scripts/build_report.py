@@ -71,6 +71,16 @@ if missing_analysis:
            'MAR cho warmup quan sát được, chưa kết luận cơ chế tổng quát. Wilson/Fisher theo ô chỉ mô tả vì link/tick phụ thuộc. Chưa triển khai detector inference.',
            'Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; log: ../../logs/missing_analysis.log.']
 
+experiment_matrix=load('experiment_matrix.json')
+if experiment_matrix:
+ design_unit=ET.parse(out/'phase53_pytest.xml').getroot().find('testsuite').attrib
+ design_pass=int(design_unit['tests'])-sum(int(design_unit[k]) for k in ['skipped','failures','errors'])
+ lines += ['', '## Lesson5.3 — Thiết kế thí nghiệm', '',
+           f"{experiment_matrix['n_runs']} run dự kiến: 8train/10test; base rate test {experiment_matrix['expected_base_rate_test']:.1%}; coverage giả thuyết 8/8link.",
+           f"Test: {design_pass} passed, {design_unit['skipped']} skipped. GATE PASS: {experiment_matrix['validation']['all_pass']}.",
+           'Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; chưa thu18run hoặc train mô hình.',
+           'Báo cáo: ../../docs/phase-5/03-experiment-matrix.md; hợp đồng: experiment_matrix.json; timeline: experiment_matrix.png.']
+
 (out/'ACCEPTANCE.md').write_text('\n'.join(lines))
 body='<h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: '+html.escape(datetime.datetime.now(datetime.timezone.utc).isoformat())+'</p>'
 body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p>'
@@ -104,6 +114,14 @@ if ml:
   d=load(name+'.json')
   if d and d.get('result'):
    x=d['result'];body+=f"<p>{name}: n={x['n']}, p50={x['p50_ms']:.2f} ms, p95={x['p95_ms']:.2f} ms.</p>"
+if experiment_matrix:
+ body+='<h2 id="experiment-matrix">Lesson5.3 — Ma trận thiết kế trước thu</h2>'
+ body+=f"<p>{experiment_matrix['n_runs']} run: 8 train-normal, 2 test-control, 8 test-fault. {design_pass} passed, {design_unit['skipped']} skipped.</p>"
+ body+=f"<p>GATE PASS: {experiment_matrix['validation']['all_pass']}; base rate test dự kiến {experiment_matrix['expected_base_rate_test']:.1%}; coverage giả thuyết 8/8link. CHƯA THU DỮ LIỆU.</p>"
+ body+='<p>Đã thêm LinkAdminDown, severity từ seed đúng target, varying load và cleanup shell scheduler. Train varying A hai seed; test-control B.</p>'
+ body+='<p><a href="docs/phase-5/03-experiment-matrix.md">Báo cáo</a> · <a href="docs/phase-5/03-experiment-matrix.generated.md">Bảng18run</a> · <a href="results/report/experiment_matrix.json">JSON hợp đồng</a> · <a href="logs/build_matrix.log">Output gate</a> · <a href="logs/phase53_pytest.log">Log test</a></p>'
+ body+='<img style="width:100%" src="results/report/experiment_matrix.png" alt="Thứ tự18run và timeline dự kiến">'
+
 if missing_analysis:
  body+='<h2 id="missing-data">Lesson 5.2 — Dữ liệu thiếu</h2>'
  body+=f"<p>{missing_pass} passed, {missing_unit['skipped']} skipped. Missing loss: {missing_analysis['total_pct_cells_missing']}% (24/1200 ô), đều warmup tick 0.</p>"

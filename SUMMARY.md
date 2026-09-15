@@ -70,3 +70,9 @@ Pilot chưa chứng minh hiệu quả mô hình; còn confound TCP/UDP và tải
 Đã thêm rateValid/rateReason vào collector, giữ16 timestamp Thing và chính sách DT4N-M1 không fillna(0). Pilot thiếu24/1200 ô loss (2%), đều warmup tick0; bỏ3/150 dòng, còn147 và0 missing loss. Rate host có30 warmup zero, không thấy zero giả giữa run; rate link v2 chưa có counter/cờ để kiểm toán.
 
 Test **80 passed,4 skipped**. Audit mới150×174, GIỮ41/CHẤT VẤN11/LOẠI48/BỎ QUA74;37 ứng viên mạnh không đổi. Báo cáo: [02-missing-data.md](docs/phase-5/02-missing-data.md); output: [missing_analysis.json](results/report/missing_analysis.json), [log](logs/missing_analysis.log), [biểu đồ](results/report/missing_analysis.png). CI/Fisher theo ô chỉ mô tả vì mẫu phụ thuộc; không kết luận MNAR tổng quát.
+
+## Lesson5.3 — Ma trận đã khóa trước thu
+
+18run:8train normal,2test-control,8test-fault;4loại fault. Base rate test nominal160/590=27,1%, hypothesis coverage8/8link. Thêm LinkAdminDown, seeded scenario đúng target, varying load và cleanup process group. Train varying lịchA hai seed; test-control lịchB.
+
+Test116 passed/4skipped; audit và missing giữ số. Chưa thu18run. [Báo cáo](docs/phase-5/03-experiment-matrix.md), [JSON](results/report/experiment_matrix.json), [bảng](docs/phase-5/03-experiment-matrix.generated.md), [timeline](results/report/experiment_matrix.png), [log](logs/phase53_pytest.log). CSV audit chỉnh sẵn được giữ local.

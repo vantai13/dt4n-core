@@ -140,3 +140,12 @@ Kiểm tra dữ liệu thiếu (Lesson5.2):
 ```
 
 Chính sách và giới hạn: [docs/phase-5/02-missing-data.md](docs/phase-5/02-missing-data.md). Rate mới phải kiểm `rateValid`; dữ liệu v2 cũ giữ nguyên.
+
+Thiết kế chiến dịch Lesson5.3 (chưa thu mạng):
+
+```bash
+.venv/bin/python -m scripts.build_matrix
+.venv/bin/python -m scripts.plot_matrix
+```
+
+[Hợp đồng và giới hạn](docs/phase-5/03-experiment-matrix.md). Commit ma trận trước khi runner Lesson5.4 sinh dữ liệu.

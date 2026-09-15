@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T11:38:16.194631+00:00
+Cập nhật UTC: 2026-09-15T14:30:19.491276+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -92,3 +92,10 @@ Missing loss: 2.0%; bỏ 3/150 dòng warmup, giữ 147; còn 0 ô loss thiếu.
 Collector thêm rateValid/rateReason; flatten giữ timestamp Thing. Audit GIỮ41/CHẤT VẤN11/LOẠI48, BỎ QUA74 (16 timestamp mới).
 MAR cho warmup quan sát được, chưa kết luận cơ chế tổng quát. Wilson/Fisher theo ô chỉ mô tả vì link/tick phụ thuộc. Chưa triển khai detector inference.
 Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; log: ../../logs/missing_analysis.log.
+
+## Lesson5.3 — Thiết kế thí nghiệm
+
+18 run dự kiến: 8train/10test; base rate test 27.1%; coverage giả thuyết 8/8link.
+Test: 116 passed, 4 skipped. GATE PASS: True.
+Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; chưa thu18run hoặc train mô hình.
+Báo cáo: ../../docs/phase-5/03-experiment-matrix.md; hợp đồng: experiment_matrix.json; timeline: experiment_matrix.png.

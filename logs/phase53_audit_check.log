@@ -1,0 +1,15 @@
+snapshot = 150   cột = 174
+quyet_dinh  kind      
+BO_QUA      meta          23
+            text          51
+CHAT_VAN    bool           8
+            numeric        3
+GIU         numeric       41
+LOAI        config         8
+            cumulative    10
+            numeric       30
+
+GIỮ = 41 feature; auc_dist > 0.5 ở 37 feature
+
+-> /home/ubuntu/dt4n-core/results/report/feature_audit.csv
+GATE PASS: có >= 5 feature tách biệt rõ.

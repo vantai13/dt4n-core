@@ -101,6 +101,7 @@ def measure_latency(src, dst_ip, count=10):
 def stop_all_iperf(*hosts):
     """Dọn dẹp iperf server nền (tránh chiếm cổng lần chạy sau)."""
     for h in hosts:
+        stop_varying_load(h)
         run_host_shell(h, 'pkill -f "[i]perf" 2>/dev/null')
     print('[traffic] đã dừng các iperf server')
 
@@ -192,3 +193,90 @@ def demo_scenarios(net):
     read_server_udp_report(srv1)
     print(h1.cmd('cat /tmp/ping_during_flood.log'))
     stop_all_iperf(srv1)
+
+
+def schedule_segments(schedule, duration):
+    """Validate strictly increasing integer boundaries and positive rates."""
+    import math
+    if not schedule or not isinstance(duration, (int,float)) or not math.isfinite(duration) or duration <= 0 or int(duration) != duration:
+        raise ValueError('schedule and positive integer duration required')
+    starts = [t for t, _ in schedule]
+    if any(not isinstance(t,(int,float)) or not math.isfinite(t) or int(t) != t for t in starts):
+        raise ValueError('schedule boundaries must be finite integers')
+    if starts[0] != 0 or any(a >= b for a,b in zip(starts,starts[1:])) or starts[-1] >= duration:
+        raise ValueError('schedule must start at 0 and increase strictly below duration')
+    if any(not math.isfinite(float(r)) or float(r) <= 0 for _,r in schedule):
+        raise ValueError('rates must be finite and positive')
+    return tuple((float(rate), int((schedule[i+1][0] if i+1 < len(schedule) else duration)-t))
+                 for i,(t,rate) in enumerate(schedule))
+
+
+def stop_varying_load(host):
+    """Stop the owning process group so later steps cannot restart iperf."""
+    import shlex
+    marker = getattr(host, '_dt4n_varying_marker', None)
+    if marker:
+        quoted = shlex.quote(marker)
+        run_host_shell(host, 'if [ -f '+quoted+' ]; then '
+            'vary_pid=$(cat '+quoted+'); case "$vary_pid" in '
+            '\"\"|*[!0-9]*) ;; *) /bin/kill -TERM -- -"$vary_pid" 2>/dev/null ;; esac; '
+            'rm -f '+quoted+'; fi')
+        host._dt4n_varying_marker = None
+
+
+def start_varying_load(net, schedule, duration=60, server_bg_rate=2.0,
+                       rotate=True):
+    """Tải "bình thường" BIẾN THIÊN theo bậc thang. Lesson 5.3.
+
+    VÌ SAO CẦN: dataset pilot v2 chỉ có normal ở MỘT mức tải cố định
+    (2 Mbps/client, std của rxRate ~0.02 Mbps). Một mô hình học "bình thường"
+    từ một hằng số sẽ coi MỌI thay đổi tải hợp lệ là bất thường -> false
+    positive rate cao ngất ở Phase 6, và bạn sẽ không hiểu tại sao.
+
+    Mô hình cần học "HÌNH DẠNG nào là hợp lệ", không chỉ "con số nào là hợp lệ".
+
+    CÁCH LÀM: iperf v2 không đổi được `-b` giữa dòng, nên ta NỐI TIẾP nhiều
+    lần gọi iperf trong MỘT lệnh shell nền. Timing do chính `-t` của iperf
+    giữ, không cần thread Python -> không có gì tranh chấp với collector.
+    Mỗi lần gọi có ~0.1-0.3 s khởi động, nên bậc thang trôi nhẹ; chấp nhận
+    được vì ta cần "tải thay đổi", không cần mốc chính xác tới ms.
+
+    `rotate=True`: xoay lịch theo chỉ số client, để client dùng mức tải khác nhau tại cùng một bậc.
+    Ranh giới bậc vẫn đồng thời khi các đoạn có cùng độ dài. Nhảy đồng thời tạo một cú giật gấp 3 lần — một dạng "thundering
+    herd" nhân tạo. Xoay đa dạng hóa mức tải từng client; không bảo đảm tải tổng mượt.
+    Đặt `rotate=False` nếu bạn MUỐN bậc thang đồng bộ rõ nét để dễ nhìn.
+    """
+    import shlex
+    segments = schedule_segments(schedule, duration)
+    clients = sorted((h for h in net.hosts if h.name.startswith('h')
+                      and h.name[1:].isdigit()), key=lambda h: int(h.name[1:]))
+    if not clients:
+        raise ValueError('varying profile requires at least one client')
+    servers = (net.get('srv1'), net.get('srv2'))
+    hosts = tuple(clients) + servers
+    stop_all_iperf(*hosts)
+    for server in servers:
+        start_iperf_server(server, udp=False)
+    if server_bg_rate > 0:
+        start_server_to_server(net, rate_mbps=server_bg_rate, duration=duration + 5)
+
+    for i, client in enumerate(clients):
+        server = servers[i % len(servers)]
+        segs = segments
+        if rotate and len(segments) > 1:
+            k = i % len(segments)
+            segs = segments[k:] + segments[:k]
+        parts = [
+            'iperf -c %s -p %d -b %gM -t %d -i 1 >> /tmp/iperf_cli_%s.log 2>&1'
+            % (shlex.quote(server.IP()), IPERF_PORT, rate, secs, client.name)
+            for rate, secs in segs
+        ]
+        marker = '/tmp/dt4n_varying_%s.pid' % client.name
+        client._dt4n_varying_marker = marker
+        body = ' ; '.join(parts)
+        run_host_shell(client, 'setsid sh -c %s </dev/null >/tmp/iperf_vary_%s.log 2>&1 & echo $! > %s'
+                       % (shlex.quote(body), client.name, shlex.quote(marker)))
+        print('[traffic] VARYING %s -> %s TCP lịch %s'
+              % (client.name, server.name,
+                 ','.join('%gM/%ds' % (r, d) for r, d in segs)))
+    return hosts

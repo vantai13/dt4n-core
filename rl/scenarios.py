@@ -240,6 +240,61 @@ class CongestionShift(Scenario):
         self._applied = False
 
 
+class LinkAdminDown(Scenario):
+    """Hạ link THẬT bằng net.configLinkStatus -> status.state = 'down'.
+
+    VÌ SAO CẦN KỊCH BẢN NÀY (Lesson 5.3):
+        `LinkDown` trong file này KHÔNG hạ link. Nó là LinkDegrade với
+        factor 0.97-0.99, tức thắt băng thông xuống max(1.0, bw*0.02) = 1 Mbps.
+        Link vẫn `isUp()`, nên `status.state` vẫn là 'up'.
+
+        Hệ quả đo được ở Lesson 5.1: 16 cột `status.state_up` có nunique = 1
+        trên toàn bộ 150 snapshot -> bị đánh dấu LOẠI vì hằng số. Nếu ma trận
+        18 run cũng không có mẫu link down thật, chúng sẽ CHẾT lần nữa, và
+        Phase 7 (dashboard hiện link đứt) cùng Phase 8 (failover) mất đúng
+        loại sự cố rõ ràng nhất.
+
+    DÙNG CÙNG CƠ CHẾ với `command_agent.h_disable_link` (đã nghiệm thu:
+    accuracy trạng thái link 100%, event fidelity 100%), nhưng đi qua
+    InjectionChannel chứ không qua Ditto — để agent không đọc được lệnh và
+    phải suy ra fault từ metrics. Nếu inject qua Ditto thì twin CHỨA lệnh gây
+    lỗi, và detector đọc twin sẽ thấy lệnh đó -> label leakage.
+    """
+
+    def __init__(self, link_key):
+        self.link_key = link_key
+        self._applied = False
+
+    @classmethod
+    def params_from_seed(cls, rng, spec):
+        candidates = toggleable_links(spec)
+        if not candidates:
+            raise ValueError('no toggleable links available for LinkAdminDown')
+        return cls(_choice(rng, candidates))
+
+    def _endpoints(self, net):
+        for link in net.links:
+            a, b = link.intf1.node.name, link.intf2.node.name
+            if canonical(a, b) == self.link_key:
+                return a, b
+        return None
+
+    def apply(self, net):
+        ends = self._endpoints(net)
+        if ends is None:
+            raise ValueError('link not found: %s' % self.link_key)
+        net.configLinkStatus(ends[0], ends[1], 'down')
+        self._applied = True
+
+    def revert(self, net):
+        ends = self._endpoints(net)
+        if ends is None:
+            return
+        net.configLinkStatus(ends[0], ends[1], 'up')
+        self._applied = False
+
+
+
 SCENARIO_TYPES = [LinkDegrade, TrafficFlood, LinkDown, CongestionShift]
 
 

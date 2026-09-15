@@ -1,0 +1,9 @@
+18 run | base_rate test dự kiến = 27.1% | accuracy mô hình ngu = 72.9%
+train = 8 run, test = 10 run
+phủ link: 8/8  (đủ cả 8)
+
+-> /home/ubuntu/dt4n-core/results/report/experiment_matrix.json
+-> /home/ubuntu/dt4n-core/docs/phase-5/03-experiment-matrix.generated.md
+
+CẢNH BÁO: git_dirty=True. Commit trước khi sinh dataset thật, nếu không dataset KHÔNG tái lập được.
+GATE PASS: ma trận đạt mọi tiêu chí thiết kế.
