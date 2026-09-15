@@ -1,0 +1,159 @@
+feature,kind,nunique,pct_null,std,n_normal,n_fault,mean_normal,std_normal,mean_fault,std_fault,auc,auc_dist,d_pooled,quyet_dinh,ly_do
+timestamp,meta,150,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+t_source,meta,150,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+cycle_scan_ms,meta,150,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+host-h1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+host-h2.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+host-h3.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+host-srv1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+host-srv2.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s1.portStatsRaw.dump,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s2.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s2.portStatsRaw.dump,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s3.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+switch-s3.portStatsRaw.dump,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h1-s1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h1-s1.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h1-s1.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h1-s1.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h1-s1.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h2-s1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h2-s1.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h2-s1.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h2-s1.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h2-s1.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h3-s1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h3-s1.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h3-s1.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h3-s1.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-h3-s1.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s2.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s2.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s2.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s2.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s2.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s3.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s3.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s3.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s3.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s1-s3.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-s3.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-s3.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-s3.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-s3.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-s3.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-srv1.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-srv1.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-srv1.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-srv1.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s2-srv1.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s3-srv2.status.state,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s3-srv2.traffic.utilIntf,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s3-srv2.traffic.utilDirectionSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s3-srv2.traffic.qdiscReason,text,2,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+link-s3-srv2.traffic.lossSource,text,1,0.0,,0,0,,,,,,,,BO_QUA,chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình
+tick,meta,60,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+source_file,meta,3,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+profile,meta,3,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+run_id,meta,3,0.0,,0,0,,,,,,,,BO_QUA,"siêu dữ liệu của lần chạy, không phải đo lường mạng"
+link-s2-s3.traffic.qdiscSentDelta,numeric,4,2.0,0.6229990801608608,59,88,178.52542372881356,0.7276777470592092,178.4431818181818,0.5436774429424788,0.463020030816641,0.07395993836671799,0.1318350035270154,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s2-s3.traffic.rxRate,numeric,4,0.0,9.816923419878927,60,90,2.327,12.637030103252444,0.7782222222222223,7.382864243939777,0.48907407407407405,0.0218518518518519,0.15771072760828428,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s2-s3.traffic.txRate,numeric,148,0.0,37881.33787340669,60,90,265136.6986666667,34815.28834901498,263650.8475555555,39974.81441788455,0.49574074074074076,0.00851851851851848,0.03909925128190868,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-h1-s1.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-h2-s1.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-h3-s1.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s1-s2.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s1-s3.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s2-s3.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s2-srv1.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-s3-srv2.traffic.qdiscValid,bool,2,0.0,0.14046901303903672,60,90,0.9833333333333333,0.12909944487358058,0.9777777777777777,0.14823135407896973,0.49722222222222223,0.005555555555555536,0.03942455219923303,CHAT_VAN,AUC gần 0.5 trong pilot; chưa thấy tách biệt đơn biến theo thứ tự
+link-h1-s1.traffic.lossPct,numeric,48,2.0,29.377851214585135,59,88,0.0,0.0,58.820761363636365,6.612769870197451,1.0,1.0,11.483429467748996,GIU,có biến thiên và có tách biệt đo được
+link-h1-s1.traffic.qdiscDropDelta,numeric,30,2.0,1269.145643579385,59,88,0.0,0.0,2445.181818181818,525.1497552248769,1.0,1.0,6.011078024916336,GIU,có biến thiên và có tách biệt đo được
+link-h1-s1.traffic.qdiscSentDelta,numeric,24,2.0,679.0725998329023,59,88,274.50847457627117,2.8549586708520884,1655.1363636363637,4.543991405057585,1.0,1.0,349.00602609986527,GIU,có biến thiên và có tách biệt đo được
+link-s1-s2.traffic.qdiscSentDelta,numeric,40,2.0,548.5926202690832,59,88,547.4237288135594,4.430316365408202,1662.1022727272727,24.698661964189814,1.0,1.0,57.64902824401614,GIU,có biến thiên và có tách biệt đo được
+link-s2-srv1.traffic.qdiscSentDelta,numeric,51,2.0,548.612446994674,59,88,725.8644067796611,6.884409240472131,1840.5568181818182,24.808627510506664,1.0,1.0,56.572524170010226,GIU,có biến thiên và có tách biệt đo được
+host-h1.traffic.rxRate,numeric,66,0.0,2950.7463269392365,60,90,5940.432333333332,782.8393341090889,39.53977777777778,292.83743174952536,0.009259259259259259,0.9814814814814815,10.848347982321624,GIU,có biến thiên và có tách biệt đo được
+link-h1-s1.traffic.rxRate,numeric,70,0.0,2950.248243351204,60,90,5939.3925,782.8680420348035,39.56055555555555,293.02891279427655,0.009259259259259259,0.9814814814814815,10.844833514881465,GIU,có biến thiên và có tách biệt đo được
+link-s1-s2.traffic.rxRate,numeric,80,0.0,5790.003379509702,60,90,11823.924833333333,1555.9199585666588,504.57455555555555,1641.0038629039027,0.010277777777777778,0.9794444444444445,7.0410384138920845,GIU,có biến thiên và có tách biệt đo được
+host-srv1.traffic.txRate,numeric,148,0.0,39028.305359056714,60,90,276971.8003333333,36371.00375596248,264145.4866666667,40082.4184215197,0.016481481481481482,0.967037037037037,0.33189570432748905,GIU,có biến thiên và có tách biệt đo được
+link-s2-srv1.traffic.rxRate,numeric,148,0.0,39026.0792218883,60,90,276958.8631666667,36367.910362337774,264141.3872222222,40081.79388424812,0.016481481481481482,0.967037037037037,0.3316803219718584,GIU,có biến thiên và có tách biệt đo được
+host-h1.traffic.txRate,numeric,147,0.0,1108884.7567253597,60,90,265298.36883333337,34859.80567991928,2444250.850666667,370551.7741616307,0.9779629629629629,0.9559259259259258,7.560742412817712,GIU,có biến thiên và có tách biệt đo được
+host-srv1.traffic.rxRate,numeric,148,0.0,984874.9513786187,60,90,528934.1596666666,69458.34560577918,2443965.284888889,370511.140758113,0.9779629629629629,0.9559259259259258,6.588847789410462,GIU,có biến thiên và có tách biệt đo được
+link-h1-s1.traffic.txRate,numeric,148,0.0,1109016.0540512062,60,90,265040.94383333327,34902.624019120616,2444267.699444445,370554.52117220283,0.9779629629629629,0.9559259259259258,7.5615841787635985,GIU,có biến thiên và có tách biệt đo được
+link-s1-s2.traffic.txRate,numeric,148,0.0,984935.7002052428,60,90,528848.5895,69518.0809251909,2444003.303888889,370515.67109147715,0.9779629629629629,0.9559259259259258,6.589065211118468,GIU,có biến thiên và có tách biệt đo được
+link-s2-srv1.traffic.txRate,numeric,148,0.0,984943.345275846,60,90,528831.0251666667,69597.95391020499,2443997.488777778,370515.18916365947,0.9779629629629629,0.9559259259259258,6.588941270967106,GIU,có biến thiên và có tách biệt đo được
+link-h3-s1.traffic.rxRate,numeric,79,0.0,2942.93164368253,60,90,5887.852499999999,775.9466954949781,467.76266666666663,1489.1261000232107,0.024814814814814814,0.9503703703703704,4.32086400690006,GIU,có biến thiên và có tách biệt đo được
+host-h3.traffic.rxRate,numeric,78,0.0,2934.7255160063564,60,90,5881.104833333334,774.986303167083,467.7543333333333,1472.1640074279783,0.026851851851851852,0.9462962962962963,4.358356687416155,GIU,có biến thiên và có tách biệt đo được
+link-s1-s2.traffic.lossPct,numeric,19,2.0,24.429897558951087,59,88,0.0,0.0,33.53164772727273,23.347256788349767,0.9545454545454546,0.9090909090909092,1.8541437850837743,GIU,có biến thiên và có tách biệt đo được
+link-s1-s2.traffic.qdiscDropDelta,numeric,21,2.0,808.5260855949568,59,88,0.0,0.0,1104.1363636363637,775.956379592502,0.9545454545454546,0.9090909090909092,1.8370026377648434,GIU,có biến thiên và có tách biệt đo được
+link-s3-srv2.traffic.qdiscSentDelta,numeric,30,2.0,592.3751102723273,59,88,449.9491525423729,3.1863054424962716,1257.9431818181818,569.0623535710552,0.8685477657935285,0.7370955315870571,1.833023919138224,GIU,có biến thiên và có tách biệt đo được
+link-s1-s3.traffic.qdiscSentDelta,numeric,25,2.0,679.9754314412489,59,88,272.10169491525426,3.937857439733358,1199.1022727272727,653.4903465991091,0.8531394453004623,0.7062788906009245,1.8313019024882877,GIU,có biến thiên và có tách biệt đo được
+link-s3-srv2.traffic.txRate,numeric,148,0.0,973230.1806465293,60,90,529047.4181666666,69500.24093366008,1812215.021111111,957347.0861962195,0.8405555555555555,0.681111111111111,1.7254106638243265,GIU,có biến thiên và có tách biệt đo được
+link-h2-s1.traffic.lossPct,numeric,21,2.0,30.943212110497154,59,88,0.0,0.0,42.17960227272727,29.741111540165953,0.8352272727272727,0.6704545454545454,1.8309212253359926,GIU,có biến thiên và có tách biệt đo được
+link-h2-s1.traffic.qdiscDropDelta,numeric,11,2.0,1380.5388921189656,59,88,0.0,0.0,1881.8522727272727,1326.9073934526755,0.8352272727272727,0.6704545454545454,1.8309196628335886,GIU,có biến thiên và có tách biệt đo được
+link-h2-s1.traffic.qdiscSentDelta,numeric,27,2.0,679.7659312401669,59,88,272.8135593220339,4.4507828690335245,1199.1363636363637,653.5125636484696,0.8300269645608629,0.6600539291217258,1.8298945962668232,GIU,có biến thiên và có tách biệt đo được
+link-h3-s1.traffic.lossPct,numeric,25,2.0,30.636587823330146,59,88,0.0,0.0,40.75853409090909,30.011586052358762,0.8295454545454546,0.6590909090909092,1.7532909176533553,GIU,có biến thiên và có tách biệt đo được
+link-h3-s1.traffic.qdiscDropDelta,numeric,18,2.0,1364.7914832834956,59,88,0.0,0.0,1809.1704545454545,1340.5386824396498,0.8295454545454546,0.6590909090909092,1.7423063162820476,GIU,có biến thiên và có tách biệt đo được
+link-s3-srv2.traffic.lossPct,numeric,27,2.0,4.734939350259762,59,88,0.0,0.0,6.2519431818181825,4.664286029945889,0.8238636363636364,0.6477272727272727,1.7304307432519481,GIU,có biến thiên và có tách biệt đo được
+link-s3-srv2.traffic.qdiscDropDelta,numeric,6,2.0,86.79316660574719,59,88,0.0,0.0,114.55681818181819,85.52177352044043,0.8238636363636364,0.6477272727272727,1.7292931407955054,GIU,có biến thiên và có tách biệt đo được
+link-h2-s1.traffic.rxRate,numeric,91,0.0,2932.339452483683,60,90,5821.757166666667,782.3382222371549,1920.6688888888891,2798.9099432009803,0.18601851851851853,0.627962962962963,1.7525382910695924,GIU,có biến thiên và có tách biệt đo được
+link-s1-s3.traffic.txRate,numeric,148,0.0,1098604.4182579503,60,90,264420.5345,34834.80385690639,1725308.1218888892,1075416.264360843,0.8124074074074074,0.6248148148148147,1.7511569266283016,GIU,có biến thiên và có tách biệt đo được
+host-srv2.traffic.txRate,numeric,90,0.0,2930.9844923331784,60,90,5815.382833333334,780.5444142024741,1921.0248888888889,2800.656548025534,0.1937037037037037,0.6125925925925926,1.7486743331557335,GIU,có biến thiên và có tách biệt đo được
+link-s1-s3.traffic.rxRate,numeric,90,0.0,2928.243470576357,60,90,5807.563833333333,782.4221172030136,1920.225555555555,2799.453449730722,0.19462962962962962,0.6107407407407408,1.746029616481324,GIU,có biến thiên và có tách biệt đo được
+host-h2.traffic.rxRate,numeric,91,0.0,2927.249374772714,60,90,5807.413666666668,777.6879734774176,1920.6641111111114,2798.9179973588166,0.1986111111111111,0.6027777777777779,1.746601721768492,GIU,có biến thiên và có tách biệt đo được
+link-s3-srv2.traffic.rxRate,numeric,90,0.0,2923.9247975443195,60,90,5793.755666666666,778.3743261556049,1921.2458888888889,2800.956932954331,0.20425925925925925,0.5914814814814815,1.7389229407687383,GIU,có biến thiên và có tách biệt đo được
+link-h2-s1.traffic.txRate,numeric,148,0.0,1098371.9683230296,60,90,265178.2045,35021.72580097464,1725311.394111111,1075429.153183052,0.785,0.5700000000000001,1.7502251275348082,GIU,có biến thiên và có tách biệt đo được
+host-srv2.traffic.rxRate,numeric,148,0.0,972917.5098341611,60,90,530064.2833333334,69616.28592247526,1812192.0867777774,957372.9451568053,0.7542592592592593,0.5085185185185186,1.7239560642906018,GIU,có biến thiên và có tách biệt đo được
+host-h2.traffic.txRate,numeric,148,0.0,1098404.0047433993,60,90,265089.3186666667,34830.04664697138,1725318.5316666665,1075435.3219915456,0.7422222222222222,0.48444444444444446,1.7503369069966361,GIU,có biến thiên và có tách biệt đo được
+link-h3-s1.traffic.txRate,numeric,145,0.0,1127589.3591000943,60,90,264838.65033333335,34944.66400188194,1648230.258,1163486.4101211913,0.6941666666666667,0.3883333333333334,1.532815420637005,GIU,có biến thiên và có tách biệt đo được
+link-h3-s1.traffic.qdiscSentDelta,numeric,34,2.0,715.0951677683283,59,88,273.6271186440678,2.9237334722432156,1122.9431818181818,751.8618324701632,0.6884630200308166,0.3769260400616332,1.4583221925795107,GIU,có biến thiên và có tách biệt đo được
+host-h3.traffic.txRate,numeric,145,0.0,1127208.4613766694,60,90,264970.12166666664,34813.79501151699,1648235.248,1162931.8027341403,0.6863888888888889,0.3727777777777779,1.5334092091796447,GIU,có biến thiên và có tách biệt đo được
+host-h1.traffic.rxBytes,cumulative,72,0.0,114791.08620042607,60,90,197563.63333333333,105735.13977955608,387679.26666666666,5378.290279687799,1.0,1.0,2.842218642267914,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h1.traffic.txBytes,cumulative,150,0.0,80952887.78074208,60,90,8770578.5,4715333.651070952,136469670.31111112,66034228.29444227,1.0,1.0,2.4895553264995427,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h2.traffic.rxBytes,cumulative,93,0.0,129745.37093012528,60,90,194768.66666666666,103887.61945041113,406507.4666666667,53786.95176617308,1.0,1.0,2.7239732792497366,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h2.traffic.txBytes,cumulative,150,0.0,70496585.46695873,60,90,8762027.1,4712920.234533286,125673027.46666667,52694847.42938989,1.0,1.0,2.8534786787853266,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h3.traffic.rxBytes,cumulative,84,0.0,118850.85337766638,60,90,195606.73333333334,104278.0522699567,394511.9555555555,20896.77966476062,1.0,1.0,2.9335056890345244,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h3.traffic.txBytes,cumulative,147,0.0,69366928.1851895,60,90,8753231.2,4711704.417915535,124092283.42222223,51574375.00294068,1.0,1.0,2.875942004758346,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-srv1.traffic.rxBytes,cumulative,150,0.0,84851851.2921748,60,90,17491503.3,9400510.982928613,154079270.2,66698887.87449349,1.0,1.0,2.623543579961561,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-srv1.traffic.txBytes,cumulative,150,0.0,12307785.999766665,60,90,9167967.733333332,4922297.749579008,30661468.31111111,7118819.438853659,1.0,1.0,3.3927469067707383,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-srv2.traffic.rxBytes,cumulative,150,0.0,75627443.74048479,60,90,17534661.133333333,9422523.714946467,144534737.86666667,54702882.02615812,1.0,1.0,2.9648319481878116,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-srv2.traffic.txBytes,cumulative,92,0.0,131055.59739601408,60,90,195270.73333333334,104046.98740242749,408933.3333333333,55786.27686109256,1.0,1.0,2.7163337591393604,LOAI,BỘ ĐẾM CỘNG DỒN: phụ thuộc thời gian từ lúc interface/reset; có thể làm mô hình học tuổi/thứ tự run thay vì sức khỏe mạng
+host-h1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+host-h2.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+host-h3.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+host-srv1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+host-srv2.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+switch-s1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+switch-s2.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+switch-s3.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h1-s1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h1-s1.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-h1-s1.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h2-s1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h2-s1.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-h2-s1.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h3-s1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-h3-s1.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-h3-s1.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s2.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s2.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-s1-s2.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s3.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s3.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-s1-s3.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s3.traffic.lossPct,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-s3.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-s3.capacity.bwMbps,config,1,0.0,0.0,60,90,5.0,0.0,5.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-s2-s3.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-s3.traffic.lossPct,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-srv1.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-srv1.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-s2-srv1.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-srv1.traffic.lossPct,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s3-srv2.status.state_up,numeric,1,0.0,0.0,60,90,1.0,0.0,1.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s3-srv2.capacity.bwMbps,config,1,0.0,0.0,60,90,20.0,0.0,20.0,0.0,0.5,0.0,,LOAI,GIÁ TRỊ CẤU HÌNH do chính kịch bản inject ghi vào twin (LinkDegrade.apply đặt link.dt4n_bw). Dùng làm feature = đọc lại nhãn của chính mình -> leakage
+link-s3-srv2.traffic.interfaceLossPct,numeric,1,0.0,0.0,60,90,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s1-s3.traffic.qdiscDropDelta,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-s3.traffic.qdiscDropDelta,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin
+link-s2-srv1.traffic.qdiscDropDelta,numeric,1,2.0,0.0,59,88,0.0,0.0,0.0,0.0,0.5,0.0,,LOAI,hằng số trên TOÀN BỘ dataset -> không mang thông tin

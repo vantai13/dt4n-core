@@ -1,3 +1,5 @@
 # Phase 5 — Chuẩn bị dữ liệu ML
 
 Đã hoàn tất pilot v2: 60 normal, 60 flood, 30 inject; cả 6 gate feature đạt. Thống kê độ lệch chuẩn và SHA-256 ở results/report/ml_dataset_summary.json. Chưa huấn luyện mô hình; cần đa dạng hóa tải/seed/fault và chia train/test theo lần chạy. Bỏ feature hằng hoặc không hợp lệ, kiểm tra qdiscValid; không trộn loss v1/v2 trực tiếp.
+
+Lesson 5.1 hoàn tất: 150×158, GIỮ41/CHẤT VẤN11/LOẠI48/BỎ QUA58, gate 37 ứng viên mạnh; test51 pass4 skip. Chi tiết và giới hạn: [01-feature-audit.md](01-feature-audit.md). Null giữ nguyên; chưa impute hoặc train. Map hướng8 link được thêm và test, snapshot v2 gốc vẫn giữ alphabetical_fallback.

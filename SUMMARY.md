@@ -56,3 +56,11 @@ Trong VS Code Remote SSH, forward cổng 8765 và 5173. Kho DT4N cũ giữ nguy�
 Độ trễ randomized-settle: đồng bộ p50/p95 682.14/1017.11 ms, lệnh 674.70/984.19 ms. HTTP timeout=3: [408, 408], trạng thái vẫn phản ánh [True, True].
 
 Báo cáo, bảng so sánh và giới hạn: [ML_PREFLIGHT.md](results/report/ML_PREFLIGHT.md). JSON: [ml_dataset_summary.json](results/report/ml_dataset_summary.json). Đây là kiểm chứng dữ liệu trước ML, chưa huấn luyện mô hình.
+
+## Lesson 5.1 — Feature audit
+
+Đã hoàn tất trên nhánh `phase/5-dataset`: 150 snapshot × 158 cột; GIỮ 41, CHẤT VẤN 11, LOẠI 48, BỎ QUA 58. Gate đạt với 37 feature được giữ có auc_dist >0.5. `cycle_scan_ms` được bỏ qua như metadata nên số giữ thấp hơn hướng dẫn một cột. Thêm map hướng tham chiếu đủ 8 link và giữ nguyên dataset v2.
+
+Kiểm thử: **51 passed, 4 skipped**, không lỗi; 4 skip cần môi trường live. Báo cáo: [01-feature-audit.md](docs/phase-5/01-feature-audit.md). Bảng: [feature_audit.csv](results/report/feature_audit.csv); JSON: [feature_audit_summary.json](results/report/feature_audit_summary.json); biểu đồ: [feature_audit_dist.png](results/report/feature_audit_dist.png); log: [phase5_pytest.log](logs/phase5_pytest.log).
+
+Pilot chưa chứng minh hiệu quả mô hình; còn confound TCP/UDP và tải, injection không có baseline/onset, s2-s3 chưa tách biệt và chỉ một đoạn thu/profile. Lesson 5.2–5.3 chưa triển khai trong đợt này.

@@ -42,6 +42,23 @@ UPSTREAM_OF: dict[str, tuple[str, str]] = {
 }
 
 
+# Topology dt4n-core (tam giác): luồng chảy client -> switch -> server.
+# PHẢI khớp mininet/topology.py::TriangleTopo.
+# Trước khi thêm map này, upstream_node() trả None cho mọi link của
+# dt4n-core, nên collector dán nhãn utilDirectionSource =
+# "alphabetical_fallback" ở 8/8 link, suốt cả dataset v2.
+UPSTREAM_OF_CORE: dict[str, tuple[str, str]] = {
+    "h1-s1":   ("h1", "s1"),      # client gửi lên switch biên
+    "h2-s1":   ("h2", "s1"),
+    "h3-s1":   ("h3", "s1"),
+    "s1-s2":   ("s1", "s2"),      # biên -> lõi
+    "s1-s3":   ("s1", "s3"),
+    "s2-s3":   ("s2", "s3"),      # srv1 -> srv2 qua bottleneck 5 Mbps
+    "s2-srv1": ("s2", "srv1"),    # lõi -> server
+    "s3-srv2": ("s3", "srv2"),
+}
+UPSTREAM_OF.update(UPSTREAM_OF_CORE)
+
 def canonical_key(a: str, b: str) -> str:
     """Ban sao cua `bridge.collector.canonical_link_key`.
 

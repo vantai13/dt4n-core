@@ -1,0 +1,214 @@
+{
+  "n_snapshots": 150,
+  "n_columns": 158,
+  "by_decision": {
+    "BO_QUA": 58,
+    "LOAI": 48,
+    "GIU": 41,
+    "CHAT_VAN": 11
+  },
+  "kept": [
+    "link-h1-s1.traffic.lossPct",
+    "link-h1-s1.traffic.qdiscDropDelta",
+    "link-h1-s1.traffic.qdiscSentDelta",
+    "link-s1-s2.traffic.qdiscSentDelta",
+    "link-s2-srv1.traffic.qdiscSentDelta",
+    "host-h1.traffic.rxRate",
+    "link-h1-s1.traffic.rxRate",
+    "link-s1-s2.traffic.rxRate",
+    "host-srv1.traffic.txRate",
+    "link-s2-srv1.traffic.rxRate",
+    "host-h1.traffic.txRate",
+    "host-srv1.traffic.rxRate",
+    "link-h1-s1.traffic.txRate",
+    "link-s1-s2.traffic.txRate",
+    "link-s2-srv1.traffic.txRate",
+    "link-h3-s1.traffic.rxRate",
+    "host-h3.traffic.rxRate",
+    "link-s1-s2.traffic.lossPct",
+    "link-s1-s2.traffic.qdiscDropDelta",
+    "link-s3-srv2.traffic.qdiscSentDelta",
+    "link-s1-s3.traffic.qdiscSentDelta",
+    "link-s3-srv2.traffic.txRate",
+    "link-h2-s1.traffic.lossPct",
+    "link-h2-s1.traffic.qdiscDropDelta",
+    "link-h2-s1.traffic.qdiscSentDelta",
+    "link-h3-s1.traffic.lossPct",
+    "link-h3-s1.traffic.qdiscDropDelta",
+    "link-s3-srv2.traffic.lossPct",
+    "link-s3-srv2.traffic.qdiscDropDelta",
+    "link-h2-s1.traffic.rxRate",
+    "link-s1-s3.traffic.txRate",
+    "host-srv2.traffic.txRate",
+    "link-s1-s3.traffic.rxRate",
+    "host-h2.traffic.rxRate",
+    "link-s3-srv2.traffic.rxRate",
+    "link-h2-s1.traffic.txRate",
+    "host-srv2.traffic.rxRate",
+    "host-h2.traffic.txRate",
+    "link-h3-s1.traffic.txRate",
+    "link-h3-s1.traffic.qdiscSentDelta",
+    "host-h3.traffic.txRate"
+  ],
+  "n_auc_dist_gt_0_5": 37,
+  "n_kept_d_pooled_gt_1": 39,
+  "sources": {
+    "logs/ml_normal_v2.jsonl": {
+      "sha256": "5999da0a215ed44ed6d8b6a08f0cedd435b3f1460293341c5605030fb5c86672",
+      "meta": {
+        "profile": "normal",
+        "run_id": "pilot-normal-v2",
+        "is_fault": 0
+      }
+    },
+    "logs/ml_flood_v2.jsonl": {
+      "sha256": "70e9dd75dffd156b66d8143dfceacd1ed3acd4947cef3eb52900af612daddce1",
+      "meta": {
+        "profile": "flood",
+        "run_id": "pilot-flood-v2",
+        "is_fault": 1
+      }
+    },
+    "logs/ml_injection_v2.jsonl": {
+      "sha256": "d81dc49b9e0c49db870f53d0edb22e27a91b36d8a05160103f4d713a4eda4c25",
+      "meta": {
+        "profile": "injection",
+        "run_id": "pilot-injection-v2",
+        "is_fault": 1
+      }
+    }
+  },
+  "separation_metric": "AUC = P(fault > normal) + 0.5*P(tie); d_pooled uses pooled sample std",
+  "audit_parameters": {
+    "null_limit_pct": 50,
+    "auc_dist_min": 0.1,
+    "strong_auc_dist": 0.5
+  },
+  "gate_counts_only_kept_features": true,
+  "scope": "pilot 1 run/profile — KHÔNG phải bằng chứng hiệu năng ML",
+  "gate": {
+    "minimum_strong_kept": 5,
+    "pass": true
+  },
+  "diagnostics": {
+    "profiles": {
+      "normal": {
+        "n_snapshots": 60,
+        "fault_label": 0,
+        "qdisc_link_samples": 480,
+        "qdisc_invalid": 8,
+        "qdisc_invalid_reasons": {
+          "warmup": 8
+        },
+        "qdisc_invalid_ticks": [
+          0
+        ],
+        "interval_median_s": 1.0007812976837158,
+        "interval_min_s": 1.0000200271606445,
+        "interval_max_s": 1.0009846687316895,
+        "scan_median_ms": 69.58317756652832,
+        "cumulative_tick_pearson_diagnostic_only": {
+          "host-h1.traffic.rxBytes": 0.9999977790724704,
+          "host-h1.traffic.txBytes": 0.9999999591016744,
+          "host-h2.traffic.rxBytes": 0.9999514297292723,
+          "host-h2.traffic.txBytes": 0.99999992612497,
+          "host-h3.traffic.rxBytes": 0.9999958719795634,
+          "host-h3.traffic.txBytes": 0.9999996441511778,
+          "host-srv1.traffic.rxBytes": 0.9999999891104655,
+          "host-srv1.traffic.txBytes": 0.9999999904208662,
+          "host-srv2.traffic.rxBytes": 0.9999999780728408,
+          "host-srv2.traffic.txBytes": 0.9999458212449774
+        }
+      },
+      "flood": {
+        "n_snapshots": 60,
+        "fault_label": 1,
+        "qdisc_link_samples": 480,
+        "qdisc_invalid": 8,
+        "qdisc_invalid_reasons": {
+          "warmup": 8
+        },
+        "qdisc_invalid_ticks": [
+          0
+        ],
+        "interval_median_s": 1.0008409023284912,
+        "interval_min_s": 1.0000791549682617,
+        "interval_max_s": 1.0009818077087402,
+        "scan_median_ms": 68.12405586242676,
+        "cumulative_tick_pearson_diagnostic_only": {
+          "host-h1.traffic.rxBytes": 0.8642187985129988,
+          "host-h1.traffic.txBytes": 0.9999999964001037,
+          "host-h2.traffic.rxBytes": 0.9207308763973765,
+          "host-h2.traffic.txBytes": 0.9999999993091759,
+          "host-h3.traffic.rxBytes": 0.9320626054743476,
+          "host-h3.traffic.txBytes": 0.9999771145394941,
+          "host-srv1.traffic.rxBytes": 0.9999999991727314,
+          "host-srv1.traffic.txBytes": 0.9999999950316212,
+          "host-srv2.traffic.rxBytes": 0.9999999991290845,
+          "host-srv2.traffic.txBytes": 0.6185517597760833
+        }
+      },
+      "injection": {
+        "n_snapshots": 30,
+        "fault_label": 1,
+        "qdisc_link_samples": 240,
+        "qdisc_invalid": 8,
+        "qdisc_invalid_reasons": {
+          "warmup": 8
+        },
+        "qdisc_invalid_ticks": [
+          0
+        ],
+        "interval_median_s": 1.000730037689209,
+        "interval_min_s": 1.0000181198120117,
+        "interval_max_s": 1.0009911060333252,
+        "scan_median_ms": 67.04890727996826,
+        "cumulative_tick_pearson_diagnostic_only": {
+          "host-h1.traffic.rxBytes": 0.5305824466159202,
+          "host-h1.traffic.txBytes": 0.9999999974827607,
+          "host-h2.traffic.rxBytes": 0.9999721414140363,
+          "host-h2.traffic.txBytes": 0.9999999907440575,
+          "host-h3.traffic.rxBytes": 0.735162564071117,
+          "host-h3.traffic.txBytes": 0.7193431792030369,
+          "host-srv1.traffic.rxBytes": 0.999999933137816,
+          "host-srv1.traffic.txBytes": 0.9999937959742823,
+          "host-srv2.traffic.rxBytes": 0.9999999940201029,
+          "host-srv2.traffic.txBytes": 0.9999721995538472
+        }
+      }
+    },
+    "direction_sources": {
+      "link-h1-s1.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-h2-s1.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-h3-s1.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-s1-s2.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-s1-s3.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-s2-s3.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-s2-srv1.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      },
+      "link-s3-srv2.traffic.utilDirectionSource": {
+        "alphabetical_fallback": 150
+      }
+    },
+    "python": "3.13.13",
+    "packages": {
+      "pandas": "3.0.5",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2"
+    },
+    "warning": "Transport/load/profile and collection order are confounded; these are in-sample univariate statistics."
+  }
+}

@@ -1,0 +1,3 @@
+-> /home/ubuntu/dt4n-core/results/report/feature_audit_dist.png
+mạnh nhất: ['link-h1-s1.traffic.lossPct', 'link-h1-s1.traffic.qdiscDropDelta', 'link-h1-s1.traffic.qdiscSentDelta', 'link-s1-s2.traffic.qdiscSentDelta']
+yếu nhất : ['link-s2-s3.traffic.txRate', 'link-s2-s3.traffic.rxRate', 'link-s2-s3.traffic.qdiscSentDelta', 'host-h3.traffic.txRate']

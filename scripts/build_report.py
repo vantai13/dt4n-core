@@ -51,6 +51,14 @@ if ml:
           'HTTP timeout=3 trả các status: '+str([x['http_status'] for x in ack])+'. Trạng thái mạng vẫn phản ánh: '+str([x['reflected_down'] for x in ack])+'. Xem SSE gốc trong command_ack_timeout3.json.',
           'HTTP outbox POST của agent là thông báo mới, không phải Ditto Protocol response tương quan cho inbox. timeout=0 xác nhận tiếp nhận HTTP; phép đo vòng kín vẫn chờ trạng thái thật. Chi tiết và nguồn chính thức trong ML_PREFLIGHT.md.']
 
+feature_audit=load('feature_audit_summary.json')
+if feature_audit:
+ lines += ['', '## Lesson 5.1 — Feature audit', '',
+           f"{feature_audit['n_snapshots']} snapshot × {feature_audit['n_columns']} cột; quyết định: {feature_audit['by_decision']}.",
+           f"Gate: {feature_audit['n_auc_dist_gt_0_5']} feature được GIỮ có auc_dist >0.5; kết quả {feature_audit['gate']['pass']}.",
+           'Test Lesson 5.1: 51 passed, 4 skipped; xem phase5_pytest.xml. Chưa train hoặc impute. Báo cáo: ../../docs/phase-5/01-feature-audit.md; CSV/JSON/plot: feature_audit*.',
+           'Pilot còn confound protocol/tải và thứ tự run; injection không có onset/baseline. AUC này là thống kê đơn biến trên dữ liệu đã audit.']
+
 (out/'ACCEPTANCE.md').write_text('\n'.join(lines))
 body='<h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: '+html.escape(datetime.datetime.now(datetime.timezone.utc).isoformat())+'</p>'
 body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p>'
@@ -84,6 +92,19 @@ if ml:
   d=load(name+'.json')
   if d and d.get('result'):
    x=d['result'];body+=f"<p>{name}: n={x['n']}, p50={x['p50_ms']:.2f} ms, p95={x['p95_ms']:.2f} ms.</p>"
+if feature_audit:
+ phase_unit=ET.parse(out/'phase5_pytest.xml').getroot().find('testsuite').attrib
+ phase_pass=int(phase_unit['tests'])-sum(int(phase_unit[k]) for k in ['skipped','failures','errors'])
+ body+='<h2 id="feature-audit">Lesson 5.1 — Feature audit</h2>'
+ body+=f"<p>{feature_audit['n_snapshots']} snapshot × {feature_audit['n_columns']} cột; {phase_pass} passed, {phase_unit['skipped']} skipped.</p>"
+ body+='<table><tr><th>Quyết định</th><th>Số cột</th></tr>'
+ for key in ['GIU','CHAT_VAN','LOAI','BO_QUA']:
+  body+=f"<tr><td>{key}</td><td>{feature_audit['by_decision'][key]}</td></tr>"
+ body+='</table>'
+ body+=f"<p>Gate PASS: {feature_audit['n_auc_dist_gt_0_5']} feature được giữ có auc_dist &gt;0.5. Chưa huấn luyện mô hình; pilot còn confound tải/protocol.</p>"
+ body+='<p><a href="docs/phase-5/01-feature-audit.md">Báo cáo Lesson 5.1</a> · <a href="results/report/feature_audit.csv">CSV từng cột</a> · <a href="results/report/feature_audit_summary.json">JSON và SHA-256</a> · <a href="logs/phase5_pytest.log">Log test</a></p>'
+ body+='<a href="results/report/feature_audit_dist.png"><img style="width:100%" src="results/report/feature_audit_dist.png" alt="Phân bố normal và fault của 8 feature"></a>'
+
 body+='<h2>Trạng thái nghiệm thu</h2>'
 
 for filename in ['routing_comparison.json','bootstrap_scale.json','verification.json','security_live.json','soak_progress.json','dashboard_smoke.json','dashboard_live.json','dashboard_last_known.json','final_summary.json']:

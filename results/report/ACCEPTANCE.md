@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T09:50:36.711085+00:00
+Cập nhật UTC: 2026-09-15T11:04:40.594491+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -77,3 +77,10 @@ Các mẫu v1 chụm gần một chu kỳ, phù hợp với nghi vấn khóa pha
 
 HTTP timeout=3 trả các status: [408, 408]. Trạng thái mạng vẫn phản ánh: [True, True]. Xem SSE gốc trong command_ack_timeout3.json.
 HTTP outbox POST của agent là thông báo mới, không phải Ditto Protocol response tương quan cho inbox. timeout=0 xác nhận tiếp nhận HTTP; phép đo vòng kín vẫn chờ trạng thái thật. Chi tiết và nguồn chính thức trong ML_PREFLIGHT.md.
+
+## Lesson 5.1 — Feature audit
+
+150 snapshot × 158 cột; quyết định: {'BO_QUA': 58, 'LOAI': 48, 'GIU': 41, 'CHAT_VAN': 11}.
+Gate: 37 feature được GIỮ có auc_dist >0.5; kết quả True.
+Test Lesson 5.1: 51 passed, 4 skipped; xem phase5_pytest.xml. Chưa train hoặc impute. Báo cáo: ../../docs/phase-5/01-feature-audit.md; CSV/JSON/plot: feature_audit*.
+Pilot còn confound protocol/tải và thứ tự run; injection không có onset/baseline. AUC này là thống kê đơn biến trên dữ liệu đã audit.

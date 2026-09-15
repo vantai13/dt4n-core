@@ -1,0 +1,55 @@
+Requirement already satisfied: pytest==9.1.1 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 1)) (9.1.1)
+Requirement already satisfied: requests==2.34.2 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from -r requirements.txt (line 2)) (2.34.2)
+Collecting pandas>=2.2 (from -r requirements.txt (line 3))
+  Downloading pandas-3.0.5-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting numpy>=1.26 (from -r requirements.txt (line 4))
+  Downloading numpy-2.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting matplotlib>=3.8 (from -r requirements.txt (line 5))
+  Downloading matplotlib-3.11.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Requirement already satisfied: iniconfig>=1.0.1 in ./.venv/lib/python3.13/site-packages (from pytest==9.1.1->-r requirements.txt (line 1)) (2.3.0)
+Requirement already satisfied: packaging>=22 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from pytest==9.1.1->-r requirements.txt (line 1)) (26.2)
+Requirement already satisfied: pluggy<2,>=1.5 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from pytest==9.1.1->-r requirements.txt (line 1)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in ./.venv/lib/python3.13/site-packages (from pytest==9.1.1->-r requirements.txt (line 1)) (2.21.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from requests==2.34.2->-r requirements.txt (line 2)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from requests==2.34.2->-r requirements.txt (line 2)) (3.17)
+Requirement already satisfied: urllib3<3,>=1.26 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from requests==2.34.2->-r requirements.txt (line 2)) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /home/ubuntu/miniforge3/lib/python3.13/site-packages (from requests==2.34.2->-r requirements.txt (line 2)) (2026.5.20)
+Collecting python-dateutil>=2.8.2 (from pandas>=2.2->-r requirements.txt (line 3))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting contourpy>=1.0.1 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting cycler>=0.10 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Downloading fonttools-4.65.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (125 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting pillow>=9 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting pyparsing>=3 (from matplotlib>=3.8->-r requirements.txt (line 5))
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas>=2.2->-r requirements.txt (line 3))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading pandas-3.0.5-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 188.6 MB/s  0:00:00
+Downloading numpy-2.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 226.4 MB/s  0:00:00
+Downloading matplotlib-3.11.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 189.2 MB/s  0:00:00
+Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (384 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.65.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 190.2 MB/s  0:00:00
+Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 124.9 MB/s  0:00:00
+Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 237.0 MB/s  0:00:00
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, pyparsing, pillow, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, pandas, matplotlib
+
+Successfully installed contourpy-1.4.0 cycler-0.12.1 fonttools-4.65.0 kiwisolver-1.5.1 matplotlib-3.11.2 numpy-2.5.3 pandas-3.0.5 pillow-12.3.0 pyparsing-3.3.2 python-dateutil-2.9.0.post0 six-1.17.0
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.1
+[notice] To update, run: /home/ubuntu/dt4n-core/.venv/bin/python3 -m pip install --upgrade pip

@@ -120,3 +120,14 @@ Phép đo latency có tùy chọn `--randomize-phase --seed 20260915` khi gọi 
 Dữ liệu mới: `logs/ml_normal_v2.jsonl`, `ml_flood_v2.jsonl`, `ml_injection_v2.jsonl`. Đây là pilot kiểm chứng feature, chưa phải dataset train/test hay bằng chứng hiệu quả ML. Kết quả tổng hợp: `results/report/ml_dataset_summary.json`.
 
 Lệnh dashboard dùng Ditto `timeout=0`, sau đó xác nhận trạng thái qua sync/SSE. Outbox HTTP POST của agent là thông báo mới, không đảm bảo trả lời tương quan cho HTTP inbox đang chờ. Phép thử `timeout=3` và SSE gốc được lưu riêng ở `results/report/command_ack_timeout3.json`.
+
+## Kiểm toán feature — Lesson 5.1
+
+```bash
+.venv/bin/python -m pip install -r requirements-phase5.lock.txt
+.venv/bin/python -m scripts.audit_features
+.venv/bin/python -m scripts.plot_feature_audit
+.venv/bin/python -m pytest -rs
+```
+
+Chạy trên dữ liệu v2 có sẵn, không cần khởi động Mininet/Ditto. Báo cáo và giới hạn: [docs/phase-5/01-feature-audit.md](docs/phase-5/01-feature-audit.md). CSV/JSON/biểu đồ ở `results/report/feature_audit*`; chưa huấn luyện mô hình.

@@ -25,3 +25,7 @@ Cấu hình Compose đã đổi đường dẫn bind mount tài liệu sang ditt
 Sửa qdisc counters/validity, profile đa client, injection mnexec, jitter settle và xác nhận reset latency; giữ dataset và thống kê v1. Thêm pilot mạng thật, HTTP timeout=3 probe, test hồi quy, tổng kết và ảnh v2. Bỏ optional Swagger/OpenAPI khỏi cây Git hiện tại; service docs cũng được bỏ khỏi Compose. 74 static asset còn giữ khớp byte với source release Eclipse Ditto 3.9.1, SHA-256 trong ditto_asset_provenance.json; license/notice upstream được bảo tồn trong ditto/upstream.
 
 Không viết lại commit 8660edf; tài liệu upstream của bản v1 vẫn có trong lịch sử. Pilot v2 chưa phải nghiệm thu hiệu quả mô hình ML.
+
+## Lesson 5.1 — Feature audit
+
+Từ commit 9192649, triển khai hướng dẫn đính kèm về schema/flatten/audit và plot, bổ sung map TriangleTopo. Sửa gate chỉ đếm feature được giữ, bỏ cycle_scan_ms khỏi ứng viên, bảo toàn null/unknown state và kiểm tra nhãn. Dùng pooled sample std và AUC có nửa điểm khi hòa; không sao chép các kết luận tổng quát về missingness hoặc hiệu năng mô hình từ hướng dẫn. SHA-256 raw v2 bảo tồn trong feature_audit_summary.json; báo cáo thực tế tại docs/phase-5/01-feature-audit.md.
