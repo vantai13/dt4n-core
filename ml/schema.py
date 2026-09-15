@@ -19,7 +19,7 @@ META_COLS = (
     'timestamp', 'source_file',
     'cycle_scan_ms', 'group', 'split', 'fault', 'fault_target', 't_inject',
     't_revert', 'exec_index', 'period_sec', 'pre_roll_sec', 'warmup_ticks',
-    'duration_sec', 'git_dirty', 't_rel',
+    'duration_sec', 'git_dirty', 't_rel', 'design_content_sha256', 'source_dirty',
 )
 
 # --- hậu tố xác định LOẠI cột --------------------------------------------

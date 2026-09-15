@@ -11,6 +11,7 @@ import json
 import logging
 import subprocess
 import threading
+import math
 import time
 from collections import deque
 from bridge.ditto_reader import expected_thing_ids
@@ -412,8 +413,8 @@ class EnvRunner:
         if self.net is None:
             return
 
-        for host in self.net.hosts:
-            host.cmd('pkill -f iperf 2>/dev/null')
+        from mininet.traffic import stop_all_iperf
+        stop_all_iperf(*self.net.hosts)
         subprocess.run(['pkill', '-f', IPERF_PROCESS_PATTERN],
                        capture_output=True, check=False)
         time.sleep(0.3)
@@ -542,14 +543,22 @@ class EnvRunner:
         if self.session is None:
             self.session = make_session()
         things, _meta = fetch_snapshot(self.session, self.thing_ids)
+        from bridge.ditto_common import make_thing_id_host
         total_mbps = 0.0
+        seen = 0
         for name in ('srv1', 'srv2'):
-            thing_id = 'org.dt4n:host-%s' % name
+            thing_id = make_thing_id_host(name)
             try:
                 props = things[thing_id]['features']['traffic']['properties']
-                total_mbps += float(props.get('rxRate') or 0.0) * 8.0 / 1e6
+                rate = props.get('rxRate')
+                if not isinstance(rate,(int,float)) or not math.isfinite(rate):
+                    continue
+                total_mbps += rate * 8.0 / 1e6
+                seen += 1
             except (KeyError, TypeError, ValueError):
                 pass
+        if seen != 2:
+            raise RuntimeError('Incomplete server throughput from Ditto; expected '+str([make_thing_id_host(n) for n in ('srv1','srv2')]))
         return total_mbps / float(self.bw_backbone)
 
     def assert_baseline_healthy(self, thr_min=0.30, max_retries=2):

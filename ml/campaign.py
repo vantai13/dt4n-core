@@ -513,3 +513,132 @@ def build_manifest(contract, outcomes, collection_provenance, integrity,
             'Tick warmup được GHI, không bị xóa. Lọc tick < warmup_ticks ở tầng '
             'nạp. Nhờ vậy đổi quy tắc warmup không phải chạy lại chiến dịch.'),
     }
+
+# --- đường dẫn: quy ước một chỗ duy nhất ---------------------------------
+def run_paths(run_id: str, root: Path | None = None) -> dict:
+    """Mọi đường dẫn của một run. Quy ước nằm MỘT chỗ, không rải trong runner.
+
+    `.partial` là COMMIT POINT: chừng nào file còn đuôi .partial thì run chưa
+    hoàn tất. Sự TỒN TẠI của <run_id>.jsonl (không .partial) chính là bằng
+    chứng run đã chạy xong VÀ đã qua kiểm tra. Nhờ vậy tiến độ chiến dịch nằm
+    trên ĐĨA, không nằm trong RAM — runner chết lúc nào cũng khôi phục được,
+    không cần file checkpoint riêng.
+    """
+    root = Path(root or ROOT)
+    import re
+    if not isinstance(run_id,str) or not re.fullmatch(r'[A-Za-z0-9_-]+',run_id):
+        raise ValueError('run_id không hợp lệ cho tên file: %r' % run_id)
+    raw = root / 'data/phase5/raw'
+    quar = root / 'data/phase5/quarantine'
+    return {
+        'partial': raw / ('%s.jsonl.partial' % run_id),
+        'final':   raw / ('%s.jsonl' % run_id),
+        'meta':    raw / ('%s.meta.json' % run_id),
+        'quarantine':      quar / ('%s.jsonl' % run_id),
+        'quarantine_meta': quar / ('%s.meta.json' % run_id),
+        'log': root / ('logs/ml_gen_%s.log' % run_id),
+    }
+
+
+# --- khối metadata nhúng vào MỖI snapshot --------------------------------
+def snapshot_meta(record: dict, constants: dict, provenance: dict,
+                  design_sha: str) -> dict:
+    """Bản sao của ml.design.snapshot_metadata(), dựng từ DICT hợp đồng.
+
+    Vì sao không gọi thẳng design.snapshot_metadata(): hàm đó nhận RunSpec
+    (dataclass), còn runner chỉ có dict đọc từ JSON. Dựng lại RunSpec sẽ kéo
+    theo ml.design và rủi ro numpy.
+
+    THÊM `design_content_sha256` so với bản của design.py. Lý do: nếu ai đó
+    `cat *.jsonl > all.jsonl`, sidecar mất liên kết nhưng khối nhúng sống sót.
+    Dữ liệu phải TỰ KHAI nó thuộc chiến dịch nào, kể cả khi bị tách khỏi ngữ cảnh.
+    """
+    return {
+        'run_id': record['run_id'], 'group': record['group'],
+        'split': record['split'], 'profile': record['profile'],
+        'load_mbps_per_client': record['load_mbps_per_client'],
+        'load_schedule': record['load_schedule'],
+        'fault': record['fault'], 'fault_target': record['fault_target'],
+        't_inject': record['t_inject'], 't_revert': record['t_revert'],
+        'seed': record['seed'], 'exec_index': record['exec_index'],
+        'period_sec': constants['period_sec'],
+        'pre_roll_sec': constants['pre_roll_sec'],
+        'warmup_ticks': constants['warmup_ticks'],
+        'duration_sec': record['duration_sec'],
+        'collector_version': constants['collector_version'],
+        'git_hash': provenance['git_hash'],
+        'git_dirty': provenance['git_dirty'],
+        'source_dirty': provenance.get('source_dirty', provenance['git_dirty']),
+        'design_content_sha256': design_sha,
+    }
+
+
+# --- sidecar --------------------------------------------------------------
+def build_sidecar(record, constants, checks, events, provenance, design_sha,
+                  sha256, reset_info, plan, started_utc, finished_utc) -> dict:
+    """Mọi thứ KHÔNG thể nằm trong file .jsonl.
+
+    SHA-256 của một file không thể nằm trong chính file đó: thêm hash làm đổi
+    nội dung, làm đổi hash. Nghịch lý tự quy chiếu. Nên nó phải ở đây.
+
+    `reset_info` là output của EnvRunner.soft_reset(). Nó là bằng chứng ĐỊNH
+    LƯỢNG rằng run này bắt đầu từ trạng thái sạch: steady_ok, aoi_norm,
+    iperf_leaked, health.throughput_norm. Hội đồng hỏi "làm sao em biết run 12
+    không nhiễm bẩn từ run 11" thì đây là câu trả lời có số.
+    """
+    return {
+        'run_id': record['run_id'],
+        'sha256': sha256,
+        'design_content_sha256': design_sha,
+        'collection_provenance': provenance,
+        'record': record,
+        'constants': constants,
+        'traffic_plan': plan,
+        'reset_info': reset_info,
+        'events': events,
+        'checks': checks,
+        'label_convention': LABEL_CONVENTION,
+        'started_utc': started_utc,
+        'finished_utc': finished_utc,
+    }
+
+
+LABEL_CONVENTION = 'point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks'
+
+
+def labels_from_events(n_snapshots, events):
+    if not isinstance(n_snapshots,int) or n_snapshots < 0:
+        raise ValueError('invalid snapshot count')
+    labels = [0]*n_snapshots
+    if not events:
+        return labels
+    if len(events) != 2 or [e.get('kind') for e in events] != ['inject','revert']:
+        raise ValueError('labels require ordered inject and revert events')
+    inject,revert = (e.get('tick') for e in events)
+    if not isinstance(inject,int) or not isinstance(revert,int) or not 0 <= inject < revert < n_snapshots:
+        raise ValueError('event ticks outside snapshot sequence')
+    for tick in range(inject+1,revert+1):
+        labels[tick]=1
+    return labels
+
+
+def atomic_json(path, data):
+    import os
+    import tempfile
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    fd,name=tempfile.mkstemp(dir=path.parent,prefix=path.name+'.',suffix='.tmp')
+    try:
+        with os.fdopen(fd,'w') as out:
+            json.dump(data,out,indent=2,ensure_ascii=False);out.write('\n');out.flush();os.fsync(out.fileno())
+        os.replace(name,path)
+    finally:
+        if os.path.exists(name):os.unlink(name)
+
+
+def collection_provenance(root=None):
+    from ml.design import git_provenance
+    prov = git_provenance(root or ROOT)
+    runtime = ('logs/', 'data/phase5/', 'results/report/', 'report.html')
+    prov['source_dirty_files'] = [p for p in prov['git_dirty_files'] if not p.startswith(runtime)]
+    prov['source_dirty'] = bool(prov['source_dirty_files'])
+    return prov
