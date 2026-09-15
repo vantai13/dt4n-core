@@ -51,3 +51,8 @@ def test_health_uses_custom_namespace(monkeypatch):
     assert env._read_throughput_norm()==pytest.approx(.4)
     things.clear()
     with pytest.raises(RuntimeError,match='Incomplete'):env._read_throughput_norm()
+
+
+def test_runtime_gate_recognizes_bracketed_log_levels():
+    assert C.runtime_error_count('2026 [ERROR] health failed\n2026 [CRITICAL] stopped\nTraceback (most recent call last):') == 3
+    assert C.runtime_error_count('2026 [INFO] healthy\n2026 [WARNING] diagnostic') == 0

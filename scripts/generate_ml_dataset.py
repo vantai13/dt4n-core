@@ -165,7 +165,7 @@ def execute_run(env, record, contract, design_sha):
     snapshots = C.read_snapshots(paths['partial'])
     checks = C.verify_run(record, constants, snapshots, events)
     checks.setdefault('failed_gates', [])
-    checks['runtime_error_count'] = len(re.findall(r'\b(?:ERROR|CRITICAL)\b|Traceback',paths['log'].read_text()))
+    checks['runtime_error_count'] = C.runtime_error_count(paths['log'].read_text())
     checks['runtime_log_ok'] = checks['runtime_error_count'] == 0
     if not checks['runtime_log_ok']:
         checks['passed'] = False

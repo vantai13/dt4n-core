@@ -643,3 +643,8 @@ def collection_provenance(root=None):
     prov['source_dirty_files'] = [p for p in prov['git_dirty_files'] if not p.startswith(runtime)]
     prov['source_dirty'] = bool(prov['source_dirty_files'])
     return prov
+
+
+def runtime_error_count(log_text):
+    import re
+    return sum(bool(re.search(r'\b(?:ERROR|CRITICAL)\b|Traceback',line)) for line in log_text.splitlines())
