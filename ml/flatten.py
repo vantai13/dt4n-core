@@ -30,6 +30,12 @@ def flatten_snapshot(snap: dict) -> dict:
         't_source': snap.get('t_source'),
         'cycle_scan_ms': snap.get('cycle_scan_ms'),
     }
+    for key, value in (snap.get('run') or {}).items():
+        if not isinstance(value, (dict, list)):
+            row[key] = value
+    for key in ('tick', 't_rel'):
+        if key in snap:
+            row[key] = snap[key]
     for thing_id, thing in (snap.get('things') or {}).items():
         if 't_source' in thing:
             row[f'{thing_id}.t_source'] = thing['t_source']
@@ -63,6 +69,8 @@ def load_jsonl(path: str | Path, **meta) -> pd.DataFrame:
             if not line:
                 continue
             row = flatten_snapshot(json.loads(line))
+            if row.get('tick') is not None and row['tick'] != tick:
+                raise ValueError(f'{path.name} dòng {tick}: embedded tick {row["tick"]} differs from line index; file reordered/cut/concatenated')
             row['tick'] = tick
             row['source_file'] = path.name
             row.update(meta)

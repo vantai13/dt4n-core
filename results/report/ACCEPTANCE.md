@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T14:30:19.491276+00:00
+Cập nhật UTC: 2026-09-15T15:08:23.914108+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -99,3 +99,10 @@ Báo cáo: ../../docs/phase-5/02-missing-data.md; JSON: missing_analysis.json; l
 Test: 116 passed, 4 skipped. GATE PASS: True.
 Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; chưa thu18run hoặc train mô hình.
 Báo cáo: ../../docs/phase-5/03-experiment-matrix.md; hợp đồng: experiment_matrix.json; timeline: experiment_matrix.png.
+
+## Lesson5.4 — Harness chuẩn bị
+
+Integrity match: True; 18plan,iperf75s,t_rel_end70s.
+Test 152 passed, 4 skipped. Python hệ thống không nạp numpy/pandas/matplotlib.
+Collector hook/metadata/monotonic, flatten tick check vàpre-roll đã triển khai; chưa thu chiến dịch hoặc có runner đầy đủ.
+Báo cáo: ../../docs/phase-5/04-data-generation.md; JSON:phase54_prechecks.json; log:../../logs/phase54_prechecks.log.

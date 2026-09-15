@@ -280,3 +280,17 @@ def start_varying_load(net, schedule, duration=60, server_bg_rate=2.0,
               % (client.name, server.name,
                  ','.join('%gM/%ds' % (r, d) for r, d in segs)))
     return hosts
+
+
+def schedule_with_preroll(schedule, pre_roll):
+    """Prefix the first rate and shift the nominal schedule; integer seconds."""
+    import math
+    if not isinstance(pre_roll,(int,float)) or not math.isfinite(pre_roll) or pre_roll < 0 or int(pre_roll) != pre_roll:
+        raise ValueError('pre_roll must be a nonnegative integer number of seconds')
+    if not schedule:
+        raise ValueError('schedule empty')
+    schedule_segments(schedule,int(schedule[-1][0])+1)
+    schedule = tuple(tuple(x) for x in schedule)
+    if pre_roll == 0:
+        return schedule
+    return ((0,schedule[0][1]),)+tuple((int(t+pre_roll),r) for t,r in schedule)

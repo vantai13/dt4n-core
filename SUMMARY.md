@@ -76,3 +76,9 @@ Test **80 passed,4 skipped**. Audit mới150×174, GIỮ41/CHẤT VẤN11/LOẠI
 18run:8train normal,2test-control,8test-fault;4loại fault. Base rate test nominal160/590=27,1%, hypothesis coverage8/8link. Thêm LinkAdminDown, seeded scenario đúng target, varying load và cleanup process group. Train varying lịchA hai seed; test-control lịchB.
 
 Test116 passed/4skipped; audit và missing giữ số. Chưa thu18run. [Báo cáo](docs/phase-5/03-experiment-matrix.md), [JSON](results/report/experiment_matrix.json), [bảng](docs/phase-5/03-experiment-matrix.generated.md), [timeline](results/report/experiment_matrix.png), [log](logs/phase53_pytest.log). CSV audit chỉnh sẵn được giữ local.
+
+## Lesson5.4 — Chuẩn bị trước thu
+
+Đã thêm campaign logic, Collector run_meta/on_tick với monotonic, flatten metadata/tick invariant và pre-roll schedule; raw/quarantine JSONL được ignore. Ba precheck đạt, integrity match True,18plan,iperf75s kết thúc t_rel70. Python hệ thống không nạp numpy/pandas.
+
+Full test152passed/4skipped. [Báo cáo](docs/phase-5/04-data-generation.md), [JSON precheck](results/report/phase54_prechecks.json), [log](logs/phase54_prepare_pytest.log). Chưa viết launcher/runner đầy đủ hoặc thu18run trong phần hướng dẫn này.

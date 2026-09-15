@@ -17,7 +17,9 @@ META_COLS = (
     'run_id', 'profile', 'tick', 'seed', 'git_hash', 'collector_version',
     'load_mbps_per_client', 't_source', 't_cycle_start', 't_cycle_end',
     'timestamp', 'source_file',
-    'cycle_scan_ms',
+    'cycle_scan_ms', 'group', 'split', 'fault', 'fault_target', 't_inject',
+    't_revert', 'exec_index', 'period_sec', 'pre_roll_sec', 'warmup_ticks',
+    'duration_sec', 'git_dirty', 't_rel',
 )
 
 # --- hậu tố xác định LOẠI cột --------------------------------------------

@@ -37,3 +37,7 @@ Từ f4b8a19, thêm module missing, validity rate collector, timestamp Thing met
 ## Lesson5.3 — Thiết kế trước thu
 
 Từ5518cca, thêm design/matrix, metadata/provenance, faultfactory seeded đúngtarget, LinkAdminDown và varyingtraffic processgroup. Gate kiểmcoverage vàschedule đầyđủ, Git lỗi không giảclean. Điều chỉnh2seedtrainvary cùnglịchA, lịchBtest;severitydegrade dưới nền để giảthuyết cópressure. ContractSHA vàrouting/topologySHA trongJSON; design-time dirty là workingtree lúc sinhartifact, không phải provenance collection. CSV người dùng định dạng có sẵn giữ nguyên và không đưa vào commit này.
+
+## Lesson5.4 — Harness chuẩn bị
+
+Từ7aa1c03, triển khai campaign vàpatch từ hướng dẫn:hash3phía,scenario đọcparams JSON,verification/builder,metadata hookmono vàprefixpre-roll. Bổ sungschema chốngleak label,missingflag tínhinvalid,finiteprobe vàcửasổsaucallback+1. ContractJSON/SHA không đổi;rawJSONL ignored nhưng sidecar/manifest chưa sinh bởi campaign thật. GiữCSV người dùng cósẵn ởlocal.

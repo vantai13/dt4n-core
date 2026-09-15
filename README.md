@@ -149,3 +149,11 @@ Thiết kế chiến dịch Lesson5.3 (chưa thu mạng):
 ```
 
 [Hợp đồng và giới hạn](docs/phase-5/03-experiment-matrix.md). Commit ma trận trước khi runner Lesson5.4 sinh dữ liệu.
+
+Kiểm chứng harness chuẩn bị Lesson5.4:
+
+```bash
+.venv/bin/python -m scripts.check_ml_campaign
+```
+
+[Báo cáo phạm vi và phần runner còn lại](docs/phase-5/04-data-generation.md). Lệnh chỉ kiểm tra hợp đồng/kế hoạch, không khởi động mạng.

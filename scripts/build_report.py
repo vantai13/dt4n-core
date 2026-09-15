@@ -81,6 +81,16 @@ if experiment_matrix:
            'Đã có LinkAdminDown, seeded fault target và varying load cleanup process group; chưa thu18run hoặc train mô hình.',
            'Báo cáo: ../../docs/phase-5/03-experiment-matrix.md; hợp đồng: experiment_matrix.json; timeline: experiment_matrix.png.']
 
+campaign_prechecks=load('phase54_prechecks.json')
+if campaign_prechecks:
+ prep_unit=ET.parse(out/'phase54_prepare_pytest.xml').getroot().find('testsuite').attrib
+ prep_pass=int(prep_unit['tests'])-sum(int(prep_unit[k]) for k in ['skipped','failures','errors'])
+ lines += ['', '## Lesson5.4 — Harness chuẩn bị', '',
+           f"Integrity match: {campaign_prechecks['integrity']['match']}; {campaign_prechecks['n_runs']}plan,iperf75s,t_rel_end70s.",
+           f"Test {prep_pass} passed, {prep_unit['skipped']} skipped. Python hệ thống không nạp numpy/pandas/matplotlib.",
+           'Collector hook/metadata/monotonic, flatten tick check vàpre-roll đã triển khai; chưa thu chiến dịch hoặc có runner đầy đủ.',
+           'Báo cáo: ../../docs/phase-5/04-data-generation.md; JSON:phase54_prechecks.json; log:../../logs/phase54_prechecks.log.']
+
 (out/'ACCEPTANCE.md').write_text('\n'.join(lines))
 body='<h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: '+html.escape(datetime.datetime.now(datetime.timezone.utc).isoformat())+'</p>'
 body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p>'
@@ -114,6 +124,17 @@ if ml:
   d=load(name+'.json')
   if d and d.get('result'):
    x=d['result'];body+=f"<p>{name}: n={x['n']}, p50={x['p50_ms']:.2f} ms, p95={x['p95_ms']:.2f} ms.</p>"
+if campaign_prechecks:
+ body+='<h2 id="campaign-preparation">Lesson5.4 — Kiểm chứng harness chuẩn bị</h2>'
+ body+=f"<p>{prep_pass} passed, {prep_unit['skipped']} skipped. Integrity stored/content/recomputed match: {campaign_prechecks['integrity']['match']}.</p>"
+ body+='<p>18plan;iperf75s;varying bắt đầu t_rel−5,kết thúc+70,phủ60sghi. Python hệ thống dựng kế hoạch/scenario không nạp numpy/pandas/matplotlib.</p>'
+ body+='<p>Đã có campaign logic,Collector metadata/hook monotonic,flatten tick invariant vàprefixpre-roll. CHƯA THU18RUN;launcher/runner đầy đủ còn ở phần hướng dẫn tiếp.</p>'
+ body+='<p><a href="docs/phase-5/04-data-generation.md">Báo cáo</a> · <a href="results/report/phase54_prechecks.json">JSON kiểm chứng</a> · <a href="logs/phase54_prechecks.log">Output3lệnh</a> · <a href="logs/phase54_prepare_pytest.log">Log test</a></p>'
+ body+='<table><tr><th>Start t_rel</th><th>End t_rel</th><th>Nominal Mbps/client đầu</th></tr>'
+ for stage in campaign_prechecks['example_varying_timeline']:
+  body+='<tr>'+''.join('<td>'+str(stage[k])+'</td>' for k in ('start_t_rel','end_t_rel','rate_mbps'))+'</tr>'
+ body+='</table>'
+
 if experiment_matrix:
  body+='<h2 id="experiment-matrix">Lesson5.3 — Ma trận thiết kế trước thu</h2>'
  body+=f"<p>{experiment_matrix['n_runs']} run: 8 train-normal, 2 test-control, 8 test-fault. {design_pass} passed, {design_unit['skipped']} skipped.</p>"

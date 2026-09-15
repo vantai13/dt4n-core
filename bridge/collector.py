@@ -512,7 +512,7 @@ class Collector:
                  log_path='logs/dt4n_snapshots.jsonl',
                  pretty_log_path='logs/phase1.log',
                  cmd_timeout=3, ping_every=20, overwrite=True,
-                 net_lock=None):
+                 net_lock=None, run_meta=None):
         self.net = net
         self.interval = interval                 # chu kỳ polling (giây) — Lesson 1.4
         self.server_names = set(server_names)     # host nào đóng vai 'server'
@@ -524,7 +524,8 @@ class Collector:
         self._prev = {}                           # lưu (rxBytes,txBytes,timestamp) chu kỳ trước theo host
         self._prev_link = {}                      # link_key -> dict counters + timestamp
         self._ping_counter = 0                    # đếm chu kỳ để đo latency THƯA hơn
-        self.net_lock = net_lock                  # Mininet node.cmd không thread-safe
+        self.net_lock = net_lock
+        self.run_meta = dict(run_meta) if run_meta is not None else None                  # Mininet node.cmd không thread-safe
 
     # ---- thu thập 1 HOST (qua namespace) ----
     def collect_host(self, host, now_ts):
@@ -756,10 +757,11 @@ class Collector:
         return snapshot
 
     # ---- VÒNG LẶP chu kỳ ----
-    def run(self, duration=30):
+    def run(self, duration=30, on_tick=None):
         """Chạy `duration` giây, mỗi `interval` giây xuất 1 snapshot.
         In ra console + ghi 1 dòng JSON vào log (JSONL -> dataset thô cho ML Phase 5)."""
-        end = time.time() + duration
+        t0_mono = time.monotonic()
+        end = t0_mono + duration
         mode = 'w' if self.overwrite else 'a'
         ensure_parent_dir(self.log_path)
         if self.pretty_log_path:
@@ -770,11 +772,16 @@ class Collector:
             print('[collector] Pretty log -> %s (%s)' % (self.pretty_log_path,
                                                          'overwrite' if mode == 'w' else 'append'))
         n = 0
-        prettyf = open(self.pretty_log_path, mode) if self.pretty_log_path else None
-        with open(self.log_path, mode) as logf:
-            while time.time() < end:
-                t0 = time.time()
+        with open(self.log_path, mode) as logf, (
+                open(self.pretty_log_path, mode) if self.pretty_log_path else nullcontext()) as prettyf:
+            while time.monotonic() < end:
+                t0 = time.monotonic()
                 snap = self.collect_all()
+                t_rel = time.monotonic() - t0_mono
+                if self.run_meta is not None:
+                    snap['run'] = dict(self.run_meta)
+                    snap['tick'] = n
+                    snap['t_rel'] = round(t_rel, 6)
                 line = json.dumps(snap)
                 print('[collector] snapshot #%03d %s' % (n + 1, snap.get('timestamp', '-')))
                 logf.write(line + '\n')           # 1 snapshot = 1 dòng (JSONL)
@@ -782,9 +789,11 @@ class Collector:
                 if prettyf:
                     prettyf.write(format_snapshot_pretty(snap, n + 1) + '\n')
                     prettyf.flush()
+                if on_tick is not None:
+                    on_tick(n, snap, t_rel)
                 n += 1
                 # ngủ phần còn lại của chu kỳ (trừ thời gian đã tốn cho collect)
-                elapsed = time.time() - t0
+                elapsed = time.monotonic() - t0
                 time.sleep(max(0, self.interval - elapsed))
         if prettyf:
             prettyf.close()

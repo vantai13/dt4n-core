@@ -1,0 +1,28 @@
+{'stored': '80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c', 'content': '80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c', 'recomputed': '80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c', 'match': True}
+n_runs = 18 | base rate nominal = 0.2712
+N-load1M-s1001-r1 fixed 1M iperf_seconds= 75
+N-load1M-s1002-r2 fixed 1M iperf_seconds= 75
+N-load2M-s1003-r1 fixed 2M iperf_seconds= 75
+N-load2M-s1004-r2 fixed 2M iperf_seconds= 75
+N-load4M-s1005-r1 fixed 4M iperf_seconds= 75
+N-load4M-s1006-r2 fixed 4M iperf_seconds= 75
+N-vary-s1007-r1 varying ((0, 1.0), (5, 1.0), (15, 3.0), (25, 2.0), (35, 5.0), (45, 1.0), (55, 4.0)) iperf_seconds= 75
+N-vary-s1008-r2 varying ((0, 1.0), (5, 1.0), (15, 3.0), (25, 2.0), (35, 5.0), (45, 1.0), (55, 4.0)) iperf_seconds= 75
+C-load2M-s2001-r1 fixed 2M iperf_seconds= 75
+C-vary-s2002-r1 varying ((0, 4.0), (5, 4.0), (15, 1.0), (25, 5.0), (35, 2.0), (45, 3.0), (55, 1.0)) iperf_seconds= 75
+F-admin_down-s1-s2-s3001-r1 fixed 2M iperf_seconds= 75
+F-admin_down-s1-s3-s3002-r1 fixed 2M iperf_seconds= 75
+F-degrade-s1-s2-s3003-r1 fixed 2M iperf_seconds= 75
+F-degrade-s2-s3-s3004-r1 fixed 2M iperf_seconds= 75
+F-flood-h1_to_srv1-s3005-r1 fixed 2M iperf_seconds= 75
+F-flood-h2_to_srv2-s3006-r1 fixed 2M iperf_seconds= 75
+F-shift-s1-s2-s3007-r1 fixed 2M iperf_seconds= 75
+F-shift-s1-s3-s3008-r1 fixed 2M iperf_seconds= 75
+t= -5.. +0 : 1 Mbps
+t= +0..+10 : 1 Mbps
+t=+10..+20 : 3 Mbps
+t=+20..+30 : 2 Mbps
+t=+30..+40 : 5 Mbps
+t=+40..+50 : 1 Mbps
+t=+50..+70 : 4 Mbps
+traffic ends at t=+70 (must >60)

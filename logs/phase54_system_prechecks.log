@@ -1,0 +1,4 @@
+Integrity match: True
+Plans: 18 | iperf duration: 75s | end t_rel: 70
+System Python: 18 plans/scenarios without numpy/pandas/matplotlib
+/home/ubuntu/dt4n-core/results/report/phase54_prechecks.json

@@ -1,0 +1,326 @@
+{
+  "scope": "Lesson5.4 preparation; no live network launched",
+  "integrity": {
+    "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "match": true
+  },
+  "n_runs": 18,
+  "plans": {
+    "N-load1M-s1001-r1": {
+      "mode": "fixed",
+      "normal_rate": "1M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-load1M-s1002-r2": {
+      "mode": "fixed",
+      "normal_rate": "1M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-load2M-s1003-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-load2M-s1004-r2": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-load4M-s1005-r1": {
+      "mode": "fixed",
+      "normal_rate": "4M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-load4M-s1006-r2": {
+      "mode": "fixed",
+      "normal_rate": "4M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-vary-s1007-r1": {
+      "mode": "varying",
+      "schedule_nominal": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "schedule_with_preroll": [
+        [
+          0,
+          1.0
+        ],
+        [
+          5,
+          1.0
+        ],
+        [
+          15,
+          3.0
+        ],
+        [
+          25,
+          2.0
+        ],
+        [
+          35,
+          5.0
+        ],
+        [
+          45,
+          1.0
+        ],
+        [
+          55,
+          4.0
+        ]
+      ],
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "N-vary-s1008-r2": {
+      "mode": "varying",
+      "schedule_nominal": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "schedule_with_preroll": [
+        [
+          0,
+          1.0
+        ],
+        [
+          5,
+          1.0
+        ],
+        [
+          15,
+          3.0
+        ],
+        [
+          25,
+          2.0
+        ],
+        [
+          35,
+          5.0
+        ],
+        [
+          45,
+          1.0
+        ],
+        [
+          55,
+          4.0
+        ]
+      ],
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "C-load2M-s2001-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "C-vary-s2002-r1": {
+      "mode": "varying",
+      "schedule_nominal": [
+        [
+          0,
+          4.0
+        ],
+        [
+          10,
+          1.0
+        ],
+        [
+          20,
+          5.0
+        ],
+        [
+          30,
+          2.0
+        ],
+        [
+          40,
+          3.0
+        ],
+        [
+          50,
+          1.0
+        ]
+      ],
+      "schedule_with_preroll": [
+        [
+          0,
+          4.0
+        ],
+        [
+          5,
+          4.0
+        ],
+        [
+          15,
+          1.0
+        ],
+        [
+          25,
+          5.0
+        ],
+        [
+          35,
+          2.0
+        ],
+        [
+          45,
+          3.0
+        ],
+        [
+          55,
+          1.0
+        ]
+      ],
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-admin_down-s1-s2-s3001-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-admin_down-s1-s3-s3002-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-degrade-s1-s2-s3003-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-degrade-s2-s3-s3004-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-flood-h1_to_srv1-s3005-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-flood-h2_to_srv2-s3006-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-shift-s1-s2-s3007-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    },
+    "F-shift-s1-s3-s3008-r1": {
+      "mode": "fixed",
+      "normal_rate": "2M",
+      "iperf_seconds": 75,
+      "server_bg_rate": 2.0
+    }
+  },
+  "example_varying_timeline": [
+    {
+      "start_t_rel": -5,
+      "end_t_rel": 0,
+      "rate_mbps": 1.0
+    },
+    {
+      "start_t_rel": 0,
+      "end_t_rel": 10,
+      "rate_mbps": 1.0
+    },
+    {
+      "start_t_rel": 10,
+      "end_t_rel": 20,
+      "rate_mbps": 3.0
+    },
+    {
+      "start_t_rel": 20,
+      "end_t_rel": 30,
+      "rate_mbps": 2.0
+    },
+    {
+      "start_t_rel": 30,
+      "end_t_rel": 40,
+      "rate_mbps": 5.0
+    },
+    {
+      "start_t_rel": 40,
+      "end_t_rel": 50,
+      "rate_mbps": 1.0
+    },
+    {
+      "start_t_rel": 50,
+      "end_t_rel": 70,
+      "rate_mbps": 4.0
+    }
+  ],
+  "traffic_end_t_rel": 70,
+  "covers_recording": true,
+  "system_python_dependency_check": "System Python: 18 plans/scenarios without numpy/pandas/matplotlib",
+  "raw_policy": "JSONL/partials ignored; sidecars and manifest to be committed after collection"
+}
