@@ -628,6 +628,7 @@ def atomic_json(path, data):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     fd,name=tempfile.mkstemp(dir=path.parent,prefix=path.name+'.',suffix='.tmp')
     try:
+        os.fchmod(fd, 0o644)  # Sidecars/manifest must remain readable by the launcher user.
         with os.fdopen(fd,'w') as out:
             json.dump(data,out,indent=2,ensure_ascii=False);out.write('\n');out.flush();os.fsync(out.fileno())
         os.replace(name,path)
