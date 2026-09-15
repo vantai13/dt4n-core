@@ -1,0 +1,25 @@
+{
+  "_comment": "Mô tả topology tam giác Phase 1 dạng JSON, để bootstrap chạy ĐỘC LẬP (không cần Mininet sống). Phải KHỚP với mininet/topology.py. Đổi số host ở đây để test 'mở rộng' mà không cần Mininet.",
+  "hosts": [
+    {"name": "h1", "ip": "10.0.0.1", "role": "client"},
+    {"name": "h2", "ip": "10.0.0.2", "role": "client"},
+    {"name": "h3", "ip": "10.0.0.3", "role": "client"},
+    {"name": "srv1", "ip": "10.0.0.4", "role": "server"},
+    {"name": "srv2", "ip": "10.0.0.5", "role": "server"}
+  ],
+  "switches": [
+    {"name": "s1"},
+    {"name": "s2"},
+    {"name": "s3"}
+  ],
+  "links": [
+    ["s1", "s2"],
+    ["s1", "s3"],
+    ["s2", "s3"],
+    ["srv1", "s2"],
+    ["srv2", "s3"],
+    ["h1", "s1"],
+    ["h2", "s1"],
+    ["h3", "s1"]
+  ]
+}

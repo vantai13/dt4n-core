@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="52.331" timestamp="2026-09-15T08:26:09.753535+00:00" hostname="dt4n-research-01"><testcase classname="test.test_command_security" name="test_1_unknown_command" time="13.052"><failure message="AssertionError: Lenh la khong bi tu choi! cid=9ac9867e-9a7c-49ed-ae68-9f5fd0908507 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None&#10;assert False&#10; +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'unknown command')">def test_1_unknown_command():
+        """Ca 1: lenh ngoai whitelist -&gt; bi tu choi."""
+        cid, status, resp, row = _send_and_wait(
+            'rebootEverything', {'target': 'org.dt4n:link-h1-s1'})
+&gt;       assert _rejected(resp, row, 'unknown command'), \
+            'Lenh la khong bi tu choi! cid=%s status=%s resp=%s audit=%s' % (
+                cid, status, resp, row)
+E       AssertionError: Lenh la khong bi tu choi! cid=9ac9867e-9a7c-49ed-ae68-9f5fd0908507 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None
+E       assert False
+E        +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'unknown command')
+
+test/test_command_security.py:86: AssertionError</failure></testcase><testcase classname="test.test_command_security" name="test_2_payload_injection" time="13.062"><failure message="AssertionError: Payload injection khong bi chan! cid=262f2e53-cc99-4785-bf2d-5404807f2b80 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None&#10;assert False&#10; +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'bw must be a number')">def test_2_payload_injection():
+        """Ca 2: payload giong shell command -&gt; validate chan, khong exec."""
+        cid, status, resp, row = _send_and_wait(
+            'setBandwidth',
+            {'target': 'org.dt4n:link-s2-s3', 'bw': '$(rm -rf /)'})
+&gt;       assert _rejected(resp, row, 'bw must be a number'), \
+            'Payload injection khong bi chan! cid=%s status=%s resp=%s audit=%s' % (
+                cid, status, resp, row)
+E       AssertionError: Payload injection khong bi chan! cid=262f2e53-cc99-4785-bf2d-5404807f2b80 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None
+E       assert False
+E        +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'bw must be a number')
+
+test/test_command_security.py:97: AssertionError</failure></testcase><testcase classname="test.test_command_security" name="test_3_target_not_found" time="13.055"><failure message="AssertionError: Target bia khong bi tu choi! cid=da3d829b-8de6-490a-8a0b-fa6eb554e426 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None&#10;assert False&#10; +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'target not found')">def test_3_target_not_found():
+        """Ca 3: target bia -&gt; 404/rejected, agent khong crash."""
+        cid, status, resp, row = _send_and_wait(
+            'disableLink', {'target': 'org.dt4n:link-xx-yy'})
+&gt;       assert _rejected(resp, row, 'target not found'), \
+            'Target bia khong bi tu choi! cid=%s status=%s resp=%s audit=%s' % (
+                cid, status, resp, row)
+E       AssertionError: Target bia khong bi tu choi! cid=da3d829b-8de6-490a-8a0b-fa6eb554e426 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None
+E       assert False
+E        +  where False = _rejected({'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'}, None, 'target not found')
+
+test/test_command_security.py:107: AssertionError</failure></testcase><testcase classname="test.test_command_security" name="test_4_idempotent" time="13.056"><failure message="AssertionError: Lenh lap lan 1 gay loi! cid=227c1b6d-903a-4e1d-b109-45e8f39aa035 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None&#10;assert False">def test_4_idempotent():
+        """Ca 4: gui disableLink lap lai -&gt; khong loi."""
+        for i in range(3):
+            cid, status, resp, row = _send_and_wait(
+                'disableLink', {'target': 'org.dt4n:link-h1-s1'})
+            if row is not None:
+                ok = row.get('result') == 'ok'
+            else:
+                ok = ((isinstance(resp, dict) and resp.get('status') == 'accepted')
+                      or (200 &lt;= status &lt; 300 and resp is None))
+&gt;           assert ok, 'Lenh lap lan %d gay loi! cid=%s status=%s resp=%s audit=%s' % (
+                i + 1, cid, status, resp, row)
+E           AssertionError: Lenh lap lan 1 gay loi! cid=227c1b6d-903a-4e1d-b109-45e8f39aa035 status=408 resp={'status': 408, 'error': 'command.timeout', 'message': 'The Command reached the specified timeout of 5,000ms.', 'description': 'Try increasing the command timeout.'} audit=None
+E           assert False
+
+test/test_command_security.py:123: AssertionError</failure></testcase></testsuite></testsuites>

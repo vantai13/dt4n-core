@@ -1,0 +1,10 @@
+
+=== TỔNG KẾT NGHIỆM THU TWIN ===
+
+  hosts: 5/5 OK
+  switches: 3/3 OK
+  links: 8/8 OK
+  accuracy: 100.0% (8/8 khop)
+  event fidelity: 20/20 (100.0%)
+
+Chi tiet nam trong JSON output.

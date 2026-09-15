@@ -1,0 +1,40 @@
+Do command latency end-to-end: disableLink h1-s1, n=30 trials...
+Trial  1: 1046 ms
+Trial  2: 964 ms
+Trial  3: 1011 ms
+Trial  4: 1035 ms
+Trial  5: 1005 ms
+Trial  6: 1012 ms
+Trial  7: 950 ms
+Trial  8: 960 ms
+Trial  9: 1007 ms
+Trial 10: 955 ms
+Trial 11: 1013 ms
+Trial 12: 1006 ms
+Trial 13: 997 ms
+Trial 14: 1001 ms
+Trial 15: 1007 ms
+Trial 16: 997 ms
+Trial 17: 1006 ms
+Trial 18: 996 ms
+Trial 19: 1017 ms
+Trial 20: 1008 ms
+Trial 21: 1012 ms
+Trial 22: 947 ms
+Trial 23: 999 ms
+Trial 24: 1009 ms
+Trial 25: 1004 ms
+Trial 26: 999 ms
+Trial 27: 1001 ms
+Trial 28: 999 ms
+Trial 29: 997 ms
+Trial 30: 996 ms
+
+=== Command Latency (disableLink) (n=30) ===
+  mean:   999 ms
+  p50:   1003 ms
+  p95:   1035 ms
+  p99:   1046 ms
+  max:   1046 ms
+  min:    947 ms
+Dat target <2s o moi mau.

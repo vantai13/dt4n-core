@@ -1,0 +1,389 @@
+Automated command-flow measure: link h1-s1, trials=30
+Ditto target: org.dt4n.core:link-h1-s1
+Flow log: logs/command_flow.log
+Report log: logs/command_flow_measure.log
+Baseline direct-up: twin=up ok=true
+Baseline runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]
+
+trial cmd          target                 ack   route   lock   exec  detect  push   ui    total  result
+-------------------------------------------------------------------------------------------------------------------
+    1 disableLink  link-h1-s1               3023     14      0      4    899      7   2112   3036  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    2 enableLink   link-h1-s1               3023      8      0      4    660      9   2354   3035  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    3 disableLink  link-h1-s1               3016      9      0      6    406      6   2601   3028  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    4 enableLink   link-h1-s1               3018      9      0      3    171      7   2846   3036  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    5 disableLink  link-h1-s1               3018     10      0      3    925      7   2085   3030  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    6 enableLink   link-h1-s1               3022     10      0      3    681      8   2332   3034  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    7 disableLink  link-h1-s1               3021     10      0      5    430      7   2580   3032  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    8 enableLink   link-h1-s1               3021      9      0      3    189      7   2824   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    9 disableLink  link-h1-s1               3016      8      0      3    948      6   2063   3028  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   10 enableLink   link-h1-s1               3019     10      0      3    711      7   2301   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   11 disableLink  link-h1-s1               3019      9      0      3    461      7   2550   3030  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   12 enableLink   link-h1-s1               3020      8      0      4    219      7   2794   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   13 disableLink  link-h1-s1               3018      8      0      4    972      7   2038   3029  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   14 enableLink   link-h1-s1               3023      8      0      3    729      7   2289   3036  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   15 disableLink  link-h1-s1               3020      9      0      4    474      6   2539   3032  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:31.931] [AGENT] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:31.934] [AGENT] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:22:31.934] [AGENT] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:31.937] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:22:31.938] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:22:31.938] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:22:31.938] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:22:31.963] [AGENT] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:32.569] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=251
+[2026-09-15 08:22:32.578] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=251
+[2026-09-15 08:22:32.594] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=251
+[2026-09-15 08:22:32.603] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=251
+[2026-09-15 08:22:34.945] [MEASURE] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3023 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:34.945] [MEASURE] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:34.952] [MEASURE] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:22:34.957] [MEASURE] [INFO] [cid=60bcfa89-7377-49df-8ff5-a2ba7c6cdd6f] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:22:36.169] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:22:36.170] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:36.178] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:22:36.178] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:36.178] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:36.178] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:36.184] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:22:36.184] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:36.184] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:22:36.213] [AGENT] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:36.568] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=255
+[2026-09-15 08:22:36.576] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=255
+[2026-09-15 08:22:36.590] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=255
+[2026-09-15 08:22:36.596] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=255
+[2026-09-15 08:22:39.185] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3015 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:39.185] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:39.192] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:22:39.197] [MEASURE] [INFO] [cid=435bdf94-bbea-4a49-a073-f44272f930cf] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:22:40.409] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:22:40.409] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:40.418] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:22:40.418] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:40.418] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:40.418] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:40.421] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:22:40.421] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:40.425] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:22:40.426] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:22:40.426] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:22:40.426] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:22:40.453] [AGENT] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:40.569] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=259
+[2026-09-15 08:22:40.577] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=259
+[2026-09-15 08:22:40.592] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=259
+[2026-09-15 08:22:40.599] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=259
+[2026-09-15 08:22:43.427] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3018 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:43.428] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:43.439] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:22:43.445] [MEASURE] [INFO] [cid=74a38cc5-4e97-4409-a3f0-dbd1682f6018] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:22:44.657] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:22:44.657] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:44.667] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:22:44.667] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:44.667] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:44.667] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:44.670] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:22:44.670] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:44.672] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:22:44.704] [AGENT] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:45.570] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=264
+[2026-09-15 08:22:45.579] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=264
+[2026-09-15 08:22:45.595] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=264
+[2026-09-15 08:22:45.602] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=264
+[2026-09-15 08:22:47.675] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3018 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:47.675] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:47.682] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:22:47.687] [MEASURE] [INFO] [cid=ad45b740-391f-4ce7-84e6-91987f907bec] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:22:48.902] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:22:48.902] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:48.911] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:22:48.912] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:48.912] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:48.912] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:48.915] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:22:48.915] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:48.919] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:22:48.919] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:22:48.920] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:22:48.920] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:22:48.944] [AGENT] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:49.572] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=268
+[2026-09-15 08:22:49.582] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=268
+[2026-09-15 08:22:49.596] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=268
+[2026-09-15 08:22:49.604] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=268
+[2026-09-15 08:22:51.571] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=270
+[2026-09-15 08:22:51.580] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=270
+[2026-09-15 08:22:51.580] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=270
+[2026-09-15 08:22:51.587] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=270
+[2026-09-15 08:22:51.588] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=270
+[2026-09-15 08:22:51.595] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=270
+[2026-09-15 08:22:51.595] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=270
+[2026-09-15 08:22:51.601] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=270
+[2026-09-15 08:22:51.601] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=270
+[2026-09-15 08:22:51.608] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=270
+[2026-09-15 08:22:51.608] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=270
+[2026-09-15 08:22:51.615] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=270
+[2026-09-15 08:22:51.615] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=270
+[2026-09-15 08:22:51.622] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=270
+[2026-09-15 08:22:51.622] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=270
+[2026-09-15 08:22:51.629] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=270
+[2026-09-15 08:22:51.629] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=270
+[2026-09-15 08:22:51.636] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=270
+[2026-09-15 08:22:51.636] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=270
+[2026-09-15 08:22:51.643] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=270
+[2026-09-15 08:22:51.643] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=270
+[2026-09-15 08:22:51.649] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=270
+[2026-09-15 08:22:51.650] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=270
+[2026-09-15 08:22:51.656] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=270
+[2026-09-15 08:22:51.656] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=270
+[2026-09-15 08:22:51.663] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=270
+[2026-09-15 08:22:51.663] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=270
+[2026-09-15 08:22:51.669] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=270
+[2026-09-15 08:22:51.669] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=270
+[2026-09-15 08:22:51.676] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=270
+[2026-09-15 08:22:51.676] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=270
+[2026-09-15 08:22:51.682] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=270
+[2026-09-15 08:22:51.924] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3022 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:51.924] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:51.931] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:22:51.936] [MEASURE] [INFO] [cid=1333f25d-a894-4fe9-80d4-1d21aac29fcc] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:22:53.149] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:22:53.150] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:53.159] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:22:53.159] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:53.159] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:53.159] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:53.163] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:22:53.164] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:22:53.164] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:53.194] [AGENT] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:53.571] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=272
+[2026-09-15 08:22:53.580] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=272
+[2026-09-15 08:22:53.594] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=272
+[2026-09-15 08:22:53.601] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=272
+[2026-09-15 08:22:56.170] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3020 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:22:56.170] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:22:56.176] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:22:56.181] [MEASURE] [INFO] [cid=ad66268c-d2b5-48aa-93f0-df7a7f267733] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:22:57.394] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:22:57.395] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:22:57.402] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:22:57.403] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:22:57.403] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:22:57.403] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:22:57.406] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:22:57.406] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:22:57.409] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:22:57.410] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:22:57.410] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:22:57.410] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:22:57.434] [AGENT] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:22:57.572] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=276
+[2026-09-15 08:22:57.581] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=276
+[2026-09-15 08:22:57.595] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=276
+[2026-09-15 08:22:57.602] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=276
+[2026-09-15 08:23:00.415] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3020 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:00.415] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:00.421] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:23:00.426] [MEASURE] [INFO] [cid=9a20488a-7df3-4cfc-a2ae-2d9bf561da85] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:23:01.638] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:23:01.638] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:01.645] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:23:01.646] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:01.646] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:01.646] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:01.649] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:23:01.649] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:01.651] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:23:01.674] [AGENT] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:02.574] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=281
+[2026-09-15 08:23:02.583] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=281
+[2026-09-15 08:23:02.597] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=281
+[2026-09-15 08:23:02.603] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=281
+[2026-09-15 08:23:04.654] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3016 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:04.654] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:04.660] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:23:04.666] [MEASURE] [INFO] [cid=a8f3a777-2bfb-4eee-80cb-497ef2b14282] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:23:05.880] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:23:05.880] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:05.889] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:23:05.890] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:05.890] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:05.890] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:05.893] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:23:05.893] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:05.896] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:23:05.897] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:23:05.897] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:23:05.898] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:23:05.924] [AGENT] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:06.574] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=285
+[2026-09-15 08:23:06.583] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=285
+[2026-09-15 08:23:06.604] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=285
+[2026-09-15 08:23:06.611] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=285
+[2026-09-15 08:23:08.899] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3019 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:08.900] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:08.906] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:23:08.912] [MEASURE] [INFO] [cid=ba774a6d-fc85-43dd-b5c8-7843c1cdd490] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:23:10.126] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:23:10.126] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:10.134] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:23:10.135] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:10.135] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:10.135] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:10.138] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:23:10.138] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:10.139] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:23:10.163] [AGENT] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:10.575] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=289
+[2026-09-15 08:23:10.584] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=289
+[2026-09-15 08:23:10.599] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=289
+[2026-09-15 08:23:10.606] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=289
+[2026-09-15 08:23:13.145] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3018 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:13.145] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:13.151] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:23:13.156] [MEASURE] [INFO] [cid=1a0e4469-e829-426f-8773-564d94b6a176] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:23:14.370] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:23:14.370] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:14.378] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:23:14.378] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:14.379] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:14.379] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:14.382] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:23:14.382] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:14.385] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:23:14.385] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:23:14.386] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:23:14.386] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:23:14.414] [AGENT] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:14.576] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=293
+[2026-09-15 08:23:14.585] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=293
+[2026-09-15 08:23:14.601] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=293
+[2026-09-15 08:23:14.608] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=293
+[2026-09-15 08:23:17.390] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3020 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:17.390] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:17.397] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:23:17.402] [MEASURE] [INFO] [cid=391fd3f3-0eda-4c37-9bac-8535f58d4772] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:23:18.616] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:23:18.616] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:18.624] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:23:18.624] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:18.625] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:18.625] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:18.628] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:23:18.628] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:18.631] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:23:18.654] [AGENT] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:19.578] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=298
+[2026-09-15 08:23:19.586] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=298
+[2026-09-15 08:23:19.600] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=298
+[2026-09-15 08:23:19.607] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=298
+[2026-09-15 08:23:21.577] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=300
+[2026-09-15 08:23:21.586] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=300
+[2026-09-15 08:23:21.586] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=300
+[2026-09-15 08:23:21.594] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=300
+[2026-09-15 08:23:21.594] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=300
+[2026-09-15 08:23:21.600] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=300
+[2026-09-15 08:23:21.600] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=300
+[2026-09-15 08:23:21.607] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=300
+[2026-09-15 08:23:21.608] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=300
+[2026-09-15 08:23:21.615] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=300
+[2026-09-15 08:23:21.615] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=300
+[2026-09-15 08:23:21.622] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=300
+[2026-09-15 08:23:21.622] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=300
+[2026-09-15 08:23:21.629] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=300
+[2026-09-15 08:23:21.629] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=300
+[2026-09-15 08:23:21.634] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3018 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:21.634] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:21.636] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=300
+[2026-09-15 08:23:21.636] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=300
+[2026-09-15 08:23:21.640] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:23:21.644] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=300
+[2026-09-15 08:23:21.644] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=300
+[2026-09-15 08:23:21.645] [MEASURE] [INFO] [cid=d7a4ef65-d762-489c-acd3-3cc7c4015ae7] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:23:21.651] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=300
+[2026-09-15 08:23:21.651] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=300
+[2026-09-15 08:23:21.657] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=300
+[2026-09-15 08:23:21.658] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=300
+[2026-09-15 08:23:21.665] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=300
+[2026-09-15 08:23:21.665] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=300
+[2026-09-15 08:23:21.672] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=300
+[2026-09-15 08:23:21.672] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=300
+[2026-09-15 08:23:21.679] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=300
+[2026-09-15 08:23:21.679] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=300
+[2026-09-15 08:23:21.686] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=300
+[2026-09-15 08:23:21.686] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=300
+[2026-09-15 08:23:21.693] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=300
+[2026-09-15 08:23:22.861] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:23:22.861] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:22.869] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:23:22.869] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:22.869] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:22.869] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:22.872] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:23:22.873] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:22.876] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:23:22.877] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:23:22.877] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:23:22.877] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:23:22.904] [AGENT] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:23.578] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=302
+[2026-09-15 08:23:23.587] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=302
+[2026-09-15 08:23:23.601] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=302
+[2026-09-15 08:23:23.608] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=302
+[2026-09-15 08:23:25.884] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] DITTO_RESPONSE subject=enableLink target=org.dt4n.core:link-h1-s1 durationMs=3023 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:25.885] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] UI_ACK subject=enableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:25.891] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] WAIT_STATE subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up stateNow=up timeoutMs=20000
+[2026-09-15 08:23:25.897] [MEASURE] [INFO] [cid=5da76ebe-eb1f-4395-875c-c394cfef4e7b] STATE_OK subject=enableLink target=org.dt4n.core:link-h1-s1 expect=up state=up
+[2026-09-15 08:23:27.114] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] CLICK subject=disableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=up
+[2026-09-15 08:23:27.114] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] SEND subject=disableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/disableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:27.123] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 08:23:27.123] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:27.123] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:27.123] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:27.127] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 08:23:27.127] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:27.127] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 08:23:27.154] [AGENT] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:27.579] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=306
+[2026-09-15 08:23:27.587] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=306
+[2026-09-15 08:23:27.601] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=306
+[2026-09-15 08:23:27.607] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=306
+[2026-09-15 08:23:30.134] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] DITTO_RESPONSE subject=disableLink target=org.dt4n.core:link-h1-s1 durationMs=3020 http=408 rawText={"status":408,"error":"command.timeout","message":"The Command reached the specified timeout of 3,000ms.","description":"Try increasing the command timeout."} rejected=false timedOut=true
+[2026-09-15 08:23:30.135] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] UI_ACK subject=disableLink target=org.dt4n.core:link-h1-s1 http=408 ok=false rejected=false timedOut=true
+[2026-09-15 08:23:30.141] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] WAIT_STATE subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down stateNow=down timeoutMs=20000
+[2026-09-15 08:23:30.146] [MEASURE] [INFO] [cid=7d718632-5c38-4b8b-a170-267e1b71df47] STATE_OK subject=disableLink target=org.dt4n.core:link-h1-s1 expect=down state=down
+[2026-09-15 08:23:31.361] [MEASURE] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] CLICK subject=enableLink target=org.dt4n.core:link-h1-s1 params={} stateBefore=down
+[2026-09-15 08:23:31.361] [MEASURE] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] SEND subject=enableLink target=org.dt4n.core:link-h1-s1 detail=POST http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages/enableLink?timeout=3 timeout=3s
+[2026-09-15 08:23:31.370] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 08:23:31.370] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 08:23:31.370] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 08:23:31.370] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 08:23:31.373] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 08:23:31.373] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 08:23:31.376] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 08:23:31.377] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 08:23:31.377] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 08:23:31.378] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 08:23:31.404] [AGENT] [INFO] [cid=109ba6e0-1959-4d1c-b7ca-1e21996b12fb] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 08:23:31.581] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=310
+[2026-09-15 08:23:31.589] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=310
+[2026-09-15 08:23:31.603] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=310
+[2026-09-15 08:23:31.610] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=310

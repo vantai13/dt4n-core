@@ -1,0 +1,39 @@
+Automated command-flow measure: link h1-s1, trials=30
+Ditto target: org.dt4n.core:link-h1-s1
+Flow log: logs/command_flow.log
+Report log: logs/command_flow_measure.log
+Baseline direct-up: twin=up ok=true
+Baseline runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]
+
+trial cmd          target                 ack   route   lock   exec  detect  push   ui    total  result
+-------------------------------------------------------------------------------------------------------------------
+    1 disableLink  link-h1-s1               3023     14      0      4    899      7   2112   3036  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    2 enableLink   link-h1-s1               3023      8      0      4    660      9   2354   3035  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    3 disableLink  link-h1-s1               3016      9      0      6    406      6   2601   3028  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    4 enableLink   link-h1-s1               3018      9      0      3    171      7   2846   3036  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    5 disableLink  link-h1-s1               3018     10      0      3    925      7   2085   3030  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    6 enableLink   link-h1-s1               3022     10      0      3    681      8   2332   3034  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    7 disableLink  link-h1-s1               3021     10      0      5    430      7   2580   3032  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    8 enableLink   link-h1-s1               3021      9      0      3    189      7   2824   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    9 disableLink  link-h1-s1               3016      8      0      3    948      6   2063   3028  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   10 enableLink   link-h1-s1               3019     10      0      3    711      7   2301   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   11 disableLink  link-h1-s1               3019      9      0      3    461      7   2550   3030  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   12 enableLink   link-h1-s1               3020      8      0      4    219      7   2794   3032  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   13 disableLink  link-h1-s1               3018      8      0      4    972      7   2038   3029  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   14 enableLink   link-h1-s1               3023      8      0      3    729      7   2289   3036  OK / Ditto response timeout
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   15 disableLink  link-h1-s1               3020      9      0      4    474      6   2539   3032  OK / Ditto response timeout
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down

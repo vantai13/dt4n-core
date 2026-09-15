@@ -1,0 +1,112 @@
+[
+  {
+    "module": "bridge.bootstrap",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/bootstrap.py"
+  },
+  {
+    "module": "bridge.collector",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/collector.py"
+  },
+  {
+    "module": "bridge.sync_agent",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/sync_agent.py"
+  },
+  {
+    "module": "bridge.command_agent",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/command_agent.py"
+  },
+  {
+    "module": "bridge.ditto_reader",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/ditto_reader.py"
+  },
+  {
+    "module": "bridge.verify",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/verify.py"
+  },
+  {
+    "module": "bridge.health",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/health.py"
+  },
+  {
+    "module": "bridge.adapter",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/adapter.py"
+  },
+  {
+    "module": "bridge.pusher",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/pusher.py"
+  },
+  {
+    "module": "bridge.differ",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/differ.py"
+  },
+  {
+    "module": "bridge.diagnose",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/bridge/diagnose.py"
+  },
+  {
+    "module": "measurements.measure_latency",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/measurements/measure_latency.py"
+  },
+  {
+    "module": "measurements.measure_command_latency",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/measurements/measure_command_latency.py"
+  },
+  {
+    "module": "measurements.measure_command_flow",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/measurements/measure_command_flow.py"
+  },
+  {
+    "module": "measurements.trace_latency",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/measurements/trace_latency.py"
+  },
+  {
+    "module": "rl.scenarios",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/rl/scenarios.py"
+  },
+  {
+    "module": "rl.injection",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/rl/injection.py"
+  },
+  {
+    "module": "mininet.topology_meta",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/mininet/topology_meta.py"
+  },
+  {
+    "module": "mininet.gen_routes",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/mininet/gen_routes.py"
+  },
+  {
+    "module": "mininet.aoi_norm",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/mininet/aoi_norm.py"
+  },
+  {
+    "module": "mininet.env_runner",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/mininet/env_runner.py"
+  },
+  {
+    "module": "twin.link_direction",
+    "ok": true,
+    "path": "/home/ubuntu/dt4n-core/twin/link_direction.py"
+  }
+]

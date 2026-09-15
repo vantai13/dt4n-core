@@ -1,0 +1,439 @@
+loading app mininet.controller_static
+loading app ryu.controller.ofp_handler
+instantiating app mininet.controller_static of StaticMultipath
+DT4N static controller started
+spec=ditto/topology_spec.json route_table=ditto/routing_table.json port_map=ditto/port_map.json
+IP->MAC: {'10.0.0.1': '00:00:00:00:00:01', '10.0.0.2': '00:00:00:00:00:02', '10.0.0.3': '00:00:00:00:00:03', '10.0.0.4': '00:00:00:00:00:04', '10.0.0.5': '00:00:00:00:00:05'}
+instantiating app ryu.controller.ofp_handler of OFPHandler
+Switch s1 connected (dpid=1)
+Waiting for ditto/port_map.json before installing routes
+Switch s2 connected (dpid=2)
+Switch s3 connected (dpid=3)
+Waiting for ditto/port_map.json before installing routes
+Waiting for ditto/port_map.json before installing routes
+s1 port_map={'h1': 3, 'h2': 4, 'h3': 5, 's2': 1, 's3': 2}
+s1 route 10.0.0.1 -> h1(port 3)
+s1 route 10.0.0.2 -> h2(port 4)
+s1 route 10.0.0.3 -> h3(port 5)
+s1 route 10.0.0.4 -> s2(port 1)
+s1 route 10.0.0.5 -> s3(port 2)
+s2 port_map={'s1': 1, 's3': 2, 'srv1': 3}
+s2 route 10.0.0.1 -> s1(port 1)
+s2 route 10.0.0.2 -> s1(port 1)
+s2 route 10.0.0.3 -> s1(port 1)
+s2 route 10.0.0.4 -> srv1(port 3)
+s2 route 10.0.0.5 -> s3(port 2)
+s3 port_map={'s1': 1, 's2': 2, 'srv2': 3}
+s3 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.2 -> s1(port 1)
+s3 route 10.0.0.3 -> s1(port 1)
+s3 route 10.0.0.4 -> s2(port 2)
+s3 route 10.0.0.5 -> srv2(port 3)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)
+LINK DOWN s1-h1; rerouting
+s1: 10.0.0.1 unreachable; deleting flow
+s2: 10.0.0.1 unreachable; deleting flow
+s3: 10.0.0.1 unreachable; deleting flow
+LINK UP s1-h1; rerouting
+s1 route 10.0.0.1 -> h1(port 3)
+s2 route 10.0.0.1 -> s1(port 1)
+s3 route 10.0.0.1 -> s1(port 1)

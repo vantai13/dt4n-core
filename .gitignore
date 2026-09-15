@@ -1,0 +1,232 @@
+# ========================================================
+# .gitignore cho DT4N — lá chắn an toàn + chống rác
+# ========================================================
+
+# --- BÍ MẬT: TUYỆT ĐỐI không commit (nhớ Lesson 0.6 + MASTER_PLAN an toàn) ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials
+aws_credentials
+**/secrets/
+*.htpasswd        # nếu bạn đặt mật khẩu Ditto thật
+
+# --- Python venv + cache (sinh tự động, không cần versioned) ---
+venv/
+.venv/
+env/
+**/venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+node_modules/
+dist/
+
+# --- Log + file tạm ---
+*.log
+logs/*
+!logs/.gitkeep
+*.tmp
+*.bak
+
+# --- Rác của Mininet (nhớ Lesson 0.2/0.3: mạng rác, file sót) ---
+*.pid
+mininet.log
+ditto/port_map.json
+
+# --- Docker volume data nếu lỡ map ra thư mục local ---
+mongo-data/
+docker-volumes/
+
+# --- File hệ điều hành / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Không ignore .gitkeep (giữ thư mục rỗng) ---
+!.gitkeep
+
+# Phase 4.5 raw logs (regenerable; artifacts/ and baseline/ are tracked)
+docs/phase-4.5/raw/*.log
+docs/phase-4.5/raw/*.txt
+!docs/phase-4.5/raw/.gitkeep
+
+# --- Ket qua thi nghiem: NT33 / provenance ---
+# Mac dinh bo qua results/ vi co the co file nang (pcap, model, raw dump).
+# Nhung moi ket qua co the trich dan trong paper phai commit duoc.
+results/*
+results/**/*
+!results/**/
+!results/**/*.json
+!results/**/calib/**
+!results/**/phase-*/**/*.json
+!results/**/phase-*/**/*.md
+!results/**/phase-*/**/*.csv
+!results/**/phase-*/**/*.png
+!results/**/phase-*/**/*.sha256
+!results/**/phase-*/*.json
+!results/**/phase-*/*.md
+!results/**/phase-*/*.csv
+!results/**/phase-*/*.png
+!results/**/phase-*/*.sha256
+# Run ledgers are evidence needed to reproduce committed JSON reports.
+!results/**/run_log.jsonl
+
+# Lesson 23.17 -- so sach cua kho phan tang. Phai duoc track.
+!results/MANIFEST.md
+!results/_intent.json
+!results/PATH_MAP.tsv
+!results/**/README.md
+
+# Phase L raw binary traces stay outside git; commit manifest + metadata.
+results/**/phase-L/raw/*.bin
+!results/**/phase-L/raw/MANIFEST.sha256.json
+
+# Phase 20R live campaign raw payloads stay local; compact state/table artifacts
+# are committed after validation.
+results/**/phase-20R/raw/*.bin
+results/**/phase-20R/raw/*.json
+!results/**/phase-20R/raw/MANIFEST.sha256.json
+!results/**/phase-20R/*.parquet
+!results/**/phase-20R/truth_table.parquet
+results/**/raw_additivity_*/
+results/**/phase-23/raw_differential/
+results/**/phase-23/raw_differential_v2/
+
+# Historical local experiment outputs kept on this workstation. They are not
+# part of Phase 20R provenance and would otherwise make live git fingerprints
+# dirty through the broad results JSON unignore rules above.
+results/**/ablation/
+results/**/ablation_dyn/
+results/**/asym_300/
+results/**/asym_500/
+results/**/eval/
+results/**/pilot/
+
+# Raw/generated experiment payloads stay local. Commit compact summaries,
+# diagnostics, and docs instead of large traces/log folders.
+results/**/phase-14/
+results/**/phase-14b/*.json
+results/**/phase-14c/*.json
+results/**/phase-20/flow_logs*/
+results/**/phase-20/rho_*.csv
+results/**/phase-20/rho_trace*.csv
+results/**/phase-20/rho_trace*_meta.json
+results/**/phase-20/tau_summary.json
+results/**/phase-20/tau_summary_*_fixed.json
+results/**/phase-20/tau_summary_smoke.json
+results/**/phase-20/estimator_compare_smoke.json
+
+runs/
+!frozen_policies/**
+
+# --- Kho luu tru code cu: phai duoc tracked ---
+# legacy/ co y KHONG nam trong danh sach ignore.
+# _legacy/ va _graveyard/ ben duoi chi la thu muc tam cu, dung dung cho archive.
+
+# Hinh phai sinh tu CSV bang script, khong commit hinh ve tay.
+*.png
+!docs/**/*.png
+!results/**/phase-*/**/*.png
+!results/**/phase-*/*.png
+
+# Thư mục làm việc tạm
+_graveyard/
+_legacy/
+scratch/
+
+# Phase 21 calibration tables are generated locally; commit checksums instead.
+cert/*.parquet
+
+# --- Phase 21R: cho phep commit artifact ket qua ---
+!results/**/phase-21R/
+!results/**/phase-21R/**/*.json
+!results/**/phase-21R/**/*.parquet
+# Lesson 23.20 (amendment 23-49b muc 3): parquet cua MA TRAN 23.20 la HANG 3
+# (tai tao re, ~1.4 GB cho 30 file). KHONG commit. Report json THI commit --
+# no nho va mang khoi `validity` ma test_no_stale_axes.py can.
+results/LIVE/phase-21R/*.parquet
+# A069: builder report day du chua outcome nam ngoai allowlist PILOT. Giu local
+# va ghim digest trong `a069_pilot.json`; khong commit/mo truoc mot prereg moi.
+results/LIVE/phase-21R/*_A069_report.json
+# A070 W: receipt va builder report day du la tang niem phong local. Report
+# cong khai chi co ba outcome duoc allowlist trong phase-23.
+results/LIVE/phase-21R/*_A070W_report.json
+results/LIVE/phase-23/.sealed/
+# Amendment 23-49g: quy tac tren chi chan tang LIVE, nen sau khi phan tang
+# results/ (22/08) toan bo parquet ma tran 23.20 da lot vao lich su qua
+# PENDING/ va SUPERSEDED/ (38 path, 1.92 GB -- push len GitHub bi chan).
+# Chan theo HAU TO artifact ma tran o MOI tang. 8 file calib_set_*.parquet
+# goc (khong co hau to _U<n>_) van commit binh thuong.
+results/**/phase-21R/*_measured_v7.parquet
+results/**/phase-21R/*_legacy_sawtooth_51ms.parquet
+!results/**/phase-21R/**/*.csv
+!results/**/phase-21R/.gitkeep
+!docs/phase-21R/**
+
+# Phase 23 AoI campaign: keep 427 MiB raw/traffic auxiliaries locally. The
+# compact manifest, per-run metadata, estimates, and figure are tracked.
+results/**/phase-23/aoi_v7_campaign/flows_*/
+results/**/phase-23/aoi_v7_campaign/rho_*.csv
+
+# Phase D confirmatory runs: raw traces and per-run infra are local custody
+# payloads. Commit only compact adjudication artifacts from results/SMOKE.
+results/RAW/phase-D/
+results/PENDING/phase-D/
+# Phase G static-control packet ledgers and per-run traces remain under local
+# custody; compact certificate/detail artifacts are committed.
+results/RAW/phase-G/g1-static*/
+# Phase G.3 target/sent/measured ledgers and emitter timing traces can grow to
+# many gigabytes. Keep all g3 RAW run directories local; commit only the compact
+# receipts from results/SMOKE/phase-G.
+results/RAW/phase-G/g3*/
+
+# Trace TONG HOP cua Phase T2: SINH LAI DUOC bit-exact tu
+# tools/t2_make_synthetic_trace.py + (mode, rho_bar, a, tau, dt, n, seed).
+# Ban ghi custody la file .meta.json di kem (co sha256 cua CSV), KHONG phai
+# CSV. Mot trace 35 MB x 5 seed = 175 MB CSV sinh lai duoc trong git chinh
+# la sai lam da lam results/phase-20/rho_offered_long*.csv khong version hoa
+# duoc (docs/phase-20/99-gate-decision.md:319). Giu .meta.json, bo CSV.
+results/**/phase-T2/traces/*.csv
+
+# Lesson 20R2.1 B4: preserve original sweep_r2 parquet only.
+# Verified: 166 files, 10,940 rows, 3,097,390 bytes; SHA matches reports.
+!results/PENDING/phase-T2/sweep_r2/*.parquet
+
+# [20R2.9-C/C-3] Luot 1 (`sweep/`) bi BO SOT khi luot 2 duoc bao ton o tren.
+# Hau qua do duoc: `tools/20r2_9_regenerate_legacy_metadata --kind hygiene`
+# doc CA 166 parquet luot 1 va kiem sha256 cua chung, nen tren mot clone sach
+# no dung o FileNotFoundError -- tuc doi chung hygiene KHONG TON TAI voi
+# nguoi khac (prereg 15.2). Cung bac kich thuoc voi luot 2.
+# Da kiem truoc khi them: 166 file, 2,794,107 byte, 166/166 khop sha256 ghi
+# trong sweep/run_log.jsonl.
+!results/PENDING/phase-T2/sweep/*.parquet
+
+# [20R2.5-P6] Chien dich 20R2: parquet vao git qua ngoai le CO PHAM VI, theo
+# dung tien le 60a88784 (bao ton 166 parquet cua T2). Quyet TRUOC khi chay,
+# vi "mot ban giao chi co that khi no nam trong git" -- quyet sau khi da co
+# du lieu la de mo cua cho viec chon giu cai nao.
+# Uoc luong: 167 file x 20-25 KB ~ 4 MB, cung bac voi T2 (166 file, 4.1 MB).
+!results/LIVE/phase-20R2/campaign/*.parquet
+!results/SUPERSEDED/phase-20R2/campaign/*.parquet
+!results/SMOKE/phase-20R2/canary/*.parquet
+# Pilot se_rel do lai tren truc SLA exogenous [20R2.5-P3]. Ban self_calibrated
+# (se_pilot/) da duoc bao ton tu truoc; ban nay la BANG CHUNG cua bang chap
+# nhan DA SUA, nen cung phai kiem lai duoc.
+!results/RAW/phase-20R2/se_pilot_exo/*.parquet
+
+# Core acceptance: retain reviewable evidence, omit installed/runtime dependencies
+!results/report/**
+!logs/*.log
+!logs/*.jsonl
+!report.html
+
+# Local report server output keeps changing while the report is open
+logs/report_server.log
+logs/report_refresh.log

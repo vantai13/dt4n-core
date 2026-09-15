@@ -1,0 +1,148 @@
+{
+  "timestamp": 1789460878.8189647,
+  "config": {
+    "long": false,
+    "duration_min": 60,
+    "interval_min": 5,
+    "n_events": 20,
+    "verify_link": "h1-s1"
+  },
+  "results": {
+    "completeness": {
+      "hosts": {
+        "expected": 5,
+        "actual": 5,
+        "missing": [],
+        "extra": []
+      },
+      "switches": {
+        "expected": 3,
+        "actual": 3,
+        "missing": [],
+        "extra": []
+      },
+      "links": {
+        "expected": 8,
+        "actual": 8,
+        "missing": [],
+        "extra": []
+      }
+    },
+    "accuracy": {
+      "checked": 8,
+      "matched": 8,
+      "accuracy_rate": 100.0,
+      "discrepancies": []
+    },
+    "freshness": {
+      "note": "Freshness đo bằng --measure-latency trong run_sync hoặc measurements/measure_latency.py"
+    },
+    "event_fidelity": {
+      "detected": 20,
+      "total": 20,
+      "fidelity_pct": 100.0,
+      "log": [
+        {
+          "i": 1,
+          "detected": true,
+          "latency_s": 0.518
+        },
+        {
+          "i": 2,
+          "detected": true,
+          "latency_s": 1.017
+        },
+        {
+          "i": 3,
+          "detected": true,
+          "latency_s": 0.964
+        },
+        {
+          "i": 4,
+          "detected": true,
+          "latency_s": 1.015
+        },
+        {
+          "i": 5,
+          "detected": true,
+          "latency_s": 1.016
+        },
+        {
+          "i": 6,
+          "detected": true,
+          "latency_s": 1.018
+        },
+        {
+          "i": 7,
+          "detected": true,
+          "latency_s": 0.963
+        },
+        {
+          "i": 8,
+          "detected": true,
+          "latency_s": 1.017
+        },
+        {
+          "i": 9,
+          "detected": true,
+          "latency_s": 0.967
+        },
+        {
+          "i": 10,
+          "detected": true,
+          "latency_s": 0.961
+        },
+        {
+          "i": 11,
+          "detected": true,
+          "latency_s": 1.025
+        },
+        {
+          "i": 12,
+          "detected": true,
+          "latency_s": 1.014
+        },
+        {
+          "i": 13,
+          "detected": true,
+          "latency_s": 0.959
+        },
+        {
+          "i": 14,
+          "detected": true,
+          "latency_s": 1.016
+        },
+        {
+          "i": 15,
+          "detected": true,
+          "latency_s": 0.961
+        },
+        {
+          "i": 16,
+          "detected": true,
+          "latency_s": 1.015
+        },
+        {
+          "i": 17,
+          "detected": true,
+          "latency_s": 1.02
+        },
+        {
+          "i": 18,
+          "detected": true,
+          "latency_s": 1.021
+        },
+        {
+          "i": 19,
+          "detected": true,
+          "latency_s": 1.015
+        },
+        {
+          "i": 20,
+          "detected": true,
+          "latency_s": 0.961
+        }
+      ]
+    }
+  }
+}

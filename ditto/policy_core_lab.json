@@ -1,0 +1,35 @@
+{
+  "policyId": "org.dt4n.core:default-policy",
+  "entries": {
+    "owner": {
+      "subjects": {
+        "nginx:ditto": {
+          "type": "basic-auth user"
+        }
+      },
+      "resources": {
+        "thing:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "revoke": []
+        },
+        "policy:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "revoke": []
+        },
+        "message:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "revoke": []
+        }
+      }
+    }
+  }
+}

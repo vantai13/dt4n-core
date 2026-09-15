@@ -1,0 +1,1606 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta http-equiv="refresh" content="30"><title>Kết quả DT4N Core</title><style>body{font:16px system-ui;margin:32px;max-width:1200px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:12px;text-align:left}pre{white-space:pre-wrap;background:#eee;padding:16px}details{margin:12px 0}a{color:#075bb2}</style><h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: 2026-09-15T09:06:51.314915+00:00</p><p>Kho mới: /home/ubuntu/dt4n-core</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p><div style="background:#edf6ff;padding:20px;border-radius:8px"><p>Test đơn vị: 23 passed, 4 skipped, 0 failed, 0 errors.</p><p>Accuracy trạng thái 8 link: 100.0%; sự kiện phát hiện: 20/20.</p><p>Soak 30 phút: HOÀN TẤT; 1800.0/1800 giây, 31 mẫu.</p><p>Runtime ERROR/CRITICAL: 0; RSS đầu/cuối/max: 29244/29456/29456 KiB.</p><p>Soak có 1 mẫu lệch trạng thái; xem soak_30min.json và ghi chú khôi phục link sau test bảo mật.</p></div><h2>Số đo thực tế</h2><table><tr><th>Phép đo</th><th>n hợp lệ</th><th>p50 (ms)</th><th>p95 (ms)</th><th>Mục tiêu</th><th>File</th></tr><tr><td>Đồng bộ LÊN</td><td>30</td><td>992.31</td><td>1049.34</td><td>&lt; 2000 ms</td><td><a href="results/report/latency_up.json">latency_up.json</a></td></tr><tr><td>Lệnh vòng kín</td><td>30</td><td>1002.51</td><td>1035.48</td><td>&lt; 2000 ms</td><td><a href="results/report/latency_command.json">latency_command.json</a></td></tr><tr><td>Hiển thị UI thật (click → SSE)</td><td>60</td><td>990.41</td><td>1011.73</td><td>&lt; 3000 ms</td><td><a href="results/report/dashboard_live.json">dashboard_live.json</a></td></tr><tr><td>Luồng lệnh tự động</td><td>60</td><td>864.00</td><td>872.00</td><td>UI thật đo riêng</td><td><a href="results/report/command_flow.json">command_flow.json</a></td></tr></table><h2>Trạng thái nghiệm thu</h2><details><summary>routing_comparison.json</summary><pre>{
+  &quot;match&quot;: true
+}</pre></details><details><summary>bootstrap_scale.json</summary><pre>{
+  &quot;scope&quot;: &quot;bootstrap only; not maximum Mininet capacity&quot;,
+  &quot;client_hosts&quot;: 20,
+  &quot;total_hosts&quot;: 22,
+  &quot;switches&quot;: 3,
+  &quot;expected_things&quot;: 52,
+  &quot;readable_things&quot;: 52,
+  &quot;first_s&quot;: 2.3459725060000665,
+  &quot;repeat_s&quot;: 0.5979690090000531,
+  &quot;first&quot;: {
+    &quot;created&quot;: 52,
+    &quot;skipped&quot;: 0
+  },
+  &quot;repeat&quot;: {
+    &quot;created&quot;: 0,
+    &quot;skipped&quot;: 52
+  }
+}</pre></details><details><summary>verification.json</summary><pre>{
+  &quot;ok&quot;: true,
+  &quot;result&quot;: {
+    &quot;timestamp&quot;: 1789460878.8189647,
+    &quot;config&quot;: {
+      &quot;long&quot;: false,
+      &quot;duration_min&quot;: 60,
+      &quot;interval_min&quot;: 5,
+      &quot;n_events&quot;: 20,
+      &quot;verify_link&quot;: &quot;h1-s1&quot;
+    },
+    &quot;results&quot;: {
+      &quot;completeness&quot;: {
+        &quot;hosts&quot;: {
+          &quot;expected&quot;: 5,
+          &quot;actual&quot;: 5,
+          &quot;missing&quot;: [],
+          &quot;extra&quot;: []
+        },
+        &quot;switches&quot;: {
+          &quot;expected&quot;: 3,
+          &quot;actual&quot;: 3,
+          &quot;missing&quot;: [],
+          &quot;extra&quot;: []
+        },
+        &quot;links&quot;: {
+          &quot;expected&quot;: 8,
+          &quot;actual&quot;: 8,
+          &quot;missing&quot;: [],
+          &quot;extra&quot;: []
+        }
+      },
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      },
+      &quot;freshness&quot;: {
+        &quot;note&quot;: &quot;Freshness đo bằng --measure-latency trong run_sync hoặc measurements/measure_latency.py&quot;
+      },
+      &quot;event_fidelity&quot;: {
+        &quot;detected&quot;: 20,
+        &quot;total&quot;: 20,
+        &quot;fidelity_pct&quot;: 100.0,
+        &quot;log&quot;: [
+          {
+            &quot;i&quot;: 1,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.518
+          },
+          {
+            &quot;i&quot;: 2,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.017
+          },
+          {
+            &quot;i&quot;: 3,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.964
+          },
+          {
+            &quot;i&quot;: 4,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.015
+          },
+          {
+            &quot;i&quot;: 5,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.016
+          },
+          {
+            &quot;i&quot;: 6,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.018
+          },
+          {
+            &quot;i&quot;: 7,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.963
+          },
+          {
+            &quot;i&quot;: 8,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.017
+          },
+          {
+            &quot;i&quot;: 9,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.967
+          },
+          {
+            &quot;i&quot;: 10,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.961
+          },
+          {
+            &quot;i&quot;: 11,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.025
+          },
+          {
+            &quot;i&quot;: 12,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.014
+          },
+          {
+            &quot;i&quot;: 13,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.959
+          },
+          {
+            &quot;i&quot;: 14,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.016
+          },
+          {
+            &quot;i&quot;: 15,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.961
+          },
+          {
+            &quot;i&quot;: 16,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.015
+          },
+          {
+            &quot;i&quot;: 17,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.02
+          },
+          {
+            &quot;i&quot;: 18,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.021
+          },
+          {
+            &quot;i&quot;: 19,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 1.015
+          },
+          {
+            &quot;i&quot;: 20,
+            &quot;detected&quot;: true,
+            &quot;latency_s&quot;: 0.961
+          }
+        ]
+      }
+    }
+  }
+}</pre></details><details><summary>security_live.json</summary><pre>{
+  &quot;ok&quot;: true,
+  &quot;result&quot;: {
+    &quot;exit_code&quot;: 0
+  }
+}</pre></details><details><summary>soak_progress.json</summary><pre>{
+  &quot;duration_s&quot;: 1800.09,
+  &quot;samples&quot;: [
+    {
+      &quot;elapsed_s&quot;: 0.0,
+      &quot;rss_kib&quot;: 29244,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 7,
+        &quot;accuracy_rate&quot;: 87.5,
+        &quot;discrepancies&quot;: [
+          {
+            &quot;thing&quot;: &quot;org.dt4n.core:link-h1-s1&quot;,
+            &quot;path&quot;: &quot;features/status/properties/state&quot;,
+            &quot;ground_truth&quot;: &quot;up&quot;,
+            &quot;twin&quot;: &quot;down&quot;
+          }
+        ]
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 60.09,
+      &quot;rss_kib&quot;: 29288,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 120.2,
+      &quot;rss_kib&quot;: 29328,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 180.31,
+      &quot;rss_kib&quot;: 29344,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 240.4,
+      &quot;rss_kib&quot;: 29344,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 300.51,
+      &quot;rss_kib&quot;: 29344,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 360.66,
+      &quot;rss_kib&quot;: 29388,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 420.76,
+      &quot;rss_kib&quot;: 29396,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 480.85,
+      &quot;rss_kib&quot;: 29396,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 540.94,
+      &quot;rss_kib&quot;: 29396,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 601.02,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 661.12,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 721.22,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 781.32,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 841.37,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 901.47,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 961.52,
+      &quot;rss_kib&quot;: 29400,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1021.61,
+      &quot;rss_kib&quot;: 29408,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1081.7,
+      &quot;rss_kib&quot;: 29408,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1141.81,
+      &quot;rss_kib&quot;: 29440,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1201.86,
+      &quot;rss_kib&quot;: 29440,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1261.92,
+      &quot;rss_kib&quot;: 29444,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1321.97,
+      &quot;rss_kib&quot;: 29444,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1382.07,
+      &quot;rss_kib&quot;: 29444,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1442.17,
+      &quot;rss_kib&quot;: 29444,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1502.22,
+      &quot;rss_kib&quot;: 29444,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1562.32,
+      &quot;rss_kib&quot;: 29452,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1622.39,
+      &quot;rss_kib&quot;: 29452,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1682.5,
+      &quot;rss_kib&quot;: 29452,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1742.6,
+      &quot;rss_kib&quot;: 29452,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    },
+    {
+      &quot;elapsed_s&quot;: 1800.05,
+      &quot;rss_kib&quot;: 29456,
+      &quot;accuracy&quot;: {
+        &quot;checked&quot;: 8,
+        &quot;matched&quot;: 8,
+        &quot;accuracy_rate&quot;: 100.0,
+        &quot;discrepancies&quot;: []
+      }
+    }
+  ],
+  &quot;rss_start_kib&quot;: 29244,
+  &quot;rss_end_kib&quot;: 29456,
+  &quot;rss_max_kib&quot;: 29456,
+  &quot;all_state_accuracy_100&quot;: false,
+  &quot;complete&quot;: true
+}</pre></details><details><summary>dashboard_smoke.json</summary><pre>{
+  &quot;url&quot;: &quot;http://localhost:5173&quot;,
+  &quot;initial_text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)&quot;,
+  &quot;reload_text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)&quot;,
+  &quot;page_errors&quot;: [],
+  &quot;canvas_count&quot;: 1
+}</pre></details><details><summary>dashboard_live.json</summary><pre>{
+  &quot;samples&quot;: [
+    {
+      &quot;trial&quot;: 1,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.1180967919999603,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 1,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.8643003869999575,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 2,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9725187260000894,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 2,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.0260974669999996,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 3,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9843866240000807,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 3,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9568695810000918,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 4,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.991993864000051,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 4,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9943467380001039,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 5,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0083410309998726,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 5,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9865416640000149,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 6,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9861910580000313,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 6,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9921140510000441,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 7,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9902020630001971,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 7,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.991107773000067,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 8,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9902674080001361,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 8,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.0029388349998953,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 9,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9815618699999504,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 9,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9839843090001068,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 10,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0061119920001147,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 10,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9788616739999725,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 11,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9945816019999256,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 11,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9850920819999374,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 12,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0022800019999067,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 12,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9761258720000114,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 13,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0037326909998683,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 13,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9764678970000205,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 14,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9908847589999823,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 14,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.0117309460001707,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 15,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9829117209999367,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 15,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9892745460001606,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 16,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9948485370000526,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 16,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.005798034999998,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 17,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9677325729999211,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 17,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.023134078000112,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 18,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9868299900001603,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 18,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9830754019999404,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 19,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9761049319999984,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 19,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.0017461009999806,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 20,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9848192609999842,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 20,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.976063460999967,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 21,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.008596862000104,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 21,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.0036237069998606,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 22,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9911392269998487,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 22,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9928423180001573,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 23,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9765729949999695,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 23,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 1.003140938000115,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 24,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9999705390000599,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 24,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9799249850000251,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 25,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0022665120000056,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 25,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9993302499999572,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 26,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9934734119999575,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 26,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9793857239999397,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 27,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9755403900001056,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 27,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9878634280000824,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 28,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 1.0113405540000713,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 28,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9849773890000506,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 29,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.9861903959999836,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 29,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9915513769999507,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 30,
+      &quot;button&quot;: &quot;Tắt link&quot;,
+      &quot;expected&quot;: &quot;down&quot;,
+      &quot;ui_latency_sec&quot;: 0.990560978999838,
+      &quot;runtime_state&quot;: &quot;down&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    },
+    {
+      &quot;trial&quot;: 30,
+      &quot;button&quot;: &quot;Bật lại link&quot;,
+      &quot;expected&quot;: &quot;up&quot;,
+      &quot;ui_latency_sec&quot;: 0.9839770959999896,
+      &quot;runtime_state&quot;: &quot;up&quot;,
+      &quot;runtime_matches&quot;: true,
+      &quot;ok&quot;: true
+    }
+  ],
+  &quot;stats&quot;: {
+    &quot;n&quot;: 60,
+    &quot;mean_ms&quot;: 991.0389578833474,
+    &quot;p50_ms&quot;: 990.414193499987,
+    &quot;p95_ms&quot;: 1011.7309460001707,
+    &quot;p99_ms&quot;: 1118.0967919999603,
+    &quot;max_ms&quot;: 1118.0967919999603,
+    &quot;min_ms&quot;: 864.3003869999575
+  },
+  &quot;requested_ops&quot;: 60,
+  &quot;timeouts&quot;: 0,
+  &quot;runtime_all_match&quot;: true,
+  &quot;reload_link_state&quot;: &quot;up&quot;,
+  &quot;reload_text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)&quot;,
+  &quot;history_text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)\n\nLỊCH SỬ THAY ĐỔI\n↻\n✕\n9/15/2026, 8:31:42 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:40 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:38 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:36 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:34 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:32 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:30 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:28 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:26 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:24 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:22 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:20 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:18 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:16 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:14 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:12 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:10 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:08 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:06 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:04 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:02 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:31:00 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:58 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:56 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:54 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:52 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:50 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:48 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:46 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:44 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:42 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:40 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:38 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:36 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:34 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:32 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:30 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:28 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:26 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:24 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:22 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:20 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:18 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:16 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:14 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:12 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:10 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:08 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:06 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:04 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:02 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:30:00 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:58 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:56 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:54 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:52 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:50 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:48 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:46 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:44 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:37 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:29:37 AM\ndisableLink\nlink-xx-yy\nREJECTED\ntarget not found: org.dt4n.core:link-xx-yy\n9/15/2026, 8:29:37 AM\nsetBandwidth\nlink-s2-s3\nREJECTED\nbw must be a number, got &#x27;$(rm -rf /)&#x27;\n9/15/2026, 8:29:37 AM\nrebootEverything\nlink-h1-s1\nREJECTED\nunknown command: rebootEverything\n9/15/2026, 8:26:49 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:26:35 AM\ndisableLink\nlink-xx-yy\nREJECTED\ntarget not found: org.dt4n:link-xx-yy\n9/15/2026, 8:26:22 AM\nsetBandwidth\nlink-s2-s3\nREJECTED\nbw must be a number, got &#x27;$(rm -rf /)&#x27;\n9/15/2026, 8:26:09 AM\nrebootEverything\nlink-h1-s1\nREJECTED\nunknown command: rebootEverything\n9/15/2026, 8:26:07 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:26:05 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:26:03 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:26:01 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:59 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:57 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:55 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:53 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:51 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:49 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:47 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:45 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:43 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:41 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:39 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:35 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:33 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:31 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:29 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:27 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:25 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:23 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:21 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:19 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:17 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:15 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:13 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:11 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:09 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:07 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:05 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:03 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:25:01 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:59 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:57 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:55 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:53 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:51 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:49 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:47 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:45 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:43 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:41 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:39 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:35 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:33 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:31 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:29 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:27 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:25 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:23 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:21 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:19 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:17 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:15 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:13 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:11 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:24:09 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:31 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:27 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:22 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:18 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:14 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:10 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:05 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:23:01 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:57 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:53 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:48 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:44 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:40 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:36 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:31 AM\nenableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:27 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:25 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:21 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:17 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:13 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:09 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:05 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:22:01 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:57 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:53 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:49 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:45 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:41 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:33 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:29 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:25 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:21 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:17 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:13 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:09 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:05 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:21:01 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:57 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:53 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:49 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:45 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:41 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:37 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:33 AM\ndisableLink\nlink-h1-s1\nOK\n9/15/2026, 8:20:29 AM\ndisableLink\nlink-h1-s1\nOK&quot;,
+  &quot;page_errors&quot;: []
+}</pre></details><details><summary>dashboard_last_known.json</summary><pre>{
+  &quot;network_runner_stopped&quot;: true,
+  &quot;graph&quot;: {
+    &quot;nodes&quot;: 8,
+    &quot;links&quot;: 8
+  },
+  &quot;text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)&quot;
+}</pre></details><details><summary>final_summary.json</summary><pre>{
+  &quot;unit_tests&quot;: {
+    &quot;name&quot;: &quot;pytest&quot;,
+    &quot;errors&quot;: &quot;0&quot;,
+    &quot;failures&quot;: &quot;0&quot;,
+    &quot;skipped&quot;: &quot;4&quot;,
+    &quot;tests&quot;: &quot;27&quot;,
+    &quot;time&quot;: &quot;12.125&quot;,
+    &quot;timestamp&quot;: &quot;2026-09-15T08:47:51.618745+00:00&quot;,
+    &quot;hostname&quot;: &quot;dt4n-research-01&quot;
+  },
+  &quot;import_failures&quot;: 0,
+  &quot;all_project_imports_from_core&quot;: true,
+  &quot;routing&quot;: {
+    &quot;match&quot;: true
+  },
+  &quot;physical_completeness&quot;: true,
+  &quot;verification&quot;: {
+    &quot;completeness&quot;: {
+      &quot;hosts&quot;: {
+        &quot;expected&quot;: 5,
+        &quot;actual&quot;: 5,
+        &quot;missing&quot;: [],
+        &quot;extra&quot;: []
+      },
+      &quot;switches&quot;: {
+        &quot;expected&quot;: 3,
+        &quot;actual&quot;: 3,
+        &quot;missing&quot;: [],
+        &quot;extra&quot;: []
+      },
+      &quot;links&quot;: {
+        &quot;expected&quot;: 8,
+        &quot;actual&quot;: 8,
+        &quot;missing&quot;: [],
+        &quot;extra&quot;: []
+      }
+    },
+    &quot;accuracy&quot;: {
+      &quot;checked&quot;: 8,
+      &quot;matched&quot;: 8,
+      &quot;accuracy_rate&quot;: 100.0,
+      &quot;discrepancies&quot;: []
+    },
+    &quot;freshness&quot;: {
+      &quot;note&quot;: &quot;Freshness đo bằng --measure-latency trong run_sync hoặc measurements/measure_latency.py&quot;
+    },
+    &quot;event_fidelity&quot;: {
+      &quot;detected&quot;: 20,
+      &quot;total&quot;: 20,
+      &quot;fidelity_pct&quot;: 100.0,
+      &quot;log&quot;: [
+        {
+          &quot;i&quot;: 1,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.518
+        },
+        {
+          &quot;i&quot;: 2,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.017
+        },
+        {
+          &quot;i&quot;: 3,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.964
+        },
+        {
+          &quot;i&quot;: 4,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.015
+        },
+        {
+          &quot;i&quot;: 5,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.016
+        },
+        {
+          &quot;i&quot;: 6,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.018
+        },
+        {
+          &quot;i&quot;: 7,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.963
+        },
+        {
+          &quot;i&quot;: 8,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.017
+        },
+        {
+          &quot;i&quot;: 9,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.967
+        },
+        {
+          &quot;i&quot;: 10,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.961
+        },
+        {
+          &quot;i&quot;: 11,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.025
+        },
+        {
+          &quot;i&quot;: 12,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.014
+        },
+        {
+          &quot;i&quot;: 13,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.959
+        },
+        {
+          &quot;i&quot;: 14,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.016
+        },
+        {
+          &quot;i&quot;: 15,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.961
+        },
+        {
+          &quot;i&quot;: 16,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.015
+        },
+        {
+          &quot;i&quot;: 17,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.02
+        },
+        {
+          &quot;i&quot;: 18,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.021
+        },
+        {
+          &quot;i&quot;: 19,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 1.015
+        },
+        {
+          &quot;i&quot;: 20,
+          &quot;detected&quot;: true,
+          &quot;latency_s&quot;: 0.961
+        }
+      ]
+    }
+  },
+  &quot;security_live&quot;: {
+    &quot;name&quot;: &quot;pytest&quot;,
+    &quot;errors&quot;: &quot;0&quot;,
+    &quot;failures&quot;: &quot;0&quot;,
+    &quot;skipped&quot;: &quot;0&quot;,
+    &quot;tests&quot;: &quot;4&quot;,
+    &quot;time&quot;: &quot;0.283&quot;,
+    &quot;timestamp&quot;: &quot;2026-09-15T08:29:37.521535+00:00&quot;,
+    &quot;hostname&quot;: &quot;dt4n-research-01&quot;
+  },
+  &quot;soak&quot;: {
+    &quot;duration_s&quot;: 1800.09,
+    &quot;samples&quot;: [
+      {
+        &quot;elapsed_s&quot;: 0.0,
+        &quot;rss_kib&quot;: 29244,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 7,
+          &quot;accuracy_rate&quot;: 87.5,
+          &quot;discrepancies&quot;: [
+            {
+              &quot;thing&quot;: &quot;org.dt4n.core:link-h1-s1&quot;,
+              &quot;path&quot;: &quot;features/status/properties/state&quot;,
+              &quot;ground_truth&quot;: &quot;up&quot;,
+              &quot;twin&quot;: &quot;down&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 60.09,
+        &quot;rss_kib&quot;: 29288,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 120.2,
+        &quot;rss_kib&quot;: 29328,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 180.31,
+        &quot;rss_kib&quot;: 29344,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 240.4,
+        &quot;rss_kib&quot;: 29344,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 300.51,
+        &quot;rss_kib&quot;: 29344,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 360.66,
+        &quot;rss_kib&quot;: 29388,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 420.76,
+        &quot;rss_kib&quot;: 29396,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 480.85,
+        &quot;rss_kib&quot;: 29396,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 540.94,
+        &quot;rss_kib&quot;: 29396,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 601.02,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 661.12,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 721.22,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 781.32,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 841.37,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 901.47,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 961.52,
+        &quot;rss_kib&quot;: 29400,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1021.61,
+        &quot;rss_kib&quot;: 29408,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1081.7,
+        &quot;rss_kib&quot;: 29408,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1141.81,
+        &quot;rss_kib&quot;: 29440,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1201.86,
+        &quot;rss_kib&quot;: 29440,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1261.92,
+        &quot;rss_kib&quot;: 29444,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1321.97,
+        &quot;rss_kib&quot;: 29444,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1382.07,
+        &quot;rss_kib&quot;: 29444,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1442.17,
+        &quot;rss_kib&quot;: 29444,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1502.22,
+        &quot;rss_kib&quot;: 29444,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1562.32,
+        &quot;rss_kib&quot;: 29452,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1622.39,
+        &quot;rss_kib&quot;: 29452,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1682.5,
+        &quot;rss_kib&quot;: 29452,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1742.6,
+        &quot;rss_kib&quot;: 29452,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      },
+      {
+        &quot;elapsed_s&quot;: 1800.05,
+        &quot;rss_kib&quot;: 29456,
+        &quot;accuracy&quot;: {
+          &quot;checked&quot;: 8,
+          &quot;matched&quot;: 8,
+          &quot;accuracy_rate&quot;: 100.0,
+          &quot;discrepancies&quot;: []
+        }
+      }
+    ],
+    &quot;rss_start_kib&quot;: 29244,
+    &quot;rss_end_kib&quot;: 29456,
+    &quot;rss_max_kib&quot;: 29456,
+    &quot;all_state_accuracy_100&quot;: false
+  },
+  &quot;runtime_error_lines&quot;: [],
+  &quot;bootstrap_scale&quot;: {
+    &quot;scope&quot;: &quot;bootstrap only; not maximum Mininet capacity&quot;,
+    &quot;client_hosts&quot;: 20,
+    &quot;total_hosts&quot;: 22,
+    &quot;switches&quot;: 3,
+    &quot;expected_things&quot;: 52,
+    &quot;readable_things&quot;: 52,
+    &quot;first_s&quot;: 2.3459725060000665,
+    &quot;repeat_s&quot;: 0.5979690090000531,
+    &quot;first&quot;: {
+      &quot;created&quot;: 52,
+      &quot;skipped&quot;: 0
+    },
+    &quot;repeat&quot;: {
+      &quot;created&quot;: 0,
+      &quot;skipped&quot;: 52
+    }
+  },
+  &quot;dashboard_ui_stats&quot;: {
+    &quot;n&quot;: 60,
+    &quot;mean_ms&quot;: 991.0389578833474,
+    &quot;p50_ms&quot;: 990.414193499987,
+    &quot;p95_ms&quot;: 1011.7309460001707,
+    &quot;p99_ms&quot;: 1118.0967919999603,
+    &quot;max_ms&quot;: 1118.0967919999603,
+    &quot;min_ms&quot;: 864.3003869999575
+  },
+  &quot;dashboard_ui_timeouts&quot;: 0,
+  &quot;dashboard_runtime_matches&quot;: true,
+  &quot;last_known&quot;: {
+    &quot;network_runner_stopped&quot;: true,
+    &quot;graph&quot;: {
+      &quot;nodes&quot;: 8,
+      &quot;links&quot;: 8
+    },
+    &quot;text&quot;: &quot;Digital Twin — Network Dashboard\n🕑 Lịch sử\nLIVE\nNETWORK TOPOLOGY\nALERTS\n0\nAll systems normal\nINFO PANEL\nNetwork Overview\n\nTotal Nodes:\n8\n\nTotal Links:\n8\n\nSelected Details\n\n(Click a node or link to view details)&quot;
+  },
+  &quot;video_files&quot;: [
+    &quot;results/report/demo_video/page@f6ea2b0cffc3aeab622d8c5db769ef5b.webm&quot;
+  ],
+  &quot;github_pushed&quot;: false
+}</pre></details><h2>File dữ liệu</h2><ul><li><a href="results/report/.gitkeep">results/report/.gitkeep</a></li><li><a href="results/report/ACCEPTANCE.md">results/report/ACCEPTANCE.md</a></li><li><a href="results/report/bootstrap_scale.json">results/report/bootstrap_scale.json</a></li><li><a href="results/report/command_flow.json">results/report/command_flow.json</a></li><li><a href="results/report/command_flow_summary.json">results/report/command_flow_summary.json</a></li><li><a href="results/report/copy_manifest.json">results/report/copy_manifest.json</a></li><li><a href="results/report/dashboard_history.png">results/report/dashboard_history.png</a></li><li><a href="results/report/dashboard_initial.png">results/report/dashboard_initial.png</a></li><li><a href="results/report/dashboard_last_known.json">results/report/dashboard_last_known.json</a></li><li><a href="results/report/dashboard_last_known.png">results/report/dashboard_last_known.png</a></li><li><a href="results/report/dashboard_link_down.png">results/report/dashboard_link_down.png</a></li><li><a href="results/report/dashboard_live.json">results/report/dashboard_live.json</a></li><li><a href="results/report/dashboard_live.png">results/report/dashboard_live.png</a></li><li><a href="results/report/dashboard_live_progress.json">results/report/dashboard_live_progress.json</a></li><li><a href="results/report/dashboard_reload.png">results/report/dashboard_reload.png</a></li><li><a href="results/report/dashboard_smoke.json">results/report/dashboard_smoke.json</a></li><li><a href="results/report/docker_image_digests.txt">results/report/docker_image_digests.txt</a></li><li><a href="results/report/docker_images.json">results/report/docker_images.json</a></li><li><a href="results/report/final_summary.json">results/report/final_summary.json</a></li><li><a href="results/report/first_security_live.json">results/report/first_security_live.json</a></li><li><a href="results/report/first_security_live.xml">results/report/first_security_live.xml</a></li><li><a href="results/report/first_soak_30min.json">results/report/first_soak_30min.json</a></li><li><a href="results/report/first_verification.json">results/report/first_verification.json</a></li><li><a href="results/report/git_staged_status.txt">results/report/git_staged_status.txt</a></li><li><a href="results/report/imports.json">results/report/imports.json</a></li><li><a href="results/report/latency_command.json">results/report/latency_command.json</a></li><li><a href="results/report/latency_up.json">results/report/latency_up.json</a></li><li><a href="results/report/network_runtime_versions.json">results/report/network_runtime_versions.json</a></li><li><a href="results/report/pytest.xml">results/report/pytest.xml</a></li><li><a href="results/report/python_dependencies.txt">results/report/python_dependencies.txt</a></li><li><a href="results/report/results_overview.png">results/report/results_overview.png</a></li><li><a href="results/report/results_screen.png">results/report/results_screen.png</a></li><li><a href="results/report/routing_comparison.json">results/report/routing_comparison.json</a></li><li><a href="results/report/routing_regenerated.json">results/report/routing_regenerated.json</a></li><li><a href="results/report/security_live.json">results/report/security_live.json</a></li><li><a href="results/report/security_live.xml">results/report/security_live.xml</a></li><li><a href="results/report/snapshot_summary.json">results/report/snapshot_summary.json</a></li><li><a href="results/report/soak_30min.json">results/report/soak_30min.json</a></li><li><a href="results/report/soak_progress.json">results/report/soak_progress.json</a></li><li><a href="results/report/source_comparison.json">results/report/source_comparison.json</a></li><li><a href="results/report/topology_config5.json">results/report/topology_config5.json</a></li><li><a href="results/report/topology_scale20.json">results/report/topology_scale20.json</a></li><li><a href="results/report/verification.json">results/report/verification.json</a></li><li><a href="logs/.gitkeep">logs/.gitkeep</a></li><li><a href="logs/acceptance_runtime.log">logs/acceptance_runtime.log</a></li><li><a href="logs/acceptance_stdout.log">logs/acceptance_stdout.log</a></li><li><a href="logs/ack3_acceptance_runtime.log">logs/ack3_acceptance_runtime.log</a></li><li><a href="logs/ack3_acceptance_stdout.log">logs/ack3_acceptance_stdout.log</a></li><li><a href="logs/ack3_command_flow.log">logs/ack3_command_flow.log</a></li><li><a href="logs/ack3_command_flow_measure.log">logs/ack3_command_flow_measure.log</a></li><li><a href="logs/bootstrap_core_first.log">logs/bootstrap_core_first.log</a></li><li><a href="logs/bootstrap_core_second.log">logs/bootstrap_core_second.log</a></li><li><a href="logs/bootstrap_first.log">logs/bootstrap_first.log</a></li><li><a href="logs/bootstrap_scale.log">logs/bootstrap_scale.log</a></li><li><a href="logs/bootstrap_second.log">logs/bootstrap_second.log</a></li><li><a href="logs/browser_download.log">logs/browser_download.log</a></li><li><a href="logs/browser_install.log">logs/browser_install.log</a></li><li><a href="logs/browser_system_deps.log">logs/browser_system_deps.log</a></li><li><a href="logs/command_agent_audit.log">logs/command_agent_audit.log</a></li><li><a href="logs/command_flow.log">logs/command_flow.log</a></li><li><a href="logs/command_flow_measure.log">logs/command_flow_measure.log</a></li><li><a href="logs/controller.log">logs/controller.log</a></li><li><a href="logs/controller_acceptance.log">logs/controller_acceptance.log</a></li><li><a href="logs/controller_phase1_config5.log">logs/controller_phase1_config5.log</a></li><li><a href="logs/dashboard_build.log">logs/dashboard_build.log</a></li><li><a href="logs/dashboard_dev.log">logs/dashboard_dev.log</a></li><li><a href="logs/dashboard_last_known.log">logs/dashboard_last_known.log</a></li><li><a href="logs/dashboard_live.log">logs/dashboard_live.log</a></li><li><a href="logs/dashboard_smoke.log">logs/dashboard_smoke.log</a></li><li><a href="logs/dashboard_ui.jsonl">logs/dashboard_ui.jsonl</a></li><li><a href="logs/dependencies.log">logs/dependencies.log</a></li><li><a href="logs/diagnose.log">logs/diagnose.log</a></li><li><a href="logs/diagnose_audit.log">logs/diagnose_audit.log</a></li><li><a href="logs/ditto_compose_validate.log">logs/ditto_compose_validate.log</a></li><li><a href="logs/first_acceptance_runtime.log">logs/first_acceptance_runtime.log</a></li><li><a href="logs/first_security_live.log">logs/first_security_live.log</a></li><li><a href="logs/gen_routes.log">logs/gen_routes.log</a></li><li><a href="logs/git_init.log">logs/git_init.log</a></li><li><a href="logs/github_remote_check.log">logs/github_remote_check.log</a></li><li><a href="logs/imports.log">logs/imports.log</a></li><li><a href="logs/latency_command.log">logs/latency_command.log</a></li><li><a href="logs/latency_up.log">logs/latency_up.log</a></li><li><a href="logs/mininet_cleanup.log">logs/mininet_cleanup.log</a></li><li><a href="logs/mininet_cleanup_final.log">logs/mininet_cleanup_final.log</a></li><li><a href="logs/mininet_cleanup_flow_retry.log">logs/mininet_cleanup_flow_retry.log</a></li><li><a href="logs/mininet_cleanup_retry.log">logs/mininet_cleanup_retry.log</a></li><li><a href="logs/mininet_cleanup_verify_retry.log">logs/mininet_cleanup_verify_retry.log</a></li><li><a href="logs/network_suite.log">logs/network_suite.log</a></li><li><a href="logs/npm_install.log">logs/npm_install.log</a></li><li><a href="logs/phase1_config5.log">logs/phase1_config5.log</a></li><li><a href="logs/phase1_config5_stdout.log">logs/phase1_config5_stdout.log</a></li><li><a href="logs/phase1_flood.log">logs/phase1_flood.log</a></li><li><a href="logs/phase1_flood_stdout.log">logs/phase1_flood_stdout.log</a></li><li><a href="logs/phase1_normal.log">logs/phase1_normal.log</a></li><li><a href="logs/phase1_normal_stdout.log">logs/phase1_normal_stdout.log</a></li><li><a href="logs/pytest.log">logs/pytest.log</a></li><li><a href="logs/report_refresh.log">logs/report_refresh.log</a></li><li><a href="logs/report_server.log">logs/report_server.log</a></li><li><a href="logs/security_live.log">logs/security_live.log</a></li><li><a href="logs/snapshots_config5.jsonl">logs/snapshots_config5.jsonl</a></li><li><a href="logs/snapshots_flood.jsonl">logs/snapshots_flood.jsonl</a></li><li><a href="logs/snapshots_normal.jsonl">logs/snapshots_normal.jsonl</a></li><li><a href="logs/soak_30min.log">logs/soak_30min.log</a></li><li><a href="logs/verification.log">logs/verification.log</a></li><li><a href="docs/phase-2/notes.md">docs/phase-2/notes.md</a></li><li><a href="docs/phase-2/verify_report.json">docs/phase-2/verify_report.json</a></li></ul></html>

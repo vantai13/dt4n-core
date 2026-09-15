@@ -1,0 +1,28 @@
+{
+  "services": {
+    "nginx": {
+      "image": "nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10"
+    },
+    "connectivity": {
+      "image": "eclipse/ditto-connectivity@sha256:e01311f4413c0ae1a15a946f5a44eac773455a9a4aac891cc4fec7eeb48cf623"
+    },
+    "gateway": {
+      "image": "eclipse/ditto-gateway@sha256:a59e918d94b9c06e32d4638dc231c493ab8141e4fe8683b05d3b7444e9c03c43"
+    },
+    "things": {
+      "image": "eclipse/ditto-things@sha256:e16f7fa443bbb7c8f9df966afe0a0c59ee39891f137011f9d47792f058cfe107"
+    },
+    "things-search": {
+      "image": "eclipse/ditto-things-search@sha256:d028db2adb8f2a26d00f4bf2e8a5c2d05c5f86b051450406363a20171c363027"
+    },
+    "ditto-ui": {
+      "image": "eclipse/ditto-ui@sha256:15d69890ca38a741d1d3b27a1b5163cc656c090b5e38a51e176d2778172ebfb9"
+    },
+    "mongodb": {
+      "image": "mongo@sha256:be3d6353f3ea3fd3d22e016d19da20fcd6937eda0739eb6d2aeed335baa60f90"
+    },
+    "policies": {
+      "image": "eclipse/ditto-policies@sha256:926bb25487597930aedf898b76796039e17d6627d1a05b2bf9cfb08eca98fee2"
+    }
+  }
+}

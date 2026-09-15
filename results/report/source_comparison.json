@@ -1,0 +1,494 @@
+[
+  {
+    "path": "pytest.ini",
+    "source_sha256": "26e405bfa655f931754bec7725ebd7bc5a14186f6f7cb235e0a0b7c2989fb973",
+    "core_sha256": "56d7631b10024fde6f6a2f1741131e15687952c34b03210070e69540472d643d",
+    "modified": true
+  },
+  {
+    "path": ".gitignore",
+    "source_sha256": "f45c4926f1f83130a65986024f6d6dd16d7fab3473eaea355fadfe3e42d56e0a",
+    "core_sha256": "7d137fb0422603b7dce7816ba062191b83664b78711b6b77fa02678ec4045246",
+    "modified": true
+  },
+  {
+    "path": "dashboard/.gitkeep",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "modified": false
+  },
+  {
+    "path": "dashboard/package.json",
+    "source_sha256": "098381502667a6853487a38e5ee3e15ff4f20e4d7ae537106d3b49d53a5fce27",
+    "core_sha256": "098381502667a6853487a38e5ee3e15ff4f20e4d7ae537106d3b49d53a5fce27",
+    "modified": false
+  },
+  {
+    "path": "dashboard/package-lock.json",
+    "source_sha256": "68d7ac4e84916802d4dc6bdb5e0134ebe297ac4aec33a536f7e34d781f98a0a6",
+    "core_sha256": "68d7ac4e84916802d4dc6bdb5e0134ebe297ac4aec33a536f7e34d781f98a0a6",
+    "modified": false
+  },
+  {
+    "path": "dashboard/index.html",
+    "source_sha256": "fb7f8f5699b07bccfe40e942f5e0eabec01b6b3468d719c4f820126ed6746631",
+    "core_sha256": "fb7f8f5699b07bccfe40e942f5e0eabec01b6b3468d719c4f820126ed6746631",
+    "modified": false
+  },
+  {
+    "path": "dashboard/vite.config.js",
+    "source_sha256": "e248796a9d485ba9fbb905a8482ee0604f17f600a25c68bd60ab6a16466bc2f5",
+    "core_sha256": "e248796a9d485ba9fbb905a8482ee0604f17f600a25c68bd60ab6a16466bc2f5",
+    "modified": false
+  },
+  {
+    "path": "dashboard/.env.example",
+    "source_sha256": "390cedc61ca3d2bb7ff64bbba0553d2fdaadbbcac6035fdf635aeaac203cff89",
+    "core_sha256": "390cedc61ca3d2bb7ff64bbba0553d2fdaadbbcac6035fdf635aeaac203cff89",
+    "modified": false
+  },
+  {
+    "path": "logs/.gitkeep",
+    "source_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "core_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "modified": true
+  },
+  {
+    "path": "mininet/aoi_norm.py",
+    "source_sha256": "60b393f8f645de65edf46583580f3931e0831c060b6672e1b8188d5fb7448f5f",
+    "core_sha256": "60b393f8f645de65edf46583580f3931e0831c060b6672e1b8188d5fb7448f5f",
+    "modified": false
+  },
+  {
+    "path": "mininet/env_runner.py",
+    "source_sha256": "218516a65a94a4694fb2918783e65234ad24fbff036a35928890f09f4e0e1e12",
+    "core_sha256": "218516a65a94a4694fb2918783e65234ad24fbff036a35928890f09f4e0e1e12",
+    "modified": false
+  },
+  {
+    "path": "mininet/topology_meta.py",
+    "source_sha256": "c267554a8e1160d96bcc7644178336c3a3087e423e2d22868421a15c194cc20b",
+    "core_sha256": "c267554a8e1160d96bcc7644178336c3a3087e423e2d22868421a15c194cc20b",
+    "modified": false
+  },
+  {
+    "path": "mininet/traffic.py",
+    "source_sha256": "c8b2007dcedc34b8e8c5d07cba4736d6bbc6f5907728f500bb87a59cad4d55e0",
+    "core_sha256": "c8b2007dcedc34b8e8c5d07cba4736d6bbc6f5907728f500bb87a59cad4d55e0",
+    "modified": false
+  },
+  {
+    "path": "mininet/topology.py",
+    "source_sha256": "17981a8c215b5ac748fbfd25d5b2142ace76f2898afc291897281602d478c453",
+    "core_sha256": "17981a8c215b5ac748fbfd25d5b2142ace76f2898afc291897281602d478c453",
+    "modified": false
+  },
+  {
+    "path": "mininet/run_phase1.py",
+    "source_sha256": "469569403d4a57528628182fcea1c462818e20cdea9afc94529fc69f95188256",
+    "core_sha256": "469569403d4a57528628182fcea1c462818e20cdea9afc94529fc69f95188256",
+    "modified": false
+  },
+  {
+    "path": "mininet/gen_routes.py",
+    "source_sha256": "212286d88c9f94866a67b667982b2a2599d45e000c9a5dfe982d51264b8a1564",
+    "core_sha256": "212286d88c9f94866a67b667982b2a2599d45e000c9a5dfe982d51264b8a1564",
+    "modified": false
+  },
+  {
+    "path": "mininet/controller_static.py",
+    "source_sha256": "081ca3623ab7c45a95a9198e672697ed9b1b1e4ec718937f841685cf9b96fc25",
+    "core_sha256": "081ca3623ab7c45a95a9198e672697ed9b1b1e4ec718937f841685cf9b96fc25",
+    "modified": false
+  },
+  {
+    "path": "mininet/__init__.py",
+    "source_sha256": "a6513fd45fcab077c5c189d4535972a3d0434f4369557f88cbbb69db0d133dc0",
+    "core_sha256": "a6513fd45fcab077c5c189d4535972a3d0434f4369557f88cbbb69db0d133dc0",
+    "modified": false
+  },
+  {
+    "path": "mininet/run_sync.py",
+    "source_sha256": "1af9b27fdf9991c46b67f1ad276945089d631d5583fd71acd725b8970efd7d9d",
+    "core_sha256": "1af9b27fdf9991c46b67f1ad276945089d631d5583fd71acd725b8970efd7d9d",
+    "modified": false
+  },
+  {
+    "path": "mininet/tc_filter.py",
+    "source_sha256": "0e1f645450652b39bdcd81ad2511c0c33cc3d9dd5440be7c193e4a96e6e87c26",
+    "core_sha256": "0e1f645450652b39bdcd81ad2511c0c33cc3d9dd5440be7c193e4a96e6e87c26",
+    "modified": false
+  },
+  {
+    "path": "ditto/topology_spec.json",
+    "source_sha256": "be3534b9ea25805e8cb39e8f5ad6032645906c1eadef7a25fd04e22b66b4a946",
+    "core_sha256": "be3534b9ea25805e8cb39e8f5ad6032645906c1eadef7a25fd04e22b66b4a946",
+    "modified": false
+  },
+  {
+    "path": "ditto/policy.json",
+    "source_sha256": "7394f5e427a1059ddd016ab5515065376386a83b47184d1863bf8c4e11a1cc33",
+    "core_sha256": "7394f5e427a1059ddd016ab5515065376386a83b47184d1863bf8c4e11a1cc33",
+    "modified": false
+  },
+  {
+    "path": "ditto/routing_table.json",
+    "source_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+    "core_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+    "modified": false
+  },
+  {
+    "path": "measurements/stats.py",
+    "source_sha256": "61eb4a130a6e82d2e6b36c9b5a895137fda8375b1a67dd1dbeead24820827e36",
+    "core_sha256": "61eb4a130a6e82d2e6b36c9b5a895137fda8375b1a67dd1dbeead24820827e36",
+    "modified": false
+  },
+  {
+    "path": "measurements/trace_latency.py",
+    "source_sha256": "9d666879b0a6447fff56580fb72f7d2f6ec4b26af7e2e1019293f5783375259c",
+    "core_sha256": "9d666879b0a6447fff56580fb72f7d2f6ec4b26af7e2e1019293f5783375259c",
+    "modified": false
+  },
+  {
+    "path": "measurements/measure_latency.py",
+    "source_sha256": "5a58778567f1b906c4093d11968da42e5b865a2912bb10b4ec88717d9efdfc82",
+    "core_sha256": "1a396689513c561e412c2ab7d70c86b0ce97d94de5dfd4a0cda1e5130644246c",
+    "modified": true
+  },
+  {
+    "path": "measurements/measure_command_flow.py",
+    "source_sha256": "cf576303432290ef00f56db6c2d821468518c2b477be04051cd544bd1e7e91bc",
+    "core_sha256": "22a7a1d03586b44595efe352d72dc5be56fc109b78997a4c802af37fd410c3a8",
+    "modified": true
+  },
+  {
+    "path": "measurements/__init__.py",
+    "source_sha256": "61dcfac03f1587af08a05b3b380373c98413a7b7f0ac94f50f15db9232f18734",
+    "core_sha256": "61dcfac03f1587af08a05b3b380373c98413a7b7f0ac94f50f15db9232f18734",
+    "modified": false
+  },
+  {
+    "path": "measurements/measure_command_latency.py",
+    "source_sha256": "bb5b6de125f98e9c5dd5c6a4998493b1ffc8533b9e14b355e81739da850e0104",
+    "core_sha256": "21b24c37bcf1782c2ad621d313b6a7894c072b4b4664feeedf6804e7348adbd2",
+    "modified": true
+  },
+  {
+    "path": "test/test_ditto_reader.py",
+    "source_sha256": "67f9fe1c23a53d0f5cb5c2bfb722a859f2fbfcfb123ca1cd48fc198c6a2e667b",
+    "core_sha256": "67f9fe1c23a53d0f5cb5c2bfb722a859f2fbfcfb123ca1cd48fc198c6a2e667b",
+    "modified": false
+  },
+  {
+    "path": "test/test_aoi_norm.py",
+    "source_sha256": "726d4dc61a2eb3ebe722473249e55b5375139f78644bcbacc2f1194b7679f068",
+    "core_sha256": "726d4dc61a2eb3ebe722473249e55b5375139f78644bcbacc2f1194b7679f068",
+    "modified": false
+  },
+  {
+    "path": "test/test_static_routing.py",
+    "source_sha256": "8e7aa42a09d693c68776bec48fe7ec55720b9c8125d367e41c63d003818ddcd6",
+    "core_sha256": "8e7aa42a09d693c68776bec48fe7ec55720b9c8125d367e41c63d003818ddcd6",
+    "modified": false
+  },
+  {
+    "path": "test/test_command_security.py",
+    "source_sha256": "0e7dac059695f1f191c881f77a1179a4e44c8c449781ac7f7b6c0fbd3d9c669f",
+    "core_sha256": "99da88256e0378052efec53dd579d28c851faa8cb8c8bb6bbbe63b58927d468a",
+    "modified": true
+  },
+  {
+    "path": "test/test_topology_meta.py",
+    "source_sha256": "24f4f2a0e7805790cddbf828a3b84f7b59046e599e046b1e97408858a164690a",
+    "core_sha256": "24f4f2a0e7805790cddbf828a3b84f7b59046e599e046b1e97408858a164690a",
+    "modified": false
+  },
+  {
+    "path": "test/test_logic.py",
+    "source_sha256": "1ddd9fd8da92110254dba1bbea1b9c02a533e8957fc5f009e55c958cf7a809c2",
+    "core_sha256": "1ddd9fd8da92110254dba1bbea1b9c02a533e8957fc5f009e55c958cf7a809c2",
+    "modified": false
+  },
+  {
+    "path": "test/test_phase2_5.py",
+    "source_sha256": "634d3ab5f4401e2502675d0ba094ab7b76da0830fe1ebf4ada79fdda4febfa1f",
+    "core_sha256": "9a3d95b33332ca65d188ef41c32a9d29d6007440948a03573e89d322591eff89",
+    "modified": true
+  },
+  {
+    "path": "rl/scenarios.py",
+    "source_sha256": "e8e831263da5450764aaea0d83c512f9f9c274f069496bcda6057877f143acd9",
+    "core_sha256": "e8e831263da5450764aaea0d83c512f9f9c274f069496bcda6057877f143acd9",
+    "modified": false
+  },
+  {
+    "path": "rl/__init__.py",
+    "source_sha256": "738edbba9902c6ba3d1c72e796ba92a20d960c84b50e01da1859539a91021853",
+    "core_sha256": "738edbba9902c6ba3d1c72e796ba92a20d960c84b50e01da1859539a91021853",
+    "modified": false
+  },
+  {
+    "path": "rl/injection.py",
+    "source_sha256": "8aef1814256a9c2bcf36122eacdf7aa5f66a1c896a5e1b55f66726b371b554d6",
+    "core_sha256": "8aef1814256a9c2bcf36122eacdf7aa5f66a1c896a5e1b55f66726b371b554d6",
+    "modified": false
+  },
+  {
+    "path": "bridge/ditto_reader.py",
+    "source_sha256": "b2fa6b1bf9bcd7cad40bb7d0f6c8a7d0760d88cce5ab17986febc1570b1f7e37",
+    "core_sha256": "b2fa6b1bf9bcd7cad40bb7d0f6c8a7d0760d88cce5ab17986febc1570b1f7e37",
+    "modified": false
+  },
+  {
+    "path": "bridge/command_agent.py",
+    "source_sha256": "53665962fffa5819ab1fbe7bb6349860e1cb47acb03aac4952ea68de96acac3e",
+    "core_sha256": "53665962fffa5819ab1fbe7bb6349860e1cb47acb03aac4952ea68de96acac3e",
+    "modified": false
+  },
+  {
+    "path": "bridge/flow_log.py",
+    "source_sha256": "d364a82e7381d2f1ca2ee3f30476d65baa50e6769ff92d5070b2d3b9790d93b2",
+    "core_sha256": "d364a82e7381d2f1ca2ee3f30476d65baa50e6769ff92d5070b2d3b9790d93b2",
+    "modified": false
+  },
+  {
+    "path": "bridge/pusher.py",
+    "source_sha256": "823347728cdfa4b43ff2af84b93a71373d2fe27cd8e42e83e152415f33d4930d",
+    "core_sha256": "823347728cdfa4b43ff2af84b93a71373d2fe27cd8e42e83e152415f33d4930d",
+    "modified": false
+  },
+  {
+    "path": "bridge/collector.py",
+    "source_sha256": "4aff462b25d1f6c03fabb29024ea86aab7b13e7663517ee09b6ddd8443ad6e58",
+    "core_sha256": "4aff462b25d1f6c03fabb29024ea86aab7b13e7663517ee09b6ddd8443ad6e58",
+    "modified": false
+  },
+  {
+    "path": "bridge/diagnose.py",
+    "source_sha256": "33b66bcfff323c30c35e472d3b2d033def4d865eeabb905275b499488f4f54d6",
+    "core_sha256": "33b66bcfff323c30c35e472d3b2d033def4d865eeabb905275b499488f4f54d6",
+    "modified": false
+  },
+  {
+    "path": "bridge/bootstrap.py",
+    "source_sha256": "380ff4dc80a86271dd4c7399aac7097075ceabd2d02ac16e6346a734c675c998",
+    "core_sha256": "380ff4dc80a86271dd4c7399aac7097075ceabd2d02ac16e6346a734c675c998",
+    "modified": false
+  },
+  {
+    "path": "bridge/ditto_common.py",
+    "source_sha256": "b796d424961b272d581602ae7239205b9b4521676e0faeb4d1eb124ff8ad392e",
+    "core_sha256": "b796d424961b272d581602ae7239205b9b4521676e0faeb4d1eb124ff8ad392e",
+    "modified": false
+  },
+  {
+    "path": "bridge/sync_agent.py",
+    "source_sha256": "125bfb47f7a3dea845b7685d3d285466a1744407fa3720540a74130e89e2798a",
+    "core_sha256": "125bfb47f7a3dea845b7685d3d285466a1744407fa3720540a74130e89e2798a",
+    "modified": false
+  },
+  {
+    "path": "bridge/health.py",
+    "source_sha256": "fba0cfdb69949bf7952efcf1116e190c4505de8e6aba98b7dfb41b323e95501f",
+    "core_sha256": "fba0cfdb69949bf7952efcf1116e190c4505de8e6aba98b7dfb41b323e95501f",
+    "modified": false
+  },
+  {
+    "path": "bridge/adapter.py",
+    "source_sha256": "3d08112f6bb30dc82f1072d64d8f674c22218dfab5b5fd936a251d718cf830eb",
+    "core_sha256": "3d08112f6bb30dc82f1072d64d8f674c22218dfab5b5fd936a251d718cf830eb",
+    "modified": false
+  },
+  {
+    "path": "bridge/__init__.py",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "modified": false
+  },
+  {
+    "path": "bridge/verify.py",
+    "source_sha256": "8947b49c94e6203293979ff1e7625ccfbf61c3622b0ee1d9989f6388450d8002",
+    "core_sha256": "3ad5cb21ebc4ba9b23178ecd2c8fe94494ba9494a06472527c39119299f95967",
+    "modified": true
+  },
+  {
+    "path": "bridge/differ.py",
+    "source_sha256": "5c3df377094b1c81e393bd9fe1a902de28e919ea4098793f4b89a7dbc6875ff9",
+    "core_sha256": "5c3df377094b1c81e393bd9fe1a902de28e919ea4098793f4b89a7dbc6875ff9",
+    "modified": false
+  },
+  {
+    "path": "twin/__init__.py",
+    "source_sha256": "b6bd327ac70692b292a2f2262ea8ad42e5fe1703626b617ccd6fa730e29e05ff",
+    "core_sha256": "b6bd327ac70692b292a2f2262ea8ad42e5fe1703626b617ccd6fa730e29e05ff",
+    "modified": false
+  },
+  {
+    "path": "twin/link_direction.py",
+    "source_sha256": "10646a6ceb6e3cb88b8fb34dd542c9a709ffe8f54535568b5e85558685392edf",
+    "core_sha256": "10646a6ceb6e3cb88b8fb34dd542c9a709ffe8f54535568b5e85558685392edf",
+    "modified": false
+  },
+  {
+    "path": "runbooks/measure-command-flow.md",
+    "source_sha256": "a708a27870739f6831977711554a4d00b843f321ba3098d9a68b8651402ff9b7",
+    "core_sha256": "a708a27870739f6831977711554a4d00b843f321ba3098d9a68b8651402ff9b7",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/log.py",
+    "source_sha256": "15fa4b2acb0d65b792b9a19d4c53ff0dce15c8441e869bbfeeca6350381e65e6",
+    "core_sha256": "15fa4b2acb0d65b792b9a19d4c53ff0dce15c8441e869bbfeeca6350381e65e6",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/cli.py",
+    "source_sha256": "c2d8eb6caf6cc903df5529d6e321a5626ca60f72060f4378877631c0cd30cdf3",
+    "core_sha256": "c2d8eb6caf6cc903df5529d6e321a5626ca60f72060f4378877631c0cd30cdf3",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/net.py",
+    "source_sha256": "e6bd41d0b51c3b0f17e8d738f1e3c0f32ba7246f0fb942066c105cdcbfd8fa58",
+    "core_sha256": "e6bd41d0b51c3b0f17e8d738f1e3c0f32ba7246f0fb942066c105cdcbfd8fa58",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/link.py",
+    "source_sha256": "9f7774a6d2ad6addbbd9611fde07e1a13d7e8cb4d209e6e7e1a3f507bc5d295d",
+    "core_sha256": "9f7774a6d2ad6addbbd9611fde07e1a13d7e8cb4d209e6e7e1a3f507bc5d295d",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/node.py",
+    "source_sha256": "2e7d624bbb520963b3760ed966aa5e7ba223ef0e104458b569faacaa40313e19",
+    "core_sha256": "2e7d624bbb520963b3760ed966aa5e7ba223ef0e104458b569faacaa40313e19",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/topo.py",
+    "source_sha256": "4dc43a77f42e4cbd6c219ef454242916ee8ae308c0a8f1cd63435e6983e9ad52",
+    "core_sha256": "4dc43a77f42e4cbd6c219ef454242916ee8ae308c0a8f1cd63435e6983e9ad52",
+    "modified": false
+  },
+  {
+    "path": "mininet/_absent_mininet/_stub.py",
+    "source_sha256": "81ea873544c1edf7c11936b82be53fdbfa181c354d20de5a39781a5987105cb5",
+    "core_sha256": "81ea873544c1edf7c11936b82be53fdbfa181c354d20de5a39781a5987105cb5",
+    "modified": false
+  },
+  {
+    "path": "dashboard/dist/index.html",
+    "source_sha256": "034c4aa5e88750b3cc8c4f64995a49353ff0c5767c10ed2965b405bde07dc599",
+    "core_sha256": "118c9bed6ed53f2242fc06d6cac03b0a98381a00ddf4d7707153deb4ad25f716",
+    "modified": true
+  },
+  {
+    "path": "dashboard/src/main.js",
+    "source_sha256": "3612e4d53a1f094164978355a8d7fad188825bb7a3d3e8d016b33c544625b76a",
+    "core_sha256": "3612e4d53a1f094164978355a8d7fad188825bb7a3d3e8d016b33c544625b76a",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/App.vue",
+    "source_sha256": "2eebc9b0eb5af7d22abfd7596f1176cba3e94fabcc09f27cbc70a7615a132e87",
+    "core_sha256": "2eebc9b0eb5af7d22abfd7596f1176cba3e94fabcc09f27cbc70a7615a132e87",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/lib/translate.js",
+    "source_sha256": "a21d082879ce5eb6ca7347e75a6d440896cd8d2fa1cc28b89a6789a4fe582b62",
+    "core_sha256": "a21d082879ce5eb6ca7347e75a6d440896cd8d2fa1cc28b89a6789a4fe582b62",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/services/commandClient.js",
+    "source_sha256": "bae93ce2d9248b3acdd5007d085beb1e1441543714c3c0fd5e1e295f705258e4",
+    "core_sha256": "bae93ce2d9248b3acdd5007d085beb1e1441543714c3c0fd5e1e295f705258e4",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/services/dittoClient.js",
+    "source_sha256": "768b88aeb26bf471480e39360a07c5ded5d49d1e2aa4c8f12cf11c2e724573ab",
+    "core_sha256": "768b88aeb26bf471480e39360a07c5ded5d49d1e2aa4c8f12cf11c2e724573ab",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/services/sseClient.js",
+    "source_sha256": "4cc83f39c95dacd829add110f08ecff0605253540f0436dc9393a6c1c0d18181",
+    "core_sha256": "4cc83f39c95dacd829add110f08ecff0605253540f0436dc9393a6c1c0d18181",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/services/debugLog.js",
+    "source_sha256": "0c971ffc55bf812a444910e7adab7a96a24795d9f47b42e5e689cf205ae00060",
+    "core_sha256": "0c971ffc55bf812a444910e7adab7a96a24795d9f47b42e5e689cf205ae00060",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/components/Header.vue",
+    "source_sha256": "4e467bc1e9947be41dd558a4ed0384706f262768c500fa67462d09debe6788b6",
+    "core_sha256": "4e467bc1e9947be41dd558a4ed0384706f262768c500fa67462d09debe6788b6",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/components/HistoryPanel.vue",
+    "source_sha256": "81cf0ae734fc4aba1b7f5523eaf4578cb257e533c4f96ec9f10d90d0010b93e1",
+    "core_sha256": "81cf0ae734fc4aba1b7f5523eaf4578cb257e533c4f96ec9f10d90d0010b93e1",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/components/AlertPanel.vue",
+    "source_sha256": "03af181ec545033dfbad390ae35087268ea2b35dde79b6232f1c660148b5c9bc",
+    "core_sha256": "03af181ec545033dfbad390ae35087268ea2b35dde79b6232f1c660148b5c9bc",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/components/InfoPanel.vue",
+    "source_sha256": "e8faa4bb489296a5a56e957ec6245548cd7e37618e00a6083e4df5f909bba705",
+    "core_sha256": "e8faa4bb489296a5a56e957ec6245548cd7e37618e00a6083e4df5f909bba705",
+    "modified": false
+  },
+  {
+    "path": "dashboard/src/components/TopologyView.vue",
+    "source_sha256": "6e1e98f685fe0158682dc1f184870f1f2705c54dc2e532b52fb6f071e8d9861d",
+    "core_sha256": "6e1e98f685fe0158682dc1f184870f1f2705c54dc2e532b52fb6f071e8d9861d",
+    "modified": false
+  },
+  {
+    "path": "dashboard/dist/assets/index-Bd9RlubQ.css",
+    "source_sha256": "0053e2c10fde952804737f8bf70453ee807986fe77622cf86cb32be1939c7eb0",
+    "core_sha256": "0053e2c10fde952804737f8bf70453ee807986fe77622cf86cb32be1939c7eb0",
+    "modified": false
+  },
+  {
+    "path": "docs/phase-1/notes.md",
+    "source_sha256": "ccef6f8d613c76311ca72cb1d15adb97da9ac3ba5cbc51fb33373ad1ef32cf63",
+    "core_sha256": "0111c59dde6d48593355fe7730d14c7ea5bfbf8ad1df7b67278a9eed58e0f41d",
+    "modified": true
+  },
+  {
+    "path": "docs/phase-3/notes.md",
+    "source_sha256": "c56813a5bd86babf0e32baa8a89c30ea9d17572de8920be3efadc2ecaa594586",
+    "core_sha256": "2b3b809b410f847c16a73dccdb0903c8f7ce6e5a06e2d1be87477c55b0cfa23f",
+    "modified": true
+  },
+  {
+    "path": "docs/phase-0/notes.md",
+    "source_sha256": "deeca0692a3d980c91086ec923d58ce1e07c0113f890b2fc3a81a339864bef4f",
+    "core_sha256": "c80c8d4b26ccdfb54b6d363b6666f3d6070e4c7bc3993f5999b589c8d797a0f2",
+    "modified": true
+  },
+  {
+    "path": "docs/phase-2/notes.md",
+    "source_sha256": "50f4ec08f2b9746714584f5c11932cf25f006602dc667077331ecd6841c5402c",
+    "core_sha256": "2146a67d3e7a2be87565682f65208a01f534957487c40d8a6e1d361e5d6e78bf",
+    "modified": true
+  },
+  {
+    "path": "docs/phase-4/notes.md",
+    "source_sha256": "df3282ac8a1d86557dbeff9a05455e475fbbb21522221e8d93befff5603ec32f",
+    "core_sha256": "436fc9cecbae0df99f995c31cc9ee46fd0e2b9368c2592294a7e4e4ba34bad03",
+    "modified": true
+  }
+]

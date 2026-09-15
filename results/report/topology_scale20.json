@@ -1,0 +1,228 @@
+{
+  "_comment": "M\u00f4 t\u1ea3 topology tam gi\u00e1c Phase 1 d\u1ea1ng JSON, \u0111\u1ec3 bootstrap ch\u1ea1y \u0110\u1ed8C L\u1eacP (kh\u00f4ng c\u1ea7n Mininet s\u1ed1ng). Ph\u1ea3i KH\u1edaP v\u1edbi mininet/topology.py. \u0110\u1ed5i s\u1ed1 host \u1edf \u0111\u00e2y \u0111\u1ec3 test 'm\u1edf r\u1ed9ng' m\u00e0 kh\u00f4ng c\u1ea7n Mininet.",
+  "hosts": [
+    {
+      "name": "h1",
+      "ip": "10.0.0.1",
+      "role": "client"
+    },
+    {
+      "name": "h2",
+      "ip": "10.0.0.2",
+      "role": "client"
+    },
+    {
+      "name": "h3",
+      "ip": "10.0.0.3",
+      "role": "client"
+    },
+    {
+      "name": "srv1",
+      "ip": "10.0.0.4",
+      "role": "server"
+    },
+    {
+      "name": "srv2",
+      "ip": "10.0.0.5",
+      "role": "server"
+    },
+    {
+      "name": "h4",
+      "ip": "10.0.0.6",
+      "role": "client"
+    },
+    {
+      "name": "h5",
+      "ip": "10.0.0.7",
+      "role": "client"
+    },
+    {
+      "name": "h6",
+      "ip": "10.0.0.8",
+      "role": "client"
+    },
+    {
+      "name": "h7",
+      "ip": "10.0.0.9",
+      "role": "client"
+    },
+    {
+      "name": "h8",
+      "ip": "10.0.0.10",
+      "role": "client"
+    },
+    {
+      "name": "h9",
+      "ip": "10.0.0.11",
+      "role": "client"
+    },
+    {
+      "name": "h10",
+      "ip": "10.0.0.12",
+      "role": "client"
+    },
+    {
+      "name": "h11",
+      "ip": "10.0.0.13",
+      "role": "client"
+    },
+    {
+      "name": "h12",
+      "ip": "10.0.0.14",
+      "role": "client"
+    },
+    {
+      "name": "h13",
+      "ip": "10.0.0.15",
+      "role": "client"
+    },
+    {
+      "name": "h14",
+      "ip": "10.0.0.16",
+      "role": "client"
+    },
+    {
+      "name": "h15",
+      "ip": "10.0.0.17",
+      "role": "client"
+    },
+    {
+      "name": "h16",
+      "ip": "10.0.0.18",
+      "role": "client"
+    },
+    {
+      "name": "h17",
+      "ip": "10.0.0.19",
+      "role": "client"
+    },
+    {
+      "name": "h18",
+      "ip": "10.0.0.20",
+      "role": "client"
+    },
+    {
+      "name": "h19",
+      "ip": "10.0.0.21",
+      "role": "client"
+    },
+    {
+      "name": "h20",
+      "ip": "10.0.0.22",
+      "role": "client"
+    }
+  ],
+  "switches": [
+    {
+      "name": "s1"
+    },
+    {
+      "name": "s2"
+    },
+    {
+      "name": "s3"
+    }
+  ],
+  "links": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s1",
+      "s3"
+    ],
+    [
+      "s2",
+      "s3"
+    ],
+    [
+      "srv1",
+      "s2"
+    ],
+    [
+      "srv2",
+      "s3"
+    ],
+    [
+      "h1",
+      "s1"
+    ],
+    [
+      "h2",
+      "s1"
+    ],
+    [
+      "h3",
+      "s1"
+    ],
+    [
+      "h4",
+      "s1"
+    ],
+    [
+      "h5",
+      "s1"
+    ],
+    [
+      "h6",
+      "s1"
+    ],
+    [
+      "h7",
+      "s1"
+    ],
+    [
+      "h8",
+      "s1"
+    ],
+    [
+      "h9",
+      "s1"
+    ],
+    [
+      "h10",
+      "s1"
+    ],
+    [
+      "h11",
+      "s1"
+    ],
+    [
+      "h12",
+      "s1"
+    ],
+    [
+      "h13",
+      "s1"
+    ],
+    [
+      "h14",
+      "s1"
+    ],
+    [
+      "h15",
+      "s1"
+    ],
+    [
+      "h16",
+      "s1"
+    ],
+    [
+      "h17",
+      "s1"
+    ],
+    [
+      "h18",
+      "s1"
+    ],
+    [
+      "h19",
+      "s1"
+    ],
+    [
+      "h20",
+      "s1"
+    ]
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "ok": false,
+  "error": "HTTPError('400 Client Error: Bad Request for url: http://localhost:8080/api/2/search/things?filter=like%28thingId%2C%22org.dt4n.core%3A%2A%22%29&option=size%28500%29')"
+}

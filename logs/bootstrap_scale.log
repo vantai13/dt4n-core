@@ -1,0 +1,184 @@
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.scale:default-policy (201)
+[3] Things:
+  ✅ org.dt4n.scale:host-h1 (201)
+  ✅ org.dt4n.scale:host-h2 (201)
+  ✅ org.dt4n.scale:host-h3 (201)
+  ✅ org.dt4n.scale:host-srv1 (201)
+  ✅ org.dt4n.scale:host-srv2 (201)
+  ✅ org.dt4n.scale:host-h4 (201)
+  ✅ org.dt4n.scale:host-h5 (201)
+  ✅ org.dt4n.scale:host-h6 (201)
+  ✅ org.dt4n.scale:host-h7 (201)
+  ✅ org.dt4n.scale:host-h8 (201)
+  ✅ org.dt4n.scale:host-h9 (201)
+  ✅ org.dt4n.scale:host-h10 (201)
+  ✅ org.dt4n.scale:host-h11 (201)
+  ✅ org.dt4n.scale:host-h12 (201)
+  ✅ org.dt4n.scale:host-h13 (201)
+  ✅ org.dt4n.scale:host-h14 (201)
+  ✅ org.dt4n.scale:host-h15 (201)
+  ✅ org.dt4n.scale:host-h16 (201)
+  ✅ org.dt4n.scale:host-h17 (201)
+  ✅ org.dt4n.scale:host-h18 (201)
+  ✅ org.dt4n.scale:host-h19 (201)
+  ✅ org.dt4n.scale:host-h20 (201)
+  ✅ org.dt4n.scale:switch-s1 (201)
+  ✅ org.dt4n.scale:switch-s2 (201)
+  ✅ org.dt4n.scale:switch-s3 (201)
+  ✅ org.dt4n.scale:link-s1-s2 (201)
+  ✅ org.dt4n.scale:link-s1-s3 (201)
+  ✅ org.dt4n.scale:link-s2-s3 (201)
+  ✅ org.dt4n.scale:link-s2-srv1 (201)
+  ✅ org.dt4n.scale:link-s3-srv2 (201)
+  ✅ org.dt4n.scale:link-h1-s1 (201)
+  ✅ org.dt4n.scale:link-h2-s1 (201)
+  ✅ org.dt4n.scale:link-h3-s1 (201)
+  ✅ org.dt4n.scale:link-h4-s1 (201)
+  ✅ org.dt4n.scale:link-h5-s1 (201)
+  ✅ org.dt4n.scale:link-h6-s1 (201)
+  ✅ org.dt4n.scale:link-h7-s1 (201)
+  ✅ org.dt4n.scale:link-h8-s1 (201)
+  ✅ org.dt4n.scale:link-h9-s1 (201)
+  ✅ org.dt4n.scale:link-h10-s1 (201)
+  ✅ org.dt4n.scale:link-h11-s1 (201)
+  ✅ org.dt4n.scale:link-h12-s1 (201)
+  ✅ org.dt4n.scale:link-h13-s1 (201)
+  ✅ org.dt4n.scale:link-h14-s1 (201)
+  ✅ org.dt4n.scale:link-h15-s1 (201)
+  ✅ org.dt4n.scale:link-h16-s1 (201)
+  ✅ org.dt4n.scale:link-h17-s1 (201)
+  ✅ org.dt4n.scale:link-h18-s1 (201)
+  ✅ org.dt4n.scale:link-h19-s1 (201)
+  ✅ org.dt4n.scale:link-h20-s1 (201)
+  ✅ org.dt4n.scale:path-h1-srv1 (201)
+  ✅ org.dt4n.scale:controller (201)
+=== XONG: 52 tạo, 0 bỏ qua, tổng 52 Thing ===
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.scale:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.scale:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h4 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h5 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h6 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h7 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h8 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h9 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h10 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h11 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h12 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h13 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h14 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h15 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h16 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h17 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h18 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h19 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:host-h20 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h4-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h5-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h6-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h7-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h8-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h9-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h10-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h11-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h12-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h13-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h14-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h15-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h16-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h17-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h18-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h19-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:link-h20-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.scale:controller đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 52 bỏ qua, tổng 52 Thing ===
+  🗑️  org.dt4n.scale:host-h1 (204)
+  🗑️  org.dt4n.scale:host-h2 (204)
+  🗑️  org.dt4n.scale:host-h3 (204)
+  🗑️  org.dt4n.scale:host-srv1 (204)
+  🗑️  org.dt4n.scale:host-srv2 (204)
+  🗑️  org.dt4n.scale:host-h4 (204)
+  🗑️  org.dt4n.scale:host-h5 (204)
+  🗑️  org.dt4n.scale:host-h6 (204)
+  🗑️  org.dt4n.scale:host-h7 (204)
+  🗑️  org.dt4n.scale:host-h8 (204)
+  🗑️  org.dt4n.scale:host-h9 (204)
+  🗑️  org.dt4n.scale:host-h10 (204)
+  🗑️  org.dt4n.scale:host-h11 (204)
+  🗑️  org.dt4n.scale:host-h12 (204)
+  🗑️  org.dt4n.scale:host-h13 (204)
+  🗑️  org.dt4n.scale:host-h14 (204)
+  🗑️  org.dt4n.scale:host-h15 (204)
+  🗑️  org.dt4n.scale:host-h16 (204)
+  🗑️  org.dt4n.scale:host-h17 (204)
+  🗑️  org.dt4n.scale:host-h18 (204)
+  🗑️  org.dt4n.scale:host-h19 (204)
+  🗑️  org.dt4n.scale:host-h20 (204)
+  🗑️  org.dt4n.scale:switch-s1 (204)
+  🗑️  org.dt4n.scale:switch-s2 (204)
+  🗑️  org.dt4n.scale:switch-s3 (204)
+  🗑️  org.dt4n.scale:link-s1-s2 (204)
+  🗑️  org.dt4n.scale:link-s1-s3 (204)
+  🗑️  org.dt4n.scale:link-s2-s3 (204)
+  🗑️  org.dt4n.scale:link-s2-srv1 (204)
+  🗑️  org.dt4n.scale:link-s3-srv2 (204)
+  🗑️  org.dt4n.scale:link-h1-s1 (204)
+  🗑️  org.dt4n.scale:link-h2-s1 (204)
+  🗑️  org.dt4n.scale:link-h3-s1 (204)
+  🗑️  org.dt4n.scale:link-h4-s1 (204)
+  🗑️  org.dt4n.scale:link-h5-s1 (204)
+  🗑️  org.dt4n.scale:link-h6-s1 (204)
+  🗑️  org.dt4n.scale:link-h7-s1 (204)
+  🗑️  org.dt4n.scale:link-h8-s1 (204)
+  🗑️  org.dt4n.scale:link-h9-s1 (204)
+  🗑️  org.dt4n.scale:link-h10-s1 (204)
+  🗑️  org.dt4n.scale:link-h11-s1 (204)
+  🗑️  org.dt4n.scale:link-h12-s1 (204)
+  🗑️  org.dt4n.scale:link-h13-s1 (204)
+  🗑️  org.dt4n.scale:link-h14-s1 (204)
+  🗑️  org.dt4n.scale:link-h15-s1 (204)
+  🗑️  org.dt4n.scale:link-h16-s1 (204)
+  🗑️  org.dt4n.scale:link-h17-s1 (204)
+  🗑️  org.dt4n.scale:link-h18-s1 (204)
+  🗑️  org.dt4n.scale:link-h19-s1 (204)
+  🗑️  org.dt4n.scale:link-h20-s1 (204)
+  🗑️  org.dt4n.scale:path-h1-srv1 (204)
+  🗑️  org.dt4n.scale:controller (204)
+{
+  "scope": "bootstrap only; not maximum Mininet capacity",
+  "client_hosts": 20,
+  "total_hosts": 22,
+  "switches": 3,
+  "expected_things": 52,
+  "readable_things": 52,
+  "first_s": 2.3459725060000665,
+  "repeat_s": 0.5979690090000531,
+  "first": {
+    "created": 52,
+    "skipped": 0
+  },
+  "repeat": {
+    "created": 0,
+    "skipped": 52
+  }
+}

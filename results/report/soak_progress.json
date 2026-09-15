@@ -1,0 +1,327 @@
+{
+  "duration_s": 1800.09,
+  "samples": [
+    {
+      "elapsed_s": 0.0,
+      "rss_kib": 29244,
+      "accuracy": {
+        "checked": 8,
+        "matched": 7,
+        "accuracy_rate": 87.5,
+        "discrepancies": [
+          {
+            "thing": "org.dt4n.core:link-h1-s1",
+            "path": "features/status/properties/state",
+            "ground_truth": "up",
+            "twin": "down"
+          }
+        ]
+      }
+    },
+    {
+      "elapsed_s": 60.09,
+      "rss_kib": 29288,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 120.2,
+      "rss_kib": 29328,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 180.31,
+      "rss_kib": 29344,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 240.4,
+      "rss_kib": 29344,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 300.51,
+      "rss_kib": 29344,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 360.66,
+      "rss_kib": 29388,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 420.76,
+      "rss_kib": 29396,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 480.85,
+      "rss_kib": 29396,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 540.94,
+      "rss_kib": 29396,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 601.02,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 661.12,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 721.22,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 781.32,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 841.37,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 901.47,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 961.52,
+      "rss_kib": 29400,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1021.61,
+      "rss_kib": 29408,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1081.7,
+      "rss_kib": 29408,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1141.81,
+      "rss_kib": 29440,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1201.86,
+      "rss_kib": 29440,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1261.92,
+      "rss_kib": 29444,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1321.97,
+      "rss_kib": 29444,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1382.07,
+      "rss_kib": 29444,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1442.17,
+      "rss_kib": 29444,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1502.22,
+      "rss_kib": 29444,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1562.32,
+      "rss_kib": 29452,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1622.39,
+      "rss_kib": 29452,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1682.5,
+      "rss_kib": 29452,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1742.6,
+      "rss_kib": 29452,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    },
+    {
+      "elapsed_s": 1800.05,
+      "rss_kib": 29456,
+      "accuracy": {
+        "checked": 8,
+        "matched": 8,
+        "accuracy_rate": 100.0,
+        "discrepancies": []
+      }
+    }
+  ],
+  "rss_start_kib": 29244,
+  "rss_end_kib": 29456,
+  "rss_max_kib": 29456,
+  "all_state_accuracy_100": false,
+  "complete": true
+}

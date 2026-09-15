@@ -1,0 +1,122 @@
+{
+  "normal": {
+    "snapshots": 60,
+    "elapsed_first_last_s": 59.05153465270996,
+    "entities_per_snapshot": {
+      "host": 5,
+      "switch": 3,
+      "link": 8
+    },
+    "top_level_fields": [
+      "timestamp",
+      "t_source",
+      "t_cycle_start",
+      "things",
+      "t_cycle_end",
+      "cycle_scan_ms"
+    ],
+    "link_s2_s3_traffic_sample": [
+      {
+        "rxRate": 0.0,
+        "txRate": 0.0,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 270316.99,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 270270.98,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      }
+    ]
+  },
+  "flood": {
+    "snapshots": 60,
+    "elapsed_first_last_s": 59.05136179924011,
+    "entities_per_snapshot": {
+      "host": 5,
+      "switch": 3,
+      "link": 8
+    },
+    "top_level_fields": [
+      "timestamp",
+      "t_source",
+      "t_cycle_start",
+      "things",
+      "t_cycle_end",
+      "cycle_scan_ms"
+    ],
+    "link_s2_s3_traffic_sample": [
+      {
+        "rxRate": 0.0,
+        "txRate": 0.0,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 269942.24,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 269160.83,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      }
+    ]
+  },
+  "config5": {
+    "snapshots": 3,
+    "elapsed_first_last_s": 2.0020077228546143,
+    "entities_per_snapshot": {
+      "host": 7,
+      "switch": 3,
+      "link": 10
+    },
+    "top_level_fields": [
+      "timestamp",
+      "t_source",
+      "t_cycle_start",
+      "things",
+      "t_cycle_end",
+      "cycle_scan_ms"
+    ],
+    "link_s2_s3_traffic_sample": [
+      {
+        "rxRate": 0.0,
+        "txRate": 0.0,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 0.0,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      },
+      {
+        "rxRate": 0.0,
+        "txRate": 0.0,
+        "lossPct": 0.0,
+        "utilIntf": "s2-eth2",
+        "utilDirectionSource": "alphabetical_fallback"
+      }
+    ]
+  }
+}

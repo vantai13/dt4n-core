@@ -1,0 +1,80 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eclipse Ditto - HTTP API</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./images/favicon-96x96.png" sizes="96x96" />
+    <style>
+        html
+        {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+        *,
+        *:before,
+        *:after
+        {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin:0;
+            background: #fafafa;
+        }
+
+        #swagger-ui .swagger-ui.swagger-container .topbar {
+        }
+
+        #swagger-ui .swagger-ui.swagger-container .topbar .topbar-wrapper a {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="swagger-ui"></div>
+
+<script src="./swagger-ui-bundle.js"> </script>
+<script src="./swagger-ui-standalone-preset.js"> </script>
+<script src="./swagger-oidc.js"> </script>
+<script>
+    window.onload = async function() {
+        const isApidoc = window.location.pathname.startsWith("/apidoc");
+        const openApiPath = isApidoc ? "/apidoc/openapi/ditto-api-2.yml" : "/openapi/ditto-api-2.yml";
+        const oauth2RedirectPath = isApidoc ? "/apidoc/oauth2-redirect.html" : "/oauth2-redirect.html";
+        await SwaggerOidc.initSwaggerUiWithOidc({
+            specUrl: openApiPath,
+            openApiFileName: "ditto-api-2.yml",
+            oauth2RedirectPath: oauth2RedirectPath,
+            preauthorizeBasic: {
+                name: "NginxBasic",
+                username: "ditto",
+                password: "ditto"
+            },
+            oauth: {
+                mode: "always",
+                useOidcClientId: true,
+                useOidcScopes: true,
+                config: {
+                    clientId: "",
+                    realm: "eclipse-ditto",
+                    appName: "Eclipse Ditto",
+                    scopeSeparator: " ",
+                    scopes: "openid",
+                    usePkceWithAuthorizationCodeGrant: true,
+                    additionalQueryStringParams: {
+                    }
+                }
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

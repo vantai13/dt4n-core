@@ -1,0 +1,28 @@
+# Copyright (c) 2020 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Eclipse Public License 2.0 which is available at
+# http://www.eclipse.org/legal/epl-2.0
+#
+# SPDX-License-Identifier: EPL-2.0
+type: object
+description: |-
+  Single policy entry. Both `subjects` and `resources` are optional — they
+  default to empty when absent. An entry may define `references` to inherit
+  subjects, resources, and namespaces from other entries (local or imported).
+properties:
+  subjects:
+    $ref: 'subjects.yml'
+  resources:
+    $ref: 'resources.yml'
+  namespaces:
+    $ref: 'namespaces.yml'
+  importable:
+    $ref: 'importable.yml'
+  allowedAdditions:
+    $ref: 'allowedAdditions.yml'
+  references:
+    $ref: 'references.yml'

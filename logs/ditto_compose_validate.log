@@ -1,0 +1,1 @@
+time="2026-09-15T08:33:36Z" level=warning msg="/home/ubuntu/dt4n-core/ditto/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"

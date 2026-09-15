@@ -1,0 +1,17 @@
+=== DITTO DIAGNOSE ===
+BASE_URL = http://localhost:8080/api/2
+
+>>> 1) Ditto còn sống? (GET /health)
+  ✅ Phản hồi HTTP 200
+     status tổng: UP
+
+>>> 2) Basic auth qua được nginx? (GET /api/2/things)
+  ✅ Không bị 401 (status 200) -> auth OK
+
+>>> 3) Phát hiện prefix subject đúng (chống bẫy 403)
+  subject "nginx:ditto": policy 201, thing 201 -> DÙNG ĐƯỢC
+
+  ✅ Prefix ĐÚNG cho máy bạn: "nginx:ditto"
+     -> Mở ditto/policy.json, đảm bảo subject là "nginx:ditto"
+
+=== XONG. Nếu cả 3 tầng OK -> chạy bootstrap an toàn. ===

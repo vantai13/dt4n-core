@@ -1,0 +1,189 @@
+Automated command-flow measure: link h1-s1, trials=30
+Ditto target: org.dt4n.core:link-h1-s1
+Flow log: logs/command_flow.log
+Report log: logs/command_flow_measure.log
+Baseline direct-up: twin=up ok=true
+Baseline runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]
+
+trial cmd          target                 ack   route   lock   exec  detect  push   ui    total  result
+-------------------------------------------------------------------------------------------------------------------
+    1 disableLink  link-h1-s1                 29      9      0      4    520      7    122    662  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    2 enableLink   link-h1-s1                 24      9      0      3    638      9    205    864  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    3 disableLink  link-h1-s1                 30      8      0      6    554      7     87    662  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    4 enableLink   link-h1-s1                 25      8      0      3    685      7    161    864  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    5 disableLink  link-h1-s1                 30      8      0      5    607      6     36    662  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    6 enableLink   link-h1-s1                 26      8      0      3    735      6    113    865  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    7 disableLink  link-h1-s1                 29      9      0      6    658      9    194    876  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+    8 enableLink   link-h1-s1                 30     10      0      3    568      7     76    664  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+    9 disableLink  link-h1-s1                 32      8      0      5    707      6    146    872  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   10 enableLink   link-h1-s1                 27      8      0      3    614      7     29    661  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   11 disableLink  link-h1-s1                 32      7      0      6    748      7    109    877  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   12 enableLink   link-h1-s1                 33      9      0      4    640      8      3    664  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   13 disableLink  link-h1-s1                 25      9      0      4    766      7     78    864  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   14 enableLink   link-h1-s1                 26      7      0      3    700     11    144    865  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   15 disableLink  link-h1-s1                 27      8      0      4    609      7     30    658  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   16 enableLink   link-h1-s1                 35      8      0      3    738      6    118    873  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   17 disableLink  link-h1-s1                 26      7      0      6    648      6    198    865  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   18 enableLink   link-h1-s1                 26      8      0      3    571      7     69    658  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   19 disableLink  link-h1-s1                 32      7      0      6    696      7    154    870  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   20 enableLink   link-h1-s1                 26      8      0      4    610      7     29    658  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   21 disableLink  link-h1-s1                 32      8      0      4    737      6    117    872  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   22 enableLink   link-h1-s1                 34      7      0      3    650      7    205    872  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   23 disableLink  link-h1-s1                 26      7      0      5    560      6     78    656  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   24 enableLink   link-h1-s1                 34      8      0      3    690      6    165    872  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   25 disableLink  link-h1-s1                 25      7      0      5    613      7     24    656  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   26 enableLink   link-h1-s1                 33      7      0      3    731      6    123    870  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   27 disableLink  link-h1-s1                 27      7      0      5    647      6    198    863  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   28 enableLink   link-h1-s1                 28      7      0      4    563      6     78    658  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   29 disableLink  link-h1-s1                 33      7      0      3    699      6    155    870  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   30 enableLink   link-h1-s1                 26      8      0      3    603      7     35    656  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   31 disableLink  link-h1-s1                 32      7      0      3    730      6    123    869  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   32 enableLink   link-h1-s1                 26      8      0      3    644      6    201    862  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   33 disableLink  link-h1-s1                 25      8      0      5    563      6     74    656  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   34 enableLink   link-h1-s1                 31      7      0      3    703      6    149    868  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   35 disableLink  link-h1-s1                 35      8      0      4    605      6     41    664  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   36 enableLink   link-h1-s1                 32      8      0      3    722      6    131    870  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   37 disableLink  link-h1-s1                 25      7      0      4    636      8    210    865  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   38 enableLink   link-h1-s1                 30     10      0      6    547      6     92    661  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   39 disableLink  link-h1-s1                 30      8      0      4    670      6    180    868  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   40 enableLink   link-h1-s1                 33      8      0      3    587      7     59    664  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   41 disableLink  link-h1-s1                 30      7      0      5    702      6    146    866  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   42 enableLink   link-h1-s1                 25      8      0      3    619      6     17    653  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   43 disableLink  link-h1-s1                 32      8      0      4    745      7    105    869  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   44 enableLink   link-h1-s1                 32      7      0      3    659      6    194    869  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   45 disableLink  link-h1-s1                 32      7      0      5    566      6     78    662  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   46 enableLink   link-h1-s1                 30      7      0      3    689      6    163    868  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   47 disableLink  link-h1-s1                 30      8      0      4    608      8     32    660  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   48 enableLink   link-h1-s1                 29      8      0      3    716      6    133    866  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   49 disableLink  link-h1-s1                 30      7      0      4    628      6     15    660  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   50 enableLink   link-h1-s1                 29      8      0      5    750      6     99    868  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   51 disableLink  link-h1-s1                 29      7      0      5    660      7    186    865  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   52 enableLink   link-h1-s1                 33      7      0      3    573      7     73    663  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   53 disableLink  link-h1-s1                 32      7      0      5    680      6    171    869  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   54 enableLink   link-h1-s1                 30      7      0      4    588      5     56    660  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   55 disableLink  link-h1-s1                 26      8      0      3    707      6    139    863  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   56 enableLink   link-h1-s1                 31      7      0      4    621      6     27    665  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   57 disableLink  link-h1-s1                 34      8      0      5    738      6    113    870  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   58 enableLink   link-h1-s1                 30      9      0      3    644      6      2    664  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+   59 disableLink  link-h1-s1                 31      7      0      5    754      7     96    869  OK
+      runtime: h1-eth0:DOWN [h1-eth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500]; s1-eth3:DOWN [s1-eth3: flags=4098<BROADCAST,MULTICAST>  mtu 1500] | twin=down expect=down
+   60 enableLink   link-h1-s1                 29      8      0      3    665      6    184    866  OK
+      runtime: h1-eth0:UP [h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500]; s1-eth3:UP [s1-eth3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500] | twin=up expect=up
+
+=== Hop summaries ===
+=== Ditto Ack (n=60) ===
+  mean:    30 ms
+  p50:     30 ms
+  p95:     34 ms
+  p99:     35 ms
+  max:     35 ms
+  min:     24 ms
+=== UI/Measure -> Agent (n=60) ===
+  mean:     8 ms
+  p50:      8 ms
+  p95:      9 ms
+  p99:     10 ms
+  max:     10 ms
+  min:      7 ms
+=== Agent Lock Wait (n=60) ===
+  mean:     0 ms
+  p50:      0 ms
+  p95:      0 ms
+  p99:      0 ms
+  max:      0 ms
+  min:      0 ms
+=== Agent Execute (n=60) ===
+  mean:     4 ms
+  p50:      4 ms
+  p95:      6 ms
+  p99:      6 ms
+  max:      6 ms
+  min:      3 ms
+=== Sync Detect (n=60) ===
+  mean:   654 ms
+  p50:    649 ms
+  p95:    748 ms
+  p99:    766 ms
+  max:    766 ms
+  min:    520 ms
+=== Ditto Patch (n=60) ===
+  mean:     7 ms
+  p50:      6 ms
+  p95:      8 ms
+  p99:     11 ms
+  max:     11 ms
+  min:      5 ms
+=== Twin Reflection (n=60) ===
+  mean:   109 ms
+  p50:    113 ms
+  p95:    201 ms
+  p99:    210 ms
+  max:    210 ms
+  min:      2 ms
+=== Total (n=60) ===
+  mean:   782 ms
+  p50:    864 ms
+  p95:    872 ms
+  p99:    877 ms
+  max:    877 ms
+  min:    653 ms
+
+Final direct-up: twin=up ok=true

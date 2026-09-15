@@ -1,0 +1,10 @@
+
+> dt4n-dashboard@0.1.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+
+  VITE v6.4.3  ready in 279 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.42.0.2:5173/
+  ➜  Network: http://172.18.0.1:5173/

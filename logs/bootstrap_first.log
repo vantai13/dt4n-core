@@ -1,0 +1,23 @@
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n:controller đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 18 bỏ qua, tổng 18 Thing ===

@@ -1,0 +1,355 @@
+{
+  "files": [
+    {
+      "path": "requirements.txt",
+      "bytes": 16
+    },
+    {
+      "path": "PROVENANCE.md",
+      "bytes": 410
+    },
+    {
+      "path": "pytest.ini",
+      "bytes": 185
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 7972
+    },
+    {
+      "path": "ml/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "dashboard/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "dashboard/package.json",
+      "bytes": 379
+    },
+    {
+      "path": "dashboard/package-lock.json",
+      "bytes": 46980
+    },
+    {
+      "path": "dashboard/index.html",
+      "bytes": 334
+    },
+    {
+      "path": "dashboard/vite.config.js",
+      "bytes": 11419
+    },
+    {
+      "path": "dashboard/.env.example",
+      "bytes": 676
+    },
+    {
+      "path": "logs/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "mininet/aoi_norm.py",
+      "bytes": 1094
+    },
+    {
+      "path": "mininet/env_runner.py",
+      "bytes": 24906
+    },
+    {
+      "path": "mininet/topology_meta.py",
+      "bytes": 3619
+    },
+    {
+      "path": "mininet/traffic.py",
+      "bytes": 7080
+    },
+    {
+      "path": "mininet/topology.py",
+      "bytes": 10346
+    },
+    {
+      "path": "mininet/run_phase1.py",
+      "bytes": 5967
+    },
+    {
+      "path": "mininet/gen_routes.py",
+      "bytes": 6314
+    },
+    {
+      "path": "mininet/controller_static.py",
+      "bytes": 13200
+    },
+    {
+      "path": "mininet/__init__.py",
+      "bytes": 2528
+    },
+    {
+      "path": "mininet/run_sync.py",
+      "bytes": 9441
+    },
+    {
+      "path": "mininet/tc_filter.py",
+      "bytes": 1514
+    },
+    {
+      "path": "ditto/topology_spec.json",
+      "bytes": 800
+    },
+    {
+      "path": "ditto/policy.json",
+      "bytes": 395
+    },
+    {
+      "path": "ditto/routing_table.json",
+      "bytes": 1004
+    },
+    {
+      "path": "measurements/stats.py",
+      "bytes": 2026
+    },
+    {
+      "path": "measurements/trace_latency.py",
+      "bytes": 8415
+    },
+    {
+      "path": "measurements/measure_latency.py",
+      "bytes": 3779
+    },
+    {
+      "path": "measurements/measure_command_flow.py",
+      "bytes": 12127
+    },
+    {
+      "path": "measurements/__init__.py",
+      "bytes": 33
+    },
+    {
+      "path": "measurements/measure_command_latency.py",
+      "bytes": 3509
+    },
+    {
+      "path": "test/test_ditto_reader.py",
+      "bytes": 4336
+    },
+    {
+      "path": "test/test_aoi_norm.py",
+      "bytes": 919
+    },
+    {
+      "path": "test/test_static_routing.py",
+      "bytes": 981
+    },
+    {
+      "path": "test/test_command_security.py",
+      "bytes": 4709
+    },
+    {
+      "path": "test/test_topology_meta.py",
+      "bytes": 1794
+    },
+    {
+      "path": "test/test_logic.py",
+      "bytes": 7786
+    },
+    {
+      "path": "test/test_phase2_5.py",
+      "bytes": 16421
+    },
+    {
+      "path": "rl/scenarios.py",
+      "bytes": 8885
+    },
+    {
+      "path": "rl/__init__.py",
+      "bytes": 38
+    },
+    {
+      "path": "rl/injection.py",
+      "bytes": 1102
+    },
+    {
+      "path": "bridge/ditto_reader.py",
+      "bytes": 9724
+    },
+    {
+      "path": "bridge/command_agent.py",
+      "bytes": 29704
+    },
+    {
+      "path": "bridge/flow_log.py",
+      "bytes": 1706
+    },
+    {
+      "path": "bridge/pusher.py",
+      "bytes": 7004
+    },
+    {
+      "path": "bridge/collector.py",
+      "bytes": 28532
+    },
+    {
+      "path": "bridge/diagnose.py",
+      "bytes": 5170
+    },
+    {
+      "path": "bridge/bootstrap.py",
+      "bytes": 12797
+    },
+    {
+      "path": "bridge/ditto_common.py",
+      "bytes": 3011
+    },
+    {
+      "path": "bridge/sync_agent.py",
+      "bytes": 7782
+    },
+    {
+      "path": "bridge/health.py",
+      "bytes": 5565
+    },
+    {
+      "path": "bridge/adapter.py",
+      "bytes": 4946
+    },
+    {
+      "path": "bridge/__init__.py",
+      "bytes": 0
+    },
+    {
+      "path": "bridge/verify.py",
+      "bytes": 10761
+    },
+    {
+      "path": "bridge/differ.py",
+      "bytes": 2968
+    },
+    {
+      "path": "twin/__init__.py",
+      "bytes": 76
+    },
+    {
+      "path": "twin/link_direction.py",
+      "bytes": 3209
+    },
+    {
+      "path": "runbooks/measure-command-flow.md",
+      "bytes": 5241
+    },
+    {
+      "path": "mininet/_absent_mininet/log.py",
+      "bytes": 661
+    },
+    {
+      "path": "mininet/_absent_mininet/cli.py",
+      "bytes": 168
+    },
+    {
+      "path": "mininet/_absent_mininet/net.py",
+      "bytes": 176
+    },
+    {
+      "path": "mininet/_absent_mininet/link.py",
+      "bytes": 241
+    },
+    {
+      "path": "mininet/_absent_mininet/node.py",
+      "bytes": 346
+    },
+    {
+      "path": "mininet/_absent_mininet/topo.py",
+      "bytes": 172
+    },
+    {
+      "path": "mininet/_absent_mininet/_stub.py",
+      "bytes": 1741
+    },
+    {
+      "path": "results/report/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "dashboard/dist/index.html",
+      "bytes": 433
+    },
+    {
+      "path": "dashboard/src/main.js",
+      "bytes": 89
+    },
+    {
+      "path": "dashboard/src/App.vue",
+      "bytes": 12547
+    },
+    {
+      "path": "dashboard/src/lib/translate.js",
+      "bytes": 6336
+    },
+    {
+      "path": "dashboard/src/services/commandClient.js",
+      "bytes": 3241
+    },
+    {
+      "path": "dashboard/src/services/dittoClient.js",
+      "bytes": 1392
+    },
+    {
+      "path": "dashboard/src/services/sseClient.js",
+      "bytes": 2458
+    },
+    {
+      "path": "dashboard/src/services/debugLog.js",
+      "bytes": 1007
+    },
+    {
+      "path": "dashboard/src/components/Header.vue",
+      "bytes": 2636
+    },
+    {
+      "path": "dashboard/src/components/HistoryPanel.vue",
+      "bytes": 4121
+    },
+    {
+      "path": "dashboard/src/components/AlertPanel.vue",
+      "bytes": 3616
+    },
+    {
+      "path": "dashboard/src/components/InfoPanel.vue",
+      "bytes": 6025
+    },
+    {
+      "path": "dashboard/src/components/TopologyView.vue",
+      "bytes": 7029
+    },
+    {
+      "path": "dashboard/dist/assets/index-VjdTyBP_.js",
+      "bytes": 737987
+    },
+    {
+      "path": "dashboard/dist/assets/index-Bd9RlubQ.css",
+      "bytes": 227947
+    },
+    {
+      "path": "docs/phase-1/notes.md",
+      "bytes": 66
+    },
+    {
+      "path": "docs/phase-3/notes.md",
+      "bytes": 66
+    },
+    {
+      "path": "docs/phase-0/notes.md",
+      "bytes": 66
+    },
+    {
+      "path": "docs/phase-2/notes.md",
+      "bytes": 66
+    },
+    {
+      "path": "docs/phase-4/notes.md",
+      "bytes": 66
+    }
+  ],
+  "file_count": 87,
+  "python_count": 50,
+  "bytes": 1392334
+}

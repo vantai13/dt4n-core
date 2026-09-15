@@ -1,0 +1,8 @@
+{
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "requests": "2.25.1",
+  "mininet_path": [
+    "/home/ubuntu/dt4n-core/mininet",
+    "/usr/lib/python3/dist-packages/mininet"
+  ]
+}
