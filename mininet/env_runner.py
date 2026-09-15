@@ -248,6 +248,15 @@ class EnvRunner:
         ok, waited = self._wait_steady_state()
         timings['steady_wait'] = waited
 
+        # Check the settled sync-cadence rates before a forced extra scan.
+        # The extra scan shares the collector cache and can sample between
+        # TCP pacing bursts, reporting only continuous UDP traffic.
+        # HEALTH GATE: mang-NEN phai khoe TRUOC khi inject su co.
+        # Dat o day, khong dat sau inject: sau inject mang "om" la dung.
+        t = time.monotonic()
+        health = self.assert_baseline_healthy()
+        timings['health_gate'] = time.monotonic() - t
+
         fresh_push_ok, fresh_push_s, fresh_push_ok_n, fresh_push_total = (
             self._refresh_twin_snapshot()
         )
@@ -255,12 +264,6 @@ class EnvRunner:
 
         fresh_ok, fresh_waited, fresh_aoi_norm = self._wait_data_fresh()
         timings['data_fresh_wait'] = fresh_waited
-
-        # HEALTH GATE: mang-NEN phai khoe TRUOC khi inject su co.
-        # Dat o day, khong dat sau inject: sau inject mang "om" la dung.
-        t = time.monotonic()
-        health = self.assert_baseline_healthy()
-        timings['health_gate'] = time.monotonic() - t
 
         if scenario is not None:
             if self.injection is None:

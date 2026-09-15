@@ -56,3 +56,22 @@ def test_health_uses_custom_namespace(monkeypatch):
 def test_runtime_gate_recognizes_bracketed_log_levels():
     assert C.runtime_error_count('2026 [ERROR] health failed\n2026 [CRITICAL] stopped\nTraceback (most recent call last):') == 3
     assert C.runtime_error_count('2026 [INFO] healthy\n2026 [WARNING] diagnostic') == 0
+
+
+def test_health_uses_settled_rates_before_forced_refresh(monkeypatch):
+    from mininet.env_runner import EnvRunner
+    env=EnvRunner(hard_every=0);env.net=object();state={'rate':.4};order=[]
+    for name in ('_kill_iperf','_restore_links','_flush_arp','_reset_collector_cache','_start_episode_traffic'):
+        monkeypatch.setattr(env,name,lambda:None)
+    monkeypatch.setattr(env,'_wait_steady_state',lambda:(True,5))
+    monkeypatch.setattr(env,'_read_throughput_norm',lambda:state['rate'])
+    def refresh():
+        order.append('refresh');state['rate']=.1
+        return True,.15,16,16
+    monkeypatch.setattr(env,'_refresh_twin_snapshot',refresh)
+    monkeypatch.setattr(env,'_wait_data_fresh',lambda:(True,0,.04))
+    monkeypatch.setattr(env,'_count_iperf',lambda:7)
+    info=env.soft_reset()
+    assert info['health']['throughput_norm']==.4
+    assert info['health']['attempts']==0 and info['reset_dirty'] is False
+    assert state['rate']==.1 and order==['refresh']
