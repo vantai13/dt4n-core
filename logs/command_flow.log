@@ -5142,3 +5142,1505 @@ urationMs=25 http=202 rejected=false timedOut=false
 [2026-09-15 08:59:41.407] [UI] SSE_OPEN
 [2026-09-15 08:59:41.426] [UI] RESYNC_DONE reason=sse-open things=18 nodes=8 edges=8 durationMs=20
 [2026-09-15 08:59:43.435] [UI] SSE_ERROR
+[2026-09-15 09:40:19.511] [AGENT] [INFO] [cid=-] SWITCH_CONNECTED subject=- target=org.dt4n:switch-s1 detail=switch s1 connected controllers=["tcp:127.0.0.1:6653"] waitMs=1
+[2026-09-15 09:40:31.512] [AGENT] [WARN] [cid=-] SWITCH_CONNECT_TIMEOUT subject=- target=org.dt4n:switch-s1 detail=controllers=tcp:127.0.0.1:6653; ports=s1-eth1; bridge=0 controllers=["tcp:127.0.0.1:6653"] waitMs=12001
+[2026-09-15 09:40:31.513] [AGENT] [INFO] [cid=cid-dup-test-phase2-5] RECEIVE subject=rebootEverything target=org.dt4n:link-h1-s1 params={}
+[2026-09-15 09:40:31.513] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] REJECT subject=rebootEverything target=org.dt4n:link-h1-s1 detail=unknown command: rebootEverything
+[2026-09-15 09:40:31.513] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] DUPLICATE_IGNORED subject=rebootEverything target=org.dt4n:link-h1-s1 detail=replay suppressed cachedDetail=unknown command: rebootEverything code=400 params={}
+[2026-09-15 09:41:29.628] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=5 ipv4 flows changed
+[2026-09-15 09:41:29.629] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=5 ipv4 flows changed
+[2026-09-15 09:41:29.630] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=5 ipv4 flows changed
+[2026-09-15 09:41:30.142] [AGENT] [INFO] [cid=-] SSE_OPEN subject=- target=org.dt4n.core:controller detail=http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages
+[2026-09-15 09:41:30.200] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=0
+[2026-09-15 09:41:30.214] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=0
+[2026-09-15 09:41:30.214] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=0
+[2026-09-15 09:41:30.221] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=0
+[2026-09-15 09:41:30.221] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=0
+[2026-09-15 09:41:30.227] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=0
+[2026-09-15 09:41:30.228] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=0
+[2026-09-15 09:41:30.234] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=0
+[2026-09-15 09:41:30.234] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=0
+[2026-09-15 09:41:30.240] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=0
+[2026-09-15 09:41:30.240] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=0
+[2026-09-15 09:41:30.246] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=0
+[2026-09-15 09:41:30.246] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=0
+[2026-09-15 09:41:30.252] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=0
+[2026-09-15 09:41:30.252] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=0
+[2026-09-15 09:41:30.258] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=0
+[2026-09-15 09:41:30.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=0
+[2026-09-15 09:41:30.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=0
+[2026-09-15 09:41:30.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=0
+[2026-09-15 09:41:30.276] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=0
+[2026-09-15 09:41:30.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=0
+[2026-09-15 09:41:30.282] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=0
+[2026-09-15 09:41:30.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=0
+[2026-09-15 09:41:30.289] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=0
+[2026-09-15 09:41:30.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=0
+[2026-09-15 09:41:30.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=0
+[2026-09-15 09:41:30.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=0
+[2026-09-15 09:41:30.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=0
+[2026-09-15 09:41:30.302] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=0
+[2026-09-15 09:41:30.309] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=0
+[2026-09-15 09:41:30.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=0
+[2026-09-15 09:41:30.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=0
+[2026-09-15 09:42:00.213] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=30
+[2026-09-15 09:42:00.220] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=30
+[2026-09-15 09:42:00.220] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=30
+[2026-09-15 09:42:00.227] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=30
+[2026-09-15 09:42:00.227] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=30
+[2026-09-15 09:42:00.233] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=30
+[2026-09-15 09:42:00.233] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=30
+[2026-09-15 09:42:00.238] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=30
+[2026-09-15 09:42:00.239] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=30
+[2026-09-15 09:42:00.244] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=30
+[2026-09-15 09:42:00.244] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=30
+[2026-09-15 09:42:00.250] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=30
+[2026-09-15 09:42:00.250] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=30
+[2026-09-15 09:42:00.256] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=30
+[2026-09-15 09:42:00.256] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=30
+[2026-09-15 09:42:00.262] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=30
+[2026-09-15 09:42:00.262] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=30
+[2026-09-15 09:42:00.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=30
+[2026-09-15 09:42:00.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=30
+[2026-09-15 09:42:00.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=30
+[2026-09-15 09:42:00.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=30
+[2026-09-15 09:42:00.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=30
+[2026-09-15 09:42:00.283] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=30
+[2026-09-15 09:42:00.289] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=30
+[2026-09-15 09:42:00.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=30
+[2026-09-15 09:42:00.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=30
+[2026-09-15 09:42:00.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=30
+[2026-09-15 09:42:00.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=30
+[2026-09-15 09:42:00.303] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=30
+[2026-09-15 09:42:00.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=30
+[2026-09-15 09:42:00.310] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=30
+[2026-09-15 09:42:00.317] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=30
+[2026-09-15 09:42:30.220] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=60
+[2026-09-15 09:42:30.228] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=60
+[2026-09-15 09:42:30.228] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=60
+[2026-09-15 09:42:30.234] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=60
+[2026-09-15 09:42:30.234] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=60
+[2026-09-15 09:42:30.239] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=60
+[2026-09-15 09:42:30.239] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=60
+[2026-09-15 09:42:30.245] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=60
+[2026-09-15 09:42:30.245] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=60
+[2026-09-15 09:42:30.250] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=60
+[2026-09-15 09:42:30.250] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=60
+[2026-09-15 09:42:30.255] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=60
+[2026-09-15 09:42:30.255] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=60
+[2026-09-15 09:42:30.261] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=60
+[2026-09-15 09:42:30.261] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=60
+[2026-09-15 09:42:30.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=60
+[2026-09-15 09:42:30.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=60
+[2026-09-15 09:42:30.272] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=60
+[2026-09-15 09:42:30.272] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=60
+[2026-09-15 09:42:30.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=60
+[2026-09-15 09:42:30.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=60
+[2026-09-15 09:42:30.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=60
+[2026-09-15 09:42:30.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=60
+[2026-09-15 09:42:30.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=60
+[2026-09-15 09:42:30.302] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=60
+[2026-09-15 09:42:30.309] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=60
+[2026-09-15 09:42:30.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=60
+[2026-09-15 09:42:30.315] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=60
+[2026-09-15 09:42:30.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=60
+[2026-09-15 09:42:30.322] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=60
+[2026-09-15 09:42:30.322] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=60
+[2026-09-15 09:42:30.328] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=60
+[2026-09-15 09:42:45.100] [AGENT] [INFO] [cid=-] SWITCH_CONNECTED subject=- target=org.dt4n:switch-s1 detail=switch s1 connected controllers=["tcp:127.0.0.1:6653"] waitMs=1
+[2026-09-15 09:42:57.102] [AGENT] [WARN] [cid=-] SWITCH_CONNECT_TIMEOUT subject=- target=org.dt4n:switch-s1 detail=controllers=tcp:127.0.0.1:6653; ports=s1-eth1; bridge=0 controllers=["tcp:127.0.0.1:6653"] waitMs=12001
+[2026-09-15 09:42:57.102] [AGENT] [INFO] [cid=cid-dup-test-phase2-5] RECEIVE subject=rebootEverything target=org.dt4n:link-h1-s1 params={}
+[2026-09-15 09:42:57.102] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] REJECT subject=rebootEverything target=org.dt4n:link-h1-s1 detail=unknown command: rebootEverything
+[2026-09-15 09:42:57.102] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] DUPLICATE_IGNORED subject=rebootEverything target=org.dt4n:link-h1-s1 detail=replay suppressed cachedDetail=unknown command: rebootEverything code=400 params={}
+[2026-09-15 09:43:00.224] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=90
+[2026-09-15 09:43:00.231] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=90
+[2026-09-15 09:43:00.231] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=90
+[2026-09-15 09:43:00.237] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=90
+[2026-09-15 09:43:00.237] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=90
+[2026-09-15 09:43:00.242] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=90
+[2026-09-15 09:43:00.243] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=90
+[2026-09-15 09:43:00.248] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=90
+[2026-09-15 09:43:00.248] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=90
+[2026-09-15 09:43:00.253] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=90
+[2026-09-15 09:43:00.253] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=90
+[2026-09-15 09:43:00.258] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=90
+[2026-09-15 09:43:00.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=90
+[2026-09-15 09:43:00.264] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=90
+[2026-09-15 09:43:00.264] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=90
+[2026-09-15 09:43:00.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=90
+[2026-09-15 09:43:00.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=90
+[2026-09-15 09:43:00.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=90
+[2026-09-15 09:43:00.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=90
+[2026-09-15 09:43:00.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=90
+[2026-09-15 09:43:00.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=90
+[2026-09-15 09:43:00.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=90
+[2026-09-15 09:43:00.288] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=90
+[2026-09-15 09:43:00.294] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=90
+[2026-09-15 09:43:00.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=90
+[2026-09-15 09:43:00.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=90
+[2026-09-15 09:43:00.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=90
+[2026-09-15 09:43:00.306] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=90
+[2026-09-15 09:43:00.306] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=90
+[2026-09-15 09:43:00.312] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=90
+[2026-09-15 09:43:00.312] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=90
+[2026-09-15 09:43:00.318] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=90
+[2026-09-15 09:43:30.233] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=120
+[2026-09-15 09:43:30.240] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=120
+[2026-09-15 09:43:30.241] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=120
+[2026-09-15 09:43:30.246] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=120
+[2026-09-15 09:43:30.246] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=120
+[2026-09-15 09:43:30.252] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=120
+[2026-09-15 09:43:30.252] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=120
+[2026-09-15 09:43:30.257] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=120
+[2026-09-15 09:43:30.257] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=120
+[2026-09-15 09:43:30.263] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=120
+[2026-09-15 09:43:30.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=120
+[2026-09-15 09:43:30.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=120
+[2026-09-15 09:43:30.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=120
+[2026-09-15 09:43:30.274] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=120
+[2026-09-15 09:43:30.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=120
+[2026-09-15 09:43:30.279] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=120
+[2026-09-15 09:43:30.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=120
+[2026-09-15 09:43:30.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=120
+[2026-09-15 09:43:30.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=120
+[2026-09-15 09:43:30.291] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=120
+[2026-09-15 09:43:30.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=120
+[2026-09-15 09:43:30.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=120
+[2026-09-15 09:43:30.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=120
+[2026-09-15 09:43:30.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=120
+[2026-09-15 09:43:30.302] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=120
+[2026-09-15 09:43:30.308] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=120
+[2026-09-15 09:43:30.308] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=120
+[2026-09-15 09:43:30.313] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=120
+[2026-09-15 09:43:30.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=120
+[2026-09-15 09:43:30.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=120
+[2026-09-15 09:43:30.319] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=120
+[2026-09-15 09:43:30.324] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=120
+[2026-09-15 09:44:00.240] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=150
+[2026-09-15 09:44:00.248] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=150
+[2026-09-15 09:44:00.248] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=150
+[2026-09-15 09:44:00.254] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=150
+[2026-09-15 09:44:00.254] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=150
+[2026-09-15 09:44:00.259] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=150
+[2026-09-15 09:44:00.259] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=150
+[2026-09-15 09:44:00.264] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=150
+[2026-09-15 09:44:00.265] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=150
+[2026-09-15 09:44:00.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=150
+[2026-09-15 09:44:00.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=150
+[2026-09-15 09:44:00.274] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=150
+[2026-09-15 09:44:00.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=150
+[2026-09-15 09:44:00.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=150
+[2026-09-15 09:44:00.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=150
+[2026-09-15 09:44:00.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=150
+[2026-09-15 09:44:00.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=150
+[2026-09-15 09:44:00.291] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=150
+[2026-09-15 09:44:00.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=150
+[2026-09-15 09:44:00.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=150
+[2026-09-15 09:44:00.297] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=150
+[2026-09-15 09:44:00.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=150
+[2026-09-15 09:44:00.302] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=150
+[2026-09-15 09:44:00.308] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=150
+[2026-09-15 09:44:00.308] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=150
+[2026-09-15 09:44:00.313] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=150
+[2026-09-15 09:44:00.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=150
+[2026-09-15 09:44:00.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=150
+[2026-09-15 09:44:00.319] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=150
+[2026-09-15 09:44:00.324] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=150
+[2026-09-15 09:44:00.324] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=150
+[2026-09-15 09:44:00.329] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=150
+[2026-09-15 09:44:23.901] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:24.249] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=174
+[2026-09-15 09:44:24.255] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=174
+[2026-09-15 09:44:24.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=174
+[2026-09-15 09:44:24.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=174
+[2026-09-15 09:44:24.306] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:24.307] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:24.307] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:24.308] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:25.243] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=175
+[2026-09-15 09:44:25.250] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=175
+[2026-09-15 09:44:25.261] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=175
+[2026-09-15 09:44:25.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=175
+[2026-09-15 09:44:27.989] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:28.245] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=178
+[2026-09-15 09:44:28.252] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=178
+[2026-09-15 09:44:28.265] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=178
+[2026-09-15 09:44:28.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=178
+[2026-09-15 09:44:28.284] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:28.285] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:28.285] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:28.286] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:29.245] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=179
+[2026-09-15 09:44:29.252] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=179
+[2026-09-15 09:44:29.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=179
+[2026-09-15 09:44:29.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=179
+[2026-09-15 09:44:30.242] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=180
+[2026-09-15 09:44:30.249] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=180
+[2026-09-15 09:44:30.250] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=180
+[2026-09-15 09:44:30.255] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=180
+[2026-09-15 09:44:30.255] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=180
+[2026-09-15 09:44:30.261] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=180
+[2026-09-15 09:44:30.261] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=180
+[2026-09-15 09:44:30.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=180
+[2026-09-15 09:44:30.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=180
+[2026-09-15 09:44:30.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=180
+[2026-09-15 09:44:30.271] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=180
+[2026-09-15 09:44:30.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=180
+[2026-09-15 09:44:30.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=180
+[2026-09-15 09:44:30.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=180
+[2026-09-15 09:44:30.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=180
+[2026-09-15 09:44:30.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=180
+[2026-09-15 09:44:30.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=180
+[2026-09-15 09:44:30.289] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=180
+[2026-09-15 09:44:30.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=180
+[2026-09-15 09:44:30.294] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=180
+[2026-09-15 09:44:30.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=180
+[2026-09-15 09:44:30.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=180
+[2026-09-15 09:44:30.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=180
+[2026-09-15 09:44:30.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=180
+[2026-09-15 09:44:30.305] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=180
+[2026-09-15 09:44:30.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=180
+[2026-09-15 09:44:30.310] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=180
+[2026-09-15 09:44:30.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=180
+[2026-09-15 09:44:30.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=180
+[2026-09-15 09:44:30.321] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=180
+[2026-09-15 09:44:30.321] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=180
+[2026-09-15 09:44:30.327] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=180
+[2026-09-15 09:44:32.035] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:32.243] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=182
+[2026-09-15 09:44:32.249] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=182
+[2026-09-15 09:44:32.261] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=182
+[2026-09-15 09:44:32.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=182
+[2026-09-15 09:44:32.329] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:32.330] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:32.330] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:32.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:33.245] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=183
+[2026-09-15 09:44:33.252] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=183
+[2026-09-15 09:44:33.264] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=183
+[2026-09-15 09:44:33.270] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=183
+[2026-09-15 09:44:35.392] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:36.247] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=186
+[2026-09-15 09:44:36.254] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=186
+[2026-09-15 09:44:36.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=186
+[2026-09-15 09:44:36.272] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=186
+[2026-09-15 09:44:36.297] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:36.298] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:36.299] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:36.299] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:37.248] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=187
+[2026-09-15 09:44:37.254] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=187
+[2026-09-15 09:44:37.265] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=187
+[2026-09-15 09:44:37.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=187
+[2026-09-15 09:44:39.651] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:40.247] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=190
+[2026-09-15 09:44:40.254] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=190
+[2026-09-15 09:44:40.265] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=190
+[2026-09-15 09:44:40.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=190
+[2026-09-15 09:44:40.280] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:40.281] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:40.281] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:40.282] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:41.247] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=191
+[2026-09-15 09:44:41.253] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=191
+[2026-09-15 09:44:41.265] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=191
+[2026-09-15 09:44:41.270] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=191
+[2026-09-15 09:44:43.313] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:44.250] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=194
+[2026-09-15 09:44:44.257] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=194
+[2026-09-15 09:44:44.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=194
+[2026-09-15 09:44:44.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=194
+[2026-09-15 09:44:44.333] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:44.334] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:44.334] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:44.335] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:45.249] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=195
+[2026-09-15 09:44:45.256] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=195
+[2026-09-15 09:44:45.267] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=195
+[2026-09-15 09:44:45.273] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=195
+[2026-09-15 09:44:47.701] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:48.251] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=198
+[2026-09-15 09:44:48.257] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=198
+[2026-09-15 09:44:48.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=198
+[2026-09-15 09:44:48.274] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=198
+[2026-09-15 09:44:48.328] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:48.329] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:48.329] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:48.330] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:49.249] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=199
+[2026-09-15 09:44:49.256] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=199
+[2026-09-15 09:44:49.267] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=199
+[2026-09-15 09:44:49.273] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=199
+[2026-09-15 09:44:51.584] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:52.250] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=202
+[2026-09-15 09:44:52.256] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=202
+[2026-09-15 09:44:52.268] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=202
+[2026-09-15 09:44:52.273] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=202
+[2026-09-15 09:44:52.330] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:52.330] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:52.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:52.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:53.249] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=203
+[2026-09-15 09:44:53.256] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=203
+[2026-09-15 09:44:53.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=203
+[2026-09-15 09:44:53.272] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=203
+[2026-09-15 09:44:55.851] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:44:56.251] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=206
+[2026-09-15 09:44:56.257] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=206
+[2026-09-15 09:44:56.268] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=206
+[2026-09-15 09:44:56.273] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=206
+[2026-09-15 09:44:56.308] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:44:56.309] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:44:56.310] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:44:56.310] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:44:57.252] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=207
+[2026-09-15 09:44:57.259] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=207
+[2026-09-15 09:44:57.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=207
+[2026-09-15 09:44:57.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=207
+[2026-09-15 09:45:00.035] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:00.251] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=210
+[2026-09-15 09:45:00.258] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=210
+[2026-09-15 09:45:00.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=210
+[2026-09-15 09:45:00.263] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=210
+[2026-09-15 09:45:00.264] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=210
+[2026-09-15 09:45:00.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=210
+[2026-09-15 09:45:00.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=210
+[2026-09-15 09:45:00.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=210
+[2026-09-15 09:45:00.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=210
+[2026-09-15 09:45:00.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=210
+[2026-09-15 09:45:00.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=210
+[2026-09-15 09:45:00.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=210
+[2026-09-15 09:45:00.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=210
+[2026-09-15 09:45:00.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=210
+[2026-09-15 09:45:00.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=210
+[2026-09-15 09:45:00.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=210
+[2026-09-15 09:45:00.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=210
+[2026-09-15 09:45:00.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=210
+[2026-09-15 09:45:00.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=210
+[2026-09-15 09:45:00.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=210
+[2026-09-15 09:45:00.305] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=210
+[2026-09-15 09:45:00.311] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=210
+[2026-09-15 09:45:00.311] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=210
+[2026-09-15 09:45:00.317] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=210
+[2026-09-15 09:45:00.317] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=210
+[2026-09-15 09:45:00.323] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=210
+[2026-09-15 09:45:00.323] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=210
+[2026-09-15 09:45:00.329] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=210
+[2026-09-15 09:45:00.330] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=210
+[2026-09-15 09:45:00.330] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:00.330] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:00.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:00.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:00.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=210
+[2026-09-15 09:45:00.335] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=210
+[2026-09-15 09:45:00.341] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=210
+[2026-09-15 09:45:01.252] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=211
+[2026-09-15 09:45:01.259] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=211
+[2026-09-15 09:45:01.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=211
+[2026-09-15 09:45:01.276] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=211
+[2026-09-15 09:45:03.444] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:04.253] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=214
+[2026-09-15 09:45:04.260] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=214
+[2026-09-15 09:45:04.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=214
+[2026-09-15 09:45:04.276] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=214
+[2026-09-15 09:45:04.297] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:04.298] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:04.298] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:04.299] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:05.254] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=215
+[2026-09-15 09:45:05.267] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=215
+[2026-09-15 09:45:05.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=215
+[2026-09-15 09:45:05.287] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=215
+[2026-09-15 09:45:07.376] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:08.253] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=218
+[2026-09-15 09:45:08.261] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=218
+[2026-09-15 09:45:08.272] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=218
+[2026-09-15 09:45:08.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=218
+[2026-09-15 09:45:08.287] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:08.288] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:08.289] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:08.289] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:09.255] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=219
+[2026-09-15 09:45:09.262] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=219
+[2026-09-15 09:45:09.273] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=219
+[2026-09-15 09:45:09.279] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=219
+[2026-09-15 09:45:11.456] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:12.255] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=222
+[2026-09-15 09:45:12.261] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=222
+[2026-09-15 09:45:12.271] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=222
+[2026-09-15 09:45:12.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=222
+[2026-09-15 09:45:12.306] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:12.307] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:12.308] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:12.308] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:13.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=223
+[2026-09-15 09:45:13.264] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=223
+[2026-09-15 09:45:13.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=223
+[2026-09-15 09:45:13.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=223
+[2026-09-15 09:45:15.574] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:16.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=226
+[2026-09-15 09:45:16.264] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=226
+[2026-09-15 09:45:16.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=226
+[2026-09-15 09:45:16.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=226
+[2026-09-15 09:45:16.311] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:16.312] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:16.312] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:16.313] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:17.257] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=227
+[2026-09-15 09:45:17.263] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=227
+[2026-09-15 09:45:17.273] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=227
+[2026-09-15 09:45:17.279] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=227
+[2026-09-15 09:45:19.339] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:20.257] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=230
+[2026-09-15 09:45:20.264] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=230
+[2026-09-15 09:45:20.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=230
+[2026-09-15 09:45:20.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=230
+[2026-09-15 09:45:20.301] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:20.302] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:20.302] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:20.303] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:21.260] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=231
+[2026-09-15 09:45:21.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=231
+[2026-09-15 09:45:21.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=231
+[2026-09-15 09:45:21.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=231
+[2026-09-15 09:45:24.047] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:24.259] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=234
+[2026-09-15 09:45:24.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=234
+[2026-09-15 09:45:24.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=234
+[2026-09-15 09:45:24.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=234
+[2026-09-15 09:45:24.340] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:24.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:24.341] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:24.341] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:25.260] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=235
+[2026-09-15 09:45:25.267] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=235
+[2026-09-15 09:45:25.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=235
+[2026-09-15 09:45:25.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=235
+[2026-09-15 09:45:27.761] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:28.259] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=238
+[2026-09-15 09:45:28.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=238
+[2026-09-15 09:45:28.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=238
+[2026-09-15 09:45:28.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=238
+[2026-09-15 09:45:28.334] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:28.334] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:28.335] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:28.335] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:29.259] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=239
+[2026-09-15 09:45:29.266] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=239
+[2026-09-15 09:45:29.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=239
+[2026-09-15 09:45:29.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=239
+[2026-09-15 09:45:30.262] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=240
+[2026-09-15 09:45:30.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=240
+[2026-09-15 09:45:30.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=240
+[2026-09-15 09:45:30.274] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=240
+[2026-09-15 09:45:30.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=240
+[2026-09-15 09:45:30.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=240
+[2026-09-15 09:45:30.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=240
+[2026-09-15 09:45:30.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=240
+[2026-09-15 09:45:30.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=240
+[2026-09-15 09:45:30.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=240
+[2026-09-15 09:45:30.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=240
+[2026-09-15 09:45:30.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=240
+[2026-09-15 09:45:30.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=240
+[2026-09-15 09:45:30.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=240
+[2026-09-15 09:45:30.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=240
+[2026-09-15 09:45:30.304] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=240
+[2026-09-15 09:45:30.304] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=240
+[2026-09-15 09:45:30.309] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=240
+[2026-09-15 09:45:30.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=240
+[2026-09-15 09:45:30.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=240
+[2026-09-15 09:45:30.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=240
+[2026-09-15 09:45:30.320] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=240
+[2026-09-15 09:45:30.320] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=240
+[2026-09-15 09:45:30.326] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=240
+[2026-09-15 09:45:30.326] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=240
+[2026-09-15 09:45:30.331] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=240
+[2026-09-15 09:45:30.331] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=240
+[2026-09-15 09:45:30.336] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=240
+[2026-09-15 09:45:30.336] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=240
+[2026-09-15 09:45:30.341] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=240
+[2026-09-15 09:45:30.341] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=240
+[2026-09-15 09:45:30.346] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=240
+[2026-09-15 09:45:32.017] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:32.258] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=242
+[2026-09-15 09:45:32.265] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=242
+[2026-09-15 09:45:32.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=242
+[2026-09-15 09:45:32.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=242
+[2026-09-15 09:45:32.310] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:32.311] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:32.311] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:32.312] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:33.262] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=243
+[2026-09-15 09:45:33.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=243
+[2026-09-15 09:45:33.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=243
+[2026-09-15 09:45:33.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=243
+[2026-09-15 09:45:35.815] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:36.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=246
+[2026-09-15 09:45:36.270] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=246
+[2026-09-15 09:45:36.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=246
+[2026-09-15 09:45:36.286] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=246
+[2026-09-15 09:45:36.330] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:36.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:36.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:36.332] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:37.262] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=247
+[2026-09-15 09:45:37.268] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=247
+[2026-09-15 09:45:37.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=247
+[2026-09-15 09:45:37.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=247
+[2026-09-15 09:45:39.722] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:40.262] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=250
+[2026-09-15 09:45:40.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=250
+[2026-09-15 09:45:40.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=250
+[2026-09-15 09:45:40.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=250
+[2026-09-15 09:45:40.303] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:40.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:40.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:40.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:41.261] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=251
+[2026-09-15 09:45:41.267] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=251
+[2026-09-15 09:45:41.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=251
+[2026-09-15 09:45:41.282] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=251
+[2026-09-15 09:45:44.158] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:44.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=254
+[2026-09-15 09:45:44.270] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=254
+[2026-09-15 09:45:44.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=254
+[2026-09-15 09:45:44.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=254
+[2026-09-15 09:45:44.338] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:44.339] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:44.339] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:44.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:45.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=255
+[2026-09-15 09:45:45.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=255
+[2026-09-15 09:45:45.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=255
+[2026-09-15 09:45:45.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=255
+[2026-09-15 09:45:47.613] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:48.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=258
+[2026-09-15 09:45:48.269] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=258
+[2026-09-15 09:45:48.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=258
+[2026-09-15 09:45:48.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=258
+[2026-09-15 09:45:48.296] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:48.297] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:48.297] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:48.298] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:49.264] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=259
+[2026-09-15 09:45:49.271] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=259
+[2026-09-15 09:45:49.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=259
+[2026-09-15 09:45:49.286] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=259
+[2026-09-15 09:45:51.565] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:52.263] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=262
+[2026-09-15 09:45:52.270] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=262
+[2026-09-15 09:45:52.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=262
+[2026-09-15 09:45:52.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=262
+[2026-09-15 09:45:52.303] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:52.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:52.305] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:52.305] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:53.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=263
+[2026-09-15 09:45:53.272] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=263
+[2026-09-15 09:45:53.283] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=263
+[2026-09-15 09:45:53.289] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=263
+[2026-09-15 09:45:55.620] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:45:56.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=266
+[2026-09-15 09:45:56.272] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=266
+[2026-09-15 09:45:56.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=266
+[2026-09-15 09:45:56.287] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=266
+[2026-09-15 09:45:56.300] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:45:56.301] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:45:56.302] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:45:56.302] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:45:57.268] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=267
+[2026-09-15 09:45:57.274] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=267
+[2026-09-15 09:45:57.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=267
+[2026-09-15 09:45:57.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=267
+[2026-09-15 09:46:00.097] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:00.266] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=270
+[2026-09-15 09:46:00.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=270
+[2026-09-15 09:46:00.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=270
+[2026-09-15 09:46:00.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=270
+[2026-09-15 09:46:00.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=270
+[2026-09-15 09:46:00.286] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=270
+[2026-09-15 09:46:00.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=270
+[2026-09-15 09:46:00.291] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=270
+[2026-09-15 09:46:00.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=270
+[2026-09-15 09:46:00.298] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=270
+[2026-09-15 09:46:00.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=270
+[2026-09-15 09:46:00.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=270
+[2026-09-15 09:46:00.303] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=270
+[2026-09-15 09:46:00.308] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=270
+[2026-09-15 09:46:00.308] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=270
+[2026-09-15 09:46:00.312] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=270
+[2026-09-15 09:46:00.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=270
+[2026-09-15 09:46:00.318] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=270
+[2026-09-15 09:46:00.318] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=270
+[2026-09-15 09:46:00.323] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=270
+[2026-09-15 09:46:00.323] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=270
+[2026-09-15 09:46:00.328] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=270
+[2026-09-15 09:46:00.328] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=270
+[2026-09-15 09:46:00.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=270
+[2026-09-15 09:46:00.335] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=270
+[2026-09-15 09:46:00.338] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:00.339] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:00.339] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:00.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:00.341] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=270
+[2026-09-15 09:46:00.341] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=270
+[2026-09-15 09:46:00.347] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=270
+[2026-09-15 09:46:00.347] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=270
+[2026-09-15 09:46:00.352] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=270
+[2026-09-15 09:46:00.352] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=270
+[2026-09-15 09:46:00.357] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=270
+[2026-09-15 09:46:01.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=271
+[2026-09-15 09:46:01.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=271
+[2026-09-15 09:46:01.287] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=271
+[2026-09-15 09:46:01.292] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=271
+[2026-09-15 09:46:03.659] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:04.268] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=274
+[2026-09-15 09:46:04.276] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=274
+[2026-09-15 09:46:04.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=274
+[2026-09-15 09:46:04.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=274
+[2026-09-15 09:46:04.339] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:04.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:04.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:04.341] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:05.268] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=275
+[2026-09-15 09:46:05.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=275
+[2026-09-15 09:46:05.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=275
+[2026-09-15 09:46:05.291] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=275
+[2026-09-15 09:46:07.446] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:08.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=278
+[2026-09-15 09:46:08.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=278
+[2026-09-15 09:46:08.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=278
+[2026-09-15 09:46:08.292] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=278
+[2026-09-15 09:46:08.353] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:08.353] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:08.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:08.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:09.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=279
+[2026-09-15 09:46:09.275] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=279
+[2026-09-15 09:46:09.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=279
+[2026-09-15 09:46:09.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=279
+[2026-09-15 09:46:11.455] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:12.269] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=282
+[2026-09-15 09:46:12.276] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=282
+[2026-09-15 09:46:12.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=282
+[2026-09-15 09:46:12.291] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=282
+[2026-09-15 09:46:12.303] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:12.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:12.304] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:12.305] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:13.271] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=283
+[2026-09-15 09:46:13.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=283
+[2026-09-15 09:46:13.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=283
+[2026-09-15 09:46:13.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=283
+[2026-09-15 09:46:15.337] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:16.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=286
+[2026-09-15 09:46:16.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=286
+[2026-09-15 09:46:16.288] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=286
+[2026-09-15 09:46:16.293] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=286
+[2026-09-15 09:46:16.353] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:16.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:16.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:16.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:17.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=287
+[2026-09-15 09:46:17.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=287
+[2026-09-15 09:46:17.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=287
+[2026-09-15 09:46:17.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=287
+[2026-09-15 09:46:19.653] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:20.272] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=290
+[2026-09-15 09:46:20.279] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=290
+[2026-09-15 09:46:20.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=290
+[2026-09-15 09:46:20.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=290
+[2026-09-15 09:46:20.334] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:20.334] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:20.335] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:20.335] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:21.273] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=291
+[2026-09-15 09:46:21.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=291
+[2026-09-15 09:46:21.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=291
+[2026-09-15 09:46:21.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=291
+[2026-09-15 09:46:23.997] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:23.998] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:23.998] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:23.998] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:24.002] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:24.002] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:24.004] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:24.270] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=294
+[2026-09-15 09:46:24.277] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=294
+[2026-09-15 09:46:24.287] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=294
+[2026-09-15 09:46:24.292] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=294
+[2026-09-15 09:46:24.306] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:24.307] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:24.308] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:24.308] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:25.272] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=295
+[2026-09-15 09:46:25.279] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=295
+[2026-09-15 09:46:25.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=295
+[2026-09-15 09:46:25.294] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=295
+[2026-09-15 09:46:28.029] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:28.029] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:28.029] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:28.029] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:28.033] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:28.036] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:28.036] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:28.272] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=298
+[2026-09-15 09:46:28.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=298
+[2026-09-15 09:46:28.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=298
+[2026-09-15 09:46:28.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=298
+[2026-09-15 09:46:28.346] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:28.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:28.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:28.348] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:29.273] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=299
+[2026-09-15 09:46:29.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=299
+[2026-09-15 09:46:29.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=299
+[2026-09-15 09:46:29.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=299
+[2026-09-15 09:46:30.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=300
+[2026-09-15 09:46:30.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=300
+[2026-09-15 09:46:30.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=300
+[2026-09-15 09:46:30.287] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=300
+[2026-09-15 09:46:30.287] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=300
+[2026-09-15 09:46:30.292] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=300
+[2026-09-15 09:46:30.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=300
+[2026-09-15 09:46:30.298] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=300
+[2026-09-15 09:46:30.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=300
+[2026-09-15 09:46:30.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=300
+[2026-09-15 09:46:30.303] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=300
+[2026-09-15 09:46:30.309] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=300
+[2026-09-15 09:46:30.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=300
+[2026-09-15 09:46:30.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=300
+[2026-09-15 09:46:30.314] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=300
+[2026-09-15 09:46:30.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=300
+[2026-09-15 09:46:30.319] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=300
+[2026-09-15 09:46:30.325] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=300
+[2026-09-15 09:46:30.325] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=300
+[2026-09-15 09:46:30.330] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=300
+[2026-09-15 09:46:30.330] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=300
+[2026-09-15 09:46:30.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=300
+[2026-09-15 09:46:30.336] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=300
+[2026-09-15 09:46:30.341] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=300
+[2026-09-15 09:46:30.341] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=300
+[2026-09-15 09:46:30.346] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=300
+[2026-09-15 09:46:30.346] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=300
+[2026-09-15 09:46:30.351] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=300
+[2026-09-15 09:46:30.351] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=300
+[2026-09-15 09:46:30.357] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=300
+[2026-09-15 09:46:30.357] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=300
+[2026-09-15 09:46:30.362] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=300
+[2026-09-15 09:46:32.040] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:32.040] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:32.041] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:32.041] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:32.046] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:32.047] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:32.047] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:32.273] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=302
+[2026-09-15 09:46:32.280] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=302
+[2026-09-15 09:46:32.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=302
+[2026-09-15 09:46:32.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=302
+[2026-09-15 09:46:32.353] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:32.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:32.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:32.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:33.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=303
+[2026-09-15 09:46:33.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=303
+[2026-09-15 09:46:33.292] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=303
+[2026-09-15 09:46:33.298] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=303
+[2026-09-15 09:46:35.417] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:35.417] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:35.417] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:35.417] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:35.421] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:35.421] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:35.421] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:36.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=306
+[2026-09-15 09:46:36.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=306
+[2026-09-15 09:46:36.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=306
+[2026-09-15 09:46:36.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=306
+[2026-09-15 09:46:36.350] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:36.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:36.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:36.352] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:37.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=307
+[2026-09-15 09:46:37.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=307
+[2026-09-15 09:46:37.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=307
+[2026-09-15 09:46:37.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=307
+[2026-09-15 09:46:39.643] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:39.644] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:39.644] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:39.644] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:39.648] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:39.648] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:39.650] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:40.275] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=310
+[2026-09-15 09:46:40.282] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=310
+[2026-09-15 09:46:40.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=310
+[2026-09-15 09:46:40.298] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=310
+[2026-09-15 09:46:40.354] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:40.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:40.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:40.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:41.274] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=311
+[2026-09-15 09:46:41.281] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=311
+[2026-09-15 09:46:41.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=311
+[2026-09-15 09:46:41.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=311
+[2026-09-15 09:46:43.332] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:43.332] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:43.332] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:43.332] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:43.335] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:43.335] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:43.336] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:44.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=314
+[2026-09-15 09:46:44.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=314
+[2026-09-15 09:46:44.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=314
+[2026-09-15 09:46:44.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=314
+[2026-09-15 09:46:44.317] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:44.317] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:44.318] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:44.318] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:45.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=315
+[2026-09-15 09:46:45.282] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=315
+[2026-09-15 09:46:45.292] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=315
+[2026-09-15 09:46:45.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=315
+[2026-09-15 09:46:47.738] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:47.739] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:47.739] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:47.739] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:47.744] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:47.744] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:47.744] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:48.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=318
+[2026-09-15 09:46:48.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=318
+[2026-09-15 09:46:48.292] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=318
+[2026-09-15 09:46:48.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=318
+[2026-09-15 09:46:48.332] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:48.333] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:48.333] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:48.333] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:49.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=319
+[2026-09-15 09:46:49.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=319
+[2026-09-15 09:46:49.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=319
+[2026-09-15 09:46:49.307] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=319
+[2026-09-15 09:46:51.641] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:51.641] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:51.641] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:51.642] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:51.645] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:51.645] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:51.646] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:52.276] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=322
+[2026-09-15 09:46:52.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=322
+[2026-09-15 09:46:52.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=322
+[2026-09-15 09:46:52.298] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=322
+[2026-09-15 09:46:52.344] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:52.344] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:52.345] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:52.345] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:53.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=323
+[2026-09-15 09:46:53.284] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=323
+[2026-09-15 09:46:53.301] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=323
+[2026-09-15 09:46:53.308] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=323
+[2026-09-15 09:46:55.926] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:46:55.926] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:46:55.926] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:46:55.927] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:46:55.930] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:46:55.931] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:46:55.931] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:46:56.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=326
+[2026-09-15 09:46:56.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=326
+[2026-09-15 09:46:56.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=326
+[2026-09-15 09:46:56.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=326
+[2026-09-15 09:46:56.346] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:46:56.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:46:56.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:46:56.348] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:46:57.277] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=327
+[2026-09-15 09:46:57.283] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=327
+[2026-09-15 09:46:57.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=327
+[2026-09-15 09:46:57.299] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=327
+[2026-09-15 09:47:00.074] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:00.075] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:00.075] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:00.075] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:00.079] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:00.079] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:00.079] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:00.278] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=330
+[2026-09-15 09:47:00.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=330
+[2026-09-15 09:47:00.285] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=330
+[2026-09-15 09:47:00.290] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=330
+[2026-09-15 09:47:00.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=330
+[2026-09-15 09:47:00.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=330
+[2026-09-15 09:47:00.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=330
+[2026-09-15 09:47:00.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=330
+[2026-09-15 09:47:00.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=330
+[2026-09-15 09:47:00.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=330
+[2026-09-15 09:47:00.305] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=330
+[2026-09-15 09:47:00.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=330
+[2026-09-15 09:47:00.310] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=330
+[2026-09-15 09:47:00.315] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=330
+[2026-09-15 09:47:00.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=330
+[2026-09-15 09:47:00.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=330
+[2026-09-15 09:47:00.319] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=330
+[2026-09-15 09:47:00.325] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=330
+[2026-09-15 09:47:00.325] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=330
+[2026-09-15 09:47:00.330] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=330
+[2026-09-15 09:47:00.330] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=330
+[2026-09-15 09:47:00.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=330
+[2026-09-15 09:47:00.335] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=330
+[2026-09-15 09:47:00.340] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=330
+[2026-09-15 09:47:00.340] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=330
+[2026-09-15 09:47:00.345] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=330
+[2026-09-15 09:47:00.345] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=330
+[2026-09-15 09:47:00.350] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=330
+[2026-09-15 09:47:00.350] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=330
+[2026-09-15 09:47:00.355] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=330
+[2026-09-15 09:47:00.355] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=330
+[2026-09-15 09:47:00.360] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=330
+[2026-09-15 09:47:00.381] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:00.382] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:00.383] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:00.383] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:01.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=331
+[2026-09-15 09:47:01.285] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=331
+[2026-09-15 09:47:01.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=331
+[2026-09-15 09:47:01.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=331
+[2026-09-15 09:47:03.496] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:03.496] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:03.497] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:03.497] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:03.501] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:03.501] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:03.501] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:04.279] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=334
+[2026-09-15 09:47:04.286] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=334
+[2026-09-15 09:47:04.297] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=334
+[2026-09-15 09:47:04.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=334
+[2026-09-15 09:47:04.363] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:04.364] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:04.364] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:04.365] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:05.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=335
+[2026-09-15 09:47:05.287] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=335
+[2026-09-15 09:47:05.297] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=335
+[2026-09-15 09:47:05.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=335
+[2026-09-15 09:47:07.400] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:07.400] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:07.400] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:07.400] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:07.404] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:07.407] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:07.407] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:08.280] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=338
+[2026-09-15 09:47:08.286] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=338
+[2026-09-15 09:47:08.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=338
+[2026-09-15 09:47:08.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=338
+[2026-09-15 09:47:08.326] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:08.327] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:08.328] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:08.328] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:09.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=339
+[2026-09-15 09:47:09.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=339
+[2026-09-15 09:47:09.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=339
+[2026-09-15 09:47:09.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=339
+[2026-09-15 09:47:11.491] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:11.491] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:11.491] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:11.491] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:11.496] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:11.497] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:11.497] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:12.281] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=342
+[2026-09-15 09:47:12.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=342
+[2026-09-15 09:47:12.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=342
+[2026-09-15 09:47:12.304] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=342
+[2026-09-15 09:47:12.360] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:12.361] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:12.361] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:12.362] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:13.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=343
+[2026-09-15 09:47:13.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=343
+[2026-09-15 09:47:13.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=343
+[2026-09-15 09:47:13.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=343
+[2026-09-15 09:47:15.571] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:15.571] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:15.571] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:15.571] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:15.576] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:15.577] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:15.577] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:16.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=346
+[2026-09-15 09:47:16.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=346
+[2026-09-15 09:47:16.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=346
+[2026-09-15 09:47:16.304] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=346
+[2026-09-15 09:47:16.330] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:16.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:16.331] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:16.332] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:17.282] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=347
+[2026-09-15 09:47:17.288] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=347
+[2026-09-15 09:47:17.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=347
+[2026-09-15 09:47:17.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=347
+[2026-09-15 09:47:19.356] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:19.356] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:19.356] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:19.356] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:19.360] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:19.360] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:19.360] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:20.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=350
+[2026-09-15 09:47:20.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=350
+[2026-09-15 09:47:20.314] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=350
+[2026-09-15 09:47:20.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=350
+[2026-09-15 09:47:20.349] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:20.350] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:20.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:20.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:21.288] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=351
+[2026-09-15 09:47:21.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=351
+[2026-09-15 09:47:21.306] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=351
+[2026-09-15 09:47:21.311] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=351
+[2026-09-15 09:47:24.093] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:24.094] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:24.094] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:24.094] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:24.100] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:24.100] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:24.100] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:24.288] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=354
+[2026-09-15 09:47:24.294] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=354
+[2026-09-15 09:47:24.306] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=354
+[2026-09-15 09:47:24.311] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=354
+[2026-09-15 09:47:24.352] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:24.353] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:24.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:24.354] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:25.288] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=355
+[2026-09-15 09:47:25.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=355
+[2026-09-15 09:47:25.307] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=355
+[2026-09-15 09:47:25.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=355
+[2026-09-15 09:47:27.834] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:27.834] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:27.835] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:27.835] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:27.838] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:27.838] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:27.840] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:28.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=358
+[2026-09-15 09:47:28.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=358
+[2026-09-15 09:47:28.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=358
+[2026-09-15 09:47:28.315] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=358
+[2026-09-15 09:47:28.372] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:28.373] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:28.374] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:28.375] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:29.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=359
+[2026-09-15 09:47:29.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=359
+[2026-09-15 09:47:29.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=359
+[2026-09-15 09:47:29.315] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=359
+[2026-09-15 09:47:30.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=360
+[2026-09-15 09:47:30.293] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=360
+[2026-09-15 09:47:30.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=360
+[2026-09-15 09:47:30.299] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=360
+[2026-09-15 09:47:30.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=360
+[2026-09-15 09:47:30.304] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=360
+[2026-09-15 09:47:30.304] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=360
+[2026-09-15 09:47:30.309] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=360
+[2026-09-15 09:47:30.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=360
+[2026-09-15 09:47:30.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=360
+[2026-09-15 09:47:30.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=360
+[2026-09-15 09:47:30.320] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=360
+[2026-09-15 09:47:30.320] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=360
+[2026-09-15 09:47:30.325] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=360
+[2026-09-15 09:47:30.325] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=360
+[2026-09-15 09:47:30.330] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=360
+[2026-09-15 09:47:30.330] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=360
+[2026-09-15 09:47:30.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=360
+[2026-09-15 09:47:30.336] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=360
+[2026-09-15 09:47:30.341] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=360
+[2026-09-15 09:47:30.341] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=360
+[2026-09-15 09:47:30.347] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=360
+[2026-09-15 09:47:30.347] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=360
+[2026-09-15 09:47:30.352] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=360
+[2026-09-15 09:47:30.352] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=360
+[2026-09-15 09:47:30.357] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=360
+[2026-09-15 09:47:30.358] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=360
+[2026-09-15 09:47:30.363] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=360
+[2026-09-15 09:47:30.363] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=360
+[2026-09-15 09:47:30.368] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=360
+[2026-09-15 09:47:30.368] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=360
+[2026-09-15 09:47:30.373] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=360
+[2026-09-15 09:47:32.061] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:32.061] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:32.061] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:32.061] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:32.065] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:32.066] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:32.066] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:32.286] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=362
+[2026-09-15 09:47:32.292] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=362
+[2026-09-15 09:47:32.302] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=362
+[2026-09-15 09:47:32.307] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=362
+[2026-09-15 09:47:32.319] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:32.320] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:32.320] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:32.321] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:33.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=363
+[2026-09-15 09:47:33.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=363
+[2026-09-15 09:47:33.312] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=363
+[2026-09-15 09:47:33.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=363
+[2026-09-15 09:47:35.825] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:35.826] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:35.826] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:35.826] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:35.831] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:35.831] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:35.832] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:36.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=366
+[2026-09-15 09:47:36.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=366
+[2026-09-15 09:47:36.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=366
+[2026-09-15 09:47:36.320] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=366
+[2026-09-15 09:47:36.368] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:36.368] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:36.369] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:36.369] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:37.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=367
+[2026-09-15 09:47:37.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=367
+[2026-09-15 09:47:37.307] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=367
+[2026-09-15 09:47:37.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=367
+[2026-09-15 09:47:39.762] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:39.763] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:39.763] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:39.763] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:39.768] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:39.768] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:39.769] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:40.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=370
+[2026-09-15 09:47:40.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=370
+[2026-09-15 09:47:40.306] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=370
+[2026-09-15 09:47:40.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=370
+[2026-09-15 09:47:40.355] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:40.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:40.356] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:40.356] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:41.292] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=371
+[2026-09-15 09:47:41.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=371
+[2026-09-15 09:47:41.310] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=371
+[2026-09-15 09:47:41.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=371
+[2026-09-15 09:47:44.210] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:44.210] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:44.210] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:44.210] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:44.215] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:44.215] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:44.215] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:44.290] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=374
+[2026-09-15 09:47:44.296] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=374
+[2026-09-15 09:47:44.307] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=374
+[2026-09-15 09:47:44.312] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=374
+[2026-09-15 09:47:44.358] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:44.359] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:44.359] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:44.360] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:45.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=375
+[2026-09-15 09:47:45.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=375
+[2026-09-15 09:47:45.312] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=375
+[2026-09-15 09:47:45.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=375
+[2026-09-15 09:47:47.696] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:47.696] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:47.696] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:47.697] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:47.702] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:47.702] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:47.702] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:48.289] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=378
+[2026-09-15 09:47:48.295] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=378
+[2026-09-15 09:47:48.305] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=378
+[2026-09-15 09:47:48.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=378
+[2026-09-15 09:47:48.339] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:48.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:48.340] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:48.341] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:49.291] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=379
+[2026-09-15 09:47:49.297] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=379
+[2026-09-15 09:47:49.307] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=379
+[2026-09-15 09:47:49.312] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=379
+[2026-09-15 09:47:51.606] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:51.606] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:51.606] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:51.607] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:51.611] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:51.612] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:51.613] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:52.292] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=382
+[2026-09-15 09:47:52.299] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=382
+[2026-09-15 09:47:52.309] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=382
+[2026-09-15 09:47:52.314] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=382
+[2026-09-15 09:47:52.361] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:52.361] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:52.362] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:52.362] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:53.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=383
+[2026-09-15 09:47:53.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=383
+[2026-09-15 09:47:53.311] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=383
+[2026-09-15 09:47:53.317] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=383
+[2026-09-15 09:47:55.669] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:47:55.670] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:47:55.670] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:47:55.670] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:47:55.674] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:47:55.674] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:47:55.676] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:47:56.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=386
+[2026-09-15 09:47:56.300] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=386
+[2026-09-15 09:47:56.311] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=386
+[2026-09-15 09:47:56.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=386
+[2026-09-15 09:47:56.375] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:47:56.375] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:47:56.376] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:47:56.376] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:47:57.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=387
+[2026-09-15 09:47:57.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=387
+[2026-09-15 09:47:57.311] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=387
+[2026-09-15 09:47:57.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=387
+[2026-09-15 09:48:00.123] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:00.124] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:00.124] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:00.124] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:00.127] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:00.128] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:00.129] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:00.293] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=390
+[2026-09-15 09:48:00.299] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=390
+[2026-09-15 09:48:00.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h2 detail=up cycle=390
+[2026-09-15 09:48:00.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h2 detail=up cycle=390
+[2026-09-15 09:48:00.305] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h3 detail=up cycle=390
+[2026-09-15 09:48:00.310] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h3 detail=up cycle=390
+[2026-09-15 09:48:00.310] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=390
+[2026-09-15 09:48:00.316] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv1 detail=up cycle=390
+[2026-09-15 09:48:00.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=390
+[2026-09-15 09:48:00.321] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-srv2 detail=up cycle=390
+[2026-09-15 09:48:00.321] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=390
+[2026-09-15 09:48:00.326] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s1 detail=up cycle=390
+[2026-09-15 09:48:00.326] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=390
+[2026-09-15 09:48:00.330] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s2 detail=up cycle=390
+[2026-09-15 09:48:00.330] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=390
+[2026-09-15 09:48:00.335] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:switch-s3 detail=up cycle=390
+[2026-09-15 09:48:00.335] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=390
+[2026-09-15 09:48:00.340] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=390
+[2026-09-15 09:48:00.340] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=390
+[2026-09-15 09:48:00.345] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h2-s1 detail=up cycle=390
+[2026-09-15 09:48:00.345] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=390
+[2026-09-15 09:48:00.350] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h3-s1 detail=up cycle=390
+[2026-09-15 09:48:00.350] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=390
+[2026-09-15 09:48:00.355] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s2 detail=up cycle=390
+[2026-09-15 09:48:00.355] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=390
+[2026-09-15 09:48:00.360] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s1-s3 detail=up cycle=390
+[2026-09-15 09:48:00.360] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=390
+[2026-09-15 09:48:00.366] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-s3 detail=up cycle=390
+[2026-09-15 09:48:00.366] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=390
+[2026-09-15 09:48:00.372] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s2-srv1 detail=up cycle=390
+[2026-09-15 09:48:00.372] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=390
+[2026-09-15 09:48:00.377] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:00.378] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-s3-srv2 detail=up cycle=390
+[2026-09-15 09:48:00.378] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:00.379] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:00.379] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:01.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=391
+[2026-09-15 09:48:01.302] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=391
+[2026-09-15 09:48:01.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=391
+[2026-09-15 09:48:01.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=391
+[2026-09-15 09:48:03.645] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:03.645] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:03.645] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:03.646] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:03.649] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:03.649] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:03.649] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:04.297] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=394
+[2026-09-15 09:48:04.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=394
+[2026-09-15 09:48:04.314] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=394
+[2026-09-15 09:48:04.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=394
+[2026-09-15 09:48:04.346] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:04.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:04.347] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:04.348] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:05.297] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=395
+[2026-09-15 09:48:05.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=395
+[2026-09-15 09:48:05.313] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=395
+[2026-09-15 09:48:05.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=395
+[2026-09-15 09:48:07.510] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:07.510] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:07.510] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:07.510] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:07.516] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:07.516] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:07.516] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:08.294] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=398
+[2026-09-15 09:48:08.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=398
+[2026-09-15 09:48:08.312] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=398
+[2026-09-15 09:48:08.317] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=398
+[2026-09-15 09:48:08.326] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:08.326] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:08.327] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:08.327] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:09.295] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=399
+[2026-09-15 09:48:09.301] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=399
+[2026-09-15 09:48:09.312] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=399
+[2026-09-15 09:48:09.317] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=399
+[2026-09-15 09:48:11.484] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:11.484] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:11.484] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:11.484] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:11.490] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:11.490] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:11.490] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:12.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=402
+[2026-09-15 09:48:12.304] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=402
+[2026-09-15 09:48:12.314] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=402
+[2026-09-15 09:48:12.319] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=402
+[2026-09-15 09:48:12.351] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:12.352] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:12.352] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:12.353] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:13.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=403
+[2026-09-15 09:48:13.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=403
+[2026-09-15 09:48:13.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=403
+[2026-09-15 09:48:13.322] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=403
+[2026-09-15 09:48:15.373] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:15.374] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:15.374] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:15.374] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:15.378] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:15.378] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:15.378] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:16.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=406
+[2026-09-15 09:48:16.306] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=406
+[2026-09-15 09:48:16.318] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=406
+[2026-09-15 09:48:16.323] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=406
+[2026-09-15 09:48:16.354] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:16.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:16.355] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:16.356] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:17.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=407
+[2026-09-15 09:48:17.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=407
+[2026-09-15 09:48:17.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=407
+[2026-09-15 09:48:17.320] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=407
+[2026-09-15 09:48:19.702] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:19.702] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:19.702] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:19.702] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:19.707] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:19.707] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:19.707] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:20.299] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=410
+[2026-09-15 09:48:20.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=410
+[2026-09-15 09:48:20.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=410
+[2026-09-15 09:48:20.320] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=410
+[2026-09-15 09:48:20.350] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:20.350] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:20.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:20.351] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:21.301] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=411
+[2026-09-15 09:48:21.308] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=411
+[2026-09-15 09:48:21.319] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=411
+[2026-09-15 09:48:21.325] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=411
+[2026-09-15 09:48:21.364] [AGENT] [INFO] [cid=-] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=37 correlationSource=missing eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:21.365] [AGENT] [INFO] [cid=-] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:21.365] [AGENT] [INFO] [cid=-] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:21.365] [AGENT] [INFO] [cid=-] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:21.371] [AGENT] [INFO] [cid=-] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:21.371] [AGENT] [WARN] [cid=-] RESPONSE_SKIP subject=disableLink target=org.dt4n.core:controller detail=missing correlation-id
+[2026-09-15 09:48:21.371] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:22.296] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=412
+[2026-09-15 09:48:22.303] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=412
+[2026-09-15 09:48:22.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=412
+[2026-09-15 09:48:22.321] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=412
+[2026-09-15 09:48:24.387] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:24.388] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:24.388] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:24.388] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:25.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=415
+[2026-09-15 09:48:25.306] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=415
+[2026-09-15 09:48:25.316] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=415
+[2026-09-15 09:48:25.322] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=415
+[2026-09-15 09:48:25.345] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:25.346] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:25.346] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:25.346] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:25.349] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:25.349] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 09:48:25.351] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:25.373] [AGENT] [INFO] [cid=89f70166-1a0c-4111-b611-cbe4d1446403] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:26.298] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=down cycle=416
+[2026-09-15 09:48:26.305] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=down cycle=416
+[2026-09-15 09:48:26.315] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=416
+[2026-09-15 09:48:26.321] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=down cycle=416
+[2026-09-15 09:48:28.366] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:28.367] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:28.368] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:28.368] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:29.300] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:host-h1 detail=up cycle=419
+[2026-09-15 09:48:29.307] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:host-h1 detail=up cycle=419
+[2026-09-15 09:48:29.317] [SYNC] [INFO] [cid=-] STATE_DETECTED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=419
+[2026-09-15 09:48:29.322] [SYNC] [INFO] [cid=-] STATE_PUSHED subject=- target=org.dt4n.core:link-h1-s1 detail=up cycle=419
+[2026-09-15 09:48:29.592] [AGENT] [INFO] [cid=59a2a127-1c86-4eed-a0af-a89b9c0f8261] SSE_EVENT subject=rebootEverything target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=rebootEverything sseFields=["event"]
+[2026-09-15 09:48:29.592] [AGENT] [INFO] [cid=59a2a127-1c86-4eed-a0af-a89b9c0f8261] RECEIVE subject=rebootEverything target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:29.593] [AGENT] [WARN] [cid=59a2a127-1c86-4eed-a0af-a89b9c0f8261] REJECT subject=rebootEverything target=org.dt4n.core:link-h1-s1 detail=unknown command: rebootEverything
+[2026-09-15 09:48:29.593] [AGENT] [INFO] [cid=59a2a127-1c86-4eed-a0af-a89b9c0f8261] RESPONSE_SEND subject=rebootEverything target=org.dt4n.core:controller code=400 correlationSource=payload:clientCorrelationId ok=false
+[2026-09-15 09:48:29.623] [AGENT] [INFO] [cid=59a2a127-1c86-4eed-a0af-a89b9c0f8261] RESPONSE_OK subject=rebootEverything target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.626] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] SSE_EVENT subject=setBandwidth target=org.dt4n.core:link-s2-s3 bytes=117 correlationSource=payload:clientCorrelationId eventName=setBandwidth sseFields=["event"]
+[2026-09-15 09:48:29.626] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] RECEIVE subject=setBandwidth target=org.dt4n.core:link-s2-s3 params={"bw":"$(rm -rf /)"}
+[2026-09-15 09:48:29.626] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] EXECUTE_START subject=setBandwidth target=org.dt4n.core:link-s2-s3
+[2026-09-15 09:48:29.627] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] LOCK_WAIT subject=setBandwidth target=org.dt4n.core:link-s2-s3 waitMs=0
+[2026-09-15 09:48:29.627] [AGENT] [WARN] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] REJECT subject=setBandwidth target=org.dt4n.core:link-s2-s3 detail=bw must be a number, got '$(rm -rf /)' code=400
+[2026-09-15 09:48:29.627] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] RESPONSE_SEND subject=setBandwidth target=org.dt4n.core:controller code=400 correlationSource=payload:clientCorrelationId ok=false
+[2026-09-15 09:48:29.654] [AGENT] [INFO] [cid=f63e2907-e8c8-4c9e-af74-f19c929ca2c5] RESPONSE_OK subject=setBandwidth target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.661] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] SSE_EVENT subject=disableLink target=org.dt4n.core:link-xx-yy bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:29.661] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] RECEIVE subject=disableLink target=org.dt4n.core:link-xx-yy params={}
+[2026-09-15 09:48:29.661] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] EXECUTE_START subject=disableLink target=org.dt4n.core:link-xx-yy
+[2026-09-15 09:48:29.661] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-xx-yy waitMs=0
+[2026-09-15 09:48:29.661] [AGENT] [WARN] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] REJECT subject=disableLink target=org.dt4n.core:link-xx-yy detail=target not found: org.dt4n.core:link-xx-yy code=404
+[2026-09-15 09:48:29.661] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=404 correlationSource=payload:clientCorrelationId ok=false
+[2026-09-15 09:48:29.694] [AGENT] [INFO] [cid=7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.694] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:29.695] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:29.695] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:29.695] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:29.700] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:29.700] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 09:48:29.700] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=down edge=s1-h1
+[2026-09-15 09:48:29.723] [AGENT] [INFO] [cid=2fd0110c-0580-40e7-ad9d-25d753687322] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.724] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:29.724] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:29.724] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:29.724] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:29.727] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:29.727] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 09:48:29.753] [AGENT] [INFO] [cid=c96d96a9-9f5c-44cc-a93f-12a21e676bac] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.754] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] SSE_EVENT subject=disableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=disableLink sseFields=["event"]
+[2026-09-15 09:48:29.754] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] RECEIVE subject=disableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:29.754] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] EXECUTE_START subject=disableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:29.754] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] LOCK_WAIT subject=disableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:29.757] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] EXECUTE_DONE subject=disableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> down code=200
+[2026-09-15 09:48:29.757] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] RESPONSE_SEND subject=disableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 09:48:29.783] [AGENT] [INFO] [cid=5e413c70-817d-4b27-b02d-52fd7a9cde9c] RESPONSE_OK subject=disableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:48:29.784] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] SSE_EVENT subject=enableLink target=org.dt4n.core:link-h1-s1 bytes=98 correlationSource=payload:clientCorrelationId eventName=enableLink sseFields=["event"]
+[2026-09-15 09:48:29.784] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] RECEIVE subject=enableLink target=org.dt4n.core:link-h1-s1 params={}
+[2026-09-15 09:48:29.784] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] EXECUTE_START subject=enableLink target=org.dt4n.core:link-h1-s1
+[2026-09-15 09:48:29.785] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] LOCK_WAIT subject=enableLink target=org.dt4n.core:link-h1-s1 waitMs=0
+[2026-09-15 09:48:29.788] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] EXECUTE_DONE subject=enableLink target=org.dt4n.core:link-h1-s1 detail=link h1-s1 -> up code=200
+[2026-09-15 09:48:29.788] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] RESPONSE_SEND subject=enableLink target=org.dt4n.core:controller code=200 correlationSource=payload:clientCorrelationId ok=true
+[2026-09-15 09:48:29.791] [CTRL] [INFO] [cid=-] REROUTE subject=- target=link-h1-s1 detail=up edge=s1-h1
+[2026-09-15 09:48:29.791] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s1 detail=1 ipv4 flows changed
+[2026-09-15 09:48:29.792] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s2 detail=1 ipv4 flows changed
+[2026-09-15 09:48:29.792] [CTRL] [INFO] [cid=-] FLOW_INSTALL subject=- target=s3 detail=1 ipv4 flows changed
+[2026-09-15 09:48:29.814] [AGENT] [INFO] [cid=7b28930f-b4b2-451e-8e75-c57c636a402f] RESPONSE_OK subject=enableLink target=org.dt4n.core:controller http_status=202
+[2026-09-15 09:50:24.566] [AGENT] [INFO] [cid=-] SWITCH_CONNECTED subject=- target=org.dt4n:switch-s1 detail=switch s1 connected controllers=["tcp:127.0.0.1:6653"] waitMs=1
+[2026-09-15 09:50:36.568] [AGENT] [WARN] [cid=-] SWITCH_CONNECT_TIMEOUT subject=- target=org.dt4n:switch-s1 detail=controllers=tcp:127.0.0.1:6653; ports=s1-eth1; bridge=0 controllers=["tcp:127.0.0.1:6653"] waitMs=12001
+[2026-09-15 09:50:36.568] [AGENT] [INFO] [cid=cid-dup-test-phase2-5] RECEIVE subject=rebootEverything target=org.dt4n:link-h1-s1 params={}
+[2026-09-15 09:50:36.568] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] REJECT subject=rebootEverything target=org.dt4n:link-h1-s1 detail=unknown command: rebootEverything
+[2026-09-15 09:50:36.568] [AGENT] [WARN] [cid=cid-dup-test-phase2-5] DUPLICATE_IGNORED subject=rebootEverything target=org.dt4n:link-h1-s1 detail=replay suppressed cachedDetail=unknown command: rebootEverything code=400 params={}

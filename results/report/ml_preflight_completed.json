@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "namespace": "org.dt4n.core",
+  "period_s": 1,
+  "normal_rate_per_client": "2M TCP",
+  "flood_rate_per_client": "50M UDP"
+}

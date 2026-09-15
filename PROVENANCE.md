@@ -19,3 +19,9 @@ Kho mới giữ phần lõi bốn lớp của đề tài. Lịch sử phát tri�
 Mọi lần chạy thử chưa đạt được giữ log hoặc JSON với tiền tố `first_`/`ack3_`; báo cáo cuối phân biệt các lần chạy đó với phép đo hoàn tất.
 
 Cấu hình Compose đã đổi đường dẫn bind mount tài liệu sang ditto/static trong kho, bổ sung các tài nguyên phụ thuộc, mặc định Ditto 3.9.1 và thêm override digest của tám image chạy thật. Không thay đổi stack đang chạy.
+
+## Kiểm chứng dữ liệu trước ML — v2 (2026-09-15)
+
+Sửa qdisc counters/validity, profile đa client, injection mnexec, jitter settle và xác nhận reset latency; giữ dataset và thống kê v1. Thêm pilot mạng thật, HTTP timeout=3 probe, test hồi quy, tổng kết và ảnh v2. Bỏ optional Swagger/OpenAPI khỏi cây Git hiện tại; service docs cũng được bỏ khỏi Compose. 74 static asset còn giữ khớp byte với source release Eclipse Ditto 3.9.1, SHA-256 trong ditto_asset_provenance.json; license/notice upstream được bảo tồn trong ditto/upstream.
+
+Không viết lại commit 8660edf; tài liệu upstream của bản v1 vẫn có trong lịch sử. Pilot v2 chưa phải nghiệm thu hiệu quả mô hình ML.

@@ -146,6 +146,8 @@ collector = object.__new__(Collector)
 collector._prev_link = {}
 old_read_intf_counters = collector_mod.read_intf_counters
 old_read_intf_counters_full = collector_mod.read_intf_counters_full
+old_read_qdisc = collector_mod.read_qdisc_drops
+collector_mod.read_qdisc_drops = lambda _intf: None
 counter_values = [
     {
         'rx_bytes': 1000, 'rx_packets': 10, 'rx_drop': 0,
@@ -175,10 +177,13 @@ try:
     check("link txRate = delta tx / dt",
           second['features']['traffic']['txRate'], 300.0)
     check("link lossPct = delta drop / (delta tx packets + drop)",
-          second['features']['traffic']['lossPct'], 33.333)
+          second['features']['traffic']['interfaceLossPct'], 33.333)
+    check("qdisc unavailable không tạo loss=0",
+          second['features']['traffic']['lossPct'], None)
 finally:
     collector_mod.read_intf_counters = old_read_intf_counters
     collector_mod.read_intf_counters_full = old_read_intf_counters_full
+    collector_mod.read_qdisc_drops = old_read_qdisc
 
 print("\n" + "="*50)
 print("KẾT QUẢ: %d pass, %d fail" % (passed, failed))

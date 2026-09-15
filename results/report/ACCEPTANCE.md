@@ -1,6 +1,6 @@
 # Kết quả thực hiện DT4N Core
 
-Cập nhật UTC: 2026-09-15T09:06:51.314737+00:00
+Cập nhật UTC: 2026-09-15T09:50:36.711085+00:00
 
 Kho mới: `/home/ubuntu/dt4n-core`. Nguồn: commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`.
 
@@ -42,5 +42,38 @@ Accuracy chỉ đánh giá trạng thái 8 link, không chứng minh độ chín
 - `--long` trong run_sync chỉ có hiệu lực cùng `--verify`; duration của nhánh đó là phút. Lệnh 1800 trong hướng dẫn không chạy soak 30 phút. Script `scripts/run_acceptance.py` đo 1800 giây bằng đồng hồ monotonic và ghi RSS mỗi phút.
 - Trong các phút đầu soak có khôi phục link sau security test và 30 cặp thao tác UI. Mẫu tức thời có thể khác twin do polling 1 giây; giữ nguyên mọi mẫu trong soak_progress/soak_30min, không bỏ mẫu lệch. Phép verify tĩnh và độ trễ phản ánh sau sự kiện được báo cáo riêng.
 - Verify đã sửa phân trang size=200; test bảo mật đã gửi clientCorrelationId trong payload và timeout=0. Test hồi quy phân trang/cursor lặp đã bổ sung.
-- Chưa đẩy GitHub: truy cập `vantai13/dt4n-core` báo Repository not found.
+- Repo đã xuất bản: https://github.com/vantai13/dt4n-core (nghiệm thu v1 ở commit 8660edf).
 - Dashboard: http://localhost:5173 (forward cổng 5173 trong VS Code Remote SSH).
+
+
+## Bổ sung trước ML: dữ liệu v2
+
+Normal TCP 2 Mbps/client; flood UDP 50 Mbps/client; mọi client tới hai server luân phiên. UDP srv1→srv2 2 Mbps giữ tải s2-s3.
+
+| Link | Normal (Mbps) | Flood (Mbps) | Max qdisc drop flood (%) |
+|---|---:|---:|---:|
+| link-h1-s1 | 2.16 | 20.00 | 62.931 |
+| link-h2-s1 | 2.16 | 20.00 | 62.929 |
+| link-h3-s1 | 2.15 | 19.85 | 62.931 |
+| link-s1-s2 | 4.30 | 20.00 | 50.030 |
+| link-s1-s3 | 2.15 | 20.00 | 0.000 |
+| link-s2-s3 | 2.16 | 2.16 | 0.000 |
+| link-s2-srv1 | 4.30 | 20.00 | 0.000 |
+| link-s3-srv2 | 4.30 | 20.00 | 9.781 |
+
+Tốc độ là trung bình max(rxRate, txRate) theo mỗi snapshot. Loss v2 là local leaf-qdisc egress hai chiều, không phải loss đường đi. Bỏ mẫu đầu; qdiscValid phải true.
+Gate kiểm chứng: {'normal_flood_have_60_snapshots': True, 'all_8_links_active_in_normal': True, 'all_clients_flood_rate_exceeds_normal_2x': True, 'flood_qdisc_loss_observed': True, 'injection_qdisc_loss_observed': True, 'all_v2_qdisc_samples_valid_after_warmup': True}. Xem ml_dataset_summary.json và ML_PREFLIGHT.md. Pilot này chưa chứng minh kết quả mô hình ML.
+
+### Độ trễ: fixed-settle v1 và randomized-settle v2
+
+Các mẫu v1 chụm gần một chu kỳ, phù hợp với nghi vấn khóa pha do settle cố định. Không coi v1 là giới hạn worst-case đã được chứng minh. V2 thêm jitter seed cố định trên [0, period]; collector v2 cũng thêm đọc qdisc nên đây không phải thí nghiệm chỉ thay đổi một yếu tố.
+
+| Phép đo randomized-settle | n | p50 (ms) | p95 (ms) | File |
+|---|---:|---:|---:|---|
+| latency_up_randomized | 30 | 682.14 | 1017.11 | latency_up_randomized.json |
+| latency_command_randomized | 30 | 674.70 | 984.19 | latency_command_randomized.json |
+
+### Biên nhận lệnh
+
+HTTP timeout=3 trả các status: [408, 408]. Trạng thái mạng vẫn phản ánh: [True, True]. Xem SSE gốc trong command_ack_timeout3.json.
+HTTP outbox POST của agent là thông báo mới, không phải Ditto Protocol response tương quan cho inbox. timeout=0 xác nhận tiếp nhận HTTP; phép đo vòng kín vẫn chờ trạng thái thật. Chi tiết và nguồn chính thức trong ML_PREFLIGHT.md.

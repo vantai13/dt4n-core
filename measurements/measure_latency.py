@@ -16,6 +16,7 @@ CÁCH ĐO (Phần 5.2):
 """
 
 import time
+import random
 from contextlib import nullcontext
 
 import requests
@@ -44,18 +45,22 @@ def poll_until_state(thing_id, expected, timeout=5.0):
     return None
 
 
-def measure_link_down(net, h='h1', s='s1', n_trials=50, net_lock=None):
+def measure_link_down(net, h='h1', s='s1', n_trials=50, net_lock=None,
+                      phase_period=0.0, seed=20260915):
     """Đo latency sự kiện link down n_trials lần. Trả list latency (giây)."""
     link_tid = make_thing_id_link(h, s)
     latencies = []
+    rng = random.Random(seed)
 
     for i in range(n_trials):
         # --- reset: đảm bảo link up + twin đã đồng bộ 'up' (tránh nhiễu) ---
         lock = net_lock if net_lock is not None else nullcontext()
         with lock:
             net.configLinkStatus(h, s, 'up')
-        poll_until_state(link_tid, 'up', timeout=5)
-        time.sleep(SETTLE_TIME)
+        if poll_until_state(link_tid, 'up', timeout=5) is None:
+            print('Trial %d: TIMEOUT (reset up chưa được xác nhận)' % (i + 1))
+            continue
+        time.sleep(SETTLE_TIME + rng.uniform(0, phase_period))
 
         # --- inject sự kiện + bấm giờ ---
         t_event = time.monotonic()
@@ -78,10 +83,11 @@ def measure_link_down(net, h='h1', s='s1', n_trials=50, net_lock=None):
     return latencies
 
 
-def main(net, n_trials=50, h='h1', s='s1', net_lock=None):
+def main(net, n_trials=50, h='h1', s='s1', net_lock=None,
+         phase_period=0.0, seed=20260915):
     print('Đo sync latency: link %s-%s down, n=%d trials...' % (h, s, n_trials))
     lats = measure_link_down(net, h=h, s=s, n_trials=n_trials,
-                             net_lock=net_lock)
+                             net_lock=net_lock, phase_period=phase_period, seed=seed)
     stats = summarize(lats)
     print('\n' + format_report(stats, label='(link-down)'))
     # kiểm target
@@ -93,4 +99,7 @@ def main(net, n_trials=50, h='h1', s='s1', net_lock=None):
         stats["latencies_sec"] = lats
         stats["trials_requested"] = n_trials
         stats["timeouts"] = n_trials - len(lats)
+        stats["phase_period_s"] = phase_period
+        stats["seed"] = seed
+        stats["phase_mode"] = 'randomized_settle' if phase_period > 0 else 'fixed_settle'
     return stats

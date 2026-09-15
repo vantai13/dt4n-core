@@ -24,7 +24,33 @@ lines=['# Kết quả thực hiện DT4N Core','',f'Cập nhật UTC: {datetime.
 lines+=['| '+' | '.join(r)+' |' for r in rows]
 if final:
  lines += ['', '## Tổng kết nghiệm thu cuối', '', f"Test đơn vị: {final['unit_tests']}. Security live: {final['security_live']}.", f"Completeness vật lý: {final['physical_completeness']}. Accuracy trạng thái: {final['verification']['accuracy']['accuracy_rate']}%. Event fidelity: {final['verification']['event_fidelity']['fidelity_pct']}%.", f"Soak: {final['soak'].get('duration_s')} giây; RSS đầu/cuối/max: {final['soak'].get('rss_start_kib')}/{final['soak'].get('rss_end_kib')}/{final['soak'].get('rss_max_kib')} KiB. Runtime ERROR/CRITICAL: {len(final['runtime_error_lines'])}. Tất cả mẫu accuracy tức thời 100%: {final['soak'].get('all_state_accuracy_100')}. Xem toàn bộ mẫu và ghi chú giai đoạn UI."]
-lines+=['','Accuracy chỉ đánh giá trạng thái 8 link, không chứng minh độ chính xác toàn bộ metric traffic/latency.','', '## Chạy dài','', 'Chưa có mẫu soak.' if not soak else f"Đã lấy {len(soak['samples'])} mẫu; thời gian gần nhất {soak['samples'][-1]['elapsed_s']} giây; hoàn tất: {soak.get('complete',False)}.",'','## Giới hạn và khác biệt so với hướng dẫn','', '- Số file và dung lượng thực tế khác 73 file / 756 KB do dashboard có dist và danh sách hiện tại có 50 file Python; manifest ghi số thực tế.','- PYTHONPATH ban đầu trỏ repo cũ; đã chạy lại import và test với đường dẫn kho mới.','- `mn -c` dừng Ryu: phải dọn trước rồi khởi động controller. Một lần khởi động thử trùng interface đã được dọn và chạy lại; chỉ log lần chạy hoàn tất dùng cho nghiệm thu.','- Đo flow mặc định chờ ack 3 giây tạo số đo cao giả; đã đổi timeout mặc định về 0 (giống dashboard), đo lại đủ 30 cặp; log cũ trong `logs/ack3_command_flow_measure.log`.','- `--long` trong run_sync chỉ có hiệu lực cùng `--verify`; duration của nhánh đó là phút. Lệnh 1800 trong hướng dẫn không chạy soak 30 phút. Script `scripts/run_acceptance.py` đo 1800 giây bằng đồng hồ monotonic và ghi RSS mỗi phút.','- Trong các phút đầu soak có khôi phục link sau security test và 30 cặp thao tác UI. Mẫu tức thời có thể khác twin do polling 1 giây; giữ nguyên mọi mẫu trong soak_progress/soak_30min, không bỏ mẫu lệch. Phép verify tĩnh và độ trễ phản ánh sau sự kiện được báo cáo riêng.','- Verify đã sửa phân trang size=200; test bảo mật đã gửi clientCorrelationId trong payload và timeout=0. Test hồi quy phân trang/cursor lặp đã bổ sung.','- Chưa đẩy GitHub: truy cập `vantai13/dt4n-core` báo Repository not found.','- Dashboard: http://localhost:5173 (forward cổng 5173 trong VS Code Remote SSH).','']
+lines+=['','Accuracy chỉ đánh giá trạng thái 8 link, không chứng minh độ chính xác toàn bộ metric traffic/latency.','', '## Chạy dài','', 'Chưa có mẫu soak.' if not soak else f"Đã lấy {len(soak['samples'])} mẫu; thời gian gần nhất {soak['samples'][-1]['elapsed_s']} giây; hoàn tất: {soak.get('complete',False)}.",'','## Giới hạn và khác biệt so với hướng dẫn','', '- Số file và dung lượng thực tế khác 73 file / 756 KB do dashboard có dist và danh sách hiện tại có 50 file Python; manifest ghi số thực tế.','- PYTHONPATH ban đầu trỏ repo cũ; đã chạy lại import và test với đường dẫn kho mới.','- `mn -c` dừng Ryu: phải dọn trước rồi khởi động controller. Một lần khởi động thử trùng interface đã được dọn và chạy lại; chỉ log lần chạy hoàn tất dùng cho nghiệm thu.','- Đo flow mặc định chờ ack 3 giây tạo số đo cao giả; đã đổi timeout mặc định về 0 (giống dashboard), đo lại đủ 30 cặp; log cũ trong `logs/ack3_command_flow_measure.log`.','- `--long` trong run_sync chỉ có hiệu lực cùng `--verify`; duration của nhánh đó là phút. Lệnh 1800 trong hướng dẫn không chạy soak 30 phút. Script `scripts/run_acceptance.py` đo 1800 giây bằng đồng hồ monotonic và ghi RSS mỗi phút.','- Trong các phút đầu soak có khôi phục link sau security test và 30 cặp thao tác UI. Mẫu tức thời có thể khác twin do polling 1 giây; giữ nguyên mọi mẫu trong soak_progress/soak_30min, không bỏ mẫu lệch. Phép verify tĩnh và độ trễ phản ánh sau sự kiện được báo cáo riêng.','- Verify đã sửa phân trang size=200; test bảo mật đã gửi clientCorrelationId trong payload và timeout=0. Test hồi quy phân trang/cursor lặp đã bổ sung.','- Repo đã xuất bản: https://github.com/vantai13/dt4n-core (nghiệm thu v1 ở commit 8660edf).','- Dashboard: http://localhost:5173 (forward cổng 5173 trong VS Code Remote SSH).','']
+ml=load('ml_dataset_summary.json')
+ml_rows=[]
+if ml:
+ for key,value in ml['normal_v2']['links'].items():
+  f=ml['flood_v2']['links'][key]
+  ml_rows.append([key,f"{value['mean_peak_direction_mbps']:.2f}",f"{f['mean_peak_direction_mbps']:.2f}",f"{f['loss_max_pct']:.3f}"])
+ lines+=['', '## Bổ sung trước ML: dữ liệu v2', '',
+         'Normal TCP 2 Mbps/client; flood UDP 50 Mbps/client; mọi client tới hai server luân phiên. UDP srv1→srv2 2 Mbps giữ tải s2-s3.', '',
+         '| Link | Normal (Mbps) | Flood (Mbps) | Max qdisc drop flood (%) |',
+         '|---|---:|---:|---:|']
+ lines+=['| '+' | '.join(row)+' |' for row in ml_rows]
+ lines+=['', 'Tốc độ là trung bình max(rxRate, txRate) theo mỗi snapshot. Loss v2 là local leaf-qdisc egress hai chiều, không phải loss đường đi. Bỏ mẫu đầu; qdiscValid phải true.',
+         'Gate kiểm chứng: '+str(ml['gates'])+'. Xem ml_dataset_summary.json và ML_PREFLIGHT.md. Pilot này chưa chứng minh kết quả mô hình ML.']
+ lines+=['', '### Độ trễ: fixed-settle v1 và randomized-settle v2', '',
+         'Các mẫu v1 chụm gần một chu kỳ, phù hợp với nghi vấn khóa pha do settle cố định. Không coi v1 là giới hạn worst-case đã được chứng minh. V2 thêm jitter seed cố định trên [0, period]; collector v2 cũng thêm đọc qdisc nên đây không phải thí nghiệm chỉ thay đổi một yếu tố.', '',
+         '| Phép đo randomized-settle | n | p50 (ms) | p95 (ms) | File |', '|---|---:|---:|---:|---|']
+ for name in ['latency_up_randomized','latency_command_randomized']:
+  d=load(name+'.json')
+  if d and d.get('result'):
+   x=d['result'];lines.append(f"| {name} | {x['n']} | {x['p50_ms']:.2f} | {x['p95_ms']:.2f} | {name}.json |")
+ ack=load('command_ack_timeout3.json')
+ if ack:
+  lines+=['', '### Biên nhận lệnh', '',
+          'HTTP timeout=3 trả các status: '+str([x['http_status'] for x in ack])+'. Trạng thái mạng vẫn phản ánh: '+str([x['reflected_down'] for x in ack])+'. Xem SSE gốc trong command_ack_timeout3.json.',
+          'HTTP outbox POST của agent là thông báo mới, không phải Ditto Protocol response tương quan cho inbox. timeout=0 xác nhận tiếp nhận HTTP; phép đo vòng kín vẫn chờ trạng thái thật. Chi tiết và nguồn chính thức trong ML_PREFLIGHT.md.']
+
 (out/'ACCEPTANCE.md').write_text('\n'.join(lines))
 body='<h1>Kết quả chạy và đo DT4N Core</h1><p>Cập nhật UTC: '+html.escape(datetime.datetime.now(datetime.timezone.utc).isoformat())+'</p>'
 body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở dashboard (cổng 5173)</a> · <a href="results/report/ACCEPTANCE.md">Báo cáo đầy đủ</a></p>'
@@ -32,7 +58,7 @@ body+='<p>Kho mới: '+str(root)+'</p><p><a href="http://localhost:5173">Mở da
 unit=ET.parse(out/'pytest.xml').getroot().find('testsuite').attrib
 passed=int(unit['tests'])-sum(int(unit[k]) for k in ['skipped','failures','errors'])
 vr=(v or {}).get('result',{}).get('results',{})
-summary=[f"Test đơn vị: {passed} passed, {unit['skipped']} skipped, {unit['failures']} failed, {unit['errors']} errors.",
+summary=[f"Test đơn vị nghiệm thu v1: {passed} passed, {unit['skipped']} skipped, {unit['failures']} failed, {unit['errors']} errors.",
  f"Accuracy trạng thái 8 link: {vr.get('accuracy',{}).get('accuracy_rate','—')}%; sự kiện phát hiện: {vr.get('event_fidelity',{}).get('detected','—')}/{vr.get('event_fidelity',{}).get('total','—')}."]
 if soak:
  summary.append(f"Soak 30 phút: {'HOÀN TẤT' if soak.get('complete') else 'ĐANG CHẠY'}; {soak['samples'][-1]['elapsed_s']:.1f}/1800 giây, {len(soak['samples'])} mẫu.")
@@ -41,10 +67,25 @@ if final:
 if final:
  mismatches=[x for x in final['soak']['samples'] if x['accuracy']['accuracy_rate']!=100]
  summary.append(f"Soak có {len(mismatches)} mẫu lệch trạng thái; xem soak_30min.json và ghi chú khôi phục link sau test bảo mật.")
+if ml:
+ current_unit=ET.parse(out/'ml_preflight_pytest.xml').getroot().find('testsuite').attrib
+ current_pass=int(current_unit['tests'])-sum(int(current_unit[k]) for k in ['skipped','failures','errors'])
+ summary.append(f"Kiểm chứng code v2: {current_pass} passed, {current_unit['skipped']} skipped; gate feature: {all(ml['gates'].values())}.")
 body+='<div style="background:#edf6ff;padding:20px;border-radius:8px">'+''.join('<p>'+html.escape(x)+'</p>' for x in summary)+'</div><h2>Số đo thực tế</h2>'
 body+='<table><tr>'+''.join('<th>'+x+'</th>' for x in ['Phép đo','n hợp lệ','p50 (ms)','p95 (ms)','Mục tiêu','File'])+'</tr>'
 for r in rows:body+='<tr>'+''.join('<td>'+html.escape(x)+'</td>' for x in r[:-1])+'<td><a href="results/report/'+r[-1]+'">'+r[-1]+'</a></td></tr>'
-body+='</table><h2>Trạng thái nghiệm thu</h2>'
+body+='</table>'
+if ml:
+ body+='<h2>Dữ liệu mới trước ML (v2)</h2><p><a href="results/report/ML_PREFLIGHT.md">Báo cáo v2</a> · <a href="results/report/ml_dataset_summary.json">JSON và gate</a></p>'
+ body+='<table><tr><th>Link</th><th>Normal Mbps</th><th>Flood Mbps</th><th>Max qdisc drop %</th></tr>'
+ for row in ml_rows:body+='<tr>'+''.join('<td>'+html.escape(value)+'</td>' for value in row)+'</tr>'
+ body+='</table><p>Loss là drop qdisc egress tại link, không phải loss end-to-end. Dữ liệu này là pilot kiểm chứng feature.</p>'
+ for name in ['latency_up_randomized','latency_command_randomized']:
+  d=load(name+'.json')
+  if d and d.get('result'):
+   x=d['result'];body+=f"<p>{name}: n={x['n']}, p50={x['p50_ms']:.2f} ms, p95={x['p95_ms']:.2f} ms.</p>"
+body+='<h2>Trạng thái nghiệm thu</h2>'
+
 for filename in ['routing_comparison.json','bootstrap_scale.json','verification.json','security_live.json','soak_progress.json','dashboard_smoke.json','dashboard_live.json','dashboard_last_known.json','final_summary.json']:
  d=load(filename)
  body+='<details><summary>'+filename+(' — đang chờ' if d is None else '')+'</summary><pre>'+html.escape(json.dumps(d,indent=2,ensure_ascii=False))+'</pre></details>'

@@ -111,7 +111,7 @@ def remember_processed(cid, result):
 def audit(correlation_id, subject, target, params, result, reason=None):
     """Ghi 1 dòng JSON vào audit log. Không để lỗi ghi log làm sập xử lý lệnh."""
     row = {
-        'ts': datetime.datetime.utcnow().isoformat() + 'Z',
+        'ts': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
         'correlationId': correlation_id,
         'subject': subject,
         'target': target,
@@ -524,10 +524,12 @@ def handle_command(parsed, net=None, net_lock=None):
 
 def send_response(session, thing_id, subject, correlation_id, http_code, detail, ok,
                   correlation_source=None, original_path=None, original_topic=None):
-    """Gửi biên nhận tức thì cho lệnh đã xử lý, nếu stream cung cấp correlation-id.
+    """Publish an outbox notification after processing a command.
 
-    Không cập nhật twin state ở đây. State thật vẫn đi vòng Mininet -> Sync Agent
-    -> Ditto, đúng nguyên tắc observe don't assume.
+    HTTP outbox POST is a new message, not a Ditto Protocol response to the
+    original inbox request. HTTP 202 here confirms publication only. The SSE
+    transport does not provide a correlated reply channel; clients use timeout=0
+    and verify the observed twin state. A true reply needs a protocol transport.
     """
     if not correlation_id:
         log.warning('Message không có correlation-id -> không gửi được response')

@@ -58,8 +58,11 @@ def main():
                    help='deprecated: alias cho --convergence-timeout, không sleep STP')
     # tham số kịch bản + thu thập
     p.add_argument('--scenario', choices=['idle', 'normal', 'flood'], default='normal',
-                   help='idle=không traffic; normal=TCP nền; flood=UDP tốc độ cao')
+                   help='idle=không traffic; normal=TCP giới hạn tốc độ; flood=UDP cao trên mọi client')
     p.add_argument('--rate', type=str, default='50M', help='tốc độ UDP khi flood')
+    p.add_argument('--normal-rate', default='2M', help='tốc độ TCP normal cho mỗi client')
+    p.add_argument('--server-bg-rate', type=float, default=2.0,
+                   help='Mbps UDP srv1->srv2; 0=tắt')
     p.add_argument('--duration', type=int, default=60, help='giây thu thập metrics')
     p.add_argument('--interval', type=float, default=1.0, help='chu kỳ polling (giây)')
     p.add_argument('--ping-every', type=int, default=20, help='đo latency mỗi N chu kỳ')
@@ -90,7 +93,8 @@ def main():
             # tải nền nên kéo dài ÍT NHẤT bằng thời gian thu thập
             load_hosts = T.start_background_load(
                 net, scenario=args.scenario,
-                duration=args.duration + 5, rate=args.rate)
+                duration=args.duration + 5, rate=args.rate,
+                normal_rate=args.normal_rate, server_bg_rate=args.server_bg_rate)
         else:
             info('\n*** [2/3] scenario=idle -> không bật traffic\n')
 

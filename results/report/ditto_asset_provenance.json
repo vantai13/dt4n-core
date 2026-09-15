@@ -1,0 +1,450 @@
+{
+  "upstream_release": "3.9.1",
+  "source_archive_url": "https://codeload.github.com/eclipse-ditto/ditto/tar.gz/refs/tags/3.9.1",
+  "files": [
+    {
+      "path": "ditto/static/images/2020-04-16-Logo_TTVC_color.png",
+      "upstream_path": "documentation/src/main/resources/images/2020-04-16-Logo_TTVC_color.png",
+      "sha256": "690e9e5888f7354b580e7957232a275b53ad3370b7bb88af8640e23d45bf4b02",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/GitHub-Mark-Light-32px.png",
+      "upstream_path": "documentation/src/main/resources/images/GitHub-Mark-Light-32px.png",
+      "sha256": "6b4582ced3c5b039423243207f470dcba7288918131657f89e9bdcada6fa8a40",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2018-05-02-ditto-hono-digital-twin.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2018-05-02-ditto-hono-digital-twin.png",
+      "sha256": "2899cd07751c29474af669e825aa394f93767e7ebacb08e246140c0910f846f0",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2018-09-21-selective-push-notifications-example-setup.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2018-09-21-selective-push-notifications-example-setup.png",
+      "sha256": "98f81aad9158aa43f2320a1cdd04028e8643773535a397ff7c1554b589c3e8a7",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2018-09-21-selective-push-notifications-visual-comparison.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2018-09-21-selective-push-notifications-visual-comparison.png",
+      "sha256": "5c9d7c5763ed527594a565600081d6bd5d94732dd0b22d7c99439d21ae0f2db7",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2018-09-21-selective-push-notifications-websocket_org.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2018-09-21-selective-push-notifications-websocket_org.png",
+      "sha256": "e92bf46e665dc2778447e58ea9596c81439523577c4a4728a65893368bf9ae05",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2018-12-14-command-and-control.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2018-12-14-command-and-control.png",
+      "sha256": "5ecd75c5a2ce2ec55491c0462b7809cc7d4697a719455f8f3a00c42a2c92bc76",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2021-03-22-azure-iot-hub-integration-overview.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2021-03-22-azure-iot-hub-integration-overview.png",
+      "sha256": "d6a63a09715821c3e667ce2271c44de8311ff1dd7127ae15c1730fd3c8bc61fa",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2021-04-06-ssh-tunnel-for-managed-connections-shema.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2021-04-06-ssh-tunnel-for-managed-connections-shema.png",
+      "sha256": "9794f2fd00d57d5e70357d64a9c4d7b3740de0b619218991de5d0e817274accb",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/AASDashboard.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/AASDashboard.png",
+      "sha256": "82a7f71146d1eaee5ae62b4f358c5fec88a41e57e476017bb5654100e3985a03",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/aas-interaction.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/aas-interaction.svg",
+      "sha256": "29bbe9f093f758fad71fb80dabc96e295a6adde06c9a6bc701b156f5bfde4dfa",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/aas-sequenz.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/aas-sequenz.svg",
+      "sha256": "9d1f70a83b5409558933eebf875400e8cbecce885c6b6c3211fc253ecc35a26c",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/basic-interaction.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/basic-interaction.svg",
+      "sha256": "9e789590e306b44eb89cfab3818a518e744df81f3d0ffbbd74f9e8ae2622af82",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/pullBridge.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/pullBridge.svg",
+      "sha256": "489b3c8790f0ed16a0fafd732507d8870530942b1b7a6325804600f6c16cce92",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/pullWrapper.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/pullWrapper.svg",
+      "sha256": "48adb2de8943885b1d5b08086276dca0d725dca72ac13ecd84209f8768747014",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/push-pull-overview.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/push-pull-overview.svg",
+      "sha256": "22c3b59e181719f007b46c878a61515251e9b5641920e6cc1f692a998dbfef7b",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/2024-02-15-integrating-ditto-ass-basyx/push.svg",
+      "upstream_path": "documentation/src/main/resources/images/blog/2024-02-15-integrating-ditto-ass-basyx/push.svg",
+      "sha256": "debf17528ffc75bbde1e56bffd91c6ee6751d92a4f2116f19f6ee7566a772713",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/device-live-messages-scenario/800/gateway.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/device-live-messages-scenario/800/gateway.png",
+      "sha256": "05f2493917742c8be0185d03ec22f0791894d80caf997dc3ddf7c8745d985c26",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/device-live-messages-scenario/800/gc.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/device-live-messages-scenario/800/gc.png",
+      "sha256": "0808310928358ca38722f2057aeeade06d15a76f824560daade1c02f278e6dcd",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/modify-things-scenario/800/outbound.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/modify-things-scenario/800/outbound.png",
+      "sha256": "c0b5820be847f613c99356710b9b2326bbd0b39727455d3f4c5f4b5c6dc46d6d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/read-things-scenario/3000/gateway.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/read-things-scenario/3000/gateway.png",
+      "sha256": "5ca37b4bc9cd52924c356fc92bea44404b945c4431464c26fc82612a25846e06",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/read-things-scenario/3000/gc.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/read-things-scenario/3000/gc.png",
+      "sha256": "263bf6fa46d7aca6f1c80ba5e8f7a35ccf6edff08db86c39131d6bf49f7afa26",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/search-things-scenario/1800/gateway.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/search-things-scenario/1800/gateway.png",
+      "sha256": "abea0b94250a2d9d4d7766f67a722ef787aa42636c5951296da6ac6314f718d5",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/blog/benchmark/search-things-scenario/1800/gc.png",
+      "upstream_path": "documentation/src/main/resources/images/blog/benchmark/search-things-scenario/1800/gc.png",
+      "sha256": "c67751fd8db9f088c8e1a0a765633197d2e5f94f2b55ef5da4f5c9aa03e60500",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto-overview-1.png",
+      "upstream_path": "documentation/src/main/resources/images/ditto-overview-1.png",
+      "sha256": "470cf55df10374bc75f39e653c037881652f784d622faba1219eed201fb10bdd",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto-overview-1.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto-overview-1.svg",
+      "sha256": "c85206a6a7ca217ca8888950740e5bc96d89661610f86dee13ee10e2578ce032",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto-super-1.png",
+      "upstream_path": "documentation/src/main/resources/images/ditto-super-1.png",
+      "sha256": "1a8602cd610fc54f7d36a4192fef7daf874582c5f7d6f4a6e5e680adf7fb0186",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto-super-1.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto-super-1.svg",
+      "sha256": "ba107349503b58e267f7c4cf8598df3aec677f26965f3b2bd6a9b142963d793e",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto.svg",
+      "sha256": "b01041d5f6611a3bcd0618cdf369e8e6ad63f1f07595dd990299923499f5e8fa",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto_allwhite_symbolonly.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto_allwhite_symbolonly.svg",
+      "sha256": "61e3f0f3517a4c4737a9d8a1381b57303bbecb3d774cb9fe94a3cd6290aebd7a",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto_allwhite_textonly.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto_allwhite_textonly.svg",
+      "sha256": "c3b3f79ed11ffe37723502f471376a3f31f33739747bd125639e13d041670343",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto_symbolonly.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto_symbolonly.svg",
+      "sha256": "a252a7c49475421333596ea0b13df02aab34cbc1d96faa6ed26a51fcddb0c407",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/ditto_textonly.svg",
+      "upstream_path": "documentation/src/main/resources/images/ditto_textonly.svg",
+      "sha256": "0c4c82ebf57c4eadd98280533eac5982d1b6f99b90b8a31686903bb78bec7d5d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/eclipse_foundation_logo.svg",
+      "upstream_path": "documentation/src/main/resources/images/eclipse_foundation_logo.svg",
+      "sha256": "504d9b49884ee63addbd2a44841a8501326302c094ed793a3c9d8cc95f846d39",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/favicon-16x16.png",
+      "upstream_path": "documentation/src/main/resources/images/favicon-16x16.png",
+      "sha256": "30aca4884d81348b1aaa553142413b4aa8ce38c3eaf0f1874abc38681abff412",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/favicon-32x32.png",
+      "upstream_path": "documentation/src/main/resources/images/favicon-32x32.png",
+      "sha256": "723c68e27410e64d094fad386fab97aa9f778d89f326e7e9403d540f3fdb856d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/favicon-96x96.png",
+      "upstream_path": "documentation/src/main/resources/images/favicon-96x96.png",
+      "sha256": "026341b25e107bdd3fa508aeaa2e537f06d8b5f8eb6fb5d598faa3f89017ea77",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/iot_logo.svg",
+      "upstream_path": "documentation/src/main/resources/images/iot_logo.svg",
+      "sha256": "4ac916649897ab35b444f099965e5f34cad286d5550f719c76f08c509d7d1da0",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/advanced/data-by-pass-architectural-design.jpg",
+      "upstream_path": "documentation/src/main/resources/images/pages/advanced/data-by-pass-architectural-design.jpg",
+      "sha256": "74d1f8843db0f02b5f8396ee6e03f76db4163605cca4eae55584b9f09fdba3df",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/architecture/context-overview-initial.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/architecture/context-overview-initial.png",
+      "sha256": "140f9565790e2b450af6184418556f07491c3519b4896891dfe30e8cfddc6f32",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/architecture/context-overview.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/architecture/context-overview.png",
+      "sha256": "c5b6848311ba2624db853b907b6c6c0c128756ca0fbf240f58cb9d6f06fc30ce",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/architecture/ditto-architecture-overview-2022.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/architecture/ditto-architecture-overview-2022.png",
+      "sha256": "9fc5c8b503a97ec3b1f177ebe9d8d32621429a114a8cfdafc2b630e220f37b20",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/ditto-class-diagram-v2.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/ditto-class-diagram-v2.png",
+      "sha256": "8dc5502f63afccc3e3fc5f801ebd4dabff53e38190c04fa5b311920247c8ede6",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/ditto-messages.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/ditto-messages.png",
+      "sha256": "8ccf45ec72625a7498d9e4800a9a399a42918138c4b8b680c610afdefdbc572b",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/ditto-thing-feature-definition-model.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/ditto-thing-feature-definition-model.png",
+      "sha256": "d25cdbb69716fcac8e32d9ff976164cfdf8f4953c49e05ffb811cecf521c0650",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/ditto-thing-feature.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/ditto-thing-feature.png",
+      "sha256": "4efcc288a70a905ee729f6b93af51b805c9508666fd2ae33f78b5ba5283f5d9c",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/policy-example-2.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/policy-example-2.png",
+      "sha256": "52448f7b184360dedd95c4704c9c5a261345bbd3b3e7438f21146cfdcf812e16",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/basic/policy-example.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/basic/policy-example.png",
+      "sha256": "dd299c27760da46847ad23cba9e84ca6a33d0b43bedfcd0f69c86d1f870cb92c",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/protocol/ditto-live-channel.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/protocol/ditto-live-channel.png",
+      "sha256": "c8f2c87497c232137f5c80e6d47538f21495d3c5ab045b3a98257b1e930f5214",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/protocol/ditto-twin-channel.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/protocol/ditto-twin-channel.png",
+      "sha256": "4aaaf42a7fdb3e4893c39ab225fb97c11eaf3e66c46a6c6d114e61bfe4dd6b7d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/ui/screenshot_add_environment.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/ui/screenshot_add_environment.png",
+      "sha256": "4ab88a45d3c87d25208fb3a7de9e31b807758bcb9d057663cbc7d75592cc2ad0",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/ui/screenshot_introduction.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/ui/screenshot_introduction.png",
+      "sha256": "fb9f37d631c39424beeaf3017017fae8f59bd047bd4bb0d51f37e027b22fecc7",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/images/pages/ui/screenshot_select_environment.png",
+      "upstream_path": "documentation/src/main/resources/images/pages/ui/screenshot_select_environment.png",
+      "sha256": "6163f757279bc37e2f62e5c0c2cd54105c2d720b0eaf364e5344332e3d0dfd93",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/ditto-extension.html",
+      "upstream_path": "documentation/src/main/resources/wot/ditto-extension.html",
+      "sha256": "c27f163ad7da8ac93ebecbb54d89e9e12a32e2694cb927d681e389e9d297dff4",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/ditto-extension.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/ditto-extension.jsonld",
+      "sha256": "fd939b38fc3e35c0c0f1dad074b85d892e936039b047cb4eae4a8001664f891b",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/ditto-extension.rdf",
+      "upstream_path": "documentation/src/main/resources/wot/ditto-extension.rdf",
+      "sha256": "82f4623ad950f8d8bac515e48c7b2886a232eab7040cc3223281b3f02a0b9771",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/ditto-extension.ttl",
+      "upstream_path": "documentation/src/main/resources/wot/ditto-extension.ttl",
+      "sha256": "72578abf5b85ce34d05a0fa73a43ab61cc494975575856ec8c2ef8185812d7e8",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/colored-lamp-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/colored-lamp-1.0.0.tm.jsonld",
+      "sha256": "bc311fb5af0589e495d91556905b94c911ed1bc2c4f5e5b392d64ee835f29180",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/connection-status-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/connection-status-1.0.0.tm.jsonld",
+      "sha256": "edfdede8ecdb6183205037bbf0eabcbddcc7cb39674b49f6573a64e8778c0233",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/dimmable-colored-lamp-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/dimmable-colored-lamp-1.0.0.tm.jsonld",
+      "sha256": "26b3d16b1dccee11d5c51fedcde1e407e79c564ef9efab87dfa4017e17774b91",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/floor-lamp-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/floor-lamp-1.0.0.tm.jsonld",
+      "sha256": "f4474e1cb9bf211d100c4c09ff4634986522792163a9c1aa40e36c8cce069a13",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/power-consumption-aware-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/power-consumption-aware-1.0.0.tm.jsonld",
+      "sha256": "d210def1207bdcc174952f40c7fd9e55a0e2ec2a5b8c93e42b916d7ce094c3da",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/acceleration-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/acceleration-sensor-1.0.0.tm.jsonld",
+      "sha256": "7c371091216f3dd30b712b9f594a962df2559951ad0ce077d44f80896d18ebfc",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/altitude-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/altitude-sensor-1.0.0.tm.jsonld",
+      "sha256": "f4d35bceacf73d01ecf7ac4284aab4b698447619062a202b5eddca15d42b93ad",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/angular-velocity-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/angular-velocity-sensor-1.0.0.tm.jsonld",
+      "sha256": "a2355ad0decf883412e16b954e6a74880b90f9ec2a5473df7f672da79fdd3729",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/barometric-pressure-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/barometric-pressure-sensor-1.0.0.tm.jsonld",
+      "sha256": "ada176c25be9f6a6e983fa6385b9f084b5176075fe3dd73de3443549122d91dd",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/gas-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/gas-sensor-1.0.0.tm.jsonld",
+      "sha256": "10b4ecc4373ef1121b7720882d1305b1b24cdca5ed08f29776a88ce11fdf5560",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/humidity-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/humidity-sensor-1.0.0.tm.jsonld",
+      "sha256": "e0d541491c844f70326ecca4091ebdc23d787aaf1b1a4d6feee09326968175e0",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/magnetic-field-strength-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/magnetic-field-strength-sensor-1.0.0.tm.jsonld",
+      "sha256": "6fa77e03538c334b63fc8064967274372002abf68e4a0087ba1fb98db0840519",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/min-max-aware-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/min-max-aware-sensor-1.0.0.tm.jsonld",
+      "sha256": "6a2cd8eda61a52eeee53d6238085cd5e533cd0d3104c8ff93c8163d6d934410d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/orientation-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/orientation-sensor-1.0.0.tm.jsonld",
+      "sha256": "31a96d07f7dc2f23083cc565a96cfea9ffa887ec39570fc450f55bd658bc3366",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/sensors/temperature-sensor-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/sensors/temperature-sensor-1.0.0.tm.jsonld",
+      "sha256": "d4fb4282d07f82b3347b616ebc9f8c13ba45dff0469fabc12bfe0639b56d9448",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/smoke-detector-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/smoke-detector-1.0.0.tm.jsonld",
+      "sha256": "7f5a3519b97ffe4661f903d7809f4714e598fa7ba57e056b925b256608665d2d",
+      "matches_3_9_1": true
+    },
+    {
+      "path": "ditto/static/wot/example-models/switchable-1.0.0.tm.jsonld",
+      "upstream_path": "documentation/src/main/resources/wot/example-models/switchable-1.0.0.tm.jsonld",
+      "sha256": "a9fb563d572254012e2fa1b625a1a4d2bfc17deb6b95741b656b69bceecfe5ae",
+      "matches_3_9_1": true
+    }
+  ]
+}

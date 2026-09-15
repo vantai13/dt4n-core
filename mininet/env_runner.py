@@ -364,6 +364,16 @@ class EnvRunner:
     # ------------------------------------------------------------------
     # Traffic helpers
     # ------------------------------------------------------------------
+    def start_profile_background(self, scenario='normal', normal_rate='2M',
+                                 rate='50M', server_bg_rate=2.0, duration=100000):
+        if self.net is None:
+            raise RuntimeError('start_profile_background() called before start()')
+        from mininet.traffic import start_background_load
+        self._background_hosts = start_background_load(
+            self.net, scenario=scenario, duration=duration, rate=rate,
+            normal_rate=normal_rate, server_bg_rate=server_bg_rate)
+        return self._background_hosts
+
     def start_server_background(self, rate_mbps=2.0, duration=100000):
         """Start only the srv1->srv2 UDP background used by run_sync CLI mode."""
         if self.net is None:

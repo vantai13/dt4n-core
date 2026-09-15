@@ -1,0 +1,1740 @@
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #001
+timestamp: 2026-09-15T09:41:38Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                19356         806386         0.00         0.00
+  h2         client   up                19144         807002         0.00         0.00
+  h3         client   up                19382         806454         0.00         0.00
+  srv1       server   up              1611036         853368         0.00         0.00
+  srv2       server   up              1623456          19296         0.00         0.00
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #002
+timestamp: 2026-09-15T09:41:39Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                25428        1074734         0.05         2.15
+  h2         client   up                25084        1075350         0.05         2.15
+  h3         client   up                25524        1074802         0.05         2.14
+  srv1       server   up              2147732        1136160         4.29         2.26
+  srv2       server   up              2161010          25236         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #003
+timestamp: 2026-09-15T09:41:40Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                31570        1346044         0.05         2.17
+  h2         client   up                30892        1343764         0.05         2.15
+  h3         client   up                31596        1343150         0.05         2.15
+  srv1       server   up              2690352        1417440         4.34         2.25
+  srv2       server   up              2700072          31044         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #004
+timestamp: 2026-09-15T09:41:41Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                37576        1617354         0.05         2.17
+  h2         client   up                36766        1612178         0.05         2.15
+  h3         client   up                37668        1611498         0.05         2.14
+  srv1       server   up              3230010        1700166         4.31         2.26
+  srv2       server   up              3237622          36918         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #005
+timestamp: 2026-09-15T09:41:42Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                43516        1885702         0.05         2.15
+  h2         client   up                42706        1880658         0.05         2.15
+  h3         client   up                43740        1879846         0.05         2.15
+  srv1       server   up              3766706        1981314         4.29         2.25
+  srv2       server   up              3776750          42858         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #006
+timestamp: 2026-09-15T09:41:43Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                49456        2154050         0.05         2.15
+  h2         client   up                48646        2149072         0.05         2.15
+  h3         client   up                49680        2148062         0.05         2.15
+  srv1       server   up              4303270        2262330         4.29         2.25
+  srv2       server   up              4314300          48798         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #007
+timestamp: 2026-09-15T09:41:44Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                55396        2425360         0.05         2.17
+  h2         client   up                54652        2417552         0.05         2.15
+  h3         client   up                55620        2416278         0.05         2.14
+  srv1       server   up              4842796        2544990         4.31         2.26
+  srv2       server   up              4851916          54804         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #008
+timestamp: 2026-09-15T09:41:45Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                61402        2696670         0.05         2.17
+  h2         client   up                60460        2686098         0.05         2.15
+  h3         client   up                61560        2684494         0.05         2.14
+  srv1       server   up              5379360        2826138         4.29         2.25
+  srv2       server   up              5391110          60612         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #009
+timestamp: 2026-09-15T09:41:46Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                67474        2965018         0.05         2.15
+  h2         client   up                66202        2954578         0.05         2.15
+  h3         client   up                67500        2952842         0.05         2.15
+  srv1       server   up              5916056        3108798         4.29         2.26
+  srv2       server   up              5928726          66354         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #010
+timestamp: 2026-09-15T09:41:47Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                73546        3236328         0.05         2.17
+  h2         client   up                72076        3225954         0.05         2.17
+  h3         client   up                73440        3221190         0.05         2.14
+  srv1       server   up              6455714        3389946         4.31         2.25
+  srv2       server   up              6470750          72228         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #011
+timestamp: 2026-09-15T09:41:48Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                79552        3504676         0.05         2.14
+  h2         client   up                77950        3497462         0.05         2.17
+  h3         client   up                79380        3489472         0.05         2.14
+  srv1       server   up              6995306        3672606         4.31         2.26
+  srv2       server   up              7014356          78102         4.34         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #012
+timestamp: 2026-09-15T09:41:49Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                85492        3775986         0.05         2.17
+  h2         client   up                83890        3768904         0.05         2.17
+  h3         client   up                85320        3757688         0.05         2.14
+  srv1       server   up              7534832        3953688         4.31         2.25
+  srv2       server   up              7553484          84174         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #013
+timestamp: 2026-09-15T09:41:50Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                91432        4047296         0.05         2.17
+  h2         client   up                89764        4040280         0.05         2.17
+  h3         client   up                91260        4028866         0.05         2.17
+  srv1       server   up              8074358        4236282         4.31         2.26
+  srv2       server   up              8093996          90114         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #014
+timestamp: 2026-09-15T09:41:51Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up                97438        4315644         0.05         2.15
+  h2         client   up                95704        4308760         0.05         2.15
+  h3         client   up                97200        4297214         0.05         2.15
+  srv1       server   up              8611054        4517364         4.29         2.25
+  srv2       server   up              8631612          96054         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #015
+timestamp: 2026-09-15T09:41:52Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               103510        4586954         0.05         2.17
+  h2         client   up               101644        4580140         0.05         2.17
+  h3         client   up               103140        4568524         0.05         2.17
+  srv1       server   up              9147750        4800090         4.29         2.26
+  srv2       server   up              9170608         101994         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #016
+timestamp: 2026-09-15T09:41:53Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               109582        4855372         0.05         2.15
+  h2         client   up               107584        4848620         0.05         2.15
+  h3         client   up               109080        4836872         0.05         2.15
+  srv1       server   up              9687408        5081238         4.32         2.25
+  srv2       server   up              9711186         107934         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #017
+timestamp: 2026-09-15T09:41:54Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               115588        5126682         0.05         2.17
+  h2         client   up               113656        5120062         0.05         2.17
+  h3         client   up               115020        5108050         0.05         2.17
+  srv1       server   up             10227004        5363968         4.31         2.26
+  srv2       server   up             10253276         114208         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #018
+timestamp: 2026-09-15T09:41:55Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               121528        5395030         0.05         2.15
+  h2         client   up               119794        5388410         0.05         2.15
+  h3         client   up               120960        5376336         0.05         2.15
+  srv1       server   up             10763568        5644984         4.29         2.25
+  srv2       server   up             10790760         120280         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #019
+timestamp: 2026-09-15T09:41:56Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               127600        5666340         0.05         2.17
+  h2         client   up               125936        5659720         0.05         2.17
+  h3         client   up               126900        5647514         0.05         2.17
+  srv1       server   up             11303094        5926066         4.31         2.25
+  srv2       server   up             11332718         126418         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #020
+timestamp: 2026-09-15T09:41:57Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               133606        5937650         0.05         2.17
+  h2         client   up               131942        5928068         0.05         2.15
+  h3         client   up               132910        5918824         0.05         2.17
+  srv1       server   up             11839790        6208660         4.29         2.26
+  srv2       server   up             11870202         132424         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #021
+timestamp: 2026-09-15T09:41:58Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               139814        6205998         0.05         2.15
+  h2         client   up               138014        6199312         0.05         2.17
+  h3         client   up               138850        6187172         0.05         2.15
+  srv1       server   up             12379448        6489874         4.31         2.25
+  srv2       server   up             12409202         138562         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #022
+timestamp: 2026-09-15T09:41:59Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               145886        6474346         0.05         2.15
+  h2         client   up               144086        6467528         0.05         2.15
+  h3         client   up               144790        6455454         0.05         2.15
+  srv1       server   up             12916078        6772534         4.29         2.26
+  srv2       server   up             12949516         144634         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #023
+timestamp: 2026-09-15T09:42:00Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               151958        6745656         0.05         2.17
+  h2         client   up               150092        6738838         0.05         2.17
+  h3         client   up               150730        6726632         0.05         2.17
+  srv1       server   up             13452642        7053682         4.29         2.25
+  srv2       server   up             13487000         150706         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #024
+timestamp: 2026-09-15T09:42:01Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               157964        7016966         0.05         2.17
+  h2         client   up               156296        7010148         0.05         2.17
+  h3         client   up               156670        6997810         0.05         2.17
+  srv1       server   up             13992168        7336276         4.31         2.26
+  srv2       server   up             14028958         156844         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #025
+timestamp: 2026-09-15T09:42:02Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               163904        7285314         0.05         2.15
+  h2         client   up               162368        7278364         0.05         2.14
+  h3         client   up               162610        7266158         0.05         2.15
+  srv1       server   up             14531826        7617292         4.32         2.25
+  srv2       server   up             14566310         162982         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #026
+timestamp: 2026-09-15T09:42:03Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               169976        7556624         0.05         2.17
+  h2         client   up               168506        7549542         0.05         2.17
+  h3         client   up               168550        7537468         0.05         2.17
+  srv1       server   up             15068522        7898440         4.29         2.25
+  srv2       server   up             15108136         169120         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #027
+timestamp: 2026-09-15T09:42:04Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               176048        7827934         0.05         2.17
+  h2         client   up               174644        7817824         0.05         2.14
+  h3         client   up               174490        7805684         0.05         2.14
+  srv1       server   up             15608048        8181100         4.31         2.26
+  srv2       server   up             15648576         175234         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #028
+timestamp: 2026-09-15T09:42:05Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               182186        8096216         0.05         2.14
+  h2         client   up               180716        8089134         0.05         2.17
+  h3         client   up               180430        8076862         0.05         2.17
+  srv1       server   up             16147508        8462314         4.31         2.25
+  srv2       server   up             16187572         181372         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #029
+timestamp: 2026-09-15T09:42:06Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               188258        8364564         0.05         2.15
+  h2         client   up               186854        8357482         0.05         2.15
+  h3         client   up               186370        8345078         0.05         2.15
+  srv1       server   up             16684072        8744974         4.29         2.26
+  srv2       server   up             16725056         187444         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #030
+timestamp: 2026-09-15T09:42:07Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               194330        8632912         0.05         2.15
+  h2         client   up               192926        8625698         0.05         2.14
+  h3         client   up               192310        8616322         0.05         2.17
+  srv1       server   up             17220702        9026188         4.29         2.25
+  srv2       server   up             17265370         193516         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #031
+timestamp: 2026-09-15T09:42:08Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               200468        8904222         0.05         2.17
+  h2         client   up               198998        8896876         0.05         2.17
+  h3         client   up               198316        8884670         0.05         2.15
+  srv1       server   up             17760360        9308848         4.31         2.26
+  srv2       server   up             17804234         199588         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #032
+timestamp: 2026-09-15T09:42:09Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               206540        9172504         0.05         2.15
+  h2         client   up               205070        9165224         0.05         2.15
+  h3         client   up               204190        9152952         0.05         2.15
+  srv1       server   up             18296924        9589996         4.29         2.25
+  srv2       server   up             18341718         205726         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #033
+timestamp: 2026-09-15T09:42:10Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               212678        9443682         0.05         2.17
+  h2         client   up               211208        9436534         0.05         2.17
+  h3         client   up               210196        9424130         0.05         2.17
+  srv1       server   up             18836318        9871210         4.31         2.25
+  srv2       server   up             18883676         211798         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #034
+timestamp: 2026-09-15T09:42:11Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               218750        9711898         0.05         2.14
+  h2         client   up               217280        9704816         0.05         2.15
+  h3         client   up               216202        9692346         0.05         2.14
+  srv1       server   up             19372750       10153870         4.29         2.26
+  srv2       server   up             19421094         217936         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #035
+timestamp: 2026-09-15T09:42:12Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               224888        9983142         0.05         2.17
+  h2         client   up               223286        9975862         0.05         2.17
+  h3         client   up               222142        9963590         0.05         2.17
+  srv1       server   up             19912276       10435084         4.31         2.25
+  srv2       server   up             19962788         223942         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #036
+timestamp: 2026-09-15T09:42:13Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               230960       10254452         0.05         2.17
+  h2         client   up               229160       10246776         0.05         2.16
+  h3         client   up               228082       10234900         0.05         2.17
+  srv1       server   up             20448972       10717810         4.29         2.26
+  srv2       server   up             20502838         229750         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #037
+timestamp: 2026-09-15T09:42:14Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               236900       10525762         0.05         2.17
+  h2         client   up               234968       10517690         0.05         2.16
+  h3         client   up               234088       10506210         0.05         2.17
+  srv1       server   up             20991592       10998892         4.33         2.25
+  srv2       server   up             21044400         235624         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #038
+timestamp: 2026-09-15T09:42:15Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               242972       10794044         0.05         2.14
+  h2         client   up               240842       10785774         0.05         2.14
+  h3         client   up               240028       10774492         0.05         2.15
+  srv1       server   up             21528156       11281552         4.29         2.26
+  srv2       server   up             21581620         241432         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #039
+timestamp: 2026-09-15T09:42:16Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               249110       11065222         0.05         2.17
+  h2         client   up               246716       11056754         0.05         2.17
+  h3         client   up               245968       11045670         0.05         2.17
+  srv1       server   up             22067550       11562766         4.31         2.25
+  srv2       server   up             22121736         247306         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #040
+timestamp: 2026-09-15T09:42:17Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               255182       11336400         0.05         2.17
+  h2         client   up               252656       11324838         0.05         2.14
+  h3         client   up               251974       11316848         0.05         2.17
+  srv1       server   up             22603982       11845492         4.29         2.26
+  srv2       server   up             22660468         253246         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #041
+timestamp: 2026-09-15T09:42:18Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               261254       11604682         0.05         2.14
+  h2         client   up               258596       11595884         0.05         2.17
+  h3         client   up               257914       11585130         0.05         2.14
+  srv1       server   up             23143568       12126682         4.31         2.25
+  srv2       server   up             23200650         259252         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #042
+timestamp: 2026-09-15T09:42:19Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               267326       11874544         0.05         2.16
+  h2         client   up               264338       11863836         0.05         2.14
+  h3         client   up               263854       11856440         0.05         2.17
+  srv1       server   up             23680264       12409342         4.29         2.26
+  srv2       server   up             23736288         264928         4.29         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #043
+timestamp: 2026-09-15T09:42:20Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               273464       12145854         0.05         2.17
+  h2         client   up               270014       12134750         0.05         2.16
+  h3         client   up               269860       12124788         0.05         2.14
+  srv1       server   up             24219922       12690622         4.31         2.25
+  srv2       server   up             24279300         270670         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #044
+timestamp: 2026-09-15T09:42:21Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               279536       12415584         0.05         2.16
+  h2         client   up               275756       12402768         0.05         2.14
+  h3         client   up               275866       12393070         0.05         2.15
+  srv1       server   up             24756606       12971854         4.30         2.25
+  srv2       server   up             24817966         276412         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #045
+timestamp: 2026-09-15T09:42:22Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               285608       12683870         0.05         2.14
+  h2         client   up               281564       12673752         0.05         2.17
+  h3         client   up               281938       12664248         0.05         2.17
+  srv1       server   up             25296000       13254712         4.31         2.26
+  srv2       server   up             25355054         282154         4.29         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #046
+timestamp: 2026-09-15T09:42:23Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               291746       12955048         0.05         2.17
+  h2         client   up               287372       12944666         0.05         2.16
+  h3         client   up               288076       12935426         0.05         2.17
+  srv1       server   up             25835394       13537570         4.31         2.26
+  srv2       server   up             25895104         288028         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #047
+timestamp: 2026-09-15T09:42:24Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               297752       13227740         0.05         2.18
+  h2         client   up               293312       13214198         0.05         2.15
+  h3         client   up               294082       13206604         0.05         2.17
+  srv1       server   up             26374788       13818784         4.31         2.25
+  srv2       server   up             26439694         293902         4.35         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #048
+timestamp: 2026-09-15T09:42:25Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               303692       13495956         0.05         2.14
+  h2         client   up               298922       13485244         0.04         2.17
+  h3         client   up               300022       13474820         0.05         2.15
+  srv1       server   up             26911290       14099800         4.29         2.25
+  srv2       server   up             26973952         299512         4.28         0.04
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #049
+timestamp: 2026-09-15T09:42:26Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               309698       13764172         0.05         2.14
+  h2         client   up               304796       13753394         0.05         2.14
+  h3         client   up               305962       13745998         0.05         2.17
+  srv1       server   up             27450684       14382394         4.31         2.26
+  srv2       server   up             27515712         305386         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #050
+timestamp: 2026-09-15T09:42:27Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               315704       14036798         0.05         2.18
+  h2         client   up               310670       14024572         0.05         2.17
+  h3         client   up               312034       14017176         0.05         2.17
+  srv1       server   up             27990078       14663608         4.31         2.25
+  srv2       server   up             28056090         311326         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #051
+timestamp: 2026-09-15T09:42:28Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               321776       14307976         0.05         2.17
+  h2         client   up               316478       14294038         0.05         2.15
+  h3         client   up               318106       14285392         0.05         2.15
+  srv1       server   up             28526510       14946400         4.29         2.26
+  srv2       server   up             28594692         317002         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #052
+timestamp: 2026-09-15T09:42:29Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               327914       14576192         0.05         2.14
+  h2         client   up               322154       14565018         0.05         2.17
+  h3         client   up               324244       14556640         0.05         2.17
+  srv1       server   up             29065904       15227816         4.31         2.25
+  srv2       server   up             29134808         322814         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #053
+timestamp: 2026-09-15T09:42:30Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               333920       14845922         0.05         2.16
+  h2         client   up               327830       14833102         0.05         2.14
+  h3         client   up               330250       14824856         0.05         2.15
+  srv1       server   up             29602336       15510476         4.29         2.26
+  srv2       server   up             29673540         328556         4.31         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #054
+timestamp: 2026-09-15T09:42:31Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               339860       15117100         0.05         2.17
+  h2         client   up               333572       15105596         0.05         2.18
+  h3         client   up               336190       15096034         0.05         2.17
+  srv1       server   up             30141730       15791558         4.31         2.25
+  srv2       server   up             30215170         334232         4.33         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #055
+timestamp: 2026-09-15T09:42:32Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               345800       15385316         0.05         2.14
+  h2         client   up               339248       15373812         0.05         2.15
+  h3         client   up               342130       15365764         0.05         2.16
+  srv1       server   up             30678162       16074152         4.29         2.26
+  srv2       server   up             30751072         339908         4.29         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #056
+timestamp: 2026-09-15T09:42:33Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               351872       15654980         0.05         2.16
+  h2         client   up               344990       15644990         0.05         2.17
+  h3         client   up               348202       15635428         0.05         2.16
+  srv1       server   up             31217556       16355300         4.31         2.25
+  srv2       server   up             31294408         345692         4.34         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #057
+timestamp: 2026-09-15T09:42:34Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               357944       15926158         0.05         2.17
+  h2         client   up               350802       15914588         0.05         2.15
+  h3         client   up               354344       15906606         0.05         2.17
+  srv1       server   up             31756950       16638224         4.31         2.26
+  srv2       server   up             31834654         351434         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #058
+timestamp: 2026-09-15T09:42:35Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               364016       16197336         0.05         2.17
+  h2         client   up               356478       16182672         0.05         2.14
+  h3         client   up               360416       16177784         0.05         2.17
+  srv1       server   up             32293382       16919504         4.29         2.25
+  srv2       server   up             32371874         357110         4.30         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #059
+timestamp: 2026-09-15T09:42:36Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               370088       16467066         0.05         2.16
+  h2         client   up               362220       16453718         0.05         2.17
+  h3         client   up               366554       16447514         0.05         2.16
+  srv1       server   up             32832776       17202230         4.31         2.26
+  srv2       server   up             32912056         362852         4.32         0.05
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+
+============================================================================================
+DT4N PHASE 1 SNAPSHOT #060
+timestamp: 2026-09-15T09:42:37Z
+--------------------------------------------------------------------------------------------
+HOST TRAFFIC
+  name       role     state           rxBytes        txBytes       rxMbps       txMbps
+  h1         client   up               376028       16735282         0.05         2.15
+  h2         client   up               367830       16723382         0.04         2.16
+  h3         client   up               372494       16715730         0.05         2.15
+  srv1       server   up             33369208       17483246         4.29         2.25
+  srv2       server   up             33449406         368462         4.30         0.04
+
+SWITCH STATUS
+  name       state   
+  s1         up      
+  s2         up      
+  s3         up      
+
+PATH QUALITY
+  src      -> dst          latency_ms       loss_pct
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+  -        -> -                     -              -
+

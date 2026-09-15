@@ -11,6 +11,7 @@ Why this path is separate from the Command Agent:
 import time
 from abc import ABC, abstractmethod
 
+from mininet.traffic import run_host_shell
 from mininet.tc_filter import install_tc_warning_filter
 from mininet.topology_meta import baseline_bw, canonical, toggleable_links
 
@@ -124,18 +125,18 @@ class TrafficFlood(Scenario):
         self.revert(net)
         src = net.get(self.src)
         dst = net.get(self.dst)
-        dst.cmd('iperf -s -u -p %d > /tmp/flood_srv_%s.log 2>&1 &'
+        run_host_shell(dst, 'iperf -s -u -p %d > /tmp/flood_srv_%s.log 2>&1 &'
                 % (FLOOD_PORT, self.dst))
         time.sleep(0.3)
-        src.cmd('iperf -c %s -u -b %dM -p %d -t 100000 '
+        run_host_shell(src, 'iperf -c %s -u -b %dM -p %d -t 100000 '
                 '> /tmp/flood_cli_%s.log 2>&1 &'
                 % (dst.IP(), self.rate_mbps, FLOOD_PORT, self.src))
         self._applied = True
 
     def revert(self, net):
         for name in (self.src, self.dst):
-            net.get(name).cmd(
-                'pkill -f "iperf.*%d" 2>/dev/null' % FLOOD_PORT)
+            run_host_shell(net.get(name),
+                'pkill -f "[i]perf.*%d" 2>/dev/null' % FLOOD_PORT)
         self._applied = False
 
 
@@ -215,18 +216,18 @@ class CongestionShift(Scenario):
         self.revert_flood(net)
         src = net.get(self.flood_src)
         dst = net.get(self.flood_dst)
-        dst.cmd('iperf -s -u -p %d > /tmp/shift_srv_%s.log 2>&1 &'
+        run_host_shell(dst, 'iperf -s -u -p %d > /tmp/shift_srv_%s.log 2>&1 &'
                 % (FLOOD_PORT, self.flood_dst))
         time.sleep(0.3)
-        src.cmd('iperf -c %s -u -b %dM -p %d -t 100000 '
+        run_host_shell(src, 'iperf -c %s -u -b %dM -p %d -t 100000 '
                 '> /tmp/shift_cli_%s.log 2>&1 &'
                 % (dst.IP(), self.rate_mbps, FLOOD_PORT, self.flood_src))
         self._applied = True
 
     def revert_flood(self, net):
         for name in (self.flood_src, self.flood_dst):
-            net.get(name).cmd(
-                'pkill -f "iperf.*%d" 2>/dev/null' % FLOOD_PORT)
+            run_host_shell(net.get(name),
+                'pkill -f "[i]perf.*%d" 2>/dev/null' % FLOOD_PORT)
 
     def revert(self, net):
         self.revert_flood(net)

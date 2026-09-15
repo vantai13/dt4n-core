@@ -2,9 +2,9 @@
 """
 traffic.py — Sinh traffic theo KỊCH BẢN cho DT4N (Phase 1, Lesson 1.3) — LỚP 1
 
-Làm mạng "sống" để có gì đó ĐÁNG đo. Mọi lệnh chạy qua host.cmd() => TRONG
-namespace của host (điểm bản lề Lesson 1.2). Riêng traffic nền dùng mnexec
-để không chiếm shell điều khiển nội bộ của Mininet.
+Làm mạng "sống" để có gì đó đo. Profile tải nền chạy qua mnexec trong
+namespace host, không chiếm shell điều khiển nội bộ của Mininet.
+Các hàm debug blocking cũ bên dưới vẫn dùng shell tương tác.
 
 iperf v2 (Mininet đi kèm iperf v2, KHÔNG phải iperf3):
   server: iperf -s        (TCP)  |  iperf -s -u             (UDP)
@@ -62,7 +62,7 @@ def start_iperf_server(host, udp=False):
 
 
 def traffic_normal(client, server_ip, duration=10):
-    """KỊCH BẢN 1: tải nền BÌNH THƯỜNG (TCP) — baseline cho ML."""
+    """Legacy saturated TCP diagnostic; ML runners use rate-limited profiles."""
     print('[traffic] NORMAL (TCP) %s -> %s trong %ds'
           % (client.name, server_ip, duration))
     out = client.cmd('iperf -c %s -p %d -t %d' % (server_ip, IPERF_PORT, duration))
@@ -101,7 +101,7 @@ def measure_latency(src, dst_ip, count=10):
 def stop_all_iperf(*hosts):
     """Dọn dẹp iperf server nền (tránh chiếm cổng lần chạy sau)."""
     for h in hosts:
-        run_host_shell(h, 'pkill -f iperf 2>/dev/null')
+        run_host_shell(h, 'pkill -f "[i]perf" 2>/dev/null')
     print('[traffic] đã dừng các iperf server')
 
 
@@ -137,40 +137,40 @@ def start_server_to_server(net, rate_mbps=2, duration=100000):
 # Khác demo_scenarios cũ (chạy tuần tự, blocking). Runner cần traffic chạy SONG
 # SONG với collector -> phải để client chạy nền.
 # ---------------------------------------------------------------------------
-def start_background_load(net, scenario='normal', duration=60, rate='50M'):
-    """Bật tải NỀN chạy song song với collector.
-    Trả về (server_host,) để runner cleanup sau. KHÔNG block.
-    - scenario='normal': h1 -> srv1 TCP liên tục
-    - scenario='flood' : h1 -> srv1 UDP tốc độ cao (tạo nghẽn/loss)
+def start_background_load(net, scenario='normal', duration=60, rate='50M',
+                          normal_rate='2M', server_bg_rate=2.0):
+    """Rate-limited normal TCP and high-rate flood UDP on every client.
+
+    Alternate srv1/srv2 destinations to exercise both s1 uplinks. The separate
+    srv1->srv2 UDP flow exercises s2-s3. Rates are per client, not aggregate.
     """
-    h1 = net.get('h1')
-    srv1 = net.get('srv1')
-    srv2 = net.get('srv2')
-    srv1_ip = srv1.IP()
-
-    stop_all_iperf(h1, srv1, srv2)
-    bg_hosts = start_server_to_server(net, duration=duration + 5)
-
-    udp = (scenario == 'flood')
-    start_iperf_server(srv1, udp=udp)
-
-    if scenario == 'flood':
-        # client UDP chạy NỀN (& ) -> không chặn runner
-        run_host_shell(
-            h1,
-            'iperf -c %s -p %d -u -b %s -t %d > /tmp/iperf_cli_h1.log 2>&1 &'
-            % (srv1_ip, IPERF_PORT, rate, duration),
-        )
-        print('[traffic] FLOOD nền: h1 -> srv1 UDP @%s trong %ds' % (rate, duration))
-    else:
-        run_host_shell(
-            h1,
-            'iperf -c %s -p %d -t %d > /tmp/iperf_cli_h1.log 2>&1 &'
-            % (srv1_ip, IPERF_PORT, duration),
-        )
-        print('[traffic] NORMAL nền: h1 -> srv1 TCP trong %ds' % duration)
-
-    return tuple({h.name: h for h in (h1, srv1) + bg_hosts}.values())
+    import shlex
+    if scenario not in ('normal', 'flood'):
+        raise ValueError('scenario must be normal or flood')
+    clients = sorted((h for h in net.hosts if h.name.startswith('h')
+                      and h.name[1:].isdigit()), key=lambda h: int(h.name[1:]))
+    if not clients:
+        raise ValueError('traffic profile requires at least one client')
+    servers = (net.get('srv1'), net.get('srv2'))
+    hosts = tuple(clients) + servers
+    stop_all_iperf(*hosts)
+    udp = scenario == 'flood'
+    for server in servers:
+        start_iperf_server(server, udp=udp)
+    if server_bg_rate > 0:
+        start_server_to_server(net, rate_mbps=server_bg_rate, duration=duration + 5)
+    for i, client in enumerate(clients):
+        server = servers[i % len(servers)]
+        offered_rate = rate if udp else normal_rate
+        run_host_shell(client,
+            'iperf -c %s -p %d %s -b %s -t %d -i 1 '
+            '> /tmp/iperf_cli_%s.log 2>&1 &' %
+            (shlex.quote(server.IP()), IPERF_PORT, '-u' if udp else '',
+             shlex.quote(offered_rate), duration, client.name))
+        print('[traffic] %s: %s -> %s %s @%s per client' %
+              (scenario.upper(), client.name, server.name,
+               'UDP' if udp else 'TCP', offered_rate))
+    return hosts
 
 
 def demo_scenarios(net):

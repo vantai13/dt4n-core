@@ -130,6 +130,13 @@ def main():
                    help='ghi nối tiếp --log-path thay vì tạo log mới')
     p.add_argument('--server-bg-rate', type=float, default=2.0,
                    help='Mbps UDP nền srv1->srv2 qua s2-s3; 0 = tắt')
+    p.add_argument('--traffic-profile', choices=['normal', 'flood', 'server-only', 'idle'],
+                   default='normal', help='normal/flood chạy mọi client tới hai server')
+    p.add_argument('--normal-rate', default='2M', help='TCP normal mỗi client')
+    p.add_argument('--flood-rate', default='50M', help='UDP flood mỗi client')
+    p.add_argument('--randomize-phase', action='store_true',
+                   help='thêm jitter [0, period] vào settle của phép đo latency')
+    p.add_argument('--seed', type=int, default=20260915)
     a = p.parse_args()
     if a.stp_wait is not None:
         a.convergence_timeout = a.stp_wait
@@ -159,7 +166,10 @@ def main():
         runner.start()
         net, net_lock = runner.net, runner.net_lock
 
-        if a.server_bg_rate > 0:
+        if a.traffic_profile in ('normal', 'flood'):
+            runner.start_profile_background(scenario=a.traffic_profile,
+                normal_rate=a.normal_rate, rate=a.flood_rate, server_bg_rate=a.server_bg_rate)
+        elif a.traffic_profile == 'server-only' and a.server_bg_rate > 0:
             runner.start_server_background(rate_mbps=a.server_bg_rate)
 
         if a.measure_latency:
@@ -167,7 +177,8 @@ def main():
             time.sleep(max(2.0, a.period * 3))
             h, s = a.measure_link.split('-', 1)
             measure_latency(net, n_trials=a.trials, h=h, s=s,
-                            net_lock=net_lock)
+                            net_lock=net_lock, phase_period=a.period if a.randomize_phase else 0,
+                            seed=a.seed)
             return
 
         if a.measure_command:
@@ -175,7 +186,8 @@ def main():
             time.sleep(max(2.0, a.period * 3))
             h, s = a.measure_link.split('-', 1)
             measure_command_latency(net, n_trials=a.trials, h=h, s=s,
-                                    net_lock=net_lock)
+                                    net_lock=net_lock, phase_period=a.period if a.randomize_phase else 0,
+                                    seed=a.seed)
             return
 
         if a.measure_flow:

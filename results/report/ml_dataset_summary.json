@@ -1,0 +1,537 @@
+{
+  "normal_v1": {
+    "file": "logs/snapshots_normal.jsonl",
+    "sha256": "f0062b64237688ce134979a1fa0d29559a55219e76dd8c9dd2472d36405c863e",
+    "snapshots": 60,
+    "warmup_excluded": 1,
+    "links": {
+      "link-h1-s1": {
+        "mean_peak_direction_mbps": 19.597590474576272,
+        "rate_std_mbps": 0.03790621950607277,
+        "mean_rx_mbps": 0.4083174250847457,
+        "mean_tx_mbps": 19.597590474576272,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-h2-s1": {
+        "mean_peak_direction_mbps": 1.897491525423729e-05,
+        "rate_std_mbps": 0.00010129833178094784,
+        "mean_rx_mbps": 9.490169491525423e-06,
+        "mean_tx_mbps": 9.484745762711865e-06,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-h3-s1": {
+        "mean_peak_direction_mbps": 1.8981694915254236e-05,
+        "rate_std_mbps": 0.00010133452125079222,
+        "mean_rx_mbps": 9.490169491525423e-06,
+        "mean_tx_mbps": 9.491525423728814e-06,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s1-s2": {
+        "mean_peak_direction_mbps": 19.59868789559322,
+        "rate_std_mbps": 0.03346645061118454,
+        "mean_rx_mbps": 0.4083346210169491,
+        "mean_tx_mbps": 19.598687895593223,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s1-s3": {
+        "mean_peak_direction_mbps": 1.8953220338983048e-05,
+        "rate_std_mbps": 0.0001011825608749978,
+        "mean_rx_mbps": 9.467118644067795e-06,
+        "mean_tx_mbps": 9.486101694915254e-06,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s2-s3": {
+        "mean_peak_direction_mbps": 2.1572007254237286,
+        "rate_std_mbps": 0.005491767554701528,
+        "mean_rx_mbps": 9.491525423728814e-06,
+        "mean_tx_mbps": 2.1572007254237286,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s2-srv1": {
+        "mean_peak_direction_mbps": 19.599724599322034,
+        "rate_std_mbps": 0.03585097412519909,
+        "mean_rx_mbps": 2.565575301694915,
+        "mean_tx_mbps": 19.599724599322037,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s3-srv2": {
+        "mean_peak_direction_mbps": 2.1571821789830508,
+        "rate_std_mbps": 0.005608123635714231,
+        "mean_rx_mbps": 9.477966101694916e-06,
+        "mean_tx_mbps": 2.1571821789830508,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      }
+    }
+  },
+  "flood_v1": {
+    "file": "logs/snapshots_flood.jsonl",
+    "sha256": "79e36baf45b7ec3c8d55fe04b97cb96d1093c062c7036b37e403fa6f25681636",
+    "snapshots": 60,
+    "warmup_excluded": 1,
+    "links": {
+      "link-h1-s1": {
+        "mean_peak_direction_mbps": 19.854266558644067,
+        "rate_std_mbps": 0.9815215056649931,
+        "mean_rx_mbps": 4.471186440677966e-05,
+        "mean_tx_mbps": 19.854266558644067,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-h2-s1": {
+        "mean_peak_direction_mbps": 4.7422372881355934e-05,
+        "rate_std_mbps": 0.00015584593944606662,
+        "mean_rx_mbps": 2.8448813559322035e-05,
+        "mean_tx_mbps": 1.89735593220339e-05,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-h3-s1": {
+        "mean_peak_direction_mbps": 3.792e-05,
+        "rate_std_mbps": 0.00014061119853177548,
+        "mean_rx_mbps": 2.8427118644067797e-05,
+        "mean_tx_mbps": 1.896135593220339e-05,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s1-s2": {
+        "mean_peak_direction_mbps": 19.854196074576272,
+        "rate_std_mbps": 0.9672446884658287,
+        "mean_rx_mbps": 2.8433898305084747e-05,
+        "mean_tx_mbps": 19.85419607457627,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s1-s3": {
+        "mean_peak_direction_mbps": 3.791457627118644e-05,
+        "rate_std_mbps": 0.00014059111690869382,
+        "mean_rx_mbps": 1.8955932203389833e-05,
+        "mean_tx_mbps": 2.8423050847457628e-05,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s2-s3": {
+        "mean_peak_direction_mbps": 2.157147193220339,
+        "rate_std_mbps": 0.005697934703047925,
+        "mean_rx_mbps": 1.897491525423729e-05,
+        "mean_tx_mbps": 2.157147193220339,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s2-srv1": {
+        "mean_peak_direction_mbps": 19.85434811661017,
+        "rate_std_mbps": 0.9527696323948831,
+        "mean_rx_mbps": 2.156963475254237,
+        "mean_tx_mbps": 19.85434811661017,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      },
+      "link-s3-srv2": {
+        "mean_peak_direction_mbps": 2.1571378888135593,
+        "rate_std_mbps": 0.005316609635075082,
+        "mean_rx_mbps": 1.8985762711864405e-05,
+        "mean_tx_mbps": 2.1571378888135593,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 0,
+        "loss_positive_samples": 0,
+        "loss_max_pct": null,
+        "loss_mean_pct": null,
+        "loss_std_pct": null
+      }
+    }
+  },
+  "normal_v2": {
+    "file": "logs/ml_normal_v2.jsonl",
+    "sha256": "5999da0a215ed44ed6d8b6a08f0cedd435b3f1460293341c5605030fb5c86672",
+    "snapshots": 60,
+    "warmup_excluded": 1,
+    "links": {
+      "link-h1-s1": {
+        "mean_peak_direction_mbps": 2.156265305762712,
+        "rate_std_mbps": 0.02174920638291754,
+        "mean_rx_mbps": 0.048320481355932206,
+        "mean_tx_mbps": 2.156265305762712,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-h2-s1": {
+        "mean_peak_direction_mbps": 2.157382002711864,
+        "rate_std_mbps": 0.030426031123850186,
+        "mean_rx_mbps": 0.04736344813559322,
+        "mean_tx_mbps": 2.1573820027118646,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-h3-s1": {
+        "mean_peak_direction_mbps": 2.1546195281355933,
+        "rate_std_mbps": 0.027914193236219523,
+        "mean_rx_mbps": 0.04790117288135593,
+        "mean_tx_mbps": 2.154619528135593,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s1-s2": {
+        "mean_peak_direction_mbps": 4.302496999322034,
+        "rate_std_mbps": 0.027788397107137056,
+        "mean_rx_mbps": 0.09619464271186441,
+        "mean_tx_mbps": 4.302496999322034,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s1-s3": {
+        "mean_peak_direction_mbps": 2.1512179077966103,
+        "rate_std_mbps": 0.023080143923538257,
+        "mean_rx_mbps": 0.047247976949152545,
+        "mean_tx_mbps": 2.1512179077966103,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-s3": {
+        "mean_peak_direction_mbps": 2.1570443281355933,
+        "rate_std_mbps": 0.005228590164175281,
+        "mean_rx_mbps": 1.8931525423728813e-05,
+        "mean_tx_mbps": 2.1570443281355933,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-srv1": {
+        "mean_peak_direction_mbps": 4.302354103050847,
+        "rate_std_mbps": 0.038779267603469315,
+        "mean_rx_mbps": 2.2532246494915253,
+        "mean_tx_mbps": 4.302354103050847,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s3-srv2": {
+        "mean_peak_direction_mbps": 4.304114588474576,
+        "rate_std_mbps": 0.0195304080234077,
+        "mean_rx_mbps": 0.0471356393220339,
+        "mean_tx_mbps": 4.304114588474576,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      }
+    }
+  },
+  "flood_v2": {
+    "file": "logs/ml_flood_v2.jsonl",
+    "sha256": "70e9dd75dffd156b66d8143dfceacd1ed3acd4947cef3eb52900af612daddce1",
+    "snapshots": 60,
+    "warmup_excluded": 1,
+    "links": {
+      "link-h1-s1": {
+        "mean_peak_direction_mbps": 19.99823039322034,
+        "rate_std_mbps": 0.013156647324827634,
+        "mean_rx_mbps": 8.130169491525424e-06,
+        "mean_tx_mbps": 19.99823039322034,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 59,
+        "loss_max_pct": 62.931,
+        "loss_mean_pct": 62.202118644067795,
+        "loss_std_pct": 5.056128505141049
+      },
+      "link-h2-s1": {
+        "mean_peak_direction_mbps": 19.999986162711863,
+        "rate_std_mbps": 0.005991019565960393,
+        "mean_rx_mbps": 1.6268474576271186e-05,
+        "mean_tx_mbps": 19.999986162711863,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 59,
+        "loss_max_pct": 62.929,
+        "loss_mean_pct": 62.91194915254237,
+        "loss_std_pct": 0.008685510491741839
+      },
+      "link-h3-s1": {
+        "mean_peak_direction_mbps": 19.854278279322035,
+        "rate_std_mbps": 1.0993420866266406,
+        "mean_rx_mbps": 2.575322033898305e-05,
+        "mean_tx_mbps": 19.854278279322035,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 58,
+        "loss_max_pct": 62.931,
+        "loss_mean_pct": 60.792389830508476,
+        "loss_std_pct": 10.499425943979839
+      },
+      "link-s1-s2": {
+        "mean_peak_direction_mbps": 20.000025806101696,
+        "rate_std_mbps": 0.005156596913225984,
+        "mean_rx_mbps": 9.492881355932203e-06,
+        "mean_tx_mbps": 20.000025806101696,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 59,
+        "loss_max_pct": 50.03,
+        "loss_mean_pct": 49.766271186440676,
+        "loss_std_pct": 1.744490045737795
+      },
+      "link-s1-s3": {
+        "mean_peak_direction_mbps": 19.999884699661017,
+        "rate_std_mbps": 0.007024735283573214,
+        "mean_rx_mbps": 9.496949152542375e-06,
+        "mean_tx_mbps": 19.999884699661017,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-s3": {
+        "mean_peak_direction_mbps": 2.157092372881356,
+        "rate_std_mbps": 0.0049421179914520535,
+        "mean_rx_mbps": 9.496949152542375e-06,
+        "mean_tx_mbps": 2.1570923728813556,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-srv1": {
+        "mean_peak_direction_mbps": 19.999822265762713,
+        "rate_std_mbps": 0.006444957020311941,
+        "mean_rx_mbps": 2.157112515254237,
+        "mean_tx_mbps": 19.999822265762713,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s3-srv2": {
+        "mean_peak_direction_mbps": 19.99998918101695,
+        "rate_std_mbps": 0.007936378869405437,
+        "mean_rx_mbps": 9.498305084745762e-06,
+        "mean_tx_mbps": 19.999989181016947,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 59,
+        "loss_positive_samples": 57,
+        "loss_max_pct": 9.781,
+        "loss_mean_pct": 9.32493220338983,
+        "loss_std_pct": 1.8506281101786173
+      }
+    }
+  },
+  "injection_v2": {
+    "file": "logs/ml_injection_v2.jsonl",
+    "sha256": "d81dc49b9e0c49db870f53d0edb22e27a91b36d8a05160103f4d713a4eda4c25",
+    "snapshots": 30,
+    "warmup_excluded": 1,
+    "links": {
+      "link-h1-s1": {
+        "mean_peak_direction_mbps": 19.99921208275862,
+        "rate_std_mbps": 0.008589110731222977,
+        "mean_rx_mbps": 0.0009656524137931034,
+        "mean_tx_mbps": 19.99921208275862,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 29,
+        "loss_max_pct": 52.746,
+        "loss_mean_pct": 51.941448275862065,
+        "loss_std_pct": 2.9307693421659415
+      },
+      "link-h2-s1": {
+        "mean_peak_direction_mbps": 2.1456903503448275,
+        "rate_std_mbps": 0.0020837949705392067,
+        "mean_rx_mbps": 0.04765247448275862,
+        "mean_tx_mbps": 2.1456903503448275,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-h3-s1": {
+        "mean_peak_direction_mbps": 0.5283919751724138,
+        "rate_std_mbps": 0.8691372416975521,
+        "mean_rx_mbps": 0.011561023448275863,
+        "mean_tx_mbps": 0.5283919751724138,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s1-s2": {
+        "mean_peak_direction_mbps": 19.98899504275862,
+        "rate_std_mbps": 0.02168469596733092,
+        "mean_rx_mbps": 0.012508055172413794,
+        "mean_tx_mbps": 19.98899504275862,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 21,
+        "loss_max_pct": 7.296,
+        "loss_mean_pct": 0.5025862068965518,
+        "loss_std_pct": 1.3994592432803656
+      },
+      "link-s1-s3": {
+        "mean_peak_direction_mbps": 2.1458155337931033,
+        "rate_std_mbps": 0.0030147640638975505,
+        "mean_rx_mbps": 0.047655244137931034,
+        "mean_tx_mbps": 2.1458155337931033,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-s3": {
+        "mean_peak_direction_mbps": 2.1572469048275864,
+        "rate_std_mbps": 0.0057625233069231235,
+        "mean_rx_mbps": 0.0,
+        "mean_tx_mbps": 2.1572469048275864,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s2-srv1": {
+        "mean_peak_direction_mbps": 19.98926476689655,
+        "rate_std_mbps": 0.022468486566442115,
+        "mean_rx_mbps": 2.1693848413793106,
+        "mean_tx_mbps": 19.98926476689655,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      },
+      "link-s3-srv2": {
+        "mean_peak_direction_mbps": 4.303291500689655,
+        "rate_std_mbps": 0.006655627725950546,
+        "mean_rx_mbps": 0.04768057379310345,
+        "mean_tx_mbps": 4.303291500689656,
+        "mean_interface_loss_pct": 0.0,
+        "qdisc_valid_samples": 29,
+        "loss_positive_samples": 0,
+        "loss_max_pct": 0.0,
+        "loss_mean_pct": 0.0,
+        "loss_std_pct": 0.0
+      }
+    }
+  },
+  "gates": {
+    "normal_flood_have_60_snapshots": true,
+    "all_8_links_active_in_normal": true,
+    "all_clients_flood_rate_exceeds_normal_2x": true,
+    "flood_qdisc_loss_observed": true,
+    "injection_qdisc_loss_observed": true,
+    "all_v2_qdisc_samples_valid_after_warmup": true
+  },
+  "runtime_error_lines": [],
+  "measurement_semantics": {
+    "rate": "mean of per-snapshot max(rxRate,txRate), bytes/s converted to Mbps",
+    "lossPct": "local bidirectional leaf-qdisc drop delta / (sent packet delta + drop delta); not path loss",
+    "v1_loss": "legacy interface counters only; not comparable with qdisc loss",
+    "dataset_scope": "pilot for feature validation, not a training/test split or ML performance evidence"
+  }
+}

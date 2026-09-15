@@ -230,3 +230,8 @@ results/**/phase-T2/traces/*.csv
 # Local report server output keeps changing while the report is open
 logs/report_server.log
 logs/report_refresh.log
+
+# Upstream optional API documentation is not part of Core
+ditto/static/openapi/
+ditto/swagger3-index.html
+ditto/swagger-oidc.js

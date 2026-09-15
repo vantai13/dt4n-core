@@ -1,0 +1,7 @@
+..ssss...........................                                        [100%]
+=========================== short test summary info ============================
+SKIPPED [1] test/test_command_security.py:83: requires live Ditto + Mininet + Command Agent; set DT4N_LIVE_COMMAND_TESTS=1
+SKIPPED [1] test/test_command_security.py:93: requires live Ditto + Mininet + Command Agent; set DT4N_LIVE_COMMAND_TESTS=1
+SKIPPED [1] test/test_command_security.py:104: requires live Ditto + Mininet + Command Agent; set DT4N_LIVE_COMMAND_TESTS=1
+SKIPPED [1] test/test_command_security.py:114: requires live Ditto + Mininet + Command Agent; set DT4N_LIVE_COMMAND_TESTS=1
+29 passed, 4 skipped in 12.15s

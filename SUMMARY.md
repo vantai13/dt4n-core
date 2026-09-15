@@ -48,3 +48,11 @@ Các độ trễ đồng bộ/lệnh/UI đạt mục tiêu p95 tương ứng 2/2
 - Hướng dẫn bằng chứng/chạy tiếp: [runbooks/core-acceptance-status.md](runbooks/core-acceptance-status.md).
 
 Trong VS Code Remote SSH, forward cổng 8765 và 5173. Kho DT4N cũ giữ nguyên lịch sử nghiên cứu.
+
+## Bổ sung trước ML — v2
+
+Đã sửa nguồn loss, profile đa client, injection không tranh shell, đo pha ngẫu nhiên, kiểm tra timeout=3, giản lược Swagger và bổ sung attribution/README/UTC. Test hiện tại 29 passed, 4 skipped; security live 4 pass. 60 normal + 60 flood + 30 inject; các gate feature đều đạt: True.
+
+Độ trễ randomized-settle: đồng bộ p50/p95 682.14/1017.11 ms, lệnh 674.70/984.19 ms. HTTP timeout=3: [408, 408], trạng thái vẫn phản ánh [True, True].
+
+Báo cáo, bảng so sánh và giới hạn: [ML_PREFLIGHT.md](results/report/ML_PREFLIGHT.md). JSON: [ml_dataset_summary.json](results/report/ml_dataset_summary.json). Đây là kiểm chứng dữ liệu trước ML, chưa huấn luyện mô hình.

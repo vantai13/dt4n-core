@@ -175,3 +175,42 @@
 {"ts": "2026-09-15T08:31:38.489631Z", "correlationId": "5e275018-9cf9-42d1-b88c-78411cb67de5", "subject": "enableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
 {"ts": "2026-09-15T08:31:40.504210Z", "correlationId": "dfdf78d6-0095-403a-89c7-9bcc2b43ae66", "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
 {"ts": "2026-09-15T08:31:42.489025Z", "correlationId": "cacdc5f2-3a50-4eef-984d-c1f4c51556b5", "subject": "enableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:24.002503Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:28.035973Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:32.047124Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:35.421109Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:39.648107Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:43.335808Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:47.744068Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:51.645845Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:46:55.931142Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:00.079383Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:03.501130Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:07.407137Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:11.496860Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:15.577133Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:19.360247Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:24.100460Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:27.838428Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:32.065855Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:35.831069Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:39.767966Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:44.215584Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:47.702155Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:51.611857Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:47:55.674279Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:00.127628Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:03.649194Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:07.516126Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:11.490491Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:15.378132Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:19.707128Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:21.371003Z", "correlationId": null, "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:25.349495Z", "correlationId": "89f70166-1a0c-4111-b611-cbe4d1446403", "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:29.592956Z", "correlationId": "59a2a127-1c86-4eed-a0af-a89b9c0f8261", "subject": "rebootEverything", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "rejected", "reason": "unknown command: rebootEverything"}
+{"ts": "2026-09-15T09:48:29.627174Z", "correlationId": "f63e2907-e8c8-4c9e-af74-f19c929ca2c5", "subject": "setBandwidth", "target": "org.dt4n.core:link-s2-s3", "params": {"bw": "$(rm -rf /)"}, "result": "rejected", "reason": "bw must be a number, got '$(rm -rf /)'"}
+{"ts": "2026-09-15T09:48:29.661775Z", "correlationId": "7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc", "subject": "disableLink", "target": "org.dt4n.core:link-xx-yy", "params": {}, "result": "rejected", "reason": "target not found: org.dt4n.core:link-xx-yy"}
+{"ts": "2026-09-15T09:48:29.700545Z", "correlationId": "2fd0110c-0580-40e7-ad9d-25d753687322", "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:29.727267Z", "correlationId": "c96d96a9-9f5c-44cc-a93f-12a21e676bac", "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:29.757372Z", "correlationId": "5e413c70-817d-4b27-b02d-52fd7a9cde9c", "subject": "disableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}
+{"ts": "2026-09-15T09:48:29.787967Z", "correlationId": "7b28930f-b4b2-451e-8e75-c57c636a402f", "subject": "enableLink", "target": "org.dt4n.core:link-h1-s1", "params": {}, "result": "ok", "reason": null}

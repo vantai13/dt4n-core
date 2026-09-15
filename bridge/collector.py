@@ -205,6 +205,65 @@ def canonical_link_key(a, b):
     return 'link-%s-%s' % (lo, hi)
 
 
+def parse_qdisc_stats(text):
+    """Read leaf qdiscs only: parent statistics can repeat child drops.
+
+    Return None for missing/malformed statistics, never a fabricated zero.
+    Counters describe local egress queues, not end-to-end packet loss.
+    """
+    try:
+        rows = json.loads(text)
+        if not isinstance(rows, list) or not rows:
+            return None
+        parents = {r['parent'].split(':')[0] + ':' for r in rows
+                   if isinstance(r, dict) and isinstance(r.get('parent'), str)}
+        leaves = [r for r in rows if r.get('handle') not in parents]
+        if not leaves:
+            return None
+        return {
+            'drops': sum(int(r['drops']) for r in leaves),
+            'packets': sum(int(r['packets']) for r in leaves),
+            'signature': sorted((r['kind'], r['handle'], r.get('parent', 'root'))
+                                for r in leaves),
+        }
+    except (ValueError, TypeError, KeyError, AttributeError):
+        return None
+
+
+def read_qdisc_drops(intf):
+    """Read tc JSON statistics in the interface's actual network namespace."""
+    argv = ['tc', '-j', '-s', 'qdisc', 'show', 'dev', intf.name]
+    node = intf.node
+    if getattr(node, 'inNamespace', False) and getattr(node, 'pid', None):
+        argv = ['mnexec', '-a', str(node.pid)] + argv
+    try:
+        result = subprocess.run(argv, capture_output=True, text=True,
+                                timeout=2, check=False)
+        return parse_qdisc_stats(result.stdout) if result.returncode == 0 else None
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+
+
+def qdisc_interval(current, previous):
+    """Delta both directions at the same qdisc layer; invalidate counter resets."""
+    if any(r is None for r in current.values()):
+        return {'lossPct': None, 'qdiscValid': False, 'qdiscReason': 'unavailable'}
+    if not previous or set(current) != set(previous):
+        return {'lossPct': None, 'qdiscValid': False, 'qdiscReason': 'warmup'}
+    drops = packets = 0
+    for name, now in current.items():
+        old = previous[name]
+        if (old is None or now['signature'] != old['signature'] or
+                now['drops'] < old['drops'] or now['packets'] < old['packets']):
+            return {'lossPct': None, 'qdiscValid': False, 'qdiscReason': 'counter_reset'}
+        drops += now['drops'] - old['drops']
+        packets += now['packets'] - old['packets']
+    total = packets + drops
+    return {'lossPct': round(100 * drops / total, 3) if total else 0.0,
+            'qdiscValid': True, 'qdiscReason': 'ok',
+            'qdiscDropDelta': drops, 'qdiscSentDelta': packets}
+
+
 def link_side_a_intf(link, directed=True):
     """Interface duoc doc counter cho link nay.
 
@@ -591,13 +650,23 @@ class Collector:
                 features['traffic'] = {
                     'rxRate': round(rx_rate, 2),
                     'txRate': round(tx_rate, 2),
-                    'lossPct': round(loss_pct, 3),
+                    'interfaceLossPct': round(loss_pct, 3),
                     # `L30` / `A075` R6: huong phai TU KHAI trong chinh Thing.
                     # Neu khong, mot artifact sinh sau khong the biet no doc
                     # chieu nao. Hai truong nay duoc SUY tu ban do, khong KHAI.
                     'utilIntf': util_intf.name,
                     'utilDirectionSource': link_direction_source(link),
                 }
+                qdiscs = {intf.name: read_qdisc_drops(intf)
+                          for intf in (link.intf1, link.intf2)}
+                # Keep separate history: the interface history above is already updated.
+                if not hasattr(self, '_prev_qdisc'):
+                    self._prev_qdisc = {}
+                previous_qdisc = self._prev_qdisc.get(key) if prev is not None else None
+                features['traffic'].update(qdisc_interval(qdiscs, previous_qdisc))
+                features['traffic']['lossSource'] = 'tc_leaf_qdisc_both_egress'
+                features['traffic']['qdiscCounters'] = qdiscs
+                self._prev_qdisc[key] = qdiscs
         return {
             'attributes': {'type': 'link', 'endpointA': a, 'endpointB': b},
             'features': features,

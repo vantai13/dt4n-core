@@ -29,7 +29,16 @@ Mininet thật cần Linux, quyền root, OVS, `mn`, `mnexec`, `tc`, `iperf`. Ry
 
 ## Dựng Ditto và chạy demo
 
-Trong `ditto/`, xem README, tạo `nginx.htpasswd` từ bản demo rồi chạy `docker compose up -d`. Không dựng thêm stack nếu cổng đang được stack khác sử dụng.
+Trước khi bật Ditto trên clone sạch:
+
+```bash
+cp ditto/nginx.htpasswd.example ditto/nginx.htpasswd
+cd ditto
+docker compose up -d
+cd ..
+```
+
+Tài khoản demo là `ditto/ditto`. Không dựng thêm stack nếu cổng đang được stack khác sử dụng.
 
 ```bash
 python3 -m bridge.diagnose
@@ -91,3 +100,23 @@ python3 scripts/build_report.py
 - `results/report/dashboard_*.png`, `dashboard_*.json`: ảnh và kiểm chứng trình duyệt.
 
 Kết quả thí nghiệm không được thay thế bằng số kỳ vọng trong hướng dẫn. Bootstrap mở rộng chứng minh tạo/đọc Things, chưa xác định công suất tối đa mạng hay độ ổn định dài hạn với 20 client.
+
+## Dữ liệu trước ML (bản v2)
+
+`run_sync` mặc định sinh TCP normal **2 Mbps/client** tới hai server luân phiên và UDP srv1→srv2 **2 Mbps**. Chọn `--traffic-profile server-only` để tái lập tải của nghiệm thu v1; `--traffic-profile idle` để tắt tải, hoặc `--traffic-profile flood --flood-rate 50M` cho flood. `run_phase1` có `--normal-rate`, `--rate` và `--server-bg-rate`.
+
+`traffic.lossPct` v2 là tỷ lệ drop tại leaf qdisc của **hai chiều egress link**, không phải loss end-to-end. Trước khi dùng cho ML, kiểm tra `qdiscValid == true`; bỏ mẫu warmup/reset/unavailable. `interfaceLossPct` giữ phép đo interface cũ để đối chiếu. Các trường `qdiscCounters`, `lossSource`, `qdiscDropDelta`, `qdiscSentDelta` cho phép kiểm tra nguồn và mẫu số. Không trộn trực tiếp loss v1 và v2.
+
+Chạy lại kiểm chứng dữ liệu và độ trễ ngẫu nhiên (mạng thật; chỉ một suite mỗi lần):
+
+```bash
+sudo mn -c
+PYTHONPATH="$PWD" python3 scripts/launch_ml_preflight.py
+python3 scripts/analyze_ml_preflight.py
+```
+
+Phép đo latency có tùy chọn `--randomize-phase --seed 20260915` khi gọi `run_sync --measure-latency` hoặc `--measure-command`. Giữ số đo fixed-settle v1 để đối chiếu; không coi chúng là worst-case đã chứng minh.
+
+Dữ liệu mới: `logs/ml_normal_v2.jsonl`, `ml_flood_v2.jsonl`, `ml_injection_v2.jsonl`. Đây là pilot kiểm chứng feature, chưa phải dataset train/test hay bằng chứng hiệu quả ML. Kết quả tổng hợp: `results/report/ml_dataset_summary.json`.
+
+Lệnh dashboard dùng Ditto `timeout=0`, sau đó xác nhận trạng thái qua sync/SSE. Outbox HTTP POST của agent là thông báo mới, không đảm bảo trả lời tương quan cho HTTP inbox đang chờ. Phép thử `timeout=3` và SSE gốc được lưu riêng ở `results/report/command_ack_timeout3.json`.

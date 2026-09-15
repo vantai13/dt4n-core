@@ -1,0 +1,39 @@
+[
+  {
+    "payload_correlation_id": false,
+    "correlation_id": "6075c180-b6e5-4fa8-9cb1-af2bb6145d50",
+    "http_status": 408,
+    "http_body": "{\"status\":408,\"error\":\"command.timeout\",\"message\":\"The Command reached the specified timeout of 3,000ms.\",\"description\":\"Try increasing the command timeout.\"}",
+    "http_elapsed_s": 3.022,
+    "reflected_down": true,
+    "received_sse": [
+      {
+        "subject": "disableLink",
+        "correlation_id": null,
+        "correlation_source": "missing",
+        "raw": {
+          "target": "org.dt4n.core:link-h1-s1"
+        }
+      }
+    ]
+  },
+  {
+    "payload_correlation_id": true,
+    "correlation_id": "89f70166-1a0c-4111-b611-cbe4d1446403",
+    "http_status": 408,
+    "http_body": "{\"status\":408,\"error\":\"command.timeout\",\"message\":\"The Command reached the specified timeout of 3,000ms.\",\"description\":\"Try increasing the command timeout.\"}",
+    "http_elapsed_s": 3.021,
+    "reflected_down": true,
+    "received_sse": [
+      {
+        "subject": "disableLink",
+        "correlation_id": "89f70166-1a0c-4111-b611-cbe4d1446403",
+        "correlation_source": "payload:clientCorrelationId",
+        "raw": {
+          "target": "org.dt4n.core:link-h1-s1",
+          "clientCorrelationId": "89f70166-1a0c-4111-b611-cbe4d1446403"
+        }
+      }
+    ]
+  }
+]

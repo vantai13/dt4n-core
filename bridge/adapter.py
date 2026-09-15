@@ -24,6 +24,10 @@ def _wrap_properties(feature_dict):
     out = {}
     for fname, props in feature_dict.items():
         clean = {k: v for k, v in props.items() if v is not None}
+        if fname == 'traffic' and props.get('qdiscValid') is False:
+            # Explicit deletion prevents an older valid loss value surviving
+            # a failed read/reset. Consumers must also check qdiscValid.
+            clean['lossPct'] = None
         if clean:
             out[fname] = {'properties': clean}
     return out

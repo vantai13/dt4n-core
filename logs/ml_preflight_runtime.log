@@ -1,0 +1,779 @@
+2026-09-15 09:41:24,087 [INFO] env_runner: EnvRunner.start()
+2026-09-15 09:41:24,089 [INFO] mininet: *** Creating network
+
+2026-09-15 09:41:24,089 [INFO] mininet: *** Adding hosts:
+
+2026-09-15 09:41:24,098 [INFO] mininet: h1 
+2026-09-15 09:41:24,104 [INFO] mininet: h2 
+2026-09-15 09:41:24,109 [INFO] mininet: h3 
+2026-09-15 09:41:24,115 [INFO] mininet: srv1 
+2026-09-15 09:41:24,121 [INFO] mininet: srv2 
+2026-09-15 09:41:24,121 [INFO] mininet: 
+*** Adding switches:
+
+2026-09-15 09:41:24,133 [INFO] mininet: s1 
+2026-09-15 09:41:24,140 [INFO] mininet: s2 
+2026-09-15 09:41:24,146 [INFO] mininet: s3 
+2026-09-15 09:41:24,146 [INFO] mininet: 
+*** Adding links:
+
+2026-09-15 09:41:24,153 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,164 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,169 [INFO] mininet: (h1, s1) 
+2026-09-15 09:41:24,176 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,185 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,190 [INFO] mininet: (h2, s1) 
+2026-09-15 09:41:24,197 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,207 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,212 [INFO] mininet: (h3, s1) 
+2026-09-15 09:41:24,219 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,233 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,238 [INFO] mininet: (s1, s2) 
+2026-09-15 09:41:24,245 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,257 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,262 [INFO] mininet: (s1, s3) 
+2026-09-15 09:41:24,270 [INFO] mininet: (5.00Mbit 2ms delay) 
+2026-09-15 09:41:24,283 [INFO] mininet: (5.00Mbit 2ms delay) 
+2026-09-15 09:41:24,288 [INFO] mininet: (s2, s3) 
+2026-09-15 09:41:24,294 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,305 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,310 [INFO] mininet: (srv1, s2) 
+2026-09-15 09:41:24,316 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,327 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,332 [INFO] mininet: (srv2, s3) 
+2026-09-15 09:41:24,332 [INFO] mininet: 
+
+2026-09-15 09:41:24,332 [INFO] mininet: *** Configuring hosts
+
+2026-09-15 09:41:24,332 [INFO] mininet: h1 
+2026-09-15 09:41:24,337 [INFO] mininet: h2 
+2026-09-15 09:41:24,343 [INFO] mininet: h3 
+2026-09-15 09:41:24,349 [INFO] mininet: srv1 
+2026-09-15 09:41:24,355 [INFO] mininet: srv2 
+2026-09-15 09:41:24,360 [INFO] mininet: 
+
+2026-09-15 09:41:24,369 [INFO] mininet: *** Bật mạng (tạo namespace, dựng switch, nối link)
+
+2026-09-15 09:41:24,370 [INFO] mininet: *** Starting controller
+
+2026-09-15 09:41:24,370 [INFO] mininet: c0 
+2026-09-15 09:41:24,370 [INFO] mininet: 
+
+2026-09-15 09:41:24,370 [INFO] mininet: *** Starting 3 switches
+
+2026-09-15 09:41:24,370 [INFO] mininet: s1 
+2026-09-15 09:41:24,370 [INFO] mininet: s2 
+2026-09-15 09:41:24,370 [INFO] mininet: s3 
+2026-09-15 09:41:24,370 [INFO] mininet: ...
+2026-09-15 09:41:24,414 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,423 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,431 [INFO] mininet: (20.00Mbit 2ms delay 0.00000% loss) 
+2026-09-15 09:41:24,439 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,447 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,456 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,464 [INFO] mininet: (5.00Mbit 2ms delay) 
+2026-09-15 09:41:24,472 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,480 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,489 [INFO] mininet: (5.00Mbit 2ms delay) 
+2026-09-15 09:41:24,497 [INFO] mininet: (20.00Mbit 2ms delay) 
+2026-09-15 09:41:24,502 [INFO] mininet: 
+
+2026-09-15 09:41:24,502 [INFO] mininet: *** Waiting for switches to connect
+
+2026-09-15 09:41:29,617 [INFO] mininet: s1 
+2026-09-15 09:41:29,620 [INFO] mininet: s2 
+2026-09-15 09:41:29,623 [INFO] mininet: s3 
+2026-09-15 09:41:29,623 [INFO] mininet: 
+
+2026-09-15 09:41:29,623 [INFO] mininet: *** Ghi port map runtime -> ditto/port_map.json
+
+2026-09-15 09:41:29,673 [INFO] mininet: *** Controller static hội tụ sau 0.05s
+
+2026-09-15 09:41:29,673 [INFO] mininet: *** Node: c0, h1, h2, h3, s1, s2, s3, srv1, srv2
+
+2026-09-15 09:41:29,673 [INFO] mininet: *** pingAll kiểm tra thông mạng
+
+2026-09-15 09:41:29,673 [Level 25] mininet: *** Ping: testing ping reachability
+
+2026-09-15 09:41:29,673 [Level 25] mininet: h1 -> 
+2026-09-15 09:41:29,693 [Level 25] mininet: h2 
+2026-09-15 09:41:29,712 [Level 25] mininet: h3 
+2026-09-15 09:41:29,725 [Level 25] mininet: srv1 
+2026-09-15 09:41:29,739 [Level 25] mininet: srv2 
+2026-09-15 09:41:29,739 [Level 25] mininet: 
+
+2026-09-15 09:41:29,739 [Level 25] mininet: h2 -> 
+2026-09-15 09:41:29,749 [Level 25] mininet: h1 
+2026-09-15 09:41:29,768 [Level 25] mininet: h3 
+2026-09-15 09:41:29,791 [Level 25] mininet: srv1 
+2026-09-15 09:41:29,814 [Level 25] mininet: srv2 
+2026-09-15 09:41:29,814 [Level 25] mininet: 
+
+2026-09-15 09:41:29,814 [Level 25] mininet: h3 -> 
+2026-09-15 09:41:29,824 [Level 25] mininet: h1 
+2026-09-15 09:41:29,833 [Level 25] mininet: h2 
+2026-09-15 09:41:29,857 [Level 25] mininet: srv1 
+2026-09-15 09:41:29,881 [Level 25] mininet: srv2 
+2026-09-15 09:41:29,881 [Level 25] mininet: 
+
+2026-09-15 09:41:29,881 [Level 25] mininet: srv1 -> 
+2026-09-15 09:41:29,895 [Level 25] mininet: h1 
+2026-09-15 09:41:29,909 [Level 25] mininet: h2 
+2026-09-15 09:41:29,922 [Level 25] mininet: h3 
+2026-09-15 09:41:29,946 [Level 25] mininet: srv2 
+2026-09-15 09:41:29,946 [Level 25] mininet: 
+
+2026-09-15 09:41:29,946 [Level 25] mininet: srv2 -> 
+2026-09-15 09:41:29,960 [Level 25] mininet: h1 
+2026-09-15 09:41:29,973 [Level 25] mininet: h2 
+2026-09-15 09:41:29,987 [Level 25] mininet: h3 
+2026-09-15 09:41:30,001 [Level 25] mininet: srv1 
+2026-09-15 09:41:30,001 [Level 25] mininet: 
+
+2026-09-15 09:41:30,001 [Level 25] mininet: *** Results: 0% dropped (20/20 received)
+
+2026-09-15 09:41:30,001 [INFO] mininet: *** pingAll packet loss = 0%
+
+2026-09-15 09:41:30,001 [INFO] mininet: *** Bootstrap Things lên Ditto
+
+2026-09-15 09:41:30,137 [INFO] mininet: *** Khởi động Sync Agent (thread nền)
+
+2026-09-15 09:41:30,137 [INFO] sync_agent: Sync Agent start: period=1.000s, tol=0.500, ping_every=20, reconcile_every=30, mode=None
+2026-09-15 09:41:30,137 [INFO] mininet: *** Khởi động Command Agent (thread nền) — nghe lệnh chiều xuống
+
+2026-09-15 09:41:30,138 [INFO] command_agent: Command Agent start (bản 4.4: nghe + thực thi + response). controller=org.dt4n.core:controller
+2026-09-15 09:41:30,142 [INFO] command_agent: SSE kết nối OK, đang nghe lệnh tại http://localhost:8080/api/2/things/org.dt4n.core:controller/inbox/messages
+2026-09-15 09:41:30,316 [INFO] sync_agent: Cycle #1 [RECONCILE]: 16/16 patch, elapsed=178ms
+2026-09-15 09:41:31,273 [INFO] sync_agent: Cycle #2 [delta]: 11/11 patch, elapsed=135ms
+2026-09-15 09:41:32,253 [INFO] sync_agent: Cycle #3 [delta]: 9/9 patch, elapsed=115ms
+2026-09-15 09:41:33,148 [INFO] env_runner: EnvRunner started in 9.1s, startup iperf=0; episode iperf baseline pending
+2026-09-15 09:41:36,300 [INFO] sync_agent: Cycle #7 [delta]: 13/13 patch, elapsed=161ms
+2026-09-15 09:41:37,290 [INFO] sync_agent: Cycle #8 [delta]: 13/13 patch, elapsed=151ms
+2026-09-15 09:41:38,285 [INFO] sync_agent: Cycle #9 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 09:41:39,285 [INFO] sync_agent: Cycle #10 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:41:40,295 [INFO] sync_agent: Cycle #11 [delta]: 13/13 patch, elapsed=155ms
+2026-09-15 09:41:41,290 [INFO] sync_agent: Cycle #12 [delta]: 13/13 patch, elapsed=150ms
+2026-09-15 09:41:42,297 [INFO] sync_agent: Cycle #13 [delta]: 13/13 patch, elapsed=157ms
+2026-09-15 09:41:43,288 [INFO] sync_agent: Cycle #14 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 09:41:44,283 [INFO] sync_agent: Cycle #15 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:41:45,284 [INFO] sync_agent: Cycle #16 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:41:46,278 [INFO] sync_agent: Cycle #17 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:41:47,285 [INFO] sync_agent: Cycle #18 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:41:48,280 [INFO] sync_agent: Cycle #19 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:41:49,283 [INFO] sync_agent: Cycle #20 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:41:50,284 [INFO] sync_agent: Cycle #21 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:41:51,295 [INFO] sync_agent: Cycle #22 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 09:41:52,280 [INFO] sync_agent: Cycle #23 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:41:53,310 [INFO] sync_agent: Cycle #24 [delta]: 13/13 patch, elapsed=167ms
+2026-09-15 09:41:54,292 [INFO] sync_agent: Cycle #25 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 09:41:55,285 [INFO] sync_agent: Cycle #26 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:41:56,289 [INFO] sync_agent: Cycle #27 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 09:41:57,298 [INFO] sync_agent: Cycle #28 [delta]: 13/13 patch, elapsed=155ms
+2026-09-15 09:41:58,286 [INFO] sync_agent: Cycle #29 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:41:59,284 [INFO] sync_agent: Cycle #30 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:00,317 [INFO] sync_agent: Cycle #31 [RECONCILE]: 16/16 patch, elapsed=173ms
+2026-09-15 09:42:01,287 [INFO] sync_agent: Cycle #32 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:02,288 [INFO] sync_agent: Cycle #33 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:42:03,290 [INFO] sync_agent: Cycle #34 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:42:04,284 [INFO] sync_agent: Cycle #35 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:42:05,304 [INFO] sync_agent: Cycle #36 [delta]: 13/13 patch, elapsed=158ms
+2026-09-15 09:42:06,293 [INFO] sync_agent: Cycle #37 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 09:42:07,291 [INFO] sync_agent: Cycle #38 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:42:08,284 [INFO] sync_agent: Cycle #39 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:42:09,286 [INFO] sync_agent: Cycle #40 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:10,301 [INFO] sync_agent: Cycle #41 [delta]: 13/13 patch, elapsed=154ms
+2026-09-15 09:42:11,290 [INFO] sync_agent: Cycle #42 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:42:12,286 [INFO] sync_agent: Cycle #43 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:42:13,292 [INFO] sync_agent: Cycle #44 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:42:14,288 [INFO] sync_agent: Cycle #45 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:42:15,288 [INFO] sync_agent: Cycle #46 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:16,290 [INFO] sync_agent: Cycle #47 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:17,286 [INFO] sync_agent: Cycle #48 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:42:18,295 [INFO] sync_agent: Cycle #49 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 09:42:19,286 [INFO] sync_agent: Cycle #50 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:42:20,288 [INFO] sync_agent: Cycle #51 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:42:21,298 [INFO] sync_agent: Cycle #52 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 09:42:22,284 [INFO] sync_agent: Cycle #53 [delta]: 13/13 patch, elapsed=135ms
+2026-09-15 09:42:23,291 [INFO] sync_agent: Cycle #54 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:24,295 [INFO] sync_agent: Cycle #55 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:42:25,287 [INFO] sync_agent: Cycle #56 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:42:26,293 [INFO] sync_agent: Cycle #57 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:27,298 [INFO] sync_agent: Cycle #58 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 09:42:28,290 [INFO] sync_agent: Cycle #59 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:29,289 [INFO] sync_agent: Cycle #60 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:42:30,328 [INFO] sync_agent: Cycle #61 [RECONCILE]: 16/16 patch, elapsed=177ms
+2026-09-15 09:42:31,297 [INFO] sync_agent: Cycle #62 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 09:42:32,296 [INFO] sync_agent: Cycle #63 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:42:33,295 [INFO] sync_agent: Cycle #64 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:42:34,296 [INFO] sync_agent: Cycle #65 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:42:35,297 [INFO] sync_agent: Cycle #66 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:42:36,299 [INFO] sync_agent: Cycle #67 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 09:42:37,299 [INFO] sync_agent: Cycle #68 [delta]: 13/13 patch, elapsed=146ms
+2026-09-15 09:42:38,304 [INFO] sync_agent: Cycle #69 [delta]: 13/13 patch, elapsed=151ms
+2026-09-15 09:42:39,283 [INFO] sync_agent: Cycle #70 [delta]: 13/13 patch, elapsed=130ms
+2026-09-15 09:42:40,281 [INFO] sync_agent: Cycle #71 [delta]: 13/13 patch, elapsed=128ms
+2026-09-15 09:42:42,294 [INFO] sync_agent: Cycle #73 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:43,304 [INFO] sync_agent: Cycle #74 [delta]: 13/13 patch, elapsed=150ms
+2026-09-15 09:42:44,296 [INFO] sync_agent: Cycle #75 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:42:45,294 [INFO] sync_agent: Cycle #76 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:46,292 [INFO] sync_agent: Cycle #77 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:42:47,293 [INFO] sync_agent: Cycle #78 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:42:48,291 [INFO] sync_agent: Cycle #79 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:42:49,297 [INFO] sync_agent: Cycle #80 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:50,294 [INFO] sync_agent: Cycle #81 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:42:51,309 [INFO] sync_agent: Cycle #82 [delta]: 13/13 patch, elapsed=153ms
+2026-09-15 09:42:52,311 [INFO] sync_agent: Cycle #83 [delta]: 13/13 patch, elapsed=155ms
+2026-09-15 09:42:53,306 [INFO] sync_agent: Cycle #84 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 09:42:54,298 [INFO] sync_agent: Cycle #85 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:55,297 [INFO] sync_agent: Cycle #86 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:42:56,300 [INFO] sync_agent: Cycle #87 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:42:57,316 [INFO] sync_agent: Cycle #88 [delta]: 13/13 patch, elapsed=159ms
+2026-09-15 09:42:58,290 [INFO] sync_agent: Cycle #89 [delta]: 13/13 patch, elapsed=133ms
+2026-09-15 09:42:59,300 [INFO] sync_agent: Cycle #90 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:43:00,319 [INFO] sync_agent: Cycle #91 [RECONCILE]: 16/16 patch, elapsed=161ms
+2026-09-15 09:43:01,293 [INFO] sync_agent: Cycle #92 [delta]: 13/13 patch, elapsed=135ms
+2026-09-15 09:43:02,296 [INFO] sync_agent: Cycle #93 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:03,300 [INFO] sync_agent: Cycle #94 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:04,298 [INFO] sync_agent: Cycle #95 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:43:05,297 [INFO] sync_agent: Cycle #96 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:06,309 [INFO] sync_agent: Cycle #97 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 09:43:07,296 [INFO] sync_agent: Cycle #98 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:43:08,305 [INFO] sync_agent: Cycle #99 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:43:09,311 [INFO] sync_agent: Cycle #100 [delta]: 13/13 patch, elapsed=150ms
+2026-09-15 09:43:10,298 [INFO] sync_agent: Cycle #101 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:11,293 [INFO] sync_agent: Cycle #102 [delta]: 13/13 patch, elapsed=133ms
+2026-09-15 09:43:12,298 [INFO] sync_agent: Cycle #103 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:43:13,301 [INFO] sync_agent: Cycle #104 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:14,303 [INFO] sync_agent: Cycle #105 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:43:15,299 [INFO] sync_agent: Cycle #106 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:16,299 [INFO] sync_agent: Cycle #107 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:43:17,299 [INFO] sync_agent: Cycle #108 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:43:18,298 [INFO] sync_agent: Cycle #109 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:43:19,300 [INFO] sync_agent: Cycle #110 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:43:20,304 [INFO] sync_agent: Cycle #111 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:21,310 [INFO] sync_agent: Cycle #112 [delta]: 13/13 patch, elapsed=148ms
+2026-09-15 09:43:22,301 [INFO] sync_agent: Cycle #113 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:23,306 [INFO] sync_agent: Cycle #114 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:43:24,303 [INFO] sync_agent: Cycle #115 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:25,303 [INFO] sync_agent: Cycle #116 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:26,302 [INFO] sync_agent: Cycle #117 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:27,309 [INFO] sync_agent: Cycle #118 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:43:28,305 [INFO] sync_agent: Cycle #119 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:29,306 [INFO] sync_agent: Cycle #120 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:30,325 [INFO] sync_agent: Cycle #121 [RECONCILE]: 16/16 patch, elapsed=160ms
+2026-09-15 09:43:31,300 [INFO] sync_agent: Cycle #122 [delta]: 13/13 patch, elapsed=135ms
+2026-09-15 09:43:32,305 [INFO] sync_agent: Cycle #123 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:43:33,321 [INFO] sync_agent: Cycle #124 [delta]: 13/13 patch, elapsed=155ms
+2026-09-15 09:43:34,321 [INFO] sync_agent: Cycle #125 [delta]: 13/13 patch, elapsed=155ms
+2026-09-15 09:43:35,304 [INFO] sync_agent: Cycle #126 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:36,313 [INFO] sync_agent: Cycle #127 [delta]: 13/13 patch, elapsed=147ms
+2026-09-15 09:43:37,306 [INFO] sync_agent: Cycle #128 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:43:38,302 [INFO] sync_agent: Cycle #129 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:43:39,303 [INFO] sync_agent: Cycle #130 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:43:40,306 [INFO] sync_agent: Cycle #131 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:43:41,306 [INFO] sync_agent: Cycle #132 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:42,306 [INFO] sync_agent: Cycle #133 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:43,312 [INFO] sync_agent: Cycle #134 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:43:44,308 [INFO] sync_agent: Cycle #135 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:45,302 [INFO] sync_agent: Cycle #136 [delta]: 13/13 patch, elapsed=134ms
+2026-09-15 09:43:46,313 [INFO] sync_agent: Cycle #137 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:43:47,309 [INFO] sync_agent: Cycle #138 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:48,313 [INFO] sync_agent: Cycle #139 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:43:49,313 [INFO] sync_agent: Cycle #140 [delta]: 13/13 patch, elapsed=143ms
+2026-09-15 09:43:50,309 [INFO] sync_agent: Cycle #141 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:43:51,322 [INFO] sync_agent: Cycle #142 [delta]: 13/13 patch, elapsed=152ms
+2026-09-15 09:43:52,308 [INFO] sync_agent: Cycle #143 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:53,312 [INFO] sync_agent: Cycle #144 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:43:54,310 [INFO] sync_agent: Cycle #145 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:55,312 [INFO] sync_agent: Cycle #146 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:56,311 [INFO] sync_agent: Cycle #147 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:43:57,312 [INFO] sync_agent: Cycle #148 [delta]: 13/13 patch, elapsed=141ms
+2026-09-15 09:43:58,309 [INFO] sync_agent: Cycle #149 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:43:59,311 [INFO] sync_agent: Cycle #150 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:44:00,329 [INFO] sync_agent: Cycle #151 [RECONCILE]: 16/16 patch, elapsed=157ms
+2026-09-15 09:44:01,316 [INFO] sync_agent: Cycle #152 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:44:02,306 [INFO] sync_agent: Cycle #153 [delta]: 13/13 patch, elapsed=134ms
+2026-09-15 09:44:03,311 [INFO] sync_agent: Cycle #154 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:44:04,315 [INFO] sync_agent: Cycle #155 [delta]: 13/13 patch, elapsed=142ms
+2026-09-15 09:44:05,313 [INFO] sync_agent: Cycle #156 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:44:06,319 [INFO] sync_agent: Cycle #157 [delta]: 13/13 patch, elapsed=145ms
+2026-09-15 09:44:07,311 [INFO] sync_agent: Cycle #158 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:44:08,311 [INFO] sync_agent: Cycle #159 [delta]: 13/13 patch, elapsed=137ms
+2026-09-15 09:44:09,310 [INFO] sync_agent: Cycle #160 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:44:10,318 [INFO] sync_agent: Cycle #161 [delta]: 13/13 patch, elapsed=144ms
+2026-09-15 09:44:11,308 [INFO] sync_agent: Cycle #162 [delta]: 13/13 patch, elapsed=134ms
+2026-09-15 09:44:12,309 [INFO] sync_agent: Cycle #163 [delta]: 13/13 patch, elapsed=134ms
+2026-09-15 09:44:13,314 [INFO] sync_agent: Cycle #164 [delta]: 13/13 patch, elapsed=140ms
+2026-09-15 09:44:14,313 [INFO] sync_agent: Cycle #165 [delta]: 13/13 patch, elapsed=138ms
+2026-09-15 09:44:15,325 [INFO] sync_agent: Cycle #166 [delta]: 13/13 patch, elapsed=149ms
+2026-09-15 09:44:16,314 [INFO] sync_agent: Cycle #167 [delta]: 13/13 patch, elapsed=139ms
+2026-09-15 09:44:17,312 [INFO] sync_agent: Cycle #168 [delta]: 13/13 patch, elapsed=136ms
+2026-09-15 09:44:18,308 [INFO] sync_agent: Cycle #169 [delta]: 13/13 patch, elapsed=131ms
+2026-09-15 09:44:19,305 [INFO] sync_agent: Cycle #170 [delta]: 13/13 patch, elapsed=129ms
+2026-09-15 09:44:20,292 [INFO] sync_agent: Cycle #171 [delta]: 10/10 patch, elapsed=115ms
+2026-09-15 09:44:21,286 [INFO] sync_agent: Cycle #172 [delta]: 8/8 patch, elapsed=109ms
+2026-09-15 09:44:22,268 [INFO] sync_agent: Cycle #173 [delta]: 5/5 patch, elapsed=91ms
+2026-09-15 09:44:23,267 [INFO] sync_agent: Cycle #174 [delta]: 5/5 patch, elapsed=90ms
+2026-09-15 09:44:24,286 [INFO] sync_agent: Cycle #175 [delta]: 7/7 patch, elapsed=109ms
+2026-09-15 09:44:25,281 [INFO] sync_agent: Cycle #176 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:44:26,281 [INFO] sync_agent: Cycle #177 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:27,280 [INFO] sync_agent: Cycle #178 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:28,289 [INFO] sync_agent: Cycle #179 [delta]: 7/7 patch, elapsed=110ms
+2026-09-15 09:44:29,283 [INFO] sync_agent: Cycle #180 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:44:30,328 [INFO] sync_agent: Cycle #181 [RECONCILE]: 16/16 patch, elapsed=148ms
+2026-09-15 09:44:31,278 [INFO] sync_agent: Cycle #182 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:44:32,283 [INFO] sync_agent: Cycle #183 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:44:33,287 [INFO] sync_agent: Cycle #184 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:44:34,281 [INFO] sync_agent: Cycle #185 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:35,282 [INFO] sync_agent: Cycle #186 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:36,290 [INFO] sync_agent: Cycle #187 [delta]: 7/7 patch, elapsed=110ms
+2026-09-15 09:44:37,287 [INFO] sync_agent: Cycle #188 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:44:38,284 [INFO] sync_agent: Cycle #189 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:44:39,283 [INFO] sync_agent: Cycle #190 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:40,287 [INFO] sync_agent: Cycle #191 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:44:41,286 [INFO] sync_agent: Cycle #192 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:44:42,285 [INFO] sync_agent: Cycle #193 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:44:43,287 [INFO] sync_agent: Cycle #194 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:44:44,290 [INFO] sync_agent: Cycle #195 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:44:45,290 [INFO] sync_agent: Cycle #196 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:44:46,285 [INFO] sync_agent: Cycle #197 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:47,284 [INFO] sync_agent: Cycle #198 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:48,288 [INFO] sync_agent: Cycle #199 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:44:49,289 [INFO] sync_agent: Cycle #200 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:44:50,282 [INFO] sync_agent: Cycle #201 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:44:51,290 [INFO] sync_agent: Cycle #202 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:44:52,287 [INFO] sync_agent: Cycle #203 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:53,287 [INFO] sync_agent: Cycle #204 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:44:54,287 [INFO] sync_agent: Cycle #205 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:55,286 [INFO] sync_agent: Cycle #206 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:56,288 [INFO] sync_agent: Cycle #207 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:44:57,290 [INFO] sync_agent: Cycle #208 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:44:58,287 [INFO] sync_agent: Cycle #209 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:44:59,292 [INFO] sync_agent: Cycle #210 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:00,341 [INFO] sync_agent: Cycle #211 [RECONCILE]: 16/16 patch, elapsed=154ms
+2026-09-15 09:45:01,293 [INFO] sync_agent: Cycle #212 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:02,286 [INFO] sync_agent: Cycle #213 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:45:03,291 [INFO] sync_agent: Cycle #214 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:04,291 [INFO] sync_agent: Cycle #215 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:45:05,307 [INFO] sync_agent: Cycle #216 [delta]: 7/7 patch, elapsed=118ms
+2026-09-15 09:45:06,300 [INFO] sync_agent: Cycle #217 [delta]: 7/7 patch, elapsed=111ms
+2026-09-15 09:45:07,302 [INFO] sync_agent: Cycle #218 [delta]: 7/7 patch, elapsed=113ms
+2026-09-15 09:45:08,294 [INFO] sync_agent: Cycle #219 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:09,295 [INFO] sync_agent: Cycle #220 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:10,292 [INFO] sync_agent: Cycle #221 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:45:11,292 [INFO] sync_agent: Cycle #222 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:45:12,291 [INFO] sync_agent: Cycle #223 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:45:13,296 [INFO] sync_agent: Cycle #224 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:14,291 [INFO] sync_agent: Cycle #225 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:45:15,297 [INFO] sync_agent: Cycle #226 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:16,296 [INFO] sync_agent: Cycle #227 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:17,294 [INFO] sync_agent: Cycle #228 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:45:18,299 [INFO] sync_agent: Cycle #229 [delta]: 8/8 patch, elapsed=107ms
+2026-09-15 09:45:19,300 [INFO] sync_agent: Cycle #230 [delta]: 8/8 patch, elapsed=108ms
+2026-09-15 09:45:20,295 [INFO] sync_agent: Cycle #231 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:21,301 [INFO] sync_agent: Cycle #232 [delta]: 7/7 patch, elapsed=109ms
+2026-09-15 09:45:22,296 [INFO] sync_agent: Cycle #233 [delta]: 8/8 patch, elapsed=103ms
+2026-09-15 09:45:23,303 [INFO] sync_agent: Cycle #234 [delta]: 8/8 patch, elapsed=110ms
+2026-09-15 09:45:24,298 [INFO] sync_agent: Cycle #235 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:25,301 [INFO] sync_agent: Cycle #236 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:45:26,304 [INFO] sync_agent: Cycle #237 [delta]: 9/9 patch, elapsed=111ms
+2026-09-15 09:45:27,306 [INFO] sync_agent: Cycle #238 [delta]: 9/9 patch, elapsed=112ms
+2026-09-15 09:45:28,298 [INFO] sync_agent: Cycle #239 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:45:29,300 [INFO] sync_agent: Cycle #240 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:30,346 [INFO] sync_agent: Cycle #241 [RECONCILE]: 16/16 patch, elapsed=152ms
+2026-09-15 09:45:31,295 [INFO] sync_agent: Cycle #242 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:45:32,307 [INFO] sync_agent: Cycle #243 [delta]: 7/7 patch, elapsed=113ms
+2026-09-15 09:45:33,300 [INFO] sync_agent: Cycle #244 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:34,297 [INFO] sync_agent: Cycle #245 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:45:35,298 [INFO] sync_agent: Cycle #246 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:36,303 [INFO] sync_agent: Cycle #247 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:45:37,301 [INFO] sync_agent: Cycle #248 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:38,297 [INFO] sync_agent: Cycle #249 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:45:39,301 [INFO] sync_agent: Cycle #250 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:45:40,308 [INFO] sync_agent: Cycle #251 [delta]: 7/7 patch, elapsed=111ms
+2026-09-15 09:45:41,298 [INFO] sync_agent: Cycle #252 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:45:42,296 [INFO] sync_agent: Cycle #253 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:45:43,303 [INFO] sync_agent: Cycle #254 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:45:44,301 [INFO] sync_agent: Cycle #255 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:45:45,301 [INFO] sync_agent: Cycle #256 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:46,297 [INFO] sync_agent: Cycle #257 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:45:47,304 [INFO] sync_agent: Cycle #258 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:48,301 [INFO] sync_agent: Cycle #259 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:45:49,301 [INFO] sync_agent: Cycle #260 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:50,300 [INFO] sync_agent: Cycle #261 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:45:51,319 [INFO] sync_agent: Cycle #262 [delta]: 10/10 patch, elapsed=120ms
+2026-09-15 09:45:52,317 [INFO] sync_agent: Cycle #263 [delta]: 10/10 patch, elapsed=117ms
+2026-09-15 09:45:53,306 [INFO] sync_agent: Cycle #264 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:45:54,302 [INFO] sync_agent: Cycle #265 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:45:55,303 [INFO] sync_agent: Cycle #266 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:56,304 [INFO] sync_agent: Cycle #267 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:45:57,306 [INFO] sync_agent: Cycle #268 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:45:58,301 [INFO] sync_agent: Cycle #269 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:45:59,314 [INFO] sync_agent: Cycle #270 [delta]: 7/7 patch, elapsed=112ms
+2026-09-15 09:46:00,357 [INFO] sync_agent: Cycle #271 [RECONCILE]: 16/16 patch, elapsed=155ms
+2026-09-15 09:46:01,307 [INFO] sync_agent: Cycle #272 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:02,300 [INFO] sync_agent: Cycle #273 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:46:03,317 [INFO] sync_agent: Cycle #274 [delta]: 9/9 patch, elapsed=114ms
+2026-09-15 09:46:04,316 [INFO] sync_agent: Cycle #275 [delta]: 9/9 patch, elapsed=113ms
+2026-09-15 09:46:05,306 [INFO] sync_agent: Cycle #276 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:46:06,306 [INFO] sync_agent: Cycle #277 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:46:07,309 [INFO] sync_agent: Cycle #278 [delta]: 8/8 patch, elapsed=105ms
+2026-09-15 09:46:08,311 [INFO] sync_agent: Cycle #279 [delta]: 8/8 patch, elapsed=107ms
+2026-09-15 09:46:09,306 [INFO] sync_agent: Cycle #280 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:46:10,305 [INFO] sync_agent: Cycle #281 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:11,302 [INFO] sync_agent: Cycle #282 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:46:12,309 [INFO] sync_agent: Cycle #283 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:13,317 [INFO] sync_agent: Cycle #284 [delta]: 7/7 patch, elapsed=113ms
+2026-09-15 09:46:14,305 [INFO] sync_agent: Cycle #285 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:46:15,307 [INFO] sync_agent: Cycle #286 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:46:16,308 [INFO] sync_agent: Cycle #287 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:46:17,320 [INFO] sync_agent: Cycle #288 [delta]: 7/7 patch, elapsed=115ms
+2026-09-15 09:46:18,311 [INFO] sync_agent: Cycle #289 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:19,314 [INFO] sync_agent: Cycle #290 [delta]: 9/9 patch, elapsed=108ms
+2026-09-15 09:46:20,319 [INFO] sync_agent: Cycle #291 [delta]: 9/9 patch, elapsed=113ms
+2026-09-15 09:46:21,314 [INFO] sync_agent: Cycle #292 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:46:22,308 [INFO] sync_agent: Cycle #293 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:23,309 [INFO] sync_agent: Cycle #294 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:46:23,998 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:23,998 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:23,998 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:24,002 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:24,002 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:24,308 [INFO] sync_agent: Cycle #295 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:25,310 [INFO] sync_agent: Cycle #296 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:46:26,306 [INFO] sync_agent: Cycle #297 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:27,317 [INFO] sync_agent: Cycle #298 [delta]: 7/7 patch, elapsed=109ms
+2026-09-15 09:46:28,029 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:28,029 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:28,029 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:28,035 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:28,036 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:28,310 [INFO] sync_agent: Cycle #299 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:46:29,312 [INFO] sync_agent: Cycle #300 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:46:30,362 [INFO] sync_agent: Cycle #301 [RECONCILE]: 16/16 patch, elapsed=154ms
+2026-09-15 09:46:31,317 [INFO] sync_agent: Cycle #302 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:46:32,040 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:32,040 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:32,041 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:32,047 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:32,047 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:32,313 [INFO] sync_agent: Cycle #303 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:46:33,315 [INFO] sync_agent: Cycle #304 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:46:34,308 [INFO] sync_agent: Cycle #305 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:35,309 [INFO] sync_agent: Cycle #306 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:35,417 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:35,417 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:35,417 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:35,421 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:35,421 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:36,317 [INFO] sync_agent: Cycle #307 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:46:37,315 [INFO] sync_agent: Cycle #308 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:38,309 [INFO] sync_agent: Cycle #309 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:39,312 [INFO] sync_agent: Cycle #310 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:46:39,643 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:39,644 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:39,644 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:39,648 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:39,648 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:40,312 [INFO] sync_agent: Cycle #311 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:41,312 [INFO] sync_agent: Cycle #312 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:42,311 [INFO] sync_agent: Cycle #313 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:46:43,316 [INFO] sync_agent: Cycle #314 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:43,332 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:43,332 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:43,332 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:43,335 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:43,335 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:44,317 [INFO] sync_agent: Cycle #315 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:46:45,312 [INFO] sync_agent: Cycle #316 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:46,312 [INFO] sync_agent: Cycle #317 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:46:47,309 [INFO] sync_agent: Cycle #318 [delta]: 7/7 patch, elapsed=97ms
+2026-09-15 09:46:47,738 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:47,738 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:47,739 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:47,743 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:47,744 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:48,311 [INFO] sync_agent: Cycle #319 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:49,324 [INFO] sync_agent: Cycle #320 [delta]: 7/7 patch, elapsed=112ms
+2026-09-15 09:46:50,313 [INFO] sync_agent: Cycle #321 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:46:51,318 [INFO] sync_agent: Cycle #322 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:46:51,641 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:51,641 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:51,641 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:51,645 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:51,646 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:52,313 [INFO] sync_agent: Cycle #323 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:46:53,325 [INFO] sync_agent: Cycle #324 [delta]: 7/7 patch, elapsed=111ms
+2026-09-15 09:46:54,312 [INFO] sync_agent: Cycle #325 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:46:55,312 [INFO] sync_agent: Cycle #326 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:46:55,926 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:46:55,926 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:46:55,926 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:46:55,931 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:46:55,931 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:46:56,314 [INFO] sync_agent: Cycle #327 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:46:57,313 [INFO] sync_agent: Cycle #328 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:46:58,312 [INFO] sync_agent: Cycle #329 [delta]: 7/7 patch, elapsed=97ms
+2026-09-15 09:46:59,314 [INFO] sync_agent: Cycle #330 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:00,075 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:00,075 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:00,075 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:00,079 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:00,079 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:00,360 [INFO] sync_agent: Cycle #331 [RECONCILE]: 16/16 patch, elapsed=145ms
+2026-09-15 09:47:01,314 [INFO] sync_agent: Cycle #332 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:02,312 [INFO] sync_agent: Cycle #333 [delta]: 7/7 patch, elapsed=97ms
+2026-09-15 09:47:03,314 [INFO] sync_agent: Cycle #334 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:03,496 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:03,496 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:03,497 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:03,501 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:03,501 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:04,318 [INFO] sync_agent: Cycle #335 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:05,319 [INFO] sync_agent: Cycle #336 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:47:06,320 [INFO] sync_agent: Cycle #337 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:47:07,325 [INFO] sync_agent: Cycle #338 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:47:07,400 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:07,400 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:07,400 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:07,407 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:07,407 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:08,315 [INFO] sync_agent: Cycle #339 [delta]: 7/7 patch, elapsed=98ms
+2026-09-15 09:47:09,318 [INFO] sync_agent: Cycle #340 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:47:10,316 [INFO] sync_agent: Cycle #341 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:11,316 [INFO] sync_agent: Cycle #342 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:11,491 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:11,491 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:11,491 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:11,496 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:11,497 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:12,319 [INFO] sync_agent: Cycle #343 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:13,321 [INFO] sync_agent: Cycle #344 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:47:14,319 [INFO] sync_agent: Cycle #345 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:47:15,317 [INFO] sync_agent: Cycle #346 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:15,571 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:15,571 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:15,571 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:15,577 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:15,577 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:16,318 [INFO] sync_agent: Cycle #347 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:17,318 [INFO] sync_agent: Cycle #348 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:18,316 [INFO] sync_agent: Cycle #349 [delta]: 7/7 patch, elapsed=97ms
+2026-09-15 09:47:19,319 [INFO] sync_agent: Cycle #350 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:19,356 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:19,356 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:19,356 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:19,360 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:19,360 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:20,333 [INFO] sync_agent: Cycle #351 [delta]: 7/7 patch, elapsed=114ms
+2026-09-15 09:47:21,328 [INFO] sync_agent: Cycle #352 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:47:22,330 [INFO] sync_agent: Cycle #353 [delta]: 7/7 patch, elapsed=111ms
+2026-09-15 09:47:23,341 [INFO] sync_agent: Cycle #354 [delta]: 7/7 patch, elapsed=121ms
+2026-09-15 09:47:24,094 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:24,094 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:24,094 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:24,100 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:24,100 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:24,327 [INFO] sync_agent: Cycle #355 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:47:25,332 [INFO] sync_agent: Cycle #356 [delta]: 7/7 patch, elapsed=111ms
+2026-09-15 09:47:26,320 [INFO] sync_agent: Cycle #357 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:27,325 [INFO] sync_agent: Cycle #358 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:47:27,834 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:27,834 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:27,835 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:27,838 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:27,838 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:28,329 [INFO] sync_agent: Cycle #359 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:47:29,334 [INFO] sync_agent: Cycle #360 [delta]: 7/7 patch, elapsed=112ms
+2026-09-15 09:47:30,373 [INFO] sync_agent: Cycle #361 [RECONCILE]: 16/16 patch, elapsed=151ms
+2026-09-15 09:47:31,324 [INFO] sync_agent: Cycle #362 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:32,061 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:32,061 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:32,061 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:32,065 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:32,066 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:32,323 [INFO] sync_agent: Cycle #363 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:47:33,336 [INFO] sync_agent: Cycle #364 [delta]: 7/7 patch, elapsed=114ms
+2026-09-15 09:47:34,340 [INFO] sync_agent: Cycle #365 [delta]: 7/7 patch, elapsed=117ms
+2026-09-15 09:47:35,323 [INFO] sync_agent: Cycle #366 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:35,826 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:35,826 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:35,826 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:35,830 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:35,831 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:36,339 [INFO] sync_agent: Cycle #367 [delta]: 7/7 patch, elapsed=116ms
+2026-09-15 09:47:37,333 [INFO] sync_agent: Cycle #368 [delta]: 7/7 patch, elapsed=110ms
+2026-09-15 09:47:38,323 [INFO] sync_agent: Cycle #369 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:39,328 [INFO] sync_agent: Cycle #370 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:47:39,762 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:39,763 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:39,763 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:39,767 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:39,768 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:40,325 [INFO] sync_agent: Cycle #371 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:41,332 [INFO] sync_agent: Cycle #372 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:47:42,324 [INFO] sync_agent: Cycle #373 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:43,327 [INFO] sync_agent: Cycle #374 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:47:44,210 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:44,210 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:44,210 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:44,215 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:44,215 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:44,327 [INFO] sync_agent: Cycle #375 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:45,334 [INFO] sync_agent: Cycle #376 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:47:46,347 [INFO] sync_agent: Cycle #377 [delta]: 7/7 patch, elapsed=121ms
+2026-09-15 09:47:47,327 [INFO] sync_agent: Cycle #378 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:47:47,696 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:47,696 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:47,697 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:47,702 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:47,702 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:48,325 [INFO] sync_agent: Cycle #379 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:47:49,328 [INFO] sync_agent: Cycle #380 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:50,326 [INFO] sync_agent: Cycle #381 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:51,333 [INFO] sync_agent: Cycle #382 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:47:51,606 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:51,606 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:51,606 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:51,611 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:51,612 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:52,328 [INFO] sync_agent: Cycle #383 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:47:53,332 [INFO] sync_agent: Cycle #384 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:47:54,327 [INFO] sync_agent: Cycle #385 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:55,328 [INFO] sync_agent: Cycle #386 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:47:55,670 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:47:55,670 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:47:55,670 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:47:55,674 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:47:55,674 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:47:56,330 [INFO] sync_agent: Cycle #387 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:47:57,332 [INFO] sync_agent: Cycle #388 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:47:58,334 [INFO] sync_agent: Cycle #389 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:47:59,349 [INFO] sync_agent: Cycle #390 [delta]: 7/7 patch, elapsed=120ms
+2026-09-15 09:48:00,124 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:00,124 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:00,124 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:00,127 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:00,127 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:00,378 [INFO] sync_agent: Cycle #391 [RECONCILE]: 16/16 patch, elapsed=149ms
+2026-09-15 09:48:01,334 [INFO] sync_agent: Cycle #392 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:48:02,329 [INFO] sync_agent: Cycle #393 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:48:03,332 [INFO] sync_agent: Cycle #394 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:48:03,645 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:03,645 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:03,646 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:03,649 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:03,649 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:04,333 [INFO] sync_agent: Cycle #395 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:48:05,333 [INFO] sync_agent: Cycle #396 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:48:06,337 [INFO] sync_agent: Cycle #397 [delta]: 7/7 patch, elapsed=106ms
+2026-09-15 09:48:07,332 [INFO] sync_agent: Cycle #398 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:07,510 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:07,510 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:07,510 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:07,516 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:07,516 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:08,333 [INFO] sync_agent: Cycle #399 [delta]: 7/7 patch, elapsed=103ms
+2026-09-15 09:48:09,332 [INFO] sync_agent: Cycle #400 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:10,333 [INFO] sync_agent: Cycle #401 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:11,330 [INFO] sync_agent: Cycle #402 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:48:11,484 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:11,484 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:11,484 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:11,490 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:11,490 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:12,333 [INFO] sync_agent: Cycle #403 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:48:13,344 [INFO] sync_agent: Cycle #404 [delta]: 7/7 patch, elapsed=112ms
+2026-09-15 09:48:14,336 [INFO] sync_agent: Cycle #405 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:48:15,336 [INFO] sync_agent: Cycle #406 [delta]: 7/7 patch, elapsed=104ms
+2026-09-15 09:48:15,373 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:15,374 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:15,374 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:15,378 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:15,378 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:16,339 [INFO] sync_agent: Cycle #407 [delta]: 7/7 patch, elapsed=107ms
+2026-09-15 09:48:17,335 [INFO] sync_agent: Cycle #408 [delta]: 7/7 patch, elapsed=102ms
+2026-09-15 09:48:18,333 [INFO] sync_agent: Cycle #409 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:48:19,333 [INFO] sync_agent: Cycle #410 [delta]: 7/7 patch, elapsed=99ms
+2026-09-15 09:48:19,702 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:19,702 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:19,702 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:19,707 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:19,707 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:20,334 [INFO] sync_agent: Cycle #411 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:21,341 [INFO] sync_agent: Cycle #412 [delta]: 7/7 patch, elapsed=108ms
+2026-09-15 09:48:21,365 [WARNING] command_agent: Message KHÔNG có correlation-id -> không dedup được.
+2026-09-15 09:48:21,365 [INFO] command_agent: NHẬN LỆNH [None] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:21,365 [INFO] command_agent: LOCK_WAIT [None] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:21,370 [INFO] command_agent: THỰC THI [None] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:21,371 [WARNING] command_agent: Message không có correlation-id -> không gửi được response
+2026-09-15 09:48:22,335 [INFO] sync_agent: Cycle #413 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:23,329 [INFO] sync_agent: Cycle #414 [delta]: 5/5 patch, elapsed=94ms
+2026-09-15 09:48:24,325 [INFO] sync_agent: Cycle #415 [delta]: 5/5 patch, elapsed=91ms
+2026-09-15 09:48:25,340 [INFO] sync_agent: Cycle #416 [delta]: 7/7 patch, elapsed=105ms
+2026-09-15 09:48:25,346 [INFO] command_agent: NHẬN LỆNH [89f70166-1a0c-4111-b611-cbe4d1446403] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:25,346 [INFO] command_agent: LOCK_WAIT [89f70166-1a0c-4111-b611-cbe4d1446403] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:25,349 [INFO] command_agent: THỰC THI [89f70166-1a0c-4111-b611-cbe4d1446403] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:26,335 [INFO] sync_agent: Cycle #417 [delta]: 7/7 patch, elapsed=100ms
+2026-09-15 09:48:27,324 [INFO] sync_agent: Cycle #418 [delta]: 5/5 patch, elapsed=89ms
+2026-09-15 09:48:28,330 [INFO] sync_agent: Cycle #419 [delta]: 5/5 patch, elapsed=95ms
+2026-09-15 09:48:29,337 [INFO] sync_agent: Cycle #420 [delta]: 7/7 patch, elapsed=101ms
+2026-09-15 09:48:29,592 [INFO] command_agent: NHẬN LỆNH [59a2a127-1c86-4eed-a0af-a89b9c0f8261] rebootEverything target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:29,592 [WARNING] command_agent: TỪ CHỐI [59a2a127-1c86-4eed-a0af-a89b9c0f8261]: unknown command: rebootEverything
+2026-09-15 09:48:29,626 [INFO] command_agent: NHẬN LỆNH [f63e2907-e8c8-4c9e-af74-f19c929ca2c5] setBandwidth target=org.dt4n.core:link-s2-s3 params={'bw': '$(rm -rf /)'}
+2026-09-15 09:48:29,627 [INFO] command_agent: LOCK_WAIT [f63e2907-e8c8-4c9e-af74-f19c929ca2c5] setBandwidth target=org.dt4n.core:link-s2-s3 0ms
+2026-09-15 09:48:29,627 [INFO] command_agent: TỪ CHỐI [f63e2907-e8c8-4c9e-af74-f19c929ca2c5] setBandwidth target=org.dt4n.core:link-s2-s3 -> bw must be a number, got '$(rm -rf /)'
+2026-09-15 09:48:29,661 [INFO] command_agent: NHẬN LỆNH [7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] disableLink target=org.dt4n.core:link-xx-yy params={}
+2026-09-15 09:48:29,661 [INFO] command_agent: LOCK_WAIT [7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] disableLink target=org.dt4n.core:link-xx-yy 0ms
+2026-09-15 09:48:29,661 [INFO] command_agent: TỪ CHỐI [7da4bb5b-3030-4ec5-b13b-7f9d6af1d1bc] disableLink target=org.dt4n.core:link-xx-yy -> target not found: org.dt4n.core:link-xx-yy
+2026-09-15 09:48:29,695 [INFO] command_agent: NHẬN LỆNH [2fd0110c-0580-40e7-ad9d-25d753687322] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:29,695 [INFO] command_agent: LOCK_WAIT [2fd0110c-0580-40e7-ad9d-25d753687322] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:29,700 [INFO] command_agent: THỰC THI [2fd0110c-0580-40e7-ad9d-25d753687322] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:29,724 [INFO] command_agent: NHẬN LỆNH [c96d96a9-9f5c-44cc-a93f-12a21e676bac] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:29,724 [INFO] command_agent: LOCK_WAIT [c96d96a9-9f5c-44cc-a93f-12a21e676bac] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:29,727 [INFO] command_agent: THỰC THI [c96d96a9-9f5c-44cc-a93f-12a21e676bac] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:29,754 [INFO] command_agent: NHẬN LỆNH [5e413c70-817d-4b27-b02d-52fd7a9cde9c] disableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:29,754 [INFO] command_agent: LOCK_WAIT [5e413c70-817d-4b27-b02d-52fd7a9cde9c] disableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:29,757 [INFO] command_agent: THỰC THI [5e413c70-817d-4b27-b02d-52fd7a9cde9c] disableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> down
+2026-09-15 09:48:29,784 [INFO] command_agent: NHẬN LỆNH [7b28930f-b4b2-451e-8e75-c57c636a402f] enableLink target=org.dt4n.core:link-h1-s1 params={}
+2026-09-15 09:48:29,785 [INFO] command_agent: LOCK_WAIT [7b28930f-b4b2-451e-8e75-c57c636a402f] enableLink target=org.dt4n.core:link-h1-s1 0ms
+2026-09-15 09:48:29,787 [INFO] command_agent: THỰC THI [7b28930f-b4b2-451e-8e75-c57c636a402f] enableLink target=org.dt4n.core:link-h1-s1 -> link h1-s1 -> up
+2026-09-15 09:48:29,863 [INFO] sync_agent: Sync Agent dừng sau 420 chu kỳ.
+2026-09-15 09:48:30,793 [INFO] command_agent: Command Agent dừng.
+2026-09-15 09:48:30,794 [INFO] env_runner: EnvRunner.close(): stopping Mininet
+2026-09-15 09:48:30,794 [INFO] mininet: *** Tắt mạng
+
+2026-09-15 09:48:31,146 [INFO] mininet: *** Stopping 1 controllers
+
+2026-09-15 09:48:31,146 [INFO] mininet: c0 
+2026-09-15 09:48:31,146 [INFO] mininet: 
+
+2026-09-15 09:48:31,146 [INFO] mininet: *** Stopping 8 links
+
+2026-09-15 09:48:31,146 [INFO] mininet: .
+2026-09-15 09:48:31,162 [INFO] mininet: .
+2026-09-15 09:48:31,179 [INFO] mininet: .
+2026-09-15 09:48:31,197 [INFO] mininet: .
+2026-09-15 09:48:31,215 [INFO] mininet: .
+2026-09-15 09:48:31,234 [INFO] mininet: .
+2026-09-15 09:48:31,255 [INFO] mininet: .
+2026-09-15 09:48:31,276 [INFO] mininet: .
+2026-09-15 09:48:31,294 [INFO] mininet: 
+
+2026-09-15 09:48:31,294 [INFO] mininet: *** Stopping 3 switches
+
+2026-09-15 09:48:31,403 [INFO] mininet: s1 
+2026-09-15 09:48:31,404 [INFO] mininet: s2 
+2026-09-15 09:48:31,404 [INFO] mininet: s3 
+2026-09-15 09:48:31,404 [INFO] mininet: 
+
+2026-09-15 09:48:31,404 [INFO] mininet: *** Stopping 5 hosts
+
+2026-09-15 09:48:31,404 [INFO] mininet: h1 
+2026-09-15 09:48:31,404 [INFO] mininet: h2 
+2026-09-15 09:48:31,405 [INFO] mininet: h3 
+2026-09-15 09:48:31,405 [INFO] mininet: srv1 
+2026-09-15 09:48:31,405 [INFO] mininet: srv2 
+2026-09-15 09:48:31,405 [INFO] mininet: 
+*** Done
+

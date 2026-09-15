@@ -1,0 +1,263 @@
+*** Creating network
+*** Adding hosts:
+h1 h2 h3 srv1 srv2 
+*** Adding switches:
+s1 s2 s3 
+*** Adding links:
+(20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay 0.00000% loss) (h1, s1) (20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay 0.00000% loss) (h2, s1) (20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay 0.00000% loss) (h3, s1) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (s1, s2) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (s1, s3) (5.00Mbit 2ms delay) (5.00Mbit 2ms delay) (s2, s3) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (srv1, s2) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (srv2, s3) 
+*** Configuring hosts
+h1 h2 h3 srv1 srv2 
+*** Bật mạng (tạo namespace, dựng switch, nối link)
+*** Starting controller
+c0 
+*** Starting 3 switches
+s1 s2 s3 ...(20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay 0.00000% loss) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (5.00Mbit 2ms delay) (20.00Mbit 2ms delay) (20.00Mbit 2ms delay) (5.00Mbit 2ms delay) (20.00Mbit 2ms delay) 
+*** Waiting for switches to connect
+s1 s2 s3 
+*** Ghi port map runtime -> ditto/port_map.json
+*** Controller static hội tụ sau 0.05s
+*** Node: c0, h1, h2, h3, s1, s2, s3, srv1, srv2
+*** pingAll kiểm tra thông mạng
+*** Ping: testing ping reachability
+h1 -> h2 h3 srv1 srv2 
+h2 -> h1 h3 srv1 srv2 
+h3 -> h1 h2 srv1 srv2 
+srv1 -> h1 h2 h3 srv2 
+srv2 -> h1 h2 h3 srv1 
+*** Results: 0% dropped (20/20 received)
+*** pingAll packet loss = 0%
+*** Bootstrap Things lên Ditto
+*** Khởi động Sync Agent (thread nền)
+*** Khởi động Command Agent (thread nền) — nghe lệnh chiều xuống
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.core:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.core:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.core:controller đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 18 bỏ qua, tổng 18 Thing ===
+START dataset normal
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> logs/ml_normal_v2.jsonl (overwrite)
+[collector] Pretty log -> logs/ml_normal_v2.log (overwrite)
+[collector] snapshot #001 2026-09-15T09:41:38Z
+[collector] snapshot #002 2026-09-15T09:41:39Z
+[collector] snapshot #003 2026-09-15T09:41:40Z
+[collector] snapshot #004 2026-09-15T09:41:41Z
+[collector] snapshot #005 2026-09-15T09:41:42Z
+[collector] snapshot #006 2026-09-15T09:41:43Z
+[collector] snapshot #007 2026-09-15T09:41:44Z
+[collector] snapshot #008 2026-09-15T09:41:45Z
+[collector] snapshot #009 2026-09-15T09:41:46Z
+[collector] snapshot #010 2026-09-15T09:41:47Z
+[collector] snapshot #011 2026-09-15T09:41:48Z
+[collector] snapshot #012 2026-09-15T09:41:49Z
+[collector] snapshot #013 2026-09-15T09:41:50Z
+[collector] snapshot #014 2026-09-15T09:41:51Z
+[collector] snapshot #015 2026-09-15T09:41:52Z
+[collector] snapshot #016 2026-09-15T09:41:53Z
+[collector] snapshot #017 2026-09-15T09:41:54Z
+[collector] snapshot #018 2026-09-15T09:41:55Z
+[collector] snapshot #019 2026-09-15T09:41:56Z
+[collector] snapshot #020 2026-09-15T09:41:57Z
+[collector] snapshot #021 2026-09-15T09:41:58Z
+[collector] snapshot #022 2026-09-15T09:41:59Z
+[collector] snapshot #023 2026-09-15T09:42:00Z
+[collector] snapshot #024 2026-09-15T09:42:01Z
+[collector] snapshot #025 2026-09-15T09:42:02Z
+[collector] snapshot #026 2026-09-15T09:42:03Z
+[collector] snapshot #027 2026-09-15T09:42:04Z
+[collector] snapshot #028 2026-09-15T09:42:05Z
+[collector] snapshot #029 2026-09-15T09:42:06Z
+[collector] snapshot #030 2026-09-15T09:42:07Z
+[collector] snapshot #031 2026-09-15T09:42:08Z
+[collector] snapshot #032 2026-09-15T09:42:09Z
+[collector] snapshot #033 2026-09-15T09:42:10Z
+[collector] snapshot #034 2026-09-15T09:42:11Z
+[collector] snapshot #035 2026-09-15T09:42:12Z
+[collector] snapshot #036 2026-09-15T09:42:13Z
+[collector] snapshot #037 2026-09-15T09:42:14Z
+[collector] snapshot #038 2026-09-15T09:42:15Z
+[collector] snapshot #039 2026-09-15T09:42:16Z
+[collector] snapshot #040 2026-09-15T09:42:17Z
+[collector] snapshot #041 2026-09-15T09:42:18Z
+[collector] snapshot #042 2026-09-15T09:42:19Z
+[collector] snapshot #043 2026-09-15T09:42:20Z
+[collector] snapshot #044 2026-09-15T09:42:21Z
+[collector] snapshot #045 2026-09-15T09:42:22Z
+[collector] snapshot #046 2026-09-15T09:42:23Z
+[collector] snapshot #047 2026-09-15T09:42:24Z
+[collector] snapshot #048 2026-09-15T09:42:25Z
+[collector] snapshot #049 2026-09-15T09:42:26Z
+[collector] snapshot #050 2026-09-15T09:42:27Z
+[collector] snapshot #051 2026-09-15T09:42:28Z
+[collector] snapshot #052 2026-09-15T09:42:29Z
+[collector] snapshot #053 2026-09-15T09:42:30Z
+[collector] snapshot #054 2026-09-15T09:42:31Z
+[collector] snapshot #055 2026-09-15T09:42:32Z
+[collector] snapshot #056 2026-09-15T09:42:33Z
+[collector] snapshot #057 2026-09-15T09:42:34Z
+[collector] snapshot #058 2026-09-15T09:42:35Z
+[collector] snapshot #059 2026-09-15T09:42:36Z
+[collector] snapshot #060 2026-09-15T09:42:37Z
+[collector] kết thúc. Đã ghi 60 snapshot -> logs/ml_normal_v2.jsonl
+[collector] log dễ đọc -> logs/ml_normal_v2.log
+[traffic] đã dừng các iperf server
+DONE dataset normal
+START dataset flood
+[traffic] đã dừng các iperf server
+[traffic] iperf server (UDP) bật nền trên srv1
+[traffic] iperf server (UDP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] FLOOD: h1 -> srv1 UDP @50M per client
+[traffic] FLOOD: h2 -> srv2 UDP @50M per client
+[traffic] FLOOD: h3 -> srv1 UDP @50M per client
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> logs/ml_flood_v2.jsonl (overwrite)
+[collector] Pretty log -> logs/ml_flood_v2.log (overwrite)
+[collector] snapshot #001 2026-09-15T09:42:44Z
+[collector] snapshot #002 2026-09-15T09:42:45Z
+[collector] snapshot #003 2026-09-15T09:42:46Z
+[collector] snapshot #004 2026-09-15T09:42:47Z
+[collector] snapshot #005 2026-09-15T09:42:48Z
+[collector] snapshot #006 2026-09-15T09:42:49Z
+[collector] snapshot #007 2026-09-15T09:42:50Z
+[collector] snapshot #008 2026-09-15T09:42:51Z
+[collector] snapshot #009 2026-09-15T09:42:52Z
+[collector] snapshot #010 2026-09-15T09:42:53Z
+[collector] snapshot #011 2026-09-15T09:42:54Z
+[collector] snapshot #012 2026-09-15T09:42:55Z
+[collector] snapshot #013 2026-09-15T09:42:56Z
+[collector] snapshot #014 2026-09-15T09:42:57Z
+[collector] snapshot #015 2026-09-15T09:42:58Z
+[collector] snapshot #016 2026-09-15T09:42:59Z
+[collector] snapshot #017 2026-09-15T09:43:00Z
+[collector] snapshot #018 2026-09-15T09:43:01Z
+[collector] snapshot #019 2026-09-15T09:43:02Z
+[collector] snapshot #020 2026-09-15T09:43:03Z
+[collector] snapshot #021 2026-09-15T09:43:04Z
+[collector] snapshot #022 2026-09-15T09:43:05Z
+[collector] snapshot #023 2026-09-15T09:43:06Z
+[collector] snapshot #024 2026-09-15T09:43:07Z
+[collector] snapshot #025 2026-09-15T09:43:08Z
+[collector] snapshot #026 2026-09-15T09:43:09Z
+[collector] snapshot #027 2026-09-15T09:43:10Z
+[collector] snapshot #028 2026-09-15T09:43:11Z
+[collector] snapshot #029 2026-09-15T09:43:12Z
+[collector] snapshot #030 2026-09-15T09:43:13Z
+[collector] snapshot #031 2026-09-15T09:43:14Z
+[collector] snapshot #032 2026-09-15T09:43:15Z
+[collector] snapshot #033 2026-09-15T09:43:16Z
+[collector] snapshot #034 2026-09-15T09:43:17Z
+[collector] snapshot #035 2026-09-15T09:43:18Z
+[collector] snapshot #036 2026-09-15T09:43:19Z
+[collector] snapshot #037 2026-09-15T09:43:20Z
+[collector] snapshot #038 2026-09-15T09:43:21Z
+[collector] snapshot #039 2026-09-15T09:43:22Z
+[collector] snapshot #040 2026-09-15T09:43:23Z
+[collector] snapshot #041 2026-09-15T09:43:24Z
+[collector] snapshot #042 2026-09-15T09:43:25Z
+[collector] snapshot #043 2026-09-15T09:43:26Z
+[collector] snapshot #044 2026-09-15T09:43:27Z
+[collector] snapshot #045 2026-09-15T09:43:28Z
+[collector] snapshot #046 2026-09-15T09:43:29Z
+[collector] snapshot #047 2026-09-15T09:43:30Z
+[collector] snapshot #048 2026-09-15T09:43:31Z
+[collector] snapshot #049 2026-09-15T09:43:32Z
+[collector] snapshot #050 2026-09-15T09:43:33Z
+[collector] snapshot #051 2026-09-15T09:43:34Z
+[collector] snapshot #052 2026-09-15T09:43:35Z
+[collector] snapshot #053 2026-09-15T09:43:36Z
+[collector] snapshot #054 2026-09-15T09:43:37Z
+[collector] snapshot #055 2026-09-15T09:43:38Z
+[collector] snapshot #056 2026-09-15T09:43:39Z
+[collector] snapshot #057 2026-09-15T09:43:40Z
+[collector] snapshot #058 2026-09-15T09:43:41Z
+[collector] snapshot #059 2026-09-15T09:43:42Z
+[collector] snapshot #060 2026-09-15T09:43:43Z
+[collector] kết thúc. Đã ghi 60 snapshot -> logs/ml_flood_v2.jsonl
+[collector] log dễ đọc -> logs/ml_flood_v2.log
+[traffic] đã dừng các iperf server
+DONE dataset flood
+START injection while sync active
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> logs/ml_injection_v2.jsonl (overwrite)
+[collector] snapshot #001 2026-09-15T09:43:47Z
+[collector] snapshot #002 2026-09-15T09:43:48Z
+[collector] snapshot #003 2026-09-15T09:43:49Z
+[collector] snapshot #004 2026-09-15T09:43:50Z
+[collector] snapshot #005 2026-09-15T09:43:51Z
+[collector] snapshot #006 2026-09-15T09:43:52Z
+[collector] snapshot #007 2026-09-15T09:43:53Z
+[collector] snapshot #008 2026-09-15T09:43:54Z
+[collector] snapshot #009 2026-09-15T09:43:55Z
+[collector] snapshot #010 2026-09-15T09:43:56Z
+[collector] snapshot #011 2026-09-15T09:43:57Z
+[collector] snapshot #012 2026-09-15T09:43:58Z
+[collector] snapshot #013 2026-09-15T09:43:59Z
+[collector] snapshot #014 2026-09-15T09:44:00Z
+[collector] snapshot #015 2026-09-15T09:44:01Z
+[collector] snapshot #016 2026-09-15T09:44:02Z
+[collector] snapshot #017 2026-09-15T09:44:03Z
+[collector] snapshot #018 2026-09-15T09:44:04Z
+[collector] snapshot #019 2026-09-15T09:44:05Z
+[collector] snapshot #020 2026-09-15T09:44:06Z
+[collector] snapshot #021 2026-09-15T09:44:07Z
+[collector] snapshot #022 2026-09-15T09:44:08Z
+[collector] snapshot #023 2026-09-15T09:44:09Z
+[collector] snapshot #024 2026-09-15T09:44:10Z
+[collector] snapshot #025 2026-09-15T09:44:11Z
+[collector] snapshot #026 2026-09-15T09:44:12Z
+[collector] snapshot #027 2026-09-15T09:44:13Z
+[collector] snapshot #028 2026-09-15T09:44:14Z
+[collector] snapshot #029 2026-09-15T09:44:15Z
+[collector] snapshot #030 2026-09-15T09:44:16Z
+[collector] kết thúc. Đã ghi 30 snapshot -> logs/ml_injection_v2.jsonl
+[traffic] đã dừng các iperf server
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+START latency_up_randomized
+DONE latency_up_randomized
+START latency_command_randomized
+DONE latency_command_randomized
+START timeout=3 probe
+*** Tắt mạng
+*** Stopping 1 controllers
+c0 
+*** Stopping 8 links
+........
+*** Stopping 3 switches
+s1 s2 s3 
+*** Stopping 5 hosts
+h1 h2 h3 srv1 srv2 
+*** Done
+ALL DONE

@@ -1,0 +1,8 @@
+{
+  "clean_export_tests": "29 passed, 4 skipped, 0 failed",
+  "clean_export_openapi_absent": true,
+  "clean_export_compose_exit_code": 0,
+  "nginx_config_test": "successful against existing Ditto network, without starting a second stack",
+  "test_log": "/tmp/dt4n-core-clean-export-tests.log",
+  "nginx_log": "/tmp/dt4n-core-clean-nginx-test.log"
+}

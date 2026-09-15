@@ -222,27 +222,6 @@ services:
       options:
         max-size: 10m
         
-  swagger-ui:
-    image: docker.io/swaggerapi/swagger-ui:v5.9.1
-    profiles:
-      - docs
-    deploy:
-      resources:
-        limits:
-          memory: 32m
-    restart: always
-    environment:
-      - QUERY_CONFIG_ENABLED=true
-    volumes:
-       - ./static/openapi:/usr/share/nginx/html/openapi:ro
-       - ./static/images:/usr/share/nginx/html/images:ro
-       - ./swagger3-index.html:/usr/share/nginx/html/index.html:ro
-       - ./swagger-oidc.js:/usr/share/nginx/html/swagger-oidc.js:ro
-    command: nginx -g 'daemon off;'  
-    logging:
-      options:
-        max-size: 10m
-        
   nginx:
     image: docker.io/nginx:1.27-alpine
     deploy:
