@@ -118,6 +118,8 @@ class EnvRunner:
         info('*** Bootstrap Things lên Ditto\n')
         with open(self.policy_path, encoding='utf-8') as f:
             policy = json.load(f)
+        from bridge.ditto_common import POLICY_ID
+        policy['policyId'] = POLICY_ID
         bootstrap_all(entities_from_net(self.net), policy, mode='create')
 
         info('*** Khởi động Sync Agent (thread nền)\n')
