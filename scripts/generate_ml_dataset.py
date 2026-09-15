@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT))
 
 from ml import campaign as C
 import traceback
+import re
 import uuid
 
 
@@ -163,6 +164,12 @@ def execute_run(env, record, contract, design_sha):
     finished = utc_now()
     snapshots = C.read_snapshots(paths['partial'])
     checks = C.verify_run(record, constants, snapshots, events)
+    checks.setdefault('failed_gates', [])
+    checks['runtime_error_count'] = len(re.findall(r'\b(?:ERROR|CRITICAL)\b|Traceback',paths['log'].read_text()))
+    checks['runtime_log_ok'] = checks['runtime_error_count'] == 0
+    if not checks['runtime_log_ok']:
+        checks['passed'] = False
+        checks['failed_gates'].append('runtime_log_ok')
 
     if collection_error:
         checks['passed'] = False
