@@ -1,3 +1,5 @@
+import json
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -143,3 +145,46 @@ def test_noise_control_is_deterministic_and_near_registered_q():
     b = F.noise_control(464, 590, 72, seed=0)
     assert a['n_alarm'] == b['n_alarm']
     assert 0 <= a['alarm_rate'] < .1
+
+
+def test_train_matrix_drops_one_delta_row_per_run():
+    columns = ['x', 'd1.x']
+    base = pd.DataFrame({'run_id': ['a'] * 3 + ['b'] * 3, 'tick': [1,2,3] * 2,
+                         'config_id': ['c'] * 6, 'x': range(6)})
+    values, labels = F.train_matrix(base, columns)
+    assert len(values) == len(labels) == 4
+
+
+def test_final_thresholds_freezes_every_requested_cell():
+    values = frame(300)
+    out = F.final_thresholds(values, seeds=(0, 1), quantiles=(.01,),
+                             max_samples_list=(256,))
+    assert set(out['256']) == {'0', '1'}
+    assert set(out['256']['0']['threshold_by_q']) == {'0.01'}
+
+
+def test_tail_ownership_identifies_config_in_lower_tail():
+    values = frame(300)
+    labels = pd.DataFrame({'run_id': ['r'] * 300, 'tick': range(300),
+                           'config_id': ['normal'] * 150 + ['vary'] * 150})
+    result = F.tail_ownership(values, labels, seed=0, q=.01)
+    assert result['n_below_threshold'] > 0
+    assert result['tail_dominated_by'] in {'normal', 'vary'}
+    json.dumps(result)
+
+
+def test_dynamics_profile_measures_varying_delta_extrapolation():
+    values = pd.DataFrame({'x': [1.] * 8, 'd1.x': [.1] * 4 + [10.] * 4})
+    labels = pd.DataFrame({'run_id':['r']*8, 'tick':range(8),
+                           'config_id':['normal|1']*4 + ['normal_varying|vary']*4})
+    result = F.dynamics_profile(values, labels)
+    assert result['dynamics_extrapolation_factor'] == 100.
+
+
+def test_final_threshold_matches_direct_recalculation():
+    values = frame(300)
+    frozen = F.final_thresholds(values, seeds=(0,), quantiles=(.01,),
+                                max_samples_list=(256,))['256']['0']
+    model = F.fit(values, seed=0, max_samples=256)
+    direct = F.threshold_from_train(F.score(model, values).score, .01)
+    assert frozen['threshold_by_q']['0.01'] == direct

@@ -24,6 +24,7 @@ TICKS_OUT = REPORT / 'phase6_iforest_ticks.csv'
 SCORE_PLOT = REPORT / 'phase6_iforest_scores.png'
 DIST_PLOT = REPORT / 'phase6_iforest_score_dist.png'
 LEDGER = REPORT / 'phase6_hypothesis_ledger.json'
+LEDGER_2 = REPORT / 'phase6_hypothesis_ledger_2.json'
 MANIFEST = REPORT / 'ml_dataset_split_manifest.json'
 PREREG = REPORT / 'phase6_prereg.json'
 CODE = [C.ROOT / 'ml/detectors/iforest.py',
@@ -86,6 +87,18 @@ def verify_ledger():
     return ledger
 
 
+def verify_ledger_2():
+    ledger = _read(LEDGER_2)
+    if _hash(ledger['content']) != ledger['ledger_content_sha256']:
+        raise RuntimeError('so quyet dinh 2 bi sua')
+    timing = ledger['content']['timing_and_knowledge']
+    if not timing['iforest_fitted_on_campaign_train']:
+        raise RuntimeError('so quyet dinh 2 phai duoc viet SAU khi co CV train-only')
+    if timing['iforest_campaign_test_scores_seen']:
+        raise RuntimeError('so quyet dinh 2 khai da thay so test: thu tu bi pha')
+    return ledger
+
+
 def frozen_columns_from_manifest():
     columns = F.frozen_columns(_read(MANIFEST)['feature_names'])
     leaked = [c for c in columns if any(marker in c for marker in INDICATOR_MARKERS)]
@@ -120,8 +133,14 @@ def stage_cv(*, seeds=None, quantiles=None):
     report = F.heldout_calibration(base, columns, seeds=seeds,
                                    quantiles=quantiles,
                                    max_samples=F.PRIMARY_MAX_SAMPLES)
-    full_train_values, _ = F._prepare(base, base.iloc[:0], columns)
-    n_train_effective = len(full_train_values.dropna(axis=0, how='any'))
+    train_values, train_labels = F.train_matrix(base, columns)
+    frozen = F.final_thresholds(train_values, seeds=seeds, quantiles=quantiles,
+                                max_samples_list=F.MAX_SAMPLES)
+    ownership = {str(seed): F.tail_ownership(
+        train_values, train_labels, seed=seed,
+        q=(F.PRIMARY_Q if F.PRIMARY_Q in quantiles else quantiles[0]))
+        for seed in seeds}
+    dynamics = F.dynamics_profile(train_values, train_labels)
     content = {
         'lesson': '6.4-cv', 'data': 'train normal only; no test rows loaded',
         'registered_config': config,
@@ -142,9 +161,11 @@ def stage_cv(*, seeds=None, quantiles=None):
             'change_type': 'gap-filling interpretation; no registered rule altered',
             'declared_before': 'any campaign IF fit and any test row load',
         },
-        'n_train_rows_after_nan_drop': n_train_effective,
-        'tail_samples_by_q': {str(q): F.effective_tail_samples(n_train_effective, q)
+        'n_train_rows_after_nan_drop': len(train_values),
+        'tail_samples_by_q': {str(q): F.effective_tail_samples(len(train_values), q)
                               for q in quantiles},
+        'final_thresholds': frozen, 'tail_ownership': ownership,
+        'dynamics_profile': dynamics,
         'code_sha256': code_fingerprint(), **report,
     }
     document = {'written_at_utc': datetime.now(timezone.utc).isoformat(timespec='seconds'),
@@ -261,7 +282,8 @@ def stage_test():
         return 1
     registration = verify_registration()
     verify_ledger()
-    assert_committed_clean([CV_OUT, LEDGER, *CODE])
+    ledger2 = verify_ledger_2()
+    assert_committed_clean([CV_OUT, LEDGER, LEDGER_2, *CODE])
     cv = _read(CV_OUT)
     if _hash(cv['content']) != cv['content_sha256']:
         raise RuntimeError('CV bi sua sau khi ky')
@@ -292,6 +314,11 @@ def stage_test():
         for seed in F.SEEDS:
             model = F.fit(X_train, seed=seed, max_samples=max_samples)
             train_scores = F.score(model, X_train)['score'].to_numpy()
+            frozen_row = cv['content']['final_thresholds'][str(max_samples)][str(seed)]
+            for q in F.QUANTILES:
+                recalculated = F.threshold_from_train(train_scores, q)
+                if recalculated != frozen_row['threshold_by_q'][str(q)]:
+                    raise RuntimeError('nguong tinh lai khac nguong da dong bang o CV')
             test_scores = F.score(model, X_test)
             by_q = {}; fired_primary = None
             for q in F.QUANTILES:
@@ -338,6 +365,7 @@ def stage_test():
     content = {
         'lesson': '6.4-test', 'cv_content_sha256': cv['content_sha256'],
         'ledger_content_sha256': _read(LEDGER)['ledger_content_sha256'],
+        'ledger_2_content_sha256': ledger2['ledger_content_sha256'],
         'prereg_content_sha256': registration['prereg']['prereg_content_sha256'],
         'code_sha256': code_fingerprint(), 'n_columns': len(columns),
         'configs': configs, 'noise_control': noise,

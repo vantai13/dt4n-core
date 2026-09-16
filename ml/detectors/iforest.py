@@ -244,3 +244,79 @@ def noise_control(n_train: int, n_test: int, n_features: int, *, seed: int,
             'n_alarm': int(fired.sum()), 'alarm_rate': float(fired.mean()),
             'alarm_flags': fired,
             'rng_rule': 'default_rng(%d+seed); draw train then test' % NOISE_RNG_BASE}
+
+
+def train_matrix(base: pd.DataFrame, columns: list[str]):
+    """Reproduce the final train matrix without loading any test row."""
+    aggregate, _ = add_aggregate_features(base, link_stats=None)
+    full = add_delta_features(aggregate, base_columns(columns))
+    values = matrix(full, columns)
+    keep = judgeable_mask(values)
+    labels = full.loc[keep, ['run_id', 'tick', 'config_id']].reset_index(drop=True)
+    return values[keep].reset_index(drop=True), labels
+
+
+def final_thresholds(train_values: pd.DataFrame, *, seeds=SEEDS,
+                     quantiles=QUANTILES, max_samples_list=MAX_SAMPLES) -> dict:
+    out = {}
+    for max_samples in max_samples_list:
+        per_seed = {}
+        for seed in seeds:
+            model = fit(train_values, seed=seed, max_samples=max_samples)
+            scores = score(model, train_values)['score'].to_numpy()
+            per_seed[str(seed)] = {
+                'threshold_by_q': {str(q): threshold_from_train(scores, q)
+                                   for q in quantiles},
+                'train_score': _distribution(scores),
+            }
+        out[str(max_samples)] = per_seed
+    return out
+
+
+def tail_ownership(train_values: pd.DataFrame, labels: pd.DataFrame, *, seed: int,
+                   max_samples=PRIMARY_MAX_SAMPLES, q: float = PRIMARY_Q) -> dict:
+    model = fit(train_values, seed=seed, max_samples=max_samples)
+    scores = score(model, train_values)['score'].to_numpy()
+    threshold = threshold_from_train(scores, q)
+    below = scores < threshold
+    share = labels['config_id'].value_counts(normalize=True).to_dict()
+    owners = labels.loc[below, 'config_id'].value_counts().to_dict()
+    bottom = labels.loc[below].copy()
+    bottom['score'] = scores[below]
+    return {
+        'seed': seed, 'q': q, 'threshold': threshold,
+        'n_train_rows': int(len(scores)), 'n_below_threshold': int(below.sum()),
+        'config_share_of_train': {str(k): round(float(v), 4) for k, v in share.items()},
+        'config_owning_tail': {str(k): int(v) for k, v in owners.items()},
+        'tail_dominated_by': str(max(owners, key=owners.get)) if owners else None,
+        'bottom_rows': [{'run_id': str(row['run_id']), 'tick': int(row['tick']),
+                         'config_id': str(row['config_id']), 'score': float(row['score'])}
+                        for row in bottom.sort_values('score').to_dict('records')],
+    }
+
+
+def dynamics_profile(train_values: pd.DataFrame, labels: pd.DataFrame) -> dict:
+    delta = [c for c in train_values if c.startswith('d1.')]
+    level = [c for c in train_values
+             if not c.startswith('d1.') and not c.startswith('agg.')]
+    magnitude = train_values[delta].abs().max(axis=1)
+    out = {}
+    for config, index in labels.groupby('config_id').groups.items():
+        rows = magnitude.loc[index]
+        levels = train_values.loc[index, level].max(axis=1)
+        out[str(config)] = {
+            'n_rows': int(len(rows)),
+            'max_abs_d1': {'median': float(rows.median()),
+                           'p95': float(rows.quantile(.95)), 'max': float(rows.max())},
+            'max_level': {'median': float(levels.median()), 'max': float(levels.max())},
+        }
+    reference = max((v['max_abs_d1']['p95'] for k, v in out.items()
+                     if 'vary' not in k), default=0.)
+    varying = [v['max_abs_d1']['p95'] for k, v in out.items() if 'vary' in k]
+    return {'by_config': out, 'p95_max_abs_d1_fixed_configs': reference,
+            'p95_max_abs_d1_varying_config': varying[0] if varying else None,
+            'dynamics_extrapolation_factor': (round(varying[0] / reference, 2)
+                                              if varying and reference else None),
+            'reading': ('factor >> 1 means the varying profile occupies a region of the '
+                        '36 d1 columns that fixed-load training rows never visit, so the '
+                        'vary fold is extrapolating in DYNAMICS, not only in LEVEL')}

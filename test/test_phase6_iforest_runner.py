@@ -92,6 +92,7 @@ def test_stage_test_refuses_reduced_grid_before_loading_test(tmp_path, monkeypat
     path.write_text(json.dumps({'content': content, 'content_sha256': R._hash(content)}))
     monkeypatch.setattr(R, 'CV_OUT', path)
     monkeypatch.setattr(R, 'assert_committed_clean', lambda paths: None)
+    monkeypatch.setattr(R, 'verify_ledger_2', lambda: {})
     with pytest.raises(RuntimeError, match='rut gon'):
         R.stage_test()
 
