@@ -25,6 +25,7 @@ import math
 import statistics
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from ml.labels import labels_from_events, LABEL_CONVENTION_COLLECTED as LABEL_CONVENTION
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT_PATH = ROOT / 'results/report/experiment_matrix.json'
@@ -602,24 +603,6 @@ def build_sidecar(record, constants, checks, events, provenance, design_sha,
         'finished_utc': finished_utc,
     }
 
-
-LABEL_CONVENTION = 'point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks'
-
-
-def labels_from_events(n_snapshots, events):
-    if not isinstance(n_snapshots,int) or n_snapshots < 0:
-        raise ValueError('invalid snapshot count')
-    labels = [0]*n_snapshots
-    if not events:
-        return labels
-    if len(events) != 2 or [e.get('kind') for e in events] != ['inject','revert']:
-        raise ValueError('labels require ordered inject and revert events')
-    inject,revert = (e.get('tick') for e in events)
-    if not isinstance(inject,int) or not isinstance(revert,int) or not 0 <= inject < revert < n_snapshots:
-        raise ValueError('event ticks outside snapshot sequence')
-    for tick in range(inject+1,revert+1):
-        labels[tick]=1
-    return labels
 
 
 def atomic_json(path, data):

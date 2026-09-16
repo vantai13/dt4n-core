@@ -1,0 +1,273 @@
+{
+  "lesson": "5.5-ground-truth",
+  "convention_id": "DT4N-L1",
+  "convention": "DT4N-L1 | intervention y[t]=1 iff inject_tick < t <= revert_tick; collector monotonic event/snapshot anchors; actuation may cross measurement boundaries. Primary: strict point-wise after warmup only. Sensitivity: exclude onset=10, recovery=2 ticks; grace never changes y. No point-adjust for primary evaluation.",
+  "convention_stamped_at_collection": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "clock_source": "collector t0_mono (time.monotonic tai luc bat dau ghi); event t_rel LA CHINH bien t_rel cua snapshot cung tick, duoc dong dau trong on_tick SAU khi snapshot da flush",
+  "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "contract_integrity": {
+    "stored": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "content": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "recomputed": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+    "match": true
+  },
+  "n_runs": 18,
+  "base_rate_primary": {
+    "mask": "eval_primary",
+    "splits": [
+      "test"
+    ],
+    "usable_test_ticks": 590,
+    "anomalous_test_ticks": 160,
+    "base_rate_measured": 0.2712,
+    "dumb_always_normal_accuracy": 0.7288,
+    "by_fault": {
+      "none": {
+        "usable": 118,
+        "anomalous": 0,
+        "runs": [
+          "C-load2M-s2001-r1",
+          "C-vary-s2002-r1"
+        ],
+        "base_rate": 0.0
+      },
+      "admin_down": {
+        "usable": 118,
+        "anomalous": 40,
+        "runs": [
+          "F-admin_down-s1-s2-s3001-r1",
+          "F-admin_down-s1-s3-s3002-r1"
+        ],
+        "base_rate": 0.339
+      },
+      "degrade": {
+        "usable": 118,
+        "anomalous": 40,
+        "runs": [
+          "F-degrade-s1-s2-s3003-r1",
+          "F-degrade-s2-s3-s3004-r1"
+        ],
+        "base_rate": 0.339
+      },
+      "flood": {
+        "usable": 118,
+        "anomalous": 40,
+        "runs": [
+          "F-flood-h1_to_srv1-s3005-r1",
+          "F-flood-h2_to_srv2-s3006-r1"
+        ],
+        "base_rate": 0.339
+      },
+      "shift": {
+        "usable": 118,
+        "anomalous": 40,
+        "runs": [
+          "F-shift-s1-s2-s3007-r1",
+          "F-shift-s1-s3-s3008-r1"
+        ],
+        "base_rate": 0.339
+      }
+    },
+    "per_run": {
+      "C-load2M-s2001-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 0,
+        "max_separation": null
+      },
+      "C-vary-s2002-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 0,
+        "max_separation": null
+      },
+      "F-admin_down-s1-s2-s3001-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 100.0
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 100.0
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 11.486
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 288.827
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 499.847
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 348.672
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 749.597
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 20,
+        "max_separation": 749.276
+      }
+    }
+  },
+  "base_rate_sensitivity": {
+    "mask": "eval_sensitivity",
+    "splits": [
+      "test"
+    ],
+    "usable_test_ticks": 494,
+    "anomalous_test_ticks": 80,
+    "base_rate_measured": 0.1619,
+    "dumb_always_normal_accuracy": 0.8381,
+    "by_fault": {
+      "none": {
+        "usable": 118,
+        "anomalous": 0,
+        "runs": [
+          "C-load2M-s2001-r1",
+          "C-vary-s2002-r1"
+        ],
+        "base_rate": 0.0
+      },
+      "admin_down": {
+        "usable": 94,
+        "anomalous": 20,
+        "runs": [
+          "F-admin_down-s1-s2-s3001-r1",
+          "F-admin_down-s1-s3-s3002-r1"
+        ],
+        "base_rate": 0.2128
+      },
+      "degrade": {
+        "usable": 94,
+        "anomalous": 20,
+        "runs": [
+          "F-degrade-s1-s2-s3003-r1",
+          "F-degrade-s2-s3-s3004-r1"
+        ],
+        "base_rate": 0.2128
+      },
+      "flood": {
+        "usable": 94,
+        "anomalous": 20,
+        "runs": [
+          "F-flood-h1_to_srv1-s3005-r1",
+          "F-flood-h2_to_srv2-s3006-r1"
+        ],
+        "base_rate": 0.2128
+      },
+      "shift": {
+        "usable": 94,
+        "anomalous": 20,
+        "runs": [
+          "F-shift-s1-s2-s3007-r1",
+          "F-shift-s1-s3-s3008-r1"
+        ],
+        "base_rate": 0.2128
+      }
+    },
+    "per_run": {
+      "C-load2M-s2001-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 0,
+        "max_separation": null
+      },
+      "C-vary-s2002-r1": {
+        "usable_ticks": 59,
+        "anomalous_ticks": 0,
+        "max_separation": null
+      },
+      "F-admin_down-s1-s2-s3001-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 100.0
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 100.0
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 11.486
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 288.827
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 499.847
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 348.672
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 749.597
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "usable_ticks": 47,
+        "anomalous_ticks": 10,
+        "max_separation": 749.276
+      }
+    }
+  },
+  "onset_delay_ticks": {
+    "F-admin_down-s1-s2-s3001-r1": 0,
+    "F-admin_down-s1-s3-s3002-r1": 0,
+    "F-degrade-s1-s2-s3003-r1": 0,
+    "F-degrade-s2-s3-s3004-r1": 10,
+    "F-flood-h1_to_srv1-s3005-r1": 0,
+    "F-flood-h2_to_srv2-s3006-r1": 1,
+    "F-shift-s1-s2-s3007-r1": 1,
+    "F-shift-s1-s3-s3008-r1": 1
+  },
+  "recovery_delay_ticks": {
+    "F-admin_down-s1-s2-s3001-r1": 0,
+    "F-admin_down-s1-s3-s3002-r1": 0,
+    "F-degrade-s1-s2-s3003-r1": 2,
+    "F-degrade-s2-s3-s3004-r1": 1,
+    "F-flood-h1_to_srv1-s3005-r1": 1,
+    "F-flood-h2_to_srv2-s3006-r1": 1,
+    "F-shift-s1-s2-s3007-r1": 1,
+    "F-shift-s1-s3-s3008-r1": 1
+  },
+  "onset_delay_max": 10,
+  "grace_onset_declared": 10,
+  "grace_recovery_declared": 2,
+  "gates": {
+    "source_provenance_verified": true,
+    "labels_length_matches_snapshots": true,
+    "clock_identity_proven": true,
+    "normal_runs_all_zero": true,
+    "fault_runs_window_exact": true,
+    "every_fault_run_has_witness": true,
+    "onset_measured_on_every_fault_run": true,
+    "onset_within_declared_grace": true,
+    "recovery_within_declared_grace": true,
+    "base_rate_matches_manifest": true,
+    "base_rate_in_10_to_40pct": true,
+    "test_has_control_runs": true,
+    "y_formula_unchanged_since_collection": true
+  },
+  "passed": true,
+  "interpretation": "Nhan la INTERVENTION LABEL: \"toi da gay loi trong khoang nay\". No KHONG bao dam loi gay hau qua do duoc — xem max_separation tung run de phan tich loi o Phase 6. Base rate ~27% la DO THIET KE; Precision phu thuoc base rate khi giu TPR/FPR co dinh; domain shift co the doi TPR/FPR. z=5 la nguong chan doan, khong phai kiem dinh 5-sigma."
+}

@@ -86,3 +86,6 @@ Test116 passed/4skipped; audit và missing giữ số. Đây là số thiết k�
 Audit: {'BO_QUA': 106, 'LOAI': 65, 'GIU': 34, 'CHAT_VAN': 18}; 2 cột state_up của link admin-down thay đổi. Loss thiếu raw 1.7593%; còn 8 ô sau warmup, giữ NaN/dòng và giải thích counter_reset. Không kết luận MNAR tổng quát. Ngưỡng đơn biến cũ của pilot không đạt:0feature cóauc_dist>0.5 trên nhãn point-wise gộp; chưa chứng minh hiệu quả detector.
 
 [Báo cáo và file kết quả](docs/phase-5/04-data-generation.md) · [Manifest](results/report/ml_dataset_manifest.json) · [Nghiệm thu](results/report/campaign_acceptance.json) · [Audit](results/report/campaign_feature_audit.csv) · [Missing](results/report/campaign_missing_analysis.json). Raw ở data/phase5/raw; backup local: /home/ubuntu/dt4n-core-phase5-raw-20260915.tar.gz, SHA và kiểm archive trong [receipt](results/report/campaign_raw_backup.json). Raw không được đưa vào GitHub theo quy tắc đã chốt.
+
+
+Lesson 5.5 hoàn thành: 13/13 gate; 18 run/1.080 nhãn; chính160/590=27,12%; độ nhạy80/494=16,19%. Onset tối đa10 tick, recovery tối đa2 tick; giữ kết quả grace2 không đạt và công thức y cũ. [Báo cáo](docs/phase-5/05-ground-truth.md), [JSON](results/report/ground_truth.json), [biểu đồ](results/report/label_overlay.png).

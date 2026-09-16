@@ -163,3 +163,6 @@ Kiểm chứng harness chuẩn bị Lesson5.4:
 18/18 run đạt, 1.080 snapshot; base rate test160/590=27,12%. 163testpassed/4skipped; 0ERROR/CRITICAL/Traceback trong18logaccepted. [Kết quả và cách chạy lại](docs/phase-5/04-data-generation.md), [manifest](results/report/ml_dataset_manifest.json), [audit](results/report/campaign_feature_audit.csv), [missing](results/report/campaign_missing_analysis.json).
 
 Raw được giữ local và có archive đã kiểm checksum18/18 theo [backup receipt](results/report/campaign_raw_backup.json); không nằm trong GitHub. Muốn audit/train từ clone cần khôi phục raw trước. Chưa đánh giá detector.
+
+
+Lesson 5.5 hoàn thành: 13/13 gate; 18 run/1.080 nhãn; chính160/590=27,12%; độ nhạy80/494=16,19%. Onset tối đa10 tick, recovery tối đa2 tick; giữ kết quả grace2 không đạt và công thức y cũ. [Báo cáo](docs/phase-5/05-ground-truth.md), [JSON](results/report/ground_truth.json), [biểu đồ](results/report/label_overlay.png).
