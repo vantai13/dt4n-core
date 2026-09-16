@@ -1,0 +1,150 @@
+{
+  "written_at_utc": "2026-09-16T15:33:10+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-COMPARISON-v1",
+    "status": "POST-FREEZE; NO REFIT; NO THRESHOLD CHANGE",
+    "uses_test_labels": true,
+    "follows_ledger_3_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
+    "bound_to": {
+      "envelope_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
+      "iforest_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283",
+      "hybrid_content_sha256": "4076a827781ee5b4508e7a51cd0d5cd81a4065957a6b1640e4011a0bd3a09c25",
+      "envelope_ticks_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
+      "iforest_ticks_sha256": "3ce467be857f3f65cbbc71d9a565f7e626838d3e7f779816e0808b1b5f8cbeed"
+    },
+    "n_rows": 590,
+    "hybrid_under_specification": {
+      "issue": "preregistered hybrid_or does not identify whether the envelope member is primary_k or secondary_excess",
+      "reporting_rule": "report both literal and secondary-excess readings",
+      "primary_secondary_labels_unchanged": true
+    },
+    "readings": {
+      "registered_secondary_excess_vs_iforest_seed0": {
+        "members": {
+          "A": "secondary_excess",
+          "B": "iforest_q01_seed0"
+        },
+        "positive_contribution": {
+          "n_positive_ticks": 160,
+          "both_detect": 0,
+          "a_only": 137,
+          "b_only": 0,
+          "both_miss": 23,
+          "jaccard": 0.0,
+          "jaccard_note": "intersection / union"
+        },
+        "by_fault": {
+          "admin_down": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 40,
+            "b_only": 0,
+            "both_miss": 0,
+            "jaccard": 0.0,
+            "jaccard_note": "intersection / union"
+          },
+          "degrade": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 19,
+            "b_only": 0,
+            "both_miss": 21,
+            "jaccard": 0.0,
+            "jaccard_note": "intersection / union"
+          },
+          "flood": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 40,
+            "b_only": 0,
+            "both_miss": 0,
+            "jaccard": 0.0,
+            "jaccard_note": "intersection / union"
+          },
+          "shift": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 38,
+            "b_only": 0,
+            "both_miss": 2,
+            "jaccard": 0.0,
+            "jaccard_note": "intersection / union"
+          }
+        },
+        "negative_alarm_overlap": {
+          "both_alarm": 5,
+          "a_only": 18,
+          "b_only": 5,
+          "neither": 402
+        }
+      },
+      "literal_primary_k_vs_iforest_seed0": {
+        "members": {
+          "A": "primary_k",
+          "B": "iforest_q01_seed0"
+        },
+        "positive_contribution": {
+          "n_positive_ticks": 160,
+          "both_detect": 0,
+          "a_only": 0,
+          "b_only": 0,
+          "both_miss": 160,
+          "jaccard": null,
+          "jaccard_note": "undefined: detected-set union is empty"
+        },
+        "by_fault": {
+          "admin_down": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 0,
+            "b_only": 0,
+            "both_miss": 40,
+            "jaccard": null,
+            "jaccard_note": "undefined: detected-set union is empty"
+          },
+          "degrade": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 0,
+            "b_only": 0,
+            "both_miss": 40,
+            "jaccard": null,
+            "jaccard_note": "undefined: detected-set union is empty"
+          },
+          "flood": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 0,
+            "b_only": 0,
+            "both_miss": 40,
+            "jaccard": null,
+            "jaccard_note": "undefined: detected-set union is empty"
+          },
+          "shift": {
+            "n_positive_ticks": 40,
+            "both_detect": 0,
+            "a_only": 0,
+            "b_only": 0,
+            "both_miss": 40,
+            "jaccard": null,
+            "jaccard_note": "undefined: detected-set union is empty"
+          }
+        },
+        "negative_alarm_overlap": {
+          "both_alarm": 0,
+          "a_only": 0,
+          "b_only": 10,
+          "neither": 420
+        }
+      }
+    },
+    "interpretation": {
+      "jaccard_zero_is_not_complementarity": "IF has zero unique positive ticks; complementarity requires useful unique contribution from both members",
+      "disjoint_feature_sets_are_not_sufficient": true,
+      "excess_if_unique_tp_seed0": 0,
+      "excess_if_added_fp_seed0": 5,
+      "literal_primary_if_union_positive_ticks_seed0": 0
+    }
+  },
+  "content_sha256": "46daa750adf5405c781e37d1f1c684c9e48582c3842843593e77d4c7badd3a96"
+}
