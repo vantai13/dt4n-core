@@ -1,0 +1,62 @@
+{
+  "data": "synthetic only; no campaign detector fitted",
+  "sklearn_version": "1.8.0",
+  "numpy_version": "2.5.3",
+  "n_train": 464,
+  "n_estimators": 200,
+  "seed": 0,
+  "test_loss_values": [
+    0.0,
+    1.0,
+    53.0,
+    1000000.0
+  ],
+  "constant": {
+    "scores": [
+      -0.3957514693481897,
+      -0.3957514693481897,
+      -0.3957514693481897,
+      -0.3957514693481897
+    ],
+    "predictions": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "trees_splitting_last_column": 0,
+    "train_sha256": "30c07f8203974492e1598bb90f4edf4fc479655b0fa1af052b6fc7e17908a02d"
+  },
+  "synthetic_noise_control": {
+    "scores": [
+      -0.3853471141905724,
+      -0.560529285867889,
+      -0.560529285867889,
+      -0.560529285867889
+    ],
+    "predictions": [
+      1,
+      -1,
+      -1,
+      -1
+    ],
+    "trees_splitting_last_column": 200,
+    "train_sha256": "c6b2ef9b88209711e2e2d4c2466f138c76d1f037df51bb67d550fd8a8a20fea4"
+  },
+  "envelope_test": {
+    "k": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "n_missing": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "constant_score_invariant": true,
+  "constant_never_split": true
+}

@@ -34,7 +34,7 @@ import pandas as pd
 from ml import campaign as C
 from ml import labels as L
 from ml.features import (add_aggregate_features, add_delta_features,
-                         add_rolling_features, select_features)
+                         add_rolling_features, select_features, envelope_alarm_threshold)
 from ml.flatten import load_jsonl
 from ml.missing import apply_policy, assert_no_fabricated_zero_in_loss
 
@@ -63,6 +63,10 @@ class Split:
     groups_train_config: pd.Series
     feature_names: list = field(default_factory=list)
     meta: dict = field(default_factory=dict)
+    envelope: dict = field(default_factory=dict)
+    envelope_threshold: dict = field(default_factory=dict)
+    X_train_envelope: pd.DataFrame | None = None
+    X_test_envelope: pd.DataFrame | None = None
 
 
 def config_id(record: dict) -> str:
@@ -182,6 +186,10 @@ def load_split(root: Path | None = None, *, use_rolling: bool = False,
     # T4: chọn feature CHỈ từ train, CHỈ bằng luật không nhãn
     sel = select_features(tr)
     feats = [c for c in sel['features'] if c not in LABEL_COLS]
+    env_cols = sorted(sel['envelope'])
+    threshold = envelope_alarm_threshold(tr, sel['envelope'], env_cols)
+    tr[env_cols] = tr[env_cols].apply(pd.to_numeric, errors='coerce').replace([float('inf'), -float('inf')], float('nan'))
+    te[env_cols] = te[env_cols].apply(pd.to_numeric, errors='coerce').replace([float('inf'), -float('inf')], float('nan'))
 
     # T2: feature thời gian — luôn groupby run_id, luôn shift
     tr = add_delta_features(tr, feats)
@@ -221,6 +229,14 @@ def load_split(root: Path | None = None, *, use_rolling: bool = False,
         'link_stats_n_columns': len(link_stats),
         'link_stats': link_stats,
         'feature_selection_dropped': sel['dropped'],
+        'dead_features': sel['dead'],
+        'n_dead_features': len(sel['dead']),
+        'n_envelope_columns': len(env_cols),
+        'n_envelope_only_columns': len(set(env_cols)-set(feats)),
+        'n_envelope_if_overlap': len(set(env_cols)&set(feats)),
+        'envelope_threshold': threshold,
+        'envelope_fit_train_rows': len(tr),
+        'if_blind_spot_note': 'Constant indicator families are envelope-only; variable raw columns overlap IF. Detector performance is unmeasured.',
         'test_row_keys': te[['run_id','tick']].to_dict('records'),
         'unjudgeable_rows': [dict(run_id=row.run_id, tick=int(row.tick), is_fault=int(row.is_fault), missing_features=[c for c in feats if pd.isna(row[c])]) for _,row in te.loc[te_nan].iterrows()],
         'use_rolling': use_rolling,
@@ -249,4 +265,5 @@ def load_split(root: Path | None = None, *, use_rolling: bool = False,
         y_test=te['is_fault'],
         eval_primary=te['eval_primary'], eval_sensitivity=te['eval_sensitivity'],
         groups_train_run=tr_ok['run_id'], groups_train_config=tr_ok['config_id'],
-        feature_names=feats, meta=meta)
+        feature_names=feats, meta=meta, envelope=sel['envelope'],
+        envelope_threshold=threshold, X_train_envelope=tr[env_cols], X_test_envelope=te[env_cols])

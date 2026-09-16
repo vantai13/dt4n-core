@@ -43,61 +43,91 @@ LOSS_ALERT_PCT = 1.0
 # =========================================================================
 # 1. CHỌN FEATURE — chỉ bằng luật không nhãn + thống kê TRAIN
 # =========================================================================
+FAULT_INDICATOR_SUFFIX = ('.lossPct', '.qdiscDropDelta', '.state_up',
+                          '.loss_max', '.loss_n_above_alert', '.links_down')
+
+
 def select_features(train_df: pd.DataFrame,
                     null_limit_pct: float = NULL_LIMIT_PCT_TRAIN) -> dict:
-    """Trả {'features': [...sorted...], 'dropped': {col: reason}, 'rules': {...}}.
+    """Choose IF columns and envelope bounds using structure and train only.
 
-    THAM SỐ CHỈ CÓ train_df — CÓ Ý. Không có đường nào truyền dữ liệu test
-    hay nhãn vào đây. Hàng rào nằm ở CHỮ KÝ HÀM, không ở lời nhắc trong docs.
-
-    Thứ tự luật là có ý (giống ml/audit.py): luật cấu trúc TRƯỚC luật số
-    liệu. Luật cấu trúc đúng với mọi dataset; luật số liệu chỉ đúng với
-    dataset đang xét, nên phải xếp sau và phải ghi rõ đo trên gì.
+    Constant fault indicators remain visible to envelope, not IF. Other
+    constants are unused (dead); this does not prove they have no domain value.
     """
     if not np.isfinite(null_limit_pct) or not 0 <= null_limit_pct <= 100:
         raise ValueError('null_limit_pct must be between 0 and 100')
-    dropped: dict[str, str] = {}
-    kept: list[str] = []
+    dropped, dead, envelope, kept = {}, {}, {}, []
     for col in train_df.columns:
         kind = column_kind(col)
-        if not is_feature_candidate(col):                 # meta / text
+        if not is_feature_candidate(col):
             dropped[col] = REASON['meta'] if kind == 'meta' else REASON['text']
             continue
-        if kind == 'cumulative':
-            dropped[col] = REASON['cumulative']; continue
-        if kind == 'config':
-            dropped[col] = REASON['config']; continue
-        s = pd.to_numeric(train_df[col], errors='coerce').replace([np.inf, -np.inf], np.nan)
-        pct_null = 100.0 * s.isna().mean()
-        if pct_null > null_limit_pct:
-            dropped[col] = '%s (train: %.2f%% > %.1f%%)' % (
-                REASON['mostly_null'], pct_null, null_limit_pct)
+        if kind in ('cumulative', 'config'):
+            dropped[col] = REASON[kind]
             continue
-        if s.nunique(dropna=True) <= 1:
-            # HẰNG SỐ TRÊN TRAIN: Isolation Forest KHÔNG THỂ dùng cột này —
-            # nó không có chỗ nào để cắt, nên giá trị mới ở test cũng không
-            # bị cô lập. Loại là đúng.
-            # NHƯNG PHẢI BIẾT: có cột hằng số vì ma trận thí nghiệm CHƯA
-            # kích hoạt nó (vd link-s2-s3.status.state_up — admin_down chỉ
-            # nhắm s1-s2 và s1-s3). Chúng KHÔNG vô nghĩa, chúng CHƯA ĐƯỢC
-            # THỬ. Vùng mù đó phải do BASELINE LUẬT che (any link down ->
-            # alarm), không phải do mô hình. Ghi vào dataset card.
-            dropped[col] = '%s (hằng số trên TRAIN)' % REASON['constant']
+        values = pd.to_numeric(train_df[col], errors='coerce').replace([np.inf, -np.inf], np.nan)
+        pct_null = 100.0 * values.isna().mean()
+        if not values.notna().any() or pct_null > null_limit_pct:
+            dropped[col] = '%s (train: %.2f%%)' % (REASON['mostly_null'], pct_null)
             continue
-        kept.append(col)
-    return {
-        'features': sorted(kept),          # sorted: thứ tự cột TẤT ĐỊNH
-        'dropped': dict(sorted(dropped.items())),
-        'rules': {
-            'structural': ['meta', 'text', 'cumulative', 'config'],
-            'train_only': {'null_limit_pct': null_limit_pct,
-                           'constant_on_train': True},
-            'label_based_rules_used': [],   # <- PHẢI luôn rỗng
-            'note': ('auc_dist cua Lesson 5.1 duoc tinh tu nhan cua CA 18 run '
-                     '(gom test) nen KHONG duoc dung de chon feature. No chi '
-                     'la phan tich mo ta in-sample.'),
-        },
-    }
+        constant = values.nunique(dropna=True) <= 1
+        if constant and not col.endswith(FAULT_INDICATOR_SUFFIX):
+            dead[col] = '%s (constant train; outside registered indicator families)' % REASON['constant']
+            continue
+        envelope[col] = {'min': float(values.min()), 'max': float(values.max()),
+                         'n_train': int(values.notna().sum()),
+                         'reason': 'constant fault indicator; envelope only' if constant else 'variable on train'}
+        if not constant:
+            kept.append(col)
+    return {'features': sorted(kept), 'envelope': dict(sorted(envelope.items())),
+            'dead': dict(sorted(dead.items())), 'dropped': dict(sorted(dropped.items())),
+            'rules': {'structural': ['meta','text','cumulative','config'],
+                      'train_only': {'null_limit_pct': null_limit_pct,
+                                     'constant_on_train': 'indicator families to envelope; others unused'},
+                      'fault_indicator_suffix': list(FAULT_INDICATOR_SUFFIX),
+                      'label_based_rules_used': [],
+                      'note': 'Audit/test labels never select model columns or bounds.'}}
+
+
+def envelope_exceedance_counts(df, envelope, features=None):
+    """Strict violations of fitted bounds; return counts and missingness separately.
+
+    A partial count on a missing row is not a normal decision. The consumer
+    must report unknown according to its declared missing-data protocol.
+    """
+    cols = sorted(envelope) if features is None else list(features)
+    if not cols or len(cols) != len(set(cols)):
+        raise ValueError('envelope columns must be nonempty and unique')
+    counts = pd.Series(0, index=df.index, dtype='int32')
+    missing = pd.Series(0, index=df.index, dtype='int32')
+    for col in cols:
+        if col not in envelope or col not in df:
+            raise ValueError('missing envelope column: ' + col)
+        lo, hi = envelope[col]['min'], envelope[col]['max']
+        if not np.isfinite(lo) or not np.isfinite(hi) or lo > hi:
+            raise ValueError('invalid envelope bounds: ' + col)
+        values = pd.to_numeric(df[col], errors='coerce').replace([np.inf,-np.inf], np.nan)
+        counts += ((values < lo) | (values > hi)).astype('int32')
+        missing += values.isna().astype('int32')
+    return pd.DataFrame({'k': counts, 'n_missing': missing})
+
+
+def envelope_alarm_threshold(train_df, envelope, features):
+    """Fit K on train. With same-sample min/max, K=0 is a tautology.
+
+    No held-out FPR guarantee; keep missing counts for consumer decisions.
+    """
+    if train_df.empty:
+        raise ValueError('cannot calibrate on empty train')
+    measured = envelope_exceedance_counts(train_df, envelope, features)
+    maximum = int(measured.k.max())
+    return {'K': maximum, 'k_train_max': maximum,
+            'k_train_mean': round(float(measured.k.mean()),4),
+            'n_envelope_columns': len(features),
+            'n_train_rows': len(train_df),
+            'n_train_rows_with_missing': int(measured.n_missing.gt(0).sum()),
+            'rule': 'alarm iff strict bound violation count > K; missing status handled separately',
+            'calibration_note': 'same-sample min/max implies K=0; held-out FPR unmeasured'}
 
 
 # =========================================================================

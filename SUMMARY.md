@@ -95,3 +95,6 @@ Lesson 5.5 hoàn thành: 13/13 gate; 18 run/1.080 nhãn; chính160/590=27,12%; �
 
 
 Lesson 5.6: **72 feature, 464 train, 590 test**; missing26tick (8fault/18normal), recall ceiling theo chính sách unknown95%. Onset sớm nhất0 ở8F, strongest loss degrade vẫn10; grace2/2. [Dataset card](docs/phase-5/06-dataset-card.md), [manifest](results/report/ml_dataset_split_manifest.json).
+
+
+Phase 5 envelope hoàn tất: **71cột,35riêng,36giaoIF,33constantkhác;K=0,k_train_mean=0.0**. IF vẫn72feature/464train/590test. Đã đo synthetic sklearn1.8.0:constant0/200cây split,scorebất biến. K=0in-sample chưa bảo đảm FPR ngoài mẫu. [Card cập nhật](docs/phase-5/06-dataset-card.md), [đăng ký thực nghiệm](docs/phase-5/07-envelope-registration.md), [kết quả](results/report/if_constant_blindness.json).

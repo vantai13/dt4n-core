@@ -52,7 +52,7 @@ def test_selection_drops_constant_and_mostly_null_on_train():
     df = fake()
     df['link-c.traffic.lossPct'] = np.nan          # 100% null
     sel = select_features(df)
-    assert 'link-a.traffic.lossPct' in sel['dropped']      # hằng số 0.0
+    assert 'link-a.traffic.lossPct' in sel['envelope']      # hằng số 0.0
     assert 'link-c.traffic.lossPct' in sel['dropped']
     assert 'link-a.traffic.rxRate' in sel['features']      # có biến thiên
 
@@ -253,3 +253,56 @@ def test_delta_missingness_propagation_is_explicit_in_row_accounting():
     assert sum(r['tick'] in (22,42) for r in rows) == 8
     assert s.y_test.sum() == 160
     assert 1 - s.meta['n_test_rows_with_nan_and_fault']/160 == .95
+
+
+def test_fault_indicators_go_to_envelope_not_dead():
+    sel = select_features(fake())
+    for col in ('link-a.traffic.lossPct','link-b.traffic.lossPct','link-a.status.state_up'):
+        assert col in sel['envelope']
+        assert col not in sel['dead'] and col not in sel['features']
+    assert sel['envelope']['link-a.traffic.lossPct']['min'] == 0
+    assert sel['envelope']['link-a.traffic.lossPct']['n_train'] == len(fake())
+
+
+def test_envelope_catches_what_isolation_forest_cannot():
+    from scripts.check_if_constant_blindness import experiment
+    result = experiment()
+    assert result['constant_never_split'] and result['constant_score_invariant']
+    assert result['envelope_test']['k'] == [0,1,1,1]
+    assert result['synthetic_noise_control']['trees_splitting_last_column'] > 0
+
+
+def test_envelope_threshold_gives_zero_false_positive_on_same_train():
+    from ml.features import envelope_alarm_threshold
+    df = fake()
+    env = select_features(df)['envelope']
+    threshold = envelope_alarm_threshold(df,env,sorted(env))
+    assert threshold['K'] == 0 and threshold['k_train_mean'] == 0
+    assert 'held-out' in threshold['calibration_note']
+
+
+def test_envelope_strict_edges_and_missing_are_separate():
+    from ml.features import envelope_exceedance_counts
+    df = pd.DataFrame({'loss':[0,1,2,np.nan,np.inf]})
+    out = envelope_exceedance_counts(df,{'loss':{'min':0,'max':1}})
+    assert out.k.tolist() == [0,0,1,0,0]
+    assert out.n_missing.tolist() == [0,0,0,1,1]
+    with pytest.raises(ValueError):
+        envelope_exceedance_counts(df,{'loss':{'min':1,'max':0}})
+
+
+def test_all_missing_indicator_cannot_produce_nan_bounds_at_100pct_limit():
+    sel = select_features(pd.DataFrame({'link-a.traffic.lossPct':[np.nan,np.inf]}),100)
+    assert not sel['envelope'] and 'link-a.traffic.lossPct' in sel['dropped']
+
+
+@live
+def test_envelope_test_keys_match_if_rows_and_parameters_are_deterministic():
+    a,b = D.load_split(),D.load_split()
+    pd.testing.assert_frame_equal(a.X_test_envelope,b.X_test_envelope)
+    assert a.X_test_envelope.index.equals(a.y_test.index)
+    assert a.envelope == b.envelope and a.envelope_threshold == b.envelope_threshold
+    assert a.meta['n_envelope_only_columns'] > 0
+    assert len(set(a.envelope)&set(a.feature_names)) > 0
+    assert a.meta['envelope_fit_train_rows'] == 472
+    assert len(a.X_test_envelope) == 590

@@ -86,3 +86,54 @@ Cơ sở kiểm soát leakage: [scikit-learn common pitfalls](https://scikit-lea
 Manifest: `results/report/ml_dataset_split_manifest.json`; log: `logs/phase56_manifest.log`, `logs/phase56_pytest.log`; màn hình: `results/report/phase56_results_screen.png`. Thiếu raw thì test live skip rõ lý do; lần chạy tại đây có raw và các test dataset live đã chạy.
 
 Validation cuối: **214 passed, 4 skipped**; 24 test dataset (gồm live) đều chạy đạt. Kiểm tra checksum giữ nguyên raw/sidecar/hợp đồng/manifest thu và bằng chứng grace2 ban đầu.
+
+## Cập nhật cuối Phase 5 — envelope (Lesson 5.6b)
+
+Phân loại constant đã thay đổi: `feature_selection_dropped` chỉ gồm cột không hợp lệ theo cấu trúc/null; `dead_features` chứa constant ngoài họ đăng ký; `envelope` chứa cột biến thiên hợp lệ và constant chỉ báo sự cố. Không dùng test để quyết định họ hoặc bounds. “Dead” nghĩa là không dùng ở cấu hình này, không phải chứng minh vô ích về vật lý.
+
+| Mục thực đo | Giá trị |
+|---|---:|
+| Feature IF | 72, giữ nguyên |
+| Feature envelope | **71** |
+| Chỉ envelope (constant chỉ báo) | **35** |
+| Giao envelope / IF | **36** cột gốc biến thiên |
+| Constant khác (`dead_features`) | **33** |
+| Envelope fit train | **472** dòng sau warmup |
+| Envelope K / k_train_mean | **0 / 0.0** |
+| Dòng test envelope / chứa missing | **590 / 8** |
+
+35 cột riêng gồm lossPct8 + qdiscDropDelta8 + state_up16 (8link,5host,3switch) + aggregate3 (loss_max, loss_n_above_alert, links_down). Số68 trong tài liệu gộp **tất cả constant**, không phải68chỉ báo riêng. Không ép số từ dự đoán.
+
+`Split` trả thêm `envelope`, `envelope_threshold`, `X_train_envelope` và `X_test_envelope`. X_train_envelope có472dòng fit envelope, khác X_train IF464dòng vì envelope không cần delta priming. X_test_envelope có cùng index với y_test590dòng. Bounds, số mẫu đo, thứ tự71cột và K đều ghi manifest. `envelope_exceedance_counts` trả k và n_missing riêng; n_missing>0 không được coi là normal chỉ vì k=0. Phase 6 cần chốt alarm/unknown/hybrid protocol trước chấm điểm.
+
+### Vùng mù IF được kiểm chứng
+
+Đã chạy dữ liệu tổng hợp (không dữ liệu chiến dịch), sklearn1.8.0,464dòng,2Gaussian +constant0,200cây,seed0. Constant:0/200cây split, score **−0.3957514693481897** giống hệt ở0/1/53/1e6. Đối chứng tổng hợp std0.001:200/200cây split, score từ−0.385347 khi0 xuống−0.560529 khi1/53/1e6. Không thêm nhiễu vào raw/train chiến dịch. Số200/200 ở đối chứng là kết quả cấu hình này, không định lý cho mọi seed/kích cỡ/nhiễu.
+
+Source và kết quả: `scripts/check_if_constant_blindness.py`, `results/report/if_constant_blindness.json`, `logs/phase56b_if_constant_blindness.log`. Cơ chế split trong [tài liệu IsolationForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html) giải thích cột hằng số không có ngưỡng chia.
+
+Không dùng IF để kết luận mô hình trực tiếp đọc loss/state đã loại khỏi X; IF vẫn có thể phát hiện sự kiện loss/down **qua rate biến thiên**. Full envelope cũng đọc rate, nên hai tập kênh **có giao**, không thể suy IF sớm hơn full envelope từ loss-only onset10. Khả năng bổ sung và chất lượng hybrid là giả thuyết, chưa kết quả đo.
+
+### K=0 chưa là hiệu chỉnh FPR
+
+Bounds là min/max của chính472dòng train; mọi giá trị finite train nằm trong bounds nên k_train=0 và K=0 theo định nghĩa. Quy tắc count>K hiện tương đương **any violation** ở dòng đầy đủ dữ liệu; chưa cải thiện rủi ro multiple comparisons. Không khẳng định FPR test≈0, envelope tốt hơn luật1% hoặc tốt hơn IF từ ba số in-sample này. Muốn hiệu chỉnh ngoài mẫu phải có calibration split/fold-train riêng trong Phase 6, không đổi K theo nhãn test.
+
+Ví dụ độc lập:1−0.995^240≈69,97%, không gần100%. Cột thực có tương quan và xác suất vượt biên chưa đo, nên ví dụ này không dự báo FPR thực. FPR train0 không chứng minh FPR trên tải mới0.
+
+Trần95% trước đây chỉ áp dụng **IF với chính sách unknown khi bất kỳ72feature thiếu**. Envelope590dòng có8dòng missing (4fault/4normal); nếu từ chối bất kỳ71feature thiếu thì trần riêng97,5%. Hybrid có thể phát cảnh báo từ detector còn đo được; không kết luận “mọi detector không thể vượt95%”. Không tính recall thật trong lượt này.
+
+Đăng ký quyết định/giả thuyết trước thí nghiệm sklearn: `docs/phase-5/07-envelope-registration.md`. Đã xem audit/test ở Phase5 nên không gọi là đăng ký mù. H3 OR có thể có precision thấp hơn cả hai; không giả định precision nằm giữa. Đường đi sâu8 có tối đa8split, cả cây nhiều nhánh có thể dùng hơn8feature.
+
+Chạy lại bổ sung:
+
+```bash
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m scripts.check_if_constant_blindness
+.venv/bin/python -m scripts.build_dataset_manifest
+.venv/bin/python -m pytest test -ra --junitxml=results/report/phase56b_pytest.xml
+.venv/bin/python -m scripts.build_dataset_report
+```
+
+Kết quả màn hình: `results/report/phase56b_results_screen.png`. Manifest trước patch giữ tại `results/report/ml_dataset_split_manifest_pre_envelope.json`; các báo cáo nghiệm thu/ảnh cũ giữ nguyên để truy lịch sử. Không thu lại Mininet, không fit detector trên train chiến dịch hoặc chấm điểm test chiến dịch.
+
+Validation cuối envelope: **220 passed, 4 skipped**; sáu test mới gồm kiểm chứng sklearn, missing/bounds và tái lập envelope trên raw thật đều đạt.

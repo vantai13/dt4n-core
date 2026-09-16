@@ -1059,18 +1059,10 @@
     ],
     "train_only": {
       "null_limit_pct": 20.0,
-      "constant_on_train": "indicator families to envelope; others unused"
+      "constant_on_train": true
     },
-    "fault_indicator_suffix": [
-      ".lossPct",
-      ".qdiscDropDelta",
-      ".state_up",
-      ".loss_max",
-      ".loss_n_above_alert",
-      ".links_down"
-    ],
     "label_based_rules_used": [],
-    "note": "Audit/test labels never select model columns or bounds."
+    "note": "auc_dist cua Lesson 5.1 duoc tinh tu nhan cua CA 18 run (gom test) nen KHONG duoc dung de chon feature. No chi la phan tich mo ta in-sample."
   },
   "link_stats": {
     "link-h1-s1.traffic.rxRate": {
@@ -1139,6 +1131,11 @@
     }
   },
   "feature_selection_dropped": {
+    "agg.links_down": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "agg.links_state_measured": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "agg.loss_max": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "agg.loss_n_above_alert": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "agg.loss_n_measured": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "collector_version": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "config_id": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "cycle_scan_ms": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
@@ -1153,98 +1150,158 @@
     "git_hash": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "group": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-h1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-h1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h1.traffic.rxBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-h1.traffic.txBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-h2.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h2.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h2.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-h2.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h2.traffic.rxBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-h2.traffic.txBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-h3.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h3.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h3.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-h3.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-h3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-h3.traffic.rxBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-h3.traffic.txBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-srv1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-srv1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-srv1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-srv1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-srv1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-srv1.traffic.rxBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-srv1.traffic.txBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-srv2.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-srv2.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-srv2.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "host-srv2.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "host-srv2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "host-srv2.traffic.rxBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "host-srv2.traffic.txBytes": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "is_fault": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "is_warmup": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "link-h1-s1.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h1-s1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h1-s1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h1-s1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-h1-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-h1-s1.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h1-s1.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h1-s1.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h1-s1.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h1-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h1-s1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h1-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h1-s1.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h1-s1.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h2-s1.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h2-s1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h2-s1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h2-s1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-h2-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-h2-s1.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h2-s1.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h2-s1.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h2-s1.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h2-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h2-s1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h2-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h2-s1.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h2-s1.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h3-s1.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h3-s1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h3-s1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h3-s1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-h3-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-h3-s1.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h3-s1.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h3-s1.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h3-s1.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h3-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h3-s1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-h3-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-h3-s1.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-h3-s1.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s2.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s2.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s2.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s2.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-s1-s2.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-s1-s2.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s2.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s2.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s2.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s2.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s2.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s2.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s2.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s3.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s3.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s3.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s3.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-s1-s3.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-s1-s3.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s3.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s3.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s3.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s3.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s3.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s1-s3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s1-s3.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s1-s3.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-s3.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-s3.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-s3.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-s3.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-s2-s3.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-s2-s3.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-s3.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-s3.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-s3.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-s3.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-s3.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-s3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-s3.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-s3.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-srv1.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-srv1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-srv1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-srv1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-s2-srv1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-s2-srv1.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-srv1.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-srv1.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-srv1.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-srv1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-srv1.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s2-srv1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s2-srv1.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s2-srv1.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s3-srv2.capacity.bwMbps": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s3-srv2.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s3-srv2.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s3-srv2.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
+    "link-s3-srv2.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "link-s3-srv2.traffic.lossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s3-srv2.traffic.lossSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s3-srv2.traffic.qdiscDropDelta": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s3-srv2.traffic.qdiscReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s3-srv2.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s3-srv2.traffic.rateReason": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "link-s3-srv2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "link-s3-srv2.traffic.utilDirectionSource": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "link-s3-srv2.traffic.utilIntf": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "load_mbps_per_client": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
-    "load_schedule": "thiếu quá nhiều -> không đủ bằng chứng (train: 100.00%)",
+    "load_schedule": "thiếu quá nhiều -> không đủ bằng chứng (train: 100.00% > 20.0%)",
+    "n_loss_missing": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
+    "n_rate_missing": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "period_sec": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "pre_roll_sec": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "profile": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
@@ -1255,12 +1312,15 @@
     "split": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "switch-s1.portStatsRaw.dump": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "switch-s1.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "switch-s1.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "switch-s1.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "switch-s2.portStatsRaw.dump": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "switch-s2.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "switch-s2.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "switch-s2.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "switch-s3.portStatsRaw.dump": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
     "switch-s3.status.state": "chuỗi/nhãn chẩn đoán; audit nunique nhưng không đưa vào mô hình",
+    "switch-s3.status.state_up": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (hằng số trên TRAIN)",
     "switch-s3.t_source": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "t_inject": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "t_rel": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
@@ -1270,558 +1330,7 @@
     "timestamp": "siêu dữ liệu của lần chạy, không phải đo lường mạng",
     "warmup_ticks": "siêu dữ liệu của lần chạy, không phải đo lường mạng"
   },
-  "dead_features": {
-    "agg.links_state_measured": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "agg.loss_n_measured": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "host-h1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "host-h2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "host-h3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "host-srv1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "host-srv2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h1-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h1-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h1-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h2-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h2-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h2-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h3-s1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h3-s1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-h3-s1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s2.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s2.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s3.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s3.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s1-s3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-s3.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-s3.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-s3.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-srv1.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-srv1.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s2-srv1.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s3-srv2.traffic.interfaceLossPct": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s3-srv2.traffic.qdiscValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "link-s3-srv2.traffic.rateValid": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "n_loss_missing": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)",
-    "n_rate_missing": "hằng số trên TOÀN BỘ dataset -> không mang thông tin (constant train; outside registered indicator families)"
-  },
-  "n_dead_features": 33,
-  "envelope": {
-    "agg.links_down": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "agg.loss_max": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "agg.loss_n_above_alert": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "agg.rate_absz_max": {
-      "min": 0.3674743515688177,
-      "max": 7.642757524097798,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "agg.rate_absz_n_above_3": {
-      "min": 0.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "host-h1.traffic.rxRate": {
-      "min": 0.0,
-      "max": 15236.81,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h1.traffic.txRate": {
-      "min": 0.0,
-      "max": 672022.37,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h2.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "host-h2.traffic.rxRate": {
-      "min": 2411.98,
-      "max": 15315.53,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h2.traffic.txRate": {
-      "min": 125624.69,
-      "max": 676660.02,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h3.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "host-h3.traffic.rxRate": {
-      "min": 0.0,
-      "max": 16260.07,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-h3.traffic.txRate": {
-      "min": 0.0,
-      "max": 772748.27,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-srv1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "host-srv1.traffic.rxRate": {
-      "min": 0.0,
-      "max": 1209408.17,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-srv1.traffic.txRate": {
-      "min": 268743.29,
-      "max": 297644.78,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-srv2.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "host-srv2.traffic.rxRate": {
-      "min": 396065.66,
-      "max": 946407.12,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "host-srv2.traffic.txRate": {
-      "min": 2586.81,
-      "max": 15311.22,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h1-s1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h1-s1.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h1-s1.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h1-s1.traffic.qdiscSentDelta": {
-      "min": 0.0,
-      "max": 695.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h1-s1.traffic.rxRate": {
-      "min": 0.0,
-      "max": 15228.82,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h1-s1.traffic.txRate": {
-      "min": 0.0,
-      "max": 678985.55,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h2-s1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h2-s1.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h2-s1.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h2-s1.traffic.qdiscSentDelta": {
-      "min": 127.0,
-      "max": 685.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h2-s1.traffic.rxRate": {
-      "min": 2577.14,
-      "max": 15285.76,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h2-s1.traffic.txRate": {
-      "min": 128474.75,
-      "max": 675344.81,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h3-s1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h3-s1.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h3-s1.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-h3-s1.traffic.qdiscSentDelta": {
-      "min": 0.0,
-      "max": 817.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h3-s1.traffic.rxRate": {
-      "min": 0.0,
-      "max": 17491.62,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-h3-s1.traffic.txRate": {
-      "min": 0.0,
-      "max": 800780.34,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s2.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s2.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s2.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s2.traffic.qdiscSentDelta": {
-      "min": 0.0,
-      "max": 1230.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s2.traffic.rxRate": {
-      "min": 0.0,
-      "max": 27273.14,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s2.traffic.txRate": {
-      "min": 0.0,
-      "max": 1207829.97,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s3.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s3.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s3.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s1-s3.traffic.qdiscSentDelta": {
-      "min": 126.0,
-      "max": 694.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s3.traffic.rxRate": {
-      "min": 2648.78,
-      "max": 15271.13,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s1-s3.traffic.txRate": {
-      "min": 127110.82,
-      "max": 679104.43,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-s3.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-s3.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-s3.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-s3.traffic.qdiscSentDelta": {
-      "min": 174.0,
-      "max": 181.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-s3.traffic.rxRate": {
-      "min": 0.0,
-      "max": 70.36,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-s3.traffic.txRate": {
-      "min": 268255.64,
-      "max": 271141.9,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-srv1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-srv1.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-srv1.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s2-srv1.traffic.qdiscSentDelta": {
-      "min": 177.0,
-      "max": 1413.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-srv1.traffic.rxRate": {
-      "min": 268565.23,
-      "max": 298001.07,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s2-srv1.traffic.txRate": {
-      "min": 0.0,
-      "max": 1207079.54,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s3-srv2.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s3-srv2.traffic.lossPct": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s3-srv2.traffic.qdiscDropDelta": {
-      "min": 0.0,
-      "max": 0.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "link-s3-srv2.traffic.qdiscSentDelta": {
-      "min": 307.0,
-      "max": 923.0,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s3-srv2.traffic.rxRate": {
-      "min": 2675.34,
-      "max": 15653.68,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "link-s3-srv2.traffic.txRate": {
-      "min": 397048.11,
-      "max": 995478.36,
-      "n_train": 472,
-      "reason": "variable on train"
-    },
-    "switch-s1.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "switch-s2.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    },
-    "switch-s3.status.state_up": {
-      "min": 1.0,
-      "max": 1.0,
-      "n_train": 472,
-      "reason": "constant fault indicator; envelope only"
-    }
-  },
-  "envelope_feature_names": [
-    "agg.links_down",
-    "agg.loss_max",
-    "agg.loss_n_above_alert",
-    "agg.rate_absz_max",
-    "agg.rate_absz_n_above_3",
-    "host-h1.status.state_up",
-    "host-h1.traffic.rxRate",
-    "host-h1.traffic.txRate",
-    "host-h2.status.state_up",
-    "host-h2.traffic.rxRate",
-    "host-h2.traffic.txRate",
-    "host-h3.status.state_up",
-    "host-h3.traffic.rxRate",
-    "host-h3.traffic.txRate",
-    "host-srv1.status.state_up",
-    "host-srv1.traffic.rxRate",
-    "host-srv1.traffic.txRate",
-    "host-srv2.status.state_up",
-    "host-srv2.traffic.rxRate",
-    "host-srv2.traffic.txRate",
-    "link-h1-s1.status.state_up",
-    "link-h1-s1.traffic.lossPct",
-    "link-h1-s1.traffic.qdiscDropDelta",
-    "link-h1-s1.traffic.qdiscSentDelta",
-    "link-h1-s1.traffic.rxRate",
-    "link-h1-s1.traffic.txRate",
-    "link-h2-s1.status.state_up",
-    "link-h2-s1.traffic.lossPct",
-    "link-h2-s1.traffic.qdiscDropDelta",
-    "link-h2-s1.traffic.qdiscSentDelta",
-    "link-h2-s1.traffic.rxRate",
-    "link-h2-s1.traffic.txRate",
-    "link-h3-s1.status.state_up",
-    "link-h3-s1.traffic.lossPct",
-    "link-h3-s1.traffic.qdiscDropDelta",
-    "link-h3-s1.traffic.qdiscSentDelta",
-    "link-h3-s1.traffic.rxRate",
-    "link-h3-s1.traffic.txRate",
-    "link-s1-s2.status.state_up",
-    "link-s1-s2.traffic.lossPct",
-    "link-s1-s2.traffic.qdiscDropDelta",
-    "link-s1-s2.traffic.qdiscSentDelta",
-    "link-s1-s2.traffic.rxRate",
-    "link-s1-s2.traffic.txRate",
-    "link-s1-s3.status.state_up",
-    "link-s1-s3.traffic.lossPct",
-    "link-s1-s3.traffic.qdiscDropDelta",
-    "link-s1-s3.traffic.qdiscSentDelta",
-    "link-s1-s3.traffic.rxRate",
-    "link-s1-s3.traffic.txRate",
-    "link-s2-s3.status.state_up",
-    "link-s2-s3.traffic.lossPct",
-    "link-s2-s3.traffic.qdiscDropDelta",
-    "link-s2-s3.traffic.qdiscSentDelta",
-    "link-s2-s3.traffic.rxRate",
-    "link-s2-s3.traffic.txRate",
-    "link-s2-srv1.status.state_up",
-    "link-s2-srv1.traffic.lossPct",
-    "link-s2-srv1.traffic.qdiscDropDelta",
-    "link-s2-srv1.traffic.qdiscSentDelta",
-    "link-s2-srv1.traffic.rxRate",
-    "link-s2-srv1.traffic.txRate",
-    "link-s3-srv2.status.state_up",
-    "link-s3-srv2.traffic.lossPct",
-    "link-s3-srv2.traffic.qdiscDropDelta",
-    "link-s3-srv2.traffic.qdiscSentDelta",
-    "link-s3-srv2.traffic.rxRate",
-    "link-s3-srv2.traffic.txRate",
-    "switch-s1.status.state_up",
-    "switch-s2.status.state_up",
-    "switch-s3.status.state_up"
-  ],
-  "envelope_threshold": {
-    "K": 0,
-    "k_train_max": 0,
-    "k_train_mean": 0.0,
-    "n_envelope_columns": 71,
-    "n_train_rows": 472,
-    "n_train_rows_with_missing": 0,
-    "rule": "alarm iff strict bound violation count > K; missing status handled separately",
-    "calibration_note": "same-sample min/max implies K=0; held-out FPR unmeasured"
-  },
-  "n_envelope_only_columns": 35,
-  "n_envelope_if_overlap": 36,
-  "envelope_fit_train_rows": 472,
-  "envelope_test_rows_with_missing": 8,
-  "n_features_dropped": 130,
+  "n_features_dropped": 198,
   "rules": {
     "warmup": "bo tick < warmup_ticks moi run (DT4N-M1 tang 1)",
     "missing_train": "bo dong con NaN o feature, CO DEM (tang 3)",
@@ -2504,33 +2013,19 @@
   },
   "use_rolling": false,
   "build_provenance": {
-    "git_hash": "bb00413a57d13480d56e185d3e6d3b6a97ea36f0",
+    "git_hash": "74d46de7ac9b3cded95f3e1f4bc5f74d520c443d",
     "git_dirty": true,
     "git_dirty_files": [
       "logs/command_flow.log",
-      "ml/dataset.py",
-      "ml/features.py",
-      "requirements.txt",
-      "results/report/feature_audit.csv",
-      "scripts/build_dataset_manifest.py",
-      "test/test_ml_dataset.py",
-      "docs/phase-5/07-envelope-registration.md",
-      "logs/phase56b_envelope_manifest.log",
-      "results/report/ml_dataset_split_manifest_pre_envelope.json"
+      "logs/phase56_manifest.log",
+      "results/report/feature_audit.csv"
     ],
-    "source_dirty_files": [
-      "ml/dataset.py",
-      "ml/features.py",
-      "requirements.txt",
-      "scripts/build_dataset_manifest.py",
-      "test/test_ml_dataset.py",
-      "docs/phase-5/07-envelope-registration.md"
-    ],
-    "source_dirty": true
+    "source_dirty_files": [],
+    "source_dirty": false
   },
   "source_sha256": {
-    "ml/features.py": "d8c881a9c73bd6c828bbb7aec84a7afdfbf9e3c6aae759a065b06b7d683d57d4",
-    "ml/dataset.py": "0e80f5391d555a0ec2a833a77d816d9264e4e1b30761abedf49038d1082515a7",
+    "ml/features.py": "7090f6547466e830b7fc2c6d1750541196e551b4722168472138b676266ee88f",
+    "ml/dataset.py": "c59556e12bc69f54081af8b164ef9ee69198fc3d22346e22b4e6027b778df221",
     "ml/labels.py": "c947c9c25b9d793799a17ccb2a300f942a248dfe80f1bf5c619338382719a869",
     "ml/missing.py": "b321df8a2676522e16967a76247d77baeb352cc73058b67b870b00de98e659ad",
     "ml/flatten.py": "1cb353c190a1a328b37b0c7866b902118b2835c3d0a6d8a1de109204bedc1843",
