@@ -22,7 +22,7 @@ def build(root):
 <style>body{{font:16px system-ui;max-width:1250px;margin:30px auto;color:#153044}}table{{border-collapse:collapse;width:100%}}td,th{{padding:8px;border:1px solid #ccd}}.metrics{{padding:22px;background:#e8f5ed;font-size:22px}}img{{width:100%}}</style>
 <h1>Lesson 5.6 — Dataset DT4N-D1</h1><div class="metrics">{m['shape']['n_features']} feature · {m['shape']['n_train_rows']} train · {m['shape']['n_test_rows']} test<br>
 Base rate chính: 160/590 = 27,12% · Độ nhạy: 144/558 = 25,81%<br>Onset sớm nhất: 0 tick ở cả 8 run lỗi · Grace onset2/recovery2</div>
-<p>Missing feature: {missing['total']} tick — {missing['with_fault']} lỗi, {missing['with_normal']} bình thường. Delta lan NaN sang tick kế tiếp; giữ toàn bộ test. Recall ceiling theo chính sách unknown: 95% (chưa chạy detector).</p>
+<p>Missing feature: {missing['total']} tick — {missing['with_fault']} lỗi, {missing['with_normal']} bình thường. Delta lan NaN sang tick kế tiếp; giữ toàn bộ test. Trần recall riêng IF khi từ chối dòng thiếu: 95%; envelope/hybrid có chính sách riêng (chưa đánh giá chiến dịch).</p>
 <p>Chọn feature từ train, không dùng audit có nhãn test. Fit thống kê trên train; chia theo run; delta/rolling trong từng run. 4 nhóm cấu hình normal cho CV ở Phase 6.</p>
 {envelope_info}<table><tr><th>Run</th><th>Kênh sớm nhất</th><th>Onset sớm</th><th>Chứng nhân mạnh nhất</th><th>Onset chứng nhân</th><th>Recovery chứng nhân</th></tr>{timing}</table>
 <p>Degrade s2–s3: txRate lệch ngay tick21; lossPct mạnh nhất lệch tick31. Hai phép đo khác nhau; bản cũ được lưu để đối chiếu.</p>
