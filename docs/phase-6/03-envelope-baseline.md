@@ -115,9 +115,73 @@ FPR uncertainty is coarse. These limits motivate the preregistered excess and
 dual-family secondary analyses, but do not authorize replacing the primary
 detector after seeing test results.
 
+## Hypothesis decisions from envelope evidence
+
+Three of the five registered hypotheses are settled by envelope evidence alone,
+before any Isolation Forest was fitted on campaign training data. The decisions
+are derived by `scripts/build_phase6_hypothesis_ledger.py`: it verifies every
+sealed source and their hash-reference chain, then applies the registered
+refutation conditions. The resulting ledger has content SHA-256
+`7f7ffd6c65dc5f4eb13f784ac9d6927b128de657e1e694b9bbae84945df70739`.
+Every field reserved for an Isolation Forest quantity is null, and an automated
+test asserts that it remains null.
+
+| Hypothesis | Status | Decided by | Evidence |
+|---|---|---|---|
+| H1 | pending | requires IF | primary envelope recall on `admin_down` is 0.0 |
+| H2 | **refuted** | envelope only | primary is censored on `F-degrade-s2-s3`; the registered condition says censoring refutes |
+| H3 | pending | requires IF | comparator recall is 0.0, so the test has lost its power |
+| H4 | **refuted** | envelope only | fold `normal\|1` share 87.29% strictly exceeds fold `vary` at 78.81% |
+| H5 | **refuted** | envelope only | both control runs have FPR 0.0, so the registered strict inequality cannot hold |
+
+H2 is a conjunction. Its loss-only clause is supported: the delay is 10 ticks,
+inside the registered range [9, 11]. Its full-envelope clause fails because
+`K=31` suppresses every alarm, so the conjunction is refuted even though part
+of its proposed mechanism is observed.
+
+For H4, `K=31` and the 87.29% share measure different quantities. The former
+comes from the varying fold and is the largest simultaneous violation count.
+The latter comes from the 1 Mbps fold and is the frequency of any violation.
+Amendment 2 explicitly defined H4 using that frequency, so it settles H4.
+
+H5's zero FPR is a consequence of a threshold that also gives zero recall. It
+is therefore no evidence of generalisation to unseen load; the held-out CV
+folds provide the relevant generalisation evidence and point in the other
+direction.
+
+## Exploratory diagnostics after the freeze
+
+`results/report/phase6_envelope_posthoc_diag.json`, content SHA-256
+`060c722cb61e8fe9b8e60f22f43e29002fba9042c4c040f160e56cf6b805c930`,
+records post-freeze diagnostics. It declares that it uses test labels and
+authorises no change to the detector, threshold, hypotheses, or column set.
+
+The count statistic has AUC 0.9023 on judgeable rows, while excess has AUC
+0.9282. Thus count retains ranking signal. However, the largest judgeable
+normal count is 23 and the largest judgeable fault count is 22, so no threshold
+perfectly separates the classes. An oracle test-label sweep selects `k > 3`,
+with recall 85.6% and FPR 8.4%; this is exploratory and is never reportable as
+detector performance. The preregistered secondary excess rule reaches the same
+recall with FPR 5.4% without using test labels to select its threshold.
+
+A pooled held-out 97.5th-percentile alternative would give `K=19`, so replacing
+the registered maximum with that quantile would not resolve the structural
+problem. The registered 71 columns contain at most 6 columns for one link, 3
+for each endpoint host, and 5 aggregates. A deliberately generous upper bound
+for a single-link fault is therefore `6 + 2×3 + 5 = 17`. Since `K=31`, the
+primary count rule is structurally unable to alarm for this fault class. This
+bound depends only on the registered column identities and should become a
+pre-test reachability gate for future detectors.
+
+These diagnostics distinguish spatial extent from severity. Benign load shifts
+can affect many rate columns mildly, while a fault can affect fewer columns
+strongly. Count measures the former; normalized excess captures the latter.
+
 ## Artifacts
 
 - `results/report/phase6_envelope_cv.json`: fold diagnostics and frozen thresholds.
 - `results/report/phase6_envelope.json`: metrics, per-fault results, delays, and bootstrap intervals.
 - `results/report/phase6_envelope_ticks.csv`: scores and alarms for all 590 test rows.
 - `results/report/phase6_envelope_k.png`: inspected per-run count plot.
+- `results/report/phase6_hypothesis_ledger.json`: frozen confirmatory decisions.
+- `results/report/phase6_envelope_posthoc_diag.json`: labelled exploratory diagnostics.

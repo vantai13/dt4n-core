@@ -1,0 +1,207 @@
+{
+  "written_at_utc": "2026-09-16T06:37:36+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-ENVELOPE-POSTHOC-v1",
+    "status": "EXPLORATORY POST-FREEZE; not confirmatory performance",
+    "uses_test_labels": true,
+    "authorises_no_change_to": [
+      "detector",
+      "threshold",
+      "hypothesis",
+      "column set"
+    ],
+    "bound_to": {
+      "envelope_test_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
+      "envelope_cv_content_sha256": "0219093ee7dba8da7df2645c32adc2ed24e6d69d57a1b4dbfb6e023a9cc8b571",
+      "amendment_1_content_sha256": "7670b3f29cd7f374e6d7c91ab03757aac90574042fae21cc7f632251a07f9349",
+      "ticks_csv_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f"
+    },
+    "separability": {
+      "n_judgeable_positive": 156,
+      "n_judgeable_negative": 426,
+      "auc_k": 0.9023489225954013,
+      "auc_excess": 0.9281780426146622,
+      "k_positive_median": 10.0,
+      "k_positive_max": 22,
+      "k_negative_max": 23,
+      "k_negative_max_run": "F-shift-s1-s2-s3007-r1",
+      "excess_positive_median": 1581.669668711889,
+      "excess_negative_max": 3266.1769391343223
+    },
+    "oracle_threshold_sweep": {
+      "sweep": [
+        {
+          "threshold_k_gt": 0,
+          "recall": 0.85625,
+          "fpr": 0.11627906976744186
+        },
+        {
+          "threshold_k_gt": 1,
+          "recall": 0.85625,
+          "fpr": 0.10697674418604651
+        },
+        {
+          "threshold_k_gt": 2,
+          "recall": 0.85625,
+          "fpr": 0.10232558139534884
+        },
+        {
+          "threshold_k_gt": 3,
+          "recall": 0.85625,
+          "fpr": 0.08372093023255814
+        },
+        {
+          "threshold_k_gt": 4,
+          "recall": 0.8375,
+          "fpr": 0.08139534883720931
+        },
+        {
+          "threshold_k_gt": 5,
+          "recall": 0.8,
+          "fpr": 0.05116279069767442
+        },
+        {
+          "threshold_k_gt": 6,
+          "recall": 0.8,
+          "fpr": 0.04883720930232558
+        },
+        {
+          "threshold_k_gt": 7,
+          "recall": 0.79375,
+          "fpr": 0.046511627906976744
+        },
+        {
+          "threshold_k_gt": 8,
+          "recall": 0.78125,
+          "fpr": 0.04186046511627907
+        },
+        {
+          "threshold_k_gt": 9,
+          "recall": 0.73125,
+          "fpr": 0.04186046511627907
+        },
+        {
+          "threshold_k_gt": 10,
+          "recall": 0.475,
+          "fpr": 0.03953488372093023
+        },
+        {
+          "threshold_k_gt": 11,
+          "recall": 0.43125,
+          "fpr": 0.03953488372093023
+        },
+        {
+          "threshold_k_gt": 12,
+          "recall": 0.43125,
+          "fpr": 0.037209302325581395
+        },
+        {
+          "threshold_k_gt": 13,
+          "recall": 0.2375,
+          "fpr": 0.037209302325581395
+        },
+        {
+          "threshold_k_gt": 14,
+          "recall": 0.2,
+          "fpr": 0.027906976744186046
+        },
+        {
+          "threshold_k_gt": 15,
+          "recall": 0.2,
+          "fpr": 0.011627906976744186
+        },
+        {
+          "threshold_k_gt": 16,
+          "recall": 0.11875,
+          "fpr": 0.0069767441860465115
+        },
+        {
+          "threshold_k_gt": 17,
+          "recall": 0.11875,
+          "fpr": 0.004651162790697674
+        },
+        {
+          "threshold_k_gt": 18,
+          "recall": 0.11875,
+          "fpr": 0.002325581395348837
+        },
+        {
+          "threshold_k_gt": 19,
+          "recall": 0.09375,
+          "fpr": 0.002325581395348837
+        },
+        {
+          "threshold_k_gt": 20,
+          "recall": 0.09375,
+          "fpr": 0.002325581395348837
+        },
+        {
+          "threshold_k_gt": 21,
+          "recall": 0.00625,
+          "fpr": 0.002325581395348837
+        },
+        {
+          "threshold_k_gt": 22,
+          "recall": 0.0,
+          "fpr": 0.002325581395348837
+        },
+        {
+          "threshold_k_gt": 23,
+          "recall": 0.0,
+          "fpr": 0.0
+        },
+        {
+          "threshold_k_gt": 24,
+          "recall": 0.0,
+          "fpr": 0.0
+        },
+        {
+          "threshold_k_gt": 25,
+          "recall": 0.0,
+          "fpr": 0.0
+        },
+        {
+          "threshold_k_gt": 26,
+          "recall": 0.0,
+          "fpr": 0.0
+        },
+        {
+          "threshold_k_gt": 27,
+          "recall": 0.0,
+          "fpr": 0.0
+        }
+      ],
+      "best_by_youden_j": {
+        "threshold_k_gt": 3,
+        "recall": 0.85625,
+        "fpr": 0.08372093023255814
+      },
+      "caveat": "oracle: thresholds scanned on labelled test; never reportable as performance"
+    },
+    "quantile_alternatives": {
+      "n_pooled_heldout_rows": 472,
+      "registered_rule": "K = max held-out k",
+      "registered_K": 31,
+      "alternative_K_by_quantile": {
+        "0.9": 18.0,
+        "0.95": 18.0,
+        "0.975": 19.0,
+        "0.99": 31.0,
+        "1.0": 31.0
+      },
+      "mean_heldout_k": 4.627118644067797
+    },
+    "structural_reachability": {
+      "n_registered_columns": 71,
+      "columns_per_link": 6,
+      "columns_per_host": 3,
+      "columns_agg": 5,
+      "generous_upper_bound_single_link_fault": 17,
+      "registered_K": 31,
+      "K_reachable_by_single_link_fault": false,
+      "K_as_share_of_all_columns": 0.4366,
+      "note": "computable from the registered column list alone, before opening test; recommended as a gate in every future threshold calibration"
+    }
+  },
+  "content_sha256": "060c722cb61e8fe9b8e60f22f43e29002fba9042c4c040f160e56cf6b805c930"
+}

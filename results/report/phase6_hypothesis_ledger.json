@@ -1,0 +1,126 @@
+{
+  "written_at_utc": "2026-09-16T06:37:27+00:00",
+  "content": {
+    "ledger_id": "DT4N-P6-HYPOTHESIS-LEDGER-v1",
+    "purpose": "Freeze hypothesis decisions that envelope evidence alone already settles, BEFORE any Isolation Forest fit on campaign train data.",
+    "decision_rule": "status is derived from the registered refutation condition applied to sealed artifacts; no condition is reinterpreted, no hypothesis is amended, no threshold is changed",
+    "bound_to": {
+      "prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+      "amendment_1_content_sha256": "7670b3f29cd7f374e6d7c91ab03757aac90574042fae21cc7f632251a07f9349",
+      "amendment_2_content_sha256": "bb61d49c85a6708fd39d4ec48771dd70b0a09a5ac599e7b6d49e54ecabef4678",
+      "envelope_cv_content_sha256": "0219093ee7dba8da7df2645c32adc2ed24e6d69d57a1b4dbfb6e023a9cc8b571",
+      "envelope_test_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813"
+    },
+    "timing_and_knowledge": {
+      "iforest_fitted_on_campaign_train": false,
+      "iforest_campaign_test_scores_seen": false,
+      "envelope_campaign_test_scores_seen": true
+    },
+    "hypotheses": {
+      "H1": {
+        "registered_kind": "confirmatory",
+        "registered_claim": "On the 2 admin_down runs, envelope recall >= IF recall (mean over seeds, primary config).",
+        "registered_mechanism": "state_up/links_down constant on train -> only envelope sees them; link-s1-s2 rates reach 0 in train (min=0) so rate-only view is ambiguous there.",
+        "registered_refutation": "envelope recall < IF mean recall on admin_down (pooled 40 ticks).",
+        "status": "pending",
+        "decided_by": "requires_iforest",
+        "evidence": {
+          "envelope_primary_recall_admin_down": 0.0,
+          "envelope_primary_tp": 0,
+          "envelope_primary_n_positive": 40,
+          "iforest_recall_admin_down": null
+        },
+        "note": "Chot truoc: envelope primary recall = 0.0 tren admin_down. H1 chi bi bac bo neu IF recall > 0. Khi bao cao, PHAI tach: bac bo H1 la ve NGUONG K chan, khong phai ve kenh — bang chung la secondary_dual dat recall 1.0 tren admin_down trong khi ablation loss_only dat 0.0, tuc kenh state_up CO tin hieu."
+      },
+      "H2": {
+        "registered_kind": "confirmatory_single_run",
+        "registered_claim": "On F-degrade-s2-s3: envelope delay = 1 tick, every primary IF seed delay = 2 ticks, loss-only envelope delay in [9, 11].",
+        "registered_mechanism": "tick 21 unknown for both (counter_reset); tick 22 unknown for IF only (d1 NaN); full envelope contains link-s2-s3.txRate with train band [268256, 271142] B/s; lossPct first crosses at tick 31.",
+        "registered_refutation": "envelope delay is not 1, any primary IF seed delay is not 2, or loss-only delay is outside [9,11]; censored also refutes.",
+        "status": "refuted",
+        "decided_by": "envelope_evidence_only",
+        "evidence": {
+          "run": "F-degrade-s2-s3-s3004-r1",
+          "envelope_primary_delay": null,
+          "envelope_primary_censored": true,
+          "clause_envelope_delay_eq_1_holds": false,
+          "loss_only_delay": 10,
+          "loss_only_range_registered": [
+            9,
+            11
+          ],
+          "clause_loss_only_in_range_holds": true,
+          "iforest_per_seed_delay": null
+        },
+        "note": "Clause envelope delay = 1 bi bac bo: detector primary bi CENSORED tren run nay (khong bao dong trong toan cua so loi) vi K=31 chan. Dieu kien dang ky ghi ro \"censored also refutes\", va H2 la lien ket AND, nen H2 BI BAC BO ma khong can IF. Clause loss-only delay = 10 nam trong [9,11] DUOC XAC NHAN va xac nhan dung co che onset cua lossPct (xuat hien tu tick 31, tuc 10 tick sau inject)."
+      },
+      "H3": {
+        "registered_kind": "confirmatory",
+        "registered_claim": "IF-only positive ticks (caught by IF, missed by envelope) >= 8 (5% of 160) in >= 4 of 5 seeds.",
+        "registered_mechanism": "degrade s1-s2 has no loss witness and wide train rate bands may hide a low-intensity shift; IF has d1.* and multivariate combinations.",
+        "registered_refutation": "IF-only ticks < 8 in >= 2 seeds.",
+        "status": "pending",
+        "decided_by": "requires_iforest",
+        "evidence": {
+          "registered_comparator": "envelope primary count (k > K)",
+          "envelope_primary_tp": 0,
+          "envelope_primary_fn": 160,
+          "envelope_primary_recall": 0.0,
+          "iforest_only_ticks_per_seed": null
+        },
+        "note": "CANH BAO TRIVIAL CONFIRMATION, chot truoc khi chay IF: comparator da dang ky (envelope primary) co recall 0.0, tuc no bo sot TAT CA 160 tick duong. Vi vay \"IF-only ticks\" = \"moi tick IF bat duoc\", va H3 gan nhu chac chan duoc xac nhan KHONG phai vi tinh bu tru ma vi comparator da sap. Quy uoc bao cao chot tu gio: (a) CONFIRMATORY dung dinh nghia da dang ky, kem cau nay; (b) DESCRIPTIVE lap lai voi comparator = secondary_excess (da dang ky o amendment 1, truoc khi thay test). Khong duoc thay (b) vao cho (a)."
+      },
+      "H4": {
+        "registered_kind": "confirmatory_train_cv",
+        "registered_claim": "Among 4 config folds, the held-out vary fold has the highest held-out alarm rate for BOTH envelope (share of rows with k>0) and IF (q=0.01).",
+        "registered_mechanism": "SCHEDULE_A contains 5 Mbps and +/-3..4 Mbps steps; fixed configs stop at 4 Mbps with no steps -> extrapolation. 4M fold is covered by vary -> interpolation.",
+        "registered_refutation": "another fold has a strictly higher rate for either detector.",
+        "status": "refuted",
+        "decided_by": "envelope_evidence_only",
+        "evidence": {
+          "metric": "share of judgeable held-out rows with primary k>0 (amendment 2)",
+          "envelope_share_k_gt_0_by_fold": {
+            "normal|4": 0.0,
+            "normal|2": 0.2457627118644068,
+            "normal|1": 0.8728813559322034,
+            "normal_varying|vary": 0.788135593220339
+          },
+          "vary_fold_share": 0.788135593220339,
+          "highest_other_fold": "normal|1",
+          "highest_other_share": 0.8728813559322034,
+          "strictly_higher_than_vary": true,
+          "iforest_alarm_rate_by_fold": null
+        },
+        "note": "Fold 1 Mbps dat 87.29% > fold vary 78.81%. Dieu kien dang ky: \"another fold has a strictly higher rate for EITHER detector\" => H4 BI BAC BO bang bang chung envelope, khong can IF. Co che da khai bao truoc CV o amendment 2: voi nhieu iid, mot diem moi roi ngoai min/max cua n diem fit voi xac suat 2/(n+1), nen fold tai thap co the co k>0 ma khong can ngoai suy ve muc tai. Tach ro: K=31 den tu fold vary (do SO LUONG kenh vuot dong thoi lon nhat), con TAN SO vuot cao nhat o fold 1M. Hai dai luong khac nhau; H4 dang ky theo TAN SO."
+      },
+      "H5": {
+        "registered_kind": "confirmatory",
+        "registered_claim": "FPR on C-vary > FPR on C-load2M for both detectors.",
+        "registered_mechanism": "SCHEDULE_B has a 1->5 Mbps step (+4) absent from SCHEDULE_A (max +3); C-load2M equals a train config.",
+        "registered_refutation": "FPR(C-vary) <= FPR(C-load2M) for either detector.",
+        "status": "refuted",
+        "decided_by": "envelope_evidence_only",
+        "evidence": {
+          "envelope_primary_fpr_C_vary": 0.0,
+          "envelope_primary_fpr_C_load2M": 0.0,
+          "envelope_clause_refutes": true,
+          "iforest_fpr_C_vary": null,
+          "iforest_fpr_C_load2M": null
+        },
+        "note": "Ca hai run doi chung cho FPR = 0.0 voi detector primary, nen khong co bang chung nao rang C-vary kho hon C-load2M. Dieu kien dang ky: \"FPR(C-vary) <= FPR(C-load2M) for EITHER detector\" => H5 BI BAC BO. Luu y dien giai: FPR=0 o day la he qua cua K=31 chan het, KHONG phai bang chung rang envelope tong quat tot sang tai chua thay; bang chung ve dieu do nam o CV (fold 1M va vary), va no noi nguoc lai."
+      }
+    },
+    "summary": {
+      "refuted": [
+        "H2",
+        "H4",
+        "H5"
+      ],
+      "pending": [
+        "H1",
+        "H3"
+      ]
+    }
+  },
+  "ledger_content_sha256": "7f7ffd6c65dc5f4eb13f784ac9d6927b128de657e1e694b9bbae84945df70739"
+}
