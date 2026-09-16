@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+  "sealed_commit": "003947410c8de52dd8771f802c55a3b54bde07d9",
+  "tag": "phase6-prereg",
+  "branch": "phase/6-train-eval",
+  "prereg_tests_passed": 10,
+  "suite_passed": 230,
+  "suite_skipped": 4,
+  "phase5_bound_hashes_unchanged": true,
+  "campaign_detector_directory_absent": true,
+  "note": "Existing synthetic IF tests ran; no campaign detector fitted/evaluated."
+}

@@ -5,7 +5,7 @@ Nhánh `phase/6-train-eval`, tag `phase6-prereg`. Dataset DT4N-D1, labels DT4N-L
 
 ## Kiến thức đã biết và phạm vi
 
-Phase5 đã xem tín hiệu test (separation, witness/onset, counter_reset), đã fit envelope min/max và thống kê trên normal train. Đã chạy IF trên dữ liệu tổng hợp để đo cột hằng số. Chưa fit IF trên train chiến dịch hoặc chấm điểm detector trên test chiến dịch. Vì vậy đây là khóa quyết định **trước đánh giá detector**, không phải thí nghiệm mù hoặc trước mọi dòng sklearn. Không gọi load_split, không tái sinh manifest trong lesson này; facts đọc từ báo cáo đã commit.
+Phase5 đã xem tín hiệu test (separation, witness/onset, counter_reset), đã fit envelope min/max và thống kê trên normal train. Đã chạy IF trên dữ liệu tổng hợp để đo cột hằng số. Chưa fit IF trên train chiến dịch hoặc chấm điểm detector trên test chiến dịch. Vì vậy đây là khóa quyết định **trước đánh giá detector**, không phải thí nghiệm mù hoặc trước mọi dòng sklearn. Script đăng ký không gọi load_split và không tái sinh manifest; facts đọc từ báo cáo đã commit. Bộ test hồi quy vẫn kiểm tra load_split trên raw hiện có, không chấm điểm detector chiến dịch.
 
 Cơ sở: [Nosek et al., PNAS2018](https://pmc.ncbi.nlm.nih.gov/articles/5856500/) phân biệt sinh giả thuyết từ quan sát với kế hoạch phân tích trước kết quả. Bản này khai báo rõ việc đã khám phá test trong Phase5; cần test độc lập mới để xác nhận tổng quát ngoài campaign này.
 
@@ -124,3 +124,5 @@ Sau commit, không sửa phase6_prereg.json hoặc script sinh nội dung; khôn
 ```
 
 JSON:results/report/phase6_prereg.json; log sinh:logs/phase61_build_prereg.log; log từ chối ghi đè:logs/phase61_overwrite_refusal.log. Trước commit9passed/1skiptestlịch sử; saucommit phải10passed. Không tạo ml/detectors trong6.1. Dừng ởđăng ký trước đểreview trướcLesson6.2.
+
+Validation sau commit/tag/push: **10/10 test prereg đạt; toàn bộ 230 passed, 4 skipped** (4test commandlive tùy chọn). Receipt:results/report/phase61_validation.json; log:logs/phase61_pytest.log. Tag phase6-prereg neo commit003947410c8de52dd8771f802c55a3b54bde07d9; bản JSON ký giữ nguyên.
