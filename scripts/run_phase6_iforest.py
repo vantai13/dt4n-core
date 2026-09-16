@@ -120,6 +120,8 @@ def stage_cv(*, seeds=None, quantiles=None):
     report = F.heldout_calibration(base, columns, seeds=seeds,
                                    quantiles=quantiles,
                                    max_samples=F.PRIMARY_MAX_SAMPLES)
+    full_train_values, _ = F._prepare(base, base.iloc[:0], columns)
+    n_train_effective = len(full_train_values.dropna(axis=0, how='any'))
     content = {
         'lesson': '6.4-cv', 'data': 'train normal only; no test rows loaded',
         'registered_config': config,
@@ -140,7 +142,8 @@ def stage_cv(*, seeds=None, quantiles=None):
             'change_type': 'gap-filling interpretation; no registered rule altered',
             'declared_before': 'any campaign IF fit and any test row load',
         },
-        'tail_samples_by_q': {str(q): F.effective_tail_samples(len(base), q)
+        'n_train_rows_after_nan_drop': n_train_effective,
+        'tail_samples_by_q': {str(q): F.effective_tail_samples(n_train_effective, q)
                               for q in quantiles},
         'code_sha256': code_fingerprint(), **report,
     }

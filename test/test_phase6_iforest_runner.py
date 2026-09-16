@@ -74,6 +74,8 @@ def test_stage_cv_runs_end_to_end_on_fake_data(tmp_path, monkeypatch):
     assert document['content_sha256'] == R._hash(content)
     assert len(content['folds']) == 4 and content['n_columns'] == 72
     assert content['is_full_registered_grid'] is False
+    assert content['n_train_rows_after_nan_drop'] == len(base) - 8
+    assert content['tail_samples_by_q']['0.01'] == round((len(base) - 8) * .01, 2)
     assert R.stage_cv() == 1
 
 
