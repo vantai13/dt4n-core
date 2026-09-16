@@ -2013,44 +2013,15 @@
   },
   "use_rolling": false,
   "build_provenance": {
-    "git_hash": "ca72898d62ec4729f91641b5099e7eedc453793d",
+    "git_hash": "74d46de7ac9b3cded95f3e1f4bc5f74d520c443d",
     "git_dirty": true,
     "git_dirty_files": [
-      "README.md",
-      "SUMMARY.md",
       "logs/command_flow.log",
-      "ml/audit.py",
-      "ml/schema.py",
-      "results/report/feature_audit.csv",
-      "scripts/verify_labels.py",
-      "docs/phase-5/06-dataset-card.md",
       "logs/phase56_manifest.log",
-      "logs/phase56_pytest.log",
-      "ml/dataset.py",
-      "ml/features.py",
-      "results/report/ml_dataset_split_manifest.json",
-      "results/report/phase56_preservation.json",
-      "results/report/phase56_pytest.xml",
-      "results/report/phase56_results.html",
-      "results/report/phase56_results_screen.png",
-      "scripts/build_dataset_manifest.py",
-      "scripts/build_dataset_report.py",
-      "test/test_ml_dataset.py"
+      "results/report/feature_audit.csv"
     ],
-    "source_dirty_files": [
-      "README.md",
-      "SUMMARY.md",
-      "ml/audit.py",
-      "ml/schema.py",
-      "scripts/verify_labels.py",
-      "docs/phase-5/06-dataset-card.md",
-      "ml/dataset.py",
-      "ml/features.py",
-      "scripts/build_dataset_manifest.py",
-      "scripts/build_dataset_report.py",
-      "test/test_ml_dataset.py"
-    ],
-    "source_dirty": true
+    "source_dirty_files": [],
+    "source_dirty": false
   },
   "source_sha256": {
     "ml/features.py": "7090f6547466e830b7fc2c6d1750541196e551b4722168472138b676266ee88f",

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "gates": {
+    "contract_integrity": true,
+    "split_disjoint": true,
+    "train_normal_only": true,
+    "labels_excluded_from_X": true,
+    "selection_train_only": true,
+    "statistics_fit_train": true,
+    "train_finite": true,
+    "test_rows_retained": true,
+    "labels_match_test_rows": true,
+    "primary_base_rate_unchanged": true,
+    "deterministic_frames_and_labels": true,
+    "raw_and_collection_evidence_preserved": true
+  },
+  "shape": {
+    "n_train_rows": 464,
+    "n_test_rows": 590,
+    "n_features": 72
+  },
+  "unjudgeable_test_ticks": {
+    "total": 26,
+    "with_fault": 8,
+    "with_normal": 18,
+    "accounting": "tinh la false negative khi y=1; bao cao rieng"
+  },
+  "note": "No detector trained; CV fold-local preprocessing remains Phase 6 work."
+}
