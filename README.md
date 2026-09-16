@@ -175,3 +175,6 @@ Lesson 5.6: **72 feature, 464 train, 590 test**; missing26tick (8fault/18normal)
 
 
 Phase 5 envelope hoàn tất: **71cột,35riêng,36giaoIF,33constantkhác;K=0,k_train_mean=0.0**. IF vẫn72feature/464train/590test. Đã đo synthetic sklearn1.8.0:constant0/200cây split,scorebất biến. K=0in-sample chưa bảo đảm FPR ngoài mẫu. [Card cập nhật](docs/phase-5/06-dataset-card.md), [đăng ký thực nghiệm](docs/phase-5/07-envelope-registration.md), [kết quả](results/report/if_constant_blindness.json).
+
+
+Lesson6.1: khóa5giả thuyết,10run dự đoán,metrics/thresholds/unknown/hybrid trong [phase6_prereg.json](results/report/phase6_prereg.json), SHA`975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081`;[tài liệu](docs/phase-6/01-preregistration.md). Chưa fit/chấm điểm detector chiến dịch; manifestPhase5 giữ nguyên.
