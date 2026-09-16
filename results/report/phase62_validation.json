@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "prereg_unchanged": true,
+  "prereg_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+  "amendment_sha256": "7670b3f29cd7f374e6d7c91ab03757aac90574042fae21cc7f632251a07f9349",
+  "amendment_pre_cv_and_pre_test_scores": true,
+  "metrics_tests_warnings_as_errors": 30,
+  "suite_passed": 264,
+  "suite_skipped": 4,
+  "campaign_cv_run": false,
+  "campaign_detector_test_scores_seen": false,
+  "detector_directory_absent": true
+}
