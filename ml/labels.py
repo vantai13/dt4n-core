@@ -40,7 +40,7 @@ IGNORE = 0      # tick bị LOẠI khỏi chỉ số — KHÁC hẳn "nhãn 0"
 # Không phải hằng số thần thánh. scripts/verify_labels.py ĐO onset delay thật
 # trên 8 run fault; nếu có run nào vượt con số này, gate sẽ FAIL và bạn phải
 # xem lại — chứ không âm thầm dùng một tham số không ai kiểm chứng.
-GRACE_ONSET_TICKS = 10      # sau inject: mạng cần thời gian để hậu quả lộ ra
+GRACE_ONSET_TICKS = 2      # sau inject: mạng cần thời gian để hậu quả lộ ra
 GRACE_RECOVERY_TICKS = 2   # sau revert: TCP slow-start lại, hàng đợi rút
 
 # --- chuỗi ĐÃ ĐÓNG DẤU vào 18 sidecar lúc thu (Lesson 5.4). BẤT BIẾN. ------

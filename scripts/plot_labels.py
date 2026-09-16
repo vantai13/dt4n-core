@@ -58,7 +58,7 @@ def plot(root: Path):
         # 4. Feature chứng nhân. Khoảng trắng = không đo được, KHÔNG phải 0.
         ax.plot(ticks, values, lw=1.4, color='#1f4e79', marker='.', ms=3)
         # 5. Thời điểm tín hiệu ĐO ĐƯỢC xuất hiện
-        onset = info['onset_delay_ticks']
+        onset = info['witness_onset_delay_ticks']
         if onset is not None:
             ax.axvline(inject + 1 + onset, color='#c81e1e', ls='--', lw=1.2,
                        label='tin hieu do duoc (onset=+%d tick)' % onset)
@@ -66,7 +66,7 @@ def plot(root: Path):
         if recovery is not None:
             ax.axvline(revert + 1 + recovery, color='#20804a', ls=':', lw=1.2, label='phuc hoi do duoc')
         ax.set_title('%s | %s | onset=%s recovery=%s'
-                     % (rid, info['witness'], onset,
+                     % (rid, info['witness'] + ' earliest=' + str(info['onset_delay_ticks']), onset,
                         info['recovery_delay_ticks']), fontsize=8)
         ax.set_xlabel('tick', fontsize=7)
         ax.tick_params(labelsize=7)

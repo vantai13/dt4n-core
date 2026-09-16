@@ -49,19 +49,26 @@ def _probe_tick(snapshot, link_id):
     return {k: (v[0] if v else None) for k, v in series.items()}
 
 
-def witness_series(snapshots, expected_links, warmup, inject, revert):
-    """Chọn feature CHỨNG NHÂN và trả chuỗi z theo tick.
+def channel_scan(snapshots, expected_links, warmup, inject, revert):
+    """Quét MỌI kênh của MỌI link dự kiến. Trả về cả hai đại lượng.
 
-    Chứng nhân = cặp (link, kênh) có |z| trung bình lớn nhất trong cửa sổ
-    fault. Chọn tự động thay vì hardcode 'lossPct' vì mỗi loại fault để lại
-    dấu vết ở kênh khác nhau:
-        admin_down -> state_up sụp 1->0
-        flood      -> rxRate/txRate vọt
-        degrade    -> lossPct xuất hiện
-        shift      -> txRate trên link bị đẩy tải sang
-    Hardcode một kênh = mù với ba loại fault còn lại.
+    VÌ SAO TÁCH HAI ĐẠI LƯỢNG (sửa lỗi của bản 5.5 đầu tiên):
+        Bản cũ chọn kênh có mean-z lớn nhất rồi đo onset TRÊN KÊNH ĐÓ. Nhưng
+        detector Phase 6 là ĐA BIẾN — nó thấy mọi kênh cùng lúc. Nếu bất kỳ
+        kênh nào lệch ở tick 21 thì detector có thể bắt ở tick 21, nên grace
+        (thứ dùng để MIỄN TRÁCH mô hình) phải dựa trên kênh SỚM NHẤT.
+
+        Đo trên kênh mạnh nhất LUÔN ước lượng onset cao hơn thực tế. Bằng
+        chứng trong dataset này: degrade s2-s3 có lossPct (mean z 274) onset
+        10 tick, trong khi txRate cùng link có separation 14.5 — tc hạ băng
+        thông có hiệu lực tức thời ở egress, nên txRate lệch trước khi hàng
+        đợi đầy và sinh drop.
+
+        'witness' (mạnh nhất) -> minh họa, biểu đồ.
+        'earliest' (sớm nhất) -> biện minh grace. Hai vai, hai số.
     """
-    best = None
+    witness = None
+    per_channel = []
     for link_id in ('link-%s' % x for x in expected_links):
         per_tick = [_probe_tick(s, link_id) for s in snapshots]
         for channel, floor in C.SEPARATION_FLOOR.items():
@@ -69,25 +76,33 @@ def witness_series(snapshots, expected_links, warmup, inject, revert):
             baseline = [v for v in values[warmup:inject + 1]
                         if v is not None and math.isfinite(v)]
             if len(baseline) < 3:
-                continue                 # không đủ nền -> không kết luận được
+                continue
             mu = statistics.fmean(baseline)
             sigma = statistics.pstdev(baseline)
-            scale = max(sigma, floor)    # sàn: chống chia cho nhiễu ~0
+            scale = max(sigma, floor)
             z = [None if v is None or not math.isfinite(v)
                  else abs(v - mu) / scale for v in values]
             during = [x for x in z[inject + 1:revert + 1] if x is not None]
             if not during:
                 continue
-            score = statistics.fmean(during)
-            if best is None or score > best['mean_z_in_window']:
-                best = {'link': link_id, 'channel': channel,
-                        'baseline_mean': round(mu, 4),
-                        'baseline_std': round(sigma, 6),
-                        'scale_used': round(scale, 6),
-                        'mean_z_in_window': round(score, 3),
-                        'values': values, 'z': z}
-    return best
-
+            onset, recovery = onset_recovery_delay(z, inject, revert)
+            entry = {
+                'link': link_id, 'channel': channel,
+                'baseline_mean': round(mu, 4), 'baseline_std': round(sigma, 6),
+                'scale_used': round(scale, 6),
+                'mean_z_in_window': round(statistics.fmean(during), 3),
+                'max_z_in_window': round(max(during), 3),
+                'onset_delay_ticks': onset, 'recovery_delay_ticks': recovery,
+            }
+            per_channel.append(entry)
+            if witness is None or entry['mean_z_in_window'] > witness['mean_z_in_window']:
+                witness = dict(entry, values=values, z=z)
+    if witness is None:
+        return None
+    # SỚM NHẤT: min trên các kênh CÓ vượt ngưỡng. None = không kênh nào vượt.
+    crossed = [c for c in per_channel if c['onset_delay_ticks'] is not None]
+    earliest = min(crossed, key=lambda c: c['onset_delay_ticks']) if crossed else None
+    return {'witness': witness, 'earliest': earliest, 'per_channel': per_channel}
 
 def onset_recovery_delay(z, inject, revert):
     """onset = trễ tới lúc tín hiệu XUẤT HIỆN; recovery = tới lúc nó TẮT.
@@ -174,22 +189,30 @@ def build_ground_truth(root: Path):
         # --- GATE 3: ĐO onset / recovery delay trên run fault ---------------
         if record.get('fault'):
             inject, revert = L.event_ticks(n, events)
-            w = witness_series(snapshots, record['expected_links'],
-                               warmup, inject, revert)
-            if w is None:
-                raise ValueError('khong chon duoc feature chung nhan: ' + rid)
-            onset, recovery = onset_recovery_delay(w['z'], inject, revert)
+            scan = channel_scan(snapshots, record['expected_links'],
+                                warmup, inject, revert)
+            if scan is None:
+                raise ValueError('khong chon duoc kenh chung nhan: ' + rid)
+            w, e = scan['witness'], scan['earliest']
             timing[rid] = {
+                # --- minh hoạ: kênh mạnh nhất (giữ nguyên nghĩa bản cũ) ----
                 'witness': '%s.%s' % (w['link'], w['channel']),
+                'witness_onset_delay_ticks': w['onset_delay_ticks'],
+                'witness_recovery_delay_ticks': w['recovery_delay_ticks'],
+                'mean_z_in_fault_window': w['mean_z_in_window'],
                 'baseline_mean': w['baseline_mean'],
                 'baseline_std': w['baseline_std'],
                 'scale_used': w['scale_used'],
-                'mean_z_in_fault_window': w['mean_z_in_window'],
+                # --- BIỆN MINH GRACE: kênh sớm nhất ------------------------
+                'earliest_channel': (None if e is None else
+                                     '%s.%s' % (e['link'], e['channel'])),
+                'onset_delay_ticks': None if e is None else e['onset_delay_ticks'],
+                'recovery_delay_ticks': w['recovery_delay_ticks'],
+                'earliest_mean_z': None if e is None else e['mean_z_in_window'],
+                # --- bằng chứng đầy đủ để bảo vệ trước hội đồng ------------
+                'per_channel': scan['per_channel'],
                 'z_threshold': Z_ONSET,
-                'onset_delay_ticks': onset,
-                'recovery_delay_ticks': recovery,
                 'inject_tick': inject, 'revert_tick': revert,
-                # Giữ chuỗi z để plot_labels.py không phải đọc lại raw
                 'z_series': [None if v is None else round(v, 3) for v in w['z']],
                 'witness_values': [None if v is None or not math.isfinite(v)
                                    else round(v, 4) for v in w['values']],

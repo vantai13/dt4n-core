@@ -80,3 +80,6 @@ Chạy lại:
 Log: `logs/phase55_verify_labels.log`, `logs/phase55_pytest.log`. Báo cáo đo: `results/report/ground_truth.json`; biểu đồ: `results/report/label_overlay.png`; màn hình: `results/report/phase55_results_screen.png`.
 
 Validation cuối: **189 passed, 4 skipped** (bốn test lệnh live tùy chọn). Test tái lập artifact trên raw thật đã chạy, không skip.
+
+
+**Cập nhật Lesson 5.5b:** phép đo cũ chỉ xét onset của kênh mạnh nhất. Quét tất cả kênh dự kiến cho thấy onset sớm nhất **0 tick ở cả 8 run F**, bao gồm degrade s2–s3 trên txRate; lossPct mạnh nhất vẫn onset10. Chốt lại grace onset2/recovery2, độ nhạy144/558=25,81%; chính160/590 không đổi. Bản trước giữ ở `ground_truth_witness_grace10.json`; không diễn giải first-crossing trên nhiều kênh như bằng chứng nhân quả hay khả năng phát hiện chắc chắn của mô hình.

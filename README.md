@@ -166,3 +166,6 @@ Raw được giữ local và có archive đã kiểm checksum18/18 theo [backup 
 
 
 Lesson 5.5 hoàn thành: 13/13 gate; 18 run/1.080 nhãn; chính160/590=27,12%; độ nhạy80/494=16,19%. Onset tối đa10 tick, recovery tối đa2 tick; giữ kết quả grace2 không đạt và công thức y cũ. [Báo cáo](docs/phase-5/05-ground-truth.md), [JSON](results/report/ground_truth.json), [biểu đồ](results/report/label_overlay.png).
+
+
+**Cập nhật Lesson 5.5b:** phép đo cũ chỉ xét onset của kênh mạnh nhất. Quét tất cả kênh dự kiến cho thấy onset sớm nhất **0 tick ở cả 8 run F**, bao gồm degrade s2–s3 trên txRate; lossPct mạnh nhất vẫn onset10. Chốt lại grace onset2/recovery2, độ nhạy144/558=25,81%; chính160/590 không đổi. Bản trước giữ ở `ground_truth_witness_grace10.json`; không diễn giải first-crossing trên nhiều kênh như bằng chứng nhân quả hay khả năng phát hiện chắc chắn của mô hình.

@@ -59,7 +59,7 @@ def test_primary_mask_only_drops_warmup():
     assert tb['eval_primary'][21] == L.EVAL           # chuyen tiep VAN tinh
     assert tb['eval_sensitivity'][21] == L.IGNORE     # chi so phu thi loai
     assert tb['counts']['ticks_dropped_warmup'] == 1
-    assert tb['counts']['ticks_dropped_transition'] == 12
+    assert tb['counts']['ticks_dropped_transition'] == 4
 
 
 def test_normal_run_transition_mask_is_all_eval():
@@ -115,8 +115,8 @@ def test_sensitivity_mask_lowers_base_rate_by_known_amount():
               for i in range(8)]
     p = L.base_rate(tables, 'eval_primary')
     s = L.base_rate(tables, 'eval_sensitivity')
-    assert p['anomalous_test_ticks'] - s['anomalous_test_ticks'] == 80
-    assert p['usable_test_ticks'] - s['usable_test_ticks'] == 96
+    assert p['anomalous_test_ticks'] - s['anomalous_test_ticks'] == 16
+    assert p['usable_test_ticks'] - s['usable_test_ticks'] == 32
 
 
 # --- 6. GHEP NHAN: theo KHOA, khong theo thu tu dong --------------------
@@ -201,3 +201,19 @@ def test_live_artifact_regenerates_bit_for_bit_and_detects_changed_event(tmp_pat
     events[0]['tick'] += 1
     assert L.labels_from_events(60, events) != L.labels_from_events(60, side['events'])
     assert C.sha256_bytes(C.canonical_json(events).encode()) != artifact['receipt']['source_fingerprints']['runs'][fault['run_id']]['events_sha256']
+
+
+def test_scan_separates_earliest_channel_from_strongest(monkeypatch):
+    from scripts import verify_labels as V
+    snapshots = [{'a': i} for i in range(12)]
+    def probe(s, link):
+        t = s['a']
+        return {'rxRate': 0 if t < 4 else 60000,
+                'txRate': 0 if t < 7 else 1000000,
+                'lossPct': None, 'state_up': None}
+    monkeypatch.setattr(V, '_probe_tick', probe)
+    scan = V.channel_scan(snapshots, ['a'], 0, 3, 9)
+    assert scan['earliest']['channel'] == 'rxRate'
+    assert scan['earliest']['onset_delay_ticks'] == 0
+    assert scan['witness']['channel'] == 'txRate'
+    assert scan['witness']['onset_delay_ticks'] == 3
