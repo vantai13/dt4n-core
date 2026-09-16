@@ -1,0 +1,68 @@
+{
+  "written_at_utc": "2026-09-16T09:38:24+00:00",
+  "content": {
+    "ledger_id": "DT4N-P6-HYPOTHESIS-LEDGER-v2",
+    "append_only_after": "7f7ffd6c65dc5f4eb13f784ac9d6927b128de657e1e694b9bbae84945df70739",
+    "bound_to": {
+      "iforest_cv_content_sha256": "fdc253a9f5c313c7d4c81ac85073177df7e174c28092924ccb45ceb22c643219",
+      "prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081"
+    },
+    "timing_and_knowledge": {
+      "iforest_fitted_on_campaign_train": true,
+      "iforest_campaign_test_scores_seen": false
+    },
+    "h4_clause_analysis": {
+      "overall_status_unchanged": "refuted",
+      "why_unchanged": "the registered refutation condition is \"another fold has a strictly higher rate for EITHER detector\"; the envelope half already triggered it, so no IF evidence can reverse the overall decision",
+      "envelope_clause": "refuted (fold normal|1 87.29% > fold vary 78.81%)",
+      "iforest_clause": "supported",
+      "iforest_evidence": {
+        "metric": "mean over 5 seeds of held-out alarm rate at q=0.01",
+        "by_fold": {
+          "normal|4": {
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "n_seeds": 5
+          },
+          "normal|2": {
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "n_seeds": 5
+          },
+          "normal|1": {
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "n_seeds": 5
+          },
+          "normal_varying|vary": {
+            "mean": 0.35172413793103446,
+            "min": 0.3103448275862069,
+            "max": 0.3706896551724138,
+            "n_seeds": 5
+          }
+        },
+        "vary_fold_mean": 0.35172413793103446,
+        "vary_fold_seed_range": [
+          0.3103448275862069,
+          0.3706896551724138
+        ],
+        "highest_other_fold": "normal|4",
+        "highest_other_mean": 0.0,
+        "clause_holds": true,
+        "holds_for_every_seed": true
+      },
+      "reading": "the envelope count is driven by how OFTEN a bound is crossed; the IF score by how FAR a row lies from the training manifold"
+    },
+    "predictions_recorded_before_test": {
+      "fpr_direction": "FPR on C-vary is expected to exceed FPR on C-load2M; this is a direction, not a magnitude",
+      "fpr_magnitude_warning": "the 35.17% held-out alarm rate on the vary fold must NOT be read as a prediction of test FPR on C-vary. The vary fold is a counterfactual in which N-vary training runs are removed. The test model is trained on all four configs including vary; this predicts Phase 7 behavior for a profile absent from training. Seed range 31.03% to 37.07%.",
+      "threshold_ownership": "the bottom q of full-train scores is owned by normal_varying|vary; benign load dynamics sets the threshold, so recall is expected lowest on milder throughput faults, particularly degrade",
+      "dynamics_not_only_level": "p95 max|d1| is 401683.8 on varying versus 24943.0 on fixed configs (factor 16.1); the vary fold extrapolates in dynamics as well as level",
+      "no_tuning": "q, seeds, max_samples, columns and hyperparameters remain registered"
+    }
+  },
+  "ledger_content_sha256": "c6bb53440aca94a8f67fa479eefb39e8dd5d6309896b0288b9d537ce2b6b5d0b"
+}
