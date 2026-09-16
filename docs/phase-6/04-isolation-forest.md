@@ -84,4 +84,59 @@ column was changed because of these observations.
 
 ## Frozen test results
 
-Pending the one-shot test stage.
+The test stage was run once after the CV artifact and both ledgers were
+committed. The test artifact content SHA-256 is
+`a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283`.
+The IF recall ceiling is 152/160 = 95.0% because 8 positive ticks are unknown.
+
+At the primary configuration (`max_samples=256`, q=0.01), mean recall over
+five seeds is **0.13%** (sample SD 0.28%, range 0–0.625%). Four seeds detect no
+positive tick; seed 4 detects one `admin_down` tick. Mean FPR is **2.37%**
+(SD 0.80%, range 1.63–3.72%). All eight incidents are censored for four seeds;
+seven are censored for seed 4.
+
+| q | Mean recall | Mean FPR | Recall range | FPR range |
+|---:|---:|---:|---:|---:|
+| 0.005 | 0.00% | 1.21% | 0–0% | 0.93–1.63% |
+| 0.010 | 0.13% | 2.37% | 0–0.63% | 1.63–3.72% |
+| 0.020 | 2.50% | 4.65% | 0.63–3.13% | 3.72–5.12% |
+| 0.050 | 13.63% | 8.70% | 11.25–16.25% | 8.60–8.84% |
+
+At q=0.01, `C-load2M` has FPR 0 for every seed while `C-vary` has mean FPR
+7.80% (range 6.78–8.47%). The registered directional prediction is therefore
+supported. The magnitude remains distinct from the counterfactual 35.17% CV
+rate, exactly as recorded before test. Mean FPR is 3.90% on control runs and
+1.79% on normal portions of fault runs.
+
+The `max_samples=1.0` secondary setting gives zero recall for every seed at
+q=0.01 and the same mean all-negative FPR of 2.37%. No feature is never split
+across all five seeds under either setting.
+
+## Noise control
+
+The Gaussian noise arm uses the same 464×72 train and 590×72 test dimensions,
+the same primary quantile and the campaign unknown mask. Its mean recall is
+1.38% (range 0.63–1.88%) and mean FPR is 1.12%. The campaign IF's 0.13% recall
+is lower than this control, while its FPR is higher. At the registered operating
+point, these data provide no evidence that campaign IF learned a useful fault
+ranking beyond the synthetic control.
+
+## Plot inspection
+
+![IF scores by test run](../../results/report/phase6_iforest_scores.png)
+
+![Train and test score distributions](../../results/report/phase6_iforest_score_dist.png)
+
+The fault windows and run ordering align with the frozen keys. Fault scores
+mostly remain above the strict threshold. Low-score excursions occur primarily
+in varying-load normal traffic and post-window transitions, matching the
+train-only threshold-ownership diagnosis.
+
+## Artifacts
+
+- `results/report/phase6_iforest_cv.json`: train-only folds, 40 frozen thresholds, tail ownership and dynamics profile.
+- `results/report/phase6_hypothesis_ledger_2.json`: append-only H4 clause decision and pre-test predictions.
+- `results/report/phase6_iforest.json`: one-shot metrics, split usage and noise control.
+- `results/report/phase6_iforest_ticks.csv`: primary seed-0 test scores and alarms.
+- `results/report/phase6_iforest_scores.png`: inspected score timeline.
+- `results/report/phase6_iforest_score_dist.png`: inspected train/test distributions.
