@@ -1,0 +1,25 @@
+{
+  "written_at_utc": "2026-09-16T03:27:20+00:00",
+  "content": {
+    "amendment_id": "DT4N-P6-PREREG-AMENDMENT-2",
+    "amends": [
+      "DT4N-P6-PREREG-v1",
+      "DT4N-P6-PREREG-AMENDMENT-1"
+    ],
+    "amends_prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+    "amendment_1_content_sha256": "7670b3f29cd7f374e6d7c91ab03757aac90574042fae21cc7f632251a07f9349",
+    "timing_and_knowledge": {
+      "campaign_cv_run": false,
+      "campaign_detector_test_scores_seen": false
+    },
+    "change_type": "clarification of ambiguous wording; no detector, threshold rule or hypothesis changed",
+    "clarifications": {
+      "fold_column_identity": "Column lists stay frozen (71 primary; 35/36 dual; 8 loss-only) in every fold. Fold refit = link_stats for agg.rate_absz_* and min/max bounds on fold-train. select_features is NOT re-run to change columns; a column constant on fold-train keeps bounds [c,c]. Per-fold count of such columns is reported as diagnostic.",
+      "why": "K must be comparable with the final 71-column detector; per-fold column sets would change the scale of k.",
+      "h4_envelope_rate": "share of JUDGEABLE held-out rows with primary k>0, per fold, uncalibrated.",
+      "two_stage_execution": "Stage cv writes phase6_envelope_cv.json from train only; it is committed before stage test may run; stage test refuses if CV file, detector code or registrations are uncommitted, modified, or if results exist."
+    },
+    "known_risk_declared_before_cv": "Under iid noise a new point falls outside the min/max of n fit points with probability 2/(n+1). Low-end folds may therefore show k>0 without extrapolation in load; H4 stays unchanged and may be refuted."
+  },
+  "amendment_content_sha256": "bb61d49c85a6708fd39d4ec48771dd70b0a09a5ac599e7b6d49e54ecabef4678"
+}
