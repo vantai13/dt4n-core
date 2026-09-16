@@ -1,0 +1,27 @@
+{
+  "written_at_utc": "2026-09-16T03:33:45+00:00",
+  "lesson": "6.3",
+  "checks": {
+    "amendment2_hash_match": true,
+    "cv_hash_match": true,
+    "test_hash_match": true,
+    "ticks_hash_match": true,
+    "amendment_precedes_cv": true,
+    "cv_precedes_test": true,
+    "registered_family_sizes": true,
+    "all_cv_rows_judgeable": true
+  },
+  "commits": {
+    "amendment_2": "d77e251ea2eed31a6a62c63da7ca990deaf7255f",
+    "cv": "4a94dee27923b5b2977c3c828ce9aa1c0418b7d6",
+    "test": "be747df2e961478904bfefff2c433fa6d865626b"
+  },
+  "pytest": {
+    "tests": 278,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 4
+  },
+  "cv_content_sha256": "0219093ee7dba8da7df2645c32adc2ed24e6d69d57a1b4dbfb6e023a9cc8b571",
+  "test_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813"
+}
