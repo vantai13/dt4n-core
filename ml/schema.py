@@ -14,6 +14,7 @@ from __future__ import annotations
 
 # --- cột SIÊU DỮ LIỆU: mô tả lần chạy, KHÔNG BAO GIỜ là feature -----------
 META_COLS = (
+    'config_id', 'is_warmup',
     'is_fault', 'eval_primary', 'eval_sensitivity', 'max_separation',
     'run_id', 'profile', 'tick', 'seed', 'git_hash', 'collector_version',
     'load_mbps_per_client', 't_source', 't_cycle_start', 't_cycle_end',

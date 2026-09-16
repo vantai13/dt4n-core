@@ -134,5 +134,9 @@ def audit_features(df: pd.DataFrame, fault_col: str = 'is_fault') -> pd.DataFram
 
 
 def kept_features(audit: pd.DataFrame) -> list[str]:
-    """Danh sách cột được GIỮ — đầu vào của Phase 6."""
+    """Descriptive in-sample GIU list; never use for model feature selection.
+
+    Campaign AUC uses test labels. Phase 6 must use
+    ml.features.select_features(train_df), based on structure/train statistics.
+    """
     return audit.loc[audit.quyet_dinh == 'GIU', 'feature'].tolist()

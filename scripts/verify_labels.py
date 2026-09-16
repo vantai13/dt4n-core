@@ -50,22 +50,10 @@ def _probe_tick(snapshot, link_id):
 
 
 def channel_scan(snapshots, expected_links, warmup, inject, revert):
-    """Quét MỌI kênh của MỌI link dự kiến. Trả về cả hai đại lượng.
+    """Scan all eligible channels: strongest illustrates; earliest diagnoses onset.
 
-    VÌ SAO TÁCH HAI ĐẠI LƯỢNG (sửa lỗi của bản 5.5 đầu tiên):
-        Bản cũ chọn kênh có mean-z lớn nhất rồi đo onset TRÊN KÊNH ĐÓ. Nhưng
-        detector Phase 6 là ĐA BIẾN — nó thấy mọi kênh cùng lúc. Nếu bất kỳ
-        kênh nào lệch ở tick 21 thì detector có thể bắt ở tick 21, nên grace
-        (thứ dùng để MIỄN TRÁCH mô hình) phải dựa trên kênh SỚM NHẤT.
-
-        Đo trên kênh mạnh nhất LUÔN ước lượng onset cao hơn thực tế. Bằng
-        chứng trong dataset này: degrade s2-s3 có lossPct (mean z 274) onset
-        10 tick, trong khi txRate cùng link có separation 14.5 — tc hạ băng
-        thông có hiệu lực tức thời ở egress, nên txRate lệch trước khi hàng
-        đợi đầy và sinh drop.
-
-        'witness' (mạnh nhất) -> minh họa, biểu đồ.
-        'earliest' (sớm nhất) -> biện minh grace. Hai vai, hai số.
+    A first crossing is not a causal physical latency bound or a guarantee
+    that a detector will flag the point. Keep both measurements and channels.
     """
     witness = None
     per_channel = []
