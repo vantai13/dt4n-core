@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "gates": {
+    "collection_evidence_preserved": true,
+    "if_feature_names_unchanged": true,
+    "if_shape_unchanged": true,
+    "base_rates_unchanged": true,
+    "missing_if_ticks_unchanged": true,
+    "constant_column_if_blindness_measured": true,
+    "envelope_bounds_finite_ordered": true,
+    "envelope_only_indicators_preserved": true,
+    "shared_channels_reported": true,
+    "threshold_same_train_justified": true,
+    "fit_train_rows_explicit": true,
+    "no_label_based_selection": true,
+    "source_clean_at_build": true
+  },
+  "n_envelope_only_columns": 35,
+  "envelope_threshold": {
+    "K": 0,
+    "k_train_max": 0,
+    "k_train_mean": 0.0,
+    "n_envelope_columns": 71,
+    "n_train_rows": 472,
+    "n_train_rows_with_missing": 0,
+    "rule": "alarm iff strict bound violation count > K; missing status handled separately",
+    "calibration_note": "same-sample min/max implies K=0; held-out FPR unmeasured"
+  },
+  "held_out_fpr": null,
+  "note": "K=0 on fit train is tautological; campaign detector evaluation remains Phase 6."
+}

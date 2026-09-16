@@ -2504,29 +2504,15 @@
   },
   "use_rolling": false,
   "build_provenance": {
-    "git_hash": "bb00413a57d13480d56e185d3e6d3b6a97ea36f0",
+    "git_hash": "bbacc600155df1abc1bb679f1d7eb029581590ab",
     "git_dirty": true,
     "git_dirty_files": [
       "logs/command_flow.log",
-      "ml/dataset.py",
-      "ml/features.py",
-      "requirements.txt",
-      "results/report/feature_audit.csv",
-      "scripts/build_dataset_manifest.py",
-      "test/test_ml_dataset.py",
-      "docs/phase-5/07-envelope-registration.md",
       "logs/phase56b_envelope_manifest.log",
-      "results/report/ml_dataset_split_manifest_pre_envelope.json"
+      "results/report/feature_audit.csv"
     ],
-    "source_dirty_files": [
-      "ml/dataset.py",
-      "ml/features.py",
-      "requirements.txt",
-      "scripts/build_dataset_manifest.py",
-      "test/test_ml_dataset.py",
-      "docs/phase-5/07-envelope-registration.md"
-    ],
-    "source_dirty": true
+    "source_dirty_files": [],
+    "source_dirty": false
   },
   "source_sha256": {
     "ml/features.py": "d8c881a9c73bd6c828bbb7aec84a7afdfbf9e3c6aae759a065b06b7d683d57d4",
