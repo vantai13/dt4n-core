@@ -1,0 +1,283 @@
+{
+  "written_at_utc": "2026-09-16T03:30:56+00:00",
+  "content": {
+    "lesson": "6.3-cv",
+    "data": "train normal only; no test rows loaded",
+    "amendment2_content_sha256": "bb61d49c85a6708fd39d4ec48771dd70b0a09a5ac599e7b6d49e54ecabef4678",
+    "families": {
+      "primary": 71,
+      "indicator": 35,
+      "rate_shared": 36,
+      "loss_only": 8
+    },
+    "code_sha256": {
+      "ml/detectors/envelope.py": "ca9b8f00dcbc18d68fb9aac6b1f4770c8b653176df5c1d0559073f2a48f00759",
+      "scripts/run_phase6_envelope.py": "b8180df77fe33a226de4b63a5062f10779b20fc27febca7b833543ae2811f681",
+      "ml/metrics.py": "f96eea01e462a7326c69774b2e652bc6d0fe499b103e984b13fa35f435fb3db5"
+    },
+    "folds": [
+      {
+        "fold": 0,
+        "held_out_config": "normal|4",
+        "n_fit_rows": 354,
+        "n_val_rows": 118,
+        "families": {
+          "primary": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 35
+          },
+          "indicator": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 35
+          },
+          "rate_shared": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 0
+          },
+          "loss_only": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 8
+          }
+        }
+      },
+      {
+        "fold": 1,
+        "held_out_config": "normal|2",
+        "n_fit_rows": 354,
+        "n_val_rows": 118,
+        "families": {
+          "primary": {
+            "n_judgeable": 118,
+            "k_max": 1,
+            "k_distribution": {
+              "0": 89,
+              "1": 29
+            },
+            "share_k_gt_0": 0.2457627118644068,
+            "excess_max": 0.012623636484206488,
+            "n_constant_on_fold_fit": 35
+          },
+          "indicator": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 35
+          },
+          "rate_shared": {
+            "n_judgeable": 118,
+            "k_max": 1,
+            "k_distribution": {
+              "0": 89,
+              "1": 29
+            },
+            "share_k_gt_0": 0.2457627118644068,
+            "excess_max": 0.012623636484206488,
+            "n_constant_on_fold_fit": 0
+          },
+          "loss_only": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 8
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "held_out_config": "normal|1",
+        "n_fit_rows": 354,
+        "n_val_rows": 118,
+        "families": {
+          "primary": {
+            "n_judgeable": 118,
+            "k_max": 10,
+            "k_distribution": {
+              "0": 15,
+              "1": 6,
+              "3": 6,
+              "4": 3,
+              "5": 15,
+              "6": 13,
+              "7": 19,
+              "8": 35,
+              "9": 4,
+              "10": 2
+            },
+            "share_k_gt_0": 0.8728813559322034,
+            "excess_max": 0.448429757439982,
+            "n_constant_on_fold_fit": 35
+          },
+          "indicator": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 35
+          },
+          "rate_shared": {
+            "n_judgeable": 118,
+            "k_max": 10,
+            "k_distribution": {
+              "0": 15,
+              "1": 6,
+              "3": 6,
+              "4": 3,
+              "5": 15,
+              "6": 13,
+              "7": 19,
+              "8": 35,
+              "9": 4,
+              "10": 2
+            },
+            "share_k_gt_0": 0.8728813559322034,
+            "excess_max": 0.448429757439982,
+            "n_constant_on_fold_fit": 0
+          },
+          "loss_only": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 8
+          }
+        }
+      },
+      {
+        "fold": 3,
+        "held_out_config": "normal_varying|vary",
+        "n_fit_rows": 354,
+        "n_val_rows": 118,
+        "families": {
+          "primary": {
+            "n_judgeable": 118,
+            "k_max": 31,
+            "k_distribution": {
+              "0": 25,
+              "1": 2,
+              "2": 5,
+              "4": 1,
+              "5": 7,
+              "6": 2,
+              "7": 1,
+              "13": 10,
+              "14": 1,
+              "15": 1,
+              "18": 50,
+              "19": 2,
+              "20": 1,
+              "31": 10
+            },
+            "share_k_gt_0": 0.788135593220339,
+            "excess_max": 8.968806422101116,
+            "n_constant_on_fold_fit": 35
+          },
+          "indicator": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 35
+          },
+          "rate_shared": {
+            "n_judgeable": 118,
+            "k_max": 31,
+            "k_distribution": {
+              "0": 25,
+              "1": 2,
+              "2": 5,
+              "4": 1,
+              "5": 7,
+              "6": 2,
+              "7": 1,
+              "13": 10,
+              "14": 1,
+              "15": 1,
+              "18": 50,
+              "19": 2,
+              "20": 1,
+              "31": 10
+            },
+            "share_k_gt_0": 0.788135593220339,
+            "excess_max": 8.968806422101116,
+            "n_constant_on_fold_fit": 0
+          },
+          "loss_only": {
+            "n_judgeable": 118,
+            "k_max": 0,
+            "k_distribution": {
+              "0": 118
+            },
+            "share_k_gt_0": 0.0,
+            "excess_max": 0.0,
+            "n_constant_on_fold_fit": 8
+          }
+        }
+      }
+    ],
+    "thresholds": {
+      "primary": {
+        "K": 31,
+        "E": 8.968806422101116,
+        "n_pooled_rows": 472
+      },
+      "indicator": {
+        "K": 0,
+        "E": 0.0,
+        "n_pooled_rows": 472
+      },
+      "rate_shared": {
+        "K": 31,
+        "E": 8.968806422101116,
+        "n_pooled_rows": 472
+      },
+      "loss_only": {
+        "K": 0,
+        "E": 0.0,
+        "n_pooled_rows": 472
+      }
+    },
+    "rule": "K=max held-out k, E=max held-out excess; alarm strict >"
+  },
+  "content_sha256": "0219093ee7dba8da7df2645c32adc2ed24e6d69d57a1b4dbfb6e023a9cc8b571"
+}
