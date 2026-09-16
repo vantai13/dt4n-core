@@ -1,0 +1,157 @@
+{
+  "written_at_utc": "2026-09-16T09:59:48+00:00",
+  "content": {
+    "ledger_id": "DT4N-P6-HYPOTHESIS-LEDGER-v3",
+    "append_only_after": "c6bb53440aca94a8f67fa479eefb39e8dd5d6309896b0288b9d537ce2b6b5d0b",
+    "bound_to": {
+      "iforest_test_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283",
+      "envelope_test_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813"
+    },
+    "timing_and_knowledge": {
+      "iforest_campaign_test_scores_seen": true,
+      "hybrid_or_exploratory_analysis_started": false
+    },
+    "hypotheses": {
+      "H1": {
+        "status": "refuted",
+        "previous_status": "pending",
+        "evidence": {
+          "envelope_admin_recall": 0.0,
+          "iforest_admin_recall_by_seed": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.025
+          },
+          "iforest_admin_recall_mean": 0.005,
+          "margin_in_ticks": 0.2,
+          "seeds_with_any_detection": [
+            "4"
+          ]
+        },
+        "note": "H1 is refuted by the registered five-seed mean: one tick in seed 4. This is a threshold failure, not a channel failure: secondary_dual recall is 1.0 while loss-only recall is 0.0 on admin_down."
+      },
+      "H2": {
+        "status": "refuted",
+        "previous_status": "refuted",
+        "evidence": {
+          "iforest_delay_by_seed": {
+            "0": null,
+            "1": null,
+            "2": null,
+            "3": null,
+            "4": null
+          },
+          "all_iforest_seeds_censored": true,
+          "loss_only_delay": 10
+        }
+      },
+      "H3": {
+        "status": "refuted",
+        "previous_status": "pending",
+        "evidence": {
+          "envelope_primary_tp": 0,
+          "iforest_only_ticks_per_seed": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 1
+          },
+          "seeds_below_8": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        "note": "The preregistered trivial-confirmation warning did not occur: IF found only 0,0,0,0,1 positive ticks, so H3 is refuted."
+      },
+      "H4": {
+        "status": "refuted",
+        "previous_status": "refuted",
+        "evidence": {
+          "overall_status_unchanged": "refuted",
+          "why_unchanged": "the registered refutation condition is \"another fold has a strictly higher rate for EITHER detector\"; the envelope half already triggered it, so no IF evidence can reverse the overall decision",
+          "envelope_clause": "refuted (fold normal|1 87.29% > fold vary 78.81%)",
+          "iforest_clause": "supported",
+          "iforest_evidence": {
+            "metric": "mean over 5 seeds of held-out alarm rate at q=0.01",
+            "by_fold": {
+              "normal|4": {
+                "mean": 0.0,
+                "min": 0.0,
+                "max": 0.0,
+                "n_seeds": 5
+              },
+              "normal|2": {
+                "mean": 0.0,
+                "min": 0.0,
+                "max": 0.0,
+                "n_seeds": 5
+              },
+              "normal|1": {
+                "mean": 0.0,
+                "min": 0.0,
+                "max": 0.0,
+                "n_seeds": 5
+              },
+              "normal_varying|vary": {
+                "mean": 0.35172413793103446,
+                "min": 0.3103448275862069,
+                "max": 0.3706896551724138,
+                "n_seeds": 5
+              }
+            },
+            "vary_fold_mean": 0.35172413793103446,
+            "vary_fold_seed_range": [
+              0.3103448275862069,
+              0.3706896551724138
+            ],
+            "highest_other_fold": "normal|4",
+            "highest_other_mean": 0.0,
+            "clause_holds": true,
+            "holds_for_every_seed": true
+          },
+          "reading": "the envelope count is driven by how OFTEN a bound is crossed; the IF score by how FAR a row lies from the training manifold"
+        }
+      },
+      "H5": {
+        "status": "refuted",
+        "previous_status": "refuted",
+        "evidence": {
+          "iforest_fpr_C_vary_by_seed": {
+            "0": 0.0847457627118644,
+            "1": 0.06779661016949153,
+            "2": 0.06779661016949153,
+            "3": 0.0847457627118644,
+            "4": 0.0847457627118644
+          },
+          "iforest_fpr_C_load2M_by_seed": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          },
+          "iforest_clause_holds_every_seed": true,
+          "envelope_clause_refuted": true
+        }
+      }
+    },
+    "summary": {
+      "refuted": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5"
+      ],
+      "all_five_refuted": true
+    },
+    "reading": "All five registered hypotheses are refuted. Four are refuted for one shared reason: a threshold calibrated so benign data almost never alarms lies beyond fault signatures because benign operating variation occupies a wider region of observable space than the faults do."
+  },
+  "ledger_content_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556"
+}

@@ -117,9 +117,44 @@ across all five seeds under either setting.
 The Gaussian noise arm uses the same 464×72 train and 590×72 test dimensions,
 the same primary quantile and the campaign unknown mask. Its mean recall is
 1.38% (range 0.63–1.88%) and mean FPR is 1.12%. The campaign IF's 0.13% recall
-is lower than this control, while its FPR is higher. At the registered operating
-point, these data provide no evidence that campaign IF learned a useful fault
-ranking beyond the synthetic control.
+is lower than this control, while its FPR is higher. This does not mean the
+score lacks ranking signal. At the registered point its alarms concentrate on
+benign varying-load rows and are anti-correlated with fault labels; the
+post-freeze AUC analysis below finds signal in the middle of the distribution.
+
+## Final hypothesis decisions
+
+Ledger 3 was frozen after the one-shot IF evaluation and before oracle or
+hybrid exploration. All five registered hypotheses are refuted. H1 is refuted
+by the registered five-seed mean: envelope admin-down recall is 0, while IF
+mean recall is 0.005 because seed 4 detects one of 40 ticks. The channel
+mechanism remains supported—dual-envelope recall is 1.0 and loss-only recall is
+0—but primary envelope calibration suppresses it. H3 is refuted because IF-only
+positive ticks are `0,0,0,0,1`, below eight in every seed. H2, H4 and H5 retain
+their earlier refuted status.
+
+The final ledger is `results/report/phase6_hypothesis_ledger_3.json`, content
+SHA-256 `10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556`.
+
+## Exploratory tail-inversion diagnostic
+
+On the 564 rows judgeable by both detectors, AUC is 0.9307 for excess, 0.9094
+for count and 0.8656 for negative IF score. IF therefore has ranking signal.
+Its registered threshold lies below every judgeable fault score: the most
+anomalous benign varying-load row extends farther into the lower tail than the
+most anomalous fault row. This **tail inversion** explains how AUC can be high
+while primary recall is essentially zero.
+
+Count fails differently. Its fault tail extends beyond its benign tail on the
+common rows, but held-out calibration sets `K=31` above both; this is calibration
+overshoot. IF's tail order itself is inverted. Oracle Youden-J values are 0.810
+for excess, 0.761 for count and 0.688 for IF.
+
+At the registered seed-0 point, excess has 134 TP and 20 FP on the common
+denominator. IF adds no unique TP and five FP, so `excess OR IF` leaves recall
+unchanged and raises FPR from 4.65% to 5.81%. This analysis is exploratory and
+authorises no detector or threshold change. Its artifact SHA-256 is
+`5a569995c0d7d64b857af8d00e2eeab8772ae6753d37af2adc5bed06b0a01807`.
 
 ## Plot inspection
 
@@ -136,6 +171,8 @@ train-only threshold-ownership diagnosis.
 
 - `results/report/phase6_iforest_cv.json`: train-only folds, 40 frozen thresholds, tail ownership and dynamics profile.
 - `results/report/phase6_hypothesis_ledger_2.json`: append-only H4 clause decision and pre-test predictions.
+- `results/report/phase6_hypothesis_ledger_3.json`: final H1–H5 decisions before hybrid exploration.
+- `results/report/phase6_iforest_posthoc_diag.json`: exploratory tail and seed-0 hybrid diagnostic.
 - `results/report/phase6_iforest.json`: one-shot metrics, split usage and noise control.
 - `results/report/phase6_iforest_ticks.csv`: primary seed-0 test scores and alarms.
 - `results/report/phase6_iforest_scores.png`: inspected score timeline.

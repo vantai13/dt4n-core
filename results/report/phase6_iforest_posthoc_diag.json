@@ -1,0 +1,100 @@
+{
+  "written_at_utc": "2026-09-16T09:59:56+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-IF-POSTHOC-v1",
+    "status": "EXPLORATORY POST-FREEZE",
+    "uses_test_labels": true,
+    "authorises_no_change_to": [
+      "detector",
+      "threshold",
+      "hypothesis",
+      "column set"
+    ],
+    "bound_to": {
+      "ledger_3_content_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
+      "iforest_test_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283"
+    },
+    "common_comparison": {
+      "n_rows_judgeable_by_both": 564,
+      "statistics": {
+        "envelope_excess": {
+          "auc": 0.9306815278487481,
+          "benign_extreme": 3266.1769391343223,
+          "fault_extreme": 8413.609064767463,
+          "fault_tail_exceeds_benign_tail": true,
+          "oracle_best_by_youden_j": {
+            "threshold": 40.6416338065765,
+            "recall": 0.83125,
+            "fpr": 0.020930232558139535
+          },
+          "youden_j": 0.8103
+        },
+        "envelope_count_k": {
+          "auc": 0.9094276954522229,
+          "benign_extreme": 18.0,
+          "fault_extreme": 22.0,
+          "fault_tail_exceeds_benign_tail": true,
+          "oracle_best_by_youden_j": {
+            "threshold": 3.0,
+            "recall": 0.8375,
+            "fpr": 0.07674418604651163
+          },
+          "youden_j": 0.7608
+        },
+        "iforest_neg_score": {
+          "auc": 0.865642565150741,
+          "benign_extreme": 0.7592315907141041,
+          "fault_extreme": 0.6318721473232587,
+          "fault_tail_exceeds_benign_tail": false,
+          "oracle_best_by_youden_j": {
+            "threshold": 0.4145467038727227,
+            "recall": 0.9,
+            "fpr": 0.2116279069767442
+          },
+          "youden_j": 0.6884
+        }
+      }
+    },
+    "registered_if_threshold": {
+      "threshold": -0.6412413780981377,
+      "fault_score_min": -0.6318721473232587,
+      "threshold_below_every_fault_score": true,
+      "gap": 0.009369230774879056
+    },
+    "operating_point_and_hybrid": {
+      "envelope_count_only": {
+        "recall": 0.0,
+        "fpr": 0.0,
+        "tp": 0,
+        "fp": 0
+      },
+      "envelope_excess_only": {
+        "recall": 0.8375,
+        "fpr": 0.046511627906976744,
+        "tp": 134,
+        "fp": 20
+      },
+      "iforest_only": {
+        "recall": 0.0,
+        "fpr": 0.023255813953488372,
+        "tp": 0,
+        "fp": 10
+      },
+      "excess_OR_iforest": {
+        "recall": 0.8375,
+        "fpr": 0.05813953488372093,
+        "tp": 134,
+        "fp": 25
+      },
+      "excess_AND_iforest": {
+        "recall": 0.0,
+        "fpr": 0.011627906976744186,
+        "tp": 0,
+        "fp": 5
+      },
+      "iforest_unique_true_positives": 0,
+      "added_false_positives": 5
+    }
+  },
+  "content_sha256": "5a569995c0d7d64b857af8d00e2eeab8772ae6753d37af2adc5bed06b0a01807"
+}
