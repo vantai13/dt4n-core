@@ -1,0 +1,2590 @@
+{
+  "written_at_utc": "2026-09-16T10:51:35+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-HYBRID-POSTHOC-v1",
+    "status": "EXPLORATORY POST-FREEZE REPRODUCTION",
+    "uses_test_labels": true,
+    "follows_ledger_3_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
+    "authorises_no_change_to": [
+      "detector",
+      "threshold",
+      "hypothesis",
+      "column set"
+    ],
+    "reproduction_definition": "refit deterministic registered IF models with frozen CV thresholds; require exact signed-test TP/FP before evaluating hybrids",
+    "comparison_sets": {
+      "primary_all_rows": "all 590 eval_primary rows; registered unknown policies; OR is unknown iff both members are unknown",
+      "secondary_common_judgeable_rows": "only rows judgeable by both members; identical denominator for excess, OR and AND"
+    },
+    "bound_to": {
+      "prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+      "ledger_3_content_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
+      "iforest_cv_content_sha256": "fdc253a9f5c313c7d4c81ac85073177df7e174c28092924ccb45ceb22c643219",
+      "iforest_test_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283",
+      "envelope_test_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
+      "envelope_ticks_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f"
+    },
+    "configuration": {
+      "max_samples": 256,
+      "q": 0.01,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_boot": 2000,
+      "bootstrap_rng_seed": 20260916,
+      "bootstrap_ci": [
+        2.5,
+        97.5
+      ]
+    },
+    "n_rows": 590,
+    "n_common_judgeable_rows": 564,
+    "all_five_seeds_reproduced_exactly": true,
+    "envelope_excess_primary_baseline": {
+      "scores": {
+        "recall": 0.85625,
+        "recall_ceiling": 0.975,
+        "fpr": 0.053488372093023255,
+        "fpr_judgeable_only": 0.0539906103286385,
+        "precision": 0.85625,
+        "f1": 0.85625,
+        "n_positive": 160,
+        "n_negative": 430,
+        "n_judgeable_negative": 426,
+        "tp": 137,
+        "fp": 23,
+        "fn": 23,
+        "tn": 407,
+        "n_unknown_positive": 4,
+        "n_unknown_negative": 4,
+        "mask": "eval_primary"
+      },
+      "fpr": {
+        "control": {
+          "fpr": 0.0,
+          "fpr_judgeable_only": 0.0,
+          "fp": 0,
+          "n_negative": 118,
+          "n_judgeable_negative": 118
+        },
+        "in_fault_runs": {
+          "fpr": 0.07371794871794872,
+          "fpr_judgeable_only": 0.07467532467532467,
+          "fp": 23,
+          "n_negative": 312,
+          "n_judgeable_negative": 308
+        },
+        "all": {
+          "fpr": 0.053488372093023255,
+          "fpr_judgeable_only": 0.0539906103286385,
+          "fp": 23,
+          "n_negative": 430,
+          "n_judgeable_negative": 426
+        },
+        "per_control_run": {
+          "C-load2M-s2001-r1": {
+            "fpr": 0.0,
+            "fpr_judgeable_only": 0.0,
+            "fp": 0,
+            "n_negative": 59,
+            "n_judgeable_negative": 59
+          },
+          "C-vary-s2002-r1": {
+            "fpr": 0.0,
+            "fpr_judgeable_only": 0.0,
+            "fp": 0,
+            "n_negative": 59,
+            "n_judgeable_negative": 59
+          }
+        }
+      },
+      "bootstrap_recall_fpr": {
+        "recall": {
+          "ci_low": 0.60625,
+          "ci_high": 0.99375,
+          "n_valid": 2000,
+          "n_boot": 2000
+        },
+        "fpr": {
+          "ci_low": 0.023255813953488372,
+          "ci_high": 0.08372093023255814,
+          "n_valid": 2000,
+          "n_boot": 2000
+        },
+        "method": "cluster bootstrap by run_id, stratified C/F",
+        "rng_seed": 20260916
+      }
+    },
+    "per_seed": {
+      "0": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6412413780981377,
+          "threshold_recalculated": -0.6412413780981377,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 10,
+          "reconstructed_fp": 10,
+          "tp_fp_bit_exact": true
+        },
+        "iforest_unique_true_positives": 0,
+        "added_false_positives": 5,
+        "common_judgeable_unique_true_positives": 0,
+        "common_judgeable_added_false_positives": 5,
+        "primary_all_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.053488372093023255,
+              "fpr_judgeable_only": 0.0539906103286385,
+              "precision": 0.85625,
+              "f1": 0.85625,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "tn": 407,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.053488372093023255,
+                "fpr_judgeable_only": 0.0539906103286385,
+                "fp": 23,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.023255813953488372,
+                "ci_high": 0.08372093023255814,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.06511627906976744,
+              "fpr_judgeable_only": 0.06572769953051644,
+              "precision": 0.8303030303030303,
+              "f1": 0.8430769230769231,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 28,
+              "fn": 23,
+              "tn": 402,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0423728813559322,
+                "fpr_judgeable_only": 0.0423728813559322,
+                "fp": 5,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.06511627906976744,
+                "fpr_judgeable_only": 0.06572769953051644,
+                "fp": 28,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0847457627118644,
+                  "fpr_judgeable_only": 0.0847457627118644,
+                  "fp": 5,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.030232558139534883,
+                "ci_high": 0.09767441860465116,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.95,
+              "fpr": 0.011627906976744186,
+              "fpr_judgeable_only": 0.012135922330097087,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 5,
+              "fn": 160,
+              "tn": 425,
+              "n_unknown_positive": 8,
+              "n_unknown_negative": 18,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.016025641025641024,
+                "fpr_judgeable_only": 0.016891891891891893,
+                "fp": 5,
+                "n_negative": 312,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.011627906976744186,
+                "fpr_judgeable_only": 0.012135922330097087,
+                "fp": 5,
+                "n_negative": 430,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.004651162790697674,
+                "ci_high": 0.01627906976744186,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "secondary_common_judgeable_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.04854368932038835,
+              "fpr_judgeable_only": 0.04854368932038835,
+              "precision": 0.8701298701298701,
+              "f1": 0.8758169934640523,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 20,
+              "fn": 18,
+              "tn": 392,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.04854368932038835,
+                "fpr_judgeable_only": 0.04854368932038835,
+                "fp": 20,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.019417475728155338,
+                "ci_high": 0.08134948932646295,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.06067961165048544,
+              "fpr_judgeable_only": 0.06067961165048544,
+              "precision": 0.8427672955974843,
+              "f1": 0.8617363344051447,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 25,
+              "fn": 18,
+              "tn": 387,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.04310344827586207,
+                "fpr_judgeable_only": 0.04310344827586207,
+                "fp": 5,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.06067961165048544,
+                "fpr_judgeable_only": 0.06067961165048544,
+                "fp": 25,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.08620689655172414,
+                  "fpr_judgeable_only": 0.08620689655172414,
+                  "fp": 5,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.026570048309178744,
+                "ci_high": 0.0966183574879227,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 1.0,
+              "fpr": 0.012135922330097087,
+              "fpr_judgeable_only": 0.012135922330097087,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 5,
+              "fn": 152,
+              "tn": 407,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.016891891891891893,
+                "fpr_judgeable_only": 0.016891891891891893,
+                "fp": 5,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.012135922330097087,
+                "fpr_judgeable_only": 0.012135922330097087,
+                "fp": 5,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.004878048780487805,
+                "ci_high": 0.01715686274509804,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        }
+      },
+      "1": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6441720937591134,
+          "threshold_recalculated": -0.6441720937591134,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 7,
+          "reconstructed_fp": 7,
+          "tp_fp_bit_exact": true
+        },
+        "iforest_unique_true_positives": 0,
+        "added_false_positives": 4,
+        "common_judgeable_unique_true_positives": 0,
+        "common_judgeable_added_false_positives": 4,
+        "primary_all_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.053488372093023255,
+              "fpr_judgeable_only": 0.0539906103286385,
+              "precision": 0.85625,
+              "f1": 0.85625,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "tn": 407,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.053488372093023255,
+                "fpr_judgeable_only": 0.0539906103286385,
+                "fp": 23,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.023255813953488372,
+                "ci_high": 0.08372093023255814,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.06279069767441861,
+              "fpr_judgeable_only": 0.06338028169014084,
+              "precision": 0.8353658536585366,
+              "f1": 0.845679012345679,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 27,
+              "fn": 23,
+              "tn": 403,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.03389830508474576,
+                "fpr_judgeable_only": 0.03389830508474576,
+                "fp": 4,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.06279069767441861,
+                "fpr_judgeable_only": 0.06338028169014084,
+                "fp": 27,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.06779661016949153,
+                  "fpr_judgeable_only": 0.06779661016949153,
+                  "fp": 4,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.030232558139534883,
+                "ci_high": 0.09534883720930233,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.95,
+              "fpr": 0.0069767441860465115,
+              "fpr_judgeable_only": 0.007281553398058253,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 3,
+              "fn": 160,
+              "tn": 427,
+              "n_unknown_positive": 8,
+              "n_unknown_negative": 18,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.009615384615384616,
+                "fpr_judgeable_only": 0.010135135135135136,
+                "fp": 3,
+                "n_negative": 312,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.0069767441860465115,
+                "fpr_judgeable_only": 0.007281553398058253,
+                "fp": 3,
+                "n_negative": 430,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.002325581395348837,
+                "ci_high": 0.013953488372093023,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "secondary_common_judgeable_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.04854368932038835,
+              "fpr_judgeable_only": 0.04854368932038835,
+              "precision": 0.8701298701298701,
+              "f1": 0.8758169934640523,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 20,
+              "fn": 18,
+              "tn": 392,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.04854368932038835,
+                "fpr_judgeable_only": 0.04854368932038835,
+                "fp": 20,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.019417475728155338,
+                "ci_high": 0.08134948932646295,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.05825242718446602,
+              "fpr_judgeable_only": 0.05825242718446602,
+              "precision": 0.8481012658227848,
+              "f1": 0.864516129032258,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 24,
+              "fn": 18,
+              "tn": 388,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.034482758620689655,
+                "fpr_judgeable_only": 0.034482758620689655,
+                "fp": 4,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.05825242718446602,
+                "fpr_judgeable_only": 0.05825242718446602,
+                "fp": 24,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.06896551724137931,
+                  "fpr_judgeable_only": 0.06896551724137931,
+                  "fp": 4,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.02462453442268413,
+                "ci_high": 0.09223300970873786,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 1.0,
+              "fpr": 0.007281553398058253,
+              "fpr_judgeable_only": 0.007281553398058253,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 3,
+              "fn": 152,
+              "tn": 409,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.010135135135135136,
+                "fpr_judgeable_only": 0.010135135135135136,
+                "fp": 3,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.007281553398058253,
+                "fpr_judgeable_only": 0.007281553398058253,
+                "fp": 3,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.0023923444976076554,
+                "ci_high": 0.014423076923076924,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        }
+      },
+      "2": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6515953447444542,
+          "threshold_recalculated": -0.6515953447444542,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 9,
+          "reconstructed_fp": 9,
+          "tp_fp_bit_exact": true
+        },
+        "iforest_unique_true_positives": 0,
+        "added_false_positives": 4,
+        "common_judgeable_unique_true_positives": 0,
+        "common_judgeable_added_false_positives": 4,
+        "primary_all_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.053488372093023255,
+              "fpr_judgeable_only": 0.0539906103286385,
+              "precision": 0.85625,
+              "f1": 0.85625,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "tn": 407,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.053488372093023255,
+                "fpr_judgeable_only": 0.0539906103286385,
+                "fp": 23,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.023255813953488372,
+                "ci_high": 0.08372093023255814,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.06279069767441861,
+              "fpr_judgeable_only": 0.06338028169014084,
+              "precision": 0.8353658536585366,
+              "f1": 0.845679012345679,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 27,
+              "fn": 23,
+              "tn": 403,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.03389830508474576,
+                "fpr_judgeable_only": 0.03389830508474576,
+                "fp": 4,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.06279069767441861,
+                "fpr_judgeable_only": 0.06338028169014084,
+                "fp": 27,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.06779661016949153,
+                  "fpr_judgeable_only": 0.06779661016949153,
+                  "fp": 4,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.030232558139534883,
+                "ci_high": 0.09534883720930233,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.95,
+              "fpr": 0.011627906976744186,
+              "fpr_judgeable_only": 0.012135922330097087,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 5,
+              "fn": 160,
+              "tn": 425,
+              "n_unknown_positive": 8,
+              "n_unknown_negative": 18,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.016025641025641024,
+                "fpr_judgeable_only": 0.016891891891891893,
+                "fp": 5,
+                "n_negative": 312,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.011627906976744186,
+                "fpr_judgeable_only": 0.012135922330097087,
+                "fp": 5,
+                "n_negative": 430,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.002325581395348837,
+                "ci_high": 0.02558139534883721,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "secondary_common_judgeable_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.04854368932038835,
+              "fpr_judgeable_only": 0.04854368932038835,
+              "precision": 0.8701298701298701,
+              "f1": 0.8758169934640523,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 20,
+              "fn": 18,
+              "tn": 392,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.04854368932038835,
+                "fpr_judgeable_only": 0.04854368932038835,
+                "fp": 20,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.019417475728155338,
+                "ci_high": 0.08134948932646295,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.05825242718446602,
+              "fpr_judgeable_only": 0.05825242718446602,
+              "precision": 0.8481012658227848,
+              "f1": 0.864516129032258,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 24,
+              "fn": 18,
+              "tn": 388,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.034482758620689655,
+                "fpr_judgeable_only": 0.034482758620689655,
+                "fp": 4,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.05825242718446602,
+                "fpr_judgeable_only": 0.05825242718446602,
+                "fp": 24,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.06896551724137931,
+                  "fpr_judgeable_only": 0.06896551724137931,
+                  "fp": 4,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.02462453442268413,
+                "ci_high": 0.09223300970873786,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 1.0,
+              "fpr": 0.012135922330097087,
+              "fpr_judgeable_only": 0.012135922330097087,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 5,
+              "fn": 152,
+              "tn": 407,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.016891891891891893,
+                "fpr_judgeable_only": 0.016891891891891893,
+                "fp": 5,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.012135922330097087,
+                "fpr_judgeable_only": 0.012135922330097087,
+                "fp": 5,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.0023923444976076554,
+                "ci_high": 0.026570048309178744,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        }
+      },
+      "3": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6428872151931367,
+          "threshold_recalculated": -0.6428872151931367,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 9,
+          "reconstructed_fp": 9,
+          "tp_fp_bit_exact": true
+        },
+        "iforest_unique_true_positives": 0,
+        "added_false_positives": 5,
+        "common_judgeable_unique_true_positives": 0,
+        "common_judgeable_added_false_positives": 5,
+        "primary_all_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.053488372093023255,
+              "fpr_judgeable_only": 0.0539906103286385,
+              "precision": 0.85625,
+              "f1": 0.85625,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "tn": 407,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.053488372093023255,
+                "fpr_judgeable_only": 0.0539906103286385,
+                "fp": 23,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.023255813953488372,
+                "ci_high": 0.08372093023255814,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.06511627906976744,
+              "fpr_judgeable_only": 0.06572769953051644,
+              "precision": 0.8303030303030303,
+              "f1": 0.8430769230769231,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 28,
+              "fn": 23,
+              "tn": 402,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0423728813559322,
+                "fpr_judgeable_only": 0.0423728813559322,
+                "fp": 5,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.06511627906976744,
+                "fpr_judgeable_only": 0.06572769953051644,
+                "fp": 28,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0847457627118644,
+                  "fpr_judgeable_only": 0.0847457627118644,
+                  "fp": 5,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.030232558139534883,
+                "ci_high": 0.09767441860465116,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.95,
+              "fpr": 0.009302325581395349,
+              "fpr_judgeable_only": 0.009708737864077669,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 4,
+              "fn": 160,
+              "tn": 426,
+              "n_unknown_positive": 8,
+              "n_unknown_negative": 18,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013513513513513514,
+                "fp": 4,
+                "n_negative": 312,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.009302325581395349,
+                "fpr_judgeable_only": 0.009708737864077669,
+                "fp": 4,
+                "n_negative": 430,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.002325581395348837,
+                "ci_high": 0.01627906976744186,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "secondary_common_judgeable_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.04854368932038835,
+              "fpr_judgeable_only": 0.04854368932038835,
+              "precision": 0.8701298701298701,
+              "f1": 0.8758169934640523,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 20,
+              "fn": 18,
+              "tn": 392,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.04854368932038835,
+                "fpr_judgeable_only": 0.04854368932038835,
+                "fp": 20,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.019417475728155338,
+                "ci_high": 0.08134948932646295,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.06067961165048544,
+              "fpr_judgeable_only": 0.06067961165048544,
+              "precision": 0.8427672955974843,
+              "f1": 0.8617363344051447,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 25,
+              "fn": 18,
+              "tn": 387,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.04310344827586207,
+                "fpr_judgeable_only": 0.04310344827586207,
+                "fp": 5,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.06067961165048544,
+                "fpr_judgeable_only": 0.06067961165048544,
+                "fp": 25,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.08620689655172414,
+                  "fpr_judgeable_only": 0.08620689655172414,
+                  "fp": 5,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.026570048309178744,
+                "ci_high": 0.0966183574879227,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 1.0,
+              "fpr": 0.009708737864077669,
+              "fpr_judgeable_only": 0.009708737864077669,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 0,
+              "fp": 4,
+              "fn": 152,
+              "tn": 408,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.013513513513513514,
+                "fpr_judgeable_only": 0.013513513513513514,
+                "fp": 4,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.009708737864077669,
+                "fpr_judgeable_only": 0.009708737864077669,
+                "fp": 4,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.0024630541871921183,
+                "ci_high": 0.016826923076923076,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        }
+      },
+      "4": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6302426722658087,
+          "threshold_recalculated": -0.6302426722658087,
+          "threshold_bit_exact": true,
+          "expected_tp": 1,
+          "reconstructed_tp": 1,
+          "expected_fp": 16,
+          "reconstructed_fp": 16,
+          "tp_fp_bit_exact": true
+        },
+        "iforest_unique_true_positives": 0,
+        "added_false_positives": 5,
+        "common_judgeable_unique_true_positives": 0,
+        "common_judgeable_added_false_positives": 5,
+        "primary_all_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.053488372093023255,
+              "fpr_judgeable_only": 0.0539906103286385,
+              "precision": 0.85625,
+              "f1": 0.85625,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "tn": 407,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.053488372093023255,
+                "fpr_judgeable_only": 0.0539906103286385,
+                "fp": 23,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.023255813953488372,
+                "ci_high": 0.08372093023255814,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.85625,
+              "recall_ceiling": 0.975,
+              "fpr": 0.06511627906976744,
+              "fpr_judgeable_only": 0.06572769953051644,
+              "precision": 0.8303030303030303,
+              "f1": 0.8430769230769231,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 426,
+              "tp": 137,
+              "fp": 28,
+              "fn": 23,
+              "tn": 402,
+              "n_unknown_positive": 4,
+              "n_unknown_negative": 4,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0423728813559322,
+                "fpr_judgeable_only": 0.0423728813559322,
+                "fp": 5,
+                "n_negative": 118,
+                "n_judgeable_negative": 118
+              },
+              "in_fault_runs": {
+                "fpr": 0.07371794871794872,
+                "fpr_judgeable_only": 0.07467532467532467,
+                "fp": 23,
+                "n_negative": 312,
+                "n_judgeable_negative": 308
+              },
+              "all": {
+                "fpr": 0.06511627906976744,
+                "fpr_judgeable_only": 0.06572769953051644,
+                "fp": 28,
+                "n_negative": 430,
+                "n_judgeable_negative": 426
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0847457627118644,
+                  "fpr_judgeable_only": 0.0847457627118644,
+                  "fp": 5,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 59
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.60625,
+                "ci_high": 0.99375,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.030232558139534883,
+                "ci_high": 0.09767441860465116,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.00625,
+              "recall_ceiling": 0.95,
+              "fpr": 0.02558139534883721,
+              "fpr_judgeable_only": 0.02669902912621359,
+              "precision": 0.08333333333333333,
+              "f1": 0.011627906976744186,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 412,
+              "tp": 1,
+              "fp": 11,
+              "fn": 159,
+              "tn": 419,
+              "n_unknown_positive": 8,
+              "n_unknown_negative": 18,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 118,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.035256410256410256,
+                "fpr_judgeable_only": 0.037162162162162164,
+                "fp": 11,
+                "n_negative": 312,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.02558139534883721,
+                "fpr_judgeable_only": 0.02669902912621359,
+                "fp": 11,
+                "n_negative": 430,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.01875,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.009302325581395349,
+                "ci_high": 0.044186046511627906,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "secondary_common_judgeable_rows": {
+          "excess": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.04854368932038835,
+              "fpr_judgeable_only": 0.04854368932038835,
+              "precision": 0.8701298701298701,
+              "f1": 0.8758169934640523,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 20,
+              "fn": 18,
+              "tn": 392,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.04854368932038835,
+                "fpr_judgeable_only": 0.04854368932038835,
+                "fp": 20,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.019417475728155338,
+                "ci_high": 0.08134948932646295,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_or_iforest": {
+            "scores": {
+              "recall": 0.881578947368421,
+              "recall_ceiling": 1.0,
+              "fpr": 0.06067961165048544,
+              "fpr_judgeable_only": 0.06067961165048544,
+              "precision": 0.8427672955974843,
+              "f1": 0.8617363344051447,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 134,
+              "fp": 25,
+              "fn": 18,
+              "tn": 387,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.04310344827586207,
+                "fpr_judgeable_only": 0.04310344827586207,
+                "fp": 5,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.06756756756756757,
+                "fpr_judgeable_only": 0.06756756756756757,
+                "fp": 20,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.06067961165048544,
+                "fpr_judgeable_only": 0.06067961165048544,
+                "fp": 25,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.08620689655172414,
+                  "fpr_judgeable_only": 0.08620689655172414,
+                  "fp": 5,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.6351351351351351,
+                "ci_high": 1.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.026570048309178744,
+                "ci_high": 0.0966183574879227,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "excess_and_iforest": {
+            "scores": {
+              "recall": 0.006578947368421052,
+              "recall_ceiling": 1.0,
+              "fpr": 0.02669902912621359,
+              "fpr_judgeable_only": 0.02669902912621359,
+              "precision": 0.08333333333333333,
+              "f1": 0.012195121951219513,
+              "n_positive": 152,
+              "n_negative": 412,
+              "n_judgeable_negative": 412,
+              "tp": 1,
+              "fp": 11,
+              "fn": 151,
+              "tn": 401,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 0,
+              "mask": "common_judgeable_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 116,
+                "n_judgeable_negative": 116
+              },
+              "in_fault_runs": {
+                "fpr": 0.037162162162162164,
+                "fpr_judgeable_only": 0.037162162162162164,
+                "fp": 11,
+                "n_negative": 296,
+                "n_judgeable_negative": 296
+              },
+              "all": {
+                "fpr": 0.02669902912621359,
+                "fpr_judgeable_only": 0.02669902912621359,
+                "fp": 11,
+                "n_negative": 412,
+                "n_judgeable_negative": 412
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 58,
+                  "n_judgeable_negative": 58
+                }
+              }
+            },
+            "bootstrap_recall_fpr": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.019736842105263157,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.009708737864077669,
+                "ci_high": 0.04589371980676329,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        }
+      }
+    },
+    "across_seeds": {
+      "primary_all_rows": {
+        "excess": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.85625,
+            "std": 0.0,
+            "min": 0.85625,
+            "max": 0.85625
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.05348837209302325,
+            "std": 7.757919228897728e-18,
+            "min": 0.053488372093023255,
+            "max": 0.053488372093023255
+          }
+        },
+        "excess_or_iforest": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.85625,
+            "std": 0.0,
+            "min": 0.85625,
+            "max": 0.85625
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.06418604651162792,
+            "std": 0.0012737733895468943,
+            "min": 0.06279069767441861,
+            "max": 0.06511627906976744
+          }
+        },
+        "excess_and_iforest": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.00125,
+            "std": 0.002795084971874737,
+            "min": 0.0,
+            "max": 0.00625
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.013023255813953489,
+            "std": 0.007280221322092338,
+            "min": 0.0069767441860465115,
+            "max": 0.02558139534883721
+          }
+        }
+      },
+      "secondary_common_judgeable_rows": {
+        "excess": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.881578947368421,
+            "std": 0.0,
+            "min": 0.881578947368421,
+            "max": 0.881578947368421
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.04854368932038835,
+            "std": 0.0,
+            "min": 0.04854368932038835,
+            "max": 0.04854368932038835
+          }
+        },
+        "excess_or_iforest": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.881578947368421,
+            "std": 0.0,
+            "min": 0.881578947368421,
+            "max": 0.881578947368421
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.05970873786407767,
+            "std": 0.0013294236832649656,
+            "min": 0.05825242718446602,
+            "max": 0.06067961165048544
+          }
+        },
+        "excess_and_iforest": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.0013157894736842105,
+            "std": 0.0029421947072365653,
+            "min": 0.0,
+            "max": 0.006578947368421052
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.013592233009708738,
+            "std": 0.007598289243931323,
+            "min": 0.007281553398058253,
+            "max": 0.02669902912621359
+          }
+        }
+      }
+    }
+  },
+  "content_sha256": "4076a827781ee5b4508e7a51cd0d5cd81a4065957a6b1640e4011a0bd3a09c25"
+}
