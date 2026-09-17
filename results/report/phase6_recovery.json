@@ -1,0 +1,139 @@
+{
+  "written_at_utc": "2026-09-17T01:29:10+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-RECOVERY-v1",
+    "status": "EXPLORATORY POST-FREEZE SYSTEM MEASUREMENT",
+    "bound_to": {
+      "envelope_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
+      "ticks_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f"
+    },
+    "revert_tick": 40,
+    "per_run": {
+      "F-admin_down-s1-s2-s3001-r1": {
+        "fault": "admin_down",
+        "fp_ticks_after_revert": [
+          41
+        ],
+        "last_alarm_tick": 41,
+        "observed_recovery_span_ticks": 1,
+        "n_post_revert_alarms": 1
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "fault": "admin_down",
+        "fp_ticks_after_revert": [
+          41
+        ],
+        "last_alarm_tick": 41,
+        "observed_recovery_span_ticks": 1,
+        "n_post_revert_alarms": 1
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "fault": "degrade",
+        "fp_ticks_after_revert": [
+          42
+        ],
+        "last_alarm_tick": 42,
+        "observed_recovery_span_ticks": 2,
+        "n_post_revert_alarms": 1
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "fault": "degrade",
+        "fp_ticks_after_revert": [],
+        "last_alarm_tick": null,
+        "observed_recovery_span_ticks": 0,
+        "n_post_revert_alarms": 0
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "fault": "flood",
+        "fp_ticks_after_revert": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "last_alarm_tick": 47,
+        "observed_recovery_span_ticks": 7,
+        "n_post_revert_alarms": 7
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "fault": "flood",
+        "fp_ticks_after_revert": [
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "last_alarm_tick": 45,
+        "observed_recovery_span_ticks": 5,
+        "n_post_revert_alarms": 5
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "fault": "shift",
+        "fp_ticks_after_revert": [
+          42,
+          43,
+          44,
+          45
+        ],
+        "last_alarm_tick": 45,
+        "observed_recovery_span_ticks": 5,
+        "n_post_revert_alarms": 4
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "fault": "shift",
+        "fp_ticks_after_revert": [
+          42,
+          43,
+          44,
+          45
+        ],
+        "last_alarm_tick": 45,
+        "observed_recovery_span_ticks": 5,
+        "n_post_revert_alarms": 4
+      }
+    },
+    "by_fault": {
+      "admin_down": {
+        "per_run_span_ticks": [
+          1,
+          1
+        ],
+        "max_span_ticks": 1,
+        "n_post_revert_alarms": 2
+      },
+      "degrade": {
+        "per_run_span_ticks": [
+          2,
+          0
+        ],
+        "max_span_ticks": 2,
+        "n_post_revert_alarms": 1
+      },
+      "flood": {
+        "per_run_span_ticks": [
+          7,
+          5
+        ],
+        "max_span_ticks": 7,
+        "n_post_revert_alarms": 12
+      },
+      "shift": {
+        "per_run_span_ticks": [
+          5,
+          5
+        ],
+        "max_span_ticks": 5,
+        "n_post_revert_alarms": 8
+      }
+    },
+    "maximum_observed_recovery_span_ticks": 7,
+    "recommended_phase8_cooldown_ticks": 8,
+    "interpretation": "post-revert excess alarms measure residual state across 71 channels; they are distinct from ground-truth recovery on one strongest witness",
+    "zero_span_note": "zero means no post-revert excess alarm was observed; it is an upper resolution statement, not proof of instantaneous physical recovery"
+  },
+  "content_sha256": "c566d159d0a61323fa6dd6c6b3f1e55f8ae1a033206ac4e0f462da7bc01b110d"
+}

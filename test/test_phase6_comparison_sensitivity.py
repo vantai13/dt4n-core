@@ -30,19 +30,42 @@ def test_comparison_artifact_is_hashed_and_reproducible():
 
 def test_comparison_central_four_cells_and_jaccard():
     content = json.loads(C.OUT.read_text())['content']
-    row = content['readings'][
-        'registered_secondary_excess_vs_iforest_seed0']['positive_contribution']
+    row = content['per_seed']['0']['secondary_excess_vs_iforest'][
+        'primary_all_rows']['positive_contribution']
     assert (row['both_detect'], row['a_only'], row['b_only'], row['both_miss']) == (0, 137, 0, 23)
     assert row['jaccard'] == 0.0
-    assert content['interpretation']['excess_if_added_fp_seed0'] == 5
+    fp = content['per_seed']['0']['secondary_excess_vs_iforest'][
+        'primary_all_rows']['negative_alarm_overlap']
+    assert fp['b_only'] == 5
 
 
 def test_literal_hybrid_reading_is_reported_separately():
     content = json.loads(C.OUT.read_text())['content']
-    literal = content['readings']['literal_primary_k_vs_iforest_seed0']
+    literal = content['per_seed']['0']['literal_primary_k_vs_iforest'][
+        'primary_all_rows']
     assert literal['positive_contribution']['jaccard'] is None
     assert literal['positive_contribution']['both_miss'] == 160
     assert literal['negative_alarm_overlap']['b_only'] == 10
+
+
+def test_comparison_reports_common_denominator_and_all_seeds():
+    content = json.loads(C.OUT.read_text())['content']
+    assert content['comparison_sets']['secondary_common_judgeable_rows'] == {
+        'n_rows': 564, 'n_positive': 152, 'n_negative': 412}
+    excess = content['across_seeds']['secondary_excess_vs_iforest']
+    assert excess['primary_all_rows']['b_only_per_seed'] == [0, 0, 0, 0, 0]
+    assert excess['secondary_common_judgeable_rows']['a_only_per_seed'] == [134, 134, 134, 134, 133]
+    literal = content['across_seeds']['literal_primary_k_vs_iforest']
+    assert literal['primary_all_rows']['b_only_per_seed'] == [0, 0, 0, 0, 1]
+
+
+def test_excess_hybrid_delay_is_measured_not_inferred():
+    content = json.loads(C.OUT.read_text())['content']
+    for seed in range(5):
+        delay = content['per_seed'][str(seed)]['secondary_excess_vs_iforest'][
+            'hybrid_or_delay']['overall']
+        assert delay['median_delay_detected'] == 0.0
+        assert delay['n_censored'] == 1
 
 
 def test_sensitivity_artifact_is_hashed_and_reproducible():

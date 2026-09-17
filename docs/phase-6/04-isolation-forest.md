@@ -122,6 +122,13 @@ score lacks ranking signal. At the registered point its alarms concentrate on
 benign varying-load rows and are anti-correlated with fault labels; the
 post-freeze AUC analysis below finds signal in the middle of the distribution.
 
+The post-freeze ranking control reproduces all five synthetic arms exactly.
+Noise AUC is 0.5297 on average (sample SD 0.0239, range 0.4958–0.5549), while
+campaign IF seed 0 has AUC 0.8656 on the same campaign judgeability mask. The
+model therefore learns real ranking signal, but its registered low-FPR tail is
+not useful for fault detection. The diagnostic is stored in
+`results/report/phase6_noise_auc.json`.
+
 ## Final hypothesis decisions
 
 Ledger 3 was frozen after the one-shot IF evaluation and before oracle or

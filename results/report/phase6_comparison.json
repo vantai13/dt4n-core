@@ -1,150 +1,1954 @@
 {
-  "written_at_utc": "2026-09-16T15:33:10+00:00",
+  "written_at_utc": "2026-09-17T01:30:26+00:00",
   "content": {
-    "diagnostic_id": "DT4N-P6-COMPARISON-v1",
-    "status": "POST-FREEZE; NO REFIT; NO THRESHOLD CHANGE",
+    "diagnostic_id": "DT4N-P6-COMPARISON-v2",
+    "supersedes_content_sha256": "46daa750adf5405c781e37d1f1c684c9e48582c3842843593e77d4c7badd3a96",
+    "status": "POST-FREEZE REPRODUCTION; NO THRESHOLD CHANGE",
     "uses_test_labels": true,
     "follows_ledger_3_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
     "bound_to": {
       "envelope_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
       "iforest_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283",
       "hybrid_content_sha256": "4076a827781ee5b4508e7a51cd0d5cd81a4065957a6b1640e4011a0bd3a09c25",
+      "iforest_cv_content_sha256": "fdc253a9f5c313c7d4c81ac85073177df7e174c28092924ccb45ceb22c643219",
       "envelope_ticks_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
       "iforest_ticks_sha256": "3ce467be857f3f65cbbc71d9a565f7e626838d3e7f779816e0808b1b5f8cbeed"
     },
-    "n_rows": 590,
+    "comparison_sets": {
+      "primary_all_rows": {
+        "n_rows": 590,
+        "n_positive": 160,
+        "n_negative": 430
+      },
+      "secondary_common_judgeable_rows": {
+        "n_rows": 564,
+        "n_positive": 152,
+        "n_negative": 412
+      }
+    },
     "hybrid_under_specification": {
       "issue": "preregistered hybrid_or does not identify whether the envelope member is primary_k or secondary_excess",
       "reporting_rule": "report both literal and secondary-excess readings",
       "primary_secondary_labels_unchanged": true
     },
-    "readings": {
-      "registered_secondary_excess_vs_iforest_seed0": {
-        "members": {
-          "A": "secondary_excess",
-          "B": "iforest_q01_seed0"
+    "per_seed": {
+      "0": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6412413780981377,
+          "threshold_recalculated": -0.6412413780981377,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 10,
+          "reconstructed_fp": 10,
+          "tp_fp_bit_exact": true
         },
-        "positive_contribution": {
-          "n_positive_ticks": 160,
-          "both_detect": 0,
-          "a_only": 137,
-          "b_only": 0,
-          "both_miss": 23,
-          "jaccard": 0.0,
-          "jaccard_note": "intersection / union"
-        },
-        "by_fault": {
-          "admin_down": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 40,
-            "b_only": 0,
-            "both_miss": 0,
-            "jaccard": 0.0,
-            "jaccard_note": "intersection / union"
+        "secondary_excess_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 137,
+              "b_only": 0,
+              "both_miss": 23,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 19,
+                "b_only": 0,
+                "both_miss": 21,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 38,
+                "b_only": 0,
+                "both_miss": 2,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 5,
+              "a_only": 18,
+              "b_only": 5,
+              "neither": 402
+            },
+            "n_rows": 590
           },
-          "degrade": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 19,
-            "b_only": 0,
-            "both_miss": 21,
-            "jaccard": 0.0,
-            "jaccard_note": "intersection / union"
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 134,
+              "b_only": 0,
+              "both_miss": 18,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 18,
+                "b_only": 0,
+                "both_miss": 18,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 36,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 5,
+              "a_only": 15,
+              "b_only": 5,
+              "neither": 387
+            },
+            "n_rows": 564
           },
-          "flood": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 40,
-            "b_only": 0,
-            "both_miss": 0,
-            "jaccard": 0.0,
-            "jaccard_note": "intersection / union"
-          },
-          "shift": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 38,
-            "b_only": 0,
-            "both_miss": 2,
-            "jaccard": 0.0,
-            "jaccard_note": "intersection / union"
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": 0,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": 1,
+                "F-flood-h1_to_srv1-s3005-r1": 0,
+                "F-flood-h2_to_srv2-s3006-r1": 0,
+                "F-shift-s1-s2-s3007-r1": 1,
+                "F-shift-s1-s3-s3008-r1": 1
+              },
+              "n_incidents": 8,
+              "n_detected": 7,
+              "n_censored": 1,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 1.0
+              },
+              "flood": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "shift": {
+                "per_run": [
+                  1,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 1.0
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
           }
         },
-        "negative_alarm_overlap": {
-          "both_alarm": 5,
-          "a_only": 18,
-          "b_only": 5,
-          "neither": 402
+        "literal_primary_k_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 160,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 10,
+              "neither": 420
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 152,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 10,
+              "neither": 402
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "flood": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "shift": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
         }
       },
-      "literal_primary_k_vs_iforest_seed0": {
-        "members": {
-          "A": "primary_k",
-          "B": "iforest_q01_seed0"
+      "1": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6441720937591134,
+          "threshold_recalculated": -0.6441720937591134,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 7,
+          "reconstructed_fp": 7,
+          "tp_fp_bit_exact": true
         },
-        "positive_contribution": {
-          "n_positive_ticks": 160,
-          "both_detect": 0,
-          "a_only": 0,
-          "b_only": 0,
-          "both_miss": 160,
-          "jaccard": null,
-          "jaccard_note": "undefined: detected-set union is empty"
-        },
-        "by_fault": {
-          "admin_down": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 0,
-            "b_only": 0,
-            "both_miss": 40,
-            "jaccard": null,
-            "jaccard_note": "undefined: detected-set union is empty"
+        "secondary_excess_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 137,
+              "b_only": 0,
+              "both_miss": 23,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 19,
+                "b_only": 0,
+                "both_miss": 21,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 38,
+                "b_only": 0,
+                "both_miss": 2,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 3,
+              "a_only": 20,
+              "b_only": 4,
+              "neither": 403
+            },
+            "n_rows": 590
           },
-          "degrade": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 0,
-            "b_only": 0,
-            "both_miss": 40,
-            "jaccard": null,
-            "jaccard_note": "undefined: detected-set union is empty"
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 134,
+              "b_only": 0,
+              "both_miss": 18,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 18,
+                "b_only": 0,
+                "both_miss": 18,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 36,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 3,
+              "a_only": 17,
+              "b_only": 4,
+              "neither": 388
+            },
+            "n_rows": 564
           },
-          "flood": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 0,
-            "b_only": 0,
-            "both_miss": 40,
-            "jaccard": null,
-            "jaccard_note": "undefined: detected-set union is empty"
-          },
-          "shift": {
-            "n_positive_ticks": 40,
-            "both_detect": 0,
-            "a_only": 0,
-            "b_only": 0,
-            "both_miss": 40,
-            "jaccard": null,
-            "jaccard_note": "undefined: detected-set union is empty"
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": 0,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": 1,
+                "F-flood-h1_to_srv1-s3005-r1": 0,
+                "F-flood-h2_to_srv2-s3006-r1": 0,
+                "F-shift-s1-s2-s3007-r1": 1,
+                "F-shift-s1-s3-s3008-r1": 1
+              },
+              "n_incidents": 8,
+              "n_detected": 7,
+              "n_censored": 1,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 1.0
+              },
+              "flood": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "shift": {
+                "per_run": [
+                  1,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 1.0
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
           }
         },
-        "negative_alarm_overlap": {
-          "both_alarm": 0,
-          "a_only": 0,
-          "b_only": 10,
-          "neither": 420
+        "literal_primary_k_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 160,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 7,
+              "neither": 423
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 152,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 7,
+              "neither": 405
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "flood": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "shift": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        }
+      },
+      "2": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6515953447444542,
+          "threshold_recalculated": -0.6515953447444542,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 9,
+          "reconstructed_fp": 9,
+          "tp_fp_bit_exact": true
+        },
+        "secondary_excess_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 137,
+              "b_only": 0,
+              "both_miss": 23,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 19,
+                "b_only": 0,
+                "both_miss": 21,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 38,
+                "b_only": 0,
+                "both_miss": 2,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 5,
+              "a_only": 18,
+              "b_only": 4,
+              "neither": 403
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 134,
+              "b_only": 0,
+              "both_miss": 18,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 18,
+                "b_only": 0,
+                "both_miss": 18,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 36,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 5,
+              "a_only": 15,
+              "b_only": 4,
+              "neither": 388
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": 0,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": 1,
+                "F-flood-h1_to_srv1-s3005-r1": 0,
+                "F-flood-h2_to_srv2-s3006-r1": 0,
+                "F-shift-s1-s2-s3007-r1": 1,
+                "F-shift-s1-s3-s3008-r1": 1
+              },
+              "n_incidents": 8,
+              "n_detected": 7,
+              "n_censored": 1,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 1.0
+              },
+              "flood": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "shift": {
+                "per_run": [
+                  1,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 1.0
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        },
+        "literal_primary_k_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 160,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 9,
+              "neither": 421
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 152,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 9,
+              "neither": 403
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "flood": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "shift": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        }
+      },
+      "3": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6428872151931367,
+          "threshold_recalculated": -0.6428872151931367,
+          "threshold_bit_exact": true,
+          "expected_tp": 0,
+          "reconstructed_tp": 0,
+          "expected_fp": 9,
+          "reconstructed_fp": 9,
+          "tp_fp_bit_exact": true
+        },
+        "secondary_excess_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 137,
+              "b_only": 0,
+              "both_miss": 23,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 19,
+                "b_only": 0,
+                "both_miss": 21,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 38,
+                "b_only": 0,
+                "both_miss": 2,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 4,
+              "a_only": 19,
+              "b_only": 5,
+              "neither": 402
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 134,
+              "b_only": 0,
+              "both_miss": 18,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 18,
+                "b_only": 0,
+                "both_miss": 18,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 36,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 4,
+              "a_only": 16,
+              "b_only": 5,
+              "neither": 387
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": 0,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": 1,
+                "F-flood-h1_to_srv1-s3005-r1": 0,
+                "F-flood-h2_to_srv2-s3006-r1": 0,
+                "F-shift-s1-s2-s3007-r1": 1,
+                "F-shift-s1-s3-s3008-r1": 1
+              },
+              "n_incidents": 8,
+              "n_detected": 7,
+              "n_censored": 1,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 1.0
+              },
+              "flood": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "shift": {
+                "per_run": [
+                  1,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 1.0
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        },
+        "literal_primary_k_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 160,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 9,
+              "neither": 421
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 0,
+              "both_miss": 152,
+              "jaccard": null,
+              "jaccard_note": "undefined: detected-set union is empty"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 9,
+              "neither": 403
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "flood": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "shift": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        }
+      },
+      "4": {
+        "reconstruction_check": {
+          "threshold_frozen": -0.6302426722658087,
+          "threshold_recalculated": -0.6302426722658087,
+          "threshold_bit_exact": true,
+          "expected_tp": 1,
+          "reconstructed_tp": 1,
+          "expected_fp": 16,
+          "reconstructed_fp": 16,
+          "tp_fp_bit_exact": true
+        },
+        "secondary_excess_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 1,
+              "a_only": 136,
+              "b_only": 0,
+              "both_miss": 23,
+              "jaccard": 0.0072992700729927005,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 1,
+                "a_only": 39,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.025,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 19,
+                "b_only": 0,
+                "both_miss": 21,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 38,
+                "b_only": 0,
+                "both_miss": 2,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 11,
+              "a_only": 12,
+              "b_only": 5,
+              "neither": 402
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 1,
+              "a_only": 133,
+              "b_only": 0,
+              "both_miss": 18,
+              "jaccard": 0.007462686567164179,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 1,
+                "a_only": 39,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.025,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 18,
+                "b_only": 0,
+                "both_miss": 18,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 40,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 36,
+                "b_only": 0,
+                "both_miss": 0,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 11,
+              "a_only": 9,
+              "b_only": 5,
+              "neither": 387
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": 0,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": 1,
+                "F-flood-h1_to_srv1-s3005-r1": 0,
+                "F-flood-h2_to_srv2-s3006-r1": 0,
+                "F-shift-s1-s2-s3007-r1": 1,
+                "F-shift-s1-s3-s3008-r1": 1
+              },
+              "n_incidents": 8,
+              "n_detected": 7,
+              "n_censored": 1,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 1.0
+              },
+              "flood": {
+                "per_run": [
+                  0,
+                  0
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 0.0
+              },
+              "shift": {
+                "per_run": [
+                  1,
+                  1
+                ],
+                "n_incidents": 2,
+                "n_censored": 0,
+                "median_delay_detected": 1.0
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
+        },
+        "literal_primary_k_vs_iforest": {
+          "primary_all_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 160,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 1,
+              "both_miss": 159,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 1,
+                "both_miss": 39,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 16,
+              "neither": 414
+            },
+            "n_rows": 590
+          },
+          "secondary_common_judgeable_rows": {
+            "positive_contribution": {
+              "n_positive_ticks": 152,
+              "both_detect": 0,
+              "a_only": 0,
+              "b_only": 1,
+              "both_miss": 151,
+              "jaccard": 0.0,
+              "jaccard_note": "intersection / union"
+            },
+            "by_fault": {
+              "admin_down": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 1,
+                "both_miss": 39,
+                "jaccard": 0.0,
+                "jaccard_note": "intersection / union"
+              },
+              "degrade": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "flood": {
+                "n_positive_ticks": 40,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 40,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              },
+              "shift": {
+                "n_positive_ticks": 36,
+                "both_detect": 0,
+                "a_only": 0,
+                "b_only": 0,
+                "both_miss": 36,
+                "jaccard": null,
+                "jaccard_note": "undefined: detected-set union is empty"
+              }
+            },
+            "negative_alarm_overlap": {
+              "both_alarm": 0,
+              "a_only": 0,
+              "b_only": 16,
+              "neither": 396
+            },
+            "n_rows": 564
+          },
+          "hybrid_or_delay": {
+            "overall": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 1,
+              "n_censored": 7,
+              "median_delay_detected": 0.0
+            },
+            "by_fault": {
+              "admin_down": {
+                "per_run": [
+                  0,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 1,
+                "median_delay_detected": 0.0
+              },
+              "degrade": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "flood": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              },
+              "shift": {
+                "per_run": [
+                  null,
+                  null
+                ],
+                "n_incidents": 2,
+                "n_censored": 2,
+                "median_delay_detected": null
+              }
+            },
+            "mask": "eval_primary only; delay is preregistered on this mask"
+          }
         }
       }
     },
+    "across_seeds": {
+      "secondary_excess_vs_iforest": {
+        "primary_all_rows": {
+          "both_detect_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "a_only_per_seed": [
+            137,
+            137,
+            137,
+            137,
+            136
+          ],
+          "b_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_miss_per_seed": [
+            23,
+            23,
+            23,
+            23,
+            23
+          ]
+        },
+        "secondary_common_judgeable_rows": {
+          "both_detect_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "a_only_per_seed": [
+            134,
+            134,
+            134,
+            134,
+            133
+          ],
+          "b_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "both_miss_per_seed": [
+            18,
+            18,
+            18,
+            18,
+            18
+          ]
+        }
+      },
+      "literal_primary_k_vs_iforest": {
+        "primary_all_rows": {
+          "both_detect_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "a_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "b_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "both_miss_per_seed": [
+            160,
+            160,
+            160,
+            160,
+            159
+          ]
+        },
+        "secondary_common_judgeable_rows": {
+          "both_detect_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "a_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "b_only_per_seed": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "both_miss_per_seed": [
+            152,
+            152,
+            152,
+            152,
+            151
+          ]
+        }
+      }
+    },
+    "delay_sensitivity_note": "No eval_sensitivity delay is computed: delay was preregistered only on eval_primary, and dropping onset ticks changes the time origin.",
     "interpretation": {
       "jaccard_zero_is_not_complementarity": "IF has zero unique positive ticks; complementarity requires useful unique contribution from both members",
       "disjoint_feature_sets_are_not_sufficient": true,
-      "excess_if_unique_tp_seed0": 0,
-      "excess_if_added_fp_seed0": 5,
-      "literal_primary_if_union_positive_ticks_seed0": 0
+      "excess_if_unique_tp_per_seed": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "literal_primary_if_unique_tp_per_seed": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coverage_advantage": "common-positive denominator is 152 rather than 160 because IF has eight unknown positive ticks; envelope catches three positive ticks outside that common set"
     }
   },
-  "content_sha256": "46daa750adf5405c781e37d1f1c684c9e48582c3842843593e77d4c7badd3a96"
+  "content_sha256": "5a9094e4e6dbb2f22b554dd28932212d80a3f3a0c9560d802a8870a59fbf8b98"
 }
