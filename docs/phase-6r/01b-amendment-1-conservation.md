@@ -2,7 +2,7 @@
 
 Artifact: `results/report/phase6r_amendment_1.json`  
 `content_sha256`: `15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929`  
-Commit niêm phong: `PENDING_SEAL_COMMIT`
+Commit niêm phong: `16736db38dd90c07fe3af8013d0e58eecbdf640f`
 
 ## 1. Nguồn gốc và điều đã biết
 
