@@ -1,0 +1,850 @@
+{
+  "campaign_id": "DT4N-P6R-RCAMPAIGN",
+  "design_locked": true,
+  "status": "planned_not_collected",
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "runs": [
+    {
+      "run_id": "RS-soak2M-s4001-r1",
+      "group": "RS",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4001,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 3600,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 20
+    },
+    {
+      "run_id": "RS-soak2M-s4002-r2",
+      "group": "RS",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4002,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 3600,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 3
+    },
+    {
+      "run_id": "RS-soak2M-s4003-r3",
+      "group": "RS",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4003,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 3600,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 21
+    },
+    {
+      "run_id": "RN-load6M-s4011-r1",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 6.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4011,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 24
+    },
+    {
+      "run_id": "RN-load6M-s4012-r2",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 6.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4012,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 1
+    },
+    {
+      "run_id": "RN-load8M-s4013-r1",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 8.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4013,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 8
+    },
+    {
+      "run_id": "RN-load8M-s4014-r2",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 8.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4014,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 19
+    },
+    {
+      "run_id": "RN-load10M-s4015-r1",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 10.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4015,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 18
+    },
+    {
+      "run_id": "RN-load10M-s4016-r2",
+      "group": "RN",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 10.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 4016,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "fault_parameters": {},
+      "intervention": {
+        "actor": null,
+        "log_inject": false,
+        "log_revert": false
+      },
+      "exec_index": 13
+    },
+    {
+      "run_id": "RD-degrade-s1-s2-rho200-s4101-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 4101,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.8925,
+        "delay": "2ms",
+        "baseline": 20.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 0
+    },
+    {
+      "run_id": "RD-degrade-s1-s2-rho150-s4102-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 4102,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.8567,
+        "delay": "2ms",
+        "baseline": 20.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 7
+    },
+    {
+      "run_id": "RD-degrade-s1-s2-rho125-s4103-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 4103,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.828,
+        "delay": "2ms",
+        "baseline": 20.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 6
+    },
+    {
+      "run_id": "RD-degrade-s1-s2-rho080-s4104-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 4104,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.7312,
+        "delay": "2ms",
+        "baseline": 20.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 16
+    },
+    {
+      "run_id": "RD-degrade-s1-s2-rho050-s4105-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 4105,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.57,
+        "delay": "2ms",
+        "baseline": 20.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 5
+    },
+    {
+      "run_id": "RD-degrade-s2-s3-rho200-s4106-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 4106,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.7843,
+        "delay": "2ms",
+        "baseline": 5.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 17
+    },
+    {
+      "run_id": "RD-degrade-s2-s3-rho150-s4107-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 4107,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.7124,
+        "delay": "2ms",
+        "baseline": 5.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 11
+    },
+    {
+      "run_id": "RD-degrade-s2-s3-rho125-s4108-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 4108,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.6549,
+        "delay": "2ms",
+        "baseline": 5.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 15
+    },
+    {
+      "run_id": "RD-degrade-s2-s3-rho080-s4109-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 4109,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.4608,
+        "delay": "2ms",
+        "baseline": 5.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 23
+    },
+    {
+      "run_id": "RD-degrade-s2-s3-rho050-s4110-r1",
+      "group": "RD",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 4110,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.1373,
+        "delay": "2ms",
+        "baseline": 5.0
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 9
+    },
+    {
+      "run_id": "RC-flood-h1_to_srv1-s4201-r1",
+      "group": "RC",
+      "split": "r_set",
+      "role": "HIEU CHINH",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "flood",
+      "fault_target": "h1->srv1",
+      "seed": 4201,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "src": "h1",
+        "dst": "srv1",
+        "rate_mbps": 32
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 2
+    },
+    {
+      "run_id": "RC-flood-h2_to_srv2-s4202-r1",
+      "group": "RC",
+      "split": "r_set",
+      "role": "HIEU CHINH",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "flood",
+      "fault_target": "h2->srv2",
+      "seed": 4202,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h2-s1",
+        "s1-s3",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "src": "h2",
+        "dst": "srv2",
+        "rate_mbps": 33
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 10
+    },
+    {
+      "run_id": "RC-shift-s1-s2-s4203-r1",
+      "group": "RC",
+      "split": "r_set",
+      "role": "HIEU CHINH",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "shift",
+      "fault_target": "s1-s2",
+      "seed": 4203,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.85662217995863,
+        "delay": "2ms",
+        "baseline": 20.0,
+        "flood_src": "srv1",
+        "flood_dst": "srv2",
+        "rate_mbps": 22
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 12
+    },
+    {
+      "run_id": "RC-shift-s1-s3-s4204-r1",
+      "group": "RC",
+      "split": "r_set",
+      "role": "HIEU CHINH",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "shift",
+      "fault_target": "s1-s3",
+      "seed": 4204,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h2-s1",
+        "s1-s3",
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s3",
+        "factor": 0.8313170070139595,
+        "delay": "2ms",
+        "baseline": 20.0,
+        "flood_src": "srv1",
+        "flood_dst": "srv2",
+        "rate_mbps": 24
+      },
+      "intervention": {
+        "actor": "harness",
+        "log_inject": false,
+        "log_revert": true
+      },
+      "exec_index": 4
+    },
+    {
+      "run_id": "RO-ctl_admin_down-s1-s2-s4301-r1",
+      "group": "RO",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "admin_down",
+      "fault_target": "s1-s2",
+      "seed": 4301,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2"
+      },
+      "intervention": {
+        "actor": "controller",
+        "log_inject": true,
+        "log_revert": true
+      },
+      "exec_index": 22
+    },
+    {
+      "run_id": "RO-ctl_admin_down-s1-s2-s4302-r2",
+      "group": "RO",
+      "split": "r_set",
+      "role": "nghiem thu",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "admin_down",
+      "fault_target": "s1-s2",
+      "seed": 4302,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "fault_parameters": {
+        "link_key": "s1-s2"
+      },
+      "intervention": {
+        "actor": "controller",
+        "log_inject": true,
+        "log_revert": true
+      },
+      "exec_index": 14
+    }
+  ],
+  "execution_order": [
+    "RD-degrade-s1-s2-rho200-s4101-r1",
+    "RN-load6M-s4012-r2",
+    "RC-flood-h1_to_srv1-s4201-r1",
+    "RS-soak2M-s4002-r2",
+    "RC-shift-s1-s3-s4204-r1",
+    "RD-degrade-s1-s2-rho050-s4105-r1",
+    "RD-degrade-s1-s2-rho125-s4103-r1",
+    "RD-degrade-s1-s2-rho150-s4102-r1",
+    "RN-load8M-s4013-r1",
+    "RD-degrade-s2-s3-rho050-s4110-r1",
+    "RC-flood-h2_to_srv2-s4202-r1",
+    "RD-degrade-s2-s3-rho150-s4107-r1",
+    "RC-shift-s1-s2-s4203-r1",
+    "RN-load10M-s4016-r2",
+    "RO-ctl_admin_down-s1-s2-s4302-r2",
+    "RD-degrade-s2-s3-rho125-s4108-r1",
+    "RD-degrade-s1-s2-rho080-s4104-r1",
+    "RD-degrade-s2-s3-rho200-s4106-r1",
+    "RN-load10M-s4015-r1",
+    "RN-load8M-s4014-r2",
+    "RS-soak2M-s4001-r1",
+    "RS-soak2M-s4003-r3",
+    "RO-ctl_admin_down-s1-s2-s4301-r1",
+    "RD-degrade-s2-s3-rho080-s4109-r1",
+    "RN-load6M-s4011-r1"
+  ],
+  "groups": {
+    "RC": [
+      "RC-flood-h1_to_srv1-s4201-r1",
+      "RC-flood-h2_to_srv2-s4202-r1",
+      "RC-shift-s1-s2-s4203-r1",
+      "RC-shift-s1-s3-s4204-r1"
+    ],
+    "RD": [
+      "RD-degrade-s1-s2-rho050-s4105-r1",
+      "RD-degrade-s1-s2-rho080-s4104-r1",
+      "RD-degrade-s1-s2-rho125-s4103-r1",
+      "RD-degrade-s1-s2-rho150-s4102-r1",
+      "RD-degrade-s1-s2-rho200-s4101-r1",
+      "RD-degrade-s2-s3-rho050-s4110-r1",
+      "RD-degrade-s2-s3-rho080-s4109-r1",
+      "RD-degrade-s2-s3-rho125-s4108-r1",
+      "RD-degrade-s2-s3-rho150-s4107-r1",
+      "RD-degrade-s2-s3-rho200-s4106-r1"
+    ],
+    "RN": [
+      "RN-load10M-s4015-r1",
+      "RN-load10M-s4016-r2",
+      "RN-load6M-s4011-r1",
+      "RN-load6M-s4012-r2",
+      "RN-load8M-s4013-r1",
+      "RN-load8M-s4014-r2"
+    ],
+    "RO": [
+      "RO-ctl_admin_down-s1-s2-s4301-r1",
+      "RO-ctl_admin_down-s1-s2-s4302-r2"
+    ],
+    "RS": [
+      "RS-soak2M-s4001-r1",
+      "RS-soak2M-s4002-r2",
+      "RS-soak2M-s4003-r3"
+    ]
+  },
+  "routing_table_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+  "topology_spec_sha256": "be3534b9ea25805e8cb39e8f5ad6032645906c1eadef7a25fd04e22b66b4a946",
+  "amendment_1_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929",
+  "n_runs": 25,
+  "validation": {
+    "checks": {
+      "run_ids_unique": true,
+      "seeds_unique": true,
+      "run_id_filename_safe": true,
+      "RS_matches_slo": true,
+      "RN_matches_slo": true,
+      "RD_matches_slo": true,
+      "RC_matches_slo": true,
+      "RO_collected_is_offline_subset": true,
+      "RD_no_duplicate_dose": true,
+      "RD_above_bw_floor": true,
+      "inject_never_logged_except_controller": true,
+      "faults_have_expected_links": true,
+      "execution_order_is_permutation": true
+    },
+    "counts": {
+      "RC": 4,
+      "RD": 10,
+      "RN": 6,
+      "RO": 2,
+      "RS": 3
+    },
+    "collection_seconds_estimate": 12995
+  },
+  "design_provenance": {
+    "git_hash": "391ba5eb0177b2a445880a6e19236fd6da29798a",
+    "source_dirty": false,
+    "module_sha256": "fdf02907d365d872663b886baec5bd3c815049acf4e67fb06f57013f972df540",
+    "amendment_3_sha256": "d322c231110c7c7fbb31c6580587fc9d40525fd8500581971d6384d99e949794",
+    "amendment_4_sha256": "16990f73d63e67320f699722dd45558d2b213080273ba73d2f7bf88cc9388af3"
+  },
+  "written_at_utc": "2026-09-17T10:57:16+00:00",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f"
+}
