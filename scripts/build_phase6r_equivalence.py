@@ -79,6 +79,12 @@ def batch_reference(model, conservation, contract) -> pd.DataFrame:
         if part == "test" and not pd.DataFrame(split.meta["test_row_keys"]).equals(keys):
             raise RuntimeError("khoa test tu dung khac test_row_keys chinh thuc")
         decision = model.score_batch(features)
+        low, high, _ = model._vec["primary"]
+        matrix = model._matrix(features, model.families["primary"])
+        with np.errstate(invalid="ignore"):
+            outside = (matrix < low) | (matrix > high)
+        names = np.array(model.families["primary"], dtype=object)
+        violating = ["|".join(names[row]) for row in outside]
         residual = K.residuals(features, conservation.incidence, floor=conservation.floor)
         frames.append(
             keys.assign(
@@ -92,6 +98,7 @@ def batch_reference(model, conservation, contract) -> pd.DataFrame:
                 cons_judgeable=residual["judgeable"].to_numpy(),
                 cons_r_max=np.where(residual["judgeable"], residual["r_max"], np.nan),
                 cons_alarm=K.alarm(residual, conservation.threshold),
+                violating=violating,
             )
         )
     return pd.concat(frames, ignore_index=True)
@@ -139,6 +146,7 @@ def online_replay(model, conservation, contract, expected_cv, scorer_class=Onlin
                         "cons_judgeable": reading.cons_judgeable,
                         "cons_r_max": np.nan if reading.cons_r_max is None else reading.cons_r_max,
                         "cons_alarm": reading.cons_alarm,
+                        "violating": "|".join(reading.violating),
                     }
                 )
     latency = np.array(latencies)
@@ -165,6 +173,11 @@ def compare(batch: pd.DataFrame, online: pd.DataFrame) -> dict:
         equal = batch_values == online_values
         per_field[field] = int(equal.sum())
         matches &= equal
+    batch_values = merged["violating_b"].fillna("").astype(str).to_numpy()
+    online_values = merged["violating_o"].fillna("").astype(str).to_numpy()
+    equal = batch_values == online_values
+    per_field["violating"] = int(equal.sum())
+    matches &= equal
     for field in FIELDS_FLOAT:
         batch_values = pd.to_numeric(merged[field + "_b"], errors="coerce").to_numpy(dtype=float)
         online_values = pd.to_numeric(merged[field + "_o"], errors="coerce").to_numpy(dtype=float)

@@ -75,6 +75,8 @@ class Reading:
     interval_s: float | None = None
     n_missing_columns: int = 0
     n_contract_violations: int = 0
+    cause: str | None = None
+    violating: tuple = ()
 
 
 @dataclass
@@ -156,6 +158,7 @@ class OnlineScorer:
             )
             reading = dataclasses.replace(
                 reading,
+                cause="contract" if reading.cause == "missing_data" else reading.cause,
                 n_contract_violations=len(violations),
                 reason=note if not reading.reason else reading.reason + "; " + note,
             )
@@ -166,7 +169,13 @@ class OnlineScorer:
     def _reject(self, source_time, tick, reason) -> Reading:
         self._s.n_rejected += 1
         log.warning("REJECT t_source=%s tick=%s: %s", source_time, tick, reason)
-        return Reading(t_source=source_time, tick=tick, status="rejected", reason=reason)
+        return Reading(
+            t_source=source_time,
+            tick=tick,
+            status="rejected",
+            reason=reason,
+            cause="rejected",
+        )
 
     def frame_of(self, snapshot: dict) -> pd.DataFrame:
         """Snapshot to one-row frame using the shared batch functions."""
@@ -184,6 +193,7 @@ class OnlineScorer:
             return Reading(
                 **base,
                 status="warming_up",
+                cause="warmup",
                 reason="warmup %d/%d: rate/qdisc cua collector chua co khoang so sanh"
                 % (self._s.n_accepted + 1, self.warmup_ticks),
             )
@@ -194,6 +204,7 @@ class OnlineScorer:
             return Reading(
                 **base,
                 status="unknown",
+                cause="collector_version",
                 reason="collector_version %r != %r: dai luong khac, khong cham"
                 % (collector_version, self.expected_collector_version),
             )
@@ -201,6 +212,7 @@ class OnlineScorer:
             return Reading(
                 **base,
                 status="unknown",
+                cause="gap",
                 reason="khoang snapshot %.3f s ngoai [%.1f, %.1f]: qdisc*Delta phu thuoc khoang do"
                 % (interval, MIN_INTERVAL_S, MAX_INTERVAL_S),
             )
@@ -210,6 +222,17 @@ class OnlineScorer:
         for column in missing:
             frame[column] = np.nan
         decision = self.model.score_batch(frame)
+        low, high, _ = self.model._vec["primary"]
+        values = self.model._matrix(frame, self.model.families["primary"])[0]
+        with np.errstate(invalid="ignore"):
+            outside = (values < low) | (values > high)
+        violating = tuple(
+            column
+            for column, is_outside in zip(
+                self.model.families["primary"], outside
+            )
+            if is_outside
+        )
         judgeable = bool(decision.judgeable[0])
         envelope_suspect, act = bool(decision.suspect[0]), bool(decision.act[0])
         cons_fields = {}
@@ -243,6 +266,7 @@ class OnlineScorer:
             "act": act,
             "envelope_suspect": envelope_suspect,
             "n_missing_columns": len(missing),
+            "violating": violating,
             **cons_fields,
         }
         if not judgeable:
@@ -250,6 +274,7 @@ class OnlineScorer:
             return Reading(
                 **fields,
                 status="unknown",
+                cause="missing_data",
                 reason="%d/%d cot khong huu han%s -> unknown, khong bao gio normal"
                 % (n_nan, len(self.model.columns), suffix),
             )

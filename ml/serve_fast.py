@@ -141,6 +141,7 @@ class FastOnlineScorer(OnlineScorer):
             return Reading(
                 **base,
                 status="warming_up",
+                cause="warmup",
                 reason="warmup %d/%d: rate/qdisc cua collector chua co khoang so sanh"
                 % (self._s.n_accepted + 1, self.warmup_ticks),
             )
@@ -151,6 +152,7 @@ class FastOnlineScorer(OnlineScorer):
             return Reading(
                 **base,
                 status="unknown",
+                cause="collector_version",
                 reason="collector_version %r != %r: dai luong khac, khong cham"
                 % (collector_version, self.expected_collector_version),
             )
@@ -158,6 +160,7 @@ class FastOnlineScorer(OnlineScorer):
             return Reading(
                 **base,
                 status="unknown",
+                cause="gap",
                 reason="khoang snapshot %.3f s ngoai [%.1f, %.1f]: qdisc*Delta phu thuoc khoang do"
                 % (interval, MIN_INTERVAL_S, MAX_INTERVAL_S),
             )
@@ -166,6 +169,17 @@ class FastOnlineScorer(OnlineScorer):
         k, excess, judgeable = self._family(values, "primary")
         k_indicator, _, _ = self._family(values, "indicator")
         k_rate, _, _ = self._family(values, "rate_shared")
+        low, high, _ = self.model._vec["primary"]
+        primary = values[self._family_indices["primary"]]
+        with np.errstate(invalid="ignore"):
+            outside = (primary < low) | (primary > high)
+        violating = tuple(
+            column
+            for column, is_outside in zip(
+                self.model.families["primary"], outside
+            )
+            if is_outside
+        )
         envelope_suspect = judgeable and excess > float(self.model.thresholds["primary"]["E"])
         act = judgeable and (
             k_indicator > int(self.model.thresholds["indicator"]["K"])
@@ -194,6 +208,7 @@ class FastOnlineScorer(OnlineScorer):
             "act": act,
             "envelope_suspect": envelope_suspect,
             "n_missing_columns": len(missing),
+            "violating": violating,
             **cons_fields,
         }
         if not judgeable:
@@ -201,6 +216,7 @@ class FastOnlineScorer(OnlineScorer):
             return Reading(
                 **fields,
                 status="unknown",
+                cause="missing_data",
                 reason="%d/%d cot khong huu han%s -> unknown, khong bao gio normal"
                 % (int(np.isnan(values).sum()), len(values), suffix),
             )
