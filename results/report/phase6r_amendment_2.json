@@ -1,0 +1,405 @@
+{
+  "written_at_utc": "2026-09-17T09:41:56+00:00",
+  "content": {
+    "amendment_id": "DT4N-P6R-AMENDMENT-2",
+    "amends": {
+      "slo_content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3"
+    },
+    "git": {
+      "head": "d74dc5cad847d61b95b59740f222b1d24ad9fcfc",
+      "dirty_files": [
+        "logs/command_flow.log",
+        "results/report/feature_audit.csv",
+        "scripts/build_phase6r_amendment2.py",
+        "test/test_phase6r_amendment2.py"
+      ]
+    },
+    "artifacts_sha256": {
+      "results/report/phase6r_slo.json": "513b6ffa9d591c1efe58b8b265cc0902e9f02c9eccdad6bbe9e29463a04366b0",
+      "results/report/phase6r_amendment_1.json": "b32c0eead909abe7741ad270a40f848c4145d5d9edbc38819af3c8ae56a0546c",
+      "results/report/phase6_envelope.json": "35de6a80d350b06647bbfb684724b1a11703744cf36c01d88aac59904a38082d",
+      "models/envelope-1.0.0.json": "30ebae45ffefe8f1bd26d9099cdcc6276b24a98771758eea9bfd2821f56fab88",
+      "ditto/routing_table.json": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+      "results/report/experiment_matrix.json": "a25b5cb59232af72ec8ddd562f94c4ebc0c1ecb50c9860b0b91cc299c548e938"
+    },
+    "code_sha256": {
+      "ml/fsm.py": "9f524b0f2e78d98ad923eb6ad0dd4d824d11f9a71c0ae4acece73a99e30e7930",
+      "ml/blast_radius.py": "610ef8bb608fc24751960885c822714ee75987971b4aec145242e313b4bd17a4",
+      "ml/intervention_log.py": "fb4512a9a0a216a8a88f43e2c780630e10d2496019232a21686a6b55db3a833f",
+      "ml/serve.py": "29e772149fc1ee94d0aa31106db533490fd9c634eb65c77e7b2f8d95459203b1",
+      "ml/serve_fast.py": "42f90bea0d178162882f6601a6dc7162b7a586a7c21bed64a2be91a6ce6a3193",
+      "ml/snapshot_contract.py": "6676004733aafae53c98e59127b4ead835bfad962ff922d2446ffba050972cce",
+      "scripts/replay_phase6r_fsm.py": "f045f2eff27a3a2b6011854eda277e20f8a3e80612b944a6c0e49c311316b53c"
+    },
+    "knowledge_disclosure": {
+      "inputs_to_predictions": "chi so lieu da niem phong: measured_baseline (6R.1), delay per_run (Phase 6), routing",
+      "fsm_replayed_by_student": false,
+      "tutor_sandbox_note": "nguoi huong dan da chay replay tren sandbox de kiem code chay duoc, SAU khi chot du doan va khong sua du doan; cam ket cua de tai la thu tu commit cua sinh vien",
+      "status_of_test_replay": "tap test da tieu: replay la KIEM CHUNG CAI DAT (he qua tat dinh cua so lieu da biet), khong phai bang chung khoa hoc moi; kiem chung that o R-C, R-O, R-D"
+    },
+    "fsm": {
+      "states": [
+        "warming_up",
+        "normal",
+        "suspect",
+        "act",
+        "unknown"
+      ],
+      "unknown_causes": [
+        "warmup",
+        "collector_version",
+        "gap",
+        "missing_data",
+        "contract",
+        "suppressed_intervention"
+      ],
+      "params": {
+        "n_suspect": 1,
+        "n_act": 2,
+        "release_m": 3,
+        "cooldown_s": 8.0
+      },
+      "param_sources": {
+        "n_suspect, n_act": "S4b pre_registered_choice (6R.1)",
+        "release_m": "luat cau truc M > n_act (nho nhat = 3); khong hieu chinh, kiem tren R-D/R-O qua S7",
+        "cooldown_s": "prior: chum FP dai nhat 7 tick + 1 (6R.1 measured_baseline); gia tri cuoi tren R-C"
+      },
+      "rules": {
+        "alarm_reading": "Reading.suspect OR Reading.act",
+        "enter_suspect": "n_suspect tick alarm lien tiep",
+        "enter_act": "n_act tick Reading.act lien tiep",
+        "release": "release_m tick judgeable khong alarm -> normal (tu suspect hoac act)",
+        "hold": "dang act ma chi con suspect -> giu act",
+        "unknown": "Reading unknown/warming_up hoac bi uc che -> reset moi bo dem; ra khoi unknown tinh tu normal",
+        "rejected": "Reading rejected -> FSM khong tien, khong doi trang thai",
+        "labels": "FSM khong doc nhan, khong doc feature tho"
+      }
+    },
+    "suppression": {
+      "source": "chi InterventionLog (append-only); khong co co bat tay",
+      "rule": "tick dang alarm, co can thiep con han [t_start, t_start+cooldown_s), tap entity cua cot vi pham (bo agg.*) khac rong va la tap con cua hop vung anh huong -> unknown(cause=suppressed_intervention)",
+      "agg_only_evidence": "giu alarm (khong co vi tri -> khong quy duoc cho can thiep)",
+      "radius": "bac hai: moi cap host co duong cat link dich; tinh luc ghi log, kem routing_sha256",
+      "replay_interventions": "CHI revert cua harness (analog hanh dong khoi phuc cua controller); inject la SU CO, khong ghi log",
+      "replay_radius_by_run": {
+        "F-admin_down-s1-s2-s3001-r1": {
+          "targets": {
+            "links": [
+              "s1-s2"
+            ],
+            "flows": []
+          },
+          "fraction_local_columns": 0.666667,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s2-srv1",
+            "switch-s1",
+            "switch-s2"
+          ]
+        },
+        "F-admin_down-s1-s3-s3002-r1": {
+          "targets": {
+            "links": [
+              "s1-s3"
+            ],
+            "flows": []
+          },
+          "fraction_local_columns": 0.666667,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv2",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s3",
+            "link-s3-srv2",
+            "switch-s1",
+            "switch-s3"
+          ]
+        },
+        "F-degrade-s1-s2-s3003-r1": {
+          "targets": {
+            "links": [
+              "s1-s2"
+            ],
+            "flows": []
+          },
+          "fraction_local_columns": 0.666667,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s2-srv1",
+            "switch-s1",
+            "switch-s2"
+          ]
+        },
+        "F-degrade-s2-s3-s3004-r1": {
+          "targets": {
+            "links": [
+              "s2-s3"
+            ],
+            "flows": []
+          },
+          "fraction_local_columns": 0.393939,
+          "entities": [
+            "host-srv1",
+            "host-srv2",
+            "link-s2-s3",
+            "link-s2-srv1",
+            "link-s3-srv2",
+            "switch-s2",
+            "switch-s3"
+          ]
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "targets": {
+            "links": [],
+            "flows": [
+              [
+                "h1",
+                "srv1"
+              ]
+            ]
+          },
+          "fraction_local_columns": 1.0,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "host-srv2",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s1-s3",
+            "link-s2-s3",
+            "link-s2-srv1",
+            "link-s3-srv2",
+            "switch-s1",
+            "switch-s2",
+            "switch-s3"
+          ]
+        },
+        "F-flood-h2_to_srv2-s3006-r1": {
+          "targets": {
+            "links": [],
+            "flows": [
+              [
+                "h2",
+                "srv2"
+              ]
+            ]
+          },
+          "fraction_local_columns": 1.0,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "host-srv2",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s1-s3",
+            "link-s2-s3",
+            "link-s2-srv1",
+            "link-s3-srv2",
+            "switch-s1",
+            "switch-s2",
+            "switch-s3"
+          ]
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "targets": {
+            "links": [
+              "s1-s2"
+            ],
+            "flows": [
+              [
+                "srv1",
+                "srv2"
+              ]
+            ]
+          },
+          "fraction_local_columns": 1.0,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "host-srv2",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s1-s3",
+            "link-s2-s3",
+            "link-s2-srv1",
+            "link-s3-srv2",
+            "switch-s1",
+            "switch-s2",
+            "switch-s3"
+          ]
+        },
+        "F-shift-s1-s3-s3008-r1": {
+          "targets": {
+            "links": [
+              "s1-s3"
+            ],
+            "flows": [
+              [
+                "srv1",
+                "srv2"
+              ]
+            ]
+          },
+          "fraction_local_columns": 1.0,
+          "entities": [
+            "host-h1",
+            "host-h2",
+            "host-h3",
+            "host-srv1",
+            "host-srv2",
+            "link-h1-s1",
+            "link-h2-s1",
+            "link-h3-s1",
+            "link-s1-s2",
+            "link-s1-s3",
+            "link-s2-s3",
+            "link-s2-srv1",
+            "link-s3-srv2",
+            "switch-s1",
+            "switch-s2",
+            "switch-s3"
+          ]
+        }
+      },
+      "radius_covers_whole_network": [
+        "F-flood-h1_to_srv1-s3005-r1",
+        "F-flood-h2_to_srv2-s3006-r1",
+        "F-shift-s1-s2-s3007-r1",
+        "F-shift-s1-s3-s3008-r1"
+      ],
+      "radius_partial": [
+        "F-admin_down-s1-s2-s3001-r1",
+        "F-admin_down-s1-s3-s3002-r1",
+        "F-degrade-s1-s2-s3003-r1",
+        "F-degrade-s2-s3-s3004-r1"
+      ]
+    },
+    "definitions": {
+      "fp_tick": "tick y=0 (sau warmup) co state trong nhom",
+      "fp_event": "chuoi toi dai cac tick FP LIEN KE theo chi so tick trong mot run (khop n_clusters cua 6R.1)",
+      "levels": {
+        "suspect_level": "state in {suspect, act}",
+        "act_level": "state == act"
+      },
+      "incident_delay": "tick dau trong [inject+1, revert] co state trong nhom tru inject+1 (khop ml.metrics.detection_delay)",
+      "s7_window": "[inject+1, revert+cooldown_ticks] voi cooldown_ticks = cooldown_s / 1.0 s",
+      "s7_violation": "trong chuoi state da BO unknown/warming_up va gop lap lien ke, ton tai X,Y,X voi X in {suspect, act}"
+    },
+    "predictions": {
+      "P1_no_log_suspect_fp_events": {
+        "op": "==",
+        "value": 7,
+        "why": "N_s=1 khong loc chum; hold M chi keo dai, khong tach/gop chum trong mot run"
+      },
+      "P1_no_log_suspect_fp_ticks": {
+        "op": "in",
+        "value": [
+          23,
+          44
+        ],
+        "why": "moi chum keo dai toi da release_m tick boi hold"
+      },
+      "P1_no_log_act_fp_events": {
+        "op": "<=",
+        "value": 7,
+        "why": "act chi ton tai khi con alarm; moi chuoi act FP nam trong mot chum suspect FP"
+      },
+      "P2_log_fp_events_full_radius_runs": {
+        "op": "==",
+        "value": 0,
+        "runs": [
+          "F-flood-h1_to_srv1-s3005-r1",
+          "F-flood-h2_to_srv2-s3006-r1",
+          "F-shift-s1-s2-s3007-r1",
+          "F-shift-s1-s3-s3008-r1"
+        ],
+        "why": "vung = ca mang; FP chi con neu bang chung chi co agg.*"
+      },
+      "P2_log_fp_events_partial_radius_runs": {
+        "op": "report",
+        "runs": [
+          "F-admin_down-s1-s2-s3001-r1",
+          "F-admin_down-s1-s3-s3002-r1",
+          "F-degrade-s1-s2-s3003-r1",
+          "F-degrade-s2-s3-s3004-r1"
+        ],
+        "why": "vung mot phan; khong du co so du doan so luong"
+      },
+      "P3_suspect_delay_per_run_equals_phase6_excess": {
+        "F-admin_down-s1-s2-s3001-r1": 0,
+        "F-admin_down-s1-s3-s3002-r1": 0,
+        "F-degrade-s1-s2-s3003-r1": null,
+        "F-degrade-s2-s3-s3004-r1": 1,
+        "F-flood-h1_to_srv1-s3005-r1": 0,
+        "F-flood-h2_to_srv2-s3006-r1": 0,
+        "F-shift-s1-s2-s3007-r1": 1,
+        "F-shift-s1-s3-s3008-r1": 1
+      },
+      "P3_act_delay_per_run": {
+        "F-admin_down-s1-s2-s3001-r1": 1,
+        "F-admin_down-s1-s3-s3002-r1": 1,
+        "F-degrade-s1-s2-s3003-r1": null,
+        "F-degrade-s2-s3-s3004-r1": 11,
+        "F-flood-h1_to_srv1-s3005-r1": 1,
+        "F-flood-h2_to_srv2-s3006-r1": 2,
+        "F-shift-s1-s2-s3007-r1": 2,
+        "F-shift-s1-s3-s3008-r1": 2
+      },
+      "P3_note": "log chi co revert nen cua so loi khong bi uc che -> delay giong nhau co/khong log",
+      "P4_s7_violations": {
+        "op": "==",
+        "value": 0,
+        "scope": "8 run fault, co va khong log"
+      },
+      "P5_control_and_train_fp_events": {
+        "op": "==",
+        "value": 0
+      }
+    },
+    "refutation_and_outcomes": {
+      "P1_fail": "cai dat FSM hoac dinh nghia su kien sai -> sua code, KHONG sua du doan; ghi deviation",
+      "P2_full_fail": "ton tai FP chi co bang chung agg.* hoac cot ngoai vung -> ghi phat hien; khong mo rong vung sau khi thay",
+      "P3_fail": "FSM lam doi hanh vi trong cua so loi -> loi cai dat, dung lai",
+      "P4_fail": "dao dong that -> khong duoc phat hanh FSM cho Phase 8 truoc khi co amendment moi",
+      "S4": "danh gia o muc suspect (S4b); delay act bao cao kem, khong gate"
+    },
+    "forbidden": [
+      "doi params, luat, dinh nghia sau khi chay replay_phase6r_fsm",
+      "mo rong vung anh huong sau khi xem FP con lai",
+      "ghi inject vao InterventionLog",
+      "chon cooldown tu tap test"
+    ],
+    "deviation_policy": "bat bien sau commit; thay doi can amendment so tiep theo"
+  },
+  "content_sha256": "31150235def13dcf4544b62b0d816885757547d1097bc3513c1b47c4306f66c4"
+}
