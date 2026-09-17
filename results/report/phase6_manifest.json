@@ -1,0 +1,259 @@
+{
+  "written_at_utc": "2026-09-17T01:40:22+00:00",
+  "content": {
+    "manifest_id": "DT4N-P6-MANIFEST-v1",
+    "source_git_hash": "50fb2ee6c8a8e4969e202156226aa7ab9a687acf",
+    "files": {
+      "results/report/phase6_prereg.json": "f1cc42b40ee49f2a12cc30ac496a9dd27ce178a340504d0b1855b59e5ae643b1",
+      "results/report/phase6_prereg_amendment_1.json": "7a63be835f8efe7a505e9da09313ad0ce09199570df378c059c025cb4f120bb7",
+      "results/report/phase6_prereg_amendment_2.json": "0459f527d8e53f5ef4a15577e75e180fea69d18532610f76589acca57be0f992",
+      "results/report/phase6_hypothesis_ledger.json": "e4fcfe6d9c6e8ae85c58f317bb99830291981fcdd5669fb10e347a1ece6612b3",
+      "results/report/phase6_hypothesis_ledger_2.json": "c2c74a0eca391349dcd90b8a0b15e15678a5a400ecdf7596f9513ab1f5bbf62c",
+      "results/report/phase6_hypothesis_ledger_3.json": "3002e57f27123143b4fa997f9cbac050d102315160c9bebeddb985906b783f54",
+      "results/report/phase6_ablation_prereg.json": "3d6d0447557f8acbf4ff963b084d9859bb689f2a5c0bc418b8119d04c8c9e351",
+      "results/report/ml_dataset_split_manifest.json": "0d51bbd028bf10c7644447f416dded74af97861968e7de51c40f7617ac4b94a1",
+      "results/report/ground_truth.json": "c8fa82487fa3f4fafc0b24ee594115cf11b1b90f54abe2d83f163d99d20b82fe",
+      "results/report/if_constant_blindness.json": "1cbe75ba8e26561944b6cf5e0c652ef776ef79f94f48810fb7cdd75d54cf6264",
+      "ml/metrics.py": "f96eea01e462a7326c69774b2e652bc6d0fe499b103e984b13fa35f435fb3db5",
+      "ml/detectors/envelope.py": "ca9b8f00dcbc18d68fb9aac6b1f4770c8b653176df5c1d0559073f2a48f00759",
+      "ml/detectors/iforest.py": "c8d459be4ce02e044717bc95b1e82eb3f9f4f74cbbec219507496184e289edd3",
+      "ml/dataset.py": "0e80f5391d555a0ec2a833a77d816d9264e4e1b30761abedf49038d1082515a7",
+      "ml/features.py": "d8c881a9c73bd6c828bbb7aec84a7afdfbf9e3c6aae759a065b06b7d683d57d4",
+      "scripts/run_phase6_envelope.py": "b8180df77fe33a226de4b63a5062f10779b20fc27febca7b833543ae2811f681",
+      "scripts/run_phase6_iforest.py": "f48ff8897123b765930060f327339d6fcc7375338978624f7c5d5e187b47e929",
+      "scripts/run_phase6_ablations.py": "bba25b9244a41cbfaa5f1cafa6a50e08ff09c0cfcf26aad3fe8c793d8c7dbc1d",
+      "results/report/phase6_envelope_cv.json": "f8cf398c9fb4f6dd87b66b605f014729ee6ac987775a99056c56c9aafdbc4b15",
+      "results/report/phase6_envelope.json": "35de6a80d350b06647bbfb684724b1a11703744cf36c01d88aac59904a38082d",
+      "results/report/phase6_iforest_cv.json": "2261e81c04b93935f8a55e343ad72c5a50ef5a051d69d912eefe573400c50a57",
+      "results/report/phase6_iforest.json": "fdaef032c07477c2570c571bf766d7b2b36dabedf162f064742187a427141e77",
+      "results/report/phase6_comparison.json": "1d55f4ab15350c30a24c74442d90f8dd30eaab90c1e68274d3097fbfbab230b3",
+      "results/report/phase6_sensitivity.json": "9e212077e21d434cc55707c586f6062eca7a32677a775e0d874599278d5882ff",
+      "results/report/phase6_noise_auc.json": "7af572821aaca9a1408a6795cc9115ebf20b91bd7a576f79051905f87fac7163",
+      "results/report/phase6_recovery.json": "1148fd9f41a95cf87c97007a7e2a6b0cf70a65a136229b5809ab81546487d330",
+      "results/report/phase6_envelope_loro_diag.json": "e86863612724551aaba224ad1400ad613b155d7a5013e9eb979cf833270cc706",
+      "results/report/phase6_envelope_posthoc_diag.json": "26b6648706dbd7bf0b8eb969c546412e37944178868c86d548c0425383121901",
+      "results/report/phase6_iforest_posthoc_diag.json": "0ef318210c2ee8df0cfbcb4120b1bc053325756d39959fef977e041d77561fd7",
+      "results/report/phase6_hybrid_diag.json": "cf1319a9eeb396607fa3712a2473f1327c4a0e637aab6c27219a090e36ba8bd3",
+      "results/report/phase6_ablations.json": "60c7897f0d6b8d847027a200336614b8c49379ef5147d07ed6bd8449fc72e11b",
+      "results/report/phase6_envelope_ticks.csv": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
+      "results/report/phase6_iforest_ticks.csv": "3ce467be857f3f65cbbc71d9a565f7e626838d3e7f779816e0808b1b5f8cbeed",
+      "docs/phase-6/01-preregistration.md": "ced0c63cd138bb17a1566290218800a720019fab225f1f4af45bdd11e660e291",
+      "docs/phase-6/02-metrics.md": "c14b16cd88c0e8931ff9ae263f36402f598227754ea56b22d0fc41a10f49bf61",
+      "docs/phase-6/03-envelope-baseline.md": "6a1c2865256e495dbf4f722b90be0a1e45ca91651bd0e026338a5007bf14a2e5",
+      "docs/phase-6/04-isolation-forest.md": "e9d9473e90e008e4f3637071fc5a8b3ccb8a0492c62585ec86cd54bfa01640f9",
+      "docs/phase-6/05-comparison.md": "9e46b42295338ced05d7aac94c18d4ec2238d2c0bc823c3d2c7d0eca43c70e2d",
+      "docs/phase-6/06-error-analysis.md": "bb0777c6e7e99aa7b7c17ec90044b65e7313f62c4d58cb9f3ab4f2e243144755",
+      "docs/phase-6/model-card.md": "9a2f589904929848e68e74064038620b5c7da1991b3d7bee29e6f993ea2cc202"
+    },
+    "internal_json_hash_checks": {
+      "results/report/phase6_prereg.json": {
+        "field": "prereg_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_prereg_amendment_1.json": {
+        "field": "amendment_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_prereg_amendment_2.json": {
+        "field": "amendment_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_hypothesis_ledger.json": {
+        "field": "ledger_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_hypothesis_ledger_2.json": {
+        "field": "ledger_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_hypothesis_ledger_3.json": {
+        "field": "ledger_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_ablation_prereg.json": {
+        "field": "prereg_content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_envelope_cv.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_envelope.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_iforest_cv.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_iforest.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_comparison.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_sensitivity.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_noise_auc.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_recovery.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_envelope_loro_diag.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_envelope_posthoc_diag.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_iforest_posthoc_diag.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_hybrid_diag.json": {
+        "field": "content_sha256",
+        "valid": true
+      },
+      "results/report/phase6_ablations.json": {
+        "field": "content_sha256",
+        "valid": true
+      }
+    },
+    "registration_commit_order": [
+      {
+        "path": "results/report/phase6_prereg.json",
+        "commit": "003947410c8de52dd8771f802c55a3b54bde07d9",
+        "committed_at": "2026-09-16T02:41:22+00:00",
+        "subject": "Pre-register Phase 6 detector hypotheses metrics and calibration before evaluation"
+      },
+      {
+        "path": "results/report/phase6_prereg_amendment_1.json",
+        "commit": "6fdecc50b46f782a7237a3eeacfb953499549103",
+        "committed_at": "2026-09-16T03:00:39+00:00",
+        "subject": "Amend Phase 6 preregistration with secondary dual-count envelope"
+      },
+      {
+        "path": "results/report/phase6_prereg_amendment_2.json",
+        "commit": "d77e251ea2eed31a6a62c63da7ca990deaf7255f",
+        "committed_at": "2026-09-16T03:27:26+00:00",
+        "subject": "Amend Phase 6 registration: freeze fold column identity before CV"
+      },
+      {
+        "path": "results/report/phase6_hypothesis_ledger.json",
+        "commit": "02b543ce987cc188d899fd092ee6ca0993fc7c24",
+        "committed_at": "2026-09-16T06:39:42+00:00",
+        "subject": "Phase 6: freeze hypothesis ledger before any IF fit"
+      },
+      {
+        "path": "results/report/phase6_hypothesis_ledger_2.json",
+        "commit": "3edc170bebc5f07488ee62e31f2ac427dd8e1466",
+        "committed_at": "2026-09-16T09:39:07+00:00",
+        "subject": "Freeze IF-half H4 clause and pre-test predictions"
+      },
+      {
+        "path": "results/report/phase6_hypothesis_ledger_3.json",
+        "commit": "38c30b8fea3753e6131b07a475053532762ccd22",
+        "committed_at": "2026-09-16T10:02:21+00:00",
+        "subject": "Freeze final hypothesis decisions and tail-inversion diagnostic"
+      },
+      {
+        "path": "results/report/phase6_ablation_prereg.json",
+        "commit": "886d8186dba0c4808f4e813c5f32b6016815aefa",
+        "committed_at": "2026-09-17T01:34:42+00:00",
+        "subject": "Pre-register Phase 6 ablation predictions"
+      }
+    ],
+    "fixed_randomness": {
+      "iforest_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "noise_rng_base": 10000,
+      "bootstrap_rng_seed": 20260916,
+      "bootstrap_replicates": 2000
+    },
+    "iforest_hyperparameters": {
+      "n_estimators": 300,
+      "max_samples": [
+        256,
+        1.0
+      ],
+      "primary_max_samples": 256,
+      "max_features": 1.0,
+      "bootstrap": false,
+      "contamination": "auto",
+      "quantiles": [
+        0.005,
+        0.01,
+        0.02,
+        0.05
+      ],
+      "primary_q": 0.01
+    },
+    "reproduction_receipt": {
+      "hybrid_five_seed_exact": true,
+      "noise_five_seed_exact": true,
+      "ablation_prereg_sha256": "cd88d6095162b51c230388c2af25b829d2417d0c3c29b29c8e00e7928f68e4ad",
+      "file_sha256": {
+        "results/report/phase6_prereg.json": "f1cc42b40ee49f2a12cc30ac496a9dd27ce178a340504d0b1855b59e5ae643b1",
+        "results/report/phase6_prereg_amendment_1.json": "7a63be835f8efe7a505e9da09313ad0ce09199570df378c059c025cb4f120bb7",
+        "results/report/phase6_prereg_amendment_2.json": "0459f527d8e53f5ef4a15577e75e180fea69d18532610f76589acca57be0f992",
+        "results/report/phase6_hypothesis_ledger.json": "e4fcfe6d9c6e8ae85c58f317bb99830291981fcdd5669fb10e347a1ece6612b3",
+        "results/report/phase6_hypothesis_ledger_2.json": "c2c74a0eca391349dcd90b8a0b15e15678a5a400ecdf7596f9513ab1f5bbf62c",
+        "results/report/phase6_hypothesis_ledger_3.json": "3002e57f27123143b4fa997f9cbac050d102315160c9bebeddb985906b783f54",
+        "results/report/phase6_ablation_prereg.json": "3d6d0447557f8acbf4ff963b084d9859bb689f2a5c0bc418b8119d04c8c9e351",
+        "results/report/ml_dataset_split_manifest.json": "0d51bbd028bf10c7644447f416dded74af97861968e7de51c40f7617ac4b94a1",
+        "results/report/ground_truth.json": "c8fa82487fa3f4fafc0b24ee594115cf11b1b90f54abe2d83f163d99d20b82fe",
+        "results/report/if_constant_blindness.json": "1cbe75ba8e26561944b6cf5e0c652ef776ef79f94f48810fb7cdd75d54cf6264",
+        "ml/metrics.py": "f96eea01e462a7326c69774b2e652bc6d0fe499b103e984b13fa35f435fb3db5",
+        "ml/detectors/envelope.py": "ca9b8f00dcbc18d68fb9aac6b1f4770c8b653176df5c1d0559073f2a48f00759",
+        "ml/detectors/iforest.py": "c8d459be4ce02e044717bc95b1e82eb3f9f4f74cbbec219507496184e289edd3",
+        "ml/dataset.py": "0e80f5391d555a0ec2a833a77d816d9264e4e1b30761abedf49038d1082515a7",
+        "ml/features.py": "d8c881a9c73bd6c828bbb7aec84a7afdfbf9e3c6aae759a065b06b7d683d57d4",
+        "scripts/run_phase6_envelope.py": "b8180df77fe33a226de4b63a5062f10779b20fc27febca7b833543ae2811f681",
+        "scripts/run_phase6_iforest.py": "f48ff8897123b765930060f327339d6fcc7375338978624f7c5d5e187b47e929",
+        "scripts/run_phase6_ablations.py": "bba25b9244a41cbfaa5f1cafa6a50e08ff09c0cfcf26aad3fe8c793d8c7dbc1d",
+        "results/report/phase6_envelope_cv.json": "f8cf398c9fb4f6dd87b66b605f014729ee6ac987775a99056c56c9aafdbc4b15",
+        "results/report/phase6_envelope.json": "35de6a80d350b06647bbfb684724b1a11703744cf36c01d88aac59904a38082d",
+        "results/report/phase6_iforest_cv.json": "2261e81c04b93935f8a55e343ad72c5a50ef5a051d69d912eefe573400c50a57",
+        "results/report/phase6_iforest.json": "fdaef032c07477c2570c571bf766d7b2b36dabedf162f064742187a427141e77",
+        "results/report/phase6_comparison.json": "1d55f4ab15350c30a24c74442d90f8dd30eaab90c1e68274d3097fbfbab230b3",
+        "results/report/phase6_sensitivity.json": "9e212077e21d434cc55707c586f6062eca7a32677a775e0d874599278d5882ff",
+        "results/report/phase6_noise_auc.json": "7af572821aaca9a1408a6795cc9115ebf20b91bd7a576f79051905f87fac7163",
+        "results/report/phase6_recovery.json": "1148fd9f41a95cf87c97007a7e2a6b0cf70a65a136229b5809ab81546487d330",
+        "results/report/phase6_envelope_loro_diag.json": "e86863612724551aaba224ad1400ad613b155d7a5013e9eb979cf833270cc706",
+        "results/report/phase6_envelope_posthoc_diag.json": "26b6648706dbd7bf0b8eb969c546412e37944178868c86d548c0425383121901",
+        "results/report/phase6_iforest_posthoc_diag.json": "0ef318210c2ee8df0cfbcb4120b1bc053325756d39959fef977e041d77561fd7",
+        "results/report/phase6_hybrid_diag.json": "cf1319a9eeb396607fa3712a2473f1327c4a0e637aab6c27219a090e36ba8bd3",
+        "results/report/phase6_ablations.json": "60c7897f0d6b8d847027a200336614b8c49379ef5147d07ed6bd8449fc72e11b",
+        "results/report/phase6_envelope_ticks.csv": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
+        "results/report/phase6_iforest_ticks.csv": "3ce467be857f3f65cbbc71d9a565f7e626838d3e7f779816e0808b1b5f8cbeed",
+        "docs/phase-6/01-preregistration.md": "ced0c63cd138bb17a1566290218800a720019fab225f1f4af45bdd11e660e291",
+        "docs/phase-6/02-metrics.md": "c14b16cd88c0e8931ff9ae263f36402f598227754ea56b22d0fc41a10f49bf61",
+        "docs/phase-6/03-envelope-baseline.md": "6a1c2865256e495dbf4f722b90be0a1e45ca91651bd0e026338a5007bf14a2e5",
+        "docs/phase-6/04-isolation-forest.md": "e9d9473e90e008e4f3637071fc5a8b3ccb8a0492c62585ec86cd54bfa01640f9",
+        "docs/phase-6/05-comparison.md": "9e46b42295338ced05d7aac94c18d4ec2238d2c0bc823c3d2c7d0eca43c70e2d",
+        "docs/phase-6/06-error-analysis.md": "bb0777c6e7e99aa7b7c17ec90044b65e7313f62c4d58cb9f3ab4f2e243144755",
+        "docs/phase-6/model-card.md": "9a2f589904929848e68e74064038620b5c7da1991b3d7bee29e6f993ea2cc202"
+      }
+    },
+    "canonical_reproduction_sha256": "9ca2cda898bcb112a6b701b9d3fb5528cf4de84dedc5c0fddd7e3bbc99ebb9ba",
+    "notes": [
+      "written_at_utc is excluded from canonical content hash",
+      "raw data remains outside git; dataset manifest binds accepted raw hashes",
+      "source_git_hash is the latest commit touching a manifest input"
+    ]
+  },
+  "manifest_content_sha256": "765f0d0be6eb6c341f8363437db33bde2a4824a6410d847b2fb21858a92ef2dc"
+}
