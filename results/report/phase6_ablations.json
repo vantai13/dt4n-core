@@ -1,0 +1,3742 @@
+{
+  "written_at_utc": "2026-09-17T01:36:45+00:00",
+  "content": {
+    "result_id": "DT4N-P6-ABLATIONS-v1",
+    "status": "EXPLORATORY; PREDICTIONS FROZEN BEFORE EXECUTION",
+    "bound_to": {
+      "ablation_prereg_sha256": "cd88d6095162b51c230388c2af25b829d2417d0c3c29b29c8e00e7928f68e4ad"
+    },
+    "code_sha256": "bba25b9244a41cbfaa5f1cafa6a50e08ff09c0cfcf26aad3fe8c793d8c7dbc1d",
+    "A1_drop_delta": {
+      "n_features": 36,
+      "columns": [
+        "agg.rate_absz_max",
+        "agg.rate_absz_n_above_3",
+        "host-h1.traffic.rxRate",
+        "host-h1.traffic.txRate",
+        "host-h2.traffic.rxRate",
+        "host-h2.traffic.txRate",
+        "host-h3.traffic.rxRate",
+        "host-h3.traffic.txRate",
+        "host-srv1.traffic.rxRate",
+        "host-srv1.traffic.txRate",
+        "host-srv2.traffic.rxRate",
+        "host-srv2.traffic.txRate",
+        "link-h1-s1.traffic.qdiscSentDelta",
+        "link-h1-s1.traffic.rxRate",
+        "link-h1-s1.traffic.txRate",
+        "link-h2-s1.traffic.qdiscSentDelta",
+        "link-h2-s1.traffic.rxRate",
+        "link-h2-s1.traffic.txRate",
+        "link-h3-s1.traffic.qdiscSentDelta",
+        "link-h3-s1.traffic.rxRate",
+        "link-h3-s1.traffic.txRate",
+        "link-s1-s2.traffic.qdiscSentDelta",
+        "link-s1-s2.traffic.rxRate",
+        "link-s1-s2.traffic.txRate",
+        "link-s1-s3.traffic.qdiscSentDelta",
+        "link-s1-s3.traffic.rxRate",
+        "link-s1-s3.traffic.txRate",
+        "link-s2-s3.traffic.qdiscSentDelta",
+        "link-s2-s3.traffic.rxRate",
+        "link-s2-s3.traffic.txRate",
+        "link-s2-srv1.traffic.qdiscSentDelta",
+        "link-s2-srv1.traffic.rxRate",
+        "link-s2-srv1.traffic.txRate",
+        "link-s3-srv2.traffic.qdiscSentDelta",
+        "link-s3-srv2.traffic.rxRate",
+        "link-s3-srv2.traffic.txRate"
+      ],
+      "n_train_rows": 464,
+      "per_seed": {
+        "0": {
+          "threshold": -0.6657333843216718,
+          "scores": {
+            "recall": 0.08125,
+            "recall_ceiling": 0.975,
+            "fpr": 0.044186046511627906,
+            "fpr_judgeable_only": 0.04460093896713615,
+            "precision": 0.40625,
+            "f1": 0.13541666666666666,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 13,
+            "fp": 19,
+            "fn": 147,
+            "tn": 411,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.05084745762711865,
+              "fpr_judgeable_only": 0.05084745762711865,
+              "fp": 6,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.041666666666666664,
+              "fpr_judgeable_only": 0.04220779220779221,
+              "fp": 13,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.044186046511627906,
+              "fpr_judgeable_only": 0.04460093896713615,
+              "fp": 19,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.1016949152542373,
+                "fpr_judgeable_only": 0.1016949152542373,
+                "fp": 6,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.3,
+                "recall_ceiling": 1.0,
+                "fpr": 0.11538461538461539,
+                "fpr_judgeable_only": 0.11538461538461539,
+                "precision": 0.5714285714285714,
+                "f1": 0.39344262295081966,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 12,
+                "fp": 9,
+                "fn": 28,
+                "tn": 69,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.6,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.025,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.25,
+                "f1": 0.045454545454545456,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 1,
+                "fp": 3,
+                "fn": 39,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.05,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": 8,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": 13,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 2,
+            "n_censored": 6,
+            "median_delay_detected": 10.5
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.23125,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.013953488372093023,
+              "ci_high": 0.07674418604651163,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.014084507042253521,
+              "ci_high": 0.07728337236533958,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.6153846153846154,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.3288888888888889,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "1": {
+          "threshold": -0.6657266349415815,
+          "scores": {
+            "recall": 0.00625,
+            "recall_ceiling": 0.975,
+            "fpr": 0.04186046511627907,
+            "fpr_judgeable_only": 0.04225352112676056,
+            "precision": 0.05263157894736842,
+            "f1": 0.0111731843575419,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 1,
+            "fp": 18,
+            "fn": 159,
+            "tn": 412,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.05084745762711865,
+              "fpr_judgeable_only": 0.05084745762711865,
+              "fp": 6,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.038461538461538464,
+              "fpr_judgeable_only": 0.03896103896103896,
+              "fp": 12,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.04186046511627907,
+              "fpr_judgeable_only": 0.04225352112676056,
+              "fp": 18,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.1016949152542373,
+                "fpr_judgeable_only": 0.1016949152542373,
+                "fp": 6,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.025,
+                "recall_ceiling": 1.0,
+                "fpr": 0.10256410256410256,
+                "fpr_judgeable_only": 0.10256410256410256,
+                "precision": 0.1111111111111111,
+                "f1": 0.04081632653061224,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 1,
+                "fp": 8,
+                "fn": 39,
+                "tn": 70,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.05,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": 9,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 1,
+            "n_censored": 7,
+            "median_delay_detected": 9.0
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.01875,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.013953488372093023,
+              "ci_high": 0.06976744186046512,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.014150110987791344,
+              "ci_high": 0.07042253521126761,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.14285714285714285,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.03278688524590164,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "2": {
+          "threshold": -0.673411880081107,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.03255813953488372,
+            "fpr_judgeable_only": 0.03286384976525822,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 14,
+            "fn": 160,
+            "tn": 416,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.0423728813559322,
+              "fpr_judgeable_only": 0.0423728813559322,
+              "fp": 5,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.028846153846153848,
+              "fpr_judgeable_only": 0.02922077922077922,
+              "fp": 9,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.03255813953488372,
+              "fpr_judgeable_only": 0.03286384976525822,
+              "fp": 14,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.0847457627118644,
+                "fpr_judgeable_only": 0.0847457627118644,
+                "fp": 5,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0641025641025641,
+                "fpr_judgeable_only": 0.0641025641025641,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 5,
+                "fn": 40,
+                "tn": 73,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.009302325581395349,
+              "ci_high": 0.05581395348837209,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.009411764705882352,
+              "ci_high": 0.05620608899297424,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "3": {
+          "threshold": -0.6649074624498362,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.04883720930232558,
+            "fpr_judgeable_only": 0.04929577464788732,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 21,
+            "fn": 160,
+            "tn": 409,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.059322033898305086,
+              "fpr_judgeable_only": 0.059322033898305086,
+              "fp": 7,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.04487179487179487,
+              "fpr_judgeable_only": 0.045454545454545456,
+              "fp": 14,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.04883720930232558,
+              "fpr_judgeable_only": 0.04929577464788732,
+              "fp": 21,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.11864406779661017,
+                "fpr_judgeable_only": 0.11864406779661017,
+                "fp": 7,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.1282051282051282,
+                "fpr_judgeable_only": 0.1282051282051282,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 10,
+                "fn": 40,
+                "tn": 68,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.01627906976744186,
+              "ci_high": 0.08372093023255814,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.01639344262295082,
+              "ci_high": 0.08450704225352113,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "4": {
+          "threshold": -0.6635080297465686,
+          "scores": {
+            "recall": 0.0375,
+            "recall_ceiling": 0.975,
+            "fpr": 0.044186046511627906,
+            "fpr_judgeable_only": 0.04460093896713615,
+            "precision": 0.24,
+            "f1": 0.06486486486486487,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 6,
+            "fp": 19,
+            "fn": 154,
+            "tn": 411,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.059322033898305086,
+              "fpr_judgeable_only": 0.059322033898305086,
+              "fp": 7,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.038461538461538464,
+              "fpr_judgeable_only": 0.03896103896103896,
+              "fp": 12,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.044186046511627906,
+              "fpr_judgeable_only": 0.04460093896713615,
+              "fp": 19,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.11864406779661017,
+                "fpr_judgeable_only": 0.11864406779661017,
+                "fp": 7,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.15,
+                "recall_ceiling": 1.0,
+                "fpr": 0.10256410256410256,
+                "fpr_judgeable_only": 0.10256410256410256,
+                "precision": 0.42857142857142855,
+                "f1": 0.2222222222222222,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 6,
+                "fp": 8,
+                "fn": 34,
+                "tn": 70,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.3,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": 8,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 1,
+            "n_censored": 7,
+            "median_delay_detected": 8.0
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.1125,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.011627906976744186,
+              "ci_high": 0.07906976744186046,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.01179245283018868,
+              "ci_high": 0.07925407925407925,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.4444444444444444,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.17647058823529413,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        }
+      },
+      "across_seeds": {
+        "recall": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.025,
+          "std": 0.0350780380010057,
+          "min": 0.0,
+          "max": 0.08125
+        },
+        "fpr": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.04232558139534884,
+          "std": 0.006019618188625482,
+          "min": 0.03255813953488372,
+          "max": 0.04883720930232558
+        },
+        "fpr_judgeable_only": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.042723004694835684,
+          "std": 0.006076140425138394,
+          "min": 0.03286384976525822,
+          "max": 0.04929577464788732
+        },
+        "precision": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.13977631578947367,
+          "std": 0.17869111150537098,
+          "min": 0.0,
+          "max": 0.40625
+        },
+        "f1": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.042290943177814684,
+          "std": 0.058581876419653366,
+          "min": 0.0,
+          "max": 0.13541666666666666
+        }
+      }
+    },
+    "A2_rolling_window3": {
+      "iforest": {
+        "n_features": 108,
+        "columns": [
+          "agg.rate_absz_max",
+          "agg.rate_absz_n_above_3",
+          "d1.agg.rate_absz_max",
+          "d1.agg.rate_absz_n_above_3",
+          "d1.host-h1.traffic.rxRate",
+          "d1.host-h1.traffic.txRate",
+          "d1.host-h2.traffic.rxRate",
+          "d1.host-h2.traffic.txRate",
+          "d1.host-h3.traffic.rxRate",
+          "d1.host-h3.traffic.txRate",
+          "d1.host-srv1.traffic.rxRate",
+          "d1.host-srv1.traffic.txRate",
+          "d1.host-srv2.traffic.rxRate",
+          "d1.host-srv2.traffic.txRate",
+          "d1.link-h1-s1.traffic.qdiscSentDelta",
+          "d1.link-h1-s1.traffic.rxRate",
+          "d1.link-h1-s1.traffic.txRate",
+          "d1.link-h2-s1.traffic.qdiscSentDelta",
+          "d1.link-h2-s1.traffic.rxRate",
+          "d1.link-h2-s1.traffic.txRate",
+          "d1.link-h3-s1.traffic.qdiscSentDelta",
+          "d1.link-h3-s1.traffic.rxRate",
+          "d1.link-h3-s1.traffic.txRate",
+          "d1.link-s1-s2.traffic.qdiscSentDelta",
+          "d1.link-s1-s2.traffic.rxRate",
+          "d1.link-s1-s2.traffic.txRate",
+          "d1.link-s1-s3.traffic.qdiscSentDelta",
+          "d1.link-s1-s3.traffic.rxRate",
+          "d1.link-s1-s3.traffic.txRate",
+          "d1.link-s2-s3.traffic.qdiscSentDelta",
+          "d1.link-s2-s3.traffic.rxRate",
+          "d1.link-s2-s3.traffic.txRate",
+          "d1.link-s2-srv1.traffic.qdiscSentDelta",
+          "d1.link-s2-srv1.traffic.rxRate",
+          "d1.link-s2-srv1.traffic.txRate",
+          "d1.link-s3-srv2.traffic.qdiscSentDelta",
+          "d1.link-s3-srv2.traffic.rxRate",
+          "d1.link-s3-srv2.traffic.txRate",
+          "host-h1.traffic.rxRate",
+          "host-h1.traffic.txRate",
+          "host-h2.traffic.rxRate",
+          "host-h2.traffic.txRate",
+          "host-h3.traffic.rxRate",
+          "host-h3.traffic.txRate",
+          "host-srv1.traffic.rxRate",
+          "host-srv1.traffic.txRate",
+          "host-srv2.traffic.rxRate",
+          "host-srv2.traffic.txRate",
+          "link-h1-s1.traffic.qdiscSentDelta",
+          "link-h1-s1.traffic.rxRate",
+          "link-h1-s1.traffic.txRate",
+          "link-h2-s1.traffic.qdiscSentDelta",
+          "link-h2-s1.traffic.rxRate",
+          "link-h2-s1.traffic.txRate",
+          "link-h3-s1.traffic.qdiscSentDelta",
+          "link-h3-s1.traffic.rxRate",
+          "link-h3-s1.traffic.txRate",
+          "link-s1-s2.traffic.qdiscSentDelta",
+          "link-s1-s2.traffic.rxRate",
+          "link-s1-s2.traffic.txRate",
+          "link-s1-s3.traffic.qdiscSentDelta",
+          "link-s1-s3.traffic.rxRate",
+          "link-s1-s3.traffic.txRate",
+          "link-s2-s3.traffic.qdiscSentDelta",
+          "link-s2-s3.traffic.rxRate",
+          "link-s2-s3.traffic.txRate",
+          "link-s2-srv1.traffic.qdiscSentDelta",
+          "link-s2-srv1.traffic.rxRate",
+          "link-s2-srv1.traffic.txRate",
+          "link-s3-srv2.traffic.qdiscSentDelta",
+          "link-s3-srv2.traffic.rxRate",
+          "link-s3-srv2.traffic.txRate",
+          "ma3.agg.rate_absz_max",
+          "ma3.agg.rate_absz_n_above_3",
+          "ma3.host-h1.traffic.rxRate",
+          "ma3.host-h1.traffic.txRate",
+          "ma3.host-h2.traffic.rxRate",
+          "ma3.host-h2.traffic.txRate",
+          "ma3.host-h3.traffic.rxRate",
+          "ma3.host-h3.traffic.txRate",
+          "ma3.host-srv1.traffic.rxRate",
+          "ma3.host-srv1.traffic.txRate",
+          "ma3.host-srv2.traffic.rxRate",
+          "ma3.host-srv2.traffic.txRate",
+          "ma3.link-h1-s1.traffic.qdiscSentDelta",
+          "ma3.link-h1-s1.traffic.rxRate",
+          "ma3.link-h1-s1.traffic.txRate",
+          "ma3.link-h2-s1.traffic.qdiscSentDelta",
+          "ma3.link-h2-s1.traffic.rxRate",
+          "ma3.link-h2-s1.traffic.txRate",
+          "ma3.link-h3-s1.traffic.qdiscSentDelta",
+          "ma3.link-h3-s1.traffic.rxRate",
+          "ma3.link-h3-s1.traffic.txRate",
+          "ma3.link-s1-s2.traffic.qdiscSentDelta",
+          "ma3.link-s1-s2.traffic.rxRate",
+          "ma3.link-s1-s2.traffic.txRate",
+          "ma3.link-s1-s3.traffic.qdiscSentDelta",
+          "ma3.link-s1-s3.traffic.rxRate",
+          "ma3.link-s1-s3.traffic.txRate",
+          "ma3.link-s2-s3.traffic.qdiscSentDelta",
+          "ma3.link-s2-s3.traffic.rxRate",
+          "ma3.link-s2-s3.traffic.txRate",
+          "ma3.link-s2-srv1.traffic.qdiscSentDelta",
+          "ma3.link-s2-srv1.traffic.rxRate",
+          "ma3.link-s2-srv1.traffic.txRate",
+          "ma3.link-s3-srv2.traffic.qdiscSentDelta",
+          "ma3.link-s3-srv2.traffic.rxRate",
+          "ma3.link-s3-srv2.traffic.txRate"
+        ],
+        "n_train_rows": 448,
+        "per_seed": {
+          "0": {
+            "threshold": -0.6345341229246502,
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.9,
+              "fpr": 0.02558139534883721,
+              "fpr_judgeable_only": 0.028645833333333332,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 384,
+              "tp": 0,
+              "fp": 11,
+              "fn": 160,
+              "tn": 419,
+              "n_unknown_positive": 16,
+              "n_unknown_negative": 46,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0423728813559322,
+                "fpr_judgeable_only": 0.044642857142857144,
+                "fp": 5,
+                "n_negative": 118,
+                "n_judgeable_negative": 112
+              },
+              "in_fault_runs": {
+                "fpr": 0.019230769230769232,
+                "fpr_judgeable_only": 0.022058823529411766,
+                "fp": 6,
+                "n_negative": 312,
+                "n_judgeable_negative": 272
+              },
+              "all": {
+                "fpr": 0.02558139534883721,
+                "fpr_judgeable_only": 0.028645833333333332,
+                "fp": 11,
+                "n_negative": 430,
+                "n_judgeable_negative": 384
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0847457627118644,
+                  "fpr_judgeable_only": 0.08928571428571429,
+                  "fp": 5,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                }
+              }
+            },
+            "by_fault": {
+              "admin_down": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.013888888888888888,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-admin_down-s1-s2-s3001-r1": 0.0,
+                  "F-admin_down-s1-s3-s3002-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "degrade": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-degrade-s1-s2-s3003-r1": 0.0,
+                  "F-degrade-s2-s3-s3004-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "flood": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.0641025641025641,
+                  "fpr_judgeable_only": 0.06944444444444445,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 5,
+                  "fn": 40,
+                  "tn": 73,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                  "F-flood-h2_to_srv2-s3006-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "shift": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-shift-s1-s2-s3007-r1": 0.0,
+                  "F-shift-s1-s3-s3008-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              }
+            },
+            "delay": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "bootstrap": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.004651162790697674,
+                "ci_high": 0.04883720930232558,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr_judgeable_only": {
+                "ci_low": 0.005154639175257732,
+                "ci_high": 0.05413780605670095,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "precision": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 1989,
+                "n_boot": 2000
+              },
+              "f1": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "1": {
+            "threshold": -0.6336687056554642,
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.9,
+              "fpr": 0.03255813953488372,
+              "fpr_judgeable_only": 0.036458333333333336,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 384,
+              "tp": 0,
+              "fp": 14,
+              "fn": 160,
+              "tn": 416,
+              "n_unknown_positive": 16,
+              "n_unknown_negative": 46,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.05084745762711865,
+                "fpr_judgeable_only": 0.05357142857142857,
+                "fp": 6,
+                "n_negative": 118,
+                "n_judgeable_negative": 112
+              },
+              "in_fault_runs": {
+                "fpr": 0.02564102564102564,
+                "fpr_judgeable_only": 0.029411764705882353,
+                "fp": 8,
+                "n_negative": 312,
+                "n_judgeable_negative": 272
+              },
+              "all": {
+                "fpr": 0.03255813953488372,
+                "fpr_judgeable_only": 0.036458333333333336,
+                "fp": 14,
+                "n_negative": 430,
+                "n_judgeable_negative": 384
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.1016949152542373,
+                  "fpr_judgeable_only": 0.10714285714285714,
+                  "fp": 6,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                }
+              }
+            },
+            "by_fault": {
+              "admin_down": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-admin_down-s1-s2-s3001-r1": 0.0,
+                  "F-admin_down-s1-s3-s3002-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "degrade": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-degrade-s1-s2-s3003-r1": 0.0,
+                  "F-degrade-s2-s3-s3004-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "flood": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.08974358974358974,
+                  "fpr_judgeable_only": 0.09722222222222222,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 7,
+                  "fn": 40,
+                  "tn": 71,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                  "F-flood-h2_to_srv2-s3006-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "shift": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.015625,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-shift-s1-s2-s3007-r1": 0.0,
+                  "F-shift-s1-s3-s3008-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              }
+            },
+            "delay": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "bootstrap": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.0069767441860465115,
+                "ci_high": 0.06046511627906977,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr_judgeable_only": {
+                "ci_low": 0.0078125,
+                "ci_high": 0.0663265306122449,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "precision": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 1988,
+                "n_boot": 2000
+              },
+              "f1": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "2": {
+            "threshold": -0.6238552793190314,
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.9,
+              "fpr": 0.03953488372093023,
+              "fpr_judgeable_only": 0.044270833333333336,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 384,
+              "tp": 0,
+              "fp": 17,
+              "fn": 160,
+              "tn": 413,
+              "n_unknown_positive": 16,
+              "n_unknown_negative": 46,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.059322033898305086,
+                "fpr_judgeable_only": 0.0625,
+                "fp": 7,
+                "n_negative": 118,
+                "n_judgeable_negative": 112
+              },
+              "in_fault_runs": {
+                "fpr": 0.03205128205128205,
+                "fpr_judgeable_only": 0.03676470588235294,
+                "fp": 10,
+                "n_negative": 312,
+                "n_judgeable_negative": 272
+              },
+              "all": {
+                "fpr": 0.03953488372093023,
+                "fpr_judgeable_only": 0.044270833333333336,
+                "fp": 17,
+                "n_negative": 430,
+                "n_judgeable_negative": 384
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.11864406779661017,
+                  "fpr_judgeable_only": 0.125,
+                  "fp": 7,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                }
+              }
+            },
+            "by_fault": {
+              "admin_down": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.013888888888888888,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-admin_down-s1-s2-s3001-r1": 0.0,
+                  "F-admin_down-s1-s3-s3002-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "degrade": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-degrade-s1-s2-s3003-r1": 0.0,
+                  "F-degrade-s2-s3-s3004-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "flood": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.11538461538461539,
+                  "fpr_judgeable_only": 0.125,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 9,
+                  "fn": 40,
+                  "tn": 69,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                  "F-flood-h2_to_srv2-s3006-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "shift": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-shift-s1-s2-s3007-r1": 0.0,
+                  "F-shift-s1-s3-s3008-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              }
+            },
+            "delay": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "bootstrap": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.0069767441860465115,
+                "ci_high": 0.07674418604651163,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr_judgeable_only": {
+                "ci_low": 0.007894736842105263,
+                "ci_high": 0.08418367346938775,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "precision": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 1989,
+                "n_boot": 2000
+              },
+              "f1": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "3": {
+            "threshold": -0.6317794564254852,
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.9,
+              "fpr": 0.03255813953488372,
+              "fpr_judgeable_only": 0.036458333333333336,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 384,
+              "tp": 0,
+              "fp": 14,
+              "fn": 160,
+              "tn": 416,
+              "n_unknown_positive": 16,
+              "n_unknown_negative": 46,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.0423728813559322,
+                "fpr_judgeable_only": 0.044642857142857144,
+                "fp": 5,
+                "n_negative": 118,
+                "n_judgeable_negative": 112
+              },
+              "in_fault_runs": {
+                "fpr": 0.028846153846153848,
+                "fpr_judgeable_only": 0.03308823529411765,
+                "fp": 9,
+                "n_negative": 312,
+                "n_judgeable_negative": 272
+              },
+              "all": {
+                "fpr": 0.03255813953488372,
+                "fpr_judgeable_only": 0.036458333333333336,
+                "fp": 14,
+                "n_negative": 430,
+                "n_judgeable_negative": 384
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.0847457627118644,
+                  "fpr_judgeable_only": 0.08928571428571429,
+                  "fp": 5,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                }
+              }
+            },
+            "by_fault": {
+              "admin_down": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.013888888888888888,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-admin_down-s1-s2-s3001-r1": 0.0,
+                  "F-admin_down-s1-s3-s3002-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "degrade": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-degrade-s1-s2-s3003-r1": 0.0,
+                  "F-degrade-s2-s3-s3004-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "flood": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.08974358974358974,
+                  "fpr_judgeable_only": 0.09722222222222222,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 7,
+                  "fn": 40,
+                  "tn": 71,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                  "F-flood-h2_to_srv2-s3006-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "shift": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.015625,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-shift-s1-s2-s3007-r1": 0.0,
+                  "F-shift-s1-s3-s3008-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              }
+            },
+            "delay": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "bootstrap": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.004651162790697674,
+                "ci_high": 0.06279069767441861,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr_judgeable_only": {
+                "ci_low": 0.005319148936170213,
+                "ci_high": 0.06958762886597938,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "precision": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 1997,
+                "n_boot": 2000
+              },
+              "f1": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          },
+          "4": {
+            "threshold": -0.6380761008813268,
+            "scores": {
+              "recall": 0.0,
+              "recall_ceiling": 0.9,
+              "fpr": 0.020930232558139535,
+              "fpr_judgeable_only": 0.0234375,
+              "precision": 0.0,
+              "f1": 0.0,
+              "n_positive": 160,
+              "n_negative": 430,
+              "n_judgeable_negative": 384,
+              "tp": 0,
+              "fp": 9,
+              "fn": 160,
+              "tn": 421,
+              "n_unknown_positive": 16,
+              "n_unknown_negative": 46,
+              "mask": "eval_primary"
+            },
+            "fpr": {
+              "control": {
+                "fpr": 0.03389830508474576,
+                "fpr_judgeable_only": 0.03571428571428571,
+                "fp": 4,
+                "n_negative": 118,
+                "n_judgeable_negative": 112
+              },
+              "in_fault_runs": {
+                "fpr": 0.016025641025641024,
+                "fpr_judgeable_only": 0.01838235294117647,
+                "fp": 5,
+                "n_negative": 312,
+                "n_judgeable_negative": 272
+              },
+              "all": {
+                "fpr": 0.020930232558139535,
+                "fpr_judgeable_only": 0.0234375,
+                "fp": 9,
+                "n_negative": 430,
+                "n_judgeable_negative": 384
+              },
+              "per_control_run": {
+                "C-load2M-s2001-r1": {
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "fp": 0,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                },
+                "C-vary-s2002-r1": {
+                  "fpr": 0.06779661016949153,
+                  "fpr_judgeable_only": 0.07142857142857142,
+                  "fp": 4,
+                  "n_negative": 59,
+                  "n_judgeable_negative": 56
+                }
+              }
+            },
+            "by_fault": {
+              "admin_down": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.01282051282051282,
+                  "fpr_judgeable_only": 0.013888888888888888,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 1,
+                  "fn": 40,
+                  "tn": 77,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-admin_down-s1-s2-s3001-r1": 0.0,
+                  "F-admin_down-s1-s3-s3002-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "degrade": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-degrade-s1-s2-s3003-r1": 0.0,
+                  "F-degrade-s2-s3-s3004-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "flood": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 1.0,
+                  "fpr": 0.05128205128205128,
+                  "fpr_judgeable_only": 0.05555555555555555,
+                  "precision": 0.0,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 72,
+                  "tp": 0,
+                  "fp": 4,
+                  "fn": 40,
+                  "tn": 74,
+                  "n_unknown_positive": 0,
+                  "n_unknown_negative": 6
+                },
+                "per_run": {
+                  "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                  "F-flood-h2_to_srv2-s3006-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              },
+              "shift": {
+                "pooled": {
+                  "recall": 0.0,
+                  "recall_ceiling": 0.8,
+                  "fpr": 0.0,
+                  "fpr_judgeable_only": 0.0,
+                  "precision": null,
+                  "f1": 0.0,
+                  "n_positive": 40,
+                  "n_negative": 78,
+                  "n_judgeable_negative": 64,
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 40,
+                  "tn": 78,
+                  "n_unknown_positive": 8,
+                  "n_unknown_negative": 14
+                },
+                "per_run": {
+                  "F-shift-s1-s2-s3007-r1": 0.0,
+                  "F-shift-s1-s3-s3008-r1": 0.0
+                },
+                "ci": "none (2 runs per fault type)"
+              }
+            },
+            "delay": {
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": null,
+                "F-admin_down-s1-s3-s3002-r1": null,
+                "F-degrade-s1-s2-s3003-r1": null,
+                "F-degrade-s2-s3-s3004-r1": null,
+                "F-flood-h1_to_srv1-s3005-r1": null,
+                "F-flood-h2_to_srv2-s3006-r1": null,
+                "F-shift-s1-s2-s3007-r1": null,
+                "F-shift-s1-s3-s3008-r1": null
+              },
+              "n_incidents": 8,
+              "n_detected": 0,
+              "n_censored": 8,
+              "median_delay_detected": null
+            },
+            "bootstrap": {
+              "recall": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr": {
+                "ci_low": 0.004651162790697674,
+                "ci_high": 0.037209302325581395,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "fpr_judgeable_only": {
+                "ci_low": 0.005319148936170213,
+                "ci_high": 0.041666666666666664,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "precision": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 1989,
+                "n_boot": 2000
+              },
+              "f1": {
+                "ci_low": 0.0,
+                "ci_high": 0.0,
+                "n_valid": 2000,
+                "n_boot": 2000
+              },
+              "method": "cluster bootstrap by run_id, stratified C/F",
+              "rng_seed": 20260916
+            }
+          }
+        },
+        "across_seeds": {
+          "recall": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "fpr": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.030232558139534883,
+            "std": 0.007167923259266251,
+            "min": 0.020930232558139535,
+            "max": 0.03953488372093023
+          },
+          "fpr_judgeable_only": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.03385416666666667,
+            "std": 0.008026580733032522,
+            "min": 0.0234375,
+            "max": 0.044270833333333336
+          },
+          "precision": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "f1": {
+            "n_seeds": 5,
+            "n_valid": 5,
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          }
+        }
+      },
+      "envelope_excess": {
+        "window": 3,
+        "n_columns": 71,
+        "calibration": {
+          "rule": "max held-out, strict >",
+          "K": 31,
+          "E": 9.59349104833281,
+          "folds": [
+            {
+              "fold": 0,
+              "held_out_config": "normal|4",
+              "n_judgeable": 112,
+              "k_max": 1,
+              "excess_max": 0.07739706687671141
+            },
+            {
+              "fold": 1,
+              "held_out_config": "normal|2",
+              "n_judgeable": 112,
+              "k_max": 1,
+              "excess_max": 0.06529201257941328
+            },
+            {
+              "fold": 2,
+              "held_out_config": "normal|1",
+              "n_judgeable": 112,
+              "k_max": 11,
+              "excess_max": 0.6569148883254349
+            },
+            {
+              "fold": 3,
+              "held_out_config": "normal_varying|vary",
+              "n_judgeable": 112,
+              "k_max": 31,
+              "excess_max": 9.59349104833281
+            }
+          ]
+        },
+        "scores": {
+          "recall": 0.76875,
+          "recall_ceiling": 0.925,
+          "fpr": 0.08139534883720931,
+          "fpr_judgeable_only": 0.09020618556701031,
+          "precision": 0.7784810126582279,
+          "f1": 0.7735849056603774,
+          "n_positive": 160,
+          "n_negative": 430,
+          "n_judgeable_negative": 388,
+          "tp": 123,
+          "fp": 35,
+          "fn": 37,
+          "tn": 395,
+          "n_unknown_positive": 12,
+          "n_unknown_negative": 42,
+          "mask": "eval_primary"
+        },
+        "fpr": {
+          "control": {
+            "fpr": 0.0,
+            "fpr_judgeable_only": 0.0,
+            "fp": 0,
+            "n_negative": 118,
+            "n_judgeable_negative": 112
+          },
+          "in_fault_runs": {
+            "fpr": 0.11217948717948718,
+            "fpr_judgeable_only": 0.12681159420289856,
+            "fp": 35,
+            "n_negative": 312,
+            "n_judgeable_negative": 276
+          },
+          "all": {
+            "fpr": 0.08139534883720931,
+            "fpr_judgeable_only": 0.09020618556701031,
+            "fp": 35,
+            "n_negative": 430,
+            "n_judgeable_negative": 388
+          },
+          "per_control_run": {
+            "C-load2M-s2001-r1": {
+              "fpr": 0.0,
+              "fpr_judgeable_only": 0.0,
+              "fp": 0,
+              "n_negative": 59,
+              "n_judgeable_negative": 56
+            },
+            "C-vary-s2002-r1": {
+              "fpr": 0.0,
+              "fpr_judgeable_only": 0.0,
+              "fp": 0,
+              "n_negative": 59,
+              "n_judgeable_negative": 56
+            }
+          }
+        },
+        "by_fault": {
+          "admin_down": {
+            "pooled": {
+              "recall": 0.95,
+              "recall_ceiling": 1.0,
+              "fpr": 0.10256410256410256,
+              "fpr_judgeable_only": 0.1111111111111111,
+              "precision": 0.8260869565217391,
+              "f1": 0.8837209302325582,
+              "n_positive": 40,
+              "n_negative": 78,
+              "n_judgeable_negative": 72,
+              "tp": 38,
+              "fp": 8,
+              "fn": 2,
+              "tn": 70,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 6
+            },
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": 0.95,
+              "F-admin_down-s1-s3-s3002-r1": 0.95
+            },
+            "ci": "none (2 runs per fault type)"
+          },
+          "degrade": {
+            "pooled": {
+              "recall": 0.4,
+              "recall_ceiling": 0.85,
+              "fpr": 0.01282051282051282,
+              "fpr_judgeable_only": 0.015151515151515152,
+              "precision": 0.9411764705882353,
+              "f1": 0.5614035087719298,
+              "n_positive": 40,
+              "n_negative": 78,
+              "n_judgeable_negative": 66,
+              "tp": 16,
+              "fp": 1,
+              "fn": 24,
+              "tn": 77,
+              "n_unknown_positive": 6,
+              "n_unknown_negative": 12
+            },
+            "per_run": {
+              "F-degrade-s1-s2-s3003-r1": 0.0,
+              "F-degrade-s2-s3-s3004-r1": 0.8
+            },
+            "ci": "none (2 runs per fault type)"
+          },
+          "flood": {
+            "pooled": {
+              "recall": 0.925,
+              "recall_ceiling": 1.0,
+              "fpr": 0.20512820512820512,
+              "fpr_judgeable_only": 0.2222222222222222,
+              "precision": 0.6981132075471698,
+              "f1": 0.7956989247311828,
+              "n_positive": 40,
+              "n_negative": 78,
+              "n_judgeable_negative": 72,
+              "tp": 37,
+              "fp": 16,
+              "fn": 3,
+              "tn": 62,
+              "n_unknown_positive": 0,
+              "n_unknown_negative": 6
+            },
+            "per_run": {
+              "F-flood-h1_to_srv1-s3005-r1": 0.95,
+              "F-flood-h2_to_srv2-s3006-r1": 0.9
+            },
+            "ci": "none (2 runs per fault type)"
+          },
+          "shift": {
+            "pooled": {
+              "recall": 0.8,
+              "recall_ceiling": 0.85,
+              "fpr": 0.1282051282051282,
+              "fpr_judgeable_only": 0.15151515151515152,
+              "precision": 0.7619047619047619,
+              "f1": 0.7804878048780488,
+              "n_positive": 40,
+              "n_negative": 78,
+              "n_judgeable_negative": 66,
+              "tp": 32,
+              "fp": 10,
+              "fn": 8,
+              "tn": 68,
+              "n_unknown_positive": 6,
+              "n_unknown_negative": 12
+            },
+            "per_run": {
+              "F-shift-s1-s2-s3007-r1": 0.8,
+              "F-shift-s1-s3-s3008-r1": 0.8
+            },
+            "ci": "none (2 runs per fault type)"
+          }
+        },
+        "delay": {
+          "per_run": {
+            "F-admin_down-s1-s2-s3001-r1": 1,
+            "F-admin_down-s1-s3-s3002-r1": 1,
+            "F-degrade-s1-s2-s3003-r1": null,
+            "F-degrade-s2-s3-s3004-r1": 4,
+            "F-flood-h1_to_srv1-s3005-r1": 1,
+            "F-flood-h2_to_srv2-s3006-r1": 2,
+            "F-shift-s1-s2-s3007-r1": 4,
+            "F-shift-s1-s3-s3008-r1": 4
+          },
+          "n_incidents": 8,
+          "n_detected": 7,
+          "n_censored": 1,
+          "median_delay_detected": 2.0
+        },
+        "bootstrap": {
+          "recall": {
+            "ci_low": 0.53125,
+            "ci_high": 0.9125,
+            "n_valid": 2000,
+            "n_boot": 2000
+          },
+          "fpr": {
+            "ci_low": 0.046511627906976744,
+            "ci_high": 0.11627906976744186,
+            "n_valid": 2000,
+            "n_boot": 2000
+          },
+          "fpr_judgeable_only": {
+            "ci_low": 0.052345821717549465,
+            "ci_high": 0.1263040321314563,
+            "n_valid": 2000,
+            "n_boot": 2000
+          },
+          "precision": {
+            "ci_low": 0.728,
+            "ci_high": 0.8405012548800892,
+            "n_valid": 2000,
+            "n_boot": 2000
+          },
+          "f1": {
+            "ci_low": 0.6330935251798561,
+            "ci_high": 0.8481375358166189,
+            "n_valid": 2000,
+            "n_boot": 2000
+          },
+          "method": "cluster bootstrap by run_id, stratified C/F",
+          "rng_seed": 20260916
+        }
+      }
+    },
+    "A3_raw_no_agg": {
+      "n_features": 34,
+      "columns": [
+        "host-h1.traffic.rxRate",
+        "host-h1.traffic.txRate",
+        "host-h2.traffic.rxRate",
+        "host-h2.traffic.txRate",
+        "host-h3.traffic.rxRate",
+        "host-h3.traffic.txRate",
+        "host-srv1.traffic.rxRate",
+        "host-srv1.traffic.txRate",
+        "host-srv2.traffic.rxRate",
+        "host-srv2.traffic.txRate",
+        "link-h1-s1.traffic.qdiscSentDelta",
+        "link-h1-s1.traffic.rxRate",
+        "link-h1-s1.traffic.txRate",
+        "link-h2-s1.traffic.qdiscSentDelta",
+        "link-h2-s1.traffic.rxRate",
+        "link-h2-s1.traffic.txRate",
+        "link-h3-s1.traffic.qdiscSentDelta",
+        "link-h3-s1.traffic.rxRate",
+        "link-h3-s1.traffic.txRate",
+        "link-s1-s2.traffic.qdiscSentDelta",
+        "link-s1-s2.traffic.rxRate",
+        "link-s1-s2.traffic.txRate",
+        "link-s1-s3.traffic.qdiscSentDelta",
+        "link-s1-s3.traffic.rxRate",
+        "link-s1-s3.traffic.txRate",
+        "link-s2-s3.traffic.qdiscSentDelta",
+        "link-s2-s3.traffic.rxRate",
+        "link-s2-s3.traffic.txRate",
+        "link-s2-srv1.traffic.qdiscSentDelta",
+        "link-s2-srv1.traffic.rxRate",
+        "link-s2-srv1.traffic.txRate",
+        "link-s3-srv2.traffic.qdiscSentDelta",
+        "link-s3-srv2.traffic.rxRate",
+        "link-s3-srv2.traffic.txRate"
+      ],
+      "n_train_rows": 464,
+      "per_seed": {
+        "0": {
+          "threshold": -0.6727477675966833,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.018604651162790697,
+            "fpr_judgeable_only": 0.018779342723004695,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 8,
+            "fn": 160,
+            "tn": 422,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.03389830508474576,
+              "fpr_judgeable_only": 0.03389830508474576,
+              "fp": 4,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.01282051282051282,
+              "fpr_judgeable_only": 0.012987012987012988,
+              "fp": 4,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.018604651162790697,
+              "fpr_judgeable_only": 0.018779342723004695,
+              "fp": 8,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.06779661016949153,
+                "fpr_judgeable_only": 0.06779661016949153,
+                "fp": 4,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.002325581395348837,
+              "ci_high": 0.03255813953488372,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.0023472804037338786,
+              "ci_high": 0.03309692671394799,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 1984,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "1": {
+          "threshold": -0.6742360492072886,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.01627906976744186,
+            "fpr_judgeable_only": 0.01643192488262911,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 7,
+            "fn": 160,
+            "tn": 423,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.03389830508474576,
+              "fpr_judgeable_only": 0.03389830508474576,
+              "fp": 4,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.009615384615384616,
+              "fpr_judgeable_only": 0.00974025974025974,
+              "fp": 3,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.01627906976744186,
+              "fpr_judgeable_only": 0.01643192488262911,
+              "fp": 7,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.06779661016949153,
+                "fpr_judgeable_only": 0.06779661016949153,
+                "fp": 4,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.0,
+              "ci_high": 0.030232558139534883,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.0,
+              "ci_high": 0.030732860520094562,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 1948,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "2": {
+          "threshold": -0.6724158935988631,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.030232558139534883,
+            "fpr_judgeable_only": 0.03051643192488263,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 13,
+            "fn": 160,
+            "tn": 417,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.07627118644067797,
+              "fpr_judgeable_only": 0.07627118644067797,
+              "fp": 9,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.01282051282051282,
+              "fpr_judgeable_only": 0.012987012987012988,
+              "fp": 4,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.030232558139534883,
+              "fpr_judgeable_only": 0.03051643192488263,
+              "fp": 13,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.15254237288135594,
+                "fpr_judgeable_only": 0.15254237288135594,
+                "fp": 9,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.002325581395348837,
+              "ci_high": 0.05581395348837209,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.0023472804037338786,
+              "ci_high": 0.05660377358490566,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 1984,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "3": {
+          "threshold": -0.6749948361783766,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.01627906976744186,
+            "fpr_judgeable_only": 0.01643192488262911,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 7,
+            "fn": 160,
+            "tn": 423,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.03389830508474576,
+              "fpr_judgeable_only": 0.03389830508474576,
+              "fp": 4,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.009615384615384616,
+              "fpr_judgeable_only": 0.00974025974025974,
+              "fp": 3,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.01627906976744186,
+              "fpr_judgeable_only": 0.01643192488262911,
+              "fp": 7,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.06779661016949153,
+                "fpr_judgeable_only": 0.06779661016949153,
+                "fp": 4,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.0,
+              "ci_high": 0.030232558139534883,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.0,
+              "ci_high": 0.030732860520094562,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 1948,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        },
+        "4": {
+          "threshold": -0.6720149136154919,
+          "scores": {
+            "recall": 0.0,
+            "recall_ceiling": 0.975,
+            "fpr": 0.01627906976744186,
+            "fpr_judgeable_only": 0.01643192488262911,
+            "precision": 0.0,
+            "f1": 0.0,
+            "n_positive": 160,
+            "n_negative": 430,
+            "n_judgeable_negative": 426,
+            "tp": 0,
+            "fp": 7,
+            "fn": 160,
+            "tn": 423,
+            "n_unknown_positive": 4,
+            "n_unknown_negative": 4,
+            "mask": "eval_primary"
+          },
+          "fpr": {
+            "control": {
+              "fpr": 0.025423728813559324,
+              "fpr_judgeable_only": 0.025423728813559324,
+              "fp": 3,
+              "n_negative": 118,
+              "n_judgeable_negative": 118
+            },
+            "in_fault_runs": {
+              "fpr": 0.01282051282051282,
+              "fpr_judgeable_only": 0.012987012987012988,
+              "fp": 4,
+              "n_negative": 312,
+              "n_judgeable_negative": 308
+            },
+            "all": {
+              "fpr": 0.01627906976744186,
+              "fpr_judgeable_only": 0.01643192488262911,
+              "fp": 7,
+              "n_negative": 430,
+              "n_judgeable_negative": 426
+            },
+            "per_control_run": {
+              "C-load2M-s2001-r1": {
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "fp": 0,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              },
+              "C-vary-s2002-r1": {
+                "fpr": 0.05084745762711865,
+                "fpr_judgeable_only": 0.05084745762711865,
+                "fp": 3,
+                "n_negative": 59,
+                "n_judgeable_negative": 59
+              }
+            }
+          },
+          "by_fault": {
+            "admin_down": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-admin_down-s1-s2-s3001-r1": 0.0,
+                "F-admin_down-s1-s3-s3002-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "degrade": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.01282051282051282,
+                "fpr_judgeable_only": 0.013157894736842105,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 1,
+                "fn": 40,
+                "tn": 77,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-degrade-s1-s2-s3003-r1": 0.0,
+                "F-degrade-s2-s3-s3004-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "flood": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 1.0,
+                "fpr": 0.0,
+                "fpr_judgeable_only": 0.0,
+                "precision": null,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 78,
+                "tp": 0,
+                "fp": 0,
+                "fn": 40,
+                "tn": 78,
+                "n_unknown_positive": 0,
+                "n_unknown_negative": 0
+              },
+              "per_run": {
+                "F-flood-h1_to_srv1-s3005-r1": 0.0,
+                "F-flood-h2_to_srv2-s3006-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            },
+            "shift": {
+              "pooled": {
+                "recall": 0.0,
+                "recall_ceiling": 0.95,
+                "fpr": 0.038461538461538464,
+                "fpr_judgeable_only": 0.039473684210526314,
+                "precision": 0.0,
+                "f1": 0.0,
+                "n_positive": 40,
+                "n_negative": 78,
+                "n_judgeable_negative": 76,
+                "tp": 0,
+                "fp": 3,
+                "fn": 40,
+                "tn": 75,
+                "n_unknown_positive": 2,
+                "n_unknown_negative": 2
+              },
+              "per_run": {
+                "F-shift-s1-s2-s3007-r1": 0.0,
+                "F-shift-s1-s3-s3008-r1": 0.0
+              },
+              "ci": "none (2 runs per fault type)"
+            }
+          },
+          "delay": {
+            "per_run": {
+              "F-admin_down-s1-s2-s3001-r1": null,
+              "F-admin_down-s1-s3-s3002-r1": null,
+              "F-degrade-s1-s2-s3003-r1": null,
+              "F-degrade-s2-s3-s3004-r1": null,
+              "F-flood-h1_to_srv1-s3005-r1": null,
+              "F-flood-h2_to_srv2-s3006-r1": null,
+              "F-shift-s1-s2-s3007-r1": null,
+              "F-shift-s1-s3-s3008-r1": null
+            },
+            "n_incidents": 8,
+            "n_detected": 0,
+            "n_censored": 8,
+            "median_delay_detected": null
+          },
+          "bootstrap": {
+            "recall": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr": {
+              "ci_low": 0.002325581395348837,
+              "ci_high": 0.030232558139534883,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "fpr_judgeable_only": {
+              "ci_low": 0.0023472804037338786,
+              "ci_high": 0.03051643192488263,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "precision": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 1984,
+              "n_boot": 2000
+            },
+            "f1": {
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_valid": 2000,
+              "n_boot": 2000
+            },
+            "method": "cluster bootstrap by run_id, stratified C/F",
+            "rng_seed": 20260916
+          }
+        }
+      },
+      "across_seeds": {
+        "recall": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "fpr": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.019534883720930235,
+          "std": 0.006064374330421068,
+          "min": 0.01627906976744186,
+          "max": 0.030232558139534883
+        },
+        "fpr_judgeable_only": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.01971830985915493,
+          "std": 0.006121316812396853,
+          "min": 0.01643192488262911,
+          "max": 0.03051643192488263
+        },
+        "precision": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "f1": {
+          "n_seeds": 5,
+          "n_valid": 5,
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "decisions": {
+      "A1": {
+        "status": "refuted",
+        "mean_recall": 0.025,
+        "unknown_negative": [
+          4
+        ],
+        "unknown_positive": [
+          4
+        ],
+        "registered_refutation": "mean recall <=5% OR unknown_negative !=8"
+      },
+      "A2": {
+        "status": "refuted",
+        "iforest_delay_medians": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "envelope_delay_median": 2.0,
+        "registered_refutation": "delay does not increase for either detector"
+      },
+      "A3": {
+        "status": "supported",
+        "A1_mean_recall": 0.025,
+        "A3_mean_recall": 0.0,
+        "registered_refutation": "A3 recall >= A1 recall"
+      },
+      "A4": {
+        "status": "completed before ablation prereg",
+        "artifact_sha256": "967a524332a487ac11cbd283076cfdef1523d127eac3a625cffe51d5b2e58b56"
+      }
+    },
+    "deviations": []
+  },
+  "content_sha256": "2aeebe625ce4c3e77d3abcda2ccd4ed8fe35558fe651f39a841e9b29af9755c2"
+}
