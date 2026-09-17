@@ -100,6 +100,63 @@ def find_link(net, key):
     raise SystemExit("khong tim thay link " + key)
 
 
+def _sha(path):
+    import hashlib
+
+    try:
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest() if path else None
+    except OSError:
+        return None
+
+
+OFFLOAD_FEATURES = ("gso", "tso", "gro")
+
+
+def set_offload(net, state):
+    """Set GSO/TSO/GRO on every non-loopback interface and return errors."""
+    errors = []
+    for node in list(net.hosts) + list(net.switches):
+        for intf in node.intfList():
+            if intf.name == "lo":
+                continue
+            argv = ["ethtool", "-K", intf.name]
+            for feature in OFFLOAD_FEATURES:
+                argv += [feature, state]
+            process = subprocess.run(
+                ns_argv(node, argv), capture_output=True, text=True, timeout=3
+            )
+            if process.returncode != 0:
+                errors.append(
+                    {"intf": intf.name, "stderr": process.stderr.strip()[:200]}
+                )
+    return errors
+
+
+def offload_state(net, names):
+    """Record actual ethtool state as a manipulation check."""
+    output = {}
+    for node_name, intf_name in names:
+        node = net.get(node_name)
+        process = subprocess.run(
+            ns_argv(node, ["ethtool", "-k", intf_name]),
+            capture_output=True,
+            text=True,
+            timeout=3,
+        )
+        output[intf_name] = sorted(
+            line.strip()
+            for line in process.stdout.splitlines()
+            if line.strip().startswith(
+                (
+                    "generic-segmentation-offload",
+                    "tcp-segmentation-offload",
+                    "generic-receive-offload",
+                )
+            )
+        )
+    return output
+
+
 def sample(net, key, link, tick, phase, started_monotonic):
     upstream_name = UPSTREAM_OF_CORE[key][0]
     upstream_intf = (
@@ -170,6 +227,12 @@ def main():
     parser.add_argument("--revert", type=int, default=40)
     parser.add_argument("--warmup", type=int, default=15)
     parser.add_argument("--out", default="results/probe")
+    parser.add_argument(
+        "--offload",
+        choices=("on", "off"),
+        default="on",
+        help="off: tat GSO/TSO/GRO tren moi interface (dieu kien C2)",
+    )
     args = parser.parse_args()
     if os.geteuid() != 0:
         raise SystemExit("can root (Mininet)")
@@ -178,14 +241,24 @@ def main():
     output_dir = ROOT / args.out
     output_dir.mkdir(parents=True, exist_ok=True)
     base = output_dir / (
-        "degrade_sensor_%s_f%.4f_%s" % (args.link, args.factor, stamp)
+        "degrade_sensor_%s_f%.4f_off%s_rev%d_%s"
+        % (args.link, args.factor, args.offload, args.revert, stamp)
     )
     ping_log = "/tmp/probe_ping_%s.log" % stamp
 
     net = build_net()
     rows, events = [], []
+    offload_errors, offload_observed = None, None
     try:
         start_net(net, do_pingall=False, dump_ports=False)
+        offload_errors = set_offload(net, "off") if args.offload == "off" else []
+        link0 = find_link(net, args.link)
+        probe_names = [
+            ("h1", "h1-eth0"),
+            (link0.intf1.node.name, link0.intf1.name),
+            (link0.intf2.node.name, link0.intf2.name),
+        ]
+        offload_observed = offload_state(net, probe_names)
         start_background_load(
             net,
             "normal",
@@ -296,6 +369,12 @@ def main():
         ).stdout.strip(),
         "python": sys.version.split()[0],
         "collector_unchanged": True,
+        "python_executable": sys.executable,
+        "env_DT4N_PORT_MAP": os.environ.get("DT4N_PORT_MAP"),
+        "port_map_sha256": _sha(os.environ.get("DT4N_PORT_MAP")),
+        "offload_requested": args.offload,
+        "offload_errors": offload_errors,
+        "offload_observed": offload_observed,
         "traffic": "normal 2M/client TCP + srv1->srv2 UDP 2M, giong Phase 5",
         "written_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
