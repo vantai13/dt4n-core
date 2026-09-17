@@ -1,11 +1,11 @@
 {
-  "written_at_utc": "2026-09-17T08:27:44+00:00",
+  "written_at_utc": "2026-09-17T09:06:20+00:00",
   "content": {
     "lesson": "6R.3",
     "artifact_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b",
     "amendment_1_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929",
     "conservation_mode": "shadow",
-    "git_head": "9dd13b8335bd87ad26174ef485f3a77001f4edbd",
+    "git_head": "58ffb1802a78400edf03e4e0ed767f8277e2ec96",
     "python": "3.13.13",
     "numpy": "2.5.3",
     "pandas": "3.0.5",
@@ -105,9 +105,9 @@
     },
     "timing": {
       "n_calls": 1080,
-      "p50_ms": 43.88084350011923,
-      "p99_ms": 54.331768770134666,
-      "max_ms": 66.15621799983273,
+      "p50_ms": 44.5344350000596,
+      "p99_ms": 53.88378815989205,
+      "max_ms": 64.02422199971625,
       "statuses": {
         "warming_up": 18,
         "scored": 1054,
@@ -209,9 +209,9 @@
     },
     "fast_timing": {
       "n_calls": 1080,
-      "p50_ms": 0.4657075000977784,
-      "p99_ms": 0.6614453799556945,
-      "max_ms": 0.8585579998907633,
+      "p50_ms": 0.8552640001653344,
+      "p99_ms": 1.1341796098076888,
+      "max_ms": 1.8617959995026467,
       "statuses": {
         "warming_up": 18,
         "scored": 1054,
@@ -221,8 +221,18 @@
     "compute_budget_ms": 50.0,
     "reference_meets_budget": false,
     "fast_meets_budget": true,
+    "code_sha256": {
+      "ml/serve.py": "01105dc2a8a31a8cac467e0112c98fc9255a667cc2a7f02da0ccc9364cbc65f0",
+      "ml/serve_fast.py": "ee0a397032df3af58b3c859f41212cd8bea203550ba1518e48bd591791827b5e",
+      "ml/snapshot_contract.py": "6676004733aafae53c98e59127b4ead835bfad962ff922d2446ffba050972cce",
+      "ml/conservation.py": "4421c4073686c8637b22e7037b5d6a8907722000ef8854d24e5f00888ca5496a",
+      "ml/model.py": "9c4b21985606fc4498031ab5a206aa158abaa10fda5bf72294d93b8272f0e435",
+      "ml/features.py": "d8c881a9c73bd6c828bbb7aec84a7afdfbf9e3c6aae759a065b06b7d683d57d4",
+      "ml/flatten.py": "1cb353c190a1a328b37b0c7866b902118b2835c3d0a6d8a1de109204bedc1843",
+      "ml/missing.py": "b321df8a2676522e16967a76247d77baeb352cc73058b67b870b00de98e659ad"
+    },
     "n_snapshots_replayed": 1080,
     "labels_read": false
   },
-  "content_sha256": "8fee23b65d126bb61fe22ad5ed5678564a20bb986362a40ff8e47acff06a301b"
+  "content_sha256": "64b2f9cc0b31c89811972007834451ec6e7c9bb249a1b411389220cefb2d3df3"
 }

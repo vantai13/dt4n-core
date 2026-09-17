@@ -16,8 +16,8 @@ Môi trường receipt: Python 3.13.13, NumPy 2.5.3, pandas 3.0.5, x86_64.
 
 | Đường chạy | Tương đương batch | p50 | p99 | max | Ngân sách 50 ms |
 |---|---:|---:|---:|---:|---|
-| Tham chiếu dùng chung pandas (`ml.serve`) | 1062/1062 bit-exact | 43.88 ms | 54.33 ms | 66.16 ms | Không đạt |
-| NumPy được bảo vệ bởi differential test (`ml.serve_fast`) | 1062/1062 bit-exact | 0.47 ms | 0.66 ms | 0.86 ms | Đạt |
+| Tham chiếu dùng chung pandas (`ml.serve`) | 1062/1062 bit-exact | 44.53 ms | 53.88 ms | 64.02 ms | Không đạt |
+| NumPy được bảo vệ bởi differential test (`ml.serve_fast`) | 1062/1062 bit-exact | 0.86 ms | 1.13 ms | 1.86 ms | Đạt |
 
 Cả hai đường khớp 59/59 ở từng run và khớp tuyệt đối cho `k`,
 `k_indicator`, `k_rate`, `judgeable`, `envelope_suspect`, `act`, `excess`,
@@ -75,6 +75,33 @@ test tổng hợp phủ các nhánh chính sách có thể xảy ra nhưng chưa
 Điểm mù thứ nhất tồn tại vì `rateValid=false` trong dữ liệu lịch sử chỉ nằm ở
 tick warmup đã bị gạt. Test `test_invalid_rate_flag_masks_fabricated_rate` và
 phép so fast/reference trên các snapshot tổng hợp đóng nhánh này.
+
+### Fuzz vi phân và hợp đồng input
+
+Fuzz ban đầu trên input bẩn tìm thấy 77/360 biến thể làm hai scorer bất đồng,
+trong đó có hai trường hợp đổi `scored` thành `unknown` và 11 trường hợp oracle
+pandas ném `AssertionError`. Gốc rễ là ép kiểu ngầm khác nhau: `1 == True`
+trong pandas nhưng `1 is not True` trong Python, cùng với thứ tự xử lý `inf`
+khác nhau.
+
+Hợp đồng tại trust boundary nay deep-copy và chuẩn hóa một lần trước khi cả hai
+scorer xử lý:
+
+- `rateValid` và `qdiscValid` chỉ chấp nhận đúng kiểu `bool`; sai thành `False`.
+- Các số đo chỉ chấp nhận int/float hữu hạn và từ chối riêng `bool`; sai thành
+  `None`.
+- `state` ngoài `up|down|unknown` thành `unknown`.
+- `qdiscValid=False` buộc `lossPct=None`, không làm chết vòng lặp.
+
+Mọi sửa đổi đều được đếm bằng `n_contract_violations` và ghi vào `reason`.
+Digest idempotency vẫn tính trên thông điệp gốc. Bộ 15 test contract đạt, fuzz
+CI seed `20260917` đạt 0/120 bất đồng, và 1080 snapshot thu thập thật có 0 vi
+phạm hợp đồng. Replay chứng minh tương đương trên dữ liệu đã xảy ra; fuzz chứng
+minh trên không gian input bẩn đã sinh; không phép nào chứng minh mọi input.
+
+Receipt mới chỉ được sinh khi tám file code liên quan sạch trong Git, ghi
+`git_head=58ffb18` và SHA-256 riêng từng file. Test receipt so lại các SHA này
+để phát hiện code drift.
 
 ## 7. Giới hạn đã biết
 
