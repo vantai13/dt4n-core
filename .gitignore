@@ -236,8 +236,8 @@ ditto/static/openapi/
 ditto/swagger3-index.html
 ditto/swagger-oidc.js
 
-# Phase5 raw observations remain local; commit sidecars and manifest.
-data/phase5/raw/*.jsonl
+# Phase 5 raw observations are research outputs required for reproducible
+# scoring-layer equivalence tests (Phase 6R.2); commit final JSONL files.
 data/phase5/quarantine/*.jsonl
 data/phase5/raw/*.partial
 data/phase5/quarantine/*.partial
