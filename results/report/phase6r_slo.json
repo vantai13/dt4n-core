@@ -1,0 +1,492 @@
+{
+  "written_at_utc": "2026-09-17T03:04:46+00:00",
+  "content": {
+    "slo_id": "DT4N-P6R-SLO-v2",
+    "lesson": "6R.1",
+    "sealed_before": [
+      "ml/model.py",
+      "ml/serve.py",
+      "ml/fsm.py",
+      "scripts/build_model_artifact.py"
+    ],
+    "constants": {
+      "tick_ms": 1000,
+      "onset_p95_ticks": 1,
+      "compute_budget_ms": 50,
+      "soak_minutes": 60
+    },
+    "upstream_sha256": {
+      "results/report/phase6_envelope.json": "35de6a80d350b06647bbfb684724b1a11703744cf36c01d88aac59904a38082d",
+      "results/report/phase6_envelope_cv.json": "f8cf398c9fb4f6dd87b66b605f014729ee6ac987775a99056c56c9aafdbc4b15",
+      "results/report/phase6_envelope_ticks.csv": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
+      "results/report/phase6_recovery.json": "1148fd9f41a95cf87c97007a7e2a6b0cf70a65a136229b5809ab81546487d330",
+      "results/report/ml_dataset_split_manifest.json": "0d51bbd028bf10c7644447f416dded74af97861968e7de51c40f7617ac4b94a1",
+      "results/report/ground_truth.json": "c8fa82487fa3f4fafc0b24ee594115cf11b1b90f54abe2d83f163d99d20b82fe",
+      "results/report/soak_30min.json": "c72c754b61c157545543b62998bc07d0563f47a2be66791affec0e8068574a75"
+    },
+    "phase6_anchors": {
+      "mask_for_slo": "eval_primary",
+      "mask_note": "eval_sensitivity loai 2 tick onset + 2 tick recovery moi run; SLO neo vao eval_primary bat loi hon. eval_sensitivity chi mo ta FP.",
+      "excess_eval_primary": {
+        "recall": 0.85625,
+        "fpr_all": 0.053488372093023255,
+        "fpr_control": 0.0,
+        "n_incidents": 8,
+        "n_detected": 7,
+        "n_censored": 1,
+        "median_delay_ticks": 0.0,
+        "delay_per_run_ticks": {
+          "F-admin_down-s1-s2-s3001-r1": 0,
+          "F-admin_down-s1-s3-s3002-r1": 0,
+          "F-degrade-s1-s2-s3003-r1": null,
+          "F-degrade-s2-s3-s3004-r1": 1,
+          "F-flood-h1_to_srv1-s3005-r1": 0,
+          "F-flood-h2_to_srv2-s3006-r1": 0,
+          "F-shift-s1-s2-s3007-r1": 1,
+          "F-shift-s1-s3-s3008-r1": 1
+        }
+      },
+      "dual_eval_primary": {
+        "recall": 0.79375,
+        "fpr_all": 0.004651162790697674,
+        "precision": 0.9844961240310077
+      },
+      "thresholds_frozen": {
+        "primary": {
+          "K": 31,
+          "E": 8.968806422101116,
+          "n_pooled_rows": 472
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        },
+        "rate_shared": {
+          "K": 31,
+          "E": 8.968806422101116,
+          "n_pooled_rows": 472
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        }
+      },
+      "recovery_span_max_ticks": 7,
+      "recovery_cooldown_prior_ticks": 8,
+      "recovery_provenance_warning": "phase6_recovery.json la diagnostic hau-freeze tren run TEST; cooldown=8 chi la prior, gia tri cuoi hieu chinh tren R-C.",
+      "separation_per_fault_run": {
+        "F-admin_down-s1-s2-s3001-r1": 100.0,
+        "F-admin_down-s1-s3-s3002-r1": 100.0,
+        "F-degrade-s1-s2-s3003-r1": 11.486,
+        "F-degrade-s2-s3-s3004-r1": 288.827,
+        "F-flood-h1_to_srv1-s3005-r1": 499.847,
+        "F-flood-h2_to_srv2-s3006-r1": 348.672,
+        "F-shift-s1-s2-s3007-r1": 749.597,
+        "F-shift-s1-s3-s3008-r1": 749.276
+      },
+      "separation_gap_unknown": [
+        11.486,
+        100.0
+      ],
+      "separation_ceiling_note": "admin_down cho 100.000 vi Delta=1, sigma=0, floor=0.01. Day la HANG SO CAU TRUC, khong phai cuong do; khong gop cac ho fault."
+    },
+    "measured_baseline": {
+      "by_window": {
+        "control_run_full": {
+          "n_ticks": 118,
+          "fp_excess": 0,
+          "fp_dual": 0,
+          "n_unknown": 0
+        },
+        "fault_run_pre_inject": {
+          "n_ticks": 160,
+          "fp_excess": 0,
+          "fp_dual": 0,
+          "n_unknown": 0
+        },
+        "fault_run_post_revert": {
+          "n_ticks": 152,
+          "fp_excess": 23,
+          "fp_dual": 2,
+          "n_unknown": 4
+        }
+      },
+      "steady_state_normal_ticks": 278,
+      "steady_state_fp_ticks": 0,
+      "fp_events_excess": {
+        "F-admin_down-s1-s2-s3001-r1": 1,
+        "F-admin_down-s1-s3-s3002-r1": 1,
+        "F-degrade-s1-s2-s3003-r1": 1,
+        "F-flood-h1_to_srv1-s3005-r1": 1,
+        "F-flood-h2_to_srv2-s3006-r1": 1,
+        "F-shift-s1-s2-s3007-r1": 1,
+        "F-shift-s1-s3-s3008-r1": 1
+      },
+      "n_fp_events_total": 7,
+      "fp_event_ticks": {
+        "F-admin_down-s1-s2-s3001-r1": [
+          41
+        ],
+        "F-admin_down-s1-s3-s3002-r1": [
+          41
+        ],
+        "F-degrade-s1-s2-s3003-r1": [
+          42
+        ],
+        "F-flood-h1_to_srv1-s3005-r1": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "F-flood-h2_to_srv2-s3006-r1": [
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "F-shift-s1-s2-s3007-r1": [
+          42,
+          43,
+          44,
+          45
+        ],
+        "F-shift-s1-s3-s3008-r1": [
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      "claim": "moi FP cua excess nam sau revert_tick=40; nen tinh (control + pre-inject) co 0 FP tren 278 tick",
+      "implication": "lambda_false_alarm = f_change * P(chum|change) + p_steady * 3600; so hang thu nhat DO DUOC (7/8 su kien moi thay doi cau hinh), so hang thu hai CHUA DO DU (0/278 tick)"
+    },
+    "slo": [
+      {
+        "id": "S1",
+        "sli": "per_incident_detection_rate (tang suspect)",
+        "target": {
+          "op": ">=",
+          "value": 0.875,
+          "unit": "ty le su co"
+        },
+        "derived_from": "phase6 excess delay: n_detected=7/8, 1 censored",
+        "measured_on": "R-D",
+        "verifiable_now": true
+      },
+      {
+        "id": "S2",
+        "sli": "su kien bao dong sai moi gio, nen tinh",
+        "target": {
+          "op": "<=",
+          "value": 3.0,
+          "unit": "su kien/gio",
+          "kind": "gioi han tren 95%"
+        },
+        "derived_from": "0 FP tren 278 tick nen tinh + rule of three; 3/3600 x 3600",
+        "measured_on": "R-S soak 60 phut",
+        "verifiable_now": false,
+        "note": "885 tick chi ket luan <=12.2/gio; bat buoc co R-S."
+      },
+      {
+        "id": "S3",
+        "sli": "MTBFA, nen tinh",
+        "target": {
+          "op": ">=",
+          "value": 20.0,
+          "unit": "phut",
+          "kind": "gioi han duoi 95%"
+        },
+        "derived_from": "MTBFA >= T/3 voi T=60 phut",
+        "measured_on": "R-S (CUNG RUN voi S2)",
+        "verifiable_now": false,
+        "note": "CUNG MOT PHEP DO voi S2, hai don vi; khong phai hai chung cu."
+      },
+      {
+        "id": "S4",
+        "sli": "time_to_detect p95 (snapshot dau co dau vet -> doi trang thai)",
+        "target": {
+          "op": "<=",
+          "value": 3000,
+          "unit": "ms"
+        },
+        "derived_from": "ngan sach con cua <5s end-to-end (MASTER_PLAN_V2)",
+        "measured_on": "R-D + R-O",
+        "verifiable_now": true,
+        "budget_decomposition_ms": {
+          "quan_sat_vat_ly": 1000,
+          "detector": 3000,
+          "twin_ui": 1000,
+          "tong": 5000
+        }
+      },
+      {
+        "id": "S4b",
+        "sli": "tran debounce N (rang buoc suy ra tu S4)",
+        "target": {
+          "op": "<=",
+          "value": 2,
+          "unit": "tick"
+        },
+        "derived_from": "t=(onset+N-1)*1000+50 <=3000 voi onset=1",
+        "measured_on": "suy dien thuan, khong can du lieu",
+        "verifiable_now": true,
+        "pre_registered_choice": {
+          "suspect": 1,
+          "act": 2
+        },
+        "choice_rationale": "0 FP le tren 278 tick; N chi tang latency, N=2 chi dung cho act.",
+        "t_detect_if": {
+          "1": 1050,
+          "2": 2050,
+          "3": 3050,
+          "5": 5050
+        }
+      },
+      {
+        "id": "S5",
+        "sli": "latency p95 observe()+step(), gom flatten + aggregate + score + FSM",
+        "target": {
+          "op": "<=",
+          "value": 50,
+          "unit": "ms"
+        },
+        "derived_from": "<=5% chu ky tick 1000 ms",
+        "measured_on": "R-S",
+        "verifiable_now": true,
+        "note": "phai gom flatten; khong chi do score"
+      },
+      {
+        "id": "S6",
+        "sli": "tang RSS sau 30 phut",
+        "target": {
+          "op": "<=",
+          "value": 1.0,
+          "unit": "MiB"
+        },
+        "derived_from": "Phase 2 soak_30min.json: +212 KiB",
+        "measured_on": "R-S",
+        "verifiable_now": true
+      },
+      {
+        "id": "S7",
+        "sli": "khong dao dong",
+        "target": {
+          "op": "==",
+          "value": 0,
+          "unit": "mau X->Y->X trong cua so su co"
+        },
+        "derived_from": "chong phan hoi duong Phase 8",
+        "measured_on": "R-D + R-O",
+        "verifiable_now": true,
+        "note": "normal->suspect->act duoc phep; quay lai trang thai da roi bi cam."
+      },
+      {
+        "id": "S8",
+        "sli": "hanh vi khi thieu du lieu",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "ty le tick co cot non-finite -> unknown"
+        },
+        "derived_from": "8 dong judgeable71=False; chinh sach DT4N-M1",
+        "measured_on": "R-O",
+        "verifiable_now": true,
+        "repeatable": true,
+        "hard_constraint": "0% tick thieu du lieu duoc map sang normal"
+      },
+      {
+        "id": "S9",
+        "sli": "trang thai sau restart",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "ty le tick dau dung policy"
+        },
+        "derived_from": "Phase 7 gate cua MASTER_PLAN_V2",
+        "measured_on": "R-O",
+        "verifiable_now": true,
+        "repeatable": true,
+        "declared_policy": "feature stateless (0 cot d1): suspect duoc phep ngay; act N=2 doi mot tick."
+      },
+      {
+        "id": "S10",
+        "sli": "hanh vi o tai ngoai vung hieu chinh",
+        "target": {
+          "kind": "bao, khong dat muc tieu"
+        },
+        "derived_from": "model card muc 4: unverified and likely",
+        "measured_on": "R-N",
+        "verifiable_now": true,
+        "report_two_columns": {
+          "fp_thuc": "alarm khong kem lossPct>0/qdiscDropDelta>0/state_up==0",
+          "phat_hien_nghen_thuc": "alarm kem it nhat mot chung cu vat ly tren"
+        },
+        "note": "8-10 Mbps co the la nghen that; them 10 Mbps lam diem bao hoa."
+      },
+      {
+        "id": "S11",
+        "sli": "chong tu-kich-hoat",
+        "target": {
+          "op": "==",
+          "value": 0,
+          "unit": "lan vao act do controller"
+        },
+        "derived_from": "phan hoi duong Phase 8",
+        "measured_on": "R-O",
+        "verifiable_now": true,
+        "repeatable": true
+      },
+      {
+        "id": "S12",
+        "sli": "staleness khi detector chet",
+        "target": {
+          "op": "<=",
+          "value": 5000,
+          "unit": "ms den luc twin stale"
+        },
+        "derived_from": "MASTER_PLAN_V2 Phase 7 gate: detector tat thi twin phai stale",
+        "measured_on": "R-O",
+        "verifiable_now": true,
+        "repeatable": true,
+        "ttl_ticks": 3,
+        "ttl_rationale": "1 tick jitter; 2 mot snapshot mat; 3 detector im.",
+        "why_added": "restart tam thoi khac detector chet vinh vien."
+      },
+      {
+        "id": "S13",
+        "sli": "truy vet mo hinh",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "payload co modelVersion + artifact_sha256"
+        },
+        "derived_from": "Phase 8 can truy model tao canh bao",
+        "measured_on": "test don vi",
+        "verifiable_now": true
+      }
+    ],
+    "data_budget": [
+      {
+        "decision": "E, K",
+        "allowed": "giu nguyen phase6_envelope_cv.json",
+        "forbidden": "moi thu; khong refit"
+      },
+      {
+        "decision": "link_stats (mean/std 16 kenh rate)",
+        "allowed": "ml_dataset_split_manifest.json[link_stats]",
+        "forbidden": "tinh lai tu du lieu dang chay",
+        "note": "nguon training-serving skew duy nhat cua envelope"
+      },
+      {
+        "decision": "bounds 71 cot",
+        "allowed": "ml_dataset_split_manifest.json[envelope]",
+        "forbidden": "refit"
+      },
+      {
+        "decision": "tran debounce N",
+        "allowed": "S4 (ngan sach thoi gian)",
+        "forbidden": "-"
+      },
+      {
+        "decision": "gia tri debounce N cuoi",
+        "allowed": "train CV + phat lai test de dem chum, khong nhan tham so y",
+        "forbidden": "nhan test"
+      },
+      {
+        "decision": "cooldown",
+        "allowed": "prior 8 khai ro tu test; gia tri cuoi tren R-C: max span + 1",
+        "forbidden": "R-O, tap test Phase 6",
+        "note": "hieu chinh sach bang du lieu moi"
+      },
+      {
+        "decision": "TTL staleness",
+        "allowed": "thiet ke thuan, 3 tick",
+        "forbidden": "-"
+      },
+      {
+        "decision": "nguong bien the co dieu kien",
+        "allowed": "train CV",
+        "forbidden": "test, R-set"
+      },
+      {
+        "decision": "chon giua 2 bien the",
+        "allowed": "dang ky truoc, nghiem thu R-set mot lan",
+        "forbidden": "thu lan hai"
+      },
+      {
+        "decision": "tham so he thong",
+        "allowed": "khong co nhan lien quan",
+        "forbidden": "-"
+      }
+    ],
+    "r_campaign": [
+      {
+        "group": "R-S",
+        "n_runs": 3,
+        "purpose": "S2 S3 S5 S6",
+        "knob": "load=2M, no fault, 60 phut/run",
+        "role": "nghiem thu",
+        "repeatable": false,
+        "new": true
+      },
+      {
+        "group": "R-N",
+        "n_runs": 6,
+        "purpose": "S10 hai cot",
+        "knob": "load in {6,8,10} Mbps x 2 seed",
+        "role": "nghiem thu",
+        "repeatable": false,
+        "confound_warning": "alarm o 8-10 Mbps co the dung; phan loai bang chung cu vat ly"
+      },
+      {
+        "group": "R-D",
+        "n_runs": 10,
+        "purpose": "dose-response, ED50",
+        "knob": "degrade factor in {0.95,0.90,0.80,0.60,0.40} x {s1-s2,s2-s3}",
+        "role": "nghiem thu",
+        "repeatable": false,
+        "dose_axis": "ml.campaign.signal_check -> max_separation (DO SAU khi chay)",
+        "response_axis": "ty le tick y=1 co suspect",
+        "analysis_prereg": "logistic detected ~ log10(separation); ED50 + CI cluster-bootstrap theo run",
+        "scope": "CHI trong ho degrade"
+      },
+      {
+        "group": "R-C",
+        "n_runs": 4,
+        "purpose": "hieu chinh cooldown doc lap test",
+        "knob": "flood x2, shift x2",
+        "role": "HIEU CHINH",
+        "repeatable": false,
+        "new": true
+      },
+      {
+        "group": "R-O",
+        "n_runs": 4,
+        "purpose": "S8 S9 S11 S12",
+        "knob": "restart; chan snapshot 5s; controller tat s1-s2; kill detector",
+        "role": "nghiem thu",
+        "repeatable": true,
+        "repeatable_rationale": "do menh de logic, khong uoc luong xac suat; neu doi nguong thi dung"
+      }
+    ],
+    "corrections_to_plan": [
+      "SLO neo eval_primary 85.625%/5.35%, khong neo eval_sensitivity 87.50%/3.38%",
+      "FPR x 3600 la category error: 0 FP/278 tick nen, moi FP nam hau-revert",
+      "S2 <=1/gio khong kiem duoc voi 885 tick; them R-S",
+      "envelope co 0 cot d1; link_stats la nguon skew con lai",
+      "dose R-D la max_separation do sau, khong phai factor",
+      "admin_down separation=100 la hang so cau truc; khong gop ho fault",
+      "cooldown=8 tu test chi la prior; hieu chinh lai tren R-C",
+      "S7 la 0 mau X->Y->X, khong phai <=2 lan doi state",
+      "them S12 staleness va S13 model provenance"
+    ]
+  },
+  "content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3"
+}
