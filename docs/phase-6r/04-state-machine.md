@@ -111,3 +111,37 @@ hoặc giữ nguyên và khai giới hạn. Giá trị bằng chứng phải đ�
 không chọn phương án bằng cách chấm lại tập test đã tiêu.
 
 Receipt máy đọc được nằm tại `results/report/phase6r_fsm.json`.
+
+## 9. Amendment 3 — S7 v2 suy từ mục đích
+
+P4 của amendment 2 **giữ nguyên KHÔNG ĐẠT** và receipt cũ không được sinh lại.
+S7 v1 cũng được đóng băng trong code để luôn tái tạo đúng hai vi phạm shift đã
+ghi. Phân tích bảng chân lý cho thấy v1 sai theo cả hai hướng:
+
+| Chuỗi | S7 v1 | Rủi ro cần đo |
+|---|---|---|
+| `act→suspect→normal→act` | Bỏ lọt | Cấp quyền act lần hai |
+| `suspect→normal→act` | Bỏ lọt | Leo thang sau khi đã hạ |
+| `suspect→act→suspect` | Báo vi phạm | Chỉ hạ cấp đơn điệu |
+
+S7 v2 tách hai rủi ro:
+
+- S7a: số lần vào act trên chuỗi thô, giữ nguyên unknown, phải ≤1.
+- S7b: sau khi bỏ unknown/warmup và gộp lặp, severity
+  `normal<suspect<act` phải đơn đỉnh — không tăng lại sau khi đã giảm.
+
+Test liệt kê toàn bộ chuỗi không lặp dài 3–4 chứng minh chỗ duy nhất v2 nới
+hơn v1 là hạ cấp đơn điệu có bước `act→suspect`; các thay đổi còn lại chặt hơn.
+Kết quả thăm dò 16/16 trên tập test đã tiêu chỉ được công bố để minh bạch,
+không phải bằng chứng. S7 v2 chỉ có hiệu lực nghiệm thu trên R-D/R-O mới.
+
+Amendment 3 đặt bốn cổng phát hành Phase 8:
+
+- G1: S7 v2 đạt trên mọi sự cố R-D/R-O, có và không InterventionLog.
+- G2: act-level FP event bằng 0 trên R-C có InterventionLog.
+- G3: S11 bằng 0 trên R-O.
+- G4: S8, S9 và S12 tiếp tục đạt tiêu chí 6R.1.
+
+Thiếu bất kỳ cổng nào thì FSM không được phát hành. Amendment cũng đóng hai
+biến thể envelope V1/V2 chưa đăng ký và chỉ định nguồn chuẩn R-campaign là
+`phase6r_slo.json` (27 run), với factor R-D sửa theo amendment 1.
