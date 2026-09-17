@@ -1,0 +1,33 @@
+{
+  "kind": "sensor_probe_not_dataset",
+  "args": {
+    "link": "s2-s3",
+    "factor": 0.82029833678748,
+    "duration": 60,
+    "inject": 20,
+    "revert": 40,
+    "warmup": 15,
+    "out": "results/probe"
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.02332373900026,
+      "new_bw_mbps": 1.0
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.06136962299934
+    }
+  ],
+  "n_samples": 61,
+  "git_hash": "8b2f4c9d4b0d55d5837d7fdda651d4c24dd8d841",
+  "kernel": "6.8.0-1066-gcp",
+  "tc_version": "tc utility, iproute2-5.15.0, libbpf 0.5.0",
+  "python": "3.10.12",
+  "collector_unchanged": true,
+  "traffic": "normal 2M/client TCP + srv1->srv2 UDP 2M, giong Phase 5",
+  "written_at_utc": "2026-09-17T04:57:26+00:00"
+}

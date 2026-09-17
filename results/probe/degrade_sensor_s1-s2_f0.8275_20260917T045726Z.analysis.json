@@ -1,0 +1,982 @@
+{
+  "summary": {
+    "missing_bytes": 2078299.1111111108,
+    "baseline_bias_per_tick": -409.55555555555554,
+    "baseline_noise_per_tick": 9229.555555555555,
+    "n_window_ticks": 20,
+    "mean_packet_bytes": 1487.073852295409,
+    "leaf_drop_packets": 0,
+    "other_drop_packets": 0,
+    "ovs_tx_drop_packets": 0,
+    "backlog_bytes_pre_revert": 2244726,
+    "collector_valid_ticks": 20,
+    "collector_drop_packets": 0,
+    "share_leaf": 0.0,
+    "share_other": 0.0,
+    "share_ovs": 0.0,
+    "share_backlog": 1.080078410272674,
+    "rtt_pre_median_ms": 12.1,
+    "rtt_late_fault_median_ms": 2613.0,
+    "verdict": [
+      "H1_QUEUE_THEN_TEARDOWN"
+    ]
+  },
+  "per_tick": [
+    {
+      "tick": 1,
+      "phase": "pre",
+      "bal": 4246,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 552
+      }
+    },
+    {
+      "tick": 2,
+      "phase": "pre",
+      "bal": -7240,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 549
+      }
+    },
+    {
+      "tick": 3,
+      "phase": "pre",
+      "bal": 4476,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 553
+      }
+    },
+    {
+      "tick": 4,
+      "phase": "pre",
+      "bal": -66,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 551
+      }
+    },
+    {
+      "tick": 5,
+      "phase": "pre",
+      "bal": 2830,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 550
+      }
+    },
+    {
+      "tick": 6,
+      "phase": "pre",
+      "bal": -4344,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 553
+      }
+    },
+    {
+      "tick": 7,
+      "phase": "pre",
+      "bal": 4,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 552
+      }
+    },
+    {
+      "tick": 8,
+      "phase": "pre",
+      "bal": -6064,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 553
+      }
+    },
+    {
+      "tick": 9,
+      "phase": "pre",
+      "bal": 6056,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 556
+      }
+    },
+    {
+      "tick": 10,
+      "phase": "pre",
+      "bal": 2764,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 552
+      }
+    },
+    {
+      "tick": 11,
+      "phase": "pre",
+      "bal": 66,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 554
+      }
+    },
+    {
+      "tick": 12,
+      "phase": "pre",
+      "bal": -136,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 551
+      }
+    },
+    {
+      "tick": 13,
+      "phase": "pre",
+      "bal": -8680,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 552
+      }
+    },
+    {
+      "tick": 14,
+      "phase": "pre",
+      "bal": 7306,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 553
+      }
+    },
+    {
+      "tick": 15,
+      "phase": "pre",
+      "bal": -66,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 551
+      }
+    },
+    {
+      "tick": 16,
+      "phase": "pre",
+      "bal": -1316,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 554
+      }
+    },
+    {
+      "tick": 17,
+      "phase": "pre",
+      "bal": 8820,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 556
+      }
+    },
+    {
+      "tick": 18,
+      "phase": "pre",
+      "bal": -7372,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 549
+      }
+    },
+    {
+      "tick": 19,
+      "phase": "pre",
+      "bal": -4410,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 3028,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 549
+      }
+    },
+    {
+      "tick": 20,
+      "phase": "fault",
+      "bal": 70556,
+      "leaf_drop": 0,
+      "other_drop": 1,
+      "ovs_drop": 0,
+      "leaf_backlog": 60560,
+      "collector": {
+        "lossPct": null,
+        "qdiscValid": false,
+        "qdiscReason": "counter_reset"
+      }
+    },
+    {
+      "tick": 21,
+      "phase": "fault",
+      "bal": -3780,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 86396,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 437
+      }
+    },
+    {
+      "tick": 22,
+      "phase": "fault",
+      "bal": 19906,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 149288,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 434
+      }
+    },
+    {
+      "tick": 23,
+      "phase": "fault",
+      "bal": 6982,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 162194,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 435
+      }
+    },
+    {
+      "tick": 24,
+      "phase": "fault",
+      "bal": 5924,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 166736,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 433
+      }
+    },
+    {
+      "tick": 25,
+      "phase": "fault",
+      "bal": -2830,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 162194,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 426
+      }
+    },
+    {
+      "tick": 26,
+      "phase": "fault",
+      "bal": 11782,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 169764,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 426
+      }
+    },
+    {
+      "tick": 27,
+      "phase": "fault",
+      "bal": 8952,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 183390,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 423
+      }
+    },
+    {
+      "tick": 28,
+      "phase": "fault",
+      "bal": 40086,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 219824,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 424
+      }
+    },
+    {
+      "tick": 29,
+      "phase": "fault",
+      "bal": 42948,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 271300,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 423
+      }
+    },
+    {
+      "tick": 30,
+      "phase": "fault",
+      "bal": 79842,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 351640,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 432
+      }
+    },
+    {
+      "tick": 31,
+      "phase": "fault",
+      "bal": 101004,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 451564,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 434
+      }
+    },
+    {
+      "tick": 32,
+      "phase": "fault",
+      "bal": 139114,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 591048,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 436
+      }
+    },
+    {
+      "tick": 33,
+      "phase": "fault",
+      "bal": 160408,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 748602,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 435
+      }
+    },
+    {
+      "tick": 34,
+      "phase": "fault",
+      "bal": 192826,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 954604,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 437
+      }
+    },
+    {
+      "tick": 35,
+      "phase": "fault",
+      "bal": 213432,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 1169690,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 433
+      }
+    },
+    {
+      "tick": 36,
+      "phase": "fault",
+      "bal": 207606,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 1381846,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 438
+      }
+    },
+    {
+      "tick": 37,
+      "phase": "fault",
+      "bal": 215172,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 1595418,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 434
+      }
+    },
+    {
+      "tick": 38,
+      "phase": "fault",
+      "bal": 211840,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 1812116,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 437
+      }
+    },
+    {
+      "tick": 39,
+      "phase": "fault",
+      "bal": 212674,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 2031192,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 436
+      }
+    },
+    {
+      "tick": 40,
+      "phase": "pre_revert",
+      "bal": 206220,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 2244726,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 436
+      }
+    },
+    {
+      "tick": 40,
+      "phase": "post_revert_immediate",
+      "bal": -132,
+      "leaf_drop": 0,
+      "other_drop": null,
+      "ovs_drop": 0,
+      "leaf_backlog": 3126,
+      "collector": {
+        "lossPct": null,
+        "qdiscValid": false,
+        "qdiscReason": "counter_reset"
+      }
+    },
+    {
+      "tick": 41,
+      "phase": "post",
+      "bal": 10832,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 6056,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 2330
+      }
+    },
+    {
+      "tick": 42,
+      "phase": "post",
+      "bal": -7874,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 1383
+      }
+    },
+    {
+      "tick": 43,
+      "phase": "post",
+      "bal": 0,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 405
+      }
+    },
+    {
+      "tick": 44,
+      "phase": "post",
+      "bal": 0,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 410
+      }
+    },
+    {
+      "tick": 45,
+      "phase": "post",
+      "bal": 66,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 408
+      }
+    },
+    {
+      "tick": 46,
+      "phase": "post",
+      "bal": 11716,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 12112,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 415
+      }
+    },
+    {
+      "tick": 47,
+      "phase": "post",
+      "bal": -11716,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 12112,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 424
+      }
+    },
+    {
+      "tick": 48,
+      "phase": "post",
+      "bal": 13230,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 427
+      }
+    },
+    {
+      "tick": 49,
+      "phase": "post",
+      "bal": -2962,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 425
+      }
+    },
+    {
+      "tick": 50,
+      "phase": "post",
+      "bal": -10202,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 425
+      }
+    },
+    {
+      "tick": 51,
+      "phase": "post",
+      "bal": 10202,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 427
+      }
+    },
+    {
+      "tick": 52,
+      "phase": "post",
+      "bal": -5792,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 447
+      }
+    },
+    {
+      "tick": 53,
+      "phase": "post",
+      "bal": 1448,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 443
+      }
+    },
+    {
+      "tick": 54,
+      "phase": "post",
+      "bal": 4414,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 432
+      }
+    },
+    {
+      "tick": 55,
+      "phase": "post",
+      "bal": -8688,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 429
+      }
+    },
+    {
+      "tick": 56,
+      "phase": "post",
+      "bal": 8622,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 431
+      }
+    },
+    {
+      "tick": 57,
+      "phase": "post",
+      "bal": -8688,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 429
+      }
+    },
+    {
+      "tick": 58,
+      "phase": "post",
+      "bal": 11716,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 0,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 431
+      }
+    },
+    {
+      "tick": 59,
+      "phase": "post",
+      "bal": -66,
+      "leaf_drop": 0,
+      "other_drop": 0,
+      "ovs_drop": 0,
+      "leaf_backlog": 10598,
+      "collector": {
+        "lossPct": 0.0,
+        "qdiscValid": true,
+        "qdiscReason": "ok",
+        "qdiscDropDelta": 0,
+        "qdiscSentDelta": 430
+      }
+    }
+  ]
+}
