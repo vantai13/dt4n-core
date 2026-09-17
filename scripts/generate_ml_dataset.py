@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from ml import campaign as C
+from ml import campaign_binding as B
 import traceback
 import re
 import uuid
@@ -55,7 +56,7 @@ def start_profile(env, plan):
         server_bg_rate=plan['server_bg_rate'])
 
 
-def execute_run(env, record, contract, design_sha):
+def execute_run(env, record, contract, design_sha, binding=None):
     """Chạy MỘT run trọn vẹn. Trả (status, outcome_dict).
 
     status: 'ok' | 'failed'   (lỗi môi trường thì ném exception ra ngoài)
@@ -66,8 +67,13 @@ def execute_run(env, record, contract, design_sha):
 
     constants = contract['constants']
     run_id = record['run_id']
-    paths = C.run_paths(run_id)
+    binding = binding or B.get('phase5')
+    paths = binding.run_paths(run_id)
     plan = C.traffic_plan(record, constants)
+    recorder = None
+    if binding.supports_interventions:
+        from ml.rcampaign_runtime import InterventionRecorder
+        recorder = InterventionRecorder(record)
     period = float(constants['period_sec'])
 
     archive_attempt(paths)
@@ -120,6 +126,8 @@ def execute_run(env, record, contract, design_sha):
         if scenario is None:
             return
         if n == inject_tick:
+            if recorder is not None:
+                recorder.record_before_apply('inject', time.time(), n)
             t0 = time.monotonic()
             env.injection.apply(scenario)
             events.append({'kind': 'inject', 'tick': n,
@@ -131,6 +139,8 @@ def execute_run(env, record, contract, design_sha):
             print('[gen] INJECT tick=%d t_rel=%.3f %s'
                   % (n, t_rel, scenario.describe()), flush=True)
         elif n == revert_tick:
+            if recorder is not None:
+                recorder.record_before_apply('revert', time.time(), n)
             t0 = time.monotonic()
             env.injection.revert_all()
             events.append({'kind': 'revert', 'tick': n,
@@ -163,7 +173,7 @@ def execute_run(env, record, contract, design_sha):
     # --- 4. kiểm tra, rồi mới COMMIT --------------------------------------
     finished = utc_now()
     snapshots = C.read_snapshots(paths['partial'])
-    checks = C.verify_run(record, constants, snapshots, events)
+    checks = binding.verify(record, constants, snapshots, events)
     checks.setdefault('failed_gates', [])
     checks['runtime_error_count'] = C.runtime_error_count(paths['log'].read_text())
     checks['runtime_log_ok'] = checks['runtime_error_count'] == 0
@@ -184,6 +194,9 @@ def execute_run(env, record, contract, design_sha):
                               design_sha, sha, reset_info, plan,
                               started, finished)
     sidecar['status'] = status
+    sidecar['campaign'] = binding.name
+    if recorder is not None:
+        sidecar['interventions'] = recorder.items
     C.atomic_json(meta_path, sidecar)
     if destination.exists():
         raise RuntimeError('Refusing to overwrite raw observations: %s' % destination)
@@ -213,8 +226,8 @@ def archive_attempt(paths):
             os.rename(path, destination)
 
 
-def already_done(record, design_sha):
-    paths = C.run_paths(record['run_id'])
+def already_done(record, design_sha, binding=None):
+    paths = (binding or B.get('phase5')).run_paths(record['run_id'])
     if not paths['final'].exists():
         return False
     try:
@@ -234,15 +247,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--only', nargs='+', default=None)
     parser.add_argument('--hard-every', type=int, default=6)
+    parser.add_argument('--campaign', choices=sorted(B.BINDINGS), default='phase5')
     args = parser.parse_args()
+    binding = B.get(args.campaign)
     namespace = os.environ.get('DT4N_NAMESPACE')
     if not namespace or namespace == 'org.dt4n':
         raise SystemExit('DT4N_NAMESPACE must be a dedicated campaign namespace')
-    contract = C.load_contract()
+    contract = binding.load_contract()
     design_sha = contract['design_content_sha256']
     integrity = json.loads(os.environ.get('DT4N_CONTRACT_INTEGRITY', '{}'))
-    if not (integrity.get('match') is True and
-            integrity.get('stored') == integrity.get('content') == integrity.get('recomputed') == design_sha == C.contract_hash(contract)):
+    if not B.integrity_ok(binding, contract,
+                          os.environ.get('DT4N_CONTRACT_INTEGRITY', '{}')):
         raise SystemExit('Run through launcher: independent contract integrity is required')
     by_id = {r['run_id']: r for r in contract['runs']}
     if args.only and not set(args.only) <= set(by_id):
@@ -252,19 +267,26 @@ def main():
     outcomes, consecutive_failures, env = {}, 0, None
     campaign_error = None
     for record in contract['runs']:
-        if already_done(record, design_sha):
-            sidecar = json.loads(C.run_paths(record['run_id'])['meta'].read_text())
+        if already_done(record, design_sha, binding):
+            sidecar = json.loads(binding.run_paths(record['run_id'])['meta'].read_text())
             outcomes[record['run_id']] = {k: sidecar[k] for k in ('status','sha256','checks','events','started_utc','finished_utc','collection_provenance')}
-        elif C.run_paths(record['run_id'])['quarantine_meta'].exists():
-            sidecar = json.loads(C.run_paths(record['run_id'])['quarantine_meta'].read_text())
+        elif binding.run_paths(record['run_id'])['quarantine_meta'].exists():
+            sidecar = json.loads(binding.run_paths(record['run_id'])['quarantine_meta'].read_text())
             outcomes[record['run_id']] = {k: sidecar[k] for k in ('status','sha256','checks','events','started_utc','finished_utc')}
     pending = [rid for rid in order if outcomes.get(rid, {}).get('status') != 'ok']
+    if binding.name == 'phase6r':
+        from ml.rcampaign_runtime import rerun_allowed
+        for run_id in list(pending):
+            allowed, why = rerun_allowed(binding.run_paths(run_id))
+            if not allowed:
+                pending.remove(run_id)
+                print('[gen] BLOCK %s: %s' % (run_id, why), flush=True)
     print('[gen] namespace=%s selected=%d pending=%d' % (namespace,len(order),len(pending)), flush=True)
     try:
         if pending:
             from mininet.env_runner import EnvRunner
             from mininet.run_sync import configure_file_logging
-            configure_file_logging('logs/ml_dataset_startup.log')
+            configure_file_logging(binding.startup_log)
             env = EnvRunner(policy_path='ditto/policy_core_lab.json', sync_period=contract['constants']['period_sec'],
                             clients=3, do_pingall=True, hard_every=args.hard_every, mininet_log_level='warning')
             env.start()
@@ -273,12 +295,16 @@ def main():
                 print('[gen] SKIP %s (checksum and contract verified)' % run_id, flush=True)
                 continue
             try:
-                status, outcome = execute_run(env, by_id[run_id], contract, design_sha)
+                status, outcome = execute_run(env, by_id[run_id], contract,
+                                              design_sha, binding)
             except Exception as exc:
                 outcomes[run_id] = {'status':'failed','checks':{'passed':False,'failed_gates':['environment_exception']},'error':repr(exc)}
                 raise
             outcomes[run_id] = outcome
-            C.atomic_json(C.MANIFEST_PATH, C.build_manifest(contract,outcomes,C.collection_provenance(ROOT),integrity,started,utc_now()))
+            C.atomic_json(binding.manifest_path,
+                          binding.build_manifest(contract, outcomes,
+                                                 C.collection_provenance(ROOT),
+                                                 integrity, started, utc_now()))
             consecutive_failures = 0 if status == 'ok' else consecutive_failures + 1
             if consecutive_failures >= C.MAX_CONSECUTIVE_FAILURES:
                 break
@@ -293,13 +319,16 @@ def main():
             campaign_error = repr(exc)
             traceback.print_exc()
         finally:
-            manifest = C.build_manifest(contract,outcomes,C.collection_provenance(ROOT),integrity,started,utc_now())
+            manifest = binding.build_manifest(contract, outcomes,
+                                              C.collection_provenance(ROOT),
+                                              integrity, started, utc_now())
             if campaign_error:
                 manifest['campaign_error'] = campaign_error
                 manifest['complete'] = False
-            C.atomic_json(C.MANIFEST_PATH,manifest)
-            print('[gen] ok=%d failed=%d complete=%s base_rate=%s manifest=%s' %
-                  (manifest['n_runs_ok'],manifest['n_runs_failed'],manifest['complete'],manifest['base_rate'],C.MANIFEST_PATH),flush=True)
+            C.atomic_json(binding.manifest_path, manifest)
+            print('[gen] ok=%d failed=%d complete=%s manifest=%s' %
+                  (manifest['n_runs_ok'], manifest['n_runs_failed'],
+                   manifest['complete'], binding.manifest_path), flush=True)
     return 0 if all(outcomes.get(rid,{}).get('status') == 'ok' for rid in order) and not campaign_error else 1
 
 

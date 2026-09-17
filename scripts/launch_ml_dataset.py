@@ -26,35 +26,54 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
-NAMESPACE = os.environ.get('DT4N_CAMPAIGN_NAMESPACE', 'org.dt4n.ml')
 RYU = os.environ.get('DT4N_RYU',
                      '/home/ubuntu/miniforge3/envs/sdn_net/bin/ryu-manager')
 
 
 def main():
     from ml import campaign as C
-    from ml.design import git_provenance
+    from ml import campaign_binding as B
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--only', nargs='+')
+    parser.add_argument('--hard-every', type=int, default=6)
+    parser.add_argument('--campaign', choices=sorted(B.BINDINGS), default='phase5')
+    args = parser.parse_args()
+    binding = B.get(args.campaign)
+    namespace = os.environ.get('DT4N_CAMPAIGN_NAMESPACE',
+                               binding.namespace_default)
 
     # --- 1. TOÀN VẸN HỢP ĐỒNG: trước tất cả -----------------------------
-    contract = C.load_contract()
-    integrity = C.check_contract_integrity(contract)      # lệch -> ném, dừng
-    print('[launch] hợp đồng khớp: %s' % integrity['stored'][:12])
-    print('[launch] %d run, base rate nominal %.4f'
-          % (contract['n_runs'], contract['expected_base_rate_test']))
+    contract = binding.load_contract()
+    if binding.name == 'phase5':
+        integrity = C.check_contract_integrity(contract)
+        print('[launch] %d run, base rate nominal %.4f'
+              % (contract['n_runs'], contract['expected_base_rate_test']))
+    else:
+        from ml import rcampaign as R
+        amendment_1 = json.loads(
+            (ROOT / 'results/report/phase6r_amendment_1.json').read_text(
+                encoding='utf-8'))
+        integrity = R.check_integrity(contract, amendment_1)
+        print('[launch] R-campaign %d run, nhom %s' %
+              (contract['n_runs'],
+               {group: len(run_ids)
+                for group, run_ids in contract['groups'].items()}))
+    print('[launch] campaign=%s hop dong khop: %s' %
+          (binding.name, integrity['stored'][:12]))
 
     prov = C.collection_provenance(ROOT)
     if prov['source_dirty']:
         raise SystemExit('Commit source changes before collection: %s' % prov['source_dirty_files'])
     print('[launch] source_clean=True git_dirty=%s commit=%s' % (prov['git_dirty'],prov['git_hash']),flush=True)
     from scripts.generate_ml_dataset import already_done
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--only', nargs='+')
-    parser.add_argument('--hard-every', type=int, default=6)
-    selected = parser.parse_args().only
+    selected = args.only
     if selected and not set(selected) <= {r['run_id'] for r in contract['runs']}:
         raise SystemExit('Unknown run ID')
-    done = {r['run_id']:already_done(r,integrity['stored']) for r in contract['runs']}
-    child_env = dict(os.environ, DT4N_NAMESPACE=NAMESPACE, DT4N_CONTRACT_INTEGRITY=json.dumps(integrity))
+    done = {r['run_id']: already_done(r, integrity['stored'], binding)
+            for r in contract['runs']}
+    child_env = dict(os.environ, DT4N_NAMESPACE=namespace,
+                     DT4N_CONTRACT_INTEGRITY=json.dumps(integrity))
     if all(done[rid] for rid in (selected or done)):
         return subprocess.run([sys.executable,'scripts/generate_ml_dataset.py']+sys.argv[1:],env=child_env).returncode
 
@@ -67,7 +86,7 @@ def main():
     # --- 3. controller ---------------------------------------------------
     env = dict(child_env, PYTHONPATH=str(ROOT))
     Path('logs').mkdir(exist_ok=True)
-    with open('logs/ml_dataset_controller.log', 'a') as fh:
+    with open('logs/%s_controller.log' % binding.name, 'a') as fh:
         controller = subprocess.Popen(
             [RYU, 'mininet.controller_static', '--ofp-tcp-listen-port', '6653'],
             env=env, stdout=fh, stderr=subprocess.STDOUT)
@@ -82,20 +101,20 @@ def main():
                     time.sleep(0.2)
             else:
                 raise RuntimeError('controller không lên sau 20 s')
-            print('[launch] controller sẵn sàng, namespace=%s' % NAMESPACE)
+            print('[launch] controller sẵn sàng, namespace=%s' % namespace)
 
             # --- 4. runner dưới sudo + python hệ thống -------------------
             cmd = ['sudo', '-n', 'env',
                    'PYTHONPATH=%s' % ROOT,
-                   'DT4N_NAMESPACE=%s' % NAMESPACE,
+                   'DT4N_NAMESPACE=%s' % namespace,
                    'DT4N_CONTRACT_INTEGRITY=%s' % json.dumps(integrity),
                    '/usr/bin/python3', 'scripts/generate_ml_dataset.py'
                    ] + sys.argv[1:]
-            with open('logs/ml_dataset_stdout.log', 'a') as log:
+            with open('logs/%s_stdout.log' % binding.name, 'a') as log:
                 result = subprocess.run(cmd, env=env, stdout=log,
                                         stderr=subprocess.STDOUT)
             print('[launch] runner exit=%d' % result.returncode)
-            print('[launch] log: logs/ml_dataset_stdout.log')
+            print('[launch] log: logs/%s_stdout.log' % binding.name)
             return result.returncode
         finally:
             controller.terminate()
