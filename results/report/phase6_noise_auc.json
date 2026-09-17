@@ -1,0 +1,146 @@
+{
+  "written_at_utc": "2026-09-17T00:56:00+00:00",
+  "content": {
+    "diagnostic_id": "DT4N-P6-NOISE-AUC-v1",
+    "status": "EXPLORATORY POST-FREEZE",
+    "uses_test_labels": true,
+    "authorises_no_change_to": [
+      "detector",
+      "threshold",
+      "hypothesis",
+      "column set"
+    ],
+    "follows_ledger_3_sha256": "10c8be5fee6501cfcb208b9f408520e378251cd08d85e346770390b106fc5556",
+    "bound_to": {
+      "prereg_content_sha256": "975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081",
+      "iforest_content_sha256": "a139e3973ce099ea68091c03194aadbe9b6c53fe25af5ba69987f1b1407b0283",
+      "iforest_ticks_sha256": "3ce467be857f3f65cbbc71d9a565f7e626838d3e7f779816e0808b1b5f8cbeed"
+    },
+    "rng_rule": "default_rng(10000+seed), draw train then test; IF primary config/q=0.01; report as synthetic control, not a trained campaign detector",
+    "mask": "campaign IF judgeable mask (equal coverage)",
+    "auc_definition": "probability a positive has a lower score than a negative; ties contribute 0.5",
+    "shape": {
+      "train": [
+        464,
+        72
+      ],
+      "test": [
+        590,
+        72
+      ]
+    },
+    "per_seed": {
+      "0": {
+        "auc_noise": 0.5500287429739397,
+        "n_judgeable": 564,
+        "n_positive_judgeable": 152,
+        "n_negative_judgeable": 412,
+        "reproduction_check": {
+          "threshold_expected": -0.47136528319949555,
+          "threshold_reconstructed": -0.47136528319949555,
+          "threshold_bit_exact": true,
+          "raw_n_alarm_expected": 6,
+          "raw_n_alarm_reconstructed": 6,
+          "raw_n_alarm_exact": true,
+          "masked_tp_expected": 3,
+          "masked_tp_reconstructed": 3,
+          "masked_fp_expected": 2,
+          "masked_fp_reconstructed": 2,
+          "masked_tp_fp_exact": true
+        }
+      },
+      "1": {
+        "auc_noise": 0.5211899591211038,
+        "n_judgeable": 564,
+        "n_positive_judgeable": 152,
+        "n_negative_judgeable": 412,
+        "reproduction_check": {
+          "threshold_expected": -0.474032119346012,
+          "threshold_reconstructed": -0.474032119346012,
+          "threshold_bit_exact": true,
+          "raw_n_alarm_expected": 5,
+          "raw_n_alarm_reconstructed": 5,
+          "raw_n_alarm_exact": true,
+          "masked_tp_expected": 2,
+          "masked_tp_reconstructed": 2,
+          "masked_fp_expected": 2,
+          "masked_fp_reconstructed": 2,
+          "masked_tp_fp_exact": true
+        }
+      },
+      "2": {
+        "auc_noise": 0.49581630045988756,
+        "n_judgeable": 564,
+        "n_positive_judgeable": 152,
+        "n_negative_judgeable": 412,
+        "reproduction_check": {
+          "threshold_expected": -0.4729081115566849,
+          "threshold_reconstructed": -0.4729081115566849,
+          "threshold_bit_exact": true,
+          "raw_n_alarm_expected": 5,
+          "raw_n_alarm_reconstructed": 5,
+          "raw_n_alarm_exact": true,
+          "masked_tp_expected": 1,
+          "masked_tp_reconstructed": 1,
+          "masked_fp_expected": 4,
+          "masked_fp_reconstructed": 4,
+          "masked_tp_fp_exact": true
+        }
+      },
+      "3": {
+        "auc_noise": 0.5548671435871232,
+        "n_judgeable": 564,
+        "n_positive_judgeable": 152,
+        "n_negative_judgeable": 412,
+        "reproduction_check": {
+          "threshold_expected": -0.4679125647834991,
+          "threshold_reconstructed": -0.4679125647834991,
+          "threshold_bit_exact": true,
+          "raw_n_alarm_expected": 17,
+          "raw_n_alarm_reconstructed": 17,
+          "raw_n_alarm_exact": true,
+          "masked_tp_expected": 3,
+          "masked_tp_reconstructed": 3,
+          "masked_fp_expected": 14,
+          "masked_fp_reconstructed": 14,
+          "masked_tp_fp_exact": true
+        }
+      },
+      "4": {
+        "auc_noise": 0.526635155850792,
+        "n_judgeable": 564,
+        "n_positive_judgeable": 152,
+        "n_negative_judgeable": 412,
+        "reproduction_check": {
+          "threshold_expected": -0.4757585002574365,
+          "threshold_reconstructed": -0.4757585002574365,
+          "threshold_bit_exact": true,
+          "raw_n_alarm_expected": 4,
+          "raw_n_alarm_reconstructed": 4,
+          "raw_n_alarm_exact": true,
+          "masked_tp_expected": 2,
+          "masked_tp_reconstructed": 2,
+          "masked_fp_expected": 2,
+          "masked_fp_reconstructed": 2,
+          "masked_tp_fp_exact": true
+        }
+      }
+    },
+    "summary": {
+      "auc_noise": {
+        "mean": 0.5297074603985693,
+        "std": 0.02385666462904904,
+        "min": 0.49581630045988756,
+        "max": 0.5548671435871232
+      },
+      "auc_real_seed0": 0.8656425651507409,
+      "real_minus_noise_mean": 0.3359351047521716,
+      "noise_auc_mean_in_predeclared_sanity_range_0_45_0_55": true,
+      "n_individual_seeds_in_0_45_0_55": 3,
+      "individual_seed_range_note": "The preregistered control is summarized over five seeds; the sanity gate applies to that mean. Individual finite-sample AUCs are retained without clipping.",
+      "all_five_noise_arms_reproduced_exactly": true
+    },
+    "interpretation": "campaign IF contains ranking signal relative to Gaussian noise, but that signal does not yield useful recall at the registered low-FPR operating threshold"
+  },
+  "content_sha256": "a036a4af5e8c5171e10afff98f2e089a639bd8dac575ed13905dce4e0d37898b"
+}
