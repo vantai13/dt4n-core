@@ -1,0 +1,77 @@
+{
+  "written_at_utc": "2026-09-17T10:57:02+00:00",
+  "content": {
+    "amendment_id": "DT4N-P6R-AMENDMENT-4",
+    "amends": {
+      "amendment_3_sha256": "d322c231110c7c7fbb31c6580587fc9d40525fd8500581971d6384d99e949794"
+    },
+    "git": {
+      "head": "f555d34c1d918dce63bf002ed733882260215648",
+      "dirty_files": [
+        "logs/command_flow.log",
+        "results/report/feature_audit.csv",
+        "scripts/build_phase6r_amendment4.py"
+      ]
+    },
+    "code_sha256": {
+      "ml/rcampaign.py": "fdf02907d365d872663b886baec5bd3c815049acf4e67fb06f57013f972df540",
+      "ml/campaign.py": "d229542d9597de5729f90f17843b604f02ac649c71acaa7e06cf94218fcc6819",
+      "ml/serve_fast.py": "42f90bea0d178162882f6601a6dc7162b7a586a7c21bed64a2be91a6ce6a3193",
+      "ml/fsm.py": "9f524b0f2e78d98ad923eb6ad0dd4d824d11f9a71c0ae4acece73a99e30e7930"
+    },
+    "r_o_split": {
+      "R-O1_restart_S9": {
+        "mode": "phat lai offline tren raw R-S",
+        "where": "tick 600, 1800, 3000 moi run R-S",
+        "procedure": "huy scorer+FSM, tao moi, tiep tuc tu snapshot ke tiep",
+        "pass": "snapshot dau sau restart -> warming_up; khong act truoc n_act tick scored; 0 tick normal truoc khi scored"
+      },
+      "R-O2_gap_S8": {
+        "mode": "phat lai offline tren raw R-S",
+        "where": "bo 5 snapshot lien tiep tai tick 600, 1800, 3000",
+        "pass": "snapshot dau sau khoang trong -> unknown(cause=gap); 0% tick khong judgeable thanh normal"
+      },
+      "R-O3_controller_S11": {
+        "mode": "THU 2 run (RO-ctl_admin_down-s1-s2)",
+        "intervention": "actor=controller, ghi log luc inject VA revert",
+        "pass": "so lan vao act trong [inject, revert+cooldown] co log == 0; S7 v2 dat"
+      },
+      "R-O4_kill_detector_S12": {
+        "mode": "DOI SANG PHASE 7",
+        "why": "thuoc tinh tich hop detector-Ditto-TTL, khong ton tai trong harness 6R"
+      },
+      "gate_status_in_6R": {
+        "G3": "MOT PHAN (controller mo phong bang harness)",
+        "G4_S12": "KHONG DONG DUOC TRONG 6R",
+        "consequence": "FSM khong the phat hanh cho Phase 8 truoc khi Phase 7 do S12 va S11 live"
+      }
+    },
+    "run_acceptance_gates": {
+      "principle": "gate chi kiem THIET BI DO va KICH BAN CO XAY RA, khong bao gio kiem KET CUC DANG DO",
+      "R-D": "signal_present KHONG la gate; ghi thanh covariate_signal_present (truc lieu max_separation)",
+      "R-O3": "admin_down_observed la manipulation check, giu lam gate",
+      "R-C": "signal_present giu lam gate: R-C hieu chinh cooldown, can transient that; ghi ro day la thiet ke hieu chinh",
+      "R-S, R-N": "gate Phase 5 cho run normal (tick count, invalid fraction, no_unexpected_down)",
+      "implementation": "ml.rcampaign.verify_rrun"
+    },
+    "rerun_policy": {
+      "allowed_when": "run bi cach ly vi gate THIET BI (tick count, invalid fraction, event timing, unexpected down)",
+      "how": "run_id moi hau to -rN, CUNG seed va tham so; moi lan thu (ke ca that bai) giu trong quarantine va manifest",
+      "max_attempts_per_cell": 2,
+      "forbidden": "chay lai vi ket cuc detector/tin hieu; xoa file cach ly"
+    },
+    "r_n_classification": {
+      "why": "6-10 Mbps/client co the bao hoa s1-s2 THAT; bao dong luc do co the dung",
+      "physically_justified_tick": "bat ky link co qdiscDropDelta > 0, hoac lossPct > 1.0, hoac residual r_max > R (amendment 1)",
+      "report": "hai cot: moi tick alarm / tick alarm KHONG co can cu vat ly; S10 danh gia tren cot thu hai",
+      "evidence_source_note": "probe v2: collector thay drop khi drop xay ra (6/6 run)"
+    },
+    "forbidden": [
+      "doi gate sau khi thay run nao bi cach ly",
+      "them run ngoai hop dong",
+      "mo R-set de tinh recall truoc 6R.7"
+    ],
+    "deviation_policy": "bat bien sau commit"
+  },
+  "content_sha256": "16990f73d63e67320f699722dd45558d2b213080273ba73d2f7bf88cc9388af3"
+}
