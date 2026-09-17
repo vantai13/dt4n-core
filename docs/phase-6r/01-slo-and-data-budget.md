@@ -2,7 +2,7 @@
 
 Artifact: `results/report/phase6r_slo.json`  
 `content_sha256`: `a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3`  
-Commit: ghi sau khi niêm phong; commit này phải đứng trước mọi code 6R.
+Commit niêm phong: `12119dd962113a1fa94b6ad3be342a31ebe18f78` — đứng trước mọi code 6R.
 
 ## 1. Vấn đề
 
