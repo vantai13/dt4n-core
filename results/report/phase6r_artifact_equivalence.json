@@ -1,0 +1,52 @@
+{
+  "written_at_utc": "2026-09-17T03:34:08+00:00",
+  "content": {
+    "lesson": "6R.2",
+    "artifact": {
+      "path": "models/envelope-1.0.0.json",
+      "version": "envelope-1.0.0",
+      "content_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b",
+      "n_columns": 71
+    },
+    "needs_no_data_dir": true,
+    "tier_a_decision_layer": {
+      "primary_k": {
+        "n_rows": 590,
+        "n_match": 590,
+        "bit_exact": true,
+        "first_mismatches": []
+      },
+      "secondary_excess": {
+        "n_rows": 590,
+        "n_match": 590,
+        "bit_exact": true,
+        "first_mismatches": []
+      },
+      "secondary_dual": {
+        "n_rows": 590,
+        "n_match": 590,
+        "bit_exact": true,
+        "first_mismatches": []
+      },
+      "ablation_loss_only": {
+        "n_rows": 590,
+        "n_match": 590,
+        "bit_exact": true,
+        "first_mismatches": []
+      }
+    },
+    "tier_b_scoring_layer": {
+      "skipped": false,
+      "n_rows": 590,
+      "k_bit_exact": true,
+      "excess_bit_exact": true,
+      "excess_max_abs_diff": 0.0,
+      "judgeable_bit_exact": true,
+      "k_ind_bit_exact": true,
+      "k_rate_bit_exact": true,
+      "note": "excess_max_abs_diff phai dung 0.0, khong dung epsilon"
+    },
+    "tier_explanation": "ticks CSV co 14 cot, khong co feature: no kiem duoc decision layer; scoring layer can ma tran 590x71 tu raw hoac fixture."
+  },
+  "content_sha256": "50ec98fcb324d3c578d6ba6ed789724e8e9bbf3b81104204c468f888bec63959"
+}

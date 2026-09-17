@@ -1,0 +1,651 @@
+{
+  "content": {
+    "schema_version": "DT4N-ENV-ARTIFACT-1",
+    "version": "envelope-1.0.0",
+    "columns": [
+      "agg.links_down",
+      "agg.loss_max",
+      "agg.loss_n_above_alert",
+      "agg.rate_absz_max",
+      "agg.rate_absz_n_above_3",
+      "host-h1.status.state_up",
+      "host-h1.traffic.rxRate",
+      "host-h1.traffic.txRate",
+      "host-h2.status.state_up",
+      "host-h2.traffic.rxRate",
+      "host-h2.traffic.txRate",
+      "host-h3.status.state_up",
+      "host-h3.traffic.rxRate",
+      "host-h3.traffic.txRate",
+      "host-srv1.status.state_up",
+      "host-srv1.traffic.rxRate",
+      "host-srv1.traffic.txRate",
+      "host-srv2.status.state_up",
+      "host-srv2.traffic.rxRate",
+      "host-srv2.traffic.txRate",
+      "link-h1-s1.status.state_up",
+      "link-h1-s1.traffic.lossPct",
+      "link-h1-s1.traffic.qdiscDropDelta",
+      "link-h1-s1.traffic.qdiscSentDelta",
+      "link-h1-s1.traffic.rxRate",
+      "link-h1-s1.traffic.txRate",
+      "link-h2-s1.status.state_up",
+      "link-h2-s1.traffic.lossPct",
+      "link-h2-s1.traffic.qdiscDropDelta",
+      "link-h2-s1.traffic.qdiscSentDelta",
+      "link-h2-s1.traffic.rxRate",
+      "link-h2-s1.traffic.txRate",
+      "link-h3-s1.status.state_up",
+      "link-h3-s1.traffic.lossPct",
+      "link-h3-s1.traffic.qdiscDropDelta",
+      "link-h3-s1.traffic.qdiscSentDelta",
+      "link-h3-s1.traffic.rxRate",
+      "link-h3-s1.traffic.txRate",
+      "link-s1-s2.status.state_up",
+      "link-s1-s2.traffic.lossPct",
+      "link-s1-s2.traffic.qdiscDropDelta",
+      "link-s1-s2.traffic.qdiscSentDelta",
+      "link-s1-s2.traffic.rxRate",
+      "link-s1-s2.traffic.txRate",
+      "link-s1-s3.status.state_up",
+      "link-s1-s3.traffic.lossPct",
+      "link-s1-s3.traffic.qdiscDropDelta",
+      "link-s1-s3.traffic.qdiscSentDelta",
+      "link-s1-s3.traffic.rxRate",
+      "link-s1-s3.traffic.txRate",
+      "link-s2-s3.status.state_up",
+      "link-s2-s3.traffic.lossPct",
+      "link-s2-s3.traffic.qdiscDropDelta",
+      "link-s2-s3.traffic.qdiscSentDelta",
+      "link-s2-s3.traffic.rxRate",
+      "link-s2-s3.traffic.txRate",
+      "link-s2-srv1.status.state_up",
+      "link-s2-srv1.traffic.lossPct",
+      "link-s2-srv1.traffic.qdiscDropDelta",
+      "link-s2-srv1.traffic.qdiscSentDelta",
+      "link-s2-srv1.traffic.rxRate",
+      "link-s2-srv1.traffic.txRate",
+      "link-s3-srv2.status.state_up",
+      "link-s3-srv2.traffic.lossPct",
+      "link-s3-srv2.traffic.qdiscDropDelta",
+      "link-s3-srv2.traffic.qdiscSentDelta",
+      "link-s3-srv2.traffic.rxRate",
+      "link-s3-srv2.traffic.txRate",
+      "switch-s1.status.state_up",
+      "switch-s2.status.state_up",
+      "switch-s3.status.state_up"
+    ],
+    "families": {
+      "primary": [
+        "agg.links_down",
+        "agg.loss_max",
+        "agg.loss_n_above_alert",
+        "agg.rate_absz_max",
+        "agg.rate_absz_n_above_3",
+        "host-h1.status.state_up",
+        "host-h1.traffic.rxRate",
+        "host-h1.traffic.txRate",
+        "host-h2.status.state_up",
+        "host-h2.traffic.rxRate",
+        "host-h2.traffic.txRate",
+        "host-h3.status.state_up",
+        "host-h3.traffic.rxRate",
+        "host-h3.traffic.txRate",
+        "host-srv1.status.state_up",
+        "host-srv1.traffic.rxRate",
+        "host-srv1.traffic.txRate",
+        "host-srv2.status.state_up",
+        "host-srv2.traffic.rxRate",
+        "host-srv2.traffic.txRate",
+        "link-h1-s1.status.state_up",
+        "link-h1-s1.traffic.lossPct",
+        "link-h1-s1.traffic.qdiscDropDelta",
+        "link-h1-s1.traffic.qdiscSentDelta",
+        "link-h1-s1.traffic.rxRate",
+        "link-h1-s1.traffic.txRate",
+        "link-h2-s1.status.state_up",
+        "link-h2-s1.traffic.lossPct",
+        "link-h2-s1.traffic.qdiscDropDelta",
+        "link-h2-s1.traffic.qdiscSentDelta",
+        "link-h2-s1.traffic.rxRate",
+        "link-h2-s1.traffic.txRate",
+        "link-h3-s1.status.state_up",
+        "link-h3-s1.traffic.lossPct",
+        "link-h3-s1.traffic.qdiscDropDelta",
+        "link-h3-s1.traffic.qdiscSentDelta",
+        "link-h3-s1.traffic.rxRate",
+        "link-h3-s1.traffic.txRate",
+        "link-s1-s2.status.state_up",
+        "link-s1-s2.traffic.lossPct",
+        "link-s1-s2.traffic.qdiscDropDelta",
+        "link-s1-s2.traffic.qdiscSentDelta",
+        "link-s1-s2.traffic.rxRate",
+        "link-s1-s2.traffic.txRate",
+        "link-s1-s3.status.state_up",
+        "link-s1-s3.traffic.lossPct",
+        "link-s1-s3.traffic.qdiscDropDelta",
+        "link-s1-s3.traffic.qdiscSentDelta",
+        "link-s1-s3.traffic.rxRate",
+        "link-s1-s3.traffic.txRate",
+        "link-s2-s3.status.state_up",
+        "link-s2-s3.traffic.lossPct",
+        "link-s2-s3.traffic.qdiscDropDelta",
+        "link-s2-s3.traffic.qdiscSentDelta",
+        "link-s2-s3.traffic.rxRate",
+        "link-s2-s3.traffic.txRate",
+        "link-s2-srv1.status.state_up",
+        "link-s2-srv1.traffic.lossPct",
+        "link-s2-srv1.traffic.qdiscDropDelta",
+        "link-s2-srv1.traffic.qdiscSentDelta",
+        "link-s2-srv1.traffic.rxRate",
+        "link-s2-srv1.traffic.txRate",
+        "link-s3-srv2.status.state_up",
+        "link-s3-srv2.traffic.lossPct",
+        "link-s3-srv2.traffic.qdiscDropDelta",
+        "link-s3-srv2.traffic.qdiscSentDelta",
+        "link-s3-srv2.traffic.rxRate",
+        "link-s3-srv2.traffic.txRate",
+        "switch-s1.status.state_up",
+        "switch-s2.status.state_up",
+        "switch-s3.status.state_up"
+      ],
+      "indicator": [
+        "agg.links_down",
+        "agg.loss_max",
+        "agg.loss_n_above_alert",
+        "host-h1.status.state_up",
+        "host-h2.status.state_up",
+        "host-h3.status.state_up",
+        "host-srv1.status.state_up",
+        "host-srv2.status.state_up",
+        "link-h1-s1.status.state_up",
+        "link-h1-s1.traffic.lossPct",
+        "link-h1-s1.traffic.qdiscDropDelta",
+        "link-h2-s1.status.state_up",
+        "link-h2-s1.traffic.lossPct",
+        "link-h2-s1.traffic.qdiscDropDelta",
+        "link-h3-s1.status.state_up",
+        "link-h3-s1.traffic.lossPct",
+        "link-h3-s1.traffic.qdiscDropDelta",
+        "link-s1-s2.status.state_up",
+        "link-s1-s2.traffic.lossPct",
+        "link-s1-s2.traffic.qdiscDropDelta",
+        "link-s1-s3.status.state_up",
+        "link-s1-s3.traffic.lossPct",
+        "link-s1-s3.traffic.qdiscDropDelta",
+        "link-s2-s3.status.state_up",
+        "link-s2-s3.traffic.lossPct",
+        "link-s2-s3.traffic.qdiscDropDelta",
+        "link-s2-srv1.status.state_up",
+        "link-s2-srv1.traffic.lossPct",
+        "link-s2-srv1.traffic.qdiscDropDelta",
+        "link-s3-srv2.status.state_up",
+        "link-s3-srv2.traffic.lossPct",
+        "link-s3-srv2.traffic.qdiscDropDelta",
+        "switch-s1.status.state_up",
+        "switch-s2.status.state_up",
+        "switch-s3.status.state_up"
+      ],
+      "rate_shared": [
+        "agg.rate_absz_max",
+        "agg.rate_absz_n_above_3",
+        "host-h1.traffic.rxRate",
+        "host-h1.traffic.txRate",
+        "host-h2.traffic.rxRate",
+        "host-h2.traffic.txRate",
+        "host-h3.traffic.rxRate",
+        "host-h3.traffic.txRate",
+        "host-srv1.traffic.rxRate",
+        "host-srv1.traffic.txRate",
+        "host-srv2.traffic.rxRate",
+        "host-srv2.traffic.txRate",
+        "link-h1-s1.traffic.qdiscSentDelta",
+        "link-h1-s1.traffic.rxRate",
+        "link-h1-s1.traffic.txRate",
+        "link-h2-s1.traffic.qdiscSentDelta",
+        "link-h2-s1.traffic.rxRate",
+        "link-h2-s1.traffic.txRate",
+        "link-h3-s1.traffic.qdiscSentDelta",
+        "link-h3-s1.traffic.rxRate",
+        "link-h3-s1.traffic.txRate",
+        "link-s1-s2.traffic.qdiscSentDelta",
+        "link-s1-s2.traffic.rxRate",
+        "link-s1-s2.traffic.txRate",
+        "link-s1-s3.traffic.qdiscSentDelta",
+        "link-s1-s3.traffic.rxRate",
+        "link-s1-s3.traffic.txRate",
+        "link-s2-s3.traffic.qdiscSentDelta",
+        "link-s2-s3.traffic.rxRate",
+        "link-s2-s3.traffic.txRate",
+        "link-s2-srv1.traffic.qdiscSentDelta",
+        "link-s2-srv1.traffic.rxRate",
+        "link-s2-srv1.traffic.txRate",
+        "link-s3-srv2.traffic.qdiscSentDelta",
+        "link-s3-srv2.traffic.rxRate",
+        "link-s3-srv2.traffic.txRate"
+      ],
+      "loss_only": [
+        "link-h1-s1.traffic.lossPct",
+        "link-h2-s1.traffic.lossPct",
+        "link-h3-s1.traffic.lossPct",
+        "link-s1-s2.traffic.lossPct",
+        "link-s1-s3.traffic.lossPct",
+        "link-s2-s3.traffic.lossPct",
+        "link-s2-srv1.traffic.lossPct",
+        "link-s3-srv2.traffic.lossPct"
+      ]
+    },
+    "bounds": {
+      "agg.links_down": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "agg.loss_max": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "agg.loss_n_above_alert": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "agg.rate_absz_max": {
+        "min": 0.3674743515688177,
+        "max": 7.642757524097798
+      },
+      "agg.rate_absz_n_above_3": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "host-h1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "host-h1.traffic.rxRate": {
+        "min": 0.0,
+        "max": 15236.81
+      },
+      "host-h1.traffic.txRate": {
+        "min": 0.0,
+        "max": 672022.37
+      },
+      "host-h2.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "host-h2.traffic.rxRate": {
+        "min": 2411.98,
+        "max": 15315.53
+      },
+      "host-h2.traffic.txRate": {
+        "min": 125624.69,
+        "max": 676660.02
+      },
+      "host-h3.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "host-h3.traffic.rxRate": {
+        "min": 0.0,
+        "max": 16260.07
+      },
+      "host-h3.traffic.txRate": {
+        "min": 0.0,
+        "max": 772748.27
+      },
+      "host-srv1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "host-srv1.traffic.rxRate": {
+        "min": 0.0,
+        "max": 1209408.17
+      },
+      "host-srv1.traffic.txRate": {
+        "min": 268743.29,
+        "max": 297644.78
+      },
+      "host-srv2.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "host-srv2.traffic.rxRate": {
+        "min": 396065.66,
+        "max": 946407.12
+      },
+      "host-srv2.traffic.txRate": {
+        "min": 2586.81,
+        "max": 15311.22
+      },
+      "link-h1-s1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-h1-s1.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h1-s1.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h1-s1.traffic.qdiscSentDelta": {
+        "min": 0.0,
+        "max": 695.0
+      },
+      "link-h1-s1.traffic.rxRate": {
+        "min": 0.0,
+        "max": 15228.82
+      },
+      "link-h1-s1.traffic.txRate": {
+        "min": 0.0,
+        "max": 678985.55
+      },
+      "link-h2-s1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-h2-s1.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h2-s1.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h2-s1.traffic.qdiscSentDelta": {
+        "min": 127.0,
+        "max": 685.0
+      },
+      "link-h2-s1.traffic.rxRate": {
+        "min": 2577.14,
+        "max": 15285.76
+      },
+      "link-h2-s1.traffic.txRate": {
+        "min": 128474.75,
+        "max": 675344.81
+      },
+      "link-h3-s1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-h3-s1.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h3-s1.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-h3-s1.traffic.qdiscSentDelta": {
+        "min": 0.0,
+        "max": 817.0
+      },
+      "link-h3-s1.traffic.rxRate": {
+        "min": 0.0,
+        "max": 17491.62
+      },
+      "link-h3-s1.traffic.txRate": {
+        "min": 0.0,
+        "max": 800780.34
+      },
+      "link-s1-s2.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-s1-s2.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s1-s2.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s1-s2.traffic.qdiscSentDelta": {
+        "min": 0.0,
+        "max": 1230.0
+      },
+      "link-s1-s2.traffic.rxRate": {
+        "min": 0.0,
+        "max": 27273.14
+      },
+      "link-s1-s2.traffic.txRate": {
+        "min": 0.0,
+        "max": 1207829.97
+      },
+      "link-s1-s3.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-s1-s3.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s1-s3.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s1-s3.traffic.qdiscSentDelta": {
+        "min": 126.0,
+        "max": 694.0
+      },
+      "link-s1-s3.traffic.rxRate": {
+        "min": 2648.78,
+        "max": 15271.13
+      },
+      "link-s1-s3.traffic.txRate": {
+        "min": 127110.82,
+        "max": 679104.43
+      },
+      "link-s2-s3.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-s2-s3.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s2-s3.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s2-s3.traffic.qdiscSentDelta": {
+        "min": 174.0,
+        "max": 181.0
+      },
+      "link-s2-s3.traffic.rxRate": {
+        "min": 0.0,
+        "max": 70.36
+      },
+      "link-s2-s3.traffic.txRate": {
+        "min": 268255.64,
+        "max": 271141.9
+      },
+      "link-s2-srv1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-s2-srv1.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s2-srv1.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s2-srv1.traffic.qdiscSentDelta": {
+        "min": 177.0,
+        "max": 1413.0
+      },
+      "link-s2-srv1.traffic.rxRate": {
+        "min": 268565.23,
+        "max": 298001.07
+      },
+      "link-s2-srv1.traffic.txRate": {
+        "min": 0.0,
+        "max": 1207079.54
+      },
+      "link-s3-srv2.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "link-s3-srv2.traffic.lossPct": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s3-srv2.traffic.qdiscDropDelta": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "link-s3-srv2.traffic.qdiscSentDelta": {
+        "min": 307.0,
+        "max": 923.0
+      },
+      "link-s3-srv2.traffic.rxRate": {
+        "min": 2675.34,
+        "max": 15653.68
+      },
+      "link-s3-srv2.traffic.txRate": {
+        "min": 397048.11,
+        "max": 995478.36
+      },
+      "switch-s1.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "switch-s2.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "switch-s3.status.state_up": {
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "thresholds": {
+      "primary": {
+        "K": 31,
+        "E": 8.968806422101116
+      },
+      "indicator": {
+        "K": 0,
+        "E": 0.0
+      },
+      "rate_shared": {
+        "K": 31,
+        "E": 8.968806422101116
+      },
+      "loss_only": {
+        "K": 0,
+        "E": 0.0
+      }
+    },
+    "floors": {
+      "by_suffix": {
+        ".traffic.rxRate": 10000.0,
+        ".traffic.txRate": 10000.0,
+        ".traffic.lossPct": 0.1,
+        ".status.state_up": 0.01
+      },
+      "other": 1.0
+    },
+    "link_stats": {
+      "link-h1-s1.traffic.rxRate": {
+        "mean": 6296.8834745762715,
+        "std": 4379.274686608316
+      },
+      "link-h1-s1.traffic.txRate": {
+        "mean": 280498.3134957627,
+        "std": 193281.05591116805
+      },
+      "link-h2-s1.traffic.rxRate": {
+        "mean": 7425.1510805084745,
+        "std": 4097.469524630111
+      },
+      "link-h2-s1.traffic.txRate": {
+        "mean": 334336.4528177967,
+        "std": 177113.37098072364
+      },
+      "link-h3-s1.traffic.rxRate": {
+        "mean": 6441.819766949152,
+        "std": 4461.030384820801
+      },
+      "link-h3-s1.traffic.txRate": {
+        "mean": 287233.6534110169,
+        "std": 196572.39724859243
+      },
+      "link-s1-s2.traffic.rxRate": {
+        "mean": 12734.104152542373,
+        "std": 8507.978782687387
+      },
+      "link-s1-s2.traffic.txRate": {
+        "mean": 567440.6872457627,
+        "std": 375314.77547816007
+      },
+      "link-s1-s3.traffic.rxRate": {
+        "mean": 7414.423432203391,
+        "std": 4094.7682399482946
+      },
+      "link-s1-s3.traffic.txRate": {
+        "mean": 333796.2002542372,
+        "std": 177029.6070437288
+      },
+      "link-s2-s3.traffic.rxRate": {
+        "mean": 1.1871610169491527,
+        "std": 9.05076979937506
+      },
+      "link-s2-s3.traffic.txRate": {
+        "mean": 269633.73396186443,
+        "std": 669.3221845460226
+      },
+      "link-s2-srv1.traffic.rxRate": {
+        "mean": 282360.4040254237,
+        "std": 8536.203616942723
+      },
+      "link-s2-srv1.traffic.txRate": {
+        "mean": 567327.9253177966,
+        "std": 375261.4109894696
+      },
+      "link-s3-srv2.traffic.rxRate": {
+        "mean": 7402.703877118643,
+        "std": 4096.644054443391
+      },
+      "link-s3-srv2.traffic.txRate": {
+        "mean": 603119.8774576272,
+        "std": 177188.76754159929
+      }
+    },
+    "feature_spec": {
+      "uses_delta": false,
+      "delta_columns": [],
+      "uses_rolling": false,
+      "warmup_ticks_required": 0,
+      "aggregate_fn": "ml.features.add_aggregate_features",
+      "link_stats_mode": "frozen",
+      "note": "envelope_feature_names co 0 cot d1: scorer stateless ve feature; Phase 7 phai truyen link_stats dong bang."
+    },
+    "unknown_policy": "any of the 71 columns non-finite -> unknown -> no alarm; never mapped to normal",
+    "provenance": {
+      "train_run_ids": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r2"
+      ],
+      "n_train_rows_envelope": 472,
+      "manifest_sha256": "0d51bbd028bf10c7644447f416dded74af97861968e7de51c40f7617ac4b94a1",
+      "cv_content_sha256": "0219093ee7dba8da7df2645c32adc2ed24e6d69d57a1b4dbfb6e023a9cc8b571",
+      "amendment_1_content_sha256": "7670b3f29cd7f374e6d7c91ab03757aac90574042fae21cc7f632251a07f9349",
+      "phase6_envelope_content_sha256": "f80a17bea9c1f694e4f75e732019a934a935b05ad3167cba359c788a4046c813",
+      "phase6_ticks_csv_sha256": "1212ad2b331fa8d59861329f041ab9c3674d1c388f78d1dbdbfee13d4c4e730f",
+      "slo_content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3",
+      "envelope_code_sha256": "ca9b8f00dcbc18d68fb9aac6b1f4770c8b653176df5c1d0559073f2a48f00759",
+      "git_hash": "55ea863cfa9a495df39f437e86b5537990a0003e",
+      "built_at_utc": "2026-09-17T03:34:07+00:00"
+    }
+  },
+  "content_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b"
+}
