@@ -1,0 +1,876 @@
+{
+  "written_at_utc": "2026-09-17T09:42:18+00:00",
+  "content": {
+    "lesson": "6R.4",
+    "amendment_2_sha256": "31150235def13dcf4544b62b0d816885757547d1097bc3513c1b47c4306f66c4",
+    "git_head": "5c4a6b5da881c5e1dd7fa76e69df475a92618008",
+    "python": "3.13.13",
+    "results": {
+      "runs": {
+        "N-load1M-s1001-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-load1M-s1002-r2": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-load2M-s1003-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-load2M-s1004-r2": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-load4M-s1005-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-load4M-s1006-r2": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-vary-s1007-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "N-vary-s1008-r2": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "C-load2M-s2001-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "C-vary-s2002-r1": {
+          "fault": null,
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": []
+            }
+          }
+        },
+        "F-admin_down-s1-s2-s3001-r1": {
+          "fault": "admin_down",
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-admin_down-s1-s3-s3002-r1": {
+          "fault": "admin_down",
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43
+              ],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-degrade-s1-s2-s3003-r1": {
+          "fault": "degrade",
+          "no_log": {
+            "unknown_by_cause": {
+              "missing_data": 2
+            },
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 3,
+              "fp_events": 1,
+              "fp_tick_list": [
+                42,
+                43,
+                44
+              ],
+              "delay": null
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": null
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "normal",
+              "suspect",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "missing_data": 2,
+              "suppressed_intervention": 1
+            },
+            "n_suppressed": 1,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": null
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": null
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "normal"
+            ]
+          }
+        },
+        "F-degrade-s2-s3-s3004-r1": {
+          "fault": "degrade",
+          "no_log": {
+            "unknown_by_cause": {
+              "missing_data": 2
+            },
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 11
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "missing_data": 2
+            },
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 11
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "fault": "flood",
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 9,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 9,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "suppressed_intervention": 7
+            },
+            "n_suppressed": 7,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 1
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-flood-h2_to_srv2-s3006-r1": {
+          "fault": "flood",
+          "no_log": {
+            "unknown_by_cause": {},
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 7,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47
+              ],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 7,
+              "fp_events": 1,
+              "fp_tick_list": [
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47
+              ],
+              "delay": 2
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "suppressed_intervention": 5
+            },
+            "n_suppressed": 5,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 0
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 2
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "fault": "shift",
+          "no_log": {
+            "unknown_by_cause": {
+              "missing_data": 2
+            },
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 6,
+              "fp_events": 1,
+              "fp_tick_list": [
+                42,
+                43,
+                44,
+                45,
+                46,
+                47
+              ],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 2
+            },
+            "s7_violations": 1,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "suspect",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "missing_data": 2,
+              "suppressed_intervention": 4
+            },
+            "n_suppressed": 4,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 2
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        },
+        "F-shift-s1-s3-s3008-r1": {
+          "fault": "shift",
+          "no_log": {
+            "unknown_by_cause": {
+              "missing_data": 2
+            },
+            "n_suppressed": 0,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 6,
+              "fp_events": 1,
+              "fp_tick_list": [
+                42,
+                43,
+                44,
+                45,
+                46,
+                47
+              ],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 2
+            },
+            "s7_violations": 1,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "suspect",
+              "normal"
+            ]
+          },
+          "with_log": {
+            "unknown_by_cause": {
+              "missing_data": 2,
+              "suppressed_intervention": 4
+            },
+            "n_suppressed": 4,
+            "n_suppressed_on_fault_tick": 0,
+            "suspect_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 1
+            },
+            "act_level": {
+              "fp_ticks": 0,
+              "fp_events": 0,
+              "fp_tick_list": [],
+              "delay": 2
+            },
+            "s7_violations": 0,
+            "state_sequence_window": [
+              "suspect",
+              "act",
+              "normal"
+            ]
+          }
+        }
+      }
+    },
+    "prediction_checks": {
+      "P1_no_log_suspect_fp_events": true,
+      "P1_no_log_suspect_fp_ticks": true,
+      "P1_no_log_act_fp_events": true,
+      "P2_log_fp_events_full_radius_runs": true,
+      "P3_suspect_delay": true,
+      "P3_act_delay": true,
+      "P4_s7_violations": false,
+      "P5_control_and_train_fp_events": true
+    },
+    "totals": {
+      "no_log": {
+        "suspect_level": {
+          "fp_events": 7,
+          "fp_ticks": 37
+        },
+        "act_level": {
+          "fp_events": 4,
+          "fp_ticks": 22
+        }
+      },
+      "with_log": {
+        "suspect_level": {
+          "fp_events": 2,
+          "fp_ticks": 6
+        },
+        "act_level": {
+          "fp_events": 2,
+          "fp_ticks": 6
+        }
+      }
+    }
+  },
+  "content_sha256": "1e83fd45b915165d12d9b72525b761bbcd60c03117d40d0c83aa531efe17e62b"
+}
