@@ -267,6 +267,10 @@ def test_receipt_is_complete_and_bit_exact():
     }
     assert content["labels_read"] is False
     assert content["artifact_sha256"] == EnvelopeModel.load(ART).content_sha256
+    for relative, digest in content["code_sha256"].items():
+        assert C.sha256_file(C.ROOT / relative) == digest, (
+            "code da doi sau receipt: " + relative
+        )
     fast = content["fast_equivalence"]
     assert fast["n_rows"] == fast["n_match"] == 1062
     assert all(value == 1062 for value in fast["per_field_match"].values())

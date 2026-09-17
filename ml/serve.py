@@ -6,6 +6,7 @@ import hashlib
 import json
 import logging
 import math
+import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from ml.features import add_aggregate_features
 from ml.flatten import flatten_snapshot
 from ml.missing import assert_no_fabricated_zero_in_loss, mask_invalid_rates
 from ml.model import EnvelopeModel
+from ml.snapshot_contract import sanitize
 
 log = logging.getLogger("serve")
 MAX_INTERVAL_S = 1.5
@@ -72,6 +74,7 @@ class Reading:
     cons_alarm: bool = False
     interval_s: float | None = None
     n_missing_columns: int = 0
+    n_contract_violations: int = 0
 
 
 @dataclass
@@ -124,7 +127,11 @@ class OnlineScorer:
 
     def observe(self, snapshot: dict) -> Reading:
         source_time, tick = snapshot.get("t_source"), snapshot.get("tick")
-        if not isinstance(source_time, (int, float)) or not math.isfinite(source_time):
+        if (
+            isinstance(source_time, bool)
+            or not isinstance(source_time, (int, float))
+            or not math.isfinite(source_time)
+        ):
             return self._reject(None, tick, "thieu t_source hop le: khong sap thu tu duoc")
         digest = self._digest(snapshot)
         state = self._s
@@ -140,7 +147,18 @@ class OnlineScorer:
                     "sai thu tu: t_source %.6f < da thay %.6f" % (source_time, state.last_t),
                 )
         interval = None if state.last_t is None else source_time - state.last_t
-        reading = self._score(snapshot, source_time, tick, interval)
+        clean, violations = sanitize(snapshot)
+        reading = self._score(clean, source_time, tick, interval)
+        if violations:
+            note = (
+                "input contract: %d truong sai kieu -> coi la khong do duoc (%s)"
+                % (len(violations), "; ".join(violations[:3]))
+            )
+            reading = dataclasses.replace(
+                reading,
+                n_contract_violations=len(violations),
+                reason=note if not reading.reason else reading.reason + "; " + note,
+            )
         state.n_accepted += 1
         state.last_t, state.last_digest, state.last_reading = source_time, digest, reading
         return reading

@@ -26,6 +26,30 @@ OUT = C.ROOT / "results/report/phase6r_equivalence.json"
 FIELDS_INT = ("k", "k_indicator", "k_rate")
 FIELDS_BOOL = ("judgeable", "envelope_suspect", "act", "cons_judgeable", "cons_alarm")
 FIELDS_FLOAT = ("excess", "cons_r_max")
+CODE_FILES = (
+    "ml/serve.py",
+    "ml/serve_fast.py",
+    "ml/snapshot_contract.py",
+    "ml/conservation.py",
+    "ml/model.py",
+    "ml/features.py",
+    "ml/flatten.py",
+    "ml/missing.py",
+)
+
+
+def code_provenance() -> dict:
+    """Refuse to issue a receipt for uncommitted scorer code."""
+    dirty = subprocess.run(
+        ["git", "status", "--porcelain", "--", *CODE_FILES],
+        cwd=C.ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
+    if dirty.strip():
+        raise SystemExit("commit code scorer truoc khi sinh receipt:\n" + dirty)
+    return {relative: C.sha256_file(C.ROOT / relative) for relative in CODE_FILES}
 
 
 def load_parts():
@@ -168,6 +192,7 @@ def compare(batch: pd.DataFrame, online: pd.DataFrame) -> dict:
 
 
 def main() -> int:
+    provenance = code_provenance()
     model, conservation, manifest, contract = load_parts()
     batch = batch_reference(model, conservation, contract)
     online, timing = online_replay(model, conservation, contract, manifest["collector_version"])
@@ -200,6 +225,7 @@ def main() -> int:
             "compute_budget_ms": 50.0,
             "reference_meets_budget": timing["p99_ms"] <= 50.0,
             "fast_meets_budget": fast_timing["p99_ms"] <= 50.0,
+            "code_sha256": provenance,
             "n_snapshots_replayed": timing["n_calls"],
             "labels_read": False,
         },
