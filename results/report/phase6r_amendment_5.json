@@ -1,0 +1,36 @@
+{
+  "written_at_utc": "2026-09-17T11:27:05+00:00",
+  "content": {
+    "amendment_id": "DT4N-P6R-AMENDMENT-5",
+    "amends": {
+      "amendment_4_sha256": "16990f73d63e67320f699722dd45558d2b213080273ba73d2f7bf88cc9388af3",
+      "rcampaign_design_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f"
+    },
+    "git_head": "b65d98ded5bfa89ff523f4653d11d8c5449ff2df",
+    "code_sha256": {
+      "ml/campaign_binding.py": "cb02bb0fb4525fe95a314f8fed16d3ba4c9e0b49776ae4d93ff2394144370882",
+      "ml/rcampaign_runtime.py": "1531f791a1b76b81a432ccdf286725f17acf4316e20d2b59f8c19f713e76c835",
+      "scripts/generate_ml_dataset.py": "f02bd1f6914ca07a2fd5608c928e90241310ce4d621c81edc119eb9ea406d364",
+      "scripts/launch_ml_dataset.py": "4a9081360f90293e5d195c69cfbbec8287a261d49c249dd27e6841b1cdf44bbb",
+      "ml/rcampaign.py": "fdf02907d365d872663b886baec5bd3c815049acf4e67fb06f57013f972df540"
+    },
+    "clarification_1_rerun_identity": {
+      "amendment_4_text": "run_id moi hau to -rN",
+      "implemented": "GIU run_id trong hop dong; lan thu that bai duoc archive_attempt doi ten <run_id>.*.attempt-<utc>-<uuid>.* trong quarantine; manifest ghi lan thu cuoi",
+      "why": "run_id nam trong hop dong da hash; them run_id moi la chay run NGOAI hop dong",
+      "unchanged": "cung seed/tham so; toi da 2 lan; chi loi dung cu; khong xoa lan thu nao"
+    },
+    "clarification_2_intervention_t_start": {
+      "amendment_2_replay": "t_start = t_source cua su kien revert (ghi SAU khi apply)",
+      "r_campaign_runtime": "t_start = time.time() NGAY TRUOC khi apply; ghi o sidecar.interventions",
+      "why": "hieu ung trong luc apply (toi 360 ms voi shift) phai nam trong cua so uc che; khop hop dong Phase 8 append-before-act",
+      "analysis_rule": "moi phan tich R-set dung sidecar.interventions, KHONG dung events cho uc che"
+    },
+    "timing_and_knowledge": {
+      "r_campaign_collected": false,
+      "outcome_information_used": "khong"
+    },
+    "deviation_policy": "bat bien sau commit"
+  },
+  "content_sha256": "a26b9609e685841c90a9d59bafb881ca621ffb00b00ff32084c97fe8d40ff6ca"
+}
