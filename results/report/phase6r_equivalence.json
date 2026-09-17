@@ -1,0 +1,228 @@
+{
+  "written_at_utc": "2026-09-17T08:27:44+00:00",
+  "content": {
+    "lesson": "6R.3",
+    "artifact_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b",
+    "amendment_1_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929",
+    "conservation_mode": "shadow",
+    "git_head": "9dd13b8335bd87ad26174ef485f3a77001f4edbd",
+    "python": "3.13.13",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "machine": "x86_64",
+    "equivalence": {
+      "n_rows": 1062,
+      "n_match": 1062,
+      "per_field_match": {
+        "k": 1062,
+        "k_indicator": 1062,
+        "k_rate": 1062,
+        "judgeable": 1062,
+        "envelope_suspect": 1062,
+        "act": 1062,
+        "cons_judgeable": 1062,
+        "cons_alarm": 1062,
+        "excess": 1062,
+        "cons_r_max": 1062,
+        "status_vs_judgeable": 1062,
+        "reason_nonempty_when_unknown": 1062
+      },
+      "by_run": {
+        "C-load2M-s2001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "C-vary-s2002-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-admin_down-s1-s2-s3001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-admin_down-s1-s3-s3002-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-degrade-s1-s2-s3003-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-degrade-s2-s3-s3004-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-flood-h2_to_srv2-s3006-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-shift-s1-s3-s3008-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load1M-s1001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load1M-s1002-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load2M-s1003-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load2M-s1004-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load4M-s1005-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load4M-s1006-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-vary-s1007-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-vary-s1008-r2": {
+          "match": 59,
+          "rows": 59
+        }
+      },
+      "first_mismatches": []
+    },
+    "timing": {
+      "n_calls": 1080,
+      "p50_ms": 43.88084350011923,
+      "p99_ms": 54.331768770134666,
+      "max_ms": 66.15621799983273,
+      "statuses": {
+        "warming_up": 18,
+        "scored": 1054,
+        "unknown": 8
+      }
+    },
+    "fast_equivalence": {
+      "n_rows": 1062,
+      "n_match": 1062,
+      "per_field_match": {
+        "k": 1062,
+        "k_indicator": 1062,
+        "k_rate": 1062,
+        "judgeable": 1062,
+        "envelope_suspect": 1062,
+        "act": 1062,
+        "cons_judgeable": 1062,
+        "cons_alarm": 1062,
+        "excess": 1062,
+        "cons_r_max": 1062,
+        "status_vs_judgeable": 1062,
+        "reason_nonempty_when_unknown": 1062
+      },
+      "by_run": {
+        "C-load2M-s2001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "C-vary-s2002-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-admin_down-s1-s2-s3001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-admin_down-s1-s3-s3002-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-degrade-s1-s2-s3003-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-degrade-s2-s3-s3004-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-flood-h2_to_srv2-s3006-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "F-shift-s1-s3-s3008-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load1M-s1001-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load1M-s1002-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load2M-s1003-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load2M-s1004-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load4M-s1005-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-load4M-s1006-r2": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-vary-s1007-r1": {
+          "match": 59,
+          "rows": 59
+        },
+        "N-vary-s1008-r2": {
+          "match": 59,
+          "rows": 59
+        }
+      },
+      "first_mismatches": []
+    },
+    "fast_timing": {
+      "n_calls": 1080,
+      "p50_ms": 0.4657075000977784,
+      "p99_ms": 0.6614453799556945,
+      "max_ms": 0.8585579998907633,
+      "statuses": {
+        "warming_up": 18,
+        "scored": 1054,
+        "unknown": 8
+      }
+    },
+    "compute_budget_ms": 50.0,
+    "reference_meets_budget": false,
+    "fast_meets_budget": true,
+    "n_snapshots_replayed": 1080,
+    "labels_read": false
+  },
+  "content_sha256": "8fee23b65d126bb61fe22ad5ed5678564a20bb986362a40ff8e47acff06a301b"
+}

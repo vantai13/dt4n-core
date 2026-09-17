@@ -54,3 +54,12 @@ s1-s2 ở cả C1 lẫn C2.
 log, sáu meta, sáu analysis và báo cáo tổng. `sha256sum -c` đạt 25/25. Collector
 và amendment 1 không thay đổi; kết quả này không được dùng để đổi threshold
 trước R-campaign.
+
+## Quy tắc dừng
+
+Dừng probe cơ chế tại vòng 2, không viết luật v3 rồi lặp đến khi C1 đạt. C0 đã
+xác nhận công cụ đo, C2 đã xác nhận GSO làm drop đến muộn, và collector thấy
+drop trong 6/6 run. Một vòng mới không thay đổi quyết định kỹ thuật nào: không
+sửa collector trước R-campaign và không đổi amendment 1. Chạy tiếp chỉ để đạt
+một nhãn kết luận sẽ tạo optional stopping; trạng thái C1 được giữ là “ủng hộ
+mạnh nhưng chưa xác nhận theo luật đăng ký trước”.
