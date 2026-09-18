@@ -12,9 +12,11 @@ import sys
 from datetime import datetime, timezone
 
 from ml import campaign as C
+from ml.acceptance_skeleton import skeleton
 
 REPORT = C.ROOT / "results/report"
 OUT = REPORT / "phase6r_acceptance_prereg.json"
+SKELETON_OUT = REPORT / "phase6r_acceptance.json"
 
 CODE = (
     "ml/model.py", "ml/serve.py", "ml/serve_fast.py", "ml/fsm.py",
@@ -23,7 +25,7 @@ CODE = (
     "ml/features.py", "ml/flatten.py", "ml/missing.py",
     "ml/snapshot_contract.py", "ml/rcampaign.py", "ml/replay_guard.py",
     "ml/acceptance_stats.py", "ml/acceptance_guard.py", "ml/acceptance_pass.py",
-    "ml/acceptance_metrics.py",
+    "ml/acceptance_metrics.py", "ml/acceptance_skeleton.py",
 )
 
 
@@ -165,7 +167,7 @@ def main() -> int:
             "fact": "Reading.violating holds envelope columns only; cons_switch is never added. A residual-only alarm has local == {} and is NEVER suppressed by ml/fsm.py",
             "not_repaired": "giving the residual a locality is a new mechanism = a second variant",
             "claims": "S7 and S11 are claimed for envelope_only only; combined on R-O3/R-C is descriptive",
-            "prediction": "combined may enter suspect on R-O3 when the admin_down detour accumulates a queue and raises a residual-only alarm; because that alarm has no locality, InterventionLog cannot suppress it. This is descriptive and is not used for S7/S11 claims.",
+            "prediction": "combined will enter suspect at least once on R-O3 from a residual-only alarm during the controller window; because that alarm has no locality, InterventionLog cannot suppress it. Refuted if neither R-O3 run has such an entry. This is descriptive and is not used for S7/S11 claims.",
         },
 
         "single_pass_requirement": {
@@ -494,6 +496,16 @@ def main() -> int:
             "S10_alarm_tick": "a tick whose FSM state for the channel is in {suspect, act} (what the operator sees; hysteresis ticks included, self-penalising). Raw alarm ticks reported as one sensitivity line",
             "S10_evidence_scope": "same tick, any link; None on every non-positive link -> undetermined, counted apart from every column",
             "censored_max_k_none": "all window ticks unknown -> max_k None -> counted in n_censored_no_channel_left_envelope",
+            "G2_event_definition": "amendment_2.definitions.fp_event at act_level: maximal runs of adjacent ticks with y == 0 (after warmup) and state == act. NOT observed_properties.false_alarm_event: act held across the revert (phase6r_fsm.json F-flood-h1 no_log, act ticks 41-49) is 1 FP event here and 0 there, and that post-revert window is what G2 exists to see (F-6R4-1)",
+            "residual_on_unscored_ticks": {
+                "rule": "the residual channel is 'cons_judgeable AND r_max > R' as registered; the envelope status of the tick plays NO part. Ticks with status 'unknown' count",
+                "why_not_changed": "P1/P2 and F3 share one residual definition; splitting it per use would create two residual channels",
+                "census": "residual_alarms_on_unscored_ticks per run, beside every P/F number",
+                "phase5_evidence": "tc reconfiguration makes qdisc columns missing at inject+1 and revert+1 on degrade/shift runs; 7 residual alarms fall on such ticks across the 8 F-* runs; F-degrade-s1-s2 revert+1 (tick 41, y == 0) alarms with r = 0.353",
+                "F3_exposure": "R-D holds about 390 background ticks, 2% is 7.8; revert+1 alone can contribute up to one tick per run",
+                "withdrawn": "'conservation residual sees it (16/20 ticks)' counted scored ticks only; the registered definition gives 17/20 (tick 21 is unknown)",
+            },
+            "G1_channels": "S7 on R-D and R-O from separate FSM instances with_log and no_log in the SAME pass (ml.acceptance_pass.specs_for)",
 
             "incident_detected_for_S1": "at least one Transition into {suspect, act} within [inject_tick + 1, revert_tick]",
             "run_detected_50pct_for_P1_P2": "amendment 1: fraction of ticks with y == 1 and eval_primary carrying a RESIDUAL alarm >= 0.50 (unchanged)",
@@ -588,8 +600,13 @@ def main() -> int:
             "P_S4": "p95 <= 3000 ms for envelope_only on detected incidents under the corrected inject/data-availability clock. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
             "P_S4_per_channel": {
                 "envelope_only": "R-D p95 is predicted <= 3000 ms; Phase 5 rehearsal on the corrected clock gives 1999 ms and the registered envelope mechanism responds within two post-inject ticks when it detects",
-                "combined": "R-D p95 may exceed 3000 ms for steps detected only by the residual; Phase 5 F-degrade-s1-s2 is detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
+                "combined": "At least one R-D run with max_k == 0 will be detected by combined with t_detect_ms > 3000. Refuted if no such run exists. Phase 5 F-degrade-s1-s2 is the mechanism witness: detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
                 "evidence": "rehearsal on Phase 5, open since Phase 6",
+            },
+            "P_F3_revised": {
+                "original": "F3 is predicted to PASS: at 2M per client offered stays below capacity, and Phase 5 background at this load shows r median 0.002-0.004 with 0 alarms in 4 runs of 58 ticks.",
+                "revised": "F3 is predicted to PASS (background residual-alarm fraction <= 2%) even when unscored ticks count. Reconfiguration can create at most one revert+1 opportunity per R-D run; the prediction is refuted if aggregate background_alarm_ticks / background_ticks exceeds 0.02.",
+                "reason": "residual alarm at revert+1 observed on Phase 5 degrade (open since Phase 6); revised before the R-set is opened",
             },
             "P_S4_unobservable": "at least one R-D incident has NO physical evidence in its window, as F-degrade-s1-s2-s3003-r1 did in Phase 5; the low-rho steps are the candidates",
             "P_S7": "0 oscillation patterns; F-6R4-1 may still produce out-of-zone alarms after revert on R-C",
@@ -646,6 +663,22 @@ def main() -> int:
         OUT,
         {"content": content,
          "content_sha256": C.sha256_bytes(C.canonical_json(content).encode())},
+    )
+    matrix = json.loads(
+        (REPORT / "phase6r_rcampaign_matrix.json").read_text(encoding="utf-8")
+    )
+    groups = {}
+    for run in matrix["runs"]:
+        groups.setdefault(run["group"], []).append(run["run_id"])
+    skeleton_content = skeleton(groups)
+    C.atomic_json(
+        SKELETON_OUT,
+        {
+            "content": skeleton_content,
+            "skeleton_sha256": C.sha256_bytes(
+                C.canonical_json(skeleton_content).encode()
+            ),
+        },
     )
     print("[6R-ACCEPT] content_sha256 =", json.loads(OUT.read_text())["content_sha256"])
     return 0

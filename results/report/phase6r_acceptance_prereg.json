@@ -105,8 +105,9 @@
         "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c",
         "ml/acceptance_stats.py": "6743da1e35d650bfe595b576e705c6435521985c04055cd97fff875956d9dab2",
         "ml/acceptance_guard.py": "cf77f8ec626a80268f0e0b9c6f5100e7f77222999f296520db59f02f56f970de",
-        "ml/acceptance_pass.py": "39e84bc51ba83d8295e411c5cb95521bc4b2c806ad43d0b21b836754cbab03d0",
-        "ml/acceptance_metrics.py": "8eb974ae4e1b533df255befb55b6a95ad8ed10d8d19cc2b06f884c932b6ca4c9"
+        "ml/acceptance_pass.py": "e0887453bbc1600d242741859bbe00c66c4da0eb241f129dbced0c0458376e5a",
+        "ml/acceptance_metrics.py": "fd5b11a3b8fd6dd3ccfab0cbd39ecd97ec7427cb04a4cd5ed665480b26a2b1bb",
+        "ml/acceptance_skeleton.py": "f793a5a8eaa3bf137da8d8fa417afdb2b6e1c067c3f2c966f717132ad49779f5"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -166,7 +167,7 @@
       "fact": "Reading.violating holds envelope columns only; cons_switch is never added. A residual-only alarm has local == {} and is NEVER suppressed by ml/fsm.py",
       "not_repaired": "giving the residual a locality is a new mechanism = a second variant",
       "claims": "S7 and S11 are claimed for envelope_only only; combined on R-O3/R-C is descriptive",
-      "prediction": "combined may enter suspect on R-O3 when the admin_down detour accumulates a queue and raises a residual-only alarm; because that alarm has no locality, InterventionLog cannot suppress it. This is descriptive and is not used for S7/S11 claims."
+      "prediction": "combined will enter suspect at least once on R-O3 from a residual-only alarm during the controller window; because that alarm has no locality, InterventionLog cannot suppress it. Refuted if neither R-O3 run has such an entry. This is descriptive and is not used for S7/S11 claims."
     },
     "single_pass_requirement": {
       "rule": "ONE scan of the snapshots produces all three channels",
@@ -603,6 +604,16 @@
       "S10_alarm_tick": "a tick whose FSM state for the channel is in {suspect, act} (what the operator sees; hysteresis ticks included, self-penalising). Raw alarm ticks reported as one sensitivity line",
       "S10_evidence_scope": "same tick, any link; None on every non-positive link -> undetermined, counted apart from every column",
       "censored_max_k_none": "all window ticks unknown -> max_k None -> counted in n_censored_no_channel_left_envelope",
+      "G2_event_definition": "amendment_2.definitions.fp_event at act_level: maximal runs of adjacent ticks with y == 0 (after warmup) and state == act. NOT observed_properties.false_alarm_event: act held across the revert (phase6r_fsm.json F-flood-h1 no_log, act ticks 41-49) is 1 FP event here and 0 there, and that post-revert window is what G2 exists to see (F-6R4-1)",
+      "residual_on_unscored_ticks": {
+        "rule": "the residual channel is 'cons_judgeable AND r_max > R' as registered; the envelope status of the tick plays NO part. Ticks with status 'unknown' count",
+        "why_not_changed": "P1/P2 and F3 share one residual definition; splitting it per use would create two residual channels",
+        "census": "residual_alarms_on_unscored_ticks per run, beside every P/F number",
+        "phase5_evidence": "tc reconfiguration makes qdisc columns missing at inject+1 and revert+1 on degrade/shift runs; 7 residual alarms fall on such ticks across the 8 F-* runs; F-degrade-s1-s2 revert+1 (tick 41, y == 0) alarms with r = 0.353",
+        "F3_exposure": "R-D holds about 390 background ticks, 2% is 7.8; revert+1 alone can contribute up to one tick per run",
+        "withdrawn": "'conservation residual sees it (16/20 ticks)' counted scored ticks only; the registered definition gives 17/20 (tick 21 is unknown)"
+      },
+      "G1_channels": "S7 on R-D and R-O from separate FSM instances with_log and no_log in the SAME pass (ml.acceptance_pass.specs_for)",
       "incident_detected_for_S1": "at least one Transition into {suspect, act} within [inject_tick + 1, revert_tick]",
       "run_detected_50pct_for_P1_P2": "amendment 1: fraction of ticks with y == 1 and eval_primary carrying a RESIDUAL alarm >= 0.50 (unchanged)",
       "cross_use_forbidden": "the two definitions measure different things (did we catch the incident at all, versus is the saturation mechanism right). Every table states which one it uses. Using one in place of the other is forbidden.",
@@ -703,8 +714,13 @@
       "P_S4": "p95 <= 3000 ms for envelope_only on detected incidents under the corrected inject/data-availability clock. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
       "P_S4_per_channel": {
         "envelope_only": "R-D p95 is predicted <= 3000 ms; Phase 5 rehearsal on the corrected clock gives 1999 ms and the registered envelope mechanism responds within two post-inject ticks when it detects",
-        "combined": "R-D p95 may exceed 3000 ms for steps detected only by the residual; Phase 5 F-degrade-s1-s2 is detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
+        "combined": "At least one R-D run with max_k == 0 will be detected by combined with t_detect_ms > 3000. Refuted if no such run exists. Phase 5 F-degrade-s1-s2 is the mechanism witness: detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
         "evidence": "rehearsal on Phase 5, open since Phase 6"
+      },
+      "P_F3_revised": {
+        "original": "F3 is predicted to PASS: at 2M per client offered stays below capacity, and Phase 5 background at this load shows r median 0.002-0.004 with 0 alarms in 4 runs of 58 ticks.",
+        "revised": "F3 is predicted to PASS (background residual-alarm fraction <= 2%) even when unscored ticks count. Reconfiguration can create at most one revert+1 opportunity per R-D run; the prediction is refuted if aggregate background_alarm_ticks / background_ticks exceeds 0.02.",
+        "reason": "residual alarm at revert+1 observed on Phase 5 degrade (open since Phase 6); revised before the R-set is opened"
       },
       "P_S4_unobservable": "at least one R-D incident has NO physical evidence in its window, as F-degrade-s1-s2-s3003-r1 did in Phase 5; the low-rho steps are the candidates",
       "P_S7": "0 oscillation patterns; F-6R4-1 may still produce out-of-zone alarms after revert on R-C",
@@ -786,7 +802,7 @@
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T09:10:07+00:00"
+    "written_at_utc": "2026-09-18T09:31:45+00:00"
   },
-  "content_sha256": "5129d12d72665a8ca61f68f22b0b9d5f2877a31a0185b31c3603d5a11b268bbe"
+  "content_sha256": "eca83720474e0be0409d3e5b82d9f5ad52edd349e70f546f05db4133d4f7a149"
 }
