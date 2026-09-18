@@ -1,0 +1,54 @@
+{
+  "content": {
+    "schema": "DT4N-DETECTOR-RELEASE-1",
+    "version": "detector-release-1.0.0",
+    "components": {
+      "envelope": {
+        "name": "envelope-1.0.0",
+        "path": "models/envelope-1.0.0.json",
+        "content_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b"
+      },
+      "conservation": {
+        "name": "conservation-1.0.0",
+        "path": "results/report/phase6r_amendment_1.json",
+        "content_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929"
+      }
+    },
+    "conservation_mode": "active",
+    "collector_version": "v3-qdisc-ratevalid",
+    "warmup_ticks": 1,
+    "fsm_params": {
+      "n_suspect": 1,
+      "n_act": 2,
+      "release_m": 3,
+      "cooldown_s": 8.0
+    },
+    "scorer": "ml.serve_fast.FastOnlineScorer",
+    "suppression_radius_rule": "radius_with_detour for link-state admin_down interventions; radius for every other intervention",
+    "routing_table": {
+      "path": "ditto/routing_table.json",
+      "sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044"
+    },
+    "decided_by": {
+      "amendment_8_content_sha256": "bfd7450fc23a87ab03f27d38e902cddfaea280e4ffeeeb90a07585bce5b7dad6"
+    },
+    "operating_scope": "2 Mbps/client (moi nhom co cong cua R-campaign)",
+    "channels": {
+      "envelope": {
+        "drives": [
+          "suspect",
+          "act"
+        ],
+        "ttd_p95_ms_R_D": 2007
+      },
+      "conservation": {
+        "drives": [
+          "suspect"
+        ],
+        "ttd_p95_ms_R_D": 11001,
+        "note": "kenh cham; khong dat S4; khong bao gio dan toi act"
+      }
+    }
+  },
+  "content_sha256": "dc04a98dcab67dbc9ab8c25e3750742a2041cc505db31e8c855ee72675ea354c"
+}
