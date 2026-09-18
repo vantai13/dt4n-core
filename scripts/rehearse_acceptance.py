@@ -22,7 +22,7 @@ from scripts.run_phase6r_acceptance import probes_for
 
 REPORT = C.ROOT / "results/report"
 RAW = C.ROOT / "data/phase5/raw"
-OUT = REPORT / "phase6r_rehearsal_b3.json"
+OUT = REPORT / "phase6r_rehearsal_b4.json"
 
 
 def fake_groups(run_ids) -> dict[str, list[str]]:

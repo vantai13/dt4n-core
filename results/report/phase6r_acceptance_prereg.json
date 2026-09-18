@@ -70,6 +70,11 @@
       }
     ],
     "frozen_configuration": {
+      "environment_lock": {
+        "file": "requirements-phase6r.lock.txt",
+        "sha256": "57e9a5d08c61ff79cb3167330cff0b1f5977469bff667eee8abb42df9b701501",
+        "generated_by": ".venv/bin/pip freeze"
+      },
       "artifact": {
         "file": "models/envelope-1.0.0.json",
         "content_sha256": "4741e405c03c17f6074d259ba9c9e1a0458a96721e86d2b9679bf7df05f4352b"
@@ -125,8 +130,8 @@
         "ml/acceptance_skeleton.py": "f793a5a8eaa3bf137da8d8fa417afdb2b6e1c067c3f2c966f717132ad49779f5",
         "ml/acceptance_gates.py": "804c8c5fe0f7df0fbf44dff95050ddb1d2d330a3d086f43979bbca4b6d2c10f2",
         "ml/acceptance_report.py": "3d2ef687119c01e124adf6fc93ad22f1b1614d9c812135852db5732210fcc967",
-        "scripts/run_phase6r_acceptance.py": "a3380350000791c145871eed782736272652b59659a753c5611ccd3dcd68a887",
-        "scripts/rehearse_acceptance.py": "d2dc4e0babd858ba730800c67b45061b11a04fdc3f018af07605c0d0759ce365"
+        "scripts/run_phase6r_acceptance.py": "bd3aa815102273ac8cb8a0edc36f25d0f794058b29adcece738d9bfaefb5566b",
+        "scripts/rehearse_acceptance.py": "40a059d61caaec25132fff8d88431b57f2b9edaa67b979ed9837f6eb684440eb"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -878,7 +883,7 @@
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T11:22:46+00:00"
+    "written_at_utc": "2026-09-18T11:25:13+00:00"
   },
-  "content_sha256": "e6dfb2e6c35b90e401ad725f9fa4181544d60153bc69d82adf0d4db196efa4bd"
+  "content_sha256": "93ee7a1270b24c8dcb19b58f20ec3c852b68aabc2cd8cfd42f2efd15da7c1eee"
 }
