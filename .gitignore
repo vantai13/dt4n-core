@@ -77,6 +77,7 @@ results/**/*
 !results/**/phase-*/*.sha256
 # Run ledgers are evidence needed to reproduce committed JSON reports.
 !results/**/run_log.jsonl
+!results/report/phase6r_acceptance_runs.log
 
 # Lesson 23.17 -- so sach cua kho phan tang. Phai duoc track.
 !results/MANIFEST.md
@@ -226,6 +227,9 @@ results/**/phase-T2/traces/*.csv
 !logs/*.log
 !logs/*.jsonl
 !report.html
+
+# Runtime flow audit is append-only local state and changes during tests.
+logs/command_flow.log
 
 # Local report server output keeps changing while the report is open
 logs/report_server.log

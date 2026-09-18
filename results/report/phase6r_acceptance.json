@@ -1,0 +1,1115 @@
+{
+  "content": {
+    "S1_S4": {
+      "envelope_only": {
+        "summary": {
+          "n_incidents": null,
+          "n_detected": null,
+          "detection_rate": null,
+          "t_detect_p95_ms": null,
+          "t_detect_max_ms": null,
+          "n_censored_channels_left_envelope": null,
+          "n_censored_no_channel_left_envelope": null
+        },
+        "per_incident": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          }
+        }
+      },
+      "combined": {
+        "summary": {
+          "n_incidents": null,
+          "n_detected": null,
+          "detection_rate": null,
+          "t_detect_p95_ms": null,
+          "t_detect_max_ms": null,
+          "n_censored_channels_left_envelope": null,
+          "n_censored_no_channel_left_envelope": null
+        },
+        "per_incident": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "detected": null,
+            "first_tick": null,
+            "t_detect_ms": null,
+            "max_k": null
+          }
+        }
+      }
+    },
+    "S2_S3": {
+      "envelope_only": {
+        "n_events": null,
+        "at_risk_ticks": null,
+        "exposure_hours": null,
+        "rate_point_per_hour": null,
+        "rate_upper_per_hour": null,
+        "mtbfa_lower_minutes": null,
+        "alpha_one_sided": null,
+        "sensitivity_raw_consecutive_runs": null
+      },
+      "combined": {
+        "n_events": null,
+        "at_risk_ticks": null,
+        "exposure_hours": null,
+        "rate_point_per_hour": null,
+        "rate_upper_per_hour": null,
+        "mtbfa_lower_minutes": null,
+        "alpha_one_sided": null,
+        "sensitivity_raw_consecutive_runs": null
+      }
+    },
+    "S7": {
+      "with_log": {
+        "envelope_only": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4301-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4302-r2": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h1_to_srv1-s4201-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h2_to_srv2-s4202-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s2-s4203-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s3-s4204-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          }
+        },
+        "combined": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4301-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4302-r2": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h1_to_srv1-s4201-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h2_to_srv2-s4202-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s2-s4203-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s3-s4204-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          }
+        }
+      },
+      "no_log": {
+        "envelope_only": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4301-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4302-r2": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h1_to_srv1-s4201-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h2_to_srv2-s4202-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s2-s4203-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s3-s4204-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          }
+        },
+        "combined": {
+          "RD-degrade-s1-s2-rho200-s4101-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho150-s4102-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho125-s4103-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho080-s4104-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s1-s2-rho050-s4105-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho200-s4106-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho150-s4107-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho125-s4108-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho080-s4109-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RD-degrade-s2-s3-rho050-s4110-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4301-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RO-ctl_admin_down-s1-s2-s4302-r2": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h1_to_srv1-s4201-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-flood-h2_to_srv2-s4202-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s2-s4203-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          },
+          "RC-shift-s1-s3-s4204-r1": {
+            "act_entries": null,
+            "reescalations": null,
+            "pass": null,
+            "v1_violations": null
+          }
+        }
+      }
+    },
+    "S10": {
+      "envelope_only": {
+        "RN-load6M-s4011-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load6M-s4012-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load8M-s4013-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load8M-s4014-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load10M-s4015-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load10M-s4016-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        }
+      },
+      "combined": {
+        "RN-load6M-s4011-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load6M-s4012-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load8M-s4013-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load8M-s4014-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load10M-s4015-r1": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        },
+        "RN-load10M-s4016-r2": {
+          "alarm_ticks": null,
+          "raw_alarm_ticks": null,
+          "col_a": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_b": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          },
+          "col_c": {
+            "fp_ticks": null,
+            "undetermined_ticks": null
+          }
+        }
+      }
+    },
+    "G2": {
+      "detour": {
+        "RC-flood-h1_to_srv1-s4201-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-flood-h2_to_srv2-s4202-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-shift-s1-s2-s4203-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-shift-s1-s3-s4204-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        }
+      },
+      "original": {
+        "RC-flood-h1_to_srv1-s4201-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-flood-h2_to_srv2-s4202-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-shift-s1-s2-s4203-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        },
+        "RC-shift-s1-s3-s4204-r1": {
+          "act_fp_ticks": null,
+          "act_fp_events": null
+        }
+      }
+    },
+    "gates": {
+      "G1": null,
+      "G2": null,
+      "G3": null,
+      "G4": null,
+      "released": null
+    },
+    "residual": {
+      "per_run": {
+        "RD-degrade-s1-s2-rho200-s4101-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s1-s2-rho150-s4102-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s1-s2-rho125-s4103-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s1-s2-rho080-s4104-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s1-s2-rho050-s4105-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s2-s3-rho200-s4106-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s2-s3-rho150-s4107-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s2-s3-rho125-s4108-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s2-s3-rho080-s4109-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        },
+        "RD-degrade-s2-s3-rho050-s4110-r1": {
+          "rho": null,
+          "fault_ticks": null,
+          "residual_fault_fraction": null,
+          "background_ticks": null,
+          "background_alarm_ticks": null,
+          "alarm_ticks_all": null,
+          "argmax_correct_ticks": null,
+          "incremental_ticks": null,
+          "residual_alarms_on_unscored_ticks": null
+        }
+      },
+      "refuted": {
+        "F1": null,
+        "F2": null,
+        "F3": null,
+        "F4": null,
+        "F5": null,
+        "F6": null
+      },
+      "outcome": null
+    },
+    "dose": {
+      "axis_1": {
+        "envelope_only": {
+          "points": {
+            "RD-degrade-s1-s2-rho200-s4101-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho150-s4102-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho125-s4103-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho080-s4104-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho050-s4105-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho200-s4106-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho150-s4107-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho125-s4108-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho080-s4109-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho050-s4110-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            }
+          },
+          "fit": {
+            "method": null,
+            "ed50": null,
+            "ci95": null,
+            "n_converged": null,
+            "n_boot": null
+          }
+        },
+        "combined": {
+          "points": {
+            "RD-degrade-s1-s2-rho200-s4101-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho150-s4102-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho125-s4103-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho080-s4104-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s1-s2-rho050-s4105-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho200-s4106-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho150-s4107-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho125-s4108-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho080-s4109-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            },
+            "RD-degrade-s2-s3-rho050-s4110-r1": {
+              "separation": null,
+              "separation_sidecar": null,
+              "detected": null
+            }
+          },
+          "fit": {
+            "method": null,
+            "ed50": null,
+            "ci95": null,
+            "n_converged": null,
+            "n_boot": null
+          }
+        }
+      },
+      "axis_2": {
+        "RD-degrade-s1-s2-rho200-s4101-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s1-s2-rho150-s4102-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s1-s2-rho125-s4103-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s1-s2-rho080-s4104-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s1-s2-rho050-s4105-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s2-s3-rho200-s4106-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s2-s3-rho150-s4107-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s2-s3-rho125-s4108-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s2-s3-rho080-s4109-r1": {
+          "rho": null,
+          "residual_detected": null
+        },
+        "RD-degrade-s2-s3-rho050-s4110-r1": {
+          "rho": null,
+          "residual_detected": null
+        }
+      }
+    },
+    "process": {
+      "n_files_read": null,
+      "n_acceptance_invocations": null,
+      "git_head": null,
+      "python": null,
+      "numpy": null,
+      "pandas": null
+    }
+  },
+  "skeleton_sha256": "157a3ae71cf0bb13bdb15bb9e2e3d30ecb18dea24811d46ab9d311630172e387"
+}

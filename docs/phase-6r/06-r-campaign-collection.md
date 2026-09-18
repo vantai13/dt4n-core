@@ -84,6 +84,9 @@ drift tích lũy khoảng 2,3 giây làm deadline 3600 giây chứa ít hơn hai
 
 ## Provenance và giới hạn đã biết
 
+- Log chiến dịch được commit ngày 18/09; lúc thu thập không có SHA. Tính toàn
+  vẹn từ thu thập đến commit được xác nhận bằng kiểm tra timestamp nội dung
+  (dòng cuối 13:57:36 ngày 17/09), không phải bằng hash.
 - 20/25 sidecar ghi `source_dirty=true` với `source_dirty_files` chỉ gồm
   `data/phase6r/`. Đây là lỗi phân loại của `collection_provenance`, vốn chỉ
   loại `data/phase5/`; không có file source code nào bẩn. Không sửa receipt đã
