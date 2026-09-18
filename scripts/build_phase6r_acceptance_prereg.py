@@ -118,6 +118,11 @@ def main() -> int:
 
         # -------------------------------------------------- frozen configuration
         "frozen_configuration": {
+            "environment_lock": {
+                "file": "requirements-phase6r.lock.txt",
+                "sha256": C.sha256_file(C.ROOT / "requirements-phase6r.lock.txt"),
+                "generated_by": ".venv/bin/pip freeze",
+            },
             "artifact": {
                 "file": "models/envelope-1.0.0.json",
                 "content_sha256": json.loads(
