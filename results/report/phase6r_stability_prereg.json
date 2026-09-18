@@ -1,0 +1,244 @@
+{
+  "content": {
+    "prereg_id": "DT4N-P6R-STABILITY",
+    "lesson": "6R.6",
+    "amends": {
+      "slo_content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3",
+      "amendment_6_content_sha256": "4fa5ba8ab072e03b9c3847ae6f8f5632d1e598bdf5680b7055d869b39e9aa8f3",
+      "rcampaign_manifest_file_sha256": "47b8f937363594af3f52193e6ce9accdfb780dc17bc33d0d62d791eecd39dca3"
+    },
+    "git": {
+      "head": "80b87df34eff6a644903b7e08861f2d6b049114f",
+      "dirty_files": [
+        "logs/command_flow.log",
+        "logs/phase6r_controller.log",
+        "logs/phase6r_stdout.log",
+        "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+        "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+        "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+        "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho080-s4109-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+        "logs/rcampaign_RN-load10M-s4015-r1.log",
+        "logs/rcampaign_RN-load10M-s4016-r2.log",
+        "logs/rcampaign_RN-load6M-s4011-r1.log",
+        "logs/rcampaign_RN-load6M-s4012-r2.log",
+        "logs/rcampaign_RN-load8M-s4013-r1.log",
+        "logs/rcampaign_RN-load8M-s4014-r2.log",
+        "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4301-r1.log",
+        "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+        "logs/rcampaign_RS-soak2M-s4001-r1.log",
+        "logs/rcampaign_RS-soak2M-s4002-r2.log",
+        "logs/rcampaign_RS-soak2M-s4003-r3.log",
+        "logs/rcampaign_startup.log",
+        "results/report/feature_audit.csv",
+        "scripts/build_phase6r_stability_prereg.py"
+      ]
+    },
+    "code_sha256": {
+      "ml/serve.py": "29e772149fc1ee94d0aa31106db533490fd9c634eb65c77e7b2f8d95459203b1",
+      "ml/serve_fast.py": "42f90bea0d178162882f6601a6dc7162b7a586a7c21bed64a2be91a6ce6a3193",
+      "ml/fsm.py": "9f524b0f2e78d98ad923eb6ad0dd4d824d11f9a71c0ae4acece73a99e30e7930",
+      "ml/model.py": "9c4b21985606fc4498031ab5a206aa158abaa10fda5bf72294d93b8272f0e435"
+    },
+    "planned_implementation": {
+      "not_yet_created_at_registration": [
+        "ml/replay_guard.py",
+        "ml/payload.py",
+        "scripts/measure_phase6r_latency.py",
+        "scripts/soak_phase6r_detector.py"
+      ],
+      "pinning_rule": "hash new implementation in the final stability receipt; frozen scorer/FSM/model code must keep the hashes above"
+    },
+    "scope_correction": {
+      "source_of_authority": "phase6r_slo.json + amendment 4 + amendment 6",
+      "reason": "PHASE_6R.md predates the sealed SLO table and amendment 6. Its old checklist would expose protected R-S estimands and non-repeatable R-N acceptance outcomes in 6R.6.",
+      "closed_here": [
+        "S4b",
+        "S5",
+        "S6",
+        "S8",
+        "S9",
+        "S11",
+        "S13"
+      ],
+      "deferred_to_6R7": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S7",
+        "S10"
+      ],
+      "deferred_to_phase7": [
+        "S12"
+      ],
+      "moved_out_of_6R6_vs_plan": {
+        "S3": "MTBFA shares the protected S2 false-alarm estimate",
+        "S10": "R-N is non-repeatable acceptance data"
+      }
+    },
+    "sealed_thresholds": {
+      "S4_budget": {
+        "op": "<=",
+        "value": 3000,
+        "unit": "ms"
+      },
+      "S4b_debounce_ceiling": {
+        "op": "<=",
+        "value": 2,
+        "unit": "tick"
+      },
+      "S5_latency_p95": {
+        "op": "<=",
+        "value": 50,
+        "unit": "ms"
+      },
+      "S6_rss_growth_30min": {
+        "op": "<=",
+        "value": 1.0,
+        "unit": "MiB"
+      },
+      "S8_missing_to_unknown": {
+        "op": "==",
+        "value": 1.0,
+        "unit": "ty le tick co cot non-finite -> unknown"
+      },
+      "S9_restart_policy": {
+        "op": "==",
+        "value": 1.0,
+        "unit": "ty le tick dau dung policy"
+      },
+      "S11_controller_act_entries": {
+        "op": "==",
+        "value": 0,
+        "unit": "lan vao act do controller"
+      },
+      "S13_payload_traceability": {
+        "op": "==",
+        "value": 1.0,
+        "unit": "payload co modelVersion + artifact_sha256"
+      }
+    },
+    "data_sources": {
+      "S4b": {
+        "source": "pure derivation from sealed S4/S5",
+        "reads_data": false
+      },
+      "S5": {
+        "source": "R-S",
+        "emits": [
+          "n",
+          "n_warmup_excluded",
+          "cold_start_ms",
+          "mean_ms",
+          "p50_ms",
+          "p95_ms",
+          "p99_ms",
+          "max_ms"
+        ],
+        "forbidden": "per-tick latency series, tick indices, and any Reading or Transition field"
+      },
+      "S6": {
+        "source": "R-S",
+        "emits": [
+          "resource-only RSS time series",
+          "delta_rss_kib",
+          "second_half_slope_kib_per_min",
+          "n_error"
+        ],
+        "forbidden": "Reading/Transition fields, labels, alarm counts"
+      },
+      "S8": {
+        "source": "R-O2 replay on R-S",
+        "emits": "aggregate boolean-only",
+        "firewall": "amendment 6 public_output_contract"
+      },
+      "S9": {
+        "source": "R-O1 replay on R-S",
+        "emits": "aggregate boolean-only",
+        "firewall": "amendment 6 public_output_contract"
+      },
+      "S11": {
+        "source": [
+          "RO-ctl_admin_down-s1-s2-s4301-r1",
+          "RO-ctl_admin_down-s1-s2-s4302-r2"
+        ],
+        "emits": [
+          "n_act_entries_in_window",
+          "n_suppressed_ticks",
+          "blast_radius",
+          "suppression_cause_seen",
+          "passed"
+        ],
+        "note": "R-O3 is separate from R-S and carries no S2/S3 estimate"
+      },
+      "S13": {
+        "source": "unit test only",
+        "reads_data": false
+      }
+    },
+    "measurement_protocol": {
+      "S5": {
+        "clock": "time.monotonic",
+        "measures": "scorer.observe() + DetectorFSM.step()",
+        "implementations": [
+          "OnlineScorer",
+          "FastOnlineScorer"
+        ],
+        "warmup_excluded_per_run": 20,
+        "cold_start_reported_separately": true,
+        "source_runs": [
+          "RS-soak2M-s4001-r1",
+          "RS-soak2M-s4002-r2",
+          "RS-soak2M-s4003-r3"
+        ]
+      },
+      "S6": {
+        "measurement_of_record": "1800 ticks at 1 Hz (30 minutes)",
+        "supplement": "accelerated 10794 ticks",
+        "rss_source": "/proc/self/statm resident pages",
+        "sample_every_sec": 30
+      },
+      "R_O": {
+        "restart_ticks": [
+          600,
+          1800,
+          3000
+        ],
+        "gap_ticks": [
+          600,
+          1800,
+          3000
+        ],
+        "gap_length_snapshots": 5,
+        "public_result_granularity": "one aggregate boolean per sealed field"
+      }
+    },
+    "predictions": {
+      "P_S5": "FastOnlineScorer p95 <= 50 ms; reference OnlineScorer may exceed the budget because it builds pandas objects per tick",
+      "P_S6": "30-minute RSS delta <= 1 MiB and second-half curve is flat",
+      "P_S8": "PASS: every registered 5-snapshot gap maps to unknown(cause=gap)",
+      "P_S9": "PASS: first snapshot is warming_up; no act before n_act scored; no normal before a scored result",
+      "P_S11": "PASS: zero act entries in the intervention window, with nonzero suppressed ticks required for mechanism evidence"
+    },
+    "timing_and_knowledge": {
+      "measured_any_6R6_stability_slo_yet": false,
+      "prior_6R5B_tick_metrology_exists": true,
+      "labels_opened": false,
+      "r_set_acceptance_opened": false,
+      "R_O_replay_run": false
+    },
+    "deviation_policy": "immutable after commit; sealed SLO thresholds may not be loosened after observing stability results",
+    "written_at_utc": "2026-09-18T02:17:57+00:00"
+  },
+  "content_sha256": "3ffb30ec86f58700a0ea634898a80038cb91edd0853d1ba98f23515fa0c8c17a"
+}
