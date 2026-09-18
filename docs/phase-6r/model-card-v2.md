@@ -38,6 +38,41 @@ lặng vô hạn.
 5. Latency detector-only không bao gồm tranh chấp CPU từ Mininet, Ryu, Ditto,
    MongoDB, nginx hoặc dashboard.
 
+## Phát hiện mở chuyển sang Phase 7
+
+Các mục dưới đây đã được ghi nhận trong prereg nghiệm thu 6R.7 nhưng chưa được
+giải quyết trong 6R. Chỉ mục `results/report/phase6r_findings_index.json` theo
+dõi chúng; mã trong ngoặc là mốc tra cứu.
+
+- **Residual bị pha loãng** (`dilution_model`). Residual đo tốc độ tích lũy hàng
+  đợi chia cho tổng lưu lượng vào switch, nên độ nhạy với sự cố trên một link
+  giảm theo tỷ phần lưu lượng của switch đi qua link đó. Với tải hiệu chỉnh,
+  ngưỡng hiệu dụng là ρ > 1.138 trên s1-s2 và ρ > 1.319 trên s2-s3, không phải
+  1.10. Phase 7 phải báo `d` theo từng link như một thuộc tính vận hành.
+- **Khoảng trống độ đặc hiệu ở tải cao** (`declared_coverage_gap`). Ở 8–10
+  Mbps/client, hàng đợi có thể tích lũy tạm thời và residual có thể báo. Vùng
+  tải đó chỉ được phủ bởi S10, vốn là SLO chỉ báo cáo; không cổng nào đã đăng ký
+  bác bỏ residual vì báo động sai ở tải cao.
+- **Trạng thái offload không được ghim** (`environment_facts_not_pinned_in_sidecars`).
+  GSO/TSO đổi dung lượng hàng đợi theo byte khoảng 2 lần, nên đổi thời điểm rớt
+  gói. Residual đếm byte nên ít phụ thuộc biến này hơn chỉ báo mất gói. Kiểm
+  `ethtool -k` trước khi so bất kỳ số drop nào với 6R.
+- **s1-s2 với offload bật chưa đóng cân bằng khối lượng** (`SENSOR_CORRECT_ON_S1S2`
+  bị luật vòng 2 giữ lại: closure 0.92/0.91, qlen 980/970 < 995). Không nâng cấp
+  hậu nghiệm.
+- **Độ lệch 11% trên s1-s2 và lỗ 8% của C1** (`C1_and_the_s1s2_misfit_cannot_both_be_innocent`).
+  Mô hình pha loãng khớp s2-s3 tới 0.2% nhưng lệch +10.9% trên s1-s2, và độ lệch
+  nằm trong `in − out` tính từ rate — đúng đại lượng residual dùng. Hoặc lỗ C1
+  nằm ở báo cáo qdisc (residual không bị ảnh hưởng, độ lệch cần lời giải khác),
+  hoặc nằm ở bộ đếm byte (residual trên s1-s2 lệch +11%). Hai khả năng loại trừ
+  nhau; chưa kết luận.
+- **Vùng vận hành khi phát hành** (`release_scope_restriction_not_a_new_gate`).
+  Mọi nhóm có cổng của R-campaign chạy ở đúng 2 Mbps/client. Nếu
+  conservation-1.0.0 được phát hành, nó chỉ được tuyên bố nghiệm thu ở tải đó;
+  1–4 Mbps/client là vùng hiệu chỉnh, không phải vùng nghiệm thu.
+- **Cửa sổ sau revert của F-6R4-1** (`finding_F_6R4_1_plan`). Cửa sổ inject đã
+  được giải thích bằng hành lang detour; cửa sổ sau revert chưa được kiểm.
+
 ## Release gate
 
 G3 offline PASS sau amendment 7. Phase 8 vẫn bị chặn tới khi Phase 7 chứng minh
