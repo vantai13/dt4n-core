@@ -94,11 +94,13 @@ class TickRow:
     cons_alarm: bool
     cons_judgeable: bool
     cons_r_max: float | None
+    cons_switch: str | None
     ev_strict: bool | None
     ev_sensitive: bool | None
     raw: dict = field(default_factory=dict)
     state: dict = field(default_factory=dict)
     at_risk: dict = field(default_factory=dict)
+    probe: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -114,7 +116,10 @@ def run_one(
     scorer,
     specs: dict[str, FsmSpec],
     residual_threshold: float,
+    probes: dict | None = None,
 ) -> RunTrace:
+    """Quet mot lan; ``probes`` lay them gia tri tu cung snapshot da flatten."""
+    probes = probes or {}
     fsms = {name: spec.factory() for name, spec in specs.items()}
     if len({id(fsm) for fsm in fsms.values()}) != len(fsms):
         raise AssertionError("hai kenh dung chung mot DetectorFSM")
@@ -142,9 +147,13 @@ def run_one(
             bool(reading.cons_alarm),
             bool(reading.cons_judgeable),
             reading.cons_r_max,
+            reading.cons_switch,
             physical_evidence(snapshot, 1.0),
             physical_evidence(snapshot, 0.0),
         )
+        if probes:
+            flat = flatten_snapshot(snapshot)
+            row.probe = {name: probe(flat) for name, probe in probes.items()}
         for name, spec in specs.items():
             fsm = fsms[name]
             alarm = bool(DERIVE[spec.derive](reading))
@@ -161,3 +170,25 @@ def run_one(
             )
         trace.rows.append(row)
     return trace
+
+
+def specs_for(group: str, meta: dict, routing, fsm_factory) -> dict[str, FsmSpec]:
+    """Tao cac FSM instance doc lap theo nhom va che do log da dang ky."""
+    detour = build_log(meta, routing, zone="detour")
+    modes = {
+        "RD": {"with_log": detour, "no_log": None},
+        "RO": {"with_log": detour, "no_log": None},
+        "RC": {
+            "with_log": detour,
+            "original": build_log(meta, routing, zone="original"),
+        },
+        "RS": {"with_log": None},
+        "RN": {"with_log": None},
+    }[group]
+    return {
+        "%s@%s" % (channel, mode): FsmSpec(
+            channel, lambda log=log: fsm_factory(log)
+        )
+        for channel in DERIVE
+        for mode, log in modes.items()
+    }

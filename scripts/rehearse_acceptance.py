@@ -104,6 +104,36 @@ def main() -> int:
         if got != expected:
             raise SystemExit("KNOWN-ANSWER FAIL %s: %s != %s" % (run_id, got, expected))
 
+    # Rehearsal residual tren hai run degrade Phase 5. Reader rieng duoc phep
+    # vi Phase 5 da mo; script acceptance that se lay probes trong lan quet dau.
+    from ml.acceptance_metrics import amendment1_verdicts, residual_run
+    from ml.acceptance_pass import _num
+
+    reader2 = SnapshotReader({key: value["sha256"] for key, value in manifest.items()})
+    residual = {}
+    for run_id in (
+        "F-degrade-s1-s2-s3003-r1",
+        "F-degrade-s2-s3-s3004-r1",
+    ):
+        meta = json.loads(
+            (RAW / (run_id + ".meta.json")).read_text(encoding="utf-8")
+        )
+        key = "link-%s.traffic.txRate" % meta["record"]["fault_target"]
+        trace = run_one(
+            run_id,
+            reader2.read_once(run_id, RAW / (run_id + ".jsonl")),
+            FastOnlineScorer(
+                model,
+                expected_collector_version=version,
+                conservation=conservation,
+                conservation_mode="shadow",
+            ),
+            {"e": FsmSpec("envelope_only", lambda: DetectorFSM(params, None))},
+            frozen["conservation"]["R"],
+            probes={"target_tx": lambda flat, key=key: _num(flat.get(key))},
+        )
+        residual[run_id] = residual_run(trace, meta)
+
     json.dump(
         {
             "reader_n_files_read": reader.n_files_read,
@@ -111,6 +141,10 @@ def main() -> int:
             "per_incident": incidents,
             "s2_s3_background": {channel: s2_s3(background, channel) for channel in CHANNELS},
             "s10_background": s10_rows,
+            "residual_phase5": residual,
+            "residual_verdicts_phase5_illustrative": amendment1_verdicts(
+                residual, s2_combined_upper=0.0
+            ),
             "known_answer": "phase6_anchors.excess_eval_primary.delay_per_run_ticks reproduced 8/8",
         },
         sys.stdout,
