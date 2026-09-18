@@ -7,7 +7,9 @@ import sys
 
 from ml import campaign as C
 from ml.acceptance_guard import (
+    GuardError,
     SnapshotReader,
+    _git,
     count_invocations,
     log_invocation,
     preflight,
@@ -16,7 +18,7 @@ from ml.acceptance_guard import (
 )
 from ml.acceptance_pass import _num, run_one, specs_for
 from ml.acceptance_report import fill
-from ml.acceptance_skeleton import assert_same_shape, skeleton
+from ml.acceptance_skeleton import assert_same_shape, leaves, skeleton
 from ml.blast_radius import Routing
 from ml.fsm import DetectorFSM, FSMParams
 from ml.labels import event_ticks
@@ -73,10 +75,29 @@ def _verify_environment(info: dict) -> None:
         )
 
 
-def main() -> int:
-    # Giai doan 0: moi guard nay chay truoc byte R-set dau tien.
+def _assert_unopened(skel: dict) -> tuple[dict, str]:
+    """Xac nhan output van la skeleton nguyen ven, chua co la nao duoc dien."""
+    document = _document("phase6r_acceptance.json")
+    if "skeleton_sha256" not in document:
+        raise GuardError(
+            "phase6r_acceptance.json khong con la skeleton: co the da mo mot lan"
+        )
+    committed = document["content"]
+    skeleton_hash = document["skeleton_sha256"]
+    if skeleton_hash != C.sha256_bytes(C.canonical_json(committed).encode()):
+        raise ValueError("skeleton SHA lech")
+    filled = [value for value in leaves(committed) if value is not None]
+    if filled:
+        raise GuardError(
+            "skeleton da co %d o duoc dien: day khong phai lan mo dau" % len(filled)
+        )
+    assert_same_shape(skel, committed)
+    return committed, skeleton_hash
+
+
+def stage0() -> dict:
+    """Chay moi guard va nap cau hinh ma khong doc mot byte R-set nao."""
     info = preflight("acceptance")
-    log_invocation(info)
     _verify_environment(info)
 
     prereg_document = _document("phase6r_acceptance_prereg.json")
@@ -89,6 +110,9 @@ def main() -> int:
     for path, sha256 in frozen["code_sha256"].items():
         if C.sha256_file(C.ROOT / path) != sha256:
             raise SystemExit("code lech prereg: " + path)
+    environment_lock = frozen["environment_lock"]
+    if C.sha256_file(C.ROOT / environment_lock["file"]) != environment_lock["sha256"]:
+        raise SystemExit("environment lock lech prereg")
 
     model = EnvelopeModel.load(C.ROOT / frozen["artifact"]["file"])
     if model.content_sha256 != frozen["artifact"]["content_sha256"]:
@@ -102,14 +126,16 @@ def main() -> int:
     for run in matrix["runs"]:
         groups.setdefault(run["group"], []).append(run["run_id"])
 
-    skeleton_document = _document("phase6r_acceptance.json")
-    committed = skeleton_document["content"]
-    if skeleton_document.get("skeleton_sha256") != C.sha256_bytes(
-        C.canonical_json(committed).encode()
-    ):
-        raise ValueError("skeleton SHA lech")
     skel = skeleton(groups)
-    assert_same_shape(skel, committed)
+    _, skeleton_hash = _assert_unopened(skel)
+    skeleton_commit = _git(
+        "rev-list",
+        "-n",
+        "1",
+        "HEAD",
+        "--",
+        "results/report/phase6r_acceptance.json",
+    )
 
     conservation = ConservationLayer.load(REPORT / "phase6r_amendment_1.json")
     params = FSMParams(**frozen["fsm_params"])
@@ -125,7 +151,14 @@ def main() -> int:
     ]:
         raise ValueError("R-campaign manifest file SHA lech prereg")
     manifest = _content_or_self(manifest_path)["runs"]
-    reader = SnapshotReader({key: value["sha256"] for key, value in manifest.items()})
+    missing = [
+        run_id
+        for run_id in manifest
+        if not (RAW / (run_id + ".jsonl")).exists()
+        or not (RAW / (run_id + ".meta.json")).exists()
+    ]
+    if missing:
+        raise SystemExit("thieu file R-set: %s" % sorted(missing))
     external = {
         name: _verified_content(path, prereg["external_receipts"][name])
         for name, path in EXTERNAL.items()
@@ -134,6 +167,56 @@ def main() -> int:
         run["run_id"]
         for run in sorted(matrix["runs"], key=lambda record: record["exec_index"])
     ]
+    return {
+        "info": info,
+        "prereg": prereg,
+        "frozen": frozen,
+        "model": model,
+        "matrix": matrix,
+        "records": records,
+        "groups": groups,
+        "skel": skel,
+        "skeleton_hash": skeleton_hash,
+        "skeleton_commit": skeleton_commit,
+        "conservation": conservation,
+        "params": params,
+        "routing": routing,
+        "version": version,
+        "constants": constants,
+        "manifest": manifest,
+        "external": external,
+        "order": order,
+    }
+
+
+def main(argv=None) -> int:
+    argv = sys.argv[1:] if argv is None else list(argv)
+    if argv not in ([], ["--check-only"]):
+        raise SystemExit("usage: run_phase6r_acceptance.py [--check-only]")
+
+    context = stage0()
+    if argv == ["--check-only"]:
+        sys.__stdout__.write("PREFLIGHT OK\n")
+        return 0
+
+    # Ranh gioi mo: log duoc fsync ngay truoc byte R-set dau tien.
+    info = context["info"]
+    log_invocation(info)
+    prereg = context["prereg"]
+    frozen = context["frozen"]
+    model = context["model"]
+    records = context["records"]
+    groups = context["groups"]
+    skel = context["skel"]
+    conservation = context["conservation"]
+    params = context["params"]
+    routing = context["routing"]
+    version = context["version"]
+    constants = context["constants"]
+    manifest = context["manifest"]
+    external = context["external"]
+    order = context["order"]
+    reader = SnapshotReader({key: value["sha256"] for key, value in manifest.items()})
 
     # Giai doan 1: moi snapshot path duoc doc dung mot lan.
     traces, metas, extras = {}, {}, {}
@@ -214,6 +297,8 @@ def main() -> int:
         {
             "content": filled,
             "content_sha256": C.sha256_bytes(C.canonical_json(filled).encode()),
+            "skeleton_sha256_before_opening": context["skeleton_hash"],
+            "skeleton_first_committed_at": context["skeleton_commit"],
         },
     )
     sys.__stdout__.write("DONE\n")

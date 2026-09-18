@@ -1,11 +1,16 @@
 """B.3: cong phan quyet va projection duoc test khong can R-set."""
 from __future__ import annotations
 
+import io
 import json
 
+import pytest
+
 from ml import campaign as C
+from ml.acceptance_guard import GuardError
 from ml.acceptance_gates import FIT_FIELDS, dose_fit, gate_g1, gate_g2, gate_g4
 from ml.acceptance_stats import DosePoint
+from scripts import run_phase6r_acceptance as runner
 
 
 def test_gate_g1_is_false_on_empty_evidence():
@@ -50,3 +55,25 @@ def test_gate_g4_is_false_while_s12_is_pending():
     ]
     assert stability["release_gates"]["G4_S12"].startswith("PENDING")
     assert gate_g4(replay_o1, replay_o2, stability) is False
+
+
+def test_assert_unopened_rejects_a_filled_skeleton(monkeypatch):
+    content = {"cell": 1}
+    document = {
+        "content": content,
+        "skeleton_sha256": C.sha256_bytes(C.canonical_json(content).encode()),
+    }
+    monkeypatch.setattr(runner, "_document", lambda name: document)
+    with pytest.raises(GuardError, match="khong phai lan mo dau"):
+        runner._assert_unopened({"cell": None})
+
+
+def test_check_only_does_not_log_an_invocation(monkeypatch):
+    called = []
+    stdout = io.StringIO()
+    monkeypatch.setattr(runner, "stage0", lambda: {"verified": True})
+    monkeypatch.setattr(runner, "log_invocation", lambda info: called.append(info))
+    monkeypatch.setattr(runner.sys, "__stdout__", stdout)
+    assert runner.main(["--check-only"]) == 0
+    assert called == []
+    assert stdout.getvalue() == "PREFLIGHT OK\n"
