@@ -1,7 +1,7 @@
 # Model card v2 — DT4N envelope detector sau Amendment 7
 
-Tài liệu này bổ sung, không thay thế, model card Phase 6. Các metric hiệu quả
-S1/S2/S3/S4/S7/S10 vẫn chờ nghiệm thu 6R.7; nhãn chưa được mở.
+Tài liệu này bổ sung, không thay thế, model card Phase 6. Nghiệm thu 6R.7 đã
+hoàn tất; xem mục “Sau nghiệm thu 6R.7”.
 
 ## Đường vận hành
 
@@ -85,3 +85,22 @@ S11 live và S12. Không được dùng receipt replay offline để bỏ qua ha
 - S11 lần hai: `results/report/phase6r_replay_o3_v2.json`
 - Latency hiệu chính: `results/report/phase6r_latency_v2.json`
 - Receipt tổng: `results/report/phase6r_stability_v2.json`
+
+## Sau nghiệm thu 6R.7
+
+Phát hành `detector-release-1.0.0` theo amendment 8: envelope-1.0.0 và
+conservation-1.0.0 ở chế độ active. Vùng nghiệm thu là 2 Mbps/client.
+
+| Failure mode | Người vận hành nhìn thấy | Số đo |
+|---|---|---|
+| Degrade s1-s2, hàng đợi không mất gói | Envelope im; suspect sau khoảng 10 s, `evidence.conservation=true` | 3/3 run ρ≥1.25 |
+| Degrade s2-s3 | suspect khoảng 2 s, `evidence.envelope=true`; act ở ρ≥1.5 | envelope 3/3 run ρ≥1.25 |
+| Degrade không quá tải, ρ≤0.8 | normal; mạng không có triệu chứng đủ mạnh | 0/4 |
+| Tải ngoài vùng, ≥8 Mbps/client | suspect liên tục; guard chưa cài | 59/59 alarm tick |
+| Hysteresis | suspect có thể còn khi evidence đã tắt | `release_m=3` |
+| Alarm chỉ từ residual trong intervention | Không suppression vì không có locality | chỉ suspect, không act |
+| Nền tĩnh 2 Mbps | Không báo động | 0 sự kiện/2.9975 h; upper 0.9994/h |
+
+D-6R7-1 hậu nghiệm cho first residual alarm ở tick 30, 30, 31 trên ba run
+s1-s2 ρ≥1.25. Đường residual có transient rồi mới ramp, nên không chứng minh
+tích lũy đơn thuần và không được dùng để đổi threshold.
