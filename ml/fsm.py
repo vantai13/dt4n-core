@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from ml.blast_radius import entity_of
+from ml.intervention_log import MAX_OPEN_S
 
 
 STATES = ("warming_up", "normal", "suspect", "act", "unknown")
@@ -15,6 +16,7 @@ CAUSES = (
     "missing_data",
     "contract",
     "suppressed_intervention",
+    "stale_intervention",
 )
 
 
@@ -87,10 +89,36 @@ class DetectorFSM:
         if reading.status == "unknown":
             self._reset()
             cause = reading.cause if reading.cause in CAUSES else "missing_data"
-            return self._emit(reading, "unknown", cause, reading.reason)
+            stale = (
+                self.log.stale_open(reading.t_source)
+                if self.log is not None and hasattr(self.log, "stale_open")
+                else []
+            )
+            if stale:
+                cause = "stale_intervention"
+            reason = reading.reason
+            if stale:
+                reason = "can thiep %s mo qua %.0f s: ngung uc che; %s" % (
+                    ",".join(item.id for item in stale),
+                    MAX_OPEN_S,
+                    reason,
+                )
+            return self._emit(reading, "unknown", cause, reason)
         if reading.status != "scored":
             raise ValueError("Reading.status la: %r" % reading.status)
 
+        stale = (
+            self.log.stale_open(reading.t_source)
+            if self.log is not None and hasattr(self.log, "stale_open")
+            else []
+        )
+        operational_cause = "stale_intervention" if stale else None
+        stale_note = (
+            "can thiep %s mo qua %.0f s: ngung uc che; "
+            % (",".join(item.id for item in stale), MAX_OPEN_S)
+            if stale
+            else ""
+        )
         alarming = reading.suspect or reading.act
         if alarming and self.log is not None:
             active = self.log.active(reading.t_source, self.p.cooldown_s)
@@ -142,4 +170,4 @@ class DetectorFSM:
             )
         else:
             new_state, reason = "normal", ""
-        return self._emit(reading, new_state, None, reason)
+        return self._emit(reading, new_state, operational_cause, stale_note + reason)

@@ -79,6 +79,59 @@ def radius(routing: Routing, targets: dict) -> frozenset[str]:
     return frozenset(entities)
 
 
+def _switch_graph(routing: Routing) -> dict[str, set[str]]:
+    """Infer the physical switch graph represented by frozen next hops."""
+    switches = set(routing.next_hop)
+    graph = {switch: set() for switch in switches}
+    for source, destinations in routing.next_hop.items():
+        for next_node in destinations.values():
+            if next_node in switches and next_node != source:
+                graph[source].add(next_node)
+                graph[next_node].add(source)
+    return graph
+
+
+def _alternate_switch_path(routing: Routing, link_key: str) -> list[str]:
+    """Shortest deterministic switch path after removing ``link_key``."""
+    left, right = link_key.split("-", 1)
+    graph = _switch_graph(routing)
+    if left not in graph or right not in graph:
+        return []
+    blocked = frozenset((left, right))
+    queue = [[left]]
+    seen = {left}
+    while queue:
+        path = queue.pop(0)
+        node = path[-1]
+        for neighbor in sorted(graph[node]):
+            if frozenset((node, neighbor)) == blocked or neighbor in seen:
+                continue
+            candidate = path + [neighbor]
+            if neighbor == right:
+                return candidate
+            seen.add(neighbor)
+            queue.append(candidate)
+    return []
+
+
+def radius_with_detour(routing: Routing, targets: dict) -> frozenset[str]:
+    """Add the alternate switch corridor for link-state interventions.
+
+    The strict FSM subset rule remains unchanged.  This function expands only
+    the causal corridor, rather than suppressing on any overlap or declaring
+    the whole topology affected.
+    """
+    entities = set(radius(routing, targets))
+    for link_key in targets.get("links", ()):
+        path = _alternate_switch_path(routing, link_key)
+        entities.update("switch-" + switch for switch in path)
+        entities.update(
+            canonical_key(left, right)
+            for left, right in zip(path, path[1:])
+        )
+    return frozenset(entities)
+
+
 def fraction_of_local_columns(columns, entities: frozenset[str]) -> float:
     local = [column for column in columns if entity_of(column) is not None]
     return sum(entity_of(column) in entities for column in local) / len(local)

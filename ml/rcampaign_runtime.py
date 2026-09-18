@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 from ml import campaign as C
-from ml.blast_radius import Routing, radius
+from ml.blast_radius import Routing, radius, radius_with_detour
 
 INSTRUMENT_GATES = {
     'tick_count_ok', 'event_ticks_ok', 'events_complete',
@@ -48,6 +48,7 @@ class InterventionRecorder:
         if not self.should_log(kind):
             return None
         targets = targets_for(self.record)
+        radius_fn = radius_with_detour if self.record['fault'] == 'admin_down' else radius
         item = {
             'id': '%s:%s' % (self.record['run_id'], kind),
             't_start': float(t_wall),
@@ -55,7 +56,7 @@ class InterventionRecorder:
             'actor': self.policy['actor'],
             'action': '%s:%s' % (kind, self.record['fault']),
             'targets': targets,
-            'blast_radius': sorted(radius(self.routing, targets)),
+            'blast_radius': sorted(radius_fn(self.routing, targets)),
             'routing_sha256': self.routing.sha256,
         }
         if any(existing['id'] == item['id'] for existing in self.items):

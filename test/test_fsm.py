@@ -8,9 +8,9 @@ import pytest
 
 from ml import campaign as C
 from ml import fsm as F
-from ml.blast_radius import Routing, entity_of, radius
+from ml.blast_radius import Routing, entity_of, radius, radius_with_detour
 from ml.fsm import DetectorFSM, FSMParams
-from ml.intervention_log import InMemoryInterventionLog, Intervention
+from ml.intervention_log import MAX_OPEN_S, InMemoryInterventionLog, Intervention
 from ml.serve import Reading
 
 ROUTING = Routing.load(C.ROOT / "ditto/routing_table.json")
@@ -205,6 +205,59 @@ def test_radius_is_second_order_and_can_cover_whole_network():
     small = radius(ROUTING, {"links": ["s2-s3"]})
     assert "host-h1" not in small and "link-s2-srv1" in small
     assert len(radius(ROUTING, {"flows": [["h1", "srv1"]]})) == 16
+
+
+def test_admin_down_radius_adds_only_the_alternate_switch_corridor():
+    original = radius(ROUTING, {"links": ["s1-s2"]})
+    amended = radius_with_detour(ROUTING, {"links": ["s1-s2"]})
+    assert amended - original == {"switch-s3", "link-s1-s3", "link-s2-s3"}
+    assert "host-srv2" not in amended and "link-s3-srv2" not in amended
+
+
+def test_stale_lease_is_exposed_while_alarm_flow_resumes():
+    log = InMemoryInterventionLog()
+    log.append(
+        Intervention(
+            "run:inject",
+            10.0,
+            "controller",
+            "inject:admin_down",
+            {"links": ["s1-s2"]},
+            frozenset({"link-s1-s2"}),
+            "x" * 64,
+        )
+    )
+    fsm = warmed(log=log)
+    transition = fsm.step(
+        rd(
+            10.0 + MAX_OPEN_S,
+            suspect=True,
+            violating=["link-s1-s2.traffic.txRate"],
+        )
+    )
+    assert transition.state == "suspect"
+    assert transition.cause == "stale_intervention"
+    assert "ngung uc che" in transition.reason
+
+
+def test_stale_lease_is_exposed_on_unknown_reading():
+    log = InMemoryInterventionLog()
+    log.append(
+        Intervention(
+            "run:inject",
+            10.0,
+            "controller",
+            "inject:admin_down",
+            {"links": ["s1-s2"]},
+            frozenset({"link-s1-s2"}),
+            "x" * 64,
+        )
+    )
+    transition = warmed(log=log).step(
+        rd(10.0 + MAX_OPEN_S, status="unknown", cause="missing_data")
+    )
+    assert transition.state == "unknown"
+    assert transition.cause == "stale_intervention"
 
 
 def test_entity_of_agg_is_none():

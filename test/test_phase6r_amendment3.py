@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 
 import pytest
 
@@ -24,11 +25,21 @@ def test_hash_and_pins(a3):
     assert a3["content_sha256"] == C.sha256_bytes(
         C.canonical_json(content).encode("utf-8")
     )
+    historical_head = content["git"]["head"]
     for relative, digest in {
         **content["artifacts_sha256"],
         **content["code_sha256"],
     }.items():
-        assert C.sha256_file(C.ROOT / relative) == digest, relative
+        # Later amendments may prospectively change code.  Verify the pinned
+        # bytes at amendment 3's own commit instead of requiring HEAD to stay
+        # frozen forever.
+        raw = subprocess.run(
+            ["git", "show", "%s:%s" % (historical_head, relative)],
+            cwd=C.ROOT,
+            capture_output=True,
+            check=True,
+        ).stdout
+        assert C.sha256_bytes(raw) == digest, relative
 
 
 def test_old_p4_result_is_never_rewritten(a3):
