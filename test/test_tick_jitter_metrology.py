@@ -6,6 +6,7 @@ import ast
 import inspect
 import json
 
+from ml import campaign as C
 from scripts import measure_tick_jitter as J
 
 
@@ -44,3 +45,16 @@ def test_script_has_no_scorer_model_or_label_dependency():
     assert 'ml.model' not in imports
     for forbidden in ('labels_from_events', 'EnvelopeModel', 'OnlineScorer'):
         assert forbidden not in source
+
+
+def test_measured_receipt_is_hashed_and_outcome_blind():
+    document = json.loads(J.OUT.read_text(encoding='utf-8'))
+    content = document['content']
+    assert document['content_sha256'] == C.sha256_bytes(
+        C.canonical_json(content).encode('utf-8'))
+    assert content['reads_only_snapshot_fields'] == ['t_rel']
+    assert content['reads_labels'] is False
+    assert content['reads_detector_output'] is False
+    assert content['pooled']['n_intervals'] == 10791
+    assert content['pooled']['n_over_threshold'] == 0
+    assert content['pooled']['coverage_loss_fraction'] == 0.0

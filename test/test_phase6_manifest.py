@@ -1,9 +1,17 @@
 import json
+import subprocess
+
+import pytest
 
 from scripts import build_phase6_manifest as M
 
 
 def test_manifest_hash_and_all_inputs_are_bound():
+    shallow = subprocess.run(
+        ['git', 'rev-parse', '--is-shallow-repository'], cwd=M.C.ROOT,
+        check=True, capture_output=True, text=True).stdout.strip()
+    if shallow == 'true':
+        pytest.skip('git-history receipt requires a full clone')
     document = json.loads(M.OUT.read_text())
     assert document[M.HASH_FIELD] == M.content_hash(document['content'])
     assert document['content'] == M.current_content()

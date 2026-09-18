@@ -66,6 +66,12 @@ def test_thresholds_are_train_quantiles_and_fixed(doc):
 
 def test_prereg_committed_before_any_detector_code():
     """Bang chung THU TU: commit dau tien cua prereg phai som hon ml/detectors."""
+    shallow = subprocess.run(
+        ['git', 'rev-parse', '--is-shallow-repository'], cwd=P.ROOT,
+        check=True, capture_output=True, text=True).stdout.strip()
+    if shallow == 'true':
+        pytest.skip('git-history ordering requires a full clone')
+
     def first_addition(path):
         commits = subprocess.run(['git','log','--reverse','--diff-filter=A','--format=%H','--',path], cwd=P.ROOT,check=True,capture_output=True,text=True).stdout.split()
         return commits[0] if commits else None

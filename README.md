@@ -101,6 +101,23 @@ python3 scripts/build_report.py
 
 Kết quả thí nghiệm không được thay thế bằng số kỳ vọng trong hướng dẫn. Bootstrap mở rộng chứng minh tạo/đọc Things, chưa xác định công suất tối đa mạng hay độ ổn định dài hạn với 20 client.
 
+### Dữ liệu thô R-campaign (Git LFS)
+
+`data/phase6r/raw/*.jsonl` và raw quarantine được lưu bằng Git LFS, tổng cộng
+khoảng 130 MB. Sau khi clone, tải dữ liệu thật bằng:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+Nếu bỏ qua bước này, file `.jsonl` có thể chỉ là pointer; `head` sẽ hiện
+`version https://git-lfs.github.com/spec/v1` thay vì snapshot. Không cần tải raw
+vẫn kiểm được chuỗi toàn vẹn: các file `*.meta.json` và
+`results/report/phase6r_rcampaign_manifest.json` là file Git thường, chứa
+SHA-256 từng run và khớp với `oid` trong LFS pointer. Chạy
+`pytest test/test_rcampaign_manifest.py` để kiểm receipt ở cả hai chế độ.
+
 ## Dữ liệu trước ML (bản v2)
 
 `run_sync` mặc định sinh TCP normal **2 Mbps/client** tới hai server luân phiên và UDP srv1→srv2 **2 Mbps**. Chọn `--traffic-profile server-only` để tái lập tải của nghiệm thu v1; `--traffic-profile idle` để tắt tải, hoặc `--traffic-profile flood --flood-rate 50M` cho flood. `run_phase1` có `--normal-rate`, `--rate` và `--server-bg-rate`.

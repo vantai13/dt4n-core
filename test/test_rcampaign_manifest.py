@@ -67,6 +67,18 @@ def test_every_run_passed_instrument_gates(manifest):
         assert record['checks']['rate_invalid_fraction_baseline'] == 0.0, run_id
 
 
+def test_collection_provenance_has_no_source_code_changes(manifest):
+    """20 sidecar phân loại nhầm data/phase6r là source; không có code bẩn."""
+    for run_id in manifest['runs']:
+        sidecar = json.loads(
+            (RAW / ('%s.meta.json' % run_id)).read_text(encoding='utf-8'))
+        provenance = sidecar['collection_provenance']
+        assert provenance['git_hash'] == \
+            'ba490d2039861fd46a228dc11db0a42f11921576', run_id
+        assert set(provenance.get('source_dirty_files', [])) <= \
+            {'data/phase6r/'}, run_id
+
+
 def test_execution_followed_sealed_random_order(manifest):
     """Chống temporal confound: thời gian phải theo exec_index đã khóa."""
     matrix = json.loads(MATRIX.read_text(encoding='utf-8'))

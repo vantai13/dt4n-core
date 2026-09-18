@@ -55,7 +55,7 @@ cho Phase 8 trước khi Phase 7 đo S12 và S11 live.
 ## Hợp đồng đã khóa
 
 - Campaign: `DT4N-P6R-RCAMPAIGN`
-- Trạng thái: `planned_not_collected`
+- Trạng thái hiện tại: `collected` (đã đóng ở Lesson 6R.5B)
 - Số run: 25
 - Seed xáo thứ tự: `20260918`
 - Thời gian thu ước tính: 12.995 giây, khoảng 3,6 giờ
@@ -64,5 +64,6 @@ cho Phase 8 trước khi Phase 7 đo S12 và S11 live.
 
 Hash chỉ bao phủ thiết kế trong `CONTRACT_KEYS`; thời điểm ghi, validation và
 provenance phụ không thuộc hash. Launcher phải dựng lại thiết kế từ module hiện
-tại và amendment 1 rồi gọi integrity check trước khi chạy. Không có dữ liệu
-R-campaign nào được thu trong Lesson 6R.5A.
+tại và amendment 1 rồi gọi integrity check trước khi chạy. Tại thời điểm khóa
+Lesson 6R.5A chưa có dữ liệu; kết quả thu và giới hạn nằm trong
+[`06-r-campaign-collection.md`](06-r-campaign-collection.md).

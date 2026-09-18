@@ -1,0 +1,74 @@
+{
+  "content": {
+    "lesson": "6R.5B-metrology",
+    "threshold_sec": 1.5,
+    "decision_this_supports": "6R.3 cach A: delta-t > 1.5s -> d1 unknown",
+    "input_runs": [
+      "RS-soak2M-s4001-r1",
+      "RS-soak2M-s4002-r2",
+      "RS-soak2M-s4003-r3"
+    ],
+    "per_run": {
+      "RS-soak2M-s4001-r1": {
+        "n_snapshots": 3598,
+        "n_intervals": 3597,
+        "p50_sec": 1.0007,
+        "p95_sec": 1.0051,
+        "p99_sec": 1.0091,
+        "max_sec": 1.0892,
+        "n_over_threshold": 0,
+        "over_threshold_first_20": [],
+        "t_rel_first": 0.0934,
+        "t_rel_last": 3599.3814,
+        "observed_span_sec": 3599.288,
+        "span_drift_vs_observed_count_sec": 2.288,
+        "missing_ticks_vs_contract": 2
+      },
+      "RS-soak2M-s4002-r2": {
+        "n_snapshots": 3598,
+        "n_intervals": 3597,
+        "p50_sec": 1.0006,
+        "p95_sec": 1.0051,
+        "p99_sec": 1.0091,
+        "max_sec": 1.0912,
+        "n_over_threshold": 0,
+        "over_threshold_first_20": [],
+        "t_rel_first": 0.0693,
+        "t_rel_last": 3599.3492,
+        "observed_span_sec": 3599.2799,
+        "span_drift_vs_observed_count_sec": 2.2799,
+        "missing_ticks_vs_contract": 2
+      },
+      "RS-soak2M-s4003-r3": {
+        "n_snapshots": 3598,
+        "n_intervals": 3597,
+        "p50_sec": 1.0006,
+        "p95_sec": 1.0054,
+        "p99_sec": 1.0091,
+        "max_sec": 1.0858,
+        "n_over_threshold": 0,
+        "over_threshold_first_20": [],
+        "t_rel_first": 0.0718,
+        "t_rel_last": 3599.376,
+        "observed_span_sec": 3599.3042,
+        "span_drift_vs_observed_count_sec": 2.3042,
+        "missing_ticks_vs_contract": 2
+      }
+    },
+    "pooled": {
+      "n_intervals": 10791,
+      "p50_sec": 1.0006,
+      "p95_sec": 1.0051,
+      "p99_sec": 1.0091,
+      "max_sec": 1.0912,
+      "n_over_threshold": 0,
+      "coverage_loss_fraction": 0.0
+    },
+    "reads_only_snapshot_fields": [
+      "t_rel"
+    ],
+    "reads_labels": false,
+    "reads_detector_output": false
+  },
+  "content_sha256": "bf14728178905c8eaada611f24bfef1b9ed0e261cd2ec5eee2b61f454bd1fdec"
+}
