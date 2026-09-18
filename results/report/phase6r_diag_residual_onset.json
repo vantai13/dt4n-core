@@ -1,0 +1,1224 @@
+{
+  "content": {
+    "diagnostic_id": "D-6R7-1",
+    "label": "POST-HOC MO TA; dang ky o amendment 8; khong doi gi",
+    "registered_in_amendment_8_content_sha256": "bfd7450fc23a87ab03f27d38e902cddfaea280e4ffeeeb90a07585bce5b7dad6",
+    "R": 0.0796613817054327,
+    "runs": {
+      "RD-degrade-s1-s2-rho200-s4101-r1": {
+        "first_alarm_tick": 30,
+        "ticks": [
+          {
+            "tick": 1,
+            "r_max": 0.015950148767429246,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 2,
+            "r_max": -0.0013912866866736702,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 3,
+            "r_max": 0.01731862928410212,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 4,
+            "r_max": 0.00721451086202492,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 5,
+            "r_max": 0.0019365496078457512,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 6,
+            "r_max": 0.011790203905962962,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 7,
+            "r_max": 0.009446828391558235,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 8,
+            "r_max": 0.015054003123796705,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 9,
+            "r_max": 0.0018869967403982823,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 10,
+            "r_max": 0.0018924736755810403,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 11,
+            "r_max": 0.005807475397844499,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 12,
+            "r_max": 0.004008251251674514,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 13,
+            "r_max": 0.005160632300654968,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 14,
+            "r_max": 0.003174661253989632,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 15,
+            "r_max": 0.0037490065280503765,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 16,
+            "r_max": 0.0021290627735233093,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 17,
+            "r_max": 0.014621396442949847,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 18,
+            "r_max": 0.0031504248813378484,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 19,
+            "r_max": 0.009721928931198087,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 20,
+            "r_max": 0.004505875846172305,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 22,
+            "r_max": 0.04566036468289165,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 23,
+            "r_max": 0.03470370469357445,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 24,
+            "r_max": 0.020830271872866783,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 25,
+            "r_max": 0.013517283602425297,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 26,
+            "r_max": 0.005702898736779836,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 27,
+            "r_max": 0.024420663150939347,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 28,
+            "r_max": 0.03639181861824653,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 29,
+            "r_max": 0.06590239583697681,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 30,
+            "r_max": 0.09645699811554698,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 31,
+            "r_max": 0.14032974858261246,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 32,
+            "r_max": 0.18511918663308793,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 33,
+            "r_max": 0.19346102900270193,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 34,
+            "r_max": 0.1907907098274532,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 35,
+            "r_max": 0.1924241139673239,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 36,
+            "r_max": 0.19576531423353585,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 37,
+            "r_max": 0.19358540658715223,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 38,
+            "r_max": 0.1940751662459854,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 39,
+            "r_max": 0.1994588454963486,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 40,
+            "r_max": 0.19966759707055054,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 42,
+            "r_max": 0.06164733320258349,
+            "switch": "s1",
+            "alarm": false,
+            "k": 19
+          },
+          {
+            "tick": 43,
+            "r_max": 0.002773601070029429,
+            "switch": "s2",
+            "alarm": false,
+            "k": 15
+          },
+          {
+            "tick": 44,
+            "r_max": 0.0009637967360481505,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 45,
+            "r_max": 0.008566729646968266,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 46,
+            "r_max": 0.00041473368808416145,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 47,
+            "r_max": 0.000767348689210484,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 48,
+            "r_max": 0.0011212088251406173,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 49,
+            "r_max": 0.00044763669974576254,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 50,
+            "r_max": 0.014281520262489716,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 51,
+            "r_max": 0.0014837237682541141,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 52,
+            "r_max": 0.011834808003290504,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 53,
+            "r_max": 0.0008344887324399394,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 54,
+            "r_max": -0.00027592711286651694,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 55,
+            "r_max": 0.0017878894731292302,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 56,
+            "r_max": 0.0009638273128701868,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 57,
+            "r_max": 0.0017065853102300878,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 58,
+            "r_max": 0.011654713539144957,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 59,
+            "r_max": 7.006961854429269e-05,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          }
+        ]
+      },
+      "RD-degrade-s1-s2-rho150-s4102-r1": {
+        "first_alarm_tick": 30,
+        "ticks": [
+          {
+            "tick": 1,
+            "r_max": 0.004345647337965719,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 2,
+            "r_max": 0.008268227678791946,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 3,
+            "r_max": 0.003074945225368128,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 4,
+            "r_max": 0.005421847563660024,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 5,
+            "r_max": 0.007749564881645489,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 6,
+            "r_max": 0.01642219954475631,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 7,
+            "r_max": 0.008471047779194496,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 8,
+            "r_max": 0.007217555348889798,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 9,
+            "r_max": 0.0009544206015591422,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 10,
+            "r_max": 0.003252273417319812,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 11,
+            "r_max": 0.011170856247172536,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 12,
+            "r_max": 0.0035528876896418456,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 13,
+            "r_max": 0.005040263789752654,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 14,
+            "r_max": 0.01975369793569286,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 15,
+            "r_max": 0.0018227105652440085,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 16,
+            "r_max": 0.006221803874480127,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 17,
+            "r_max": 0.0004935859602268541,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 18,
+            "r_max": 0.012352924616448747,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 19,
+            "r_max": 0.006444363121295108,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 20,
+            "r_max": -2.9984112821499545e-05,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 22,
+            "r_max": 0.05224465373840862,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 23,
+            "r_max": 0.031629953381074244,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 24,
+            "r_max": 0.013628440149470135,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 25,
+            "r_max": 0.0066265656143598365,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 26,
+            "r_max": 0.008830888500875432,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 27,
+            "r_max": 0.009853996607796246,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 28,
+            "r_max": 0.04509449063507915,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 29,
+            "r_max": 0.06974749831663705,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 30,
+            "r_max": 0.08734447875628062,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 31,
+            "r_max": 0.12827745402318824,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 32,
+            "r_max": 0.16411889826312032,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 33,
+            "r_max": 0.2024366795700632,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 34,
+            "r_max": 0.21420919714521525,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 35,
+            "r_max": 0.21424610081524653,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 36,
+            "r_max": 0.22125020448117622,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 37,
+            "r_max": 0.2103580743475475,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 38,
+            "r_max": 0.2191811636566787,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 39,
+            "r_max": 0.21704142896588519,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 40,
+            "r_max": 0.22291386252244436,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 42,
+            "r_max": 0.0005946355946780996,
+            "switch": "s3",
+            "alarm": false,
+            "k": 15
+          },
+          {
+            "tick": 43,
+            "r_max": 0.047458918350228606,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 44,
+            "r_max": 0.0014510198591727072,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 45,
+            "r_max": -0.0006974236639879678,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 46,
+            "r_max": 0.001287519830496794,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 47,
+            "r_max": 0.00015600724048496264,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 48,
+            "r_max": 0.0015193498741254625,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 49,
+            "r_max": 0.0004928798504468258,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 50,
+            "r_max": 0.00046004253886901416,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 51,
+            "r_max": 0.0020213637724117196,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 52,
+            "r_max": -0.00031240770638753284,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 53,
+            "r_max": 0.0020706402493545534,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 54,
+            "r_max": -0.0003084744668912132,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 55,
+            "r_max": 0.00188107527971849,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 56,
+            "r_max": 0.0009923489258447766,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 57,
+            "r_max": -4.1587533968956684e-05,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 58,
+            "r_max": 0.0010092628275582063,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 59,
+            "r_max": 0.0014432144028871214,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          }
+        ]
+      },
+      "RD-degrade-s1-s2-rho125-s4103-r1": {
+        "first_alarm_tick": 31,
+        "ticks": [
+          {
+            "tick": 1,
+            "r_max": 0.0038748208360077953,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 2,
+            "r_max": 0.002454556456105954,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 3,
+            "r_max": 0.008417259000192858,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 4,
+            "r_max": 0.005618120133320506,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 5,
+            "r_max": 5.535360548697153e-05,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 6,
+            "r_max": 0.028918853666385816,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 7,
+            "r_max": 0.0031045978229182077,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 8,
+            "r_max": 0.006045805445121504,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 9,
+            "r_max": 0.005626134925124722,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 10,
+            "r_max": 0.007415090706431838,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 11,
+            "r_max": 0.0003615816118951912,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 12,
+            "r_max": 0.00719859021194933,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 13,
+            "r_max": 0.008059435372909443,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 14,
+            "r_max": 0.01357045097097353,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 15,
+            "r_max": 0.0010058122773692545,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 16,
+            "r_max": 0.0054697709007879925,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 17,
+            "r_max": 0.005145380240800352,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 18,
+            "r_max": 0.010766336716102939,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 19,
+            "r_max": 0.005241150521310384,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 20,
+            "r_max": 0.0076821394799396,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 22,
+            "r_max": 0.0471116034022939,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 23,
+            "r_max": 0.03192488942384849,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 24,
+            "r_max": 0.035304865785365666,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 25,
+            "r_max": 0.05741748979594937,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 26,
+            "r_max": 0.06453724627862766,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 27,
+            "r_max": 0.011326995789968668,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 28,
+            "r_max": 0.017462369574037143,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 29,
+            "r_max": 0.0250243726887603,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 30,
+            "r_max": 0.0480116561926207,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 31,
+            "r_max": 0.09447187164015632,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 32,
+            "r_max": 0.1653942131391269,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 33,
+            "r_max": 0.16570642790956688,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 34,
+            "r_max": 0.21105353359029846,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 35,
+            "r_max": 0.17382465724937,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 36,
+            "r_max": 0.27085076121940127,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 37,
+            "r_max": 0.12731621218551803,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 38,
+            "r_max": 0.21685449603711573,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 39,
+            "r_max": 0.24765196575520362,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 40,
+            "r_max": 0.22616414566410328,
+            "switch": "s1",
+            "alarm": true,
+            "k": 0
+          },
+          {
+            "tick": 42,
+            "r_max": 0.02598953430045059,
+            "switch": "s2",
+            "alarm": false,
+            "k": 9
+          },
+          {
+            "tick": 43,
+            "r_max": 7.994239655609252e-05,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 44,
+            "r_max": 0.0019132697148871835,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 45,
+            "r_max": 0.0012944667051359676,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 46,
+            "r_max": 0.0007259184037679421,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 47,
+            "r_max": 0.002966679743113201,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 48,
+            "r_max": 0.0021145998013783356,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 49,
+            "r_max": 0.0021363948370663488,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 50,
+            "r_max": 0.0019215076202049024,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 51,
+            "r_max": 0.0027888694668512914,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 52,
+            "r_max": 0.0013449501496713586,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 53,
+            "r_max": 0.0011682060079631423,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 54,
+            "r_max": 0.0005572549947931999,
+            "switch": "s1",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 55,
+            "r_max": 0.0018590180109347928,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 56,
+            "r_max": 0.00370836214608203,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 57,
+            "r_max": 0.0017465559281787273,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 58,
+            "r_max": 0.003172564284251837,
+            "switch": "s3",
+            "alarm": false,
+            "k": 0
+          },
+          {
+            "tick": 59,
+            "r_max": 0.002526575582046706,
+            "switch": "s2",
+            "alarm": false,
+            "k": 0
+          }
+        ]
+      }
+    },
+    "written_at_utc": "2026-09-18T12:45:45+00:00"
+  },
+  "content_sha256": "3ab33df5a6b17f5d04ce31e15d4af4054095116f82cd4061af77b6254a8d906e"
+}
