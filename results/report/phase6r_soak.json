@@ -1,0 +1,308 @@
+{
+  "content": {
+    "lesson": "6R.6",
+    "slo": "S6",
+    "target_mib": 1.0,
+    "phase2_baseline": {
+      "file": "soak_30min.json",
+      "rss_kib": [
+        29244,
+        29456
+      ],
+      "delta_kib": 212
+    },
+    "rss_source": "/proc/self/statm field[1] x PAGE_SIZE",
+    "rss_rationale": "current RSS supports a curve; ru_maxrss is only a high-water mark",
+    "realtime_30min": {
+      "n_ticks": 1800,
+      "n_error": 0,
+      "duration_s": 1800.2,
+      "rss_start_kib": 579456,
+      "rss_end_kib": 579748,
+      "rss_peak_kib": 579748,
+      "delta_kib": 292,
+      "delta_mib": 0.2852,
+      "second_half_slope_kib_per_min": 1.63,
+      "shape": "flat",
+      "series": [
+        {
+          "t_s": 0.0,
+          "rss_kib": 579456
+        },
+        {
+          "t_s": 30.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 61.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 92.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 122.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 153.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 183.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 214.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 244.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 275.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 305.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 336.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 366.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 396.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 427.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 458.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 489.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 520.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 550.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 580.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 610.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 641.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 672.0,
+          "rss_kib": 579712
+        },
+        {
+          "t_s": 702.0,
+          "rss_kib": 579716
+        },
+        {
+          "t_s": 732.0,
+          "rss_kib": 579720
+        },
+        {
+          "t_s": 762.0,
+          "rss_kib": 579720
+        },
+        {
+          "t_s": 793.0,
+          "rss_kib": 579720
+        },
+        {
+          "t_s": 824.0,
+          "rss_kib": 579720
+        },
+        {
+          "t_s": 855.0,
+          "rss_kib": 579720
+        },
+        {
+          "t_s": 886.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 916.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 946.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 977.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1008.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1038.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1068.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1099.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1129.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1160.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1191.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1222.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1253.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1283.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1313.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1344.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1374.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1405.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1435.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1465.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1495.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1526.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1556.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1587.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1618.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1649.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1679.0,
+          "rss_kib": 579724
+        },
+        {
+          "t_s": 1710.0,
+          "rss_kib": 579736
+        },
+        {
+          "t_s": 1740.0,
+          "rss_kib": 579748
+        },
+        {
+          "t_s": 1771.0,
+          "rss_kib": 579748
+        },
+        {
+          "t_s": 1800.2,
+          "rss_kib": 579748
+        }
+      ]
+    },
+    "accelerated": {
+      "n_ticks": 10794,
+      "n_error": 0,
+      "duration_s": 8.8,
+      "rss_start_kib": 579748,
+      "rss_end_kib": 579752,
+      "rss_peak_kib": 579752,
+      "delta_kib": 4,
+      "delta_mib": 0.0039,
+      "second_half_slope_kib_per_min": 63.16,
+      "shape": "still_growing",
+      "series": [
+        {
+          "t_s": 0.0,
+          "rss_kib": 579748
+        },
+        {
+          "t_s": 5.0,
+          "rss_kib": 579748
+        },
+        {
+          "t_s": 8.8,
+          "rss_kib": 579752
+        }
+      ]
+    },
+    "measurement_of_record": "realtime_30min",
+    "why_two_scales": "real time tests time-dependent growth and Phase-2 comparability; accelerated tests tick-dependent growth",
+    "verdict": "PASS",
+    "firewall_compliance": {
+      "amendment_6": true,
+      "emits_resource_metrics_only": true,
+      "reads_labels": false
+    },
+    "git_head": "b40f2d71fc068e36df32ff864f3046779cc7cf42",
+    "written_at_utc": "2026-09-18T03:12:25+00:00"
+  },
+  "content_sha256": "456b8d1684f6c2418e46c79f5f6530ca0783ed272bf32c81398787fdc937df56"
+}

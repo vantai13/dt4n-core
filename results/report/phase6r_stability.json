@@ -1,0 +1,90 @@
+{
+  "content": {
+    "lesson": "6R.6",
+    "prereg_content_sha256": "3ffb30ec86f58700a0ea634898a80038cb91edd0853d1ba98f23515fa0c8c17a",
+    "slo_content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3",
+    "amendment_6_content_sha256": "4fa5ba8ab072e03b9c3847ae6f8f5632d1e598bdf5680b7055d869b39e9aa8f3",
+    "implementation_sha256": {
+      "ml/payload.py": "9987e8aa69d8cab147d52ede1f5ceeee373d4db264a8bec834c743858e2e1e69",
+      "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c",
+      "scripts/measure_phase6r_latency.py": "45b4fdff954cae2cfec3cf4b0f936b13f4f1563d54cb576c5ec8add35da90fc3",
+      "scripts/soak_phase6r_detector.py": "63a19c0d78d04d4f0c12fe0edcc112e11c6a754a904c79445eb283b92e93c5e5",
+      "scripts/replay_phase6r_stability.py": "455e4d49f87656d24b07b2c670a1450e436958f889c983b33ce1f6670fdfe938"
+    },
+    "evidence_file_sha256": {
+      "phase6r_latency.json": "cdbb825eb28b687aede0c9a432b4902882ee70147acc849365b07b572c9e5c2b",
+      "phase6r_soak.json": "84724c38dffe54c57735463479e4332f7e93e566e15408ed1c0e1318d80394ab",
+      "phase6r_replay_o1.json": "6db5659714ab4955ea8e67ba35781087dc8f81507ac7ca99239d937dc7c1a4a3",
+      "phase6r_replay_o2.json": "902f544a3adb89f122c40e876e22e91308515b03feb445879fde9906d027de4c",
+      "phase6r_replay_o3.json": "97fc404686390f04046ad3819a36e09bc41f30676d627b5976ebf9ba9be9f172"
+    },
+    "plot": {
+      "file": "phase6r_soak_rss.png",
+      "file_sha256": "bcd18dcb9b22a0a78702f35fc0e911a918bdbd991e8593194579c6558e49ef1a"
+    },
+    "closed_here": {
+      "S4b": {
+        "verdict": "PASS",
+        "value": 2,
+        "evidence": "test/test_slo_s4b_debounce_ceiling.py"
+      },
+      "S5": {
+        "verdict": "PASS",
+        "p95_ms": 0.927,
+        "evidence": "phase6r_latency.json"
+      },
+      "S6": {
+        "verdict": "PASS",
+        "delta_mib": 0.2852,
+        "evidence": "phase6r_soak.json"
+      },
+      "S8": {
+        "verdict": "PASS",
+        "boolean_only": true,
+        "evidence": "phase6r_replay_o2.json"
+      },
+      "S9": {
+        "verdict": "PASS",
+        "boolean_only": true,
+        "evidence": "phase6r_replay_o1.json"
+      },
+      "S11": {
+        "verdict": "FAIL",
+        "evidence": "phase6r_replay_o3.json"
+      },
+      "S13": {
+        "verdict": "PASS",
+        "evidence": "test/test_payload_traceability.py"
+      }
+    },
+    "deferred": {
+      "S1": "6R.7 (R-D acceptance)",
+      "S2": "6R.7 (R-S protected estimand)",
+      "S3": "6R.7 (same protected measurement as S2)",
+      "S4": "6R.7 (R-D + R-O)",
+      "S7": "6R.7 (R-D + R-O)",
+      "S10": "6R.7 (R-N, repeatable=false)",
+      "S12": "Phase 7 (amendment 4)"
+    },
+    "prediction_checks": {
+      "P_S5": "MATCH: fast p95 0.927 ms passes; reference p95 58.029 ms fails",
+      "P_S6": "MATCH: 30-minute delta 0.2852 MiB; second-half slope 1.63 KiB/min",
+      "P_S8": "MATCH: aggregate boolean result",
+      "P_S9": "MATCH: aggregate boolean result",
+      "P_S11": "MISMATCH: FAIL"
+    },
+    "measurement_environment": {
+      "python": "3.13.13",
+      "kernel": "6.8.0-1066-gcp",
+      "machine": "x86_64",
+      "cpu_model": "Intel(R) Xeon(R) CPU @ 2.80GHz",
+      "logical_cpus": 8,
+      "note": "detector-only harness; Phase 7 contention with Mininet/Ditto/dashboard is not measured"
+    },
+    "r_set_acceptance_opened": false,
+    "labels_opened": false,
+    "git_head": "b40f2d71fc068e36df32ff864f3046779cc7cf42",
+    "written_at_utc": "2026-09-18T03:12:42+00:00"
+  },
+  "content_sha256": "7dbbd7a830b7fff47ba40bc88966431b551f9bbc6faeace2bc6ef0f2e4d82831"
+}

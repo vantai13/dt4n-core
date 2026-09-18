@@ -1,0 +1,63 @@
+{
+  "content": {
+    "lesson": "6R.6",
+    "slo": "S11",
+    "runs": {
+      "RO-ctl_admin_down-s1-s2-s4301-r1": {
+        "n_act_entries_in_suppression_window": 1,
+        "window": [
+          1789661909.9460025,
+          1789661937.9613237
+        ],
+        "blast_radius": [
+          "host-h1",
+          "host-h2",
+          "host-h3",
+          "host-srv1",
+          "link-h1-s1",
+          "link-h2-s1",
+          "link-h3-s1",
+          "link-s1-s2",
+          "link-s2-srv1",
+          "switch-s1",
+          "switch-s2"
+        ],
+        "n_suppressed_ticks": 0,
+        "suppression_cause_seen": null,
+        "sidecar_sha256": "215360b364c4a4b58e6cd790dc1ec72071ca2462ffb1160543243cd0fba8f624",
+        "passed": false
+      },
+      "RO-ctl_admin_down-s1-s2-s4302-r2": {
+        "n_act_entries_in_suppression_window": 1,
+        "window": [
+          1789649406.3284311,
+          1789649434.3444703
+        ],
+        "blast_radius": [
+          "host-h1",
+          "host-h2",
+          "host-h3",
+          "host-srv1",
+          "link-h1-s1",
+          "link-h2-s1",
+          "link-h3-s1",
+          "link-s1-s2",
+          "link-s2-srv1",
+          "switch-s1",
+          "switch-s2"
+        ],
+        "n_suppressed_ticks": 0,
+        "suppression_cause_seen": null,
+        "sidecar_sha256": "f6ca295f78c48bce82b5b002b7aed2b771f1fbde69a2efd6cb5ffd7869f55854",
+        "passed": false
+      }
+    },
+    "verdict": "FAIL",
+    "mechanism_evidence_seen_in_every_run": false,
+    "mechanism_note": "uses sidecar.interventions recorded before apply; events are not suppression authority",
+    "reads_labels": false,
+    "git_head": "b40f2d71fc068e36df32ff864f3046779cc7cf42",
+    "written_at_utc": "2026-09-18T02:41:57+00:00"
+  },
+  "content_sha256": "520ebceee11821b61a5393c1863af2329876207c9b08f3adf3558468334566c7"
+}

@@ -1,0 +1,9 @@
+{
+  "content": {
+    "first_after_restart_is_warming_up": true,
+    "no_act_before_n_scored": true,
+    "no_normal_before_scored": true,
+    "passed": true
+  },
+  "content_sha256": "5a657e66d82d806989a53f467bbd0ab358dd705374598db86f85c47c485b24cf"
+}

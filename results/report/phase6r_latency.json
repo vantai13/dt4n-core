@@ -1,0 +1,52 @@
+{
+  "content": {
+    "lesson": "6R.6",
+    "slo": "S5",
+    "target_ms": 50.0,
+    "clock": "time.monotonic",
+    "clock_rationale": "wall clock can move under NTP; monotonic measures elapsed work",
+    "measures": "OnlineScorer.observe() + DetectorFSM.step()",
+    "source_runs": [
+      "RS-soak2M-s4001-r1",
+      "RS-soak2M-s4002-r2",
+      "RS-soak2M-s4003-r3"
+    ],
+    "per_implementation": {
+      "OnlineScorer": {
+        "n_samples": 10734,
+        "n_warmup_excluded": 60,
+        "cold_start_ms": 0.622,
+        "p50_ms": 51.953,
+        "p95_ms": 58.029,
+        "p99_ms": 61.454,
+        "max_ms": 190.365,
+        "mean_ms": 53.053
+      },
+      "FastOnlineScorer": {
+        "n_samples": 10734,
+        "n_warmup_excluded": 60,
+        "cold_start_ms": 0.658,
+        "p50_ms": 0.775,
+        "p95_ms": 0.927,
+        "p99_ms": 1.164,
+        "max_ms": 1.733,
+        "mean_ms": 0.8
+      }
+    },
+    "phase7_implementation": "FastOnlineScorer",
+    "verdict": {
+      "OnlineScorer": "FAIL",
+      "FastOnlineScorer": "PASS"
+    },
+    "firewall_compliance": {
+      "amendment_6": true,
+      "emits_percentiles_only": true,
+      "emits_tick_indices": false,
+      "emits_reading_or_transition_fields": false,
+      "reads_labels": false
+    },
+    "git_head": "b40f2d71fc068e36df32ff864f3046779cc7cf42",
+    "written_at_utc": "2026-09-18T02:41:25+00:00"
+  },
+  "content_sha256": "29649097c1beb2930a28983e6ad19db3a985e1bbfcb0370adcf4ff66463444e5"
+}

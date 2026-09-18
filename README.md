@@ -118,6 +118,15 @@ vẫn kiểm được chuỗi toàn vẹn: các file `*.meta.json` và
 SHA-256 từng run và khớp với `oid` trong LFS pointer. Chạy
 `pytest test/test_rcampaign_manifest.py` để kiểm receipt ở cả hai chế độ.
 
+### Ổn định detector — Lesson 6R.6
+
+S4b/S5/S6/S8/S9/S13 đạt; S11 thất bại trên cả hai run controller và được giữ
+nguyên như kết quả quan sát, không chỉnh ngưỡng hậu nghiệm. Fast scorer đạt
+p95 0,927 ms; soak 30 phút tăng 0,2852 MiB với độ dốc nửa sau 1,63 KiB/phút.
+[Hồ sơ, giới hạn và lệnh chạy](docs/phase-6r/07-stability.md),
+[receipt tổng](results/report/phase6r_stability.json). Nhãn và các protected
+estimand S2/S3 vẫn chưa mở.
+
 ## Dữ liệu trước ML (bản v2)
 
 `run_sync` mặc định sinh TCP normal **2 Mbps/client** tới hai server luân phiên và UDP srv1→srv2 **2 Mbps**. Chọn `--traffic-profile server-only` để tái lập tải của nghiệm thu v1; `--traffic-profile idle` để tắt tải, hoặc `--traffic-profile flood --flood-rate 50M` cho flood. `run_phase1` có `--normal-rate`, `--rate` và `--server-bg-rate`.
