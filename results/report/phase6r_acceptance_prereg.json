@@ -105,7 +105,8 @@
         "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c",
         "ml/acceptance_stats.py": "6743da1e35d650bfe595b576e705c6435521985c04055cd97fff875956d9dab2",
         "ml/acceptance_guard.py": "cf77f8ec626a80268f0e0b9c6f5100e7f77222999f296520db59f02f56f970de",
-        "ml/acceptance_pass.py": "091c2adf95372ca8abd616159184a2fd4cddb58c1bced75752d35919935e4681"
+        "ml/acceptance_pass.py": "39e84bc51ba83d8295e411c5cb95521bc4b2c806ad43d0b21b836754cbab03d0",
+        "ml/acceptance_metrics.py": "8eb974ae4e1b533df255befb55b6a95ad8ed10d8d19cc2b06f884c932b6ca4c9"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -533,6 +534,21 @@
         "where_those_fields_live": "inside the S4 block, not in a separate diagnostics section",
         "why_inside_S4": "they are not diagnostics. They are the load-bearing evidence that the two S4 columns measure different things; a reader who sees only one number cannot tell whether the definition did any work."
       },
+      "S4_clock_implementation": {
+        "start": "events[kind=inject].t_source - apply_ms/1000, the SAME source on Phase 5 and on the R-set (ml.acceptance_metrics.inject_clock)",
+        "end": "snapshot.t_cycle_end of the first Transition into the alarm zone inside [inject_tick+1, revert_tick]: the detector cannot change state before the snapshot exists; Transition.t_source is the cycle START",
+        "why_not_sidecar_interventions": "on R-D and R-C log_inject is False, so sidecar.interventions holds ONLY the revert at tick 40. Clocking from it gives negative times and a false PASS. amendment 5 analysis_rule governs SUPPRESSION, not this clock",
+        "both_ends_self_penalising": "earliest physically grounded start, latest physically grounded end",
+        "withdrawn": "'Phase 5 detections sit at 1.1-2.1 s' used nominal t_rel 20.0 against measured times; rehearsal on this clock gives 994-1999 ms (envelope_only)"
+      },
+      "intervention_log_per_group": {
+        "R-D, R-C": "sidecar.interventions (harness revert only), same as the 6R.4 fault replay",
+        "R-O": "sidecar.interventions (controller inject + revert)",
+        "R-S, R-N": "empty log",
+        "zone": "':admin_down' -> radius_with_detour recomputed from targets (amendment 7); otherwise sidecar blast_radius; routing_sha256 must equal ditto/routing_table.json",
+        "G2_second_zone": "R-C runs carry extra FSM instances with zone 'original' INSIDE THE SAME PASS (ml.acceptance_pass.build_log)"
+      },
+      "dose_axis_1_source": "sidecar checks.max_separation, recomputed by ml.campaign.signal_check inside the pass; the two must be equal or the pass aborts",
       "S4_censoring": {
         "denominator": "incidents with a detection inside the window",
         "census_required_beside_every_S4_number": [
@@ -584,6 +600,9 @@
       "S10_reporting": "report all three; they are monotone, so 'true FP' is bracketed by [col_c, col_a]",
       "S10_col_c_caveat": "col_c uses residual > R, so under the envelope_only channel it is a COUNTERFACTUAL ('residual would have justified this tick had it been present'). Label it as such; it is not a measurement of the envelope configuration.",
       "S10_has_no_pass_fail": "target kind is 'bao, khong dat muc tieu', so there is no gaming risk in reporting three columns",
+      "S10_alarm_tick": "a tick whose FSM state for the channel is in {suspect, act} (what the operator sees; hysteresis ticks included, self-penalising). Raw alarm ticks reported as one sensitivity line",
+      "S10_evidence_scope": "same tick, any link; None on every non-positive link -> undetermined, counted apart from every column",
+      "censored_max_k_none": "all window ticks unknown -> max_k None -> counted in n_censored_no_channel_left_envelope",
       "incident_detected_for_S1": "at least one Transition into {suspect, act} within [inject_tick + 1, revert_tick]",
       "run_detected_50pct_for_P1_P2": "amendment 1: fraction of ticks with y == 1 and eval_primary carrying a RESIDUAL alarm >= 0.50 (unchanged)",
       "cross_use_forbidden": "the two definitions measure different things (did we catch the incident at all, versus is the saturation mechanism right). Every table states which one it uses. Using one in place of the other is forbidden.",
@@ -681,7 +700,12 @@
     },
     "predictions": {
       "P_S2": "0 events over 3 hours gives a 95% upper bound of 1.0/hour, meeting the 3.0 target",
-      "P_S4": "p95 <= 3000 ms on detected incidents under the inject clock; Phase 5 detections sit at 1.1-2.1 s. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
+      "P_S4": "p95 <= 3000 ms for envelope_only on detected incidents under the corrected inject/data-availability clock. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
+      "P_S4_per_channel": {
+        "envelope_only": "R-D p95 is predicted <= 3000 ms; Phase 5 rehearsal on the corrected clock gives 1999 ms and the registered envelope mechanism responds within two post-inject ticks when it detects",
+        "combined": "R-D p95 may exceed 3000 ms for steps detected only by the residual; Phase 5 F-degrade-s1-s2 is detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
+        "evidence": "rehearsal on Phase 5, open since Phase 6"
+      },
       "P_S4_unobservable": "at least one R-D incident has NO physical evidence in its window, as F-degrade-s1-s2-s3003-r1 did in Phase 5; the low-rho steps are the candidates",
       "P_S7": "0 oscillation patterns; F-6R4-1 may still produce out-of-zone alarms after revert on R-C",
       "P_S10": "fold 0 gives k = 0 on every row, so vary already covered 4 Mbps. At 10 Mbps (100% of the s1-s2 capacity) alarms may have a genuine physical basis, so col_b < col_a clearly.",
@@ -762,7 +786,7 @@
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T08:42:13+00:00"
+    "written_at_utc": "2026-09-18T09:10:07+00:00"
   },
-  "content_sha256": "3d5eba386c077edbc55a343a52589e5f0d61e6229a882ad4215a3cf00b8b3053"
+  "content_sha256": "5129d12d72665a8ca61f68f22b0b9d5f2877a31a0185b31c3603d5a11b268bbe"
 }
