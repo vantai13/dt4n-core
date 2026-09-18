@@ -206,3 +206,16 @@ Phase 5 envelope hoàn tất: **71cột,35riêng,36giaoIF,33constantkhác;K=0,k_
 
 
 Lesson6.1: khóa5giả thuyết,10run dự đoán,metrics/thresholds/unknown/hybrid trong [phase6_prereg.json](results/report/phase6_prereg.json), SHA`975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081`;[tài liệu](docs/phase-6/01-preregistration.md). Chưa fit/chấm điểm detector chiến dịch; manifestPhase5 giữ nguyên.
+
+## Tái lập Phase 6R
+
+```bash
+git lfs install && git lfs pull && git lfs fsck
+python3.13 -m venv .venv
+.venv/bin/pip install -r requirements-phase6r.lock.v2.txt
+.venv/bin/python -m pytest -q
+```
+
+`requirements-phase6r.lock.txt` (v1) được prereg 6R.7 ghim nhưng chứa đường
+dẫn conda cục bộ và không cài được từ máy khác; v2 tái tạo cùng phiên bản
+NumPy/Pandas bằng các requirement có thể cài từ package index.
