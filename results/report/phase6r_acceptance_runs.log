@@ -2,3 +2,4 @@
 {"argv": ["scripts/rehearse_acceptance.py"], "head": "0c31d4927d3eb2a0ff657c4a207a291e06b9617e", "mode": "rehearsal", "numpy": "2.5.3", "pandas": "3.0.5", "python": "3.13.13", "utc": "2026-09-18T09:35:40+00:00"}
 {"argv": ["scripts/rehearse_acceptance.py"], "head": "e0a6f226e8d4c12a8554921547721f49da381a2d", "mode": "rehearsal", "numpy": "2.5.3", "pandas": "3.0.5", "python": "3.13.13", "utc": "2026-09-18T10:02:02+00:00"}
 {"argv": ["scripts/rehearse_acceptance.py"], "head": "4b32f56c149124745a98b62720d1ec9dd8e8cf29", "mode": "rehearsal", "numpy": "2.5.3", "pandas": "3.0.5", "python": "3.13.13", "utc": "2026-09-18T10:29:34+00:00"}
+{"argv": ["scripts/rehearse_acceptance.py"], "head": "2a60b04671eff30947423c88448698e41f6b821a", "mode": "rehearsal", "numpy": "2.5.3", "pandas": "3.0.5", "python": "3.13.13", "utc": "2026-09-18T11:28:39+00:00"}

@@ -1,0 +1,716 @@
+{
+  "content": {
+    "single_pass": true,
+    "reader_n_files_read": 18,
+    "n_runs": 18,
+    "known_answer_1": "phase6 anchors reproduced 8/8",
+    "known_answer_2": "phase6r_fsm no_log reproduced 18/18",
+    "separation_crosscheck": "2/2 RD-like runs exact",
+    "shape_key_paths": 539,
+    "shape_matches": true,
+    "null_leaf_paths": [
+      "/S1_S4/envelope_only/per_incident/F-degrade-s1-s2-s3003-r1/first_tick",
+      "/S1_S4/envelope_only/per_incident/F-degrade-s1-s2-s3003-r1/t_detect_ms",
+      "/dose/axis_1/combined/fit/ci95",
+      "/dose/axis_1/combined/fit/ed50",
+      "/dose/axis_1/envelope_only/fit/ci95"
+    ],
+    "filled": {
+      "S1_S4": {
+        "envelope_only": {
+          "summary": {
+            "n_incidents": 2,
+            "n_detected": 1,
+            "detection_rate": 0.5,
+            "t_detect_p95_ms": 1998.7666606903076,
+            "t_detect_max_ms": 1998.7666606903076,
+            "n_censored_channels_left_envelope": 0,
+            "n_censored_no_channel_left_envelope": 1
+          },
+          "per_incident": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "detected": true,
+              "max_k": 10,
+              "first_tick": 22,
+              "t_detect_ms": 1998.7666606903076
+            }
+          }
+        },
+        "combined": {
+          "summary": {
+            "n_incidents": 2,
+            "n_detected": 2,
+            "detection_rate": 1.0,
+            "t_detect_p95_ms": 5000.848770141602,
+            "t_detect_max_ms": 5000.848770141602,
+            "n_censored_channels_left_envelope": 0,
+            "n_censored_no_channel_left_envelope": 0
+          },
+          "per_incident": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 25,
+              "t_detect_ms": 5000.848770141602
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "detected": true,
+              "max_k": 10,
+              "first_tick": 22,
+              "t_detect_ms": 1998.7666606903076
+            }
+          }
+        }
+      },
+      "S2_S3": {
+        "envelope_only": {
+          "n_events": 0,
+          "at_risk_ticks": 118,
+          "exposure_hours": 0.03277777777777778,
+          "rate_point_per_hour": 0.0,
+          "rate_upper_per_hour": 91.39522190503702,
+          "mtbfa_lower_minutes": 0.6564894613674903,
+          "alpha_one_sided": 0.05,
+          "sensitivity_raw_consecutive_runs": 0
+        },
+        "combined": {
+          "n_events": 0,
+          "at_risk_ticks": 118,
+          "exposure_hours": 0.03277777777777778,
+          "rate_point_per_hour": 0.0,
+          "rate_upper_per_hour": 91.39522190503702,
+          "mtbfa_lower_minutes": 0.6564894613674903,
+          "alpha_one_sided": 0.05,
+          "sensitivity_raw_consecutive_runs": 0
+        }
+      },
+      "S7": {
+        "with_log": {
+          "envelope_only": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s2-s3001-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s3-s3002-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h2_to_srv2-s3006-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s3-s3008-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            }
+          },
+          "combined": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s2-s3001-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s3-s3002-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h2_to_srv2-s3006-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s3-s3008-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            }
+          }
+        },
+        "no_log": {
+          "envelope_only": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s2-s3001-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s3-s3002-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h2_to_srv2-s3006-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 1
+            },
+            "F-shift-s1-s3-s3008-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 1
+            }
+          },
+          "combined": {
+            "F-degrade-s1-s2-s3003-r1": {
+              "act_entries": 0,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-degrade-s2-s3-s3004-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s2-s3001-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-admin_down-s1-s3-s3002-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-flood-h2_to_srv2-s3006-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 0
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 1
+            },
+            "F-shift-s1-s3-s3008-r1": {
+              "act_entries": 1,
+              "reescalations": 0,
+              "pass": true,
+              "v1_violations": 1
+            }
+          }
+        }
+      },
+      "S10": {
+        "envelope_only": {
+          "N-load1M-s1001-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load1M-s1002-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load2M-s1003-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load2M-s1004-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load4M-s1005-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load4M-s1006-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-vary-s1007-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-vary-s1008-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          }
+        },
+        "combined": {
+          "N-load1M-s1001-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load1M-s1002-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load2M-s1003-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load2M-s1004-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load4M-s1005-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-load4M-s1006-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-vary-s1007-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "N-vary-s1008-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          }
+        }
+      },
+      "G2": {
+        "detour": {
+          "F-admin_down-s1-s3-s3002-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-flood-h1_to_srv1-s3005-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-flood-h2_to_srv2-s3006-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-shift-s1-s2-s3007-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-shift-s1-s3-s3008-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          }
+        },
+        "original": {
+          "F-admin_down-s1-s3-s3002-r1": {
+            "act_fp_ticks": 3,
+            "act_fp_events": 1
+          },
+          "F-flood-h1_to_srv1-s3005-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-flood-h2_to_srv2-s3006-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-shift-s1-s2-s3007-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          },
+          "F-shift-s1-s3-s3008-r1": {
+            "act_fp_ticks": 0,
+            "act_fp_events": 0
+          }
+        }
+      },
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "released": false
+      },
+      "residual": {
+        "per_run": {
+          "F-degrade-s1-s2-s3003-r1": {
+            "rho": 1.240713181969061,
+            "fault_ticks": 20,
+            "residual_fault_fraction": 0.85,
+            "background_ticks": 39,
+            "background_alarm_ticks": 1,
+            "alarm_ticks_all": 18,
+            "argmax_correct_ticks": 18,
+            "incremental_ticks": 17,
+            "residual_alarms_on_unscored_ticks": 2
+          },
+          "F-degrade-s2-s3-s3004-r1": {
+            "rho": 2.1559312000000004,
+            "fault_ticks": 20,
+            "residual_fault_fraction": 1.0,
+            "background_ticks": 39,
+            "background_alarm_ticks": 0,
+            "alarm_ticks_all": 20,
+            "argmax_correct_ticks": 20,
+            "incremental_ticks": 1,
+            "residual_alarms_on_unscored_ticks": 1
+          }
+        },
+        "refuted": {
+          "F1": false,
+          "F2": false,
+          "F3": false,
+          "F4": false,
+          "F5": false,
+          "F6": true
+        },
+        "outcome": "any_of_F1_F2_F3_F5_F6"
+      },
+      "dose": {
+        "axis_1": {
+          "envelope_only": {
+            "points": {
+              "F-degrade-s1-s2-s3003-r1": {
+                "separation": 11.486,
+                "separation_sidecar": 11.486,
+                "detected": false
+              },
+              "F-degrade-s2-s3-s3004-r1": {
+                "separation": 288.827,
+                "separation_sidecar": 288.827,
+                "detected": true
+              }
+            },
+            "fit": {
+              "method": "interpolation_fallback",
+              "ed50": 57.59745586395291,
+              "ci95": null,
+              "n_converged": 0,
+              "n_boot": 2000
+            }
+          },
+          "combined": {
+            "points": {
+              "F-degrade-s1-s2-s3003-r1": {
+                "separation": 11.486,
+                "separation_sidecar": 11.486,
+                "detected": true
+              },
+              "F-degrade-s2-s3-s3004-r1": {
+                "separation": 288.827,
+                "separation_sidecar": 288.827,
+                "detected": true
+              }
+            },
+            "fit": {
+              "method": "interpolation_fallback",
+              "ed50": null,
+              "ci95": null,
+              "n_converged": 0,
+              "n_boot": 2000
+            }
+          }
+        },
+        "axis_2": {
+          "F-degrade-s1-s2-s3003-r1": {
+            "rho": 1.240713181969061,
+            "residual_detected": true
+          },
+          "F-degrade-s2-s3-s3004-r1": {
+            "rho": 2.1559312000000004,
+            "residual_detected": true
+          }
+        }
+      },
+      "process": {
+        "n_files_read": 18,
+        "n_acceptance_invocations": 0,
+        "git_head": "2a60b04671eff30947423c88448698e41f6b821a",
+        "python": "3.13.13",
+        "numpy": "2.5.3",
+        "pandas": "3.0.5"
+      }
+    }
+  },
+  "content_sha256": "e0f3d69723a86dad4d08c3e0b7cedb8e933181c70e958f089fbadda61632bae7"
+}
