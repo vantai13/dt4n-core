@@ -1,0 +1,50 @@
+{
+  "scope": "Lesson 6R.7 part A only; no acceptance opening and no R-set outcome read",
+  "commits": {
+    "acceptance_machinery": "166b6f9",
+    "prereg_amendment": "5a89a4b"
+  },
+  "environment": {
+    "python": "3.13.13",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5"
+  },
+  "targeted_tests": {
+    "command": ".venv/bin/python -m pytest -q test/test_acceptance_machinery.py -rA",
+    "passed": 15,
+    "failed": 0
+  },
+  "full_suite": {
+    "command": ".venv/bin/python -m pytest -q",
+    "collected": 718,
+    "passed": 714,
+    "skipped": 4,
+    "failed": 0
+  },
+  "phase5_smoke": {
+    "C-load2M-s2001-r1": {
+      "statuses": {"warming_up": 1, "scored": 59},
+      "envelope_only": {"event_ticks": [], "at_risk_ticks": 59},
+      "combined": {"event_ticks": [], "at_risk_ticks": 59}
+    },
+    "F-flood-h1_to_srv1-s3005-r1": {
+      "statuses": {"warming_up": 1, "scored": 59},
+      "envelope_only": {"event_ticks": [21], "at_risk_ticks": 30},
+      "combined": {"event_ticks": [21], "at_risk_ticks": 30}
+    }
+  },
+  "pure_function_examples": {
+    "zero_events_over_10794_at_risk_ticks": {
+      "exposure_hours": 2.9983333333333335,
+      "one_sided_95pct_rate_upper_per_hour": 0.9991324981280681,
+      "mtbfa_lower_minutes": 60.052095305090596
+    },
+    "complete_separation_fixture": {
+      "method": "interpolation_fallback",
+      "ed50": 12.000000000000002,
+      "ci95": null,
+      "n_converged": 0
+    }
+  },
+  "prereg_content_sha256": "3d5eba386c077edbc55a343a52589e5f0d61e6229a882ad4215a3cf00b8b3053"
+}
