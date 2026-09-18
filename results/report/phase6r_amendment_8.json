@@ -1,0 +1,93 @@
+{
+  "content": {
+    "amendment_id": "DT4N-P6R-AMENDMENT-8",
+    "amends": {
+      "amendment_1_content_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929",
+      "amendment_7_content_sha256": "f80b5cfd3b044ca38eb5d7384edd21d44dd5f449bcc9ee31903a14bc9134aaf6",
+      "acceptance_content_sha256": "f551f950b744775c484fab6a050b52be702c935119916f22d857cd2441ced0d7",
+      "verdicts_content_sha256": "d8cee191357282a3be411536c0270667fb176cc2c62baaa09a45ce4e0396aafc"
+    },
+    "git": {
+      "head": "f6fe8300fdcfe3427af9cb2643b2127fe3e901ce",
+      "dirty_files": [
+        "scripts/build_phase6r_amendment8.py"
+      ]
+    },
+    "knowledge_state": {
+      "r_set_acceptance_opened": true,
+      "statement": "viet SAU khi mo R-set. Moi dieu duoi day la quyet dinh trien khai, KHONG doi phan quyet SLO nao va KHONG doi nguong nao."
+    },
+    "trigger": {
+      "amendment_1_rule": "phat hanh conservation-1.0.0; suspect=excess OR residual",
+      "observed_outcome": "all_pass",
+      "conflict": "suspect = excess OR residual lam TTD p95 = 11001 ms > S4 3000 ms"
+    },
+    "decision": {
+      "choice": "C_release_as_labelled_slow_channel",
+      "release": "detector-release-1.0.0 = envelope-1.0.0 + conservation-1.0.0, conservation_mode=active",
+      "suspect_rule": "excess OR residual (dung nhu amendment 1)",
+      "act_rule": "khong doi: dual rule envelope-1.0.0; residual KHONG BAO GIO dan toi act",
+      "payload_additions": [
+        "releaseVersion",
+        "releaseSha256",
+        "conservationSha256",
+        "evidence"
+      ],
+      "evidence_semantics": "sao chep co tu Reading cua CHINH tick do; khong tinh lai",
+      "S4_statement": "S4 PASS chi cho kenh envelope (kenh dang ky). Kenh residual co TTD ~10-11 s tren R-D va duoc cong bo la kenh cham; KHONG goi la PASS.",
+      "alternatives_rejected": {
+        "A_keep_shadow": "bo qua luat all_pass da dang ky; mu voi nghen s1-s2 (0/5 envelope)",
+        "B_merge_unlabelled": "dung luat nhung nguoi van hanh khong phan biet bao nhanh/bao cham"
+      }
+    },
+    "operating_scope": {
+      "accepted_load": "2 Mbps/client (moi nhom co cong cua R-campaign)",
+      "calibrated_load": "1-4 Mbps/client va vary (train Phase 5)",
+      "observed_not_accepted": "6 Mbps: 0 alarm/59 tick moi run; 8 va 10 Mbps: 59/59 tick alarm",
+      "phase7_obligation": {
+        "what": "guard vung van hanh: tai vuot nguong -> unknown(cause=out_of_operating_range), khong phai suspect",
+        "threshold_source_rule": "CHOT NGAY BAY GIO: nguong lay tu du lieu TRAIN Phase 5 (max host txRate quan sat duoc), KHONG lay tu R-N",
+        "why": "R-N la tap nghiem thu da mo; chon nguong tu R-N la hieu chinh tren tap nghiem thu",
+        "status": "chua cai dat trong 6R; Phase 7 phai dang ky prereg truoc khi code"
+      }
+    },
+    "registered_posthoc_diagnostic": {
+      "id": "D-6R7-1 residual onset",
+      "question": "vi sao residual s1-s2 bat o tick 30-31 bat ke rho 1.25-2.0",
+      "tool": "scripts/diag_phase6r_residual_onset.py",
+      "reads": "3 run RD s1-s2 rho>=1.25 (R-set DA MO), che do shadow",
+      "outputs_allowed_to_change": [],
+      "prediction_accumulation": "neu co che la tich luy hang doi thi r_max tang dan tu tick 21 va rho lon hon cat R som hon",
+      "prediction_step": "neu r_max phang roi nhay gan tick 30 thi co che khong phai tich luy don thuan",
+      "label": "POST-HOC MO TA; khong dung cho bat ky nguong, phan quyet hay lua chon nao"
+    },
+    "planned_changes": {
+      "ml/release.py": "MOI: nap release, dung scorer+FSM dung cau hinh, payload co evidence",
+      "scripts/build_detector_release.py": "MOI: sinh models/detector-release-1.0.0.json",
+      "models/detector-release-1.0.0.json": "MOI: goi phat hanh ghim SHA cac thanh phan",
+      "test/test_detector_release.py": "MOI: tuong duong active == combined da nghiem thu",
+      "scripts/diag_phase6r_residual_onset.py": "MOI: chan doan mo ta D-6R7-1"
+    },
+    "unchanged": {
+      "E": 8.968806422101116,
+      "K": 31,
+      "R": 0.0796613817054327,
+      "fsm_params": {
+        "n_suspect": 1,
+        "n_act": 2,
+        "release_m": 3,
+        "cooldown_s": 8.0
+      },
+      "all_slo_targets": true,
+      "acceptance_receipt": "khong sinh lai, khong cham lai",
+      "existing_code": "khong sua mot byte file .py nao da bi ghim"
+    },
+    "new_risks": {
+      "slow_channel": "canh bao tu residual den tre ~10 s; controller Phase 8 KHONG duoc coi no nhu tin hieu act",
+      "residual_not_suppressible": "Reading.violating chi chua cot envelope; alarm chi-residual khong bi InterventionLog uc che"
+    },
+    "deviation_policy": "immutable after commit",
+    "written_at_utc": "2026-09-18T12:43:33+00:00"
+  },
+  "content_sha256": "bfd7450fc23a87ab03f27d38e902cddfaea280e4ffeeeb90a07585bce5b7dad6"
+}
