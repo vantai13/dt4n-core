@@ -102,7 +102,10 @@
         "ml/missing.py": "b321df8a2676522e16967a76247d77baeb352cc73058b67b870b00de98e659ad",
         "ml/snapshot_contract.py": "6676004733aafae53c98e59127b4ead835bfad962ff922d2446ffba050972cce",
         "ml/rcampaign.py": "fdf02907d365d872663b886baec5bd3c815049acf4e67fb06f57013f972df540",
-        "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c"
+        "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c",
+        "ml/acceptance_stats.py": "6743da1e35d650bfe595b576e705c6435521985c04055cd97fff875956d9dab2",
+        "ml/acceptance_guard.py": "cf77f8ec626a80268f0e0b9c6f5100e7f77222999f296520db59f02f56f970de",
+        "ml/acceptance_pass.py": "091c2adf95372ca8abd616159184a2fd4cddb58c1bced75752d35919935e4681"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -157,6 +160,12 @@
       "derivation": "all three channels derive from ONE Reading stream: envelope_suspect, cons_alarm, cons_judgeable, cons_r_max and cons_switch are separate fields of ml.serve.Reading",
       "fsm_instances_are_independent": "the two FSM channels MUST be two separate DetectorFSM instances. Sharing one instance mixes self._cs, self._ca and self._quiet between channels and corrupts both in a way that is hard to see. A test asserts this before the R-set is opened.",
       "conservation_mode_for_the_pass": "shadow"
+    },
+    "combined_channel_suppression": {
+      "fact": "Reading.violating holds envelope columns only; cons_switch is never added. A residual-only alarm has local == {} and is NEVER suppressed by ml/fsm.py",
+      "not_repaired": "giving the residual a locality is a new mechanism = a second variant",
+      "claims": "S7 and S11 are claimed for envelope_only only; combined on R-O3/R-C is descriptive",
+      "prediction": "combined may enter suspect on R-O3 when the admin_down detour accumulates a queue and raises a residual-only alarm; because that alarm has no locality, InterventionLog cannot suppress it. This is descriptive and is not used for S7/S11 claims."
     },
     "single_pass_requirement": {
       "rule": "ONE scan of the snapshots produces all three channels",
@@ -581,8 +590,8 @@
       "S7_version": "s7_v2 (ml.oscillation.s7_v2, amendment 3)",
       "S7_v1_also_reported": true,
       "S7_v2_loosening_disclosure": "v2 is looser than v1 in exactly one place: monotone de-escalation with an act->suspect step. Registered at amendment 3, before the R-campaign was collected.",
-      "S2_estimator": "rule of three: 0 events over T hours gives a 95% upper bound of 3/T. With T = 3 hours that is 1.0 events/hour.",
-      "S2_estimator_if_nonzero": "exact Poisson upper bound, alpha = 0.05",
+      "S2_estimator": "one-sided 95% Poisson upper bound: lambda_u solves P(X<=k; lambda_u) = 0.05 (ml.acceptance_stats.poisson_upper_one_sided); k = 0 gives 2.996. rate_upper = lambda_u / T",
+      "S2_exposure": "T = at-risk ticks x 1 s: ticks with Reading.status == 'scored' whose FSM state BEFORE the step is outside {suspect, act}; counted per channel, never the nominal 3 h (RS runs hold 3598 snapshots each)",
       "S3_relation": "the same measurement as S2 in different units. NOT a second piece of evidence. This sentence must appear beside S3 in every table."
     },
     "scope_reductions": {
@@ -595,9 +604,16 @@
       "dose_axis_1": {
         "axis": "max_separation as measured (ml.campaign.signal_check)",
         "response": "incident_detected (the S1 definition)",
+        "channels": [
+          "envelope_only",
+          "combined"
+        ],
         "model": "logistic(detected ~ log10(separation))",
         "ci": "cluster bootstrap, UNIT OF RESAMPLING = RUN, B = 2000, seed = 20260918",
-        "why_cluster": "ticks inside one run share a seed, a link, a dose and a network state, so they are not independent. Resampling ticks would assume ~400 independent observations instead of ~10 and narrow the CI by roughly sqrt(ticks per run).",
+        "separation_floor": "separation < 1e-3 (signal_check rounding) is floored to 1e-3 and counted as n_floored",
+        "fallback_algorithm": "monotone: ED50 = sqrt(max_miss * min_hit) (midpoint on log10); non-monotone: report overlap [min_hit, max_miss] and n_inversions, NO ED50 (ml.acceptance_stats.dose_bracket)",
+        "nonconverged_cases": "one class in resample, p at 0/1, |beta| > 1e3, slope <= 0, ED50 more than 1 decade outside the data",
+        "why_cluster": "the response is ONE binary value per run, so the run is the only unit; the tick-dependence argument applies to P1/P2, not to this axis",
         "nonconvergence_rule": "if more than 50% of bootstrap samples fail to converge (complete separation), DROP the logistic fit and report linear interpolation between adjacent dose steps plus a range; record n_converged and n_boot. Do not fit 5 parameters to 10 points.",
         "anchor": "the rho125 step (factor 0.828) coincides with the Phase 5 run that already FAILED (factor 0.82747), giving an external check point"
       },
@@ -630,21 +646,23 @@
     },
     "no_numeric_stdout": {
       "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail'; any other line aborts the script",
+      "stderr_rule": "stderr is swallowed during acceptance; traceback details are reproduced only on Phase 5 or fixtures",
       "why": "the amendment 6 firewall logic applied to the acceptance script itself. A crash at run 23 of 25 after printing per-run numbers means 22 runs were already seen, and the second invocation is no longer a first opening."
     },
     "results_skeleton_committed_first": {
       "rule": "phase6r_acceptance.json is committed BEFORE opening, with the full structure and every value null",
       "why": "after opening, values are filled into existing cells. No row can be added ('I also computed this') and none removed ('that one was not very meaningful'). The shape of the answer is fixed before the answer is known.",
-      "test": "set(keys(skeleton)) == set(keys(filled))"
+      "test": "recursive key-path set of skeleton == that of filled, and every skeleton leaf is null; per-run data is a dict keyed by run_id from the matrix, never a list"
     },
     "read_once_guard": {
-      "rule": "read_snapshots_once(path) raises on a second read of the same resolved path",
+      "rule": "SnapshotReader.read_once(run_id, path) marks the resolved path seen before reading, rejects a second read, rejects Git LFS pointers, and verifies the manifest SHA-256 before parsing",
       "receipt_field": "n_files_read"
     },
     "invocation_log": {
       "file": "results/report/phase6r_acceptance_runs.log",
-      "rule": "append-only and committed; the receipt reads it back to fill n_acceptance_invocations",
-      "why": "counting invocations by mechanism rather than by promise. If it is 3, report 3 and say where the first two crashed."
+      "rule": "append-only and committed; write, flush and fsync BEFORE the first R-set byte; the receipt reads it back to fill n_acceptance_invocations",
+      "why": "counting invocations by mechanism rather than by promise. If it is 3, report 3 and say where the first two crashed.",
+      "tag_guard": "acceptance HEAD must be the commit carrying phase-6r-opened; after that tag only this log and results/report/phase6r_acceptance.json may differ"
     },
     "prereg_mutability": {
       "before_tag_phase-6r-opened": "freely amendable, one commit per change, reason in the commit message. The rehearsal runs on Phase 5/6, so anything it finds is independent of the R-set.",
@@ -657,6 +675,8 @@
       "data": "Phase 5 raw (train + test, open since Phase 6)",
       "imports_the_real_functions": true,
       "mechanical_guard": "assert 'data/phase6r' does not appear in the rehearsal source",
+      "environment_gate": "if python/numpy/pandas differ from phase6r_equivalence.json, the rehearsal reruns the 1062/1062 equivalence in the current environment before opening",
+      "stderr_policy": "stderr is swallowed during acceptance (ml.acceptance_guard.quiet_run); a failed run is debugged by reproduction on Phase 5 or fixtures",
       "why": "the acceptance pipeline is the most complex script of Phase 6R. A first crash on the R-set means the data was already seen."
     },
     "predictions": {
@@ -695,11 +715,54 @@
     "timing_and_knowledge": {
       "labels_opened": false,
       "r_set_acceptance_opened": false,
-      "r_set_snapshots_read": false,
+      "r_set_outcomes_emitted": false,
+      "r_set_snapshots_read_outcome_blind": [
+        {
+          "lesson": "6R.5B",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/measure_tick_jitter.py",
+          "emitted": "inter-arrival quantiles only"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/measure_phase6r_latency*.py",
+          "emitted": "aggregate latency only (firewall_compliance in phase6r_latency_v2)"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/replay_phase6r_stability.py",
+          "emitted": "R-O1/R-O2 booleans only (ml/replay_guard.py)"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/soak_phase6r_detector.py",
+          "emitted": "RSS/resource metrics only"
+        },
+        {
+          "lesson": "6R.6/A7",
+          "runs": [
+            "RO-ctl x2"
+          ],
+          "tool": "scripts/replay_phase6r_s11_v2.py, scripts/diag_s11_suppression.py",
+          "emitted": "S11 (R-O repeatable by design)"
+        }
+      ],
+      "computed_in_memory_not_emitted": "FSM states and alarms on RS were computed inside the latency and replay harnesses and discarded; S2/S3 have never been emitted",
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T08:05:26+00:00"
+    "written_at_utc": "2026-09-18T08:42:13+00:00"
   },
-  "content_sha256": "c68eb8440dcd09e3c4b134179758953a02299104393cbf098dbeb4adcdcad146"
+  "content_sha256": "3d5eba386c077edbc55a343a52589e5f0d61e6229a882ad4215a3cf00b8b3053"
 }
