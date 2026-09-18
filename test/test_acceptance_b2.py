@@ -8,7 +8,8 @@ import pytest
 
 from ml import campaign as C
 from ml.acceptance_metrics import clusters, fp_ticks_a2, labels_of, s7
-from ml.acceptance_pass import FsmSpec, run_one
+from ml.acceptance_pass import FsmSpec, build_log, run_one, specs_for
+from ml.blast_radius import Routing, radius, radius_with_detour
 from ml.acceptance_skeleton import assert_same_shape, key_paths, leaves, skeleton
 from ml.fsm import DetectorFSM, FSMParams
 from ml.model import EnvelopeModel
@@ -21,6 +22,44 @@ REPORT = C.ROOT / "results/report"
 def test_clusters_is_amendment2_fp_event():
     assert clusters([]) == 0
     assert clusters([41, 42, 43, 47, 48]) == 2
+
+
+def test_build_log_recomputes_both_zones_instead_of_trusting_sidecar():
+    routing = Routing.load(C.ROOT / "ditto/routing_table.json")
+    targets = {"links": ["s1-s2"]}
+    meta = {
+        "interventions": [
+            {
+                "id": "fixture:inject",
+                "t_start": 1.0,
+                "actor": "controller",
+                "action": "inject:admin_down",
+                "targets": targets,
+                "blast_radius": ["host-bogus"],
+                "routing_sha256": routing.sha256,
+            }
+        ]
+    }
+    original = build_log(meta, routing, zone="original")._items[0].blast_radius
+    detour = build_log(meta, routing, zone="detour")._items[0].blast_radius
+    assert original == radius(routing, targets)
+    assert detour == radius_with_detour(routing, targets)
+    assert original != detour
+
+
+def test_specs_for_modes_are_truthful_and_cover_rc_no_log():
+    routing = Routing.load(C.ROOT / "ditto/routing_table.json")
+    expected_modes = {
+        "RD": {"with_log", "no_log"},
+        "RO": {"with_log", "no_log"},
+        "RC": {"with_log", "original", "no_log"},
+        "RS": {"no_log"},
+        "RN": {"no_log"},
+    }
+    for group, modes in expected_modes.items():
+        specs = specs_for(group, {"interventions": []}, routing, lambda log: object())
+        assert {name.split("@", 1)[1] for name in specs} == modes
+        assert len(specs) == 2 * len(modes)
 
 
 def test_no_log_fsm_reproduces_6r4_receipt_bit_for_bit():

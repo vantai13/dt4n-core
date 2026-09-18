@@ -9,7 +9,7 @@ import dataclasses
 from dataclasses import dataclass, field
 from typing import Callable
 
-from ml.blast_radius import radius_with_detour
+from ml.blast_radius import radius, radius_with_detour
 from ml.flatten import flatten_snapshot
 from ml.intervention_log import InMemoryInterventionLog, Intervention
 
@@ -49,14 +49,14 @@ def physical_evidence(snapshot: dict, loss_threshold: float):
 
 
 def build_log(meta: dict, routing, *, zone: str) -> InMemoryInterventionLog:
-    """Dung intervention log voi vung ``detour`` hoac ``original``."""
+    """Tinh lai zone tu routing + targets; khong tin ban duy nhat trong sidecar."""
     if zone not in ("detour", "original"):
         raise ValueError(zone)
+    radius_fn = radius_with_detour if zone == "detour" else radius
     log = InMemoryInterventionLog()
     for item in meta.get("interventions", []):
         if item["routing_sha256"] != routing.sha256:
             raise ValueError("routing SHA lech sidecar: %s" % item["id"])
-        use_detour = zone == "detour" and item["action"].endswith(":admin_down")
         log.append(
             Intervention(
                 id=item["id"],
@@ -64,11 +64,7 @@ def build_log(meta: dict, routing, *, zone: str) -> InMemoryInterventionLog:
                 actor=item["actor"],
                 action=item["action"],
                 targets=item["targets"],
-                blast_radius=(
-                    radius_with_detour(routing, item["targets"])
-                    if use_detour
-                    else frozenset(item["blast_radius"])
-                ),
+                blast_radius=radius_fn(routing, item["targets"]),
                 routing_sha256=item["routing_sha256"],
             )
         )
@@ -172,23 +168,34 @@ def run_one(
     return trace
 
 
+GROUP_MODES = {
+    "RD": ("with_log", "no_log"),
+    "RO": ("with_log", "no_log"),
+    "RC": ("with_log", "original", "no_log"),
+    "RS": ("no_log",),
+    "RN": ("no_log",),
+}
+
+
 def specs_for(group: str, meta: dict, routing, fsm_factory) -> dict[str, FsmSpec]:
-    """Tao cac FSM instance doc lap theo nhom va che do log da dang ky."""
-    detour = build_log(meta, routing, zone="detour")
-    modes = {
-        "RD": {"with_log": detour, "no_log": None},
-        "RO": {"with_log": detour, "no_log": None},
-        "RC": {
-            "with_log": detour,
-            "original": build_log(meta, routing, zone="original"),
-        },
-        "RS": {"with_log": None},
-        "RN": {"with_log": None},
-    }[group]
+    """Tao FSM doc lap; ten mode phan anh dung viec co hay khong co log."""
+    logs = {}
+    for mode in GROUP_MODES[group]:
+        if mode == "no_log":
+            logs[mode] = None
+        elif mode == "original":
+            logs[mode] = build_log(meta, routing, zone="original")
+        elif mode == "with_log":
+            # Corridor thay the chi la cau hinh dong bang cho link-state
+            # admin_down. R-D giu link up, nen dung radius goc.
+            configured_zone = "detour" if group in ("RO", "RC") else "original"
+            logs[mode] = build_log(meta, routing, zone=configured_zone)
+        else:
+            raise ValueError("mode chua dang ky: %s" % mode)
     return {
         "%s@%s" % (channel, mode): FsmSpec(
             channel, lambda log=log: fsm_factory(log)
         )
         for channel in DERIVE
-        for mode, log in modes.items()
+        for mode, log in logs.items()
     }
