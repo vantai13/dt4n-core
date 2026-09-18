@@ -39,6 +39,12 @@ def main() -> int:
         "lesson": "6R.7",
         "purpose": "fix every analysis decision before the R-set is opened once",
 
+        "prereg_amendment_3": {
+            "timing": "written before phase-6r-frozen and before any R-set acceptance outcome",
+            "reason": "B.3 review found an inert dual-zone implementation, missing RC no_log mode, ambiguous suppression-radius wording, and a need to state S2/S3 power under measured at-risk exposure",
+            "changes_measurement_thresholds": False,
+        },
+
         "amends": {
             "slo_content_sha256": _content_sha("phase6r_slo.json"),
             "amendment_1_content_sha256": _content_sha("phase6r_amendment_1.json"),
@@ -122,7 +128,11 @@ def main() -> int:
             "fsm_params": {"n_suspect": 1, "n_act": 2, "release_m": 3, "cooldown_s": 8.0},
             "scorer": "ml.serve_fast.FastOnlineScorer",
             "scorer_justification": "S5 p95 = 0.943 ms (phase6r_latency_v2); the reference OnlineScorer measured p95 = 56.249 ms and would FAIL S5. Bit-exact equivalence 1062/1062 rows is pinned in phase6r_equivalence.json.",
-            "suppression_radius": "ml.blast_radius.radius_with_detour (amendment 7)",
+            "suppression_radius": {
+                "rule": "radius_with_detour for link-state admin_down interventions; radius for every other intervention",
+                "why": "the alternate corridor exists only when a link is down; degrade keeps the link up and therefore has no routing detour",
+                "measured": "R-O: 11 -> 14 entities. R-D: configured radius remains original. R-C: radius and radius_with_detour both cover the same 16-entity topology",
+            },
             "suppression_rule": "local <= zone, unchanged",
             "code_sha256": {path: C.sha256_file(C.ROOT / path) for path in CODE},
             "freeze_tag": "phase-6r-frozen",
@@ -447,9 +457,10 @@ def main() -> int:
             "intervention_log_per_group": {
                 "R-D, R-C": "sidecar.interventions (harness revert only), same as the 6R.4 fault replay",
                 "R-O": "sidecar.interventions (controller inject + revert)",
-                "R-S, R-N": "empty log",
-                "zone": "':admin_down' -> radius_with_detour recomputed from targets (amendment 7); otherwise sidecar blast_radius; routing_sha256 must equal ditto/routing_table.json",
-                "G2_second_zone": "R-C runs carry extra FSM instances with zone 'original' INSIDE THE SAME PASS (ml.acceptance_pass.build_log)",
+                "R-S, R-N": "no_log (None); no intervention exists, so naming these with_log would be misleading",
+                "zone": "both radius and radius_with_detour are recomputed from frozen routing + targets, never trusted from the single sidecar copy; routing_sha256 must equal ditto/routing_table.json",
+                "configured_zone": "R-O admin_down uses detour; R-D uses original radius; R-C computes detour and original in parallel for the registered comparison",
+                "G2_second_zone": "R-C runs carry with_log(detour), original(radius), and descriptive no_log FSM instances INSIDE THE SAME PASS",
             },
             "dose_axis_1_source": "sidecar checks.max_separation, recomputed by ml.campaign.signal_check inside the pass; the two must be equal or the pass aborts",
 
@@ -518,12 +529,27 @@ def main() -> int:
             "S2_estimator": "one-sided 95% Poisson upper bound: lambda_u solves P(X<=k; lambda_u) = 0.05 (ml.acceptance_stats.poisson_upper_one_sided); k = 0 gives 2.996. rate_upper = lambda_u / T",
             "S2_exposure": "T = at-risk ticks x 1 s: ticks with Reading.status == 'scored' whose FSM state BEFORE the step is outside {suspect, act}; counted per channel, never the nominal 3 h (RS runs hold 3598 snapshots each)",
             "S3_relation": "the same measurement as S2 in different units. NOT a second piece of evidence. This sentence must appear beside S3 in every table.",
+            "S2_S3_power_before_opening": {
+                "nominal_exposure": "10794 ticks = 2.998333 hours from three RS runs of 3598 snapshots",
+                "certain_fail": "k >= 4 always fails both S2 <= 3/hour and S3 >= 20 minutes, because even the maximum nominal exposure gives rate_upper = 3.053/hour at k=4",
+                "measured_exposure_qualification": "the estimator uses measured at-risk ticks, not nominal duration. Therefore k <= 3 is not by itself sufficient if an event holds the FSM in {suspect, act} long enough to shrink exposure",
+                "minimum_at_risk_ticks_to_pass_by_k": {"0": 3595, "1": 5693, "2": 7555, "3": 9305},
+                "nominal_table": {
+                    "k0_rate_upper_per_hour": 0.999,
+                    "k1_rate_upper_per_hour": 1.582,
+                    "k2_rate_upper_per_hour": 2.100,
+                    "k3_rate_upper_per_hour": 2.586,
+                    "k4_rate_upper_per_hour": 3.053,
+                },
+                "interpretation": "S2 and S3 are the same Poisson measurement in reciprocal units and always cross their paired thresholds together. A marginal fail means the available at-risk exposure is insufficient to establish <= 3/hour; it is not by itself evidence that the detector mechanism is poor",
+            },
         },
 
         # ------------------------------------------------------ scope reductions
         "scope_reductions": {
             "S4": "measured on R-D. R-O1/R-O2 cannot contribute: the amendment 6 firewall publishes booleans only, and S4 needs times. R-O3 is suppressed BY DESIGN, so time_to_detect is meaningless there.",
             "S7": "measured on R-D + R-O3 + R-C (reported separately). R-O1/R-O2 cannot contribute because S7 needs state sequences.",
+            "S7_R_C_role": "R-C with_log and no_log S7 are descriptive only; amendment-3 gate G1 uses R-D and R-O, both with_log and no_log",
             "tradeoff_declared": "the amendment 6 firewall trades evidence coverage of S4/S7 for the integrity of S2/S3. The trade was chosen at amendment 6, before any result was known.",
             "not_a_silent_drop": "this section exists so nobody quietly removes 'R-O' from the measured_on cell and hopes it is not noticed",
         },
@@ -554,7 +580,13 @@ def main() -> int:
             "cherry_picking_forbidden": "both axes are registered. If they disagree, BOTH are reported and the disagreement is analysed. Choosing the prettier axis is HARKing even when both were registered.",
             "decision_rule": "phase6r_amendment_1.outcomes, unchanged",
             "release_gates": "phase6r_amendment_3.phase8_release_gates G1-G4, rule: any missing gate means the FSM is not released",
-            "G2_dual_radius": "report G2 under radius() and under radius_with_detour(); R-C is the calibration set so it may be measured twice",
+            "G2_dual_radius": {
+                "rule": "report G2 under radius() and radius_with_detour() from separate FSM instances in the same pass",
+                "precomputed_geometry": "on all four R-C runs both functions return the same 16-entity set under routing SHA 284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+                "consequence": "the two G2 columns are expected to be identical by construction, not as an empirical detector result",
+                "suppression_window": "the revert-only intervention suppresses approximately ticks 41..48. With a topology-wide zone, local <= zone cannot fail for a non-empty locality set",
+                "discriminating_ticks": "20 background ticks before inject and 11 after cooldown (approximately ticks 49..59), plus aggregate-only alarms whose entity_of is None and therefore produce an empty locality set",
+            },
         },
 
         # ------------------------------------------------------- process controls
