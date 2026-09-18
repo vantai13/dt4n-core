@@ -1,0 +1,187 @@
+{
+  "content": {
+    "manifest_id": "DT4N-P6R-MANIFEST-v1",
+    "source_git_hash": "97c95cae7f981157ed950eab4a61247b40cfd949",
+    "files_sha256": {
+      "docs/phase-6r/08-acceptance.md": "bb17767e92f55534bfa0ac43b69a8ceea51017685919e41919f0e6f59a034326",
+      "docs/phase-6r/09-phase7-handoff.md": "112d45a3edd3d66e4f7c49e990a3fda24ce320793bf87b8928b0cc6f10e0a99b",
+      "docs/phase-6r/10-amendment-ledger.md": "974ae2a045863578d32f8e3dc26e2ad93320f0690abe521f2e59a67de024601b",
+      "docs/phase-6r/model-card-v2.md": "7fcd0b36c6b08b68582d13888ac7d87c0b12323fbd4a33b3d145f990df2db2ba",
+      "ml/blast_radius.py": "5a9dff171decb6148cd786f304f6ac94c30222fb986acd2df04784f375d953a0",
+      "ml/conservation.py": "4421c4073686c8637b22e7037b5d6a8907722000ef8854d24e5f00888ca5496a",
+      "ml/fsm.py": "9ba70b0207d1a43b581a67e5493381055c07f13c5e11fc67cb8eebb534e98f8c",
+      "ml/intervention_log.py": "22874cab8b2d29e41d6cf48b5963ecc0e1f7d7ea75da85a84d34fb81f71544ee",
+      "ml/model.py": "9c4b21985606fc4498031ab5a206aa158abaa10fda5bf72294d93b8272f0e435",
+      "ml/payload.py": "9987e8aa69d8cab147d52ede1f5ceeee373d4db264a8bec834c743858e2e1e69",
+      "ml/release.py": "43602be8c41b617d516f91694ed39d7deb0effad6dba7cebb30dd8afddd618c3",
+      "ml/serve.py": "29e772149fc1ee94d0aa31106db533490fd9c634eb65c77e7b2f8d95459203b1",
+      "ml/serve_fast.py": "42f90bea0d178162882f6601a6dc7162b7a586a7c21bed64a2be91a6ce6a3193",
+      "ml/snapshot_contract.py": "6676004733aafae53c98e59127b4ead835bfad962ff922d2446ffba050972cce",
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+      "models/envelope-1.0.0.json": "30ebae45ffefe8f1bd26d9099cdcc6276b24a98771758eea9bfd2821f56fab88",
+      "requirements-phase6r.lock.v2.txt": "9f14ee256d89028ea23785ba81fa6e23a0b8874d84688397d78f8620d8b23ecb",
+      "requirements.txt": "43d0a189b7a69d025415989a6c0c529c0739fcc45b3882792c7d354f3f6ca0e0",
+      "results/report/phase6r_acceptance.json": "8bd30cab95ac2d8f2129a90338bd6238c72dc459b47ab46ec164008ee81979eb",
+      "results/report/phase6r_acceptance_prereg.json": "53c54b0a48d700a59398bb07447c591a2262055840e8738b9507c92be25cbdf1",
+      "results/report/phase6r_acceptance_runs.log": "ade00e9d1cd99efa0fc9a043c9438fb920c9aea2b69cd38225bdbc46b33db9bb",
+      "results/report/phase6r_amendment_1.json": "b32c0eead909abe7741ad270a40f848c4145d5d9edbc38819af3c8ae56a0546c",
+      "results/report/phase6r_amendment_2.json": "31bab2337ac65eeaa05cb37370563dc32c414fb69da23b52bda2bb5cdc6a2086",
+      "results/report/phase6r_amendment_3.json": "1c3e110ced9e6edb653ab915326f1fed727dd8c3f0cdd97c1bbfd50ab1e17fa2",
+      "results/report/phase6r_amendment_4.json": "f84135b1f04699b98e37179e44183a29c085c2bf29276a7a08794bfa06ca9130",
+      "results/report/phase6r_amendment_5.json": "32747d7317f867534d962f08c30f110f1f10ab5f133ff5649051e965f2b6bb10",
+      "results/report/phase6r_amendment_6.json": "2f99a0499a4dcae5e1b8d60972bb3fa4474b5070bd6eb04d1699b8b1e5a9f6ea",
+      "results/report/phase6r_amendment_7.json": "ae4dec3cff4945d78d341784bc3a7991d853e3eacbf6193381c7b4cb03ccba8d",
+      "results/report/phase6r_amendment_8.json": "9263b1d0cf3ad7783c2da674a3dfbdbac0fae5acf83c371b337f1589ac3bc4e8",
+      "results/report/phase6r_artifact_equivalence.json": "97611301a11e56bf855a45e3abc83c07f1bd79ded88d98167d547e96b8af7477",
+      "results/report/phase6r_diag_residual_onset.json": "f4d7aae7ba23e4a36884b5e830bffaae9b19f010fcd2fb9cdfdb9d26afe3a921",
+      "results/report/phase6r_equivalence.json": "dd90511e9c4948efe84b2ddd74a09759da5ac066a408235638057082f7bdde40",
+      "results/report/phase6r_findings_index.json": "1fcaeeb73862df0ac1aa200128dbd3f1b937d1b74b8a54242d0a4ae1d35ee618",
+      "results/report/phase6r_fsm.json": "6dd8febfcab9d5468906114ac07749b67034c74aa0176fa63f6aaba54dd9918a",
+      "results/report/phase6r_latency.json": "cdbb825eb28b687aede0c9a432b4902882ee70147acc849365b07b572c9e5c2b",
+      "results/report/phase6r_latency_v2.json": "7a7eec1ab04ad9a9945dc3c6002dd013717afd30a1b49155f18ed1d353e6b7cb",
+      "results/report/phase6r_part_a_validation.json": "cb884e50c12b1b4533b28a6441d5c7926e631eed52592fb05c981a3498ece139",
+      "results/report/phase6r_rcampaign_manifest.json": "47b8f937363594af3f52193e6ce9accdfb780dc17bc33d0d62d791eecd39dca3",
+      "results/report/phase6r_rcampaign_matrix.json": "9ceb0aaef91f0fa5ce67ad0fd3dd35eedfdafbe5ee44355869195d19965184bd",
+      "results/report/phase6r_rehearsal_b1.json": "63f94e993d125f69068a6c85a54f3067472344618279924513fabeef830e620e",
+      "results/report/phase6r_rehearsal_b2.json": "f338958f243aa0e990f9151149a793ca9ec38a453740de3a08c9e6fcc36b5721",
+      "results/report/phase6r_rehearsal_b3.json": "e57559782f42827732d98dbce6a5bb3d91116796b7ba2271fd10cbf5a06dac43",
+      "results/report/phase6r_rehearsal_b3_foundation.json": "f338958f243aa0e990f9151149a793ca9ec38a453740de3a08c9e6fcc36b5721",
+      "results/report/phase6r_rehearsal_b4.json": "444616c8917fb0337e20799290b70cfdaa481278706d8617a0262afbb90890e4",
+      "results/report/phase6r_replay_o1.json": "6db5659714ab4955ea8e67ba35781087dc8f81507ac7ca99239d937dc7c1a4a3",
+      "results/report/phase6r_replay_o2.json": "902f544a3adb89f122c40e876e22e91308515b03feb445879fde9906d027de4c",
+      "results/report/phase6r_replay_o3.json": "97fc404686390f04046ad3819a36e09bc41f30676d627b5976ebf9ba9be9f172",
+      "results/report/phase6r_replay_o3_v2.json": "142e591beef33a6aaee69308f8987992238ed54e2f718cfd663b5818563434d3",
+      "results/report/phase6r_slo.json": "513b6ffa9d591c1efe58b8b265cc0902e9f02c9eccdad6bbe9e29463a04366b0",
+      "results/report/phase6r_soak.json": "84724c38dffe54c57735463479e4332f7e93e566e15408ed1c0e1318d80394ab",
+      "results/report/phase6r_soak_rss.png": "bcd18dcb9b22a0a78702f35fc0e911a918bdbd991e8593194579c6558e49ef1a",
+      "results/report/phase6r_stability.json": "72af5fae50caa9008b6164d62bb226c4933401559b31a25044e53dc42658b8f2",
+      "results/report/phase6r_stability_prereg.json": "db32ad75e85ea7be1c417cfb553b7a8b3a177664192d3e5b02ed4befe82edd88",
+      "results/report/phase6r_stability_v2.json": "ece12bd5306393d838d57d31025c98d30e0fc74c0eefcc9c1abd7a545adc9068",
+      "results/report/phase6r_tick_jitter.json": "2de579b4df1a893c38f293f1da5783667bafe972c4bb0b33d6fbec3be4c39116",
+      "results/report/phase6r_verdicts.json": "a0e4fe546704a01a9104a671c4caf593ce639c620af4ffda181e910942603cf6"
+    },
+    "internal_json_hash_checks": {
+      "models/detector-release-1.0.0.json": true,
+      "models/envelope-1.0.0.json": true,
+      "results/report/phase6r_acceptance.json": true,
+      "results/report/phase6r_acceptance_prereg.json": true,
+      "results/report/phase6r_amendment_1.json": true,
+      "results/report/phase6r_amendment_2.json": true,
+      "results/report/phase6r_amendment_3.json": true,
+      "results/report/phase6r_amendment_4.json": true,
+      "results/report/phase6r_amendment_5.json": true,
+      "results/report/phase6r_amendment_6.json": true,
+      "results/report/phase6r_amendment_7.json": true,
+      "results/report/phase6r_amendment_8.json": true,
+      "results/report/phase6r_artifact_equivalence.json": true,
+      "results/report/phase6r_diag_residual_onset.json": true,
+      "results/report/phase6r_equivalence.json": true,
+      "results/report/phase6r_findings_index.json": true,
+      "results/report/phase6r_fsm.json": true,
+      "results/report/phase6r_latency.json": true,
+      "results/report/phase6r_latency_v2.json": true,
+      "results/report/phase6r_rehearsal_b3.json": true,
+      "results/report/phase6r_rehearsal_b4.json": true,
+      "results/report/phase6r_replay_o1.json": true,
+      "results/report/phase6r_replay_o2.json": true,
+      "results/report/phase6r_replay_o3.json": true,
+      "results/report/phase6r_replay_o3_v2.json": true,
+      "results/report/phase6r_slo.json": true,
+      "results/report/phase6r_soak.json": true,
+      "results/report/phase6r_stability.json": true,
+      "results/report/phase6r_stability_prereg.json": true,
+      "results/report/phase6r_stability_v2.json": true,
+      "results/report/phase6r_tick_jitter.json": true,
+      "results/report/phase6r_verdicts.json": true
+    },
+    "registration_commit_order": [
+      {
+        "path": "results/report/phase6r_slo.json",
+        "commit": "12119dd962113a1fa94b6ad3be342a31ebe18f78",
+        "committed_at": "2026-09-17T03:11:49+00:00",
+        "subject": "Seal Phase 6R operational SLO and data budget before any 6R code"
+      },
+      {
+        "path": "results/report/phase6r_amendment_1.json",
+        "commit": "16736db38dd90c07fe3af8013d0e58eecbdf640f",
+        "committed_at": "2026-09-17T04:43:32+00:00",
+        "subject": "Pre-register Phase 6R amendment 1: conservation residual before R-campaign"
+      },
+      {
+        "path": "results/report/phase6r_amendment_2.json",
+        "commit": "5c4a6b5da881c5e1dd7fa76e69df475a92618008",
+        "committed_at": "2026-09-17T09:42:06+00:00",
+        "subject": "Pre-register Phase 6R amendment 2: FSM, evidence suppression, predictions"
+      },
+      {
+        "path": "results/report/phase6r_amendment_3.json",
+        "commit": "d634580a5e2b470102279f0d55e7ca9f70fe5a24",
+        "committed_at": "2026-09-17T10:39:52+00:00",
+        "subject": "Pre-register amendment 3: purpose-derived S7 v2, Phase 8 release gates, close variants"
+      },
+      {
+        "path": "results/report/phase6r_amendment_4.json",
+        "commit": "391ba5eb0177b2a445880a6e19236fd6da29798a",
+        "committed_at": "2026-09-17T10:57:08+00:00",
+        "subject": "Pre-register amendment 4: split R-O, outcome-independent gates, rerun and R-N rules"
+      },
+      {
+        "path": "results/report/phase6r_amendment_5.json",
+        "commit": "cd0ccc2915646e5ea16cf676dd4ce8863db5efb5",
+        "committed_at": "2026-09-17T11:27:05+00:00",
+        "subject": "Pre-register amendment 5: rerun identity and runtime intervention t_start"
+      },
+      {
+        "path": "results/report/phase6r_amendment_6.json",
+        "commit": "e165b01d9bbd901fb761847f94b640e2d260f07a",
+        "committed_at": "2026-09-18T01:45:15+00:00",
+        "subject": "Pre-register amendment 6: firewall R-O replay from R-S outcomes"
+      },
+      {
+        "path": "results/report/phase6r_stability_prereg.json",
+        "commit": "b56871c537384a2eb85fe3d2eee598f2f08730a8",
+        "committed_at": "2026-09-18T02:18:06+00:00",
+        "subject": "Pre-register Phase 6R stability scope and sealed SLO thresholds"
+      },
+      {
+        "path": "results/report/phase6r_amendment_7.json",
+        "commit": "91b0715c2219514fce7e26f9c6834e1ea39af06e",
+        "committed_at": "2026-09-18T03:44:17+00:00",
+        "subject": "Register Amendment 7 for the sealed S11 failure"
+      },
+      {
+        "path": "results/report/phase6r_acceptance_prereg.json",
+        "commit": "fa0b348f4ce0af4187204127b8b75199f468e661",
+        "committed_at": "2026-09-18T08:08:59+00:00",
+        "subject": "Register the 6R.7 acceptance analysis before opening the R-set"
+      },
+      {
+        "path": "results/report/phase6r_acceptance.json",
+        "commit": "0c31d4927d3eb2a0ff657c4a207a291e06b9617e",
+        "committed_at": "2026-09-18T09:35:29+00:00",
+        "subject": "Commit acceptance results skeleton (893 key paths, all null) before opening"
+      },
+      {
+        "path": "results/report/phase6r_verdicts.json",
+        "commit": "f6fe8300fdcfe3427af9cb2643b2127fe3e901ce",
+        "committed_at": "2026-09-18T12:42:41+00:00",
+        "subject": "Derive Phase 6R SLO verdicts mechanically from sealed receipts"
+      },
+      {
+        "path": "results/report/phase6r_amendment_8.json",
+        "commit": "a62c0ff837644a680d985ab35e11f520e6b0bbd7",
+        "committed_at": "2026-09-18T12:43:33+00:00",
+        "subject": "Register amendment 8: release decision after the R-set opening"
+      }
+    ],
+    "r_set_openings": 1,
+    "rehearsals": 5,
+    "tags_required": [
+      "phase-6r-frozen",
+      "phase-6r-opened"
+    ],
+    "lfs_note": "raw R-campaign nam tren Git LFS; files_sha256 ghim POINTER, phase6r_rcampaign_manifest ghim noi dung raw"
+  },
+  "written_at_utc": "2026-09-18T12:52:54+00:00",
+  "content_sha256": "8404a60ede0801e19ef9e9b8ee22463180d6c48eb86c3d5f328e4e14a05e44e1"
+}
