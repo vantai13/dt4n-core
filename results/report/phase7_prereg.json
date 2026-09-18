@@ -1,0 +1,90 @@
+{
+  "content": {
+    "prereg_id": "DT4N-P7-OPERATING-RANGE",
+    "knowledge_state": "Thiết kế, ứng viên và dự đoán lấy nguyên từ hướng dẫn Lesson 7.1. Trước lúc build, thao tác kiểm tra LFS đã vô tình in 3 dòng đầu RN-load8M-s4014-r2; không dùng chúng để đổi thiết kế hay ngưỡng.",
+    "protocol_deviation": {
+      "occurred": true,
+      "detail": "Không thể tuyên bố blind prereg tuyệt đối: 3 dòng R-N 8M đã được hiển thị khi kiểm tra pointer. Probe đầy đủ vẫn chỉ chạy sau khi seal."
+    },
+    "already_seen": "8 run train + 10 run C/F Phase 5 đã được tác giả hướng dẫn xem khi chọn đại lượng; kết quả P2 trên F Phase 5 là in-sample",
+    "upstream_sha256": {
+      "results/report/phase6r_amendment_8.json": "9263b1d0cf3ad7783c2da674a3dfbdbac0fae5acf83c371b337f1589ac3bc4e8",
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7"
+    },
+    "train_sha256": {
+      "N-load1M-s1001-r1.jsonl": "d6f38aed2ed498f112135ad2887846c9dbf378a24ae19235f3235f42498341ae",
+      "N-load1M-s1002-r2.jsonl": "5e0c42a294af0a86c44acc143b563b92b6c04b3f7282b642943c88a543a24945",
+      "N-load2M-s1003-r1.jsonl": "39c9baeb3213a6bdffb26fb5fc9f8e71d4a4c35178d61b96ac322738da21eba1",
+      "N-load2M-s1004-r2.jsonl": "e31d593e5d773dee9bc5cd83d783efb0bdcd18505d23bbe65a026d9e7d552be6",
+      "N-load4M-s1005-r1.jsonl": "4859b7c5087764f3d35b0d70632b14a95e4c6bd84e50e6acbf7191cff9b13a9d",
+      "N-load4M-s1006-r2.jsonl": "01282e06bb4ff646c00b50d027012ffea2f8dcb7f439612212bce79e48b86e9b",
+      "N-vary-s1007-r1.jsonl": "69431ef7058d0d5a32d412a7379cd175dae6c775618be97628c840797477afe6",
+      "N-vary-s1008-r2.jsonl": "d2fb08ed0a418d26e9a5f3a45611a50e462f2bc8c04ddc79d6a36c86bbca560b"
+    },
+    "quantity": {
+      "id": "min_client_txRate_mbps",
+      "definition": "min trên mọi host role=client của traffic.txRate*8/1e6; bất kỳ client nào rateValid!=True hoặc non-finite -> None",
+      "why": "tải hợp lệ tăng đều nâng mọi client; flood một nguồn chỉ nâng một client",
+      "code": "ml/operating_range.py::g"
+    },
+    "correction_to_phase7_plan": {
+      "F7-4": "9.68 Mbps là host-srv1.rxRate (tổng h1+h3), không phải txRate; so với 8 Mbps/client là trộn đại lượng đo với tham số cấu hình",
+      "masking": "guard theo tổng/max tải bật trên flood Phase 5 và có thể biến act thành unknown; vì vậy bị loại"
+    },
+    "guard": {
+      "threshold_mbps": 4.312610240000001,
+      "threshold_source": "max g trên tick judgeable của 8 run TRAIN Phase 5",
+      "n_train_rows": 480,
+      "n_train_unjudgeable": 8,
+      "owner": {
+        "run_id": "N-load4M-s1006-r2",
+        "tick": 51
+      },
+      "per_run_max_mbps": {
+        "N-load1M-s1001-r1": 1.077265,
+        "N-load1M-s1002-r2": 1.095736,
+        "N-load2M-s1003-r1": 2.168926,
+        "N-load2M-s1004-r2": 2.168423,
+        "N-load4M-s1005-r1": 4.312265,
+        "N-load4M-s1006-r2": 4.31261,
+        "N-vary-s1007-r1": 4.282192,
+        "N-vary-s1008-r2": 0.0
+      },
+      "compare": "strict >",
+      "enter": "1 tick g > T",
+      "exit_ticks": 3,
+      "exit_source": "tái dùng fsm_params.release_m=3, không thêm tham số",
+      "on_active": "state công bố=unknown, cause=out_of_operating_range; evidence giữ nguyên; đặt sau fsm.step (chỗ B)"
+    },
+    "criteria": {
+      "P1_must_fire": "mọi RN-load8M-* và RN-load10M-*: frac_guard_active >= 0.90",
+      "P2_must_not_mask": "mọi RD-*, RC-* và F-* Phase 5: n_guard_active == 0",
+      "report_only": "RN-load6M-*, C-*, RS-*, RO-*: báo frac, không phán quyết"
+    },
+    "outcomes": {
+      "KN1": "P1 PASS và P2 PASS -> cài guard ở 7.3 đúng như đăng ký",
+      "KN2": "P1 PASS, P2 FAIL -> không cài; ghi điều kiện triển khai",
+      "KN3": "P1 FAIL -> không cài; S10 giữ REPORT_ONLY",
+      "no_second_candidate": "không thử đại lượng thứ hai sau khi thấy kết quả"
+    },
+    "predictions": {
+      "author": "giữ nguyên dự đoán được cung cấp trong hướng dẫn",
+      "expected_outcome": "KN1",
+      "RN-load6M": "g khoảng 6 > T nên guard bật",
+      "reasoning": "8 Mbps/client TCP trên link 20 Mbps dự kiến khiến mỗi client gửi trên ngưỡng train khoảng 4.31 Mbps"
+    },
+    "known_limitations": [
+      "flood phối hợp từ mọi client giống tải đều nên guard sẽ che",
+      "một client im kéo min về 0 nên guard fail-open",
+      "phụ thuộc topology và giả định client có cùng profile tải",
+      "T là max mẫu nên normal mới vẫn có thể vượt T"
+    ],
+    "data_finding": {
+      "N-vary-s1008-r2": "h1,h3 txRate=0 và srv1 rxRate=0 cả run nhưng checks.passed=True; không sửa tham số đã đóng băng"
+    },
+    "data_budget": "R-set chỉ được probe qua ml/operating_range.py::feasibility; hàm không nhận hay trả ngưỡng",
+    "deviation_policy": "immutable after creation"
+  },
+  "content_sha256": "aeefdad0e1f02189af950967c88d03d826006bfa15c38aa1d36bff30d7fb5d1a",
+  "written_at_utc": "2026-09-18T23:38:50+00:00"
+}
