@@ -1,7 +1,7 @@
 {
   "campaign_id": "DT4N-P6R-RCAMPAIGN",
   "design_locked": true,
-  "status": "planned_not_collected",
+  "status": "collected",
   "constants": {
     "campaign_id": "DT4N-P6R-RCAMPAIGN",
     "duration_sec": 60,
