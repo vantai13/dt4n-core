@@ -608,6 +608,95 @@ def main() -> int:
             },
         },
 
+        # ------------------------------------------ conclusions known before R-set
+        "foregone_conclusions": {
+            "why_this_section_exists": (
+                "A cell whose value is determined by construction before the data "
+                "is opened must be declared before opening. Declared first it is an "
+                "observation; declared afterwards it is indistinguishable from an "
+                "excuse, however honest."
+            ),
+            "G4_and_released": {
+                "value_known_before_opening": False,
+                "known_values": {"G4": False, "released": False},
+                "mechanism": (
+                    "amendment 3 defines G4 as S8 AND S9 AND S12. "
+                    "phase6r_stability_v2.deferred.S12 = 'Phase 7 (amendment 4)' "
+                    "and release_gates.G4_S12 = 'PENDING in Phase 7'. S12 has no "
+                    "verdict inside Phase 6R, so gate_g4 returns False for every "
+                    "possible R-set outcome."
+                ),
+                "carries_information_about_the_r_set": False,
+                "how_to_read_the_receipt": (
+                    "The acceptance evidence is G1, G2, G3 and the SLO table. G4 "
+                    "and released report the Phase 8 release status, which "
+                    "phase6r_stability_v2 already blocked at 6R.6 with "
+                    "phase8_release_blocked = true. They are not a verdict on the "
+                    "R-set and must never be quoted as one."
+                ),
+                "what_would_change_it": (
+                    "Phase 7 measuring live S11 and S12 under the amendment 4 "
+                    "criteria. Nothing measurable inside 6R.7 can change it."
+                ),
+            },
+            "F6_shares_its_measurement_with_S2": {
+                "identity": (
+                    "F6 is refuted iff S2(combined) rate_upper_per_hour > 3.0, "
+                    "which is exactly the S2 failure condition. They are not two "
+                    "pieces of evidence; they are one Poisson measurement on R-S "
+                    "read twice."
+                ),
+                "threshold_in_events": (
+                    "with the nominal 10794 at-risk ticks of the three R-S runs, "
+                    "rate_upper > 3.0 holds iff k >= 4 false-alarm events"
+                ),
+                "scope_mismatch_declared": (
+                    "F1-F5 are claims about the queue-accumulation mechanism "
+                    "measured on R-D. F6 is a claim about background alarm rate "
+                    "measured on R-S. A single F6 refutation therefore changes the "
+                    "amendment 1 outcome from all_pass to any_of_F1_F2_F3_F5_F6 "
+                    "without any R-D evidence having moved."
+                ),
+                "registered_reading_rule": (
+                    "If F6 is the ONLY refuted rule, report the outcome exactly as "
+                    "amendment 1 defines it, AND state in the same paragraph: 'the "
+                    "mechanism claims F1-F5 were not refuted; the outcome changed "
+                    "because of the background alarm rate on R-S, which is the same "
+                    "measurement as S2.' Reporting the outcome label alone in that "
+                    "case is forbidden."
+                ),
+                "observed_in_rehearsal": (
+                    "phase6r_rehearsal_b3.json (content SHA-256 "
+                    "807ed73515e09f2747e1ccba6aa853e151a4d3d206dcbc3d99b1d69d06086beb) "
+                    "shows exactly this pattern on Phase 5: F1-F5 false, F6 true, "
+                    "and 118 at-risk ticks giving 91.4/hour. The coupling was found "
+                    "by rehearsal before opening."
+                ),
+            },
+            "check_only_manifest_exposure": {
+                "declared_before_opening": True,
+                "fact": (
+                    "--check-only reads the pinned R-campaign manifest, including "
+                    "the precomputed R-D max_separation dose, but reads no raw "
+                    "snapshot, meta sidecar, FSM response, detection outcome, or "
+                    "acceptance result."
+                ),
+                "why_it_does_not_spend_the_acceptance_opening": (
+                    "dose is the design-side x-axis known from collection; response "
+                    "is the unopened y-axis. Dose alone cannot reveal which incidents "
+                    "are detected. The analysis, code hashes, skeleton, and tags are "
+                    "already frozen before check-only, so the dose distribution "
+                    "cannot be used to alter the fit or decision rules."
+                ),
+                "limitation": (
+                    "this is not zero information about campaign design: dose values "
+                    "could enable tuning if viewed before the analysis freeze. Their "
+                    "prior availability and the frozen analysis are therefore part "
+                    "of the justification, not merely the absence of raw reads."
+                ),
+            },
+        },
+
         # ------------------------------------------------------- process controls
         "no_numeric_stdout": {
             "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail' progress lines followed by one final DONE line; any other line aborts the script",
@@ -625,7 +714,8 @@ def main() -> int:
         },
         "invocation_log": {
             "file": "results/report/phase6r_acceptance_runs.log",
-            "rule": "append-only and committed; write, flush and fsync BEFORE the first R-set byte; the receipt reads it back to fill n_acceptance_invocations",
+            "rule": "append-only and committed; after stage0 passes, write, flush and fsync immediately BEFORE the first R-set byte; the receipt reads it back to fill n_acceptance_invocations",
+            "check_only_semantics": "--check-only executes the exact stage0 guards, reads no R-set byte, and does not append an invocation. n_acceptance_invocations counts entries into the R-set-reading mode, not configuration-only preflight attempts.",
             "why": "counting invocations by mechanism rather than by promise. If it is 3, report 3 and say where the first two crashed.",
             "tag_guard": "acceptance HEAD must be the commit carrying phase-6r-opened; after that tag only this log and results/report/phase6r_acceptance.json may differ",
         },
