@@ -1,0 +1,127 @@
+{
+  "written_at_utc": "2026-09-18T01:45:15+00:00",
+  "content": {
+    "amendment_id": "DT4N-P6R-AMENDMENT-6",
+    "amends": {
+      "amendment_5_sha256": "a26b9609e685841c90a9d59bafb881ca621ffb00b00ff32084c97fe8d40ff6ca",
+      "rcampaign_design_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f"
+    },
+    "git": {
+      "head": "47af515aba7ade332a810157a03194e1cd2db563",
+      "dirty_files": [
+        "logs/command_flow.log",
+        "logs/phase6r_controller.log",
+        "logs/phase6r_stdout.log",
+        "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+        "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+        "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+        "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+        "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho080-s4109-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+        "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+        "logs/rcampaign_RN-load10M-s4015-r1.log",
+        "logs/rcampaign_RN-load10M-s4016-r2.log",
+        "logs/rcampaign_RN-load6M-s4011-r1.log",
+        "logs/rcampaign_RN-load6M-s4012-r2.log",
+        "logs/rcampaign_RN-load8M-s4013-r1.log",
+        "logs/rcampaign_RN-load8M-s4014-r2.log",
+        "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4301-r1.log",
+        "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+        "logs/rcampaign_RS-soak2M-s4001-r1.log",
+        "logs/rcampaign_RS-soak2M-s4002-r2.log",
+        "logs/rcampaign_RS-soak2M-s4003-r3.log",
+        "logs/rcampaign_startup.log",
+        "results/report/feature_audit.csv",
+        "scripts/build_phase6r_amendment6.py"
+      ]
+    },
+    "pinned_receipt_sha256": {
+      "results/report/phase6r_rcampaign_manifest.json": "47b8f937363594af3f52193e6ce9accdfb780dc17bc33d0d62d791eecd39dca3"
+    },
+    "timing_and_knowledge": {
+      "r_campaign_collected": true,
+      "labels_opened": false,
+      "raw_snapshot_lines_read_for_this_decision": false,
+      "detector_or_fsm_output_read_for_this_decision": false,
+      "decision_source": "structural leakage review of the sealed R-O/R-S plan"
+    },
+    "threat": {
+      "name": "R-O replay can leak R-S false alarms",
+      "mechanism": "R-O1/R-O2 are repeatable deterministic checks on raw R-S; debug state sequences or alarm counts would reveal the same false positives later used for S2/S3 acceptance.",
+      "protected_estimands": [
+        "S2 false alarms per hour",
+        "S3 MTBFA"
+      ]
+    },
+    "decision": {
+      "choice": "A_structural_boolean_firewall",
+      "R_S_used_for_S2_S3": [
+        "RS-soak2M-s4001-r1",
+        "RS-soak2M-s4002-r2",
+        "RS-soak2M-s4003-r3"
+      ],
+      "R_O_replay_source": "the same three R-S runs at only the sealed checkpoints",
+      "restart_ticks": [
+        600,
+        1800,
+        3000
+      ],
+      "gap_ticks": [
+        600,
+        1800,
+        3000
+      ],
+      "gap_length_snapshots": 5
+    },
+    "public_output_contract": {
+      "R_O1_restart_S9_boolean_fields_only": [
+        "first_after_restart_is_warming_up",
+        "no_act_before_n_scored",
+        "no_normal_before_scored",
+        "passed"
+      ],
+      "R_O2_gap_S8_boolean_fields_only": [
+        "first_after_gap_is_unknown_gap",
+        "no_unjudgeable_tick_is_normal",
+        "passed"
+      ],
+      "aggregation": "logical AND across all registered checkpoints and R-S runs; no per-run or per-checkpoint result is public"
+    },
+    "structural_firewall": {
+      "forbidden_outputs": [
+        "raw or filtered state sequences",
+        "alarm, suspect, or act counts",
+        "entity names or per-entity scores",
+        "tick indices, timestamps, residuals, and model scores",
+        "snapshots or excerpts from snapshots"
+      ],
+      "forbidden_side_effects": [
+        "per-tick stdout/logging",
+        "debug dumps derived from R-S",
+        "persisting intermediate scorer/FSM output"
+      ],
+      "debug_rule": "debug only on synthetic fixtures that contain no R-S values; a failure on R-S reveals only the aggregate boolean field name",
+      "implementation_rule": "R-O harness must expose fixed-schema boolean-only APIs; tests must reject extra output keys and forbidden persistence"
+    },
+    "repeat_policy": {
+      "allowed": "repeat the unchanged committed boolean checker on identical sealed inputs",
+      "forbidden": "change scorer/FSM parameters, thresholds, output schema, checkpoints, or diagnostics after any R-O replay on R-S",
+      "failure_handling": "reproduce and fix only with synthetic data; any required semantic change needs a new prospective dataset, not reinterpretation of R-S"
+    },
+    "unchanged": [
+      "FSM and scorer parameters",
+      "S2/S3 definitions and all three hours of R-S exposure",
+      "S8/S9 acceptance propositions",
+      "R-campaign contract and collection receipt"
+    ],
+    "deviation_policy": "bat bien sau commit; implement firewall before first R-O replay"
+  },
+  "content_sha256": "4fa5ba8ab072e03b9c3847ae6f8f5632d1e598bdf5680b7055d869b39e9aa8f3"
+}
