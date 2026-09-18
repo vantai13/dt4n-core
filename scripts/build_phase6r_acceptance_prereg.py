@@ -26,6 +26,8 @@ CODE = (
     "ml/snapshot_contract.py", "ml/rcampaign.py", "ml/replay_guard.py",
     "ml/acceptance_stats.py", "ml/acceptance_guard.py", "ml/acceptance_pass.py",
     "ml/acceptance_metrics.py", "ml/acceptance_skeleton.py",
+    "ml/acceptance_gates.py", "ml/acceptance_report.py",
+    "scripts/run_phase6r_acceptance.py", "scripts/rehearse_acceptance.py",
 )
 
 
@@ -61,6 +63,13 @@ def main() -> int:
             "rcampaign_manifest_file_sha256": C.sha256_file(
                 REPORT / "phase6r_rcampaign_manifest.json"
             ),
+        },
+
+        "external_receipts": {
+            "replay_o1": _content_sha("phase6r_replay_o1.json"),
+            "replay_o2": _content_sha("phase6r_replay_o2.json"),
+            "replay_o3": _content_sha("phase6r_replay_o3_v2.json"),
+            "stability": _content_sha("phase6r_stability_v2.json"),
         },
 
         # ------------------------------------------------ superseded statements
@@ -217,6 +226,16 @@ def main() -> int:
 
         # ------------------------------------------------ operational definitions
         "operational_definitions": {
+            "S1_S4_channel": "with_log",
+            "S1_S4_channel_reason": (
+                "S1 and S4 measure the deployed envelope_only channel with the "
+                "registered InterventionLog. On R-D the log contains only the revert "
+                "intervention: its suppression interval [t_revert, t_revert + 8s) "
+                "starts after the incident window [t_inject + 1s, t_revert], so it "
+                "cannot alter either incident detection or time-to-detect. Therefore "
+                "with_log and no_log are identical for these two measurements by "
+                "construction, not selected after observing an outcome."
+            ),
             "alarm_level_for_S2_S3": "suspect_level",
             "alarm_level_reported_as_second_column": "act_level",
             "alarm_level_for_G2": "act_level (amendment 3, unchanged)",
@@ -591,7 +610,7 @@ def main() -> int:
 
         # ------------------------------------------------------- process controls
         "no_numeric_stdout": {
-            "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail'; any other line aborts the script",
+            "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail' progress lines followed by one final DONE line; any other line aborts the script",
             "stderr_rule": "stderr is swallowed during acceptance; traceback details are reproduced only on Phase 5 or fixtures",
             "why": "the amendment 6 firewall logic applied to the acceptance script itself. A crash at run 23 of 25 after printing per-run numbers means 22 runs were already seen, and the second invocation is no longer a first opening.",
         },

@@ -23,6 +23,12 @@
       "fsm_content_sha256": "1e83fd45b915165d12d9b72525b761bbcd60c03117d40d0c83aa531efe17e62b",
       "rcampaign_manifest_file_sha256": "47b8f937363594af3f52193e6ce9accdfb780dc17bc33d0d62d791eecd39dca3"
     },
+    "external_receipts": {
+      "replay_o1": "5a657e66d82d806989a53f467bbd0ab358dd705374598db86f85c47c485b24cf",
+      "replay_o2": "43751ef862b6dc81ed766c58ce82f16e94b54f50511a794a51e80ffbed796ac0",
+      "replay_o3": "369ee6855c87c7abbb7dd15e23dc1a23c7e37ee2d1b9fa572f2d4b91b8f92b04",
+      "stability": "5f71dd0f7fe9f79b119ef8b3672d563c8d39672442da08a11ba6b9657121c2ee"
+    },
     "supersession_ledger": [
       {
         "superseded": "phase6r_amendment_3.finding_F_6R4_1_plan.status",
@@ -116,7 +122,11 @@
         "ml/acceptance_guard.py": "cf77f8ec626a80268f0e0b9c6f5100e7f77222999f296520db59f02f56f970de",
         "ml/acceptance_pass.py": "81ba0ded9a520e3e22d1f594df627a34eafd406f531527ee0579e2cd16a1088f",
         "ml/acceptance_metrics.py": "fd5b11a3b8fd6dd3ccfab0cbd39ecd97ec7427cb04a4cd5ed665480b26a2b1bb",
-        "ml/acceptance_skeleton.py": "f793a5a8eaa3bf137da8d8fa417afdb2b6e1c067c3f2c966f717132ad49779f5"
+        "ml/acceptance_skeleton.py": "f793a5a8eaa3bf137da8d8fa417afdb2b6e1c067c3f2c966f717132ad49779f5",
+        "ml/acceptance_gates.py": "804c8c5fe0f7df0fbf44dff95050ddb1d2d330a3d086f43979bbca4b6d2c10f2",
+        "ml/acceptance_report.py": "3d2ef687119c01e124adf6fc93ad22f1b1614d9c812135852db5732210fcc967",
+        "scripts/run_phase6r_acceptance.py": "a3380350000791c145871eed782736272652b59659a753c5611ccd3dcd68a887",
+        "scripts/rehearse_acceptance.py": "d2dc4e0babd858ba730800c67b45061b11a04fdc3f018af07605c0d0759ce365"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -217,6 +227,8 @@
       }
     },
     "operational_definitions": {
+      "S1_S4_channel": "with_log",
+      "S1_S4_channel_reason": "S1 and S4 measure the deployed envelope_only channel with the registered InterventionLog. On R-D the log contains only the revert intervention: its suppression interval [t_revert, t_revert + 8s) starts after the incident window [t_inject + 1s, t_revert], so it cannot alter either incident detection or time-to-detect. Therefore with_log and no_log are identical for these two measurements by construction, not selected after observing an outcome.",
       "alarm_level_for_S2_S3": "suspect_level",
       "alarm_level_reported_as_second_column": "act_level",
       "alarm_level_for_G2": "act_level (amendment 3, unchanged)",
@@ -711,7 +723,7 @@
       }
     },
     "no_numeric_stdout": {
-      "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail'; any other line aborts the script",
+      "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail' progress lines followed by one final DONE line; any other line aborts the script",
       "stderr_rule": "stderr is swallowed during acceptance; traceback details are reproduced only on Phase 5 or fixtures",
       "why": "the amendment 6 firewall logic applied to the acceptance script itself. A crash at run 23 of 25 after printing per-run numbers means 22 runs were already seen, and the second invocation is no longer a first opening."
     },
@@ -838,7 +850,7 @@
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T09:58:19+00:00"
+    "written_at_utc": "2026-09-18T10:21:48+00:00"
   },
-  "content_sha256": "0b333fcbdaa833c38ebda6fec9a83e01f4ad3e2f83d8d8b6ce5e0f7e5b36bad5"
+  "content_sha256": "d479bbb93afc59342de8bd88dba2cd72f16d7a2fa8c9fb9d936c4744ba872ada"
 }
