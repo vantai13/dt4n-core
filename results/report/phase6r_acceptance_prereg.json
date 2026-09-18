@@ -102,7 +102,12 @@
         "ml/missing.py": "b321df8a2676522e16967a76247d77baeb352cc73058b67b870b00de98e659ad",
         "ml/snapshot_contract.py": "6676004733aafae53c98e59127b4ead835bfad962ff922d2446ffba050972cce",
         "ml/rcampaign.py": "fdf02907d365d872663b886baec5bd3c815049acf4e67fb06f57013f972df540",
-        "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c"
+        "ml/replay_guard.py": "72f427922f76f20a0721ac61734dfc8d1c20d3b43c8d7f92ce8928147505869c",
+        "ml/acceptance_stats.py": "6743da1e35d650bfe595b576e705c6435521985c04055cd97fff875956d9dab2",
+        "ml/acceptance_guard.py": "cf77f8ec626a80268f0e0b9c6f5100e7f77222999f296520db59f02f56f970de",
+        "ml/acceptance_pass.py": "e0887453bbc1600d242741859bbe00c66c4da0eb241f129dbced0c0458376e5a",
+        "ml/acceptance_metrics.py": "fd5b11a3b8fd6dd3ccfab0cbd39ecd97ec7427cb04a4cd5ed665480b26a2b1bb",
+        "ml/acceptance_skeleton.py": "f793a5a8eaa3bf137da8d8fa417afdb2b6e1c067c3f2c966f717132ad49779f5"
       },
       "freeze_tag": "phase-6r-frozen",
       "environment_facts_not_pinned_in_sidecars": {
@@ -157,6 +162,12 @@
       "derivation": "all three channels derive from ONE Reading stream: envelope_suspect, cons_alarm, cons_judgeable, cons_r_max and cons_switch are separate fields of ml.serve.Reading",
       "fsm_instances_are_independent": "the two FSM channels MUST be two separate DetectorFSM instances. Sharing one instance mixes self._cs, self._ca and self._quiet between channels and corrupts both in a way that is hard to see. A test asserts this before the R-set is opened.",
       "conservation_mode_for_the_pass": "shadow"
+    },
+    "combined_channel_suppression": {
+      "fact": "Reading.violating holds envelope columns only; cons_switch is never added. A residual-only alarm has local == {} and is NEVER suppressed by ml/fsm.py",
+      "not_repaired": "giving the residual a locality is a new mechanism = a second variant",
+      "claims": "S7 and S11 are claimed for envelope_only only; combined on R-O3/R-C is descriptive",
+      "prediction": "combined will enter suspect at least once on R-O3 from a residual-only alarm during the controller window; because that alarm has no locality, InterventionLog cannot suppress it. Refuted if neither R-O3 run has such an entry. This is descriptive and is not used for S7/S11 claims."
     },
     "single_pass_requirement": {
       "rule": "ONE scan of the snapshots produces all three channels",
@@ -524,6 +535,21 @@
         "where_those_fields_live": "inside the S4 block, not in a separate diagnostics section",
         "why_inside_S4": "they are not diagnostics. They are the load-bearing evidence that the two S4 columns measure different things; a reader who sees only one number cannot tell whether the definition did any work."
       },
+      "S4_clock_implementation": {
+        "start": "events[kind=inject].t_source - apply_ms/1000, the SAME source on Phase 5 and on the R-set (ml.acceptance_metrics.inject_clock)",
+        "end": "snapshot.t_cycle_end of the first Transition into the alarm zone inside [inject_tick+1, revert_tick]: the detector cannot change state before the snapshot exists; Transition.t_source is the cycle START",
+        "why_not_sidecar_interventions": "on R-D and R-C log_inject is False, so sidecar.interventions holds ONLY the revert at tick 40. Clocking from it gives negative times and a false PASS. amendment 5 analysis_rule governs SUPPRESSION, not this clock",
+        "both_ends_self_penalising": "earliest physically grounded start, latest physically grounded end",
+        "withdrawn": "'Phase 5 detections sit at 1.1-2.1 s' used nominal t_rel 20.0 against measured times; rehearsal on this clock gives 994-1999 ms (envelope_only)"
+      },
+      "intervention_log_per_group": {
+        "R-D, R-C": "sidecar.interventions (harness revert only), same as the 6R.4 fault replay",
+        "R-O": "sidecar.interventions (controller inject + revert)",
+        "R-S, R-N": "empty log",
+        "zone": "':admin_down' -> radius_with_detour recomputed from targets (amendment 7); otherwise sidecar blast_radius; routing_sha256 must equal ditto/routing_table.json",
+        "G2_second_zone": "R-C runs carry extra FSM instances with zone 'original' INSIDE THE SAME PASS (ml.acceptance_pass.build_log)"
+      },
+      "dose_axis_1_source": "sidecar checks.max_separation, recomputed by ml.campaign.signal_check inside the pass; the two must be equal or the pass aborts",
       "S4_censoring": {
         "denominator": "incidents with a detection inside the window",
         "census_required_beside_every_S4_number": [
@@ -575,14 +601,27 @@
       "S10_reporting": "report all three; they are monotone, so 'true FP' is bracketed by [col_c, col_a]",
       "S10_col_c_caveat": "col_c uses residual > R, so under the envelope_only channel it is a COUNTERFACTUAL ('residual would have justified this tick had it been present'). Label it as such; it is not a measurement of the envelope configuration.",
       "S10_has_no_pass_fail": "target kind is 'bao, khong dat muc tieu', so there is no gaming risk in reporting three columns",
+      "S10_alarm_tick": "a tick whose FSM state for the channel is in {suspect, act} (what the operator sees; hysteresis ticks included, self-penalising). Raw alarm ticks reported as one sensitivity line",
+      "S10_evidence_scope": "same tick, any link; None on every non-positive link -> undetermined, counted apart from every column",
+      "censored_max_k_none": "all window ticks unknown -> max_k None -> counted in n_censored_no_channel_left_envelope",
+      "G2_event_definition": "amendment_2.definitions.fp_event at act_level: maximal runs of adjacent ticks with y == 0 (after warmup) and state == act. NOT observed_properties.false_alarm_event: act held across the revert (phase6r_fsm.json F-flood-h1 no_log, act ticks 41-49) is 1 FP event here and 0 there, and that post-revert window is what G2 exists to see (F-6R4-1)",
+      "residual_on_unscored_ticks": {
+        "rule": "the residual channel is 'cons_judgeable AND r_max > R' as registered; the envelope status of the tick plays NO part. Ticks with status 'unknown' count",
+        "why_not_changed": "P1/P2 and F3 share one residual definition; splitting it per use would create two residual channels",
+        "census": "residual_alarms_on_unscored_ticks per run, beside every P/F number",
+        "phase5_evidence": "tc reconfiguration makes qdisc columns missing at inject+1 and revert+1 on degrade/shift runs; 7 residual alarms fall on such ticks across the 8 F-* runs; F-degrade-s1-s2 revert+1 (tick 41, y == 0) alarms with r = 0.353",
+        "F3_exposure": "R-D holds about 390 background ticks, 2% is 7.8; revert+1 alone can contribute up to one tick per run",
+        "withdrawn": "'conservation residual sees it (16/20 ticks)' counted scored ticks only; the registered definition gives 17/20 (tick 21 is unknown)"
+      },
+      "G1_channels": "S7 on R-D and R-O from separate FSM instances with_log and no_log in the SAME pass (ml.acceptance_pass.specs_for)",
       "incident_detected_for_S1": "at least one Transition into {suspect, act} within [inject_tick + 1, revert_tick]",
       "run_detected_50pct_for_P1_P2": "amendment 1: fraction of ticks with y == 1 and eval_primary carrying a RESIDUAL alarm >= 0.50 (unchanged)",
       "cross_use_forbidden": "the two definitions measure different things (did we catch the incident at all, versus is the saturation mechanism right). Every table states which one it uses. Using one in place of the other is forbidden.",
       "S7_version": "s7_v2 (ml.oscillation.s7_v2, amendment 3)",
       "S7_v1_also_reported": true,
       "S7_v2_loosening_disclosure": "v2 is looser than v1 in exactly one place: monotone de-escalation with an act->suspect step. Registered at amendment 3, before the R-campaign was collected.",
-      "S2_estimator": "rule of three: 0 events over T hours gives a 95% upper bound of 3/T. With T = 3 hours that is 1.0 events/hour.",
-      "S2_estimator_if_nonzero": "exact Poisson upper bound, alpha = 0.05",
+      "S2_estimator": "one-sided 95% Poisson upper bound: lambda_u solves P(X<=k; lambda_u) = 0.05 (ml.acceptance_stats.poisson_upper_one_sided); k = 0 gives 2.996. rate_upper = lambda_u / T",
+      "S2_exposure": "T = at-risk ticks x 1 s: ticks with Reading.status == 'scored' whose FSM state BEFORE the step is outside {suspect, act}; counted per channel, never the nominal 3 h (RS runs hold 3598 snapshots each)",
       "S3_relation": "the same measurement as S2 in different units. NOT a second piece of evidence. This sentence must appear beside S3 in every table."
     },
     "scope_reductions": {
@@ -595,9 +634,16 @@
       "dose_axis_1": {
         "axis": "max_separation as measured (ml.campaign.signal_check)",
         "response": "incident_detected (the S1 definition)",
+        "channels": [
+          "envelope_only",
+          "combined"
+        ],
         "model": "logistic(detected ~ log10(separation))",
         "ci": "cluster bootstrap, UNIT OF RESAMPLING = RUN, B = 2000, seed = 20260918",
-        "why_cluster": "ticks inside one run share a seed, a link, a dose and a network state, so they are not independent. Resampling ticks would assume ~400 independent observations instead of ~10 and narrow the CI by roughly sqrt(ticks per run).",
+        "separation_floor": "separation < 1e-3 (signal_check rounding) is floored to 1e-3 and counted as n_floored",
+        "fallback_algorithm": "monotone: ED50 = sqrt(max_miss * min_hit) (midpoint on log10); non-monotone: report overlap [min_hit, max_miss] and n_inversions, NO ED50 (ml.acceptance_stats.dose_bracket)",
+        "nonconverged_cases": "one class in resample, p at 0/1, |beta| > 1e3, slope <= 0, ED50 more than 1 decade outside the data",
+        "why_cluster": "the response is ONE binary value per run, so the run is the only unit; the tick-dependence argument applies to P1/P2, not to this axis",
         "nonconvergence_rule": "if more than 50% of bootstrap samples fail to converge (complete separation), DROP the logistic fit and report linear interpolation between adjacent dose steps plus a range; record n_converged and n_boot. Do not fit 5 parameters to 10 points.",
         "anchor": "the rho125 step (factor 0.828) coincides with the Phase 5 run that already FAILED (factor 0.82747), giving an external check point"
       },
@@ -630,21 +676,23 @@
     },
     "no_numeric_stdout": {
       "rule": "during the acceptance pass stdout may carry only '[i/n] <run_id> ok|fail'; any other line aborts the script",
+      "stderr_rule": "stderr is swallowed during acceptance; traceback details are reproduced only on Phase 5 or fixtures",
       "why": "the amendment 6 firewall logic applied to the acceptance script itself. A crash at run 23 of 25 after printing per-run numbers means 22 runs were already seen, and the second invocation is no longer a first opening."
     },
     "results_skeleton_committed_first": {
       "rule": "phase6r_acceptance.json is committed BEFORE opening, with the full structure and every value null",
       "why": "after opening, values are filled into existing cells. No row can be added ('I also computed this') and none removed ('that one was not very meaningful'). The shape of the answer is fixed before the answer is known.",
-      "test": "set(keys(skeleton)) == set(keys(filled))"
+      "test": "recursive key-path set of skeleton == that of filled, and every skeleton leaf is null; per-run data is a dict keyed by run_id from the matrix, never a list"
     },
     "read_once_guard": {
-      "rule": "read_snapshots_once(path) raises on a second read of the same resolved path",
+      "rule": "SnapshotReader.read_once(run_id, path) marks the resolved path seen before reading, rejects a second read, rejects Git LFS pointers, and verifies the manifest SHA-256 before parsing",
       "receipt_field": "n_files_read"
     },
     "invocation_log": {
       "file": "results/report/phase6r_acceptance_runs.log",
-      "rule": "append-only and committed; the receipt reads it back to fill n_acceptance_invocations",
-      "why": "counting invocations by mechanism rather than by promise. If it is 3, report 3 and say where the first two crashed."
+      "rule": "append-only and committed; write, flush and fsync BEFORE the first R-set byte; the receipt reads it back to fill n_acceptance_invocations",
+      "why": "counting invocations by mechanism rather than by promise. If it is 3, report 3 and say where the first two crashed.",
+      "tag_guard": "acceptance HEAD must be the commit carrying phase-6r-opened; after that tag only this log and results/report/phase6r_acceptance.json may differ"
     },
     "prereg_mutability": {
       "before_tag_phase-6r-opened": "freely amendable, one commit per change, reason in the commit message. The rehearsal runs on Phase 5/6, so anything it finds is independent of the R-set.",
@@ -657,11 +705,23 @@
       "data": "Phase 5 raw (train + test, open since Phase 6)",
       "imports_the_real_functions": true,
       "mechanical_guard": "assert 'data/phase6r' does not appear in the rehearsal source",
+      "environment_gate": "if python/numpy/pandas differ from phase6r_equivalence.json, the rehearsal reruns the 1062/1062 equivalence in the current environment before opening",
+      "stderr_policy": "stderr is swallowed during acceptance (ml.acceptance_guard.quiet_run); a failed run is debugged by reproduction on Phase 5 or fixtures",
       "why": "the acceptance pipeline is the most complex script of Phase 6R. A first crash on the R-set means the data was already seen."
     },
     "predictions": {
       "P_S2": "0 events over 3 hours gives a 95% upper bound of 1.0/hour, meeting the 3.0 target",
-      "P_S4": "p95 <= 3000 ms on detected incidents under the inject clock; Phase 5 detections sit at 1.1-2.1 s. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
+      "P_S4": "p95 <= 3000 ms for envelope_only on detected incidents under the corrected inject/data-availability clock. n_censored > 0 because P2 predicts the rho <= 0.9 runs are not detected.",
+      "P_S4_per_channel": {
+        "envelope_only": "R-D p95 is predicted <= 3000 ms; Phase 5 rehearsal on the corrected clock gives 1999 ms and the registered envelope mechanism responds within two post-inject ticks when it detects",
+        "combined": "At least one R-D run with max_k == 0 will be detected by combined with t_detect_ms > 3000. Refuted if no such run exists. Phase 5 F-degrade-s1-s2 is the mechanism witness: detected at tick 25 with 5001 ms because queue accumulation must integrate before r_max crosses R",
+        "evidence": "rehearsal on Phase 5, open since Phase 6"
+      },
+      "P_F3_revised": {
+        "original": "F3 is predicted to PASS: at 2M per client offered stays below capacity, and Phase 5 background at this load shows r median 0.002-0.004 with 0 alarms in 4 runs of 58 ticks.",
+        "revised": "F3 is predicted to PASS (background residual-alarm fraction <= 2%) even when unscored ticks count. Reconfiguration can create at most one revert+1 opportunity per R-D run; the prediction is refuted if aggregate background_alarm_ticks / background_ticks exceeds 0.02.",
+        "reason": "residual alarm at revert+1 observed on Phase 5 degrade (open since Phase 6); revised before the R-set is opened"
+      },
       "P_S4_unobservable": "at least one R-D incident has NO physical evidence in its window, as F-degrade-s1-s2-s3003-r1 did in Phase 5; the low-rho steps are the candidates",
       "P_S7": "0 oscillation patterns; F-6R4-1 may still produce out-of-zone alarms after revert on R-C",
       "P_S10": "fold 0 gives k = 0 on every row, so vary already covered 4 Mbps. At 10 Mbps (100% of the s1-s2 capacity) alarms may have a genuine physical basis, so col_b < col_a clearly.",
@@ -695,11 +755,54 @@
     "timing_and_knowledge": {
       "labels_opened": false,
       "r_set_acceptance_opened": false,
-      "r_set_snapshots_read": false,
+      "r_set_outcomes_emitted": false,
+      "r_set_snapshots_read_outcome_blind": [
+        {
+          "lesson": "6R.5B",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/measure_tick_jitter.py",
+          "emitted": "inter-arrival quantiles only"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/measure_phase6r_latency*.py",
+          "emitted": "aggregate latency only (firewall_compliance in phase6r_latency_v2)"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/replay_phase6r_stability.py",
+          "emitted": "R-O1/R-O2 booleans only (ml/replay_guard.py)"
+        },
+        {
+          "lesson": "6R.6",
+          "runs": [
+            "RS x3"
+          ],
+          "tool": "scripts/soak_phase6r_detector.py",
+          "emitted": "RSS/resource metrics only"
+        },
+        {
+          "lesson": "6R.6/A7",
+          "runs": [
+            "RO-ctl x2"
+          ],
+          "tool": "scripts/replay_phase6r_s11_v2.py, scripts/diag_s11_suppression.py",
+          "emitted": "S11 (R-O repeatable by design)"
+        }
+      ],
+      "computed_in_memory_not_emitted": "FSM states and alarms on RS were computed inside the latency and replay harnesses and discarded; S2/S3 have never been emitted",
       "numbers_quoted_from": "Phase 5 raw and Phase 6 receipts, open since Phase 6"
     },
     "deviation_policy": "immutable after the tag phase-6r-opened",
-    "written_at_utc": "2026-09-18T08:05:26+00:00"
+    "written_at_utc": "2026-09-18T09:31:45+00:00"
   },
-  "content_sha256": "c68eb8440dcd09e3c4b134179758953a02299104393cbf098dbeb4adcdcad146"
+  "content_sha256": "eca83720474e0be0409d3e5b82d9f5ad52edd349e70f546f05db4133d4f7a149"
 }
