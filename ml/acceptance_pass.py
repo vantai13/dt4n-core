@@ -1,71 +1,163 @@
-"""Mot lan quet sinh ca ba kenh nghiem thu; khong doc file va khong in."""
+"""Mot lan quet sinh moi kenh nghiem thu; khong doc file va khong in.
+
+v2 ghi moi tick thanh mot ``TickRow``. Moi metric la ham thuan cua ``RunTrace``;
+khong metric nao duoc phep quay lai doc snapshot.
+"""
 from __future__ import annotations
 
 import dataclasses
 from dataclasses import dataclass, field
+from typing import Callable
+
+from ml.blast_radius import radius_with_detour
+from ml.flatten import flatten_snapshot
+from ml.intervention_log import InMemoryInterventionLog, Intervention
 
 ALARM_ZONE = frozenset({"suspect", "act"})
 
-CHANNELS = {
+DERIVE = {
     "envelope_only": lambda reading: reading.envelope_suspect,
     "combined": lambda reading: reading.envelope_suspect or reading.cons_alarm,
 }
 
 
+def _num(value):
+    """Chuyen None/NaN/bool thanh None: khong do duoc khac khong co bang chung."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return value if value == value else None
+
+
+def physical_evidence(snapshot: dict, loss_threshold: float):
+    """Bang chung tri-state tren moi link, cung tick: True/False/None."""
+    row = flatten_snapshot(snapshot)
+    links = {key.split(".", 1)[0] for key in row if key.startswith("link-")}
+    undetermined = False
+    for link in links:
+        loss = _num(row.get(link + ".traffic.lossPct"))
+        drop = _num(row.get(link + ".traffic.qdiscDropDelta"))
+        up = _num(row.get(link + ".status.state_up"))
+        if (
+            (loss is not None and loss > loss_threshold)
+            or (drop is not None and drop > 0)
+            or (up is not None and up == 0)
+        ):
+            return True
+        if loss is None or drop is None or up is None:
+            undetermined = True
+    return None if undetermined else False
+
+
+def build_log(meta: dict, routing, *, zone: str) -> InMemoryInterventionLog:
+    """Dung intervention log voi vung ``detour`` hoac ``original``."""
+    if zone not in ("detour", "original"):
+        raise ValueError(zone)
+    log = InMemoryInterventionLog()
+    for item in meta.get("interventions", []):
+        if item["routing_sha256"] != routing.sha256:
+            raise ValueError("routing SHA lech sidecar: %s" % item["id"])
+        use_detour = zone == "detour" and item["action"].endswith(":admin_down")
+        log.append(
+            Intervention(
+                id=item["id"],
+                t_start=float(item["t_start"]),
+                actor=item["actor"],
+                action=item["action"],
+                targets=item["targets"],
+                blast_radius=(
+                    radius_with_detour(routing, item["targets"])
+                    if use_detour
+                    else frozenset(item["blast_radius"])
+                ),
+                routing_sha256=item["routing_sha256"],
+            )
+        )
+    return log
+
+
+@dataclass(frozen=True)
+class FsmSpec:
+    derive: str
+    factory: Callable[[], object]
+
+
 @dataclass
-class ChannelTrace:
-    states: list = field(default_factory=list)
-    event_ticks: list = field(default_factory=list)
-    at_risk_ticks: int = 0
+class TickRow:
+    tick: int | None
+    t_source: float | None
+    t_available: float | None
+    status: str
+    k: int | None
+    excess: float | None
+    act: bool
+    envelope_suspect: bool
+    cons_alarm: bool
+    cons_judgeable: bool
+    cons_r_max: float | None
+    ev_strict: bool | None
+    ev_sensitive: bool | None
+    raw: dict = field(default_factory=dict)
+    state: dict = field(default_factory=dict)
+    at_risk: dict = field(default_factory=dict)
 
 
 @dataclass
 class RunTrace:
     run_id: str
-    n_snapshots: int = 0
-    statuses: dict = field(default_factory=dict)
-    channels: dict = field(default_factory=dict)
-    residual_alarm_ticks: list = field(default_factory=list)
-    residual_judgeable_ticks: int = 0
+    rows: list = field(default_factory=list)
+    channels: tuple = ()
 
 
-def run_one(run_id, snapshots, scorer, fsm_factory, residual_threshold: float) -> RunTrace:
-    trace = RunTrace(run_id=run_id, n_snapshots=len(snapshots))
-    fsms = {name: fsm_factory() for name in CHANNELS}
+def run_one(
+    run_id,
+    snapshots,
+    scorer,
+    specs: dict[str, FsmSpec],
+    residual_threshold: float,
+) -> RunTrace:
+    fsms = {name: spec.factory() for name, spec in specs.items()}
     if len({id(fsm) for fsm in fsms.values()}) != len(fsms):
         raise AssertionError("hai kenh dung chung mot DetectorFSM")
-    for name in CHANNELS:
-        trace.channels[name] = ChannelTrace()
-
+    trace = RunTrace(run_id=run_id, channels=tuple(specs))
     for snapshot in snapshots:
         reading = scorer.observe(snapshot)
-        trace.statuses[reading.status] = trace.statuses.get(reading.status, 0) + 1
-
         residual = bool(
             reading.cons_judgeable
             and reading.cons_r_max is not None
             and reading.cons_r_max > residual_threshold
         )
         if residual != bool(reading.cons_alarm):
-            raise AssertionError("cons_alarm lech dinh nghia prereg o tick %s" % reading.tick)
-        if reading.cons_judgeable:
-            trace.residual_judgeable_ticks += 1
-        if residual:
-            trace.residual_alarm_ticks.append(reading.tick)
-
-        for name, derive in CHANNELS.items():
-            fsm, channel = fsms[name], trace.channels[name]
-            derived = dataclasses.replace(reading, suspect=bool(derive(reading)))
-            if reading.status == "scored" and fsm.state not in ALARM_ZONE:
-                channel.at_risk_ticks += 1
-            transition = fsm.step(derived)
-            channel.states.append(
-                (transition.tick, transition.prev, transition.state, transition.cause)
+            raise AssertionError(
+                "cons_alarm lech dinh nghia prereg o tick %s" % reading.tick
             )
-            if (
-                transition.changed
-                and transition.state in ALARM_ZONE
-                and transition.prev not in ALARM_ZONE
-            ):
-                channel.event_ticks.append(transition.tick)
+        row = TickRow(
+            reading.tick,
+            reading.t_source,
+            _num(snapshot.get("t_cycle_end")),
+            reading.status,
+            reading.k,
+            reading.excess,
+            bool(reading.act),
+            bool(reading.envelope_suspect),
+            bool(reading.cons_alarm),
+            bool(reading.cons_judgeable),
+            reading.cons_r_max,
+            physical_evidence(snapshot, 1.0),
+            physical_evidence(snapshot, 0.0),
+        )
+        for name, spec in specs.items():
+            fsm = fsms[name]
+            alarm = bool(DERIVE[spec.derive](reading))
+            row.raw[name] = reading.status == "scored" and (alarm or bool(reading.act))
+            row.at_risk[name] = (
+                reading.status == "scored" and fsm.state not in ALARM_ZONE
+            )
+            transition = fsm.step(dataclasses.replace(reading, suspect=alarm))
+            row.state[name] = (
+                transition.prev,
+                transition.state,
+                transition.changed,
+                transition.cause,
+            )
+        trace.rows.append(row)
     return trace
