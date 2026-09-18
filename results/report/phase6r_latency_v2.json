@@ -1,0 +1,57 @@
+{
+  "content": {
+    "lesson": "6R.6-latency-correction",
+    "slo": "S5",
+    "measurement_number": 2,
+    "correction": "v1 cold_start_ms used sample[0], which is warming_up fast-exit; v2 uses sample[1], the first scored tick",
+    "supersedes_field_only": "phase6r_latency.json::per_implementation.*.cold_start_ms",
+    "original_file_sha256": "cdbb825eb28b687aede0c9a432b4902882ee70147acc849365b07b572c9e5c2b",
+    "original_content_sha256": "29649097c1beb2930a28983e6ad19db3a985e1bbfcb0370adcf4ff66463444e5",
+    "amendment_7_content_sha256": "f80b5cfd3b044ca38eb5d7384edd21d44dd5f449bcc9ee31903a14bc9134aaf6",
+    "clock": "time.monotonic",
+    "source_runs": [
+      "RS-soak2M-s4001-r1",
+      "RS-soak2M-s4002-r2",
+      "RS-soak2M-s4003-r3"
+    ],
+    "per_implementation": {
+      "OnlineScorer": {
+        "n_samples": 10734,
+        "n_warmup_excluded": 60,
+        "cold_start_ms": 53.795,
+        "cold_start_definition": "first scored tick (index 1); index 0 is warming_up fast-exit",
+        "p50_ms": 51.226,
+        "p95_ms": 56.249,
+        "p99_ms": 59.677,
+        "max_ms": 162.811,
+        "mean_ms": 51.895
+      },
+      "FastOnlineScorer": {
+        "n_samples": 10734,
+        "n_warmup_excluded": 60,
+        "cold_start_ms": 0.996,
+        "cold_start_definition": "first scored tick (index 1); index 0 is warming_up fast-exit",
+        "p50_ms": 0.771,
+        "p95_ms": 0.943,
+        "p99_ms": 1.291,
+        "max_ms": 1.676,
+        "mean_ms": 0.8
+      }
+    },
+    "phase7_implementation": "FastOnlineScorer",
+    "verdict": {
+      "OnlineScorer": "FAIL",
+      "FastOnlineScorer": "PASS"
+    },
+    "S5_verdict_changed": false,
+    "firewall_compliance": {
+      "emits_aggregate_latency_only": true,
+      "emits_tick_indices": false,
+      "emits_reading_or_transition_fields": false,
+      "reads_labels": false
+    },
+    "git_head": "ecfad7b057ebca21360f4ba0565f9a9954f550d5",
+    "written_at_utc": "2026-09-18T04:05:14+00:00"
+  },
+  "content_sha256": "6d7677772cf07e708a4b0951bf081d39e74f47973574ebb72ce15366d8b8967d"
+}

@@ -1,0 +1,104 @@
+{
+  "content": {
+    "lesson": "6R.6-amendment-7-repair",
+    "measurement_version": 2,
+    "supersedes_for_release_decisions": {
+      "file": "phase6r_stability.json",
+      "file_sha256": "72af5fae50caa9008b6164d62bb226c4933401559b31a25044e53dc42658b8f2",
+      "content_sha256": "7dbbd7a830b7fff47ba40bc88966431b551f9bbc6faeace2bc6ef0f2e4d82831",
+      "history_preserved": true
+    },
+    "amendment_7_content_sha256": "f80b5cfd3b044ca38eb5d7384edd21d44dd5f449bcc9ee31903a14bc9134aaf6",
+    "implementation_sha256": {
+      "ml/intervention_log.py": "22874cab8b2d29e41d6cf48b5963ecc0e1f7d7ea75da85a84d34fb81f71544ee",
+      "ml/blast_radius.py": "5a9dff171decb6148cd786f304f6ac94c30222fb986acd2df04784f375d953a0",
+      "ml/rcampaign_runtime.py": "32457687519575b1d3e789bb80555bf580222b3f677ee90402ad249a93eac11e",
+      "ml/fsm.py": "9ba70b0207d1a43b581a67e5493381055c07f13c5e11fc67cb8eebb534e98f8c",
+      "scripts/replay_phase6r_s11_v2.py": "f243a9bb3dc709db1bc9dc0ba564908f0f03b035ec1baf805a5b73eb0ec4cca6",
+      "scripts/measure_phase6r_latency_v2.py": "9aff3738e81deb07a83096d1d5720876b44f29f8758593fb6f0ed3731b7be54f"
+    },
+    "evidence_file_sha256": {
+      "phase6r_amendment_7.json": "ae4dec3cff4945d78d341784bc3a7991d853e3eacbf6193381c7b4cb03ccba8d",
+      "phase6r_replay_o3.json": "97fc404686390f04046ad3819a36e09bc41f30676d627b5976ebf9ba9be9f172",
+      "phase6r_replay_o3_v2.json": "142e591beef33a6aaee69308f8987992238ed54e2f718cfd663b5818563434d3",
+      "phase6r_latency.json": "cdbb825eb28b687aede0c9a432b4902882ee70147acc849365b07b572c9e5c2b",
+      "phase6r_latency_v2.json": "7a7eec1ab04ad9a9945dc3c6002dd013717afd30a1b49155f18ed1d353e6b7cb",
+      "phase6r_stability.json": "72af5fae50caa9008b6164d62bb226c4933401559b31a25044e53dc42658b8f2"
+    },
+    "closed_here": {
+      "S4b": {
+        "verdict": "PASS",
+        "value": 2,
+        "evidence": "test/test_slo_s4b_debounce_ceiling.py"
+      },
+      "S5": {
+        "verdict": "PASS",
+        "p95_ms": 0.943,
+        "cold_start_ms": 0.996,
+        "evidence": "phase6r_latency_v2.json",
+        "correction": "cold start now means first scored tick"
+      },
+      "S6": {
+        "verdict": "PASS",
+        "delta_mib": 0.2852,
+        "evidence": "phase6r_soak.json"
+      },
+      "S8": {
+        "verdict": "PASS",
+        "boolean_only": true,
+        "evidence": "phase6r_replay_o2.json"
+      },
+      "S9": {
+        "verdict": "PASS",
+        "boolean_only": true,
+        "evidence": "phase6r_replay_o1.json"
+      },
+      "S11": {
+        "verdict": "PASS",
+        "evidence": "phase6r_replay_o3_v2.json",
+        "previous_verdict": "FAIL",
+        "previous_evidence": "phase6r_replay_o3.json",
+        "repair_authority": "phase6r_amendment_7.json"
+      },
+      "S13": {
+        "verdict": "PASS",
+        "evidence": "test/test_payload_traceability.py"
+      }
+    },
+    "repair_history": {
+      "S11_v1": "FAIL: one act entry and zero suppressed ticks in each run",
+      "diagnosis": "H2 confirmed; strict subset failed on the omitted s1-s3-s2 detour corridor",
+      "registered_fix": "interval lease plus detour-aware causal radius; thresholds unchanged",
+      "S11_v2": "PASS: zero act entries and 21 suppressed ticks in each of the same two runs",
+      "latency_v1_cold_field": "invalid semantic label: measured warming_up fast-exit",
+      "latency_v2_cold_field": "corrected to first scored tick; S5 verdict unchanged"
+    },
+    "release_gates": {
+      "G3_offline_harness": "PASS after amendment 7",
+      "G3_phase7_live": "PENDING",
+      "G4_S12": "PENDING in Phase 7",
+      "phase8_release_blocked": true,
+      "unblock_rule": "Phase 7 must pass live S11 and S12; offline replay alone cannot release Phase 8"
+    },
+    "known_risks": {
+      "masking": "an independent real fault on the intervention/detour corridor during the declared interval can be suppressed",
+      "lease": "an inject without revert suppresses for at most 120 s, then exposes stale_intervention and resumes alarms",
+      "memory_baseline": "detector process measured about 566 MiB RSS; S6 constrains growth, not baseline footprint",
+      "latency_contention": "detector-only timing excludes Phase 7 Mininet/Ditto/dashboard contention"
+    },
+    "deferred": {
+      "S1": "6R.7 (R-D acceptance)",
+      "S2": "6R.7 (R-S protected estimand)",
+      "S3": "6R.7 (same protected measurement as S2)",
+      "S4": "6R.7 (R-D + R-O)",
+      "S7": "6R.7 (R-D + R-O)",
+      "S10": "6R.7 (R-N, repeatable=false)",
+      "S12": "Phase 7 (amendment 4)"
+    },
+    "r_set_acceptance_opened": false,
+    "labels_opened": false,
+    "git_head": "ecfad7b057ebca21360f4ba0565f9a9954f550d5",
+    "written_at_utc": "2026-09-18T04:06:34+00:00"
+  },
+  "content_sha256": "5f71dd0f7fe9f79b119ef8b3672d563c8d39672442da08a11ba6b9657121c2ee"
+}

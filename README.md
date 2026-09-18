@@ -120,12 +120,14 @@ SHA-256 từng run và khớp với `oid` trong LFS pointer. Chạy
 
 ### Ổn định detector — Lesson 6R.6
 
-S4b/S5/S6/S8/S9/S13 đạt; S11 thất bại trên cả hai run controller và được giữ
-nguyên như kết quả quan sát, không chỉnh ngưỡng hậu nghiệm. Fast scorer đạt
-p95 0,927 ms; soak 30 phút tăng 0,2852 MiB với độ dốc nửa sau 1,63 KiB/phút.
+S4b/S5/S6/S8/S9/S13 đạt. S11 lần đầu thất bại trên cả hai run controller;
+receipt FAIL được giữ nguyên, sau đó amendment 7 sửa interval lease và detour
+radius mà không đổi ngưỡng. Lần đo thứ hai đạt 0 act entry + 21 suppressed tick
+trên mỗi run. Fast scorer v2 đạt p95 0,943 ms; soak 30 phút tăng 0,2852 MiB.
 [Hồ sơ, giới hạn và lệnh chạy](docs/phase-6r/07-stability.md),
-[receipt tổng](results/report/phase6r_stability.json). Nhãn và các protected
-estimand S2/S3 vẫn chưa mở.
+[model card v2](docs/phase-6r/model-card-v2.md),
+[receipt tổng v2](results/report/phase6r_stability_v2.json). Phase 8 vẫn bị
+khóa chờ S11 live + S12; nhãn và protected estimand S2/S3 vẫn chưa mở.
 
 ## Dữ liệu trước ML (bản v2)
 

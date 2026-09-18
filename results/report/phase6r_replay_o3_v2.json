@@ -1,0 +1,96 @@
+{
+  "content": {
+    "lesson": "6R.6-S11-repair",
+    "slo": "S11",
+    "measurement_number": 2,
+    "amendment_7_content_sha256": "f80b5cfd3b044ca38eb5d7384edd21d44dd5f449bcc9ee31903a14bc9134aaf6",
+    "supersedes_for_S11_only": {
+      "file": "phase6r_replay_o3.json",
+      "file_sha256": "97fc404686390f04046ad3819a36e09bc41f30676d627b5976ebf9ba9be9f172",
+      "content_sha256": "520ebceee11821b61a5393c1863af2329876207c9b08f3adf3558468334566c7",
+      "original_verdict": "FAIL"
+    },
+    "runs": {
+      "RO-ctl_admin_down-s1-s2-s4301-r1": {
+        "n_act_entries_in_suppression_window": 0,
+        "window": [
+          1789661909.9460025,
+          1789661937.9613237
+        ],
+        "blast_radius": [
+          "host-h1",
+          "host-h2",
+          "host-h3",
+          "host-srv1",
+          "link-h1-s1",
+          "link-h2-s1",
+          "link-h3-s1",
+          "link-s1-s2",
+          "link-s1-s3",
+          "link-s2-s3",
+          "link-s2-srv1",
+          "switch-s1",
+          "switch-s2",
+          "switch-s3"
+        ],
+        "radius_added_by_amendment_7": [
+          "link-s1-s3",
+          "link-s2-s3",
+          "switch-s3"
+        ],
+        "n_suppressed_ticks": 21,
+        "suppression_cause_seen": "suppressed_intervention",
+        "suppressed_by": [
+          "RO-ctl_admin_down-s1-s2-s4301-r1:inject",
+          "RO-ctl_admin_down-s1-s2-s4301-r1:revert"
+        ],
+        "sidecar_sha256": "215360b364c4a4b58e6cd790dc1ec72071ca2462ffb1160543243cd0fba8f624",
+        "passed": true
+      },
+      "RO-ctl_admin_down-s1-s2-s4302-r2": {
+        "n_act_entries_in_suppression_window": 0,
+        "window": [
+          1789649406.3284311,
+          1789649434.3444703
+        ],
+        "blast_radius": [
+          "host-h1",
+          "host-h2",
+          "host-h3",
+          "host-srv1",
+          "link-h1-s1",
+          "link-h2-s1",
+          "link-h3-s1",
+          "link-s1-s2",
+          "link-s1-s3",
+          "link-s2-s3",
+          "link-s2-srv1",
+          "switch-s1",
+          "switch-s2",
+          "switch-s3"
+        ],
+        "radius_added_by_amendment_7": [
+          "link-s1-s3",
+          "link-s2-s3",
+          "switch-s3"
+        ],
+        "n_suppressed_ticks": 21,
+        "suppression_cause_seen": "suppressed_intervention",
+        "suppressed_by": [
+          "RO-ctl_admin_down-s1-s2-s4302-r2:inject",
+          "RO-ctl_admin_down-s1-s2-s4302-r2:revert"
+        ],
+        "sidecar_sha256": "f6ca295f78c48bce82b5b002b7aed2b771f1fbde69a2efd6cb5ffd7869f55854",
+        "passed": true
+      }
+    },
+    "verdict": "PASS",
+    "pass_rule": "every run has n_act_entries == 0 AND n_suppressed_ticks > 0",
+    "thresholds_changed": false,
+    "extra_runs_collected": false,
+    "reads_labels": false,
+    "git_head": "ecfad7b057ebca21360f4ba0565f9a9954f550d5",
+    "written_at_utc": "2026-09-18T03:55:33+00:00"
+  },
+  "content_sha256": "369ee6855c87c7abbb7dd15e23dc1a23c7e37ee2d1b9fa572f2d4b91b8f92b04"
+}

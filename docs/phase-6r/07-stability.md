@@ -14,7 +14,9 @@ không được dùng để mở sớm protected estimand.
 | Hoãn sang Phase 7 | S12 |
 
 Việc “đóng tại 6R.6” nghĩa là phép kiểm đã hoàn thành, không có nghĩa mọi SLO
-đều đạt. S11 đã được đo và **FAIL**. Nhãn và R-set acceptance vẫn chưa mở.
+đều đạt. S11 lần đầu **FAIL**, sau đó được chẩn đoán, đăng ký amendment 7,
+sửa prospective và đo lần hai **PASS**. Cả hai receipt được giữ nguyên. Nhãn
+và R-set acceptance vẫn chưa mở.
 
 ## 2. S5 — Latency
 
@@ -24,12 +26,23 @@ in latency theo tick.
 
 | Implementation | n | p50 | p95 | p99 | max | cold max | Verdict |
 |---|---:|---:|---:|---:|---:|---:|---|
-| OnlineScorer | 10.734 | 51,953 ms | 58,029 ms | 61,454 ms | 190,365 ms | 0,622 ms | FAIL |
-| FastOnlineScorer | 10.734 | 0,775 ms | 0,927 ms | 1,164 ms | 1,733 ms | 0,658 ms | PASS |
+| OnlineScorer | 10.734 | 51,226 ms | 56,249 ms | 59,677 ms | 162,811 ms | 53,795 ms | FAIL |
+| FastOnlineScorer | 10.734 | 0,771 ms | 0,943 ms | 1,291 ms | 1,676 ms | 0,996 ms | PASS |
 
 Fast path được chọn cho Phase 7. Kết quả giải thích vì sao cần giữ hai bản:
 bản pandas là tham chiếu dễ đọc nhưng vượt ngân sách 50 ms; bản NumPy đạt và
 tiếp tục phải được bảo vệ bằng kiểm thử tương đương.
+
+Receipt v1 đã gán nhầm `samples[0]` là cold start. Tick này thực chất là
+`warming_up` và thoát sớm, nên các giá trị 0,622/0,658 ms không có nghĩa cold
+start. `phase6r_latency_v2.json` sửa định nghĩa thành tick **scored đầu tiên**;
+receipt v1 không bị ghi đè và verdict S5 không đổi. Bất đẳng thức
+`max >= p99 >= p95 >= p50` được kiểm bằng code.
+
+Đuôi bản pandas (`max/p99 ≈ 2,73`) dài hơn fast path (`≈ 1,30`), phù hợp với
+chi phí cấp phát object/DataFrame và có thể có GC pause. Đây là giả thuyết cơ
+chế, chưa phải phép đo GC; nếu Phase 7 xuất hiện đuôi latency, dùng
+`gc.callbacks` để xác nhận.
 
 ## 3. S6 — Bộ nhớ
 
@@ -46,6 +59,12 @@ chỉ có ba mẫu trong 8,8 giây và thay đổi đúng một page 4 KiB, khi�
 suy slope ngắn hạn thành 63,16 KiB/phút. Verdict S6 chỉ dùng đường real-time
 đã đăng ký trước. Đồ thị: `results/report/phase6r_soak_rss.png`.
 
+Đường 30 phút tăng theo bậc: +256 KiB gần t=30 s, phẳng phần lớn thời gian,
+rồi một bậc nhỏ gần cuối. Không ngoại suy tuyến tính `1,63 KiB/phút` thành mức
+tăng nhiều giờ; muốn kết luận vận hành dài hạn phải soak 4–8 giờ. RSS nền là
+579.456 KiB, khoảng **566 MiB**. S6 chỉ giới hạn mức tăng, còn dấu chân nền là
+ràng buộc triển khai Phase 7 khi detector chạy cạnh Mininet, Ditto và dashboard.
+
 ## 4. S8/S9 — Gap và restart
 
 Cả hai phép kiểm PASS trên tất cả checkpoint và cả ba R-S. Kết quả công khai
@@ -59,20 +78,37 @@ chỉ là AND aggregate với schema boolean cố định:
 Không có chuỗi state, số alarm, tick, timestamp, entity hay score được lưu.
 Firewall bị khóa bằng `ml/replay_guard.py` và mutation test tổng hợp.
 
-## 5. S11 — Chống tự-kích-hoạt
+## 5. S11 — FAIL, chẩn đoán, sửa và đo lần hai
 
-S11 **FAIL**, trái dự đoán prereg. Cả hai run RO-ctl đều có:
+Receipt v1 **FAIL** trên cả hai run: mỗi run có 1 lần vào `act` và 0 tick
+`suppressed_intervention`. Chẩn đoán chi tiết chỉ chạy trên RO-ctl, không chạy
+trên R-S, đã bác bỏ H1 và xác nhận H2:
 
-- 1 lần vào `act` trong `[inject, revert + cooldown]`;
-- 0 tick mang `cause=suppressed_intervention`;
-- blast radius đã có trong `sidecar.interventions`, nhưng không có bằng chứng
-  rằng điều kiện suppression hiện tại đã kích hoạt.
+- tick 21–28 đều `scored` và alarming, không phải `unknown`;
+- `link-s2-s3` nằm ngoài radius ở tick 21;
+- từ tick 22, cả `link-s1-s3` và `link-s2-s3` nằm ngoài radius;
+- điều kiện an toàn `local ⊆ zone` vì vậy từ chối suppression.
 
-Kết quả dùng `sidecar.interventions` ghi trước lúc apply theo amendment 5,
-không dùng `events`. Không đổi cooldown, radius, ngưỡng hoặc cách đếm sau khi
-thấy FAIL. Vấn đề phải được xử lý bằng một thay đổi prospective và dữ liệu mới;
-hai run đã đo không được diễn giải lại. Vì controller ở đây vẫn là harness,
-đây cũng chưa phải kiểm chứng controller Phase 8 thật.
+Amendment 7 (`f80b5cfd…`) được commit trước code và công khai đây là sửa sau
+khi biết FAIL. Bản sửa gồm:
+
+1. `inject` mở một khoảng, `revert` đóng khoảng; cooldown 8 s chỉ áp dụng sau
+   khi đóng. Inject không được đóng là lease tối đa 120 s, sau đó detector
+   ngừng suppression và phát `stale_intervention`.
+2. `admin_down` bổ sung đúng hành lang detour ngắn nhất khi bỏ link mục tiêu.
+   Với `s1-s2`, radius thêm `switch-s3`, `link-s1-s3`, `link-s2-s3`. Không
+   chuyển subset thành intersection và không mở rộng mù toàn mạng.
+
+Receipt v2 dùng đúng hai run cũ, không thu thêm dữ liệu và không đổi ngưỡng:
+
+| Run | act entry | suppressed tick | Kết quả |
+|---|---:|---:|---|
+| seed 4301 | 0 | 21 | PASS |
+| seed 4302 | 0 | 21 | PASS |
+
+S11 offline hiện PASS theo cả hai điều kiện; receipt FAIL v1 vẫn được ghim.
+G3 chỉ đạt ở harness offline. Phase 8 vẫn bị khóa cho tới khi Phase 7 đạt S11
+live và S12.
 
 ## 6. S13 và S4b
 
@@ -95,10 +131,12 @@ Tham số đã khóa là `n_suspect=1`, `n_act=2`.
 - S1/S2/S3/S4/S7/S10 chưa được nghiệm thu; `labels_opened=false` và
   `r_set_acceptance_opened=false`.
 - S12 thuộc Phase 7 theo amendment 4.
-- S11 hiện thất bại và mới chạy với controller harness.
+- S11 đã sửa và PASS offline, nhưng controller Phase 7 live chưa được kiểm.
 - Latency đo detector riêng trên Python 3.13.13, Linux 6.8.0-1066-gcp,
   Intel Xeon 2,80 GHz/8 logical CPU. Chưa đo tranh chấp CPU khi Mininet,
   Ditto và dashboard cùng chạy.
 
-Receipt tổng là `results/report/phase6r_stability.json`; receipt pin prereg,
-code triển khai, năm evidence JSON và SHA-256 của đồ thị.
+Receipt v1 là `results/report/phase6r_stability.json`. Receipt ra quyết định mới
+là `results/report/phase6r_stability_v2.json`; nó ghim nguyên v1, amendment 7,
+hai receipt S11, hai receipt latency và code sửa. Không file lịch sử nào bị
+ghi đè.
