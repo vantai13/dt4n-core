@@ -1,0 +1,240 @@
+{
+  "content": {
+    "verdict_id": "DT4N-P6R-VERDICTS",
+    "derived_from": {
+      "slo_content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3",
+      "acceptance_content_sha256": "f551f950b744775c484fab6a050b52be702c935119916f22d857cd2441ced0d7",
+      "stability_v2_content_sha256": "5f71dd0f7fe9f79b119ef8b3672d563c8d39672442da08a11ba6b9657121c2ee"
+    },
+    "rule": "phan quyet = so da niem phong so voi slo.target; khong nguoi nao go tay",
+    "slo": {
+      "S1": {
+        "registered_channel": "envelope_only",
+        "value": 0.3,
+        "target": {
+          "op": ">=",
+          "value": 0.875,
+          "unit": "ty le su co"
+        },
+        "verdict": "FAIL",
+        "combined_descriptive": 0.6,
+        "posthoc_stratified_by_rho": {
+          "label": "POST-HOC, mo ta; khong thay the phan quyet",
+          "envelope_only": {
+            "rho_ge_1_10": [
+              3,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          },
+          "combined": {
+            "rho_ge_1_10": [
+              6,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          }
+        }
+      },
+      "S2": {
+        "registered_level": "suspect",
+        "value": 0.9994102664066693,
+        "target": {
+          "op": "<=",
+          "value": 3.0,
+          "unit": "su kien/gio",
+          "kind": "gioi han tren 95%"
+        },
+        "verdict": "PASS",
+        "combined_value": 0.9994102664066693,
+        "exposure_hours": 2.9975
+      },
+      "S3": {
+        "value": 60.03540489505583,
+        "target": {
+          "op": ">=",
+          "value": 20.0,
+          "unit": "phut",
+          "kind": "gioi han duoi 95%"
+        },
+        "verdict": "PASS",
+        "note": "CUNG phep do voi S2, khong phai chung cu thu hai"
+      },
+      "S4": {
+        "registered_channel": "envelope_only",
+        "value_ms": 2007.1563720703125,
+        "target": {
+          "op": "<=",
+          "value": 3000,
+          "unit": "ms"
+        },
+        "verdict": "PASS",
+        "combined_value_ms": 11000.547885894775,
+        "combined_meets_target": false
+      },
+      "S7": {
+        "verdict": "PASS",
+        "evidence": "gate G1 (R-D + R-O, with_log va no_log)"
+      },
+      "S10": {
+        "verdict": "REPORT_ONLY",
+        "envelope_only": {
+          "RN-load6M-s4011-r1": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load6M-s4012-r2": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load8M-s4013-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load8M-s4014-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load10M-s4015-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 50,
+            "fp_sensitive": 50,
+            "fp_residual": 46
+          },
+          "RN-load10M-s4016-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 50,
+            "fp_sensitive": 50,
+            "fp_residual": 46
+          }
+        }
+      },
+      "S12": {
+        "verdict": "DEFERRED",
+        "to": "Phase 7 (amendment 4)"
+      },
+      "S4b": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S5": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S6": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S8": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S9": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S11": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      },
+      "S13": {
+        "verdict": "PASS",
+        "from": "phase6r_stability_v2"
+      }
+    },
+    "dose_axis_1_brackets": {
+      "label": "thuat toan fallback DA DANG KY (ml.acceptance_stats.dose_bracket), bao cao THEM, khong thay fit",
+      "envelope_only_all": {
+        "n_points": 10,
+        "n_hits": 3,
+        "n_misses": 7,
+        "n_floored": 0,
+        "kind": "overlap",
+        "monotone": false,
+        "bracket": [
+          5.433,
+          27.482
+        ],
+        "ed50": null,
+        "n_inversions": 3
+      },
+      "envelope_only_s1_s2": {
+        "n_points": 5,
+        "n_hits": 0,
+        "n_misses": 5,
+        "n_floored": 0,
+        "kind": "censored_all_miss",
+        "bracket": null,
+        "ed50": null,
+        "monotone": null
+      },
+      "envelope_only_s2_s3": {
+        "n_points": 5,
+        "n_hits": 3,
+        "n_misses": 2,
+        "n_floored": 0,
+        "kind": "bracket",
+        "monotone": true,
+        "bracket": [
+          0.068,
+          5.433
+        ],
+        "ed50": 0.607819052021241
+      },
+      "combined_all": {
+        "n_points": 10,
+        "n_hits": 6,
+        "n_misses": 4,
+        "n_floored": 0,
+        "kind": "bracket",
+        "monotone": true,
+        "bracket": [
+          0.174,
+          5.433
+        ],
+        "ed50": 0.9722869946677267
+      },
+      "registered_fit_envelope": {
+        "method": "logistic",
+        "ed50": 27.999094666729718,
+        "ci95": [
+          2.6573313764493554,
+          141.40786347507665
+        ],
+        "n_converged": 1125,
+        "n_boot": 2000
+      },
+      "registered_fit_combined": {
+        "method": "interpolation_fallback",
+        "ed50": 0.9722869946677267,
+        "ci95": null,
+        "n_converged": 0,
+        "n_boot": 2000
+      }
+    },
+    "residual_outcome": "all_pass",
+    "gates": {
+      "G1": true,
+      "G2": true,
+      "G3": true,
+      "G4": false,
+      "released": false
+    },
+    "written_at_utc": "2026-09-18T12:42:40+00:00"
+  },
+  "content_sha256": "d8cee191357282a3be411536c0270667fb176cc2c62baaa09a45ce4e0396aafc"
+}
