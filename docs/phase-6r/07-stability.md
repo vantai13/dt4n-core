@@ -89,6 +89,27 @@ trên R-S, đã bác bỏ H1 và xác nhận H2:
 - từ tick 22, cả `link-s1-s3` và `link-s2-s3` nằm ngoài radius;
 - điều kiện an toàn `local ⊆ zone` vì vậy từ chối suppression.
 
+`radius()` không có bug: nó trả lời đúng câu hỏi nó được viết cho, *"luồng nào
+đang đi qua link này?"*, bằng cách tra bảng định tuyến đã đóng băng. Nhưng bán
+kính ảnh hưởng là một đại lượng **phản thực**, và câu hỏi cần trả lời là *"khi
+tôi tắt link này thì chỗ nào sẽ thay đổi?"*. Khoảng cách giữa hai câu hỏi đó
+chính là lỗ hổng: các tuyến trước hành động đi qua `s1-s2`, nên hành lang
+detour vật lý `s1-s3-s2` không có trong radius, dù chính nó nhận lưu lượng sau
+khi link bị tắt.
+
+Độ lệch một tick giữa hai link là **bằng chứng cơ chế**, không phải nhiễu:
+
+| Tick | Sự kiện | Khoảng cách topology |
+|---|---|---|
+| 20 | `admin_down` được áp (apply 6,9 ms) | — |
+| 21 | `link-s2-s3` lệch trước | hiệu ứng gần: TCP trên `s1-s2` dừng đột ngột, tranh chấp hàng đợi tại `s2` đổi ngay, luồng qua `s2-s3` đổi rate |
+| 22 | `link-s1-s3` cũng lệch | hiệu ứng xa hơn một chặng: ARP/TCP retransmit và tái phân bố cần thêm một chu kỳ mới hiện ra |
+
+`s2` là switch trực tiếp chịu tác động; `s1-s3` xa hơn một chặng. Thứ tự này
+giống nhau ở cả hai seed 4301 và 4302, nên đây là sóng lan theo topology, không
+phải trùng hợp: nếu hai link lệch cùng lúc, hoặc lệch ở tick khác nhau giữa hai
+seed, lý giải cơ chế sẽ yếu đi nhiều.
+
 Amendment 7 (`f80b5cfd…`) được commit trước code và công khai đây là sửa sau
 khi biết FAIL. Bản sửa gồm:
 
@@ -98,6 +119,28 @@ khi biết FAIL. Bản sửa gồm:
 2. `admin_down` bổ sung đúng hành lang detour ngắn nhất khi bỏ link mục tiêu.
    Với `s1-s2`, radius thêm `switch-s3`, `link-s1-s3`, `link-s2-s3`. Không
    chuyển subset thành intersection và không mở rộng mù toàn mạng.
+
+Ba lựa chọn khác đều tệ hơn và đã bị loại:
+
+| Lựa chọn | Vì sao sai |
+|---|---|
+| `local ∩ zone ≠ ∅` | Một sự cố thật ngoài vùng, xảy ra cùng lúc, bị che chỉ vì trùng một entity: đổi lỗi bỏ sót cục bộ thành bỏ sót toàn cục |
+| Ức chế toàn mạng | Detector mù hoàn toàn trong mỗi lần controller hành động; phá S1 và S4 |
+| Nâng `cooldown_s` lên 30 | Sai công cụ: cooldown dành cho transient *sau* can thiệp, không phải thời lượng *của* can thiệp; và vẫn không sửa H2 |
+
+Điểm mấu chốt: luật tập con **không bị nới**; `zone` được làm cho **đúng** hơn.
+
+Sửa được thực hiện theo nguyên tắc **cộng thêm, không đột biến**: `radius()`
+giữ nguyên byte-for-byte và `radius_with_detour()` là hàm mới, nên bằng chứng
+`phase6r_fsm.json` của 6R.4 — vốn ghim SHA của `radius()` qua amendment 2 — vẫn
+tái lập được và không phải chạy lại. Cùng khuôn này áp cho cả ba receipt v2
+(`replay_o3`, `latency`, `stability`): bản cũ không bị ghi đè.
+
+Tính tất định của hành lang detour được khóa bằng
+`test/test_blast_radius_detour_reproducible.py`: BFS duyệt láng giềng qua
+`sorted()`, nên khi Phase 7 mở rộng topology và có nhiều đường ngắn nhất bằng
+nhau, radius vẫn không phụ thuộc `PYTHONHASHSEED`. Một receipt không tái lập
+được thì không phải bằng chứng.
 
 Receipt v2 dùng đúng hai run cũ, không thu thêm dữ liệu và không đổi ngưỡng:
 
