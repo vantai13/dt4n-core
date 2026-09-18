@@ -1,0 +1,235 @@
+{
+  "run_id": "RD-degrade-s1-s2-rho150-s4102-r1",
+  "sha256": "0687df486452f532777f46ef059142a4ea3693d8ae2b077ba171e65a3e0fecee",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RD-degrade-s1-s2-rho150-s4102-r1",
+    "group": "RD",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "degrade",
+    "fault_target": "s1-s2",
+    "seed": 4102,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "duration_sec": 60,
+    "expected_links": [
+      "h1-s1",
+      "h3-s1",
+      "s1-s2",
+      "s2-srv1"
+    ],
+    "fault_parameters": {
+      "link_key": "s1-s2",
+      "factor": 0.8567,
+      "delay": "2ms",
+      "baseline": 20.0
+    },
+    "intervention": {
+      "actor": "harness",
+      "log_inject": false,
+      "log_revert": true
+    },
+    "exec_index": 7
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 9.954571474001568,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.499961190998874,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.038730430603027347,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4334,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.7610006984323263e-06,
+      "kill_iperf": 0.37563703100022394,
+      "restore_links": 0.1705952959964634,
+      "flush_arp": 0.007134384999517351,
+      "reset_cache": 8.90600131242536e-06,
+      "start_traffic": 2.601713659998495,
+      "steady_wait": 6.499961190998874,
+      "health_gate": 0.06587867900088895,
+      "refresh_twin": 0.15958959000272444,
+      "data_fresh_wait": 0.06686991999958991
+    }
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.083892,
+      "t_source": 1789648859.3537786,
+      "completed_t_rel": 20.106112,
+      "apply_ms": 22.2,
+      "scenario": {
+        "type": "LinkDegrade",
+        "link_key": "s1-s2",
+        "factor": 0.8567,
+        "delay": "2ms",
+        "baseline": 20.0
+      }
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.097221,
+      "t_source": 1789648879.3670297,
+      "completed_t_rel": 40.119073,
+      "apply_ms": 21.9
+    }
+  ],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 160,
+    "qdisc_invalid_ok": true,
+    "qdisc_invalid_fraction_fault": 0.0063,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 160,
+    "rate_invalid_ok": true,
+    "rate_invalid_fraction_fault": 0.0,
+    "events_complete": true,
+    "event_ticks_ok": true,
+    "inject_t_rel": 20.083892,
+    "revert_t_rel": 40.097221,
+    "inject_on_time": true,
+    "revert_on_time": true,
+    "per_link": {
+      "link-h1-s1": {
+        "rxRate": 0.213,
+        "txRate": 4.372,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-h3-s1": {
+        "rxRate": 0.209,
+        "txRate": 4.718,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s1-s2": {
+        "rxRate": 0.422,
+        "txRate": 18.704,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s2-srv1": {
+        "rxRate": 0.422,
+        "txRate": 18.694,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      }
+    },
+    "max_separation": 18.704,
+    "passed": true,
+    "failed_gates": [],
+    "covariate_signal_present": true,
+    "demoted_to_covariate": [
+      "signal_present"
+    ],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T12:40:21Z",
+  "finished_utc": "2026-09-17T12:41:39Z",
+  "status": "ok",
+  "campaign": "phase6r",
+  "interventions": [
+    {
+      "id": "RD-degrade-s1-s2-rho150-s4102-r1:revert",
+      "t_start": 1789648879.3449943,
+      "tick": 40,
+      "actor": "harness",
+      "action": "revert:degrade",
+      "targets": {
+        "links": [
+          "s1-s2"
+        ],
+        "flows": []
+      },
+      "blast_radius": [
+        "host-h1",
+        "host-h2",
+        "host-h3",
+        "host-srv1",
+        "link-h1-s1",
+        "link-h2-s1",
+        "link-h3-s1",
+        "link-s1-s2",
+        "link-s2-srv1",
+        "switch-s1",
+        "switch-s2"
+      ],
+      "routing_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "run_id": "RN-load8M-s4013-r1",
+  "sha256": "0541f7337c6acb743e7435444d2b2864c8c5a43d06775b1b37f5db8b2ebd3667",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RN-load8M-s4013-r1.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RN-load8M-s4013-r1",
+    "group": "RN",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 8.0,
+    "load_schedule": null,
+    "fault": null,
+    "fault_target": null,
+    "seed": 4013,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 60,
+    "expected_links": [],
+    "fault_parameters": {},
+    "intervention": {
+      "actor": null,
+      "log_inject": false,
+      "log_revert": false
+    },
+    "exec_index": 8
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "8M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 9.978608284000074,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.516469741000037,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.037508888244628905,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4284,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.216999175492674e-06,
+      "kill_iperf": 0.3754360220009403,
+      "restore_links": 0.17497797200121568,
+      "flush_arp": 0.007503794000513153,
+      "reset_cache": 1.3324002793524414e-05,
+      "start_traffic": 2.610973468999873,
+      "steady_wait": 6.516469741000037,
+      "health_gate": 0.06664105500021833,
+      "refresh_twin": 0.15297602899954654,
+      "data_fresh_wait": 0.06505455600199639
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 472,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 472,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": true,
+    "failed_gates": [],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T12:41:39Z",
+  "finished_utc": "2026-09-17T12:42:57Z",
+  "status": "ok",
+  "campaign": "phase6r",
+  "interventions": []
+}

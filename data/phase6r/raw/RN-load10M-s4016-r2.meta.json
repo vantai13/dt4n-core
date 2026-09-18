@@ -1,0 +1,143 @@
+{
+  "run_id": "RN-load10M-s4016-r2",
+  "sha256": "2457a81e744069e2529c0235b65b3948d1c15267dc1d36861ed497a2d9b7da8b",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+      "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+      "logs/rcampaign_RN-load10M-s4016-r2.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RN-load8M-s4013-r1.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RN-load10M-s4016-r2",
+    "group": "RN",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 10.0,
+    "load_schedule": null,
+    "fault": null,
+    "fault_target": null,
+    "seed": 4016,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 60,
+    "expected_links": [],
+    "fault_parameters": {},
+    "intervention": {
+      "actor": null,
+      "log_inject": false,
+      "log_revert": false
+    },
+    "exec_index": 13
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "10M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 8.91340720000153,
+    "reset_steady_ok": true,
+    "reset_wait_s": 5.425839257997723,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.03941136360168457,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4297,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 4.896999598713592e-06,
+      "kill_iperf": 0.37770944299700204,
+      "restore_links": 0.18185579199780477,
+      "flush_arp": 0.011539589999301825,
+      "reset_cache": 1.1914999049622566e-05,
+      "start_traffic": 2.6122583049982495,
+      "steady_wait": 5.425839257997723,
+      "health_gate": 0.06424760799927753,
+      "refresh_twin": 0.15885233500011964,
+      "data_fresh_wait": 0.07169982200139202
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 472,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 472,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": true,
+    "failed_gates": [],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T12:48:13Z",
+  "finished_utc": "2026-09-17T12:49:29Z",
+  "status": "ok",
+  "campaign": "phase6r",
+  "interventions": []
+}

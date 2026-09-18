@@ -1,0 +1,131 @@
+{
+  "run_id": "RN-load6M-s4012-r2",
+  "sha256": "78b640333b8b087ca7df8b702769fccf9adbd040e4f3592c17b5e4110825255f",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RN-load6M-s4012-r2",
+    "group": "RN",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 6.0,
+    "load_schedule": null,
+    "fault": null,
+    "fault_target": null,
+    "seed": 4012,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 60,
+    "expected_links": [],
+    "fault_parameters": {},
+    "intervention": {
+      "actor": null,
+      "log_inject": false,
+      "log_revert": false
+    },
+    "exec_index": 1
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "6M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 10.498332605999167,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.623376045999976,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.04769967079162597,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4279,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.998000465799123e-06,
+      "kill_iperf": 0.712233030999414,
+      "restore_links": 0.1754237409986672,
+      "flush_arp": 0.007136909000109881,
+      "reset_cache": 9.348999810754322e-06,
+      "start_traffic": 2.610054269000102,
+      "steady_wait": 6.623376045999976,
+      "health_gate": 0.08693799000138824,
+      "refresh_twin": 0.19628356900102517,
+      "data_fresh_wait": 0.07985487400037528
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 472,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 472,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": true,
+    "failed_gates": [],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T11:33:27Z",
+  "finished_utc": "2026-09-17T11:34:45Z",
+  "status": "ok",
+  "campaign": "phase6r",
+  "interventions": []
+}

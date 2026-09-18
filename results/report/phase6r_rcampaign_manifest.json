@@ -1,0 +1,2416 @@
+{
+  "campaign": "DT4N-P6R-RCAMPAIGN",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "contract_integrity": {
+    "stored": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+    "recomputed": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+    "match": true
+  },
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+      "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho080-s4109-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+      "logs/rcampaign_RN-load10M-s4015-r1.log",
+      "logs/rcampaign_RN-load10M-s4016-r2.log",
+      "logs/rcampaign_RN-load6M-s4011-r1.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RN-load8M-s4013-r1.log",
+      "logs/rcampaign_RN-load8M-s4014-r2.log",
+      "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4301-r1.log",
+      "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+      "logs/rcampaign_RS-soak2M-s4001-r1.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_RS-soak2M-s4003-r3.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "started_utc": "2026-09-17T15:17:24Z",
+  "finished_utc": "2026-09-17T16:21:46Z",
+  "n_runs_expected": 25,
+  "n_runs_ok": 25,
+  "n_runs_failed": 0,
+  "runs_not_attempted": [],
+  "by_group": {
+    "RS": {
+      "expected": 3,
+      "ok": 3
+    },
+    "RN": {
+      "expected": 6,
+      "ok": 6
+    },
+    "RD": {
+      "expected": 10,
+      "ok": 10
+    },
+    "RC": {
+      "expected": 4,
+      "ok": 4
+    },
+    "RO": {
+      "expected": 2,
+      "ok": 2
+    }
+  },
+  "complete": true,
+  "runs": {
+    "RS-soak2M-s4001-r1": {
+      "status": "ok",
+      "sha256": "65ea9b0d8e4824593272fe1391017ee496d44ca779b6f89cd193b6870f466ab1",
+      "checks": {
+        "n_snapshots": 3598,
+        "expected_ticks": 3600,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 28776,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 28776,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T12:57:19Z",
+      "finished_utc": "2026-09-17T13:57:37Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+          "logs/rcampaign_RN-load10M-s4015-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RN-load8M-s4014-r2.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4001-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RS-soak2M-s4002-r2": {
+      "status": "ok",
+      "sha256": "9df070d4223322c20dfd4cf15ad7cce592704dd844b5a5321c3c6a27a5453e76",
+      "checks": {
+        "n_snapshots": 3598,
+        "expected_ticks": 3600,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 28776,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 28776,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T11:36:02Z",
+      "finished_utc": "2026-09-17T12:36:19Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RS-soak2M-s4003-r3": {
+      "status": "ok",
+      "sha256": "e80c68f02dbf11e5ccd3d517635da94c2fad12eaac3bf926022c5b56689a3fc1",
+      "checks": {
+        "n_snapshots": 3598,
+        "expected_ticks": 3600,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 28776,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 28776,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T15:17:35Z",
+      "finished_utc": "2026-09-17T16:17:52Z",
+      "reset_dirty": false,
+      "reset_mode": "soft"
+    },
+    "RN-load6M-s4012-r2": {
+      "status": "ok",
+      "sha256": "78b640333b8b087ca7df8b702769fccf9adbd040e4f3592c17b5e4110825255f",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T11:33:27Z",
+      "finished_utc": "2026-09-17T11:34:45Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RN-load8M-s4013-r1": {
+      "status": "ok",
+      "sha256": "0541f7337c6acb743e7435444d2b2864c8c5a43d06775b1b37f5db8b2ebd3667",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T12:41:39Z",
+      "finished_utc": "2026-09-17T12:42:57Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RN-load8M-s4014-r2": {
+      "status": "ok",
+      "sha256": "efeb0fce7440b633b98d2047ce6b36586662cc229f4a3698f13b5ff9a53480c6",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T12:56:01Z",
+      "finished_utc": "2026-09-17T12:57:19Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+          "logs/rcampaign_RN-load10M-s4015-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RN-load8M-s4014-r2.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RN-load10M-s4015-r1": {
+      "status": "ok",
+      "sha256": "eb96d477b9eebfb677160392bade30e9a4f6e57e84f690309be1846e3836c915",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T12:54:45Z",
+      "finished_utc": "2026-09-17T12:56:01Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+          "logs/rcampaign_RN-load10M-s4015-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RN-load10M-s4016-r2": {
+      "status": "ok",
+      "sha256": "2457a81e744069e2529c0235b65b3948d1c15267dc1d36861ed497a2d9b7da8b",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T12:48:13Z",
+      "finished_utc": "2026-09-17T12:49:29Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s1-s2-rho200-s4101-r1": {
+      "status": "ok",
+      "sha256": "be8a838e6d46b524d1f4d4065631b95b609ef20e89778887336ef1bfb528b937",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.083953,
+        "revert_t_rel": 40.097718,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.319,
+            "txRate": 10.104,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.301,
+            "txRate": 9.701,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.62,
+            "txRate": 27.482,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.614,
+            "txRate": 27.458,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 27.482,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.083953,
+          "t_source": 1789644767.2783804,
+          "completed_t_rel": 20.104276,
+          "apply_ms": 20.3,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s1-s2",
+            "factor": 0.8925,
+            "delay": "2ms",
+            "baseline": 20.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.097718,
+          "t_source": 1789644787.2927253,
+          "completed_t_rel": 40.118447,
+          "apply_ms": 20.7
+        }
+      ],
+      "started_utc": "2026-09-17T11:32:10Z",
+      "finished_utc": "2026-09-17T11:33:27Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_startup.log"
+        ],
+        "source_dirty_files": [],
+        "source_dirty": false
+      }
+    },
+    "RD-degrade-s1-s2-rho150-s4102-r1": {
+      "status": "ok",
+      "sha256": "0687df486452f532777f46ef059142a4ea3693d8ae2b077ba171e65a3e0fecee",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.083892,
+        "revert_t_rel": 40.097221,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.213,
+            "txRate": 4.372,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.209,
+            "txRate": 4.718,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.422,
+            "txRate": 18.704,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.422,
+            "txRate": 18.694,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 18.704,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.083892,
+          "t_source": 1789648859.3537786,
+          "completed_t_rel": 20.106112,
+          "apply_ms": 22.2,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s1-s2",
+            "factor": 0.8567,
+            "delay": "2ms",
+            "baseline": 20.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.097221,
+          "t_source": 1789648879.3670297,
+          "completed_t_rel": 40.119073,
+          "apply_ms": 21.9
+        }
+      ],
+      "started_utc": "2026-09-17T12:40:21Z",
+      "finished_utc": "2026-09-17T12:41:39Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s1-s2-rho125-s4103-r1": {
+      "status": "ok",
+      "sha256": "7d2c3dfb044be156061267aef71e88e550d25432eae98bcda9b9f58aad8b535a",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.088375,
+        "revert_t_rel": 40.095471,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.099,
+            "txRate": 0.015,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.15,
+            "txRate": 1.472,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.249,
+            "txRate": 11.699,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.254,
+            "txRate": 11.708,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 11.708,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.088375,
+          "t_source": 1789648781.6695096,
+          "completed_t_rel": 20.110528,
+          "apply_ms": 22.2,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s1-s2",
+            "factor": 0.828,
+            "delay": "2ms",
+            "baseline": 20.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.095471,
+          "t_source": 1789648801.6754541,
+          "completed_t_rel": 40.116306,
+          "apply_ms": 20.8
+        }
+      ],
+      "started_utc": "2026-09-17T12:39:05Z",
+      "finished_utc": "2026-09-17T12:40:21Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s1-s2-rho080-s4104-r1": {
+      "status": "ok",
+      "sha256": "d9a9b66fe4306d9799afaf998d4eeeaf251f66c7d7bb2fb223e8c07f66235fcb",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.083912,
+        "revert_t_rel": 40.09589,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.004,
+            "txRate": 0.013,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.008,
+            "txRate": 0.023,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.012,
+            "txRate": 0.123,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.011,
+            "txRate": 0.128,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 0.128,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": false,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.083912,
+          "t_source": 1789649560.7539535,
+          "completed_t_rel": 20.104271,
+          "apply_ms": 20.4,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s1-s2",
+            "factor": 0.7312,
+            "delay": "2ms",
+            "baseline": 20.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.09589,
+          "t_source": 1789649580.7668207,
+          "completed_t_rel": 40.116821,
+          "apply_ms": 20.9
+        }
+      ],
+      "started_utc": "2026-09-17T12:52:04Z",
+      "finished_utc": "2026-09-17T12:53:20Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s1-s2-rho050-s4105-r1": {
+      "status": "ok",
+      "sha256": "3abdeb68148d82d19f9c6cd820842a3f8d3239d988943e525ae74a79d4e4a334",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.09559,
+        "revert_t_rel": 40.10826,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.002,
+            "txRate": 0.174,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.001,
+            "txRate": 0.067,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.004,
+            "txRate": 0.078,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.0,
+            "txRate": 0.112,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 0.174,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": false,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.09559,
+          "t_source": 1789648705.0505629,
+          "completed_t_rel": 20.119295,
+          "apply_ms": 23.7,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s1-s2",
+            "factor": 0.57,
+            "delay": "2ms",
+            "baseline": 20.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.10826,
+          "t_source": 1789648725.061052,
+          "completed_t_rel": 40.129609,
+          "apply_ms": 21.4
+        }
+      ],
+      "started_utc": "2026-09-17T12:37:37Z",
+      "finished_utc": "2026-09-17T12:39:05Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s2-s3-rho200-s4106-r1": {
+      "status": "ok",
+      "sha256": "032e6058a784092a140f746be20e2e994068deca038f873ddd042b386dcf78a3",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.099282,
+        "revert_t_rel": 40.112347,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 13.479,
+            "lossPct": 246.132,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.013,
+            "txRate": 0.003,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.014,
+            "txRate": 13.521,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 246.132,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.099282,
+          "t_source": 1789649644.9923518,
+          "completed_t_rel": 20.120893,
+          "apply_ms": 21.6,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s2-s3",
+            "factor": 0.7843,
+            "delay": "2ms",
+            "baseline": 5.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.112347,
+          "t_source": 1789649665.0065594,
+          "completed_t_rel": 40.13512,
+          "apply_ms": 22.8
+        }
+      ],
+      "started_utc": "2026-09-17T12:53:20Z",
+      "finished_utc": "2026-09-17T12:54:44Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s2-s3-rho150-s4107-r1": {
+      "status": "ok",
+      "sha256": "04b956088d77f0f808ded9c7a5c02696fc6f4a543c3697d8786282392ed340f6",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.122134,
+        "revert_t_rel": 40.129931,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 8.981,
+            "lossPct": 59.359,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.004,
+            "txRate": 0.008,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.009,
+            "txRate": 9.01,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 59.359,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.122134,
+          "t_source": 1789649175.0063915,
+          "completed_t_rel": 20.143086,
+          "apply_ms": 21.0,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s2-s3",
+            "factor": 0.7124,
+            "delay": "2ms",
+            "baseline": 5.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.129931,
+          "t_source": 1789649195.0182457,
+          "completed_t_rel": 40.15488,
+          "apply_ms": 25.0
+        }
+      ],
+      "started_utc": "2026-09-17T12:45:30Z",
+      "finished_utc": "2026-09-17T12:46:54Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s2-s3-rho125-s4108-r1": {
+      "status": "ok",
+      "sha256": "d38fbd4800c7ed60e863a58efe2fcad1fc2b28a0798efe829d36f860e824baa9",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.133427,
+        "revert_t_rel": 40.13875,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 5.392,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.008,
+            "txRate": 0.002,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.003,
+            "txRate": 5.433,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 5.433,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": true,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.133427,
+          "t_source": 1789649484.0800183,
+          "completed_t_rel": 20.154474,
+          "apply_ms": 21.0,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s2-s3",
+            "factor": 0.6549,
+            "delay": "2ms",
+            "baseline": 5.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.13875,
+          "t_source": 1789649504.0855908,
+          "completed_t_rel": 40.160031,
+          "apply_ms": 21.3
+        }
+      ],
+      "started_utc": "2026-09-17T12:50:46Z",
+      "finished_utc": "2026-09-17T12:52:04Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RD-degrade-s2-s3-rho050-s4110-r1": {
+      "status": "ok",
+      "sha256": "a8443639b39ef7d7d5ec701c426dd17caae54665f8e5ebcacf44571b660b488b",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.086135,
+        "revert_t_rel": 40.098031,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 0.002,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.001,
+            "txRate": 0.035,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.003,
+            "txRate": 0.049,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 0.049,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": false,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.086135,
+          "t_source": 1789649013.7369983,
+          "completed_t_rel": 20.10841,
+          "apply_ms": 22.3,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s2-s3",
+            "factor": 0.1373,
+            "delay": "2ms",
+            "baseline": 5.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.098031,
+          "t_source": 1789649033.7480686,
+          "completed_t_rel": 40.11921,
+          "apply_ms": 21.2
+        }
+      ],
+      "started_utc": "2026-09-17T12:42:57Z",
+      "finished_utc": "2026-09-17T12:44:13Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RC-flood-h1_to_srv1-s4201-r1": {
+      "status": "ok",
+      "sha256": "f381803d0e81403f831b6f36314ea34e13467284ddfba9aa7776f5e9f7b79212",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.087434,
+        "revert_t_rel": 40.097646,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.569,
+            "txRate": 222.974,
+            "lossPct": 315.696,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 1.013,
+            "txRate": 196.01,
+            "lossPct": 4.818,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 1.021,
+            "txRate": 195.995,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 315.696,
+        "signal_present": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.087434,
+          "t_source": 1789644922.6371567,
+          "completed_t_rel": 20.429418,
+          "apply_ms": 342.0,
+          "scenario": {
+            "type": "TrafficFlood",
+            "src": "h1",
+            "dst": "srv1",
+            "rate_mbps": 32
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.097646,
+          "t_source": 1789644942.3294334,
+          "completed_t_rel": 40.121624,
+          "apply_ms": 24.0
+        }
+      ],
+      "started_utc": "2026-09-17T11:34:45Z",
+      "finished_utc": "2026-09-17T11:36:02Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RC-flood-h2_to_srv2-s4202-r1": {
+      "status": "ok",
+      "sha256": "3d6d170a1a77cea4ab89fdde23c843e79a33a148815545080435ad0eb5a1aa1c",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.082248,
+        "revert_t_rel": 40.09568,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h2-s1": {
+            "rxRate": 0.59,
+            "txRate": 222.946,
+            "lossPct": 332.453,
+            "state_up": 0.0
+          },
+          "link-s1-s3": {
+            "rxRate": 0.59,
+            "txRate": 223.023,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.587,
+            "txRate": 196.195,
+            "lossPct": 76.13,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 332.453,
+        "signal_present": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.082248,
+          "t_source": 1789649091.0333483,
+          "completed_t_rel": 20.420277,
+          "apply_ms": 338.0,
+          "scenario": {
+            "type": "TrafficFlood",
+            "src": "h2",
+            "dst": "srv2",
+            "rate_mbps": 33
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.09568,
+          "t_source": 1789649110.7349432,
+          "completed_t_rel": 40.121802,
+          "apply_ms": 26.1
+        }
+      ],
+      "started_utc": "2026-09-17T12:44:13Z",
+      "finished_utc": "2026-09-17T12:45:30Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RC-shift-s1-s2-s4203-r1": {
+      "status": "ok",
+      "sha256": "1ff68195c539057521a2eb23fcc8db9b7d080aeee2d6bdfb691e23dbee49d57d",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.096011,
+        "revert_t_rel": 40.109333,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.3,
+            "txRate": 0.749,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.427,
+            "txRate": 11.731,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 0.726,
+            "txRate": 18.694,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 35.542,
+            "lossPct": 749.521,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 221.848,
+            "txRate": 18.668,
+            "lossPct": 122.352,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.02,
+            "txRate": 35.525,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 749.521,
+        "signal_present": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.096011,
+          "t_source": 1789649253.3910978,
+          "completed_t_rel": 20.4596,
+          "apply_ms": 363.6,
+          "scenario": {
+            "type": "CongestionShift",
+            "degrade_link": "s1-s2",
+            "factor": 0.85662217995863,
+            "delay": "2ms",
+            "baseline": 20.0,
+            "flood_src": "srv1",
+            "flood_dst": "srv2",
+            "rate_mbps": 22
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.109333,
+          "t_source": 1789649273.0884566,
+          "completed_t_rel": 40.156761,
+          "apply_ms": 47.4
+        }
+      ],
+      "started_utc": "2026-09-17T12:46:55Z",
+      "finished_utc": "2026-09-17T12:48:13Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RC-shift-s1-s3-s4204-r1": {
+      "status": "ok",
+      "sha256": "717febaad13536bc2ee7bb13c7b4fbdf0181e33ec6fb95a3d83d02f054562ac8",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.084569,
+        "revert_t_rel": 40.098094,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h2-s1": {
+            "rxRate": 0.009,
+            "txRate": 0.076,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s3": {
+            "rxRate": 0.009,
+            "txRate": 0.079,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 35.537,
+            "lossPct": 749.309,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 221.829,
+            "txRate": 0.011,
+            "lossPct": 177.825,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.012,
+            "txRate": 35.553,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 749.309,
+        "signal_present": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.084569,
+          "t_source": 1789648617.3294015,
+          "completed_t_rel": 20.44566,
+          "apply_ms": 361.1,
+          "scenario": {
+            "type": "CongestionShift",
+            "degrade_link": "s1-s3",
+            "factor": 0.8313170070139595,
+            "delay": "2ms",
+            "baseline": 20.0,
+            "flood_src": "srv1",
+            "flood_dst": "srv2",
+            "rate_mbps": 24
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.098094,
+          "t_source": 1789648637.0296614,
+          "completed_t_rel": 40.14567,
+          "apply_ms": 47.6
+        }
+      ],
+      "started_utc": "2026-09-17T12:36:20Z",
+      "finished_utc": "2026-09-17T12:37:36Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RO-ctl_admin_down-s1-s2-s4302-r2": {
+      "status": "ok",
+      "sha256": "5e147e7054a7e9af24b696d5f670e497fcbe0d9f06ed5a2a09b360fedbc6673c",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.083638,
+        "revert_t_rel": 40.09963,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.002,
+            "txRate": 0.025,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.008,
+            "txRate": 0.009,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 1.198,
+            "txRate": 53.798,
+            "lossPct": 0.0,
+            "state_up": 100.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.01,
+            "txRate": 0.14,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 100.0,
+        "signal_present": true,
+        "admin_down_observed": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.083638,
+          "t_source": 1789649406.3341286,
+          "completed_t_rel": 20.08915,
+          "apply_ms": 5.5,
+          "scenario": {
+            "type": "LinkAdminDown",
+            "link_key": "s1-s2"
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.09963,
+          "t_source": 1789649426.347121,
+          "completed_t_rel": 40.102101,
+          "apply_ms": 2.5
+        }
+      ],
+      "started_utc": "2026-09-17T12:49:29Z",
+      "finished_utc": "2026-09-17T12:50:46Z",
+      "collection_provenance": {
+        "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+        "git_dirty": true,
+        "git_dirty_files": [
+          "logs/command_flow.log",
+          "results/report/feature_audit.csv",
+          "data/phase6r/",
+          "logs/phase6r_controller.log",
+          "logs/phase6r_stdout.log",
+          "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+          "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+          "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+          "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+          "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+          "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+          "logs/rcampaign_RN-load10M-s4016-r2.log",
+          "logs/rcampaign_RN-load6M-s4012-r2.log",
+          "logs/rcampaign_RN-load8M-s4013-r1.log",
+          "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+          "logs/rcampaign_RS-soak2M-s4002-r2.log",
+          "logs/rcampaign_startup.log",
+          "results/report/phase6r_rcampaign_manifest.json"
+        ],
+        "source_dirty_files": [
+          "data/phase6r/"
+        ],
+        "source_dirty": true
+      }
+    },
+    "RO-ctl_admin_down-s1-s2-s4301-r1": {
+      "status": "ok",
+      "sha256": "4f146ca3914bcd3eac19ade1536ca426e416ed3b88a720a857ad8697900df2fd",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.079098,
+        "revert_t_rel": 40.094368,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-h1-s1": {
+            "rxRate": 0.005,
+            "txRate": 0.033,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-h3-s1": {
+            "rxRate": 0.001,
+            "txRate": 0.011,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s1-s2": {
+            "rxRate": 1.198,
+            "txRate": 53.761,
+            "lossPct": 0.0,
+            "state_up": 100.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.003,
+            "txRate": 0.085,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 100.0,
+        "signal_present": true,
+        "admin_down_observed": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.079098,
+          "t_source": 1789661909.9530246,
+          "completed_t_rel": 20.085981,
+          "apply_ms": 6.9,
+          "scenario": {
+            "type": "LinkAdminDown",
+            "link_key": "s1-s2"
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.094368,
+          "t_source": 1789661929.964152,
+          "completed_t_rel": 40.097018,
+          "apply_ms": 2.7
+        }
+      ],
+      "started_utc": "2026-09-17T16:17:53Z",
+      "finished_utc": "2026-09-17T16:19:09Z",
+      "reset_dirty": false,
+      "reset_mode": "soft"
+    },
+    "RD-degrade-s2-s3-rho080-s4109-r1": {
+      "status": "ok",
+      "sha256": "a8106b8376ddb8342508a3c0711fe9c5d14dceba7dbf598d4009c24e2e894210",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 160,
+        "qdisc_invalid_ok": true,
+        "qdisc_invalid_fraction_fault": 0.0063,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 160,
+        "rate_invalid_ok": true,
+        "rate_invalid_fraction_fault": 0.0,
+        "events_complete": true,
+        "event_ticks_ok": true,
+        "inject_t_rel": 20.084726,
+        "revert_t_rel": 40.096262,
+        "inject_on_time": true,
+        "revert_on_time": true,
+        "per_link": {
+          "link-s2-s3": {
+            "rxRate": 0.0,
+            "txRate": 0.006,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s2-srv1": {
+            "rxRate": 0.006,
+            "txRate": 0.043,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          },
+          "link-s3-srv2": {
+            "rxRate": 0.003,
+            "txRate": 0.068,
+            "lossPct": 0.0,
+            "state_up": 0.0
+          }
+        },
+        "max_separation": 0.068,
+        "passed": true,
+        "failed_gates": [],
+        "covariate_signal_present": false,
+        "demoted_to_covariate": [
+          "signal_present"
+        ],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [
+        {
+          "kind": "inject",
+          "tick": 20,
+          "t_rel": 20.084726,
+          "t_source": 1789661987.6876552,
+          "completed_t_rel": 20.107103,
+          "apply_ms": 22.4,
+          "scenario": {
+            "type": "LinkDegrade",
+            "link_key": "s2-s3",
+            "factor": 0.4608,
+            "delay": "2ms",
+            "baseline": 5.0
+          }
+        },
+        {
+          "kind": "revert",
+          "tick": 40,
+          "t_rel": 40.096262,
+          "t_source": 1789662007.6975586,
+          "completed_t_rel": 40.116993,
+          "apply_ms": 20.7
+        }
+      ],
+      "started_utc": "2026-09-17T16:19:09Z",
+      "finished_utc": "2026-09-17T16:20:27Z",
+      "reset_dirty": false,
+      "reset_mode": "soft"
+    },
+    "RN-load6M-s4011-r1": {
+      "status": "ok",
+      "sha256": "1dd6dae93bc1f508698261a7eac9c7771616886f6129387e93927d9c4b7356f4",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-09-17T16:20:27Z",
+      "finished_utc": "2026-09-17T16:21:45Z",
+      "reset_dirty": false,
+      "reset_mode": "soft"
+    }
+  },
+  "labels_opened": false,
+  "note": "R-set: khong tinh recall/FPR o day; nghiem thu mo o 6R.7"
+}

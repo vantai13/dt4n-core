@@ -1,0 +1,226 @@
+{
+  "run_id": "RD-degrade-s2-s3-rho050-s4110-r1",
+  "sha256": "a8443639b39ef7d7d5ec701c426dd17caae54665f8e5ebcacf44571b660b488b",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RN-load8M-s4013-r1.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RD-degrade-s2-s3-rho050-s4110-r1",
+    "group": "RD",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "degrade",
+    "fault_target": "s2-s3",
+    "seed": 4110,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "duration_sec": 60,
+    "expected_links": [
+      "s2-s3",
+      "s2-srv1",
+      "s3-srv2"
+    ],
+    "fault_parameters": {
+      "link_key": "s2-s3",
+      "factor": 0.1373,
+      "delay": "2ms",
+      "baseline": 5.0
+    },
+    "intervention": {
+      "actor": "harness",
+      "log_inject": false,
+      "log_revert": true
+    },
+    "exec_index": 9
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 8.901560957001493,
+    "reset_steady_ok": true,
+    "reset_wait_s": 5.43345396299992,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.03987955093383789,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4283,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.3559990697540343e-06,
+      "kill_iperf": 0.3782646549989295,
+      "restore_links": 0.17786086600244744,
+      "flush_arp": 0.006813912001234712,
+      "reset_cache": 1.3061999197816476e-05,
+      "start_traffic": 2.5997818060022837,
+      "steady_wait": 5.43345396299992,
+      "health_gate": 0.06400450300134253,
+      "refresh_twin": 0.15484957099761232,
+      "data_fresh_wait": 0.07707527900129207
+    }
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.086135,
+      "t_source": 1789649013.7369983,
+      "completed_t_rel": 20.10841,
+      "apply_ms": 22.3,
+      "scenario": {
+        "type": "LinkDegrade",
+        "link_key": "s2-s3",
+        "factor": 0.1373,
+        "delay": "2ms",
+        "baseline": 5.0
+      }
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.098031,
+      "t_source": 1789649033.7480686,
+      "completed_t_rel": 40.11921,
+      "apply_ms": 21.2
+    }
+  ],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 160,
+    "qdisc_invalid_ok": true,
+    "qdisc_invalid_fraction_fault": 0.0063,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 160,
+    "rate_invalid_ok": true,
+    "rate_invalid_fraction_fault": 0.0,
+    "events_complete": true,
+    "event_ticks_ok": true,
+    "inject_t_rel": 20.086135,
+    "revert_t_rel": 40.098031,
+    "inject_on_time": true,
+    "revert_on_time": true,
+    "per_link": {
+      "link-s2-s3": {
+        "rxRate": 0.0,
+        "txRate": 0.002,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s2-srv1": {
+        "rxRate": 0.001,
+        "txRate": 0.035,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s3-srv2": {
+        "rxRate": 0.003,
+        "txRate": 0.049,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      }
+    },
+    "max_separation": 0.049,
+    "passed": true,
+    "failed_gates": [],
+    "covariate_signal_present": false,
+    "demoted_to_covariate": [
+      "signal_present"
+    ],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T12:42:57Z",
+  "finished_utc": "2026-09-17T12:44:13Z",
+  "status": "ok",
+  "campaign": "phase6r",
+  "interventions": [
+    {
+      "id": "RD-degrade-s2-s3-rho050-s4110-r1:revert",
+      "t_start": 1789649033.7267113,
+      "tick": 40,
+      "actor": "harness",
+      "action": "revert:degrade",
+      "targets": {
+        "links": [
+          "s2-s3"
+        ],
+        "flows": []
+      },
+      "blast_radius": [
+        "host-srv1",
+        "host-srv2",
+        "link-s2-s3",
+        "link-s2-srv1",
+        "link-s3-srv2",
+        "switch-s2",
+        "switch-s3"
+      ],
+      "routing_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044"
+    }
+  ]
+}

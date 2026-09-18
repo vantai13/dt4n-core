@@ -1,0 +1,153 @@
+{
+  "run_id": "RS-soak2M-s4003-r3",
+  "sha256": "896c1b61346fdc45fddc904a49d75e5b4831707a643b26c2ac3be87637a146bc",
+  "design_content_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+  "collection_provenance": {
+    "git_hash": "ba490d2039861fd46a228dc11db0a42f11921576",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "results/report/feature_audit.csv",
+      "data/phase6r/",
+      "logs/phase6r_controller.log",
+      "logs/phase6r_stdout.log",
+      "logs/rcampaign_RC-flood-h1_to_srv1-s4201-r1.log",
+      "logs/rcampaign_RC-flood-h2_to_srv2-s4202-r1.log",
+      "logs/rcampaign_RC-shift-s1-s2-s4203-r1.log",
+      "logs/rcampaign_RC-shift-s1-s3-s4204-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho050-s4105-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho080-s4104-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho125-s4103-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho150-s4102-r1.log",
+      "logs/rcampaign_RD-degrade-s1-s2-rho200-s4101-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho050-s4110-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho125-s4108-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho150-s4107-r1.log",
+      "logs/rcampaign_RD-degrade-s2-s3-rho200-s4106-r1.log",
+      "logs/rcampaign_RN-load10M-s4015-r1.log",
+      "logs/rcampaign_RN-load10M-s4016-r2.log",
+      "logs/rcampaign_RN-load6M-s4012-r2.log",
+      "logs/rcampaign_RN-load8M-s4013-r1.log",
+      "logs/rcampaign_RN-load8M-s4014-r2.log",
+      "logs/rcampaign_RO-ctl_admin_down-s1-s2-s4302-r2.log",
+      "logs/rcampaign_RS-soak2M-s4001-r1.log",
+      "logs/rcampaign_RS-soak2M-s4002-r2.log",
+      "logs/rcampaign_RS-soak2M-s4003-r3.log",
+      "logs/rcampaign_startup.log",
+      "results/report/phase6r_rcampaign_manifest.json"
+    ],
+    "source_dirty_files": [
+      "data/phase6r/"
+    ],
+    "source_dirty": true
+  },
+  "record": {
+    "run_id": "RS-soak2M-s4003-r3",
+    "group": "RS",
+    "split": "r_set",
+    "role": "nghiem thu",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": null,
+    "fault_target": null,
+    "seed": 4003,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 3600,
+    "expected_links": [],
+    "fault_parameters": {},
+    "intervention": {
+      "actor": null,
+      "log_inject": false,
+      "log_revert": false
+    },
+    "exec_index": 21
+  },
+  "constants": {
+    "campaign_id": "DT4N-P6R-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260918,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 3615,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 9.969418833999953,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.5057997059993795,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.03806588172912598,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4284,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 3.7380013964138925e-06,
+      "kill_iperf": 0.3788228060002439,
+      "restore_links": 0.17692296799941687,
+      "flush_arp": 0.007363875000010012,
+      "reset_cache": 1.0831001418409869e-05,
+      "start_traffic": 2.6047489939992374,
+      "steady_wait": 6.5057997059993795,
+      "health_gate": 0.06685480899977847,
+      "refresh_twin": 0.15620138499798486,
+      "data_fresh_wait": 0.06530020300124306
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 3598,
+    "expected_ticks": 3600,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 28776,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 28776,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": false,
+    "failed_gates": [
+      "runtime_log_ok"
+    ],
+    "runtime_error_count": 1,
+    "runtime_log_ok": false
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-09-17T13:57:38Z",
+  "finished_utc": "2026-09-17T14:57:56Z",
+  "status": "failed",
+  "campaign": "phase6r",
+  "interventions": []
+}
