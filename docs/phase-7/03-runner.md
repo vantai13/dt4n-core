@@ -115,3 +115,32 @@ Dự đoán này được commit trước khi pause container Ditto.
   soak 30 phút ở 7.6 mới trả lời câu hỏi đó.
 
 Kết quả live sẽ được bổ sung sau khi chạy, không sửa bảng dự đoán phía trên.
+
+### Kết quả live — chạy sau commit `dab2ccd`
+
+Chaos test pause `dt4n-aoi-smoke-nginx-1` từ 20.0003 đến 25.0666 giây.
+Container đã được unpause và trở lại trạng thái running sau phép đo.
+
+| Chỉ số | Dự đoán | Đo được | Đối chiếu |
+|---|---:|---:|---|
+| `dt_over_1_5_s` | 0 | **0** | khớp |
+| `dt_max_s` | khoảng 1.0x s | **1.000129 s** | khớp |
+| `published_gap_unknown` | 0 | **0** | khớp |
+| `stats.failed` | khoảng 2–3 | **2** | khớp |
+| `stats.overwritten` | khoảng 2–3 | **1** | thấp hơn dự đoán một tick |
+| sync-agent | cảnh báo/retry | **`Cycle overran: 4.82s > 1.0s`** | khớp |
+
+Runner xử lý đủ 60 tick: một `warming_up`, 59 `normal`, 57 PATCH thành công,
+hai PATCH thất bại và một document bị mailbox đè. Không restart, không
+exception, không vi phạm hợp đồng và guard không bật. p95 toàn callback
+`on_tick` là 2.756 ms; phần đo/scorer trước build document trong audit có p95
+1.677 ms. Writer p95 trên các PATCH thành công là 20.695 ms.
+
+Kết quả chứng minh đường sync-agent bị block gần năm giây trong lúc đường đo
+detector vẫn giữ Δt dưới 1.001 giây. Artifact live content SHA-256:
+`d61b83fd1be68ac79d8c76d1e72fbfc1285d5797d3f7ccc1652bae9da761033a`.
+
+Artifact máy đọc nằm tại
+`results/report/phase7_runner_backpressure_live.json`; audit đầy đủ 60 tick
+nằm cục bộ tại `logs/phase7_detector_audit.jsonl` và không commit vì là runtime
+state có cơ chế rotation.
