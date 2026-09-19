@@ -230,6 +230,8 @@ results/**/phase-T2/traces/*.csv
 
 # Runtime flow audit is append-only local state and changes during tests.
 logs/command_flow.log
+# Phase 7 detector audit is rotating runtime state; commit compact receipts only.
+logs/phase7_detector_audit.jsonl*
 
 # Local report server output keeps changing while the report is open
 logs/report_server.log

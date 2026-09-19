@@ -1,0 +1,30 @@
+{
+  "content": {
+    "outcome": "stopped",
+    "nginx_container": "dt4n-aoi-smoke-nginx-1",
+    "pause_window_s": {
+      "start": 20.0002503300002,
+      "end": 25.066599833999135
+    },
+    "ticks": 60,
+    "dt_max_s": 1.000129,
+    "dt_over_1_5_s": 0,
+    "published_gap_unknown": 0,
+    "states": {
+      "warming_up": 1,
+      "normal": 59
+    },
+    "stats": {
+      "seq": 60,
+      "sent": 57,
+      "failed": 2,
+      "overwritten": 1,
+      "restarts": 0,
+      "exceptions": 0,
+      "on_tick_p95_ms": 2.756,
+      "write_p95_ms": 20.695
+    }
+  },
+  "content_sha256": "d61b83fd1be68ac79d8c76d1e72fbfc1285d5797d3f7ccc1652bae9da761033a",
+  "written_at_utc": "2026-09-19T01:50:09+00:00"
+}
