@@ -226,6 +226,9 @@ results/**/phase-T2/traces/*.csv
 !results/report/**
 !logs/*.log
 !logs/*.jsonl
+# Runtime-only logs: receipts do not depend on these mutable files.
+logs/command_agent_audit.log
+logs/dashboard_ui.jsonl
 !report.html
 
 # Runtime flow audit is append-only local state and changes during tests.
