@@ -88,3 +88,13 @@ def test_controller_no_log():
         "inject", "s1-s2", "p3", "no_log"
     )
     assert len(log) == 0
+
+
+def test_controller_log_late_counts_first_tick_scored_after_decision():
+    """Hoi quy 7.6 live: runner.seq la seq SAP gan, nen tick seq == seq_before da la hau qua.
+    Bo qua no lam log tre 2 tick (du n_act=2 de vao act) thay vi 1."""
+    log, runner = InMemoryInterventionLog(), FakeRunner()
+    runner.timeline = [dict(entry(10, "suspect", env=True), seq=10)]
+    controller = LiveController(log, lambda command: {}, runner, clock=lambda: 1000.0)
+    record = controller.act("inject", "s1-s2", "p4", "log_late", late_timeout_s=0.5)
+    assert record["late_after_seq"] == 10

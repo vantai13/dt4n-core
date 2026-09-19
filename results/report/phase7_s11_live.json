@@ -1,0 +1,732 @@
+{
+  "content": {
+    "lesson": "7.6",
+    "seed": 7006,
+    "cooldown_s": 8.0,
+    "tail_s": 10.0,
+    "arms": {
+      "log_first": {
+        "n": 4,
+        "act_entries": 0,
+        "alarm_entries": 0,
+        "env_alarm_ticks": 0,
+        "suppressed_ticks": 84,
+        "all_started_from_normal": true
+      },
+      "log_late": {
+        "n": 4,
+        "act_entries": 4,
+        "alarm_entries": 4,
+        "env_alarm_ticks": 8,
+        "suppressed_ticks": 84,
+        "all_started_from_normal": true
+      },
+      "no_log": {
+        "n": 4,
+        "act_entries": 4,
+        "alarm_entries": 4,
+        "env_alarm_ticks": 85,
+        "suppressed_ticks": 0,
+        "all_started_from_normal": true
+      }
+    },
+    "verdict": {
+      "S11_live_pass": true,
+      "race_negative_shows_alarm": true,
+      "control_shows_act": true,
+      "lease_pass": true,
+      "error_records": 0
+    },
+    "lease": {
+      "pair": "lease-d09c6e7b",
+      "t_expiry_wall": 1789819518.3483093,
+      "suppressed_before_expiry": 120,
+      "suppressed_after_expiry": 0,
+      "stale_ticks_after_expiry": 8,
+      "first_stale_delay_s": 0.28791022300720215,
+      "published_after_expiry": [
+        "act",
+        "suspect"
+      ],
+      "pass": true,
+      "revert": {
+        "pair": "lease-d09c6e7b",
+        "kind": "revert",
+        "link": "s1-s2",
+        "mode": "log_first",
+        "t_log_wall": 1789819526.3780992,
+        "t_post_wall": 1789819526.3780997,
+        "post": {
+          "cid": "fa5f5327-27c1-485d-a9c2-4029d347bcc3",
+          "subject": "enableLink",
+          "target": "org.dt4n:link-s1-s2",
+          "params": {},
+          "http_status": 202,
+          "post_error": null,
+          "post_ms": 29.858775999855425
+        },
+        "t_decide_wall": 1789819526.3779004
+      }
+    },
+    "rows": [
+      {
+        "mode": "no_log",
+        "link": "s1-s3",
+        "pair": "no_log-83a8dfc3",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-83a8dfc3",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "no_log",
+          "t_post_wall": 1789818863.8461246,
+          "post": {
+            "cid": "ad1656b0-3d8d-467a-b2a7-ae6fedb42914",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 42.276039000171295
+          },
+          "t_decide_wall": 1789818863.846123
+        },
+        "revert": {
+          "pair": "no_log-83a8dfc3",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "no_log",
+          "t_post_wall": 1789818883.8885982,
+          "post": {
+            "cid": "0701bcc7-bb14-4971-9f22-b4d9753e8d15",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.352120999647013
+          },
+          "t_decide_wall": 1789818883.8885953
+        },
+        "window_wall": [
+          1789818863.846123,
+          1789818901.8885953
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "rep": 0
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s3",
+        "pair": "log_first-0074cd25",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-0074cd25",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789818908.1521251,
+          "t_post_wall": 1789818908.1521258,
+          "post": {
+            "cid": "2bfff776-d8a3-4f34-b185-02b7c603cba4",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 35.985761000119965
+          },
+          "t_decide_wall": 1789818908.1518776
+        },
+        "revert": {
+          "pair": "log_first-0074cd25",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789818928.1886284,
+          "t_post_wall": 1789818928.1886292,
+          "post": {
+            "cid": "34b26e0c-4bd6-457f-b957-6ab8c572e8b4",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.571312999905786
+          },
+          "t_decide_wall": 1789818928.1884205
+        },
+        "window_wall": [
+          1789818908.1518776,
+          1789818946.1884205
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 0
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s2",
+        "pair": "log_late-05783dca",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-05783dca",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_late",
+          "t_post_wall": 1789818952.516695,
+          "post": {
+            "cid": "031997ee-055b-44af-9c4f-0287c5963d10",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 30.94605799924466
+          },
+          "late_after_seq": 98,
+          "t_log_wall": 1789818953.7002125,
+          "t_decide_wall": 1789818952.5166938
+        },
+        "revert": {
+          "pair": "log_late-05783dca",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789818973.70049,
+          "t_post_wall": 1789818973.7004905,
+          "post": {
+            "cid": "c434a1e4-65fd-43cc-a576-fefc295c1d04",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.24364300047455
+          },
+          "t_decide_wall": 1789818973.7002912
+        },
+        "window_wall": [
+          1789818952.5166938,
+          1789818991.7002912
+        ],
+        "counts": {
+          "ticks": 40,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 2,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 0
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s3",
+        "pair": "log_first-6781f6bf",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-6781f6bf",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789818998.0287316,
+          "t_post_wall": 1789818998.028732,
+          "post": {
+            "cid": "e26b1c12-11a8-49e1-ae40-cb57cdaf77c0",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 28.73753800031409
+          },
+          "t_decide_wall": 1789818998.028535
+        },
+        "revert": {
+          "pair": "log_first-6781f6bf",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789819018.057808,
+          "t_post_wall": 1789819018.0578082,
+          "post": {
+            "cid": "c8a47293-e05b-4ea5-aa04-41486388f8a3",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.85589699983393
+          },
+          "t_decide_wall": 1789819018.0576568
+        },
+        "window_wall": [
+          1789818998.028535,
+          1789819036.0576568
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 1
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s3",
+        "pair": "log_late-ee41a361",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-ee41a361",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_late",
+          "t_post_wall": 1789819042.3019202,
+          "post": {
+            "cid": "e76ccdde-584f-435c-b2bb-b7b53ceda20b",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 25.65724099986255
+          },
+          "late_after_seq": 188,
+          "t_log_wall": 1789819043.680869,
+          "t_decide_wall": 1789819042.3019187
+        },
+        "revert": {
+          "pair": "log_late-ee41a361",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789819063.6811306,
+          "t_post_wall": 1789819063.6811314,
+          "post": {
+            "cid": "039435dd-4f46-4e81-9534-edbff35f444c",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.20840700021654
+          },
+          "t_decide_wall": 1789819063.6809413
+        },
+        "window_wall": [
+          1789819042.3019187,
+          1789819081.6809413
+        ],
+        "counts": {
+          "ticks": 40,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 2,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 1
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-e0bc0ea0",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-e0bc0ea0",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819088.2635741,
+          "post": {
+            "cid": "b9d2d81c-9a56-4d6f-af48-f9d344ab5163",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 33.89005699955305
+          },
+          "t_decide_wall": 1789819088.2635725
+        },
+        "revert": {
+          "pair": "no_log-e0bc0ea0",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819108.2976184,
+          "post": {
+            "cid": "49234fed-752c-4f19-9695-761bfd6ed47e",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 30.373266000424337
+          },
+          "t_decide_wall": 1789819108.2976172
+        },
+        "window_wall": [
+          1789819088.2635725,
+          1789819126.2976172
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "rep": 1
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-eaf6744c",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-eaf6744c",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819132.7093346,
+          "post": {
+            "cid": "248e8599-baec-4ad7-a192-7bd90aa1823d",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.10833999976603
+          },
+          "t_decide_wall": 1789819132.7093334
+        },
+        "revert": {
+          "pair": "no_log-eaf6744c",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819152.7386107,
+          "post": {
+            "cid": "021b5e33-0b1e-4b4f-b066-936c1d023dfb",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.513941999539384
+          },
+          "t_decide_wall": 1789819152.7386093
+        },
+        "window_wall": [
+          1789819132.7093334,
+          1789819170.7386093
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "rep": 2
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s2",
+        "pair": "log_first-1685aaf2",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-1685aaf2",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789819176.974721,
+          "t_post_wall": 1789819176.9747214,
+          "post": {
+            "cid": "23518d59-f337-46da-9119-4946b07e6650",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 32.781953000267094
+          },
+          "t_decide_wall": 1789819176.9745173
+        },
+        "revert": {
+          "pair": "log_first-1685aaf2",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789819197.007897,
+          "t_post_wall": 1789819197.0078979,
+          "post": {
+            "cid": "b1c9f89f-fab4-42a9-a1cf-68729779bd33",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.97624299950985
+          },
+          "t_decide_wall": 1789819197.0076766
+        },
+        "window_wall": [
+          1789819176.9745173,
+          1789819215.0076766
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 2
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s3",
+        "pair": "log_late-f90a9c10",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-f90a9c10",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_late",
+          "t_post_wall": 1789819222.0031264,
+          "post": {
+            "cid": "e6f05d1e-d25d-4d90-9ed8-05813521e559",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 34.451165000064066
+          },
+          "late_after_seq": 368,
+          "t_log_wall": 1789819223.6929986,
+          "t_decide_wall": 1789819222.003125
+        },
+        "revert": {
+          "pair": "log_late-f90a9c10",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789819243.6932576,
+          "t_post_wall": 1789819243.693258,
+          "post": {
+            "cid": "8140c1dd-bf88-49ad-b3c5-439cc2bd9dd8",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 24.795214000732813
+          },
+          "t_decide_wall": 1789819243.6930568
+        },
+        "window_wall": [
+          1789819222.003125,
+          1789819261.6930568
+        ],
+        "counts": {
+          "ticks": 40,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 2,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 2
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s2",
+        "pair": "log_late-2ff5bbf4",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-2ff5bbf4",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_late",
+          "t_post_wall": 1789819268.5920198,
+          "post": {
+            "cid": "93d1cfcc-b1d4-4ecb-af77-283ba1416242",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 26.23102200050198
+          },
+          "late_after_seq": 414,
+          "t_log_wall": 1789819269.7226088,
+          "t_decide_wall": 1789819268.5920186
+        },
+        "revert": {
+          "pair": "log_late-2ff5bbf4",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789819289.7228396,
+          "t_post_wall": 1789819289.7228398,
+          "post": {
+            "cid": "92bde88d-cae3-4ba8-91e2-3cbb4003f3a1",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 24.340608000784414
+          },
+          "t_decide_wall": 1789819289.7226894
+        },
+        "window_wall": [
+          1789819268.5920186,
+          1789819307.7226894
+        ],
+        "counts": {
+          "ticks": 40,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 2,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 3
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-ad948b31",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-ad948b31",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819314.609781,
+          "post": {
+            "cid": "60daaa37-ad17-43d2-95f2-fa492967a255",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.839088999826345
+          },
+          "t_decide_wall": 1789819314.6097794
+        },
+        "revert": {
+          "pair": "no_log-ad948b31",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789819334.6378138,
+          "post": {
+            "cid": "77916bf4-abe4-40ef-a610-0dc3c6f74c5f",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.955104999316973
+          },
+          "t_decide_wall": 1789819334.6378129
+        },
+        "window_wall": [
+          1789819314.6097794,
+          1789819352.6378129
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 22,
+          "held": 2,
+          "normal": 15
+        },
+        "rep": 3
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s2",
+        "pair": "log_first-1151a98c",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-1151a98c",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789819359.2924638,
+          "t_post_wall": 1789819359.2924645,
+          "post": {
+            "cid": "fc883e99-49d1-42d8-ac17-57ccfa19c21a",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 24.895244000617822
+          },
+          "t_decide_wall": 1789819359.2923145
+        },
+        "revert": {
+          "pair": "log_first-1151a98c",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789819379.3177125,
+          "t_post_wall": 1789819379.3177133,
+          "post": {
+            "cid": "cc99a5da-ed99-4c78-b6fc-5f6fa6c1794c",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.96580899980472
+          },
+          "t_decide_wall": 1789819379.3175387
+        },
+        "window_wall": [
+          1789819359.2923145,
+          1789819397.3175387
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "rep": 3
+      }
+    ],
+    "log_counts": {
+      "WARNING": 2
+    },
+    "first_errors": []
+  },
+  "content_sha256": "ab6ace746361c071d224b4cf09274faa0a7cb9425109bd288c515b0070299e8d",
+  "written_at_utc": "2026-09-19T12:05:29+00:00"
+}
