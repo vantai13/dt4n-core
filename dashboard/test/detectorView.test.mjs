@@ -69,6 +69,14 @@ test('all clear chỉ khi thiết bị ổn và detector tươi, normal', () => 
   assert.equal(allClear(1, detectorView(thing('normal'), fresh(), 1500, GRAPH)), false)
 })
 
+test('stale_intervention ở state normal không được là all clear', () => {
+  const detector = thing('normal')
+  detector.features.decision.properties.cause = 'stale_intervention'
+  const view = detectorView(detector, fresh(), 1500, GRAPH)
+  assert.equal(view.severity, null)
+  assert.equal(allClear(0, view), false)
+})
+
 test('affected join theo id và báo id không khớp', () => {
   const view = detectorView(thing('act', {
     actRule: true,

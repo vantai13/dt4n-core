@@ -262,6 +262,11 @@ def test_timeline_marks_are_monotonic_and_joinable():
     timeline, writes = list(detector_runner.timeline), list(detector_runner.writes)
     assert [entry["seq"] for entry in timeline] == list(range(6))
     assert all(entry["t_in"] <= entry["t1"] <= entry["t2"] for entry in timeline)
+    assert all(
+        0 <= entry["score_ms"] <= (entry["t1"] - entry["t_in"]) * 1000
+        for entry in timeline
+    )
+    assert all("cause" in entry and "cycle_scan_ms" in entry for entry in timeline)
     by_seq = {entry["seq"]: entry for entry in timeline}
     for write in writes:
         assert write["bootId"] == by_seq[write["seq"]]["bootId"]

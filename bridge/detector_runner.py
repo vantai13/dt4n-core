@@ -185,8 +185,10 @@ class DetectorRunner:
             )
             if any(problem.startswith("A2") for problem in problems):
                 raise FatalContract("; ".join(problems))
+            t_s0 = self.clock()
             reading = self.scorer.observe(snapshot)
             transition = self.fsm.step(reading)
+            t_s1 = self.clock()
             guard_active = self.guard.update(snapshot)
             t1 = self.clock()
             now = utc_iso()
@@ -221,6 +223,9 @@ class DetectorRunner:
                     "envelope": bool(reading.envelope_suspect),
                     "conservation": bool(reading.cons_alarm),
                     "act_rule": bool(reading.act),
+                    "cause": decision["cause"],
+                    "score_ms": (t_s1 - t_s0) * 1000.0,
+                    "cycle_scan_ms": snapshot.get("cycle_scan_ms"),
                 }
             )
             if self.audit is not None:
