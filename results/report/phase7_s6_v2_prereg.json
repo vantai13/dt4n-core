@@ -1,0 +1,52 @@
+{
+  "content": {
+    "prereg_id": "DT4N-P7-S6-V2",
+    "knowledge_state": "viet SAU khi thay S6 7.6 FAIL (2.77 MiB/30 phut), TRUOC khi chay soak v2",
+    "v1_result_kept": {
+      "file": "phase7_soak_live.json",
+      "verdict": "FAIL",
+      "delta_mib": 2.77
+    },
+    "cause": {
+      "evidence": "tracemalloc: bridge/detector_runner.py +1725 KiB; mo phong timeline+writes 1800 tick = 1708 KiB (0.95 KiB/tick)",
+      "mechanism": "bo dem NGHIEN CUU (timeline/writes, maxlen 4096) them o 7.5 chay mac dinh trong production -> probe effect; co tran ~3.8 MiB nhung tran > nguong S6"
+    },
+    "repair": {
+      "kind": "LOGIC (khong doi tham so SLO)",
+      "what": "DetectorRunner(timeline_samples=0) mac dinh; harness do bat tuong minh 4096",
+      "unit_evidence": "production +107 KiB/1500 tick (co tran), timeline +986 KiB/1500 tick"
+    },
+    "protocol_change": {
+      "warmup_s_excluded": 300,
+      "why": "7.6 series: 5 phut dau +1012 KiB, trong do timeline ~285 KiB -> ~727 KiB khoi tao LUOI cua process TICH HOP (session HTTP, SSE, collector, sync_agent). S6 6R do process detector-only da khoi tao xong truoc t0. Muon do cung DAI LUONG (tang = ro ri), phai bo warmup.",
+      "is_post_hoc_wrt_7_6_data": true,
+      "is_pre_hoc_wrt_v2_run": true
+    },
+    "unchanged": {
+      "target": "<= 1.0 MiB",
+      "window_min": 30,
+      "rss_source": "/proc/self/statm[1] x PAGE"
+    },
+    "verdict_rule": "S6_v2 = delta RSS trong [warmup_end, warmup_end + 30 phut] <= 1.0 MiB",
+    "also_reported_not_verdict": [
+      "delta theo giao thuc v1 [0, 30 phut] tren CUNG series (de nguoi doc tu so sanh)",
+      "do doc nua sau; RSS 10 phut duoi (tail) de xem co bang phang",
+      "JS heap cua trang dashboard (CDP, sau GC) — Chrome +77 MiB/30 phut o 7.6"
+    ],
+    "predictions": {
+      "S6_v2_delta_mib": "0.3-0.7 (PASS): nguon khac ~16 KiB/phut + deque so thuc co tran <=150 KiB",
+      "v1_protocol_delta_mib": "0.9-1.3 (sat nguong, co the FAIL) vi gom 727 KiB warmup",
+      "js_heap": "chua biet — do de phan biet cache trinh duyet voi ro ri JS"
+    },
+    "if_fail_again": "ghi FAIL, quy trach nhiem bang tracemalloc, KHONG doi nguong; released giu false",
+    "upstream_sha256": {
+      "results/report/phase7_soak_live.json": "078d2beff418dff2b28d575989d5a529d5568a26a8e2736bde42219e1dd5e97b",
+      "results/report/phase7_soak_live_tracemalloc.json": "e47229b207eedeb746889720bf1ab8ef39b9cb9a7d089d20c0fb49e43cef7571",
+      "results/report/phase6r_slo.json": "513b6ffa9d591c1efe58b8b265cc0902e9f02c9eccdad6bbe9e29463a04366b0",
+      "bridge/detector_runner.py": "c9b05a285fc9e6926153daf7b56410008e66c90c8869bd136cd53c663aa3a9a7",
+      "scripts/soak_phase7_live_v2.py": "8a044419b0289dea99f2af196e3339931eec64abb880c5cb74a30129878f1c09"
+    }
+  },
+  "content_sha256": "25e5fd668f5a2d0aabba07f424729880a91bc8e4235f9304ef69e9f1113793fd",
+  "written_at_utc": "2026-09-19T14:20:45+00:00"
+}
