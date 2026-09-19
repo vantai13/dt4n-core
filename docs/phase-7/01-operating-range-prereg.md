@@ -100,3 +100,19 @@ Kết quả máy đọc đầy đủ, gồm `g_values_mbps` cho từng tick, n�
 
 Probe content SHA-256:
 `a305e2cc844b99109a13b8957cd858eecec1208a427b7ab157188ef3430a8762`.
+
+### Quan sát bổ sung từ dữ liệu từng tick
+
+1. Hysteresis có tác dụng đo được. Ở snapshot tick 13 của hai run RN-10M,
+   `g` lần lượt tụt xuống 2.2960 và 1.8918 Mbps. Nếu so ngưỡng từng tick mà
+   không hysteresis, mỗi run sẽ lật trạng thái hai lần. `exit_ticks=3` giữ
+   guard bật liên tục 59/59 tick. (Nếu đánh chỉ số mảng `g_values_mbps` từ 0,
+   đây là phần tử 12.)
+2. Với `RC-flood-h1_to_srv1`, `g` giảm tới 0.0 Mbps vì client khác cùng đi qua
+   đường nghẽn bị bóp tải. Guard fail-open theo hướng an toàn cho loại flood
+   một nguồn này và không che alarm.
+3. P2 mới được chứng minh ở 2 Mbps/client. Mọi fault P2 có `g` tối đa khoảng
+   2.29 Mbps, trong khi tại đỉnh vùng train 4 Mbps thì `g` gần đúng bằng T.
+   Fault ở 4 Mbps/client có biên an toàn xấp xỉ 0 và chưa được đo.
+4. Hai run 6M vốn không tạo alarm ở detector cũ giờ bị công bố `unknown`
+   59/59 tick. Đây là độ phủ bị mất có chủ ý khi từ chối ngoại suy.

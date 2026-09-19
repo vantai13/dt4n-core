@@ -1,0 +1,63 @@
+{
+  "content": {
+    "contract_id": "DT4N-P7-LIVE-CONTRACT",
+    "upstream_sha256": {
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+      "results/report/phase6r_slo.json": "513b6ffa9d591c1efe58b8b265cc0902e9f02c9eccdad6bbe9e29463a04366b0",
+      "results/report/phase7_prereg.json": "88a245a7e414f8f57e5d091f6b6bc4a8b024d0f8e0b1847b6261dbb74c5b3b4a",
+      "bridge/detector_contract.py": "7fe789f74d106dff0eead7b21c78e7ec6b08f64adeef0576153cdaa7b3e7798f",
+      "bridge/collector_version.py": "93ea090fd5e6886fb36efb0bf0f2ddfb3c21afcd4c7e5c05b5db0693c4f1b87c"
+    },
+    "A_snapshot": {
+      "source": "Collector.run RIÊNG cho detector (interval 1.0 s, net_lock chung), KHÔNG phải vòng sync_agent, KHÔNG đọc lại từ Ditto",
+      "why_not_sync_agent": "sync_agent PATCH đồng bộ có retry (tối đa 4 lần, timeout 5 s, backoff 1+2+4 s) nên Delta t lệch train",
+      "why_not_ditto": "adapter bỏ None nên Ditto giữ giá trị cũ; differ bỏ thay đổi <0.5 B/s nên không còn dữ liệu từng tick",
+      "required": {
+        "A1": "t_source hữu hạn",
+        "A2": "tập entity == expected_entities(model) = 16 entity",
+        "A3": "run.collector_version do producer cấp từ bridge/collector_version.py",
+        "A4": "tick (có khi run_meta được truyền)"
+      },
+      "producer_version": "v3-qdisc-ratevalid",
+      "measurement_sources_sha256": {
+        "bridge/collector.py": "f98979a82f8f347a227b2bddb81b00eb5081dedda442f01b2d7799979b4193cf",
+        "twin/link_direction.py": "046698b02895843e0d2b04f3457ddc9eca778bbc85ea52e55b6c06c27c83c7d2"
+      },
+      "serve_py_changed": false
+    },
+    "B_thing": {
+      "thing_id": "org.dt4n:detector",
+      "one_thing_because": "FSM trả một state/tick; Ditto ghi nguyên tử theo Thing",
+      "features": {
+        "decision": "state|cause|reason|detectedAt — trạng thái công bố sau guard",
+        "evidence": "envelopeValid|conservationValid|envelope|conservation|actRule|conservationSwitch|affected|unattributed — bằng chứng tick hiện tại",
+        "freshness": "bootId|seq|heartbeatAt|ttlTicks|tickIntervalMs|dropped",
+        "provenance": "modelVersion|artifactSha256|releaseVersion|releaseSha256|conservationSha256|collectorVersion"
+      },
+      "no_null_rule": "JSON Merge Patch RFC 7396: null=xóa; body không chứa None",
+      "oracle": "tick không normal đối chiếu release.payload; normal dùng build_document vì payload từ chối reason rỗng",
+      "guard_overrides": [
+        "normal",
+        "suspect",
+        "act"
+      ],
+      "not_published": "FSM state trước guard chỉ audit local, không lên Ditto",
+      "bootstrap_initial_state": "unknown/never_started, seq=-1"
+    },
+    "C_freshness": {
+      "rules": [
+        "1. PATCH freshness mỗi tick, kể cả normal",
+        "2. khóa sống=(bootId,seq); không dùng timestamp",
+        "3. consumer tự tính TTL=ttlTicks*tickIntervalMs=3000 ms bằng đồng hồ của mình",
+        "4. detector không đặt cờ stale",
+        "5. lần đầu thấy key chỉ ARM; key đổi mới CONFIRM"
+      ],
+      "clock_choice": "đo khoảng bằng clock consumer; không so clock hai máy",
+      "worst_case_budget_ms": "TTL 3000 + Ditto/SSE p95 ~1017 + consumer poll 250 = ~4267 <= S12 5000",
+      "consumer_action_rule": "controller/UI chỉ dùng decision.state khi FRESH; không hành động theo evidence.actRule"
+    },
+    "deviation_policy": "immutable after commit"
+  },
+  "content_sha256": "6ff8b6e246abd90ff8468ecddeec7f9824e36f75a3399707b7bb02cddc3f9c9d",
+  "written_at_utc": "2026-09-19T00:58:04+00:00"
+}
