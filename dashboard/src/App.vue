@@ -11,6 +11,7 @@ import { logUi } from './services/debugLog.js'
 import { thingsToGraph, applyDelta, deepMerge } from './lib/translate.js'
 import { createFreshness, observeFreshness } from './lib/freshness.js'
 import { detectorView } from './lib/detectorView.js'
+import { markDetectorChange } from './lib/perfProbe.js'
 
 // ---------------------------------------------------------------------------
 // App.vue — ĐIỀU PHỐI (orchestrator). LỚP 4.
@@ -42,11 +43,22 @@ const nowMs = ref(performance.now())
 let clockTimer = null
 const tickClock = () => { nowMs.value = performance.now() }
 
-function acceptDetector(candidate, source) {
+function acceptDetector(candidate, source, tRecv = performance.now()) {
   const freshness = candidate?.features?.freshness?.properties
   const accepted = observeFreshness(detectorTracker, freshness, performance.now())
+  const before = detectorThing.value?.features?.decision?.properties?.state
   if (accepted) detectorThing.value = candidate
   else logUi('detector.rejected', { source, seq: freshness?.seq }, 'warn')
+  const after = candidate?.features?.decision?.properties?.state
+  if (accepted && after !== before) {
+    markDetectorChange({
+      bootId: freshness?.bootId,
+      seq: freshness?.seq,
+      state: after,
+      source,
+      t4: tRecv,
+    })
+  }
   tickClock()
   return accepted
 }
@@ -117,9 +129,9 @@ function startStream() {
   if (closeStream) return                      // đã mở rồi -> không mở trùng
   closeStream = openThingStream({
     // Mỗi delta (Thing-mảnh) -> merge vào state -> dịch lại -> đồ thị đổi.
-    onDelta: (partial) => {
+    onDelta: (partial, tRecv) => {
       if (partial?.thingId === DETECTOR_ID) {
-        acceptDetector(deepMerge(detectorThing.value || {}, partial), 'sse')
+        acceptDetector(deepMerge(detectorThing.value || {}, partial), 'sse', tRecv)
         return
       }
       thingsById = applyDelta(thingsById, partial)   // MERGE (đã test kỹ)

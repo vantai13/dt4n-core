@@ -27,6 +27,7 @@ log = logging.getLogger("detector_runner")
 WRITE_TIMEOUT_S = 2.0
 MERGE_PATCH = {"Content-Type": "application/merge-patch+json"}
 LATENCY_SAMPLES = 2048
+TIMELINE_SAMPLES = 4096
 CRASH_LOOP = (5, 60.0)
 
 
@@ -151,6 +152,8 @@ class DetectorRunner:
         self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
         self.write_ms = deque(maxlen=LATENCY_SAMPLES)
         self.sent_seq = deque(maxlen=LATENCY_SAMPLES)
+        self.timeline = deque(maxlen=TIMELINE_SAMPLES)
+        self.writes = deque(maxlen=TIMELINE_SAMPLES)
         self.stop_event = threading.Event()
         self._writer_thread = None
         self._new_incarnation("start")
@@ -203,7 +206,23 @@ class DetectorRunner:
                 self.published = decision["state"]
                 self.detected_at = now
                 decision["detectedAt"] = now
-            self.mailbox.put((document, self.seq, self.clock()))
+            t2 = self.clock()
+            self.mailbox.put((document, self.seq, t2))
+            self.timeline.append(
+                {
+                    "bootId": self.boot_id,
+                    "seq": self.seq,
+                    "t_in": t_in,
+                    "t1": t1,
+                    "t2": t2,
+                    "t_source": snapshot.get("t_source"),
+                    "fsm": transition.state,
+                    "published": decision["state"],
+                    "envelope": bool(reading.envelope_suspect),
+                    "conservation": bool(reading.cons_alarm),
+                    "act_rule": bool(reading.act),
+                }
+            )
             if self.audit is not None:
                 self.audit.write(
                     {
@@ -248,6 +267,16 @@ class DetectorRunner:
             document, seq, t2 = item
             ok, status = self.transport(D.DETECTOR_THING_ID, document)
             t3 = self.clock()
+            self.writes.append(
+                {
+                    "bootId": document["features"]["freshness"]["properties"]["bootId"],
+                    "seq": seq,
+                    "t2": t2,
+                    "t3": t3,
+                    "ok": ok,
+                    "published": document["features"]["decision"]["properties"]["state"],
+                }
+            )
             with self._lock:
                 if ok:
                     self.sent += 1

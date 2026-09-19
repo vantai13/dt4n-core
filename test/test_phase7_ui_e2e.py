@@ -59,7 +59,7 @@ def test_first_load_with_dead_detector_is_stale_never_all_clear(browser, ditto):
         page.wait_for_timeout(250)
 
 
-def test_s12_kill_to_stale_under_5s(browser, ditto):
+def test_s12_kill_to_stale_under_5s(browser, ditto, tmp_path):
     ditto.beating.set()
     page = open_page(browser, ditto)
     page.wait_for_function(FRESH, timeout=8000)
@@ -76,7 +76,7 @@ def test_s12_kill_to_stale_under_5s(browser, ditto):
         ditto.beating.set()
         page.wait_for_function(FRESH, timeout=8000)
     C.atomic_json(
-        C.ROOT / "results/report/phase7_ui_s12_fake.json",
+        tmp_path / "phase7_ui_s12_fake.json",
         {
             "note": "Ditto GIA: do do tre cua logic consumer, khong gom Ditto/SSE that",
             "samples_ms": [round(sample) for sample in samples],

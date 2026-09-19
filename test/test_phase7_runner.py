@@ -250,3 +250,20 @@ def test_audit_rotates(tmp_path):
     audit.close()
     assert (tmp_path / "a.jsonl.1").exists()
     assert not (tmp_path / "a.jsonl.3").exists()
+
+
+def test_timeline_marks_are_monotonic_and_joinable():
+    rec = Recorder()
+    detector_runner = runner(rec)
+    detector_runner.start_writer()
+    feed(detector_runner, GOLDEN[:6])
+    time.sleep(0.4)
+    detector_runner.stop()
+    timeline, writes = list(detector_runner.timeline), list(detector_runner.writes)
+    assert [entry["seq"] for entry in timeline] == list(range(6))
+    assert all(entry["t_in"] <= entry["t1"] <= entry["t2"] for entry in timeline)
+    by_seq = {entry["seq"]: entry for entry in timeline}
+    for write in writes:
+        assert write["bootId"] == by_seq[write["seq"]]["bootId"]
+        assert write["t3"] >= write["t2"]
+    assert len(timeline) <= R.TIMELINE_SAMPLES
