@@ -61,4 +61,5 @@ export function detectorView(thing, tracker, nowMs, graph = { nodes: [], edges: 
 
 export function allClear(deviceAlertCount, view) {
   return deviceAlertCount === 0 && view.present && !view.stale && view.state === 'normal'
+    && !view.cause
 }

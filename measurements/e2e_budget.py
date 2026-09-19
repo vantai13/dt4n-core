@@ -29,6 +29,17 @@ def decompose(trial: dict, timeline: list, writes: list, perf_mono: list) -> dic
         span = first["t_in"] - previous["t_in"]
         out["inject_phase"] = (t_a - previous["t_in"]) / span if span > 0 else None
         out["tick_dt_across_inject_ms"] = span * 1000.0
+        out["inject_offset_s"] = t_a - previous["t_in"]
+        seq_ticks = sorted(
+            e["t_in"]
+            for e in timeline
+            if previous["t_in"] <= e["t_in"] <= first["t_in"]
+        )
+        out["ticks_inside_cmd"] = sum(1 for tick in seq_ticks if t_a < tick <= t_b)
+        out["max_consecutive_dt_ms"] = max(
+            (right - left) * 1000.0
+            for left, right in zip(seq_ticks, seq_ticks[1:])
+        )
     if alarm is None:
         return out
 
@@ -120,7 +131,9 @@ def aggregate(rows: list) -> dict:
         for key in BUDGET_KEYS
     }
     phases = sorted(
-        row["inject_phase"] for row in used if row.get("inject_phase") is not None
+        row["inject_offset_s"] % 1.0
+        for row in used
+        if row.get("inject_offset_s") is not None
     )
     return {
         "n_trials": len(used),
@@ -137,6 +150,8 @@ def aggregate(rows: list) -> dict:
         },
         "randomization": {
             "inject_phase_sorted": [round(value, 3) for value in phases],
+            "inject_offset_s_sorted": [round(value, 3) for value in phases],
+            "definition": "v2: (tA - t_in previous tick) mod nominal 1.0 s",
             "quartile_counts": [
                 sum(q / 4 <= value < (q + 1) / 4 for value in phases)
                 for q in range(4)
@@ -145,6 +160,10 @@ def aggregate(rows: list) -> dict:
         "tick_dt_across_inject": _summ(
             [row.get("tick_dt_across_inject_ms") for row in used]
         ),
+        "max_consecutive_dt": _summ(
+            [row.get("max_consecutive_dt_ms") for row in used]
+        ),
+        "ticks_inside_cmd_total": sum(row.get("ticks_inside_cmd", 0) for row in used),
         "conflated_trials": sum(row.get("conflated", False) for row in detected),
     }
 

@@ -1,0 +1,53 @@
+{
+  "content": {
+    "supersedes_field_only": [
+      "randomization",
+      "tick_dt_across_inject"
+    ],
+    "v1_sha256": "26ca19a24336f418ed0b5f36a1038f85f9e78e82c29369bde5bd7d0f97f98951",
+    "verdicts_changed": false,
+    "why": "v1 divided the injection offset by a span stretched by net_lock and the span included a tick inside (tA,tB], compressing phase and making 2 s diagnostic dt",
+    "inject_offset_s_sorted": [
+      0.053,
+      0.082,
+      0.162,
+      0.233,
+      0.257,
+      0.277,
+      0.301,
+      0.308,
+      0.327,
+      0.344,
+      0.344,
+      0.435,
+      0.441,
+      0.46,
+      0.492,
+      0.539,
+      0.565,
+      0.746,
+      0.8,
+      0.802,
+      0.832,
+      0.904,
+      0.981,
+      0.99,
+      0.992
+    ],
+    "quartile_counts_v2": [
+      4,
+      11,
+      3,
+      7
+    ],
+    "trials_with_tick_inside_cmd_window": [
+      4,
+      11,
+      24
+    ],
+    "real_consecutive_dt": "not recoverable from v1 because timeline was not stored; Collector.run does not skip ticks; future measurements store the v2 field",
+    "arithmetic_check": "offset 0.98-0.99 + inject_cmd about 0.35 gives tB about 1.33; next tick about 2.07 gives phys_obs about 0.66 s (observed 660/660/665 ms)"
+  },
+  "content_sha256": "078f749cb321fa881ff54eb2f90973bca622dea97322a0e85609d759c41c1d61",
+  "written_at_utc": "2026-09-19T10:46:12+00:00"
+}

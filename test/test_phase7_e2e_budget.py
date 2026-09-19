@@ -95,3 +95,16 @@ def test_aggregate_and_plot_on_synthetic_run(tmp_path):
     assert sum(summary["randomization"]["quartile_counts"]) == 7
     assert plot(rows, tmp_path / "p.png")
     assert (tmp_path / "p.png").stat().st_size > 1000
+
+
+def test_v2_phase_uses_nominal_period_and_real_consecutive_dt():
+    trial = {"i": 9, "tA": 10.98, "tB": 11.33}
+    timeline = [
+        tick(0, 10.0), tick(1, 11.07), tick(2, 12.07, "suspect", env=True)
+    ]
+    result = decompose(trial, timeline, [], [])
+    assert result["tick_dt_across_inject_ms"] == pytest.approx(2070.0)
+    assert result["inject_phase"] == pytest.approx(0.98 / 2.07)
+    assert result["inject_offset_s"] == pytest.approx(0.98)
+    assert result["ticks_inside_cmd"] == 1
+    assert result["max_consecutive_dt_ms"] == pytest.approx(1070.0)
