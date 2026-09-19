@@ -1,0 +1,925 @@
+{
+  "content": {
+    "lesson": "7.5",
+    "git_hash": "3b666d5e36c4f4936f1d903d31fea63b08647e9a",
+    "seed": 7005,
+    "event": "flood h1->srv1 47M",
+    "clock_bridge": {
+      "start": {
+        "offset_s": 3728.0868826574997,
+        "error_bound_ms": 0.4571705001126247,
+        "rtt_min_ms": 0.9143410002252494,
+        "rtt_median_ms": 1.0404219997326436,
+        "n": 31
+      },
+      "end": {
+        "offset_s": 3728.0868632154998,
+        "error_bound_ms": 0.32244550016002904,
+        "rtt_min_ms": 0.6448910003200581,
+        "rtt_median_ms": 0.822412000161421,
+        "n": 31
+      },
+      "drift_ms": 0.019441999938862864
+    },
+    "n_trials": 25,
+    "n_detected": 25,
+    "warmup_excluded": [
+      0
+    ],
+    "layers": {
+      "phys_obs": {
+        "n": 25,
+        "mean_ms": 1069.8163935599405,
+        "p50_ms": 1158.5732739999912,
+        "p95_ms": 1432.6193279998733,
+        "p99_ms": 1502.0999459998166,
+        "max_ms": 1502.0999459998166,
+        "min_ms": 583.2501929999125
+      },
+      "detect": {
+        "n": 25,
+        "mean_ms": 1.3940965999972832,
+        "p50_ms": 1.4143260000309965,
+        "p95_ms": 1.6816989996186749,
+        "p99_ms": 1.7435689997000736,
+        "max_ms": 1.7435689997000736,
+        "min_ms": 1.0358220001762675
+      },
+      "mailbox": {
+        "n": 25,
+        "mean_ms": 0.6215596399852075,
+        "p50_ms": 0.6404299997484486,
+        "p95_ms": 0.8367579998775909,
+        "p99_ms": 0.8391979999942123,
+        "max_ms": 0.8391979999942123,
+        "min_ms": 0.4340739997132914
+      },
+      "write_2xx": {
+        "n": 25,
+        "mean_ms": 8.83093235997876,
+        "p50_ms": 8.566229999814823,
+        "p95_ms": 11.173416000019643,
+        "p99_ms": 13.205730999743537,
+        "max_ms": 13.205730999743537,
+        "min_ms": 7.806098999935784
+      },
+      "fanout_sse": {
+        "n": 25,
+        "mean_ms": 8.730779699799314,
+        "p50_ms": 8.459583499643486,
+        "p95_ms": 11.029728500034253,
+        "p99_ms": 13.185020499804523,
+        "max_ms": 13.185020499804523,
+        "min_ms": 7.634463499925914
+      },
+      "vue_flush": {
+        "n": 25,
+        "mean_ms": 3.85999999998603,
+        "p50_ms": 3.5999999995510734,
+        "p95_ms": 4.6999999995023245,
+        "p99_ms": 4.899999999906868,
+        "max_ms": 4.899999999906868,
+        "min_ms": 3.000000000156433
+      },
+      "paint": {
+        "n": 25,
+        "mean_ms": 23.46000000005006,
+        "p50_ms": 22.400000000288856,
+        "p95_ms": 31.499999999596184,
+        "p99_ms": 31.600000000253203,
+        "max_ms": 31.600000000253203,
+        "min_ms": 16.099999999823922
+      }
+    },
+    "budgets": {
+      "s4_like_from_cmd": {
+        "n": 25,
+        "mean_ms": 1417.3153964799894,
+        "p50_ms": 1512.7129550000973,
+        "p95_ms": 1770.7646990002104,
+        "p99_ms": 1841.919584000152,
+        "max_ms": 1841.919584000152,
+        "min_ms": 921.9395630002509
+      },
+      "twin_ui": {
+        "n": 25,
+        "mean_ms": 36.67233933982061,
+        "p50_ms": 35.32429750021038,
+        "p95_ms": 44.20144949972382,
+        "p99_ms": 50.29036149926469,
+        "max_ms": 50.29036149926469,
+        "min_ms": 27.97459949943004
+      },
+      "e2e_from_event": {
+        "n": 25,
+        "mean_ms": 1107.8828294997584,
+        "p50_ms": 1196.6437314995346,
+        "p95_ms": 1469.190827499915,
+        "p99_ms": 1534.6093464995647,
+        "max_ms": 1534.6093464995647,
+        "min_ms": 620.5496124998717
+      },
+      "e2e_from_cmd": {
+        "n": 25,
+        "mean_ms": 1453.98773581981,
+        "p50_ms": 1549.0398434999406,
+        "p95_ms": 1805.7576764999794,
+        "p99_ms": 1872.978213499664,
+        "max_ms": 1872.978213499664,
+        "min_ms": 958.2031605000338
+      },
+      "inject_cmd": {
+        "n": 25,
+        "mean_ms": 346.10490632005167,
+        "p50_ms": 338.35368000018207,
+        "p95_ms": 402.6054920000206,
+        "p99_ms": 406.47747800039724,
+        "max_ms": 406.47747800039724,
+        "min_ms": 334.3483630001174
+      }
+    },
+    "verdict_p95": {
+      "s4_like_from_cmd": true,
+      "twin_ui": true,
+      "e2e_from_event": true
+    },
+    "randomization": {
+      "inject_phase_sorted": [
+        0.053,
+        0.082,
+        0.162,
+        0.231,
+        0.256,
+        0.278,
+        0.299,
+        0.306,
+        0.326,
+        0.343,
+        0.344,
+        0.433,
+        0.439,
+        0.46,
+        0.49,
+        0.491,
+        0.495,
+        0.495,
+        0.538,
+        0.563,
+        0.641,
+        0.661,
+        0.665,
+        0.672,
+        0.687
+      ],
+      "quartile_counts": [
+        4,
+        14,
+        7,
+        0
+      ]
+    },
+    "tick_dt_across_inject": {
+      "n": 25,
+      "mean_ms": 1167.6688129199647,
+      "p50_ms": 1004.1765900000428,
+      "p95_ms": 2002.742317999946,
+      "p99_ms": 2003.6304099999143,
+      "max_ms": 2003.6304099999143,
+      "min_ms": 996.1749320000308
+    },
+    "conflated_trials": 0,
+    "rows": [
+      {
+        "trial": 0,
+        "warmup": true,
+        "detected": true,
+        "inject_phase": 0.6018146508423822,
+        "tick_dt_across_inject_ms": 1029.0371880000748,
+        "seq_alarm": 6,
+        "seq_written": 6,
+        "seq_shown": 6,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 73.74210600028164,
+          "detect": 1.3956829998278408,
+          "mailbox": 0.5150420001882594,
+          "write_2xx": 11.489488999814057,
+          "fanout_sse": 11.56376549943161,
+          "vue_flush": 4.30000000005748,
+          "paint": 27.400000000397995
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 411.1432149998109,
+          "twin_ui": 43.778807500075345,
+          "e2e_from_event": 118.91659650018482,
+          "e2e_from_cmd": 454.9220224998862,
+          "inject_cmd": 336.0054259997014
+        }
+      },
+      {
+        "trial": 1,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.2990696146048421,
+        "tick_dt_across_inject_ms": 1006.1598180000146,
+        "seq_alarm": 21,
+        "seq_written": 21,
+        "seq_shown": 21,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1366.5413989997433,
+          "detect": 1.4143260000309965,
+          "mailbox": 0.8364860000256158,
+          "write_2xx": 11.173416000019643,
+          "fanout_sse": 11.029728500034253,
+          "vue_flush": 3.499999999803549,
+          "paint": 18.299999999726424
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1706.0984029999418,
+          "twin_ui": 33.66621449958984,
+          "e2e_from_event": 1401.621939499364,
+          "e2e_from_cmd": 1739.7646174995316,
+          "inject_cmd": 338.1426780001675
+        }
+      },
+      {
+        "trial": 2,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.081691109738262,
+        "tick_dt_across_inject_ms": 1002.8256840000722,
+        "seq_alarm": 33,
+        "seq_written": 33,
+        "seq_shown": 33,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 583.2501929999125,
+          "detect": 1.0358220001762675,
+          "mailbox": 0.4340739997132914,
+          "write_2xx": 9.762124000189942,
+          "fanout_sse": 9.729523500027426,
+          "vue_flush": 3.499999999803549,
+          "paint": 22.60000000023865
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 921.9395630002509,
+          "twin_ui": 36.26359749978292,
+          "e2e_from_event": 620.5496124998717,
+          "e2e_from_cmd": 958.2031605000338,
+          "inject_cmd": 337.6535480001621
+        }
+      },
+      {
+        "trial": 3,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6410724843538297,
+        "tick_dt_across_inject_ms": 1163.4396300000844,
+        "seq_alarm": 47,
+        "seq_written": 47,
+        "seq_shown": 47,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 911.4101719997052,
+          "detect": 1.6101730002446857,
+          "mailbox": 0.7053409999571159,
+          "write_2xx": 13.205730999743537,
+          "fanout_sse": 13.185020499804523,
+          "vue_flush": 4.899999999906868,
+          "paint": 31.499999999596184
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1258.146379000209,
+          "twin_ui": 50.29036149926469,
+          "e2e_from_event": 963.3107064992146,
+          "e2e_from_cmd": 1308.4367404994737,
+          "inject_cmd": 345.1260340002591
+        }
+      },
+      {
+        "trial": 4,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4945524998887262,
+        "tick_dt_across_inject_ms": 2002.742317999946,
+        "seq_alarm": 60,
+        "seq_written": 60,
+        "seq_shown": 60,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 660.3696770002898,
+          "detect": 1.5673889997742663,
+          "mailbox": 0.6718630002069403,
+          "write_2xx": 9.266943000056926,
+          "fanout_sse": 9.191647499847022,
+          "vue_flush": 4.6999999995023245,
+          "paint": 18.000000000029104
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1013.8484869999047,
+          "twin_ui": 32.56351049958539,
+          "e2e_from_event": 694.5005764996495,
+          "e2e_from_cmd": 1046.41199749949,
+          "inject_cmd": 351.91142099984063
+        }
+      },
+      {
+        "trial": 5,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.3062836383373366,
+        "tick_dt_across_inject_ms": 1005.7657459997245,
+        "seq_alarm": 73,
+        "seq_written": 73,
+        "seq_shown": 73,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1358.2882349996908,
+          "detect": 1.6577070000494132,
+          "mailbox": 0.8391979999942123,
+          "write_2xx": 8.962685999904352,
+          "fanout_sse": 8.895010499600176,
+          "vue_flush": 3.3000000003085006,
+          "paint": 16.599999999925785
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1696.1738009999863,
+          "twin_ui": 29.634208499828674,
+          "e2e_from_event": 1389.5801504995688,
+          "e2e_from_cmd": 1725.808009499815,
+          "inject_cmd": 336.2278590002461
+        }
+      },
+      {
+        "trial": 6,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.32565405552854965,
+        "tick_dt_across_inject_ms": 1004.1765900000428,
+        "seq_alarm": 86,
+        "seq_written": 86,
+        "seq_shown": 86,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1336.2403470000572,
+          "detect": 1.3141720000930945,
+          "mailbox": 0.44140599993625074,
+          "write_2xx": 9.276709999994637,
+          "fanout_sse": 9.209415500208706,
+          "vue_flush": 3.5999999995510734,
+          "paint": 18.000000000029104
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1673.9339239998117,
+          "twin_ui": 31.250821499725134,
+          "e2e_from_event": 1368.8053404998755,
+          "e2e_from_cmd": 1705.1847454995368,
+          "inject_cmd": 336.37940499966135
+        }
+      },
+      {
+        "trial": 7,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.34375583912166413,
+        "tick_dt_across_inject_ms": 1001.4830609998171,
+        "seq_alarm": 100,
+        "seq_written": 100,
+        "seq_shown": 100,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1255.8233899999323,
+          "detect": 1.290809999773046,
+          "mailbox": 0.46785499989709933,
+          "write_2xx": 8.996472000035283,
+          "fanout_sse": 8.935363499858795,
+          "vue_flush": 4.600000000209548,
+          "paint": 29.399999999895954
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1659.719691999726,
+          "twin_ui": 43.403218499861396,
+          "e2e_from_event": 1300.5174184995667,
+          "e2e_from_cmd": 1703.1229104995873,
+          "inject_cmd": 402.6054920000206
+        }
+      },
+      {
+        "trial": 8,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.5630672199892195,
+        "tick_dt_across_inject_ms": 1003.7876810001762,
+        "seq_alarm": 114,
+        "seq_written": 114,
+        "seq_shown": 114,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1100.3609379999943,
+          "detect": 1.1381159997654322,
+          "mailbox": 0.4561549999380077,
+          "write_2xx": 8.916558000237274,
+          "fanout_sse": 8.770020499923703,
+          "vue_flush": 3.9999999999054126,
+          "paint": 30.700000000251748
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1437.9543669997474,
+          "twin_ui": 43.92617550001887,
+          "e2e_from_event": 1145.4252294997787,
+          "e2e_from_cmd": 1481.8805424997663,
+          "inject_cmd": 336.45531299998765
+        }
+      },
+      {
+        "trial": 9,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.25628103577936934,
+        "tick_dt_across_inject_ms": 1003.5616690001916,
+        "seq_alarm": 127,
+        "seq_written": 127,
+        "seq_shown": 127,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1407.9602289998547,
+          "detect": 1.447658999950363,
+          "mailbox": 0.6946550001885043,
+          "write_2xx": 8.6935839999569,
+          "fanout_sse": 8.56399349959247,
+          "vue_flush": 3.3000000003085006,
+          "paint": 27.699999999640568
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1747.7615679999872,
+          "twin_ui": 40.25864849973004,
+          "e2e_from_event": 1449.6665364995351,
+          "e2e_from_cmd": 1788.0202164997172,
+          "inject_cmd": 338.35368000018207
+        }
+      },
+      {
+        "trial": 10,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6647399717052922,
+        "tick_dt_across_inject_ms": 1203.4423609998157,
+        "seq_alarm": 141,
+        "seq_written": 141,
+        "seq_shown": 141,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 866.8192539998927,
+          "detect": 1.263326000298548,
+          "mailbox": 0.6404299997484486,
+          "write_2xx": 8.903898999960802,
+          "fanout_sse": 8.677392499976122,
+          "vue_flush": 3.200000000106229,
+          "paint": 27.100000000245927
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1202.802962000078,
+          "twin_ui": 39.61782250007673,
+          "e2e_from_event": 907.700402500268,
+          "e2e_from_cmd": 1242.4207845001547,
+          "inject_cmd": 334.72038199988674
+        }
+      },
+      {
+        "trial": 11,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.49028071479280433,
+        "tick_dt_across_inject_ms": 2000.62484900036,
+        "seq_alarm": 155,
+        "seq_written": 155,
+        "seq_shown": 155,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 659.7813060002409,
+          "detect": 1.314419999744132,
+          "mailbox": 0.5785799999102892,
+          "write_2xx": 9.061795999969036,
+          "fanout_sse": 8.926205499847129,
+          "vue_flush": 4.500000000007276,
+          "paint": 25.600000000395084
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1021.0714879999614,
+          "twin_ui": 39.60478550015978,
+          "e2e_from_event": 700.7005115001448,
+          "e2e_from_cmd": 1060.6762735001212,
+          "inject_cmd": 359.9757619999764
+        }
+      },
+      {
+        "trial": 12,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4911156260738949,
+        "tick_dt_across_inject_ms": 1002.5346269999318,
+        "seq_alarm": 169,
+        "seq_written": 169,
+        "seq_shown": 169,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1158.5732739999912,
+          "detect": 1.7435689997000736,
+          "mailbox": 0.8367579998775909,
+          "write_2xx": 9.083162000024458,
+          "fanout_sse": 8.89013049982168,
+          "vue_flush": 4.500000000007276,
+          "paint": 22.100000000136788
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1512.7129550000973,
+          "twin_ui": 36.326888499843335,
+          "e2e_from_event": 1196.6437314995346,
+          "e2e_from_cmd": 1549.0398434999406,
+          "inject_cmd": 352.396112000406
+        }
+      },
+      {
+        "trial": 13,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.23133879453216788,
+        "tick_dt_across_inject_ms": 1005.1307929998075,
+        "seq_alarm": 183,
+        "seq_written": 183,
+        "seq_shown": 183,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1432.6193279998733,
+          "detect": 1.578522000272642,
+          "mailbox": 0.8333939999829454,
+          "write_2xx": 8.566229999814823,
+          "fanout_sse": 8.459583499643486,
+          "vue_flush": 4.5999999997548,
+          "paint": 21.10000000038781
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1770.7646990002104,
+          "twin_ui": 34.99297749976904,
+          "e2e_from_event": 1469.190827499915,
+          "e2e_from_cmd": 1805.7576764999794,
+          "inject_cmd": 336.5668490000644
+        }
+      },
+      {
+        "trial": 14,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.34283848983708937,
+        "tick_dt_across_inject_ms": 1002.063704000193,
+        "seq_alarm": 197,
+        "seq_written": 197,
+        "seq_shown": 197,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1255.794010000045,
+          "detect": 1.6816989996186749,
+          "mailbox": 0.6481919999714592,
+          "write_2xx": 8.12213300014264,
+          "fanout_sse": 8.104092499706894,
+          "vue_flush": 3.9000000001578883,
+          "paint": 17.600000000129512
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1663.953187000061,
+          "twin_ui": 30.252284499965754,
+          "e2e_from_event": 1287.7279934996295,
+          "e2e_from_cmd": 1694.2054715000268,
+          "inject_cmd": 406.47747800039724
+        }
+      },
+      {
+        "trial": 15,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.16186277516142808,
+        "tick_dt_across_inject_ms": 1001.3548379997701,
+        "seq_alarm": 211,
+        "seq_written": 211,
+        "seq_shown": 211,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1502.0999459998166,
+          "detect": 1.4507710002362728,
+          "mailbox": 0.4469819996302249,
+          "write_2xx": 8.379332999993494,
+          "fanout_sse": 8.211647500047548,
+          "vue_flush": 3.1999999996514816,
+          "paint": 19.200000000182627
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1841.919584000152,
+          "twin_ui": 31.05862949951188,
+          "e2e_from_event": 1534.6093464995647,
+          "e2e_from_cmd": 1872.978213499664,
+          "inject_cmd": 338.36886700009927
+        }
+      },
+      {
+        "trial": 16,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.43911436080928273,
+        "tick_dt_across_inject_ms": 1004.5355820002442,
+        "seq_alarm": 225,
+        "seq_written": 225,
+        "seq_shown": 225,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1214.773583999886,
+          "detect": 1.672752000104083,
+          "mailbox": 0.8013010001377552,
+          "write_2xx": 8.291885999824444,
+          "fanout_sse": 8.113333499750297,
+          "vue_flush": 4.600000000209548,
+          "paint": 17.699999999877036
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1563.2604779998474,
+          "twin_ui": 31.214634499974636,
+          "e2e_from_event": 1247.6609704999646,
+          "e2e_from_cmd": 1594.475112499822,
+          "inject_cmd": 346.8141419998574
+        }
+      },
+      {
+        "trial": 17,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.43302739601517126,
+        "tick_dt_across_inject_ms": 1003.5589479998634,
+        "seq_alarm": 239,
+        "seq_written": 239,
+        "seq_shown": 239,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1225.8195950003028,
+          "detect": 1.139080000029935,
+          "mailbox": 0.5171249999875727,
+          "write_2xx": 8.15128799968079,
+          "fanout_sse": 8.157474499512318,
+          "vue_flush": 3.200000000106229,
+          "paint": 16.099999999823922
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1571.7948559999968,
+          "twin_ui": 27.97459949943004,
+          "e2e_from_event": 1254.9332744997628,
+          "e2e_from_cmd": 1599.7694554994268,
+          "inject_cmd": 344.83618099966407
+        }
+      },
+      {
+        "trial": 18,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.46018390507486046,
+        "tick_dt_across_inject_ms": 1000.599684000008,
+        "seq_alarm": 253,
+        "seq_written": 253,
+        "seq_shown": 253,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1196.6422840000632,
+          "detect": 1.58005499997671,
+          "mailbox": 0.7071830000313639,
+          "write_2xx": 8.042568999826472,
+          "fanout_sse": 7.894266499533842,
+          "vue_flush": 3.9999999999054126,
+          "paint": 31.600000000253203
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1542.856330000177,
+          "twin_ui": 44.20144949972382,
+          "e2e_from_event": 1242.4237884997638,
+          "e2e_from_cmd": 1587.0577794999008,
+          "inject_cmd": 344.63399100013703
+        }
+      },
+      {
+        "trial": 19,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.2782796786938183,
+        "tick_dt_across_inject_ms": 996.1749320000308,
+        "seq_alarm": 267,
+        "seq_written": 267,
+        "seq_shown": 267,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1384.1721889998553,
+          "detect": 1.0659489998943172,
+          "mailbox": 0.49290800006929203,
+          "write_2xx": 8.389155000259052,
+          "fanout_sse": 8.281586499833793,
+          "vue_flush": 3.5000000002582965,
+          "paint": 29.799999999795546
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1720.0611899997966,
+          "twin_ui": 42.07449449995693,
+          "e2e_from_event": 1427.3126324997065,
+          "e2e_from_cmd": 1762.1356844997536,
+          "inject_cmd": 334.823052000047
+        }
+      },
+      {
+        "trial": 20,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.5379898254164808,
+        "tick_dt_across_inject_ms": 1002.7571219998208,
+        "seq_alarm": 281,
+        "seq_written": 281,
+        "seq_shown": 281,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1125.0238160000663,
+          "detect": 1.6221000000768981,
+          "mailbox": 0.7983919999787759,
+          "write_2xx": 7.857739999963087,
+          "fanout_sse": 7.713315499586315,
+          "vue_flush": 3.5000000002582965,
+          "paint": 30.399999999644933
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1463.1785060000766,
+          "twin_ui": 42.41170749946832,
+          "e2e_from_event": 1169.0576234996115,
+          "e2e_from_cmd": 1505.590213499545,
+          "inject_cmd": 336.5325899999334
+        }
+      },
+      {
+        "trial": 21,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.671930134319959,
+        "tick_dt_across_inject_ms": 1238.536916999692,
+        "seq_alarm": 294,
+        "seq_written": 294,
+        "seq_shown": 294,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 838.8948269998764,
+          "detect": 1.265518999844062,
+          "mailbox": 0.4387760000099661,
+          "write_2xx": 7.963273000314075,
+          "fanout_sse": 7.98552149990428,
+          "vue_flush": 4.500000000007276,
+          "paint": 22.400000000288856
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1174.5087089998378,
+          "twin_ui": 35.32429750021038,
+          "e2e_from_event": 875.4846434999308,
+          "e2e_from_cmd": 1209.8330065000482,
+          "inject_cmd": 334.3483630001174
+        }
+      },
+      {
+        "trial": 22,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.686844205803716,
+        "tick_dt_across_inject_ms": 1316.8891320001421,
+        "seq_alarm": 308,
+        "seq_written": 308,
+        "seq_shown": 308,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 758.9175949997298,
+          "detect": 1.1224920003769512,
+          "mailbox": 0.4961390000062238,
+          "write_2xx": 8.027993999803584,
+          "fanout_sse": 8.04443149945655,
+          "vue_flush": 3.000000000156433,
+          "paint": 26.600000000144064
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1099.3948020000062,
+          "twin_ui": 38.14057049976327,
+          "e2e_from_event": 798.18065749987,
+          "e2e_from_cmd": 1137.5353724997694,
+          "inject_cmd": 339.35471499989944
+        }
+      },
+      {
+        "trial": 23,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6614141215293924,
+        "tick_dt_across_inject_ms": 1212.6352399995994,
+        "seq_alarm": 321,
+        "seq_written": 321,
+        "seq_shown": 321,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 865.6477459999223,
+          "detect": 1.1251910000282805,
+          "mailbox": 0.48753500004750094,
+          "write_2xx": 7.8174489999582875,
+          "fanout_sse": 7.710837499871559,
+          "vue_flush": 4.100000000107684,
+          "paint": 21.899999999732245
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1203.8237879996814,
+          "twin_ui": 34.19837249975899,
+          "e2e_from_event": 900.9713094997096,
+          "e2e_from_cmd": 1238.0221604994404,
+          "inject_cmd": 337.05085099973076
+        }
+      },
+      {
+        "trial": 24,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.49485579428781534,
+        "tick_dt_across_inject_ms": 2003.6304099999143,
+        "seq_alarm": 334,
+        "seq_written": 334,
+        "seq_shown": 334,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 664.7977819998232,
+          "detect": 1.2034169999424194,
+          "mailbox": 0.5173090003154357,
+          "write_2xx": 8.055078999859688,
+          "fanout_sse": 7.955486499668041,
+          "vue_flush": 3.2999999998537533,
+          "paint": 22.700000000440923
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1013.325709000128,
+          "twin_ui": 34.47279550027815,
+          "e2e_from_event": 700.4739945000438,
+          "e2e_from_cmd": 1047.7985045004061,
+          "inject_cmd": 347.32451000036235
+        }
+      },
+      {
+        "trial": 25,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.0528021593408989,
+        "tick_dt_across_inject_ms": 1003.3089869998548,
+        "seq_alarm": 346,
+        "seq_written": 346,
+        "seq_shown": 346,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 614.7887229999469,
+          "detect": 1.5473789999305154,
+          "mailbox": 0.7509540000683046,
+          "write_2xx": 7.806098999935784,
+          "fanout_sse": 7.634463499925914,
+          "vue_flush": 3.499999999803549,
+          "paint": 21.800000000439468
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 951.8794850000631,
+          "twin_ui": 33.685417500237236,
+          "e2e_from_event": 650.0215195001147,
+          "e2e_from_cmd": 985.5649025003004,
+          "inject_cmd": 335.5433830001857
+        }
+      }
+    ],
+    "figure": "results/report/phase7_e2e_latency.png"
+  },
+  "content_sha256": "26ca19a24336f418ed0b5f36a1038f85f9e78e82c29369bde5bd7d0f97f98951",
+  "written_at_utc": "2026-09-19T09:11:59+00:00"
+}
