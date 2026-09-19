@@ -41,6 +41,7 @@ class Recorder:
 
 
 def runner(transport=None, **kwargs):
+    kwargs.setdefault("timeline_samples", R.TIMELINE_SAMPLES)
     return R.DetectorRunner(RELEASE, PREREG, transport or Recorder(), **kwargs)
 
 
@@ -272,3 +273,54 @@ def test_timeline_marks_are_monotonic_and_joinable():
         assert write["bootId"] == by_seq[write["seq"]]["bootId"]
         assert write["t3"] >= write["t2"]
     assert len(timeline) <= R.TIMELINE_SAMPLES
+
+
+def test_production_default_keeps_no_timeline():
+    detector_runner = R.DetectorRunner(RELEASE, PREREG, Recorder())
+    feed(detector_runner, GOLDEN)
+    assert detector_runner.timeline.maxlen == 0
+    assert len(detector_runner.timeline) == 0 and len(detector_runner.writes) == 0
+    stats = detector_runner.stats()
+    assert stats["timeline_samples"] == 0 and stats["score_p95_ms"] is not None
+    assert stats["tick_gaps"] == 0 and stats["max_tick_dt_ms"] >= 0
+
+
+def _retimed(n, t0=1.9e9):
+    rows = []
+    for index in range(n):
+        snapshot = copy.deepcopy(GOLDEN[1 + index % (len(GOLDEN) - 1)])
+        snapshot["t_source"], snapshot["tick"] = t0 + index, index
+        rows.append(snapshot)
+    return rows
+
+
+def _growth_kib(timeline_samples, n=1500):
+    import logging
+    import tracemalloc
+
+    detector_runner = R.DetectorRunner(
+        RELEASE, PREREG, Recorder(), timeline_samples=timeline_samples
+    )
+    rows = _retimed(n + 100)
+    logging.disable(logging.WARNING)
+    try:
+        feed(detector_runner, rows[:100])
+        tracemalloc.start()
+        baseline = tracemalloc.get_traced_memory()[0]
+        for index, snapshot in enumerate(rows[100:], start=100):
+            detector_runner.on_tick(index, snapshot, float(index))
+        grown = tracemalloc.get_traced_memory()[0] - baseline
+        tracemalloc.stop()
+    finally:
+        logging.disable(logging.NOTSET)
+    assert detector_runner.exceptions == 0 and detector_runner.published == "normal"
+    return grown / 1024
+
+
+def test_production_memory_is_bounded_and_test_can_see_a_leak():
+    production = _growth_kib(0)
+    research = _growth_kib(R.TIMELINE_SAMPLES)
+    assert production < 200, "production grew %.0f KiB / 1500 ticks" % production
+    assert research > 5 * production, (
+        "test must detect the timeline buffer (%.0f KiB)" % research
+    )

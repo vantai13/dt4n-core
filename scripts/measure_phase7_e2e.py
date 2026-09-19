@@ -17,7 +17,11 @@ from playwright.sync_api import sync_playwright  # noqa: E402
 
 from bridge import detector_contract as D  # noqa: E402
 from bridge.collector import Collector  # noqa: E402
-from bridge.detector_runner import DetectorRunner, DittoTransport  # noqa: E402
+from bridge.detector_runner import (  # noqa: E402
+    TIMELINE_SAMPLES,
+    DetectorRunner,
+    DittoTransport,
+)
 from measurements.clock_bridge import estimate_offset, to_mono  # noqa: E402
 from measurements.e2e_budget import aggregate, decompose, plot  # noqa: E402
 from ml import campaign as C  # noqa: E402
@@ -67,7 +71,9 @@ def main() -> int:
             duration=(args.trials + args.warmup) * 40 + 120,
         )
         time.sleep(5)
-        runner = DetectorRunner(release, prereg, DittoTransport())
+        runner = DetectorRunner(
+            release, prereg, DittoTransport(), timeline_samples=TIMELINE_SAMPLES
+        )
         collector = Collector(
             env.net,
             interval=1.0,

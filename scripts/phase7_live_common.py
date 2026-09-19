@@ -13,7 +13,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from bridge import detector_contract as D  # noqa: E402
 from bridge.collector import Collector  # noqa: E402
-from bridge.detector_runner import DetectorRunner, DittoTransport  # noqa: E402
+from bridge.detector_runner import (  # noqa: E402
+    TIMELINE_SAMPLES,
+    DetectorRunner,
+    DittoTransport,
+)
 from ml import campaign as C  # noqa: E402
 from ml.design import git_provenance  # noqa: E402
 from ml.release import DetectorRelease  # noqa: E402
@@ -101,8 +105,13 @@ class Live:
             run_meta=D.live_run_meta(boot_id, self.git_hash),
         )
 
-    def start_detector(self):
-        self.runner = DetectorRunner(self.release, self.prereg, DittoTransport())
+    def start_detector(self, timeline_samples: int = TIMELINE_SAMPLES):
+        self.runner = DetectorRunner(
+            self.release,
+            self.prereg,
+            DittoTransport(),
+            timeline_samples=timeline_samples,
+        )
         self._thread = threading.Thread(
             target=self.runner.run_forever,
             args=(self.collector(self.runner.boot_id),),

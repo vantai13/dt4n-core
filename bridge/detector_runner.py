@@ -132,6 +132,7 @@ class DetectorRunner:
         intervention_log=None,
         audit=None,
         clock=time.monotonic,
+        timeline_samples: int = 0,
     ):
         self.release = release
         self.threshold = load_sealed_threshold(prereg_doc)
@@ -152,8 +153,15 @@ class DetectorRunner:
         self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
         self.write_ms = deque(maxlen=LATENCY_SAMPLES)
         self.sent_seq = deque(maxlen=LATENCY_SAMPLES)
-        self.timeline = deque(maxlen=TIMELINE_SAMPLES)
-        self.writes = deque(maxlen=TIMELINE_SAMPLES)
+        # Full per-tick traces are research telemetry (~0.95 KiB/tick). Keep
+        # them opt-in; production uses fixed-size numeric telemetry below.
+        self.timeline = deque(maxlen=timeline_samples)
+        self.writes = deque(maxlen=timeline_samples)
+        self.score_ms = deque(maxlen=LATENCY_SAMPLES)
+        self._last_t_in = None
+        self.max_tick_dt_ms = 0.0
+        self.tick_overruns = 0
+        self.tick_gaps = 0
         self.stop_event = threading.Event()
         self._writer_thread = None
         self._new_incarnation("start")
@@ -210,24 +218,32 @@ class DetectorRunner:
                 decision["detectedAt"] = now
             t2 = self.clock()
             self.mailbox.put((document, self.seq, t2))
-            self.timeline.append(
-                {
-                    "bootId": self.boot_id,
-                    "seq": self.seq,
-                    "t_in": t_in,
-                    "t1": t1,
-                    "t2": t2,
-                    "t_source": snapshot.get("t_source"),
-                    "fsm": transition.state,
-                    "published": decision["state"],
-                    "envelope": bool(reading.envelope_suspect),
-                    "conservation": bool(reading.cons_alarm),
-                    "act_rule": bool(reading.act),
-                    "cause": decision["cause"],
-                    "score_ms": (t_s1 - t_s0) * 1000.0,
-                    "cycle_scan_ms": snapshot.get("cycle_scan_ms"),
-                }
-            )
+            self.score_ms.append((t_s1 - t_s0) * 1000.0)
+            if self._last_t_in is not None:
+                dt_ms = (t_in - self._last_t_in) * 1000.0
+                self.max_tick_dt_ms = max(self.max_tick_dt_ms, dt_ms)
+                self.tick_overruns += dt_ms > 1050.0
+                self.tick_gaps += dt_ms > 1500.0
+            self._last_t_in = t_in
+            if self.timeline.maxlen:
+                self.timeline.append(
+                    {
+                        "bootId": self.boot_id,
+                        "seq": self.seq,
+                        "t_in": t_in,
+                        "t1": t1,
+                        "t2": t2,
+                        "t_source": snapshot.get("t_source"),
+                        "fsm": transition.state,
+                        "published": decision["state"],
+                        "envelope": bool(reading.envelope_suspect),
+                        "conservation": bool(reading.cons_alarm),
+                        "act_rule": bool(reading.act),
+                        "cause": decision["cause"],
+                        "score_ms": (t_s1 - t_s0) * 1000.0,
+                        "cycle_scan_ms": snapshot.get("cycle_scan_ms"),
+                    }
+                )
             if self.audit is not None:
                 self.audit.write(
                     {
@@ -272,16 +288,17 @@ class DetectorRunner:
             document, seq, t2 = item
             ok, status = self.transport(D.DETECTOR_THING_ID, document)
             t3 = self.clock()
-            self.writes.append(
-                {
-                    "bootId": document["features"]["freshness"]["properties"]["bootId"],
-                    "seq": seq,
-                    "t2": t2,
-                    "t3": t3,
-                    "ok": ok,
-                    "published": document["features"]["decision"]["properties"]["state"],
-                }
-            )
+            if self.writes.maxlen:
+                self.writes.append(
+                    {
+                        "bootId": document["features"]["freshness"]["properties"]["bootId"],
+                        "seq": seq,
+                        "t2": t2,
+                        "t3": t3,
+                        "ok": ok,
+                        "published": document["features"]["decision"]["properties"]["state"],
+                    }
+                )
             with self._lock:
                 if ok:
                     self.sent += 1
@@ -345,4 +362,9 @@ class DetectorRunner:
                 "exceptions": self.exceptions,
                 "on_tick_p95_ms": p95(self.on_tick_ms),
                 "write_p95_ms": p95(self.write_ms),
+                "score_p95_ms": p95(self.score_ms),
+                "max_tick_dt_ms": round(self.max_tick_dt_ms, 3),
+                "tick_overruns": self.tick_overruns,
+                "tick_gaps": self.tick_gaps,
+                "timeline_samples": self.timeline.maxlen,
             }
