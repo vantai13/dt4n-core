@@ -43,7 +43,8 @@ class LiveController:
         deadline = time.monotonic() + timeout_s
         while time.monotonic() < deadline:
             for entry in list(self.runner.timeline):
-                if entry["seq"] > after_seq and (
+                # runner.seq la seq SAP gan: tick dau tien cham sau quyet dinh co seq == after_seq
+                if entry["seq"] >= after_seq and (
                     entry["envelope"] or entry["conservation"] or entry["act_rule"]
                 ):
                     return entry

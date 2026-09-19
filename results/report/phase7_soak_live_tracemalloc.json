@@ -1,0 +1,364 @@
+{
+  "content": {
+    "lesson": "7.6",
+    "minutes": 30.0,
+    "tag": "tracemalloc",
+    "rss_source": "/proc/self/statm[1] x PAGE (current RSS)",
+    "process_rss": {
+      "delta_kib": 5504,
+      "delta_mib": 5.375,
+      "peak_kib": 133804,
+      "second_half_slope_kib_per_min": 172.01561460176922,
+      "start_kib": 128300,
+      "end_kib": 133804,
+      "series": [
+        [
+          0.0,
+          128300
+        ],
+        [
+          30.0,
+          128780
+        ],
+        [
+          60.0,
+          129052
+        ],
+        [
+          90.0,
+          129136
+        ],
+        [
+          120.0,
+          129232
+        ],
+        [
+          150.0,
+          129316
+        ],
+        [
+          180.0,
+          129400
+        ],
+        [
+          210.0,
+          129500
+        ],
+        [
+          240.0,
+          129580
+        ],
+        [
+          270.0,
+          129660
+        ],
+        [
+          300.0,
+          129752
+        ],
+        [
+          330.0,
+          129824
+        ],
+        [
+          360.0,
+          129884
+        ],
+        [
+          390.0,
+          129968
+        ],
+        [
+          420.0,
+          130028
+        ],
+        [
+          450.0,
+          130104
+        ],
+        [
+          480.0,
+          130168
+        ],
+        [
+          510.0,
+          130240
+        ],
+        [
+          540.0,
+          130328
+        ],
+        [
+          570.0,
+          130412
+        ],
+        [
+          600.0,
+          130504
+        ],
+        [
+          630.0,
+          130568
+        ],
+        [
+          660.0,
+          130640
+        ],
+        [
+          690.0,
+          130704
+        ],
+        [
+          720.0,
+          130764
+        ],
+        [
+          750.0,
+          130840
+        ],
+        [
+          780.0,
+          130940
+        ],
+        [
+          810.0,
+          131032
+        ],
+        [
+          840.0,
+          131124
+        ],
+        [
+          870.0,
+          131208
+        ],
+        [
+          900.0,
+          131264
+        ],
+        [
+          930.0,
+          131360
+        ],
+        [
+          960.0,
+          131440
+        ],
+        [
+          990.0,
+          131540
+        ],
+        [
+          1020.0,
+          131616
+        ],
+        [
+          1050.0,
+          131700
+        ],
+        [
+          1080.0,
+          131792
+        ],
+        [
+          1110.0,
+          131880
+        ],
+        [
+          1140.0,
+          131960
+        ],
+        [
+          1170.0,
+          132028
+        ],
+        [
+          1200.0,
+          132144
+        ],
+        [
+          1230.0,
+          132260
+        ],
+        [
+          1260.0,
+          132324
+        ],
+        [
+          1290.0,
+          132428
+        ],
+        [
+          1320.0,
+          132540
+        ],
+        [
+          1350.0,
+          132624
+        ],
+        [
+          1380.0,
+          132728
+        ],
+        [
+          1410.0,
+          132784
+        ],
+        [
+          1440.0,
+          132880
+        ],
+        [
+          1470.0,
+          132964
+        ],
+        [
+          1500.0,
+          133040
+        ],
+        [
+          1530.0,
+          133124
+        ],
+        [
+          1560.0,
+          133212
+        ],
+        [
+          1590.0,
+          133296
+        ],
+        [
+          1620.0,
+          133368
+        ],
+        [
+          1650.0,
+          133440
+        ],
+        [
+          1680.0,
+          133512
+        ],
+        [
+          1710.0,
+          133576
+        ],
+        [
+          1740.1,
+          133640
+        ],
+        [
+          1770.1,
+          133732
+        ],
+        [
+          1800.1,
+          133804
+        ]
+      ]
+    },
+    "S6_target_mib": 1.0,
+    "S6_pass": false,
+    "system_rss_start": {
+      "processes_kib": {
+        "nginx": 107896,
+        "mongod": 232996,
+        "java": 2678072,
+        "node": 105436,
+        "ryu-manager": 49996,
+        "chrome": 482276
+      },
+      "containers": {
+        "dt4n-aoi-smoke-nginx-1": "14.53MiB",
+        "dt4n-aoi-smoke-connectivity-1": "537.5MiB",
+        "dt4n-aoi-smoke-gateway-1": "483.5MiB",
+        "dt4n-aoi-smoke-things-1": "546.8MiB",
+        "dt4n-aoi-smoke-things-search-1": "491.8MiB",
+        "dt4n-aoi-smoke-ditto-ui-1": "14.74MiB",
+        "dt4n-aoi-smoke-mongodb-1": "253.4MiB",
+        "dt4n-aoi-smoke-policies-1": "502.4MiB"
+      }
+    },
+    "system_rss_end": {
+      "processes_kib": {
+        "nginx": 107900,
+        "mongod": 225176,
+        "java": 2688904,
+        "node": 104300,
+        "ryu-manager": 50100,
+        "chrome": 546968
+      },
+      "containers": {
+        "dt4n-aoi-smoke-nginx-1": "14.59MiB",
+        "dt4n-aoi-smoke-connectivity-1": "537.5MiB",
+        "dt4n-aoi-smoke-gateway-1": "485.6MiB",
+        "dt4n-aoi-smoke-things-1": "552.6MiB",
+        "dt4n-aoi-smoke-things-search-1": "492.3MiB",
+        "dt4n-aoi-smoke-ditto-ui-1": "14.74MiB",
+        "dt4n-aoi-smoke-mongodb-1": "193.8MiB",
+        "dt4n-aoi-smoke-policies-1": "504.4MiB"
+      }
+    },
+    "system_rss_note": "deployment condition, not a preregistered SLO",
+    "errors": 0,
+    "zero_error_pass": true,
+    "log_counts": {
+      "WARNING": 3
+    },
+    "first_errors": [],
+    "runner_stats": {
+      "seq": 1808,
+      "sent": 1808,
+      "failed": 0,
+      "overwritten": 0,
+      "restarts": 0,
+      "exceptions": 0,
+      "on_tick_p95_ms": 35.056,
+      "write_p95_ms": 17.453
+    },
+    "S5_over_soak": {
+      "n": 1800,
+      "mean_ms": 18.64503357722141,
+      "p50_ms": 17.888094000227284,
+      "p95_ms": 25.783834000321804,
+      "p99_ms": 26.457280000613537,
+      "max_ms": 28.800281999792787,
+      "min_ms": 13.999880000483245
+    },
+    "tick_health": {
+      "n": 1800,
+      "dt": {
+        "n": 1799,
+        "mean_ms": 1000.1619636292382,
+        "p50_ms": 1000.3653990006569,
+        "p95_ms": 1016.1604379991331,
+        "p99_ms": 1034.760169999572,
+        "max_ms": 1054.7712309999042,
+        "min_ms": 948.3161219995964
+      },
+      "overruns_gt_1050ms": 4,
+      "gaps_gt_1500ms": 0
+    },
+    "ui_freshness_at_end": "fresh",
+    "tracemalloc_top": [
+      "/home/ubuntu/dt4n-core/bridge/detector_runner.py:0: size=1739 KiB (+1725 KiB), count=21903 (+21800), average=81 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/subprocess.py:0: size=197 KiB (+136 KiB), count=2211 (+1480), average=91 B",
+      "/home/ubuntu/dt4n-core/bridge/collector.py:0: size=175 KiB (+116 KiB), count=5176 (+4282), average=35 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/tracemalloc.py:0: size=24.2 KiB (+24.1 KiB), count=296 (+295), average=84 B",
+      "/home/ubuntu/dt4n-core/.venv/lib/python3.13/site-packages/numpy/lib/_nanfunctions_impl.py:0: size=18.3 KiB (+17.9 KiB), count=426 (+416), average=44 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/urllib/parse.py:0: size=23.6 KiB (+9600 B), count=316 (+100), average=77 B",
+      "<string>:0: size=17.9 KiB (+9600 B), count=188 (+100), average=97 B",
+      "/home/ubuntu/dt4n-core/scripts/soak_phase7_live.py:0: size=6272 B (+5416 B), count=130 (+124), average=48 B",
+      "/home/ubuntu/dt4n-core/bridge/flow_log.py:0: size=6573 B (+4650 B), count=117 (+93), average=56 B",
+      "/home/ubuntu/dt4n-core/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py:0: size=171 KiB (-4100 B), count=1671 (-48), average=105 B",
+      "/home/ubuntu/dt4n-core/scripts/phase7_live_common.py:0: size=7284 B (+3674 B), count=125 (+88), average=58 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/json/decoder.py:0: size=166 KiB (-2061 B), count=2693 (-19), average=63 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/email/feedparser.py:0: size=2520 B (+1920 B), count=46 (+40), average=55 B",
+      "/home/ubuntu/miniforge3/lib/python3.13/traceback.py:0: size=3354 B (-1861 B), count=40 (-22), average=84 B",
+      "<frozen abc>:0: size=88.5 KiB (-1540 B), count=617 (-28), average=147 B"
+    ]
+  },
+  "content_sha256": "3bf80c7e802cb3ec3d5dcf9ce88f792ceea785c61246baf31029d457ee16334f",
+  "written_at_utc": "2026-09-19T13:33:04+00:00"
+}

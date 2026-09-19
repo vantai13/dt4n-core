@@ -26,7 +26,9 @@ def main() -> int:
     parser.add_argument("--sample-s", type=float, default=30.0)
     parser.add_argument("--tracemalloc", action="store_true")
     parser.add_argument("--url", default="http://127.0.0.1:5173/")
+    parser.add_argument("--tag", default="", help="hau to file output (chay chan doan, khong de artifact chinh)")
     args = parser.parse_args()
+    out = OUT.with_name("phase7_soak_live_%s.json" % args.tag) if args.tag else OUT
     if args.tracemalloc:
         import tracemalloc
         tracemalloc.start(10)
@@ -61,7 +63,7 @@ def main() -> int:
     slope = rss_slope(series)
     errors = counter.counts.get("ERROR", 0) + counter.counts.get("CRITICAL", 0)
     content = {
-        "lesson": "7.6", "minutes": args.minutes,
+        "lesson": "7.6", "minutes": args.minutes, "tag": args.tag,
         "rss_source": "/proc/self/statm[1] x PAGE (current RSS)",
         "process_rss": {
             **slope, "start_kib": series[0][1], "end_kib": series[-1][1],
@@ -80,7 +82,7 @@ def main() -> int:
         "tracemalloc_top": top,
     }
     C.atomic_json(
-        OUT,
+        out,
         {
             "content": content,
             "content_sha256": C.sha256_bytes(C.canonical_json(content).encode()),

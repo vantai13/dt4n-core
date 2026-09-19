@@ -24,6 +24,7 @@ OUT_RESIDUAL = C.ROOT / "results/report/phase7_residual_intervention.json"
 COOLDOWN_S = 8.0
 TAIL_S = 10.0
 HOLD_S, SETTLE_S = 20.0, 5.0
+TICK_KEYS = ("seq", "t_source", "fsm", "published", "cause", "envelope", "conservation", "act_rule")
 
 
 def seal(path, content):
@@ -57,6 +58,11 @@ def one(live, controller, mode, link, rng):
         "revert": revert,
         "window_wall": [t0, t1],
         "counts": window_counts(list(live.runner.timeline), t0, t1),
+        "ticks": [  # timeline trong cua so: de chan doan co che, khong chi so dem
+            {key: entry.get(key) for key in TICK_KEYS}
+            for entry in live.runner.timeline
+            if entry["t_source"] is not None and t0 <= entry["t_source"] < t1
+        ],
     }
 
 
@@ -104,12 +110,20 @@ def main() -> int:
     parser.add_argument("--reps", type=int, default=4)
     parser.add_argument("--seed", type=int, default=7006)
     parser.add_argument("--lease", action="store_true")
+    parser.add_argument("--arms", default="log_first,log_late,no_log")
+    parser.add_argument("--tag", default="", help="hau to file output (chay bo sung, khong de artifact chinh)")
     args = parser.parse_args()
+    arm_list = args.arms.split(",")
+    assert set(arm_list) <= {"log_first", "log_late", "no_log"}, arm_list
+    out_s11, out_residual = OUT_S11, OUT_RESIDUAL
+    if args.tag:
+        out_s11 = OUT_S11.with_name("phase7_s11_live_%s.json" % args.tag)
+        out_residual = OUT_RESIDUAL.with_name("phase7_residual_intervention_%s.json" % args.tag)
     rng = random.Random(args.seed)
     counter = LevelCounter()
     logging.getLogger().addHandler(counter)
     rows, lease_row = [], None
-    budget_s = args.reps * 3 * 60 + (200 if args.lease else 0)
+    budget_s = args.reps * len(arm_list) * 60 + (200 if args.lease else 0)
     with Live(budget_s) as live:
         runner = live.start_detector()
         controller = LiveController(
@@ -117,7 +131,7 @@ def main() -> int:
         )
         live.wait_published("normal", timeout_s=120)
         for rep in range(args.reps):
-            arms = ["log_first", "log_late", "no_log"]
+            arms = list(arm_list)
             rng.shuffle(arms)
             for mode in arms:
                 link = rng.choice(["s1-s2", "s1-s3"])
@@ -150,17 +164,20 @@ def main() -> int:
     arms = {mode: arm(mode) for mode in ("log_first", "log_late", "no_log")}
     verdict = {
         "S11_live_pass": arms["log_first"]["n"] >= 3
-        and arms["log_first"]["act_entries"] == 0,
-        "race_negative_shows_alarm": arms["log_late"]["alarm_entries"] > 0,
-        "control_shows_act": arms["no_log"]["act_entries"] > 0,
+        and arms["log_first"]["act_entries"] == 0
+        if arms["log_first"]["n"] else None,
+        "race_negative_shows_alarm": arms["log_late"]["alarm_entries"] > 0
+        if arms["log_late"]["n"] else None,
+        "control_shows_act": arms["no_log"]["act_entries"] > 0
+        if arms["no_log"]["n"] else None,
         "lease_pass": lease_row["pass"] if lease_row else None,
         "error_records": counter.counts.get("ERROR", 0)
         + counter.counts.get("CRITICAL", 0),
     }
     seal(
-        OUT_S11,
+        out_s11,
         {
-            "lesson": "7.6", "seed": args.seed, "cooldown_s": COOLDOWN_S,
+            "lesson": "7.6", "seed": args.seed, "arms_run": arm_list, "tag": args.tag, "cooldown_s": COOLDOWN_S,
             "tail_s": TAIL_S, "arms": arms, "verdict": verdict,
             "lease": lease_row, "rows": rows, "log_counts": counter.counts,
             "first_errors": counter.first_errors,
@@ -177,7 +194,7 @@ def main() -> int:
         if row["mode"] == "log_first"
     ]
     seal(
-        OUT_RESIDUAL,
+        out_residual,
         {
             "lesson": "7.6", "per_intervention_residual_only_ticks": residual,
             "p50": sorted(residual)[len(residual) // 2] if residual else None,
