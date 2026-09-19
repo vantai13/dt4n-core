@@ -119,6 +119,7 @@ class FakeDitto:
         self.clients: list[queue.Queue] = []
         self.ui_log: list[dict] = []
         self.last_beat_mono = None
+        self.push_log: list[tuple] = []
         self._lock = threading.Lock()
         fake = self
 
@@ -207,6 +208,7 @@ class FakeDitto:
                 document = detector_doc(
                     self.boot, self.seq, self.state, self.affected, self.act
                 )
+                self.push_log.append((self.seq, self.state, time.monotonic()))
                 self.push(document)
                 self.last_beat_mono = time.monotonic()
                 self.seq += 1

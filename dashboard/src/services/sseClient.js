@@ -29,11 +29,12 @@ export function openThingStream({ onDelta, onOpen, onError }) {
 
   // Mỗi event = một Thing JSON bị cắt gọt (chỉ nhánh thay đổi).
   source.onmessage = (event) => {
+    const tRecv = performance.now()
     // Ditto đôi khi gửi comment/heartbeat rỗng để giữ kết nối -> bỏ qua.
     if (!event.data || !event.data.trim()) return
     try {
       const partial = JSON.parse(event.data)
-      onDelta && onDelta(partial)
+      onDelta && onDelta(partial, tRecv)
     } catch (e) {
       // JSON hỏng -> bỏ qua 1 event, KHÔNG làm sập stream (defensive).
       console.warn('SSE: bỏ qua event không parse được', e)
