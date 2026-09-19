@@ -96,8 +96,21 @@ biên còn lại                      733 ms
 ```text
 Trước seal: 15 pass, 2 skip
 Sau seal:   16 pass, 1 skip (golden live cần Mininet + Ditto)
+Sau golden: 17 pass, 0 skip
 Bootstrap Phase 2.5: 51 pass, 0 fail
 Contract SHA-256: 6ff8b6e246abd90ff8468ecddeec7f9824e36f75a3399707b7bb02cddc3f9c9d
+```
+
+Golden được chụp từ Mininet + Ryu + Ditto thật sau commit niêm phong hợp đồng:
+
+```text
+file: test/fixtures/phase7_live_snapshots.jsonl
+snapshots: 15 (tick 0..14)
+entities/snapshot: 16
+contract violations: 0
+Delta t min/median/max: 1.000019 / 1.000073 / 1.000097 s
+size: 116953 bytes
+SHA-256: 00679dd4e5f17d1be899152395cdabca2d6b0870950ce5d563ae2f3c4c32a7d2
 ```
 
 Giới hạn đã biết:
