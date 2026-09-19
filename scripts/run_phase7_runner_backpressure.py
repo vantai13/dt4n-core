@@ -55,7 +55,7 @@ def replay(mode: str) -> dict:
     )
     t0 = time.monotonic()
     ditto = FakeDitto(t0)
-    runner = DetectorRunner(release, prereg, ditto)
+    runner = DetectorRunner(release, prereg, ditto, timeline_samples=4096)
     if mode == "async":
         runner.start_writer()
     base = 1.9e9
