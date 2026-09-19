@@ -58,8 +58,46 @@ bằng tổng p95 từng tầng.
 
 ## 6. Kết quả live
 
-Chưa chạy tại thời điểm khóa dự đoán. Phần này sẽ được cập nhật chỉ từ artifact
-`results/report/phase7_e2e_latency.json` sau khi commit thiết kế và dự đoán.
+Campaign chạy 25 trial hợp lệ và một warmup bị loại. Cả 25/25 trial đều được
+phát hiện và hiển thị; không có write conflation.
+
+| Tầng / tổng | p50 (ms) | p95 (ms) | max (ms) |
+|---|---:|---:|---:|
+| `phys_obs` | 1158.6 | 1432.6 | 1502.1 |
+| `detect` | 1.4 | 1.7 | 1.7 |
+| `mailbox` | 0.6 | 0.8 | 0.8 |
+| `write_2xx` | 8.6 | 11.2 | 13.2 |
+| `fanout_sse` | 8.5 | 11.0 | 13.2 |
+| `vue_flush` | 3.6 | 4.7 | 4.9 |
+| `paint` | 22.4 | 31.5 | 31.6 |
+| `s4_like_from_cmd` | 1512.7 | **1770.8** | 1841.9 |
+| `twin_ui` | 35.3 | **44.2** | 50.3 |
+| `e2e_from_event` | 1196.6 | **1469.2** | 1534.6 |
+| `e2e_from_cmd` | 1549.0 | 1805.8 | 1873.0 |
+| `inject_cmd` | 338.4 | 402.6 | 406.5 |
+
+Ba verdict p95 đều **PASS**: S4-like 1770.8 ≤ 3000 ms, twin/UI 44.2 ≤
+1000 ms, và event-to-paint 1469.2 ≤ 5000 ms. Clock bridge có cận sai số
+tốt nhất 0.322 ms và drift đầu-cuối 0.019 ms. Warmup `[0]` đã bị loại.
+
+So với dự đoán: detect nhanh hơn (1.7 so với 2–3 ms), write nhanh hơn (11.2
+so với khoảng 20 ms), fanout nằm trong 10–50 ms, paint khớp 16–33 ms và
+twin/UI tốt hơn mức dưới 100 ms. S4-like và E2E chậm hơn dự đoán lần lượt
+khoảng 171 ms và 69 ms ở mép trên dự đoán, chủ yếu vì `phys_obs` p95 1432.6
+ms thay vì khoảng 1200 ms. `inject_cmd` có p50 đúng dự đoán 340 ms nhưng đuôi
+p95 402.6 ms cho thấy nó không ổn định như dự đoán.
+
+Hai dự đoán bị bác bỏ rõ ràng. `tick_dt_across_inject` có p95 2002.7 ms và
+max 2003.6 ms, không phải 1.34 s; đầu dò inject có thể làm bỏ hẳn một nhịp
+collector. Phân bố `inject_phase` đo được là `[4, 14, 7, 0]`, không gần sáu
+mẫu mỗi quý. Randomized settle đã được áp dụng, nhưng metric pha chuẩn hóa bằng
+khoảng giữa hai tick quan sát; khi khoảng đó dài 2 s do bỏ nhịp, giá trị bị nén
+về nửa đầu. Vì vậy campaign chứng minh kết quả trên các pha đã lấy mẫu, nhưng
+không chứng minh được độ phủ pha đồng đều như dự kiến. Đây là giới hạn cần giữ
+nguyên, không sửa hậu nghiệm.
+
+Artifact nguồn là `results/report/phase7_e2e_latency.json`; hình đường găng và
+histogram là `results/report/phase7_e2e_latency.png`.
 
 ## 7. Vì sao ba con số khác nhau
 

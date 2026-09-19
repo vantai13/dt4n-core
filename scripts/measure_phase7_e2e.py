@@ -57,6 +57,7 @@ def main() -> int:
     env = EnvRunner(sync_period=1.0, clients=3, do_pingall=True, hard_every=0)
     trials, perf, bridges = [], [], {}
     runner = None
+    runner_thread = None
     try:
         env.start()
         env.start_profile_background(
@@ -122,6 +123,8 @@ def main() -> int:
     finally:
         if runner is not None:
             runner.stop()
+        if runner_thread is not None:
+            runner_thread.join(timeout=3.0)
         try:
             env.injection.revert_all()
         except Exception:
