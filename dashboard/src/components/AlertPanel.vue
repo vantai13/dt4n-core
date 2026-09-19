@@ -2,8 +2,37 @@
   <div class="alert-panel">
     <h3>ALERTS <span class="count" :class="worstClass">{{ alerts.length }}</span></h3>
 
-    <div v-if="alerts.length === 0" class="all-good">
+    <div class="detector" :class="detector.severity || 'ok'"
+         :data-detector-freshness="detector.stale ? 'stale' : 'fresh'"
+         :data-detector-state="detector.state">
+      <div class="det-line">
+        <span class="sev-dot"></span>
+        <span class="who">Detector</span>
+        <span class="det-state">{{ detector.stateLabel }}</span>
+      </div>
+      <div v-if="detector.stale" class="det-sub">
+        {{ detector.lastConfirmedAgoMs === null
+            ? 'chưa từng nhận nhịp tim mới từ lúc mở trang'
+            : 'nhịp tim mới cuối cùng ' + (detector.lastConfirmedAgoMs / 1000).toFixed(1) + ' s trước' }}
+      </div>
+      <div v-else-if="detector.channel" class="det-sub">{{ detector.channel }}</div>
+      <div v-if="!detector.stale && detector.cause" class="det-sub">
+        nguyên nhân: {{ detector.cause }}
+      </div>
+      <div v-if="detector.unmatched.length" class="det-sub warn">
+        không khớp topology: {{ detector.unmatched.join(', ') }}
+      </div>
+      <div v-if="detector.unattributed" class="det-sub">
+        {{ detector.unattributed }} vi phạm tổng hợp không quy được về thiết bị
+      </div>
+    </div>
+
+    <div v-if="clear" class="all-good">
       <span class="ok-dot"></span> All systems normal
+    </div>
+
+    <div v-else-if="alerts.length === 0" class="no-device-alert">
+      Thiết bị: không có cảnh báo ngưỡng
     </div>
 
     <ul v-else class="alert-list">
@@ -18,11 +47,12 @@
 
 <script setup>
 import { computed } from 'vue'
+import { allClear } from '../lib/detectorView.js'
 
 // DERIVED STATE (Lesson 3.4): KHÔNG lưu danh sách cảnh báo riêng. Tính TRỰC TIẾP
 // từ graph mỗi khi graph đổi -> KHÔNG BAO GIỜ lệch với topology (single source).
 // "derive, don't duplicate": nếu lưu riêng, alert có thể mâu thuẫn topology.
-const props = defineProps(['graph'])
+const props = defineProps(['graph', 'detector'])
 defineEmits(['focus'])
 
 const SEV = { critical: 3, warning: 2 }   // chỉ liệt kê những mức này
@@ -56,10 +86,14 @@ function severityOf(item) {
   return null                              // ok/unknown -> không phải cảnh báo
 }
 
+const clear = computed(() => allClear(alerts.value.length, props.detector))
+
 // Badge đếm đổi màu theo mức nặng nhất đang có.
 const worstClass = computed(() => {
-  if (alerts.value.some(a => a.severity === 'critical')) return 'critical'
-  if (alerts.value.some(a => a.severity === 'warning')) return 'warning'
+  const detectorSeverity = props.detector?.severity
+  if (detectorSeverity === 'critical' || alerts.value.some(a => a.severity === 'critical')) return 'critical'
+  if (detectorSeverity === 'warning' || alerts.value.some(a => a.severity === 'warning')) return 'warning'
+  if (!clear.value) return 'unknown'
   return 'ok'
 })
 </script>
@@ -72,6 +106,19 @@ h3 { color: #00F7F7; text-transform: uppercase; letter-spacing: 1px; font-size: 
 .count.ok { background: #14532d; color: #86efac; }
 .count.warning { background: #7c4a03; color: #fdba74; }
 .count.critical { background: #5a1d1d; color: #fca5a5; }
+.count.unknown { background: #334155; color: #cbd5e1; }
+.detector { border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; margin: 0.5rem 0; font-size: 0.82rem; }
+.det-line { display: flex; align-items: center; gap: 8px; }
+.det-state { margin-left: auto; font-weight: 700; color: #e2e8f0; }
+.det-sub { color: #94a3b8; font-size: 0.75rem; margin-top: 3px; }
+.det-sub.warn { color: #fdba74; }
+.detector .sev-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; }
+.detector.stale { border-color: #a855f7; }
+.detector.stale .sev-dot { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
+.detector.unknown .sev-dot { background: #64748b; }
+.detector.warning .sev-dot { background: #f97316; }
+.detector.critical .sev-dot { background: #F60000; box-shadow: 0 0 6px #F60000; }
+.no-device-alert { color: #94a3b8; font-size: 0.8rem; padding: 4px 0; }
 .all-good { color: #86efac; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; padding: 6px 0; }
 .ok-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
 .alert-list { list-style: none; margin: 0.5rem 0 0; padding: 0; max-height: 200px; overflow-y: auto; }

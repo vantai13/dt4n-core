@@ -1,0 +1,14 @@
+{
+  "doc": "Vector hanh vi DUNG CHUNG cho bridge/freshness.py va dashboard/src/lib/freshness.js. at = ms theo dong ho CONSUMER. ttl = 3 x 1000 ms.",
+  "ttl": {"ttlTicks": 3, "tickIntervalMs": 1000},
+  "cases": [
+    {"name": "tai_trang_chi_arm", "steps": [{"at": 0, "observe": ["a", 41], "accepted": true}, {"at": 10, "stale": true}]},
+    {"name": "nhip_deu_roi_im", "steps": [{"at": 0, "observe": ["a", 1], "accepted": true}, {"at": 1000, "observe": ["a", 2], "accepted": true}, {"at": 3900, "stale": false}, {"at": 4100, "stale": true}]},
+    {"name": "seq_lui_bi_tu_choi_va_khong_lam_tuoi", "steps": [{"at": 0, "observe": ["a", 5], "accepted": true}, {"at": 1000, "observe": ["a", 6], "accepted": true}, {"at": 3500, "observe": ["a", 4], "accepted": false}, {"at": 4100, "stale": true}]},
+    {"name": "trung_seq_khong_lam_tuoi", "steps": [{"at": 0, "observe": ["a", 5], "accepted": true}, {"at": 1000, "observe": ["a", 6], "accepted": true}, {"at": 3500, "observe": ["a", 6], "accepted": false}, {"at": 4100, "stale": true}]},
+    {"name": "restart_boot_moi_la_tim_dap", "steps": [{"at": 0, "observe": ["a", 900], "accepted": true}, {"at": 1000, "observe": ["a", 901], "accepted": true}, {"at": 2000, "observe": ["b", 0], "accepted": true}, {"at": 4500, "stale": false}]},
+    {"name": "boot_cu_toi_muon_sau_restart_bi_tu_choi", "steps": [{"at": 0, "observe": ["a", 900], "accepted": true}, {"at": 1000, "observe": ["a", 901], "accepted": true}, {"at": 2000, "observe": ["b", 0], "accepted": true}, {"at": 2500, "observe": ["a", 902], "accepted": false}, {"at": 5100, "stale": true}]},
+    {"name": "stale_roi_hoi_phuc", "steps": [{"at": 0, "observe": ["a", 1], "accepted": true}, {"at": 1000, "observe": ["a", 2], "accepted": true}, {"at": 5000, "stale": true}, {"at": 6000, "observe": ["a", 3], "accepted": true}, {"at": 6100, "stale": false}]},
+    {"name": "bootstrap_never_started_roi_detector_len", "steps": [{"at": 0, "observe": ["", -1], "accepted": true}, {"at": 10, "stale": true}, {"at": 3000, "observe": ["c", 0], "accepted": true}, {"at": 3100, "stale": false}]}
+  ]
+}

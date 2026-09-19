@@ -1,0 +1,36 @@
+{
+  "content": {
+    "amendment_id": "DT4N-P7-CONTRACT-A1",
+    "amends": "C_freshness.rules[4] (quy tac 5: 'lan dau ARM; (bootId,seq) DOI thi CONFIRM')",
+    "knowledge_state": "viet khi thiet ke consumer 7.4, TRUOC khi do S12 live",
+    "trigger": {
+      "resync_reads_search_index": "App.vue resync() -> fetchAllThings() -> /search/things (things-search: nhat quan CUOI CUNG); moi lan SSE reconnect deu resync -> co the nhan ban detector CU hon ban SSE da ap",
+      "late_patch": "7.3 live: 2 PATCH timeout phia client trong luc nginx pause; request da nam trong socket co the van duoc xu ly SAU ban moi hon",
+      "sealed_rule_failure": "(bootId,seq) DOI -> tim dap: seq LUI cung la 'doi' -> lam tuoi bang ban cu va hien thi trang thai qua khu nhu hien tai"
+    },
+    "new_rule": [
+      "lan dau thay: ARM (chap nhan de hien thi, CHUA lam tuoi)",
+      "cung bootId: chi chap nhan seq TANG CHAT; lui hoac trung -> tu choi",
+      "bootId moi chua tung thay: chap nhan (restart), boot cu vao danh sach retired",
+      "bootId da retired: tu choi",
+      "ban tin bi tu choi: KHONG lam tuoi va KHONG duoc hien thi (bo ca ban tin)"
+    ],
+    "unchanged": [
+      "TTL = ttlTicks*tickIntervalMs do bang dong ho consumer",
+      "khong co co stale do detector dat",
+      "mac dinh STALE (fail-safe)",
+      "schema B khong doi"
+    ],
+    "superseded_for_consumers": "bridge.detector_contract.FreshnessTracker -> bridge.freshness.MonotonicFreshness (Python) va dashboard/src/lib/freshness.js (JS); ban cu GIU NGUYEN, khong sua",
+    "verification": "cung mot file vector cho ca Python va JS + e2e Chromium voi Ditto gia",
+    "known_limitation": "boot cu toi muon TRUOC khi boot moi duoc thay thi khong phan biet duoc (bootId ngau nhien, khong co thu tu); can restart < 1 tick de xay ra",
+    "upstream_sha256": {
+      "results/report/phase7_contract.json": "f66795287e780517403f6bd8da7e7f11c99995de0ce6028ae57ce275796f62ac",
+      "bridge/freshness.py": "0cabbf65e2593c9cf760ee5759cfead387bff6def1ffde4db2f4137f9fbab5ae",
+      "dashboard/src/lib/freshness.js": "8ddc29b6090d4254dfd113bb0004f55fa3c5d35256684ffdb2631765135bd1ba",
+      "test/fixtures/freshness_vectors.json": "2c85c19056238bb5a5bdf184390d7a28b029a7462eb8fdc650be4658305e3481"
+    }
+  },
+  "content_sha256": "7496ac857c2d0e52097797c7623aac6ef1d938a56af281460f0042586b4fd2e8",
+  "written_at_utc": "2026-09-19T08:18:31+00:00"
+}
