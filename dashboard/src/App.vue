@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import TopologyView from './components/TopologyView.vue'
 import InfoPanel from './components/InfoPanel.vue'
 import AlertPanel from './components/AlertPanel.vue'
@@ -8,7 +8,9 @@ import { fetchAllThings } from './services/dittoClient.js'
 import { openThingStream } from './services/sseClient.js'
 import { sendCommand, newCommandCorrelationId } from './services/commandClient.js'
 import { logUi } from './services/debugLog.js'
-import { thingsToGraph, applyDelta } from './lib/translate.js'
+import { thingsToGraph, applyDelta, deepMerge } from './lib/translate.js'
+import { createFreshness, observeFreshness } from './lib/freshness.js'
+import { detectorView } from './lib/detectorView.js'
 
 // ---------------------------------------------------------------------------
 // App.vue — ĐIỀU PHỐI (orchestrator). LỚP 4.
@@ -32,6 +34,30 @@ const cmdFeedback = ref('')
 let thingsById = {}
 let reflectionToken = 0
 
+// Detector không phải node/edge và chỉ đi vào UI qua cổng freshness đơn điệu.
+const DETECTOR_ID = (import.meta.env.VITE_DITTO_NAMESPACE || 'org.dt4n') + ':detector'
+const detectorThing = ref(null)
+const detectorTracker = createFreshness()
+const nowMs = ref(performance.now())
+let clockTimer = null
+const tickClock = () => { nowMs.value = performance.now() }
+
+function acceptDetector(candidate, source) {
+  const freshness = candidate?.features?.freshness?.properties
+  const accepted = observeFreshness(detectorTracker, freshness, performance.now())
+  if (accepted) detectorThing.value = candidate
+  else logUi('detector.rejected', { source, seq: freshness?.seq }, 'warn')
+  tickClock()
+  return accepted
+}
+
+const detector = computed(() => detectorView(
+  detectorThing.value,
+  detectorTracker,
+  nowMs.value,
+  graph.value,
+))
+
 const DEFAULT_REFLECTION_TIMEOUT_MS = 20000
 const SWITCH_REFLECTION_TIMEOUT_MS = 45000
 
@@ -40,7 +66,10 @@ async function resync(reason = 'manual') {
   const startedAt = performance.now()
   logUi('state.resync.start', { reason })
   try {
-    const things = await fetchAllThings()      // FETCH snapshot đầy đủ
+    const all = await fetchAllThings()         // search index có thể trả detector cũ
+    const detectorSnapshot = all.find(t => t.thingId === DETECTOR_ID)
+    if (detectorSnapshot) acceptDetector(detectorSnapshot, 'resync')
+    const things = all.filter(t => t.thingId !== DETECTOR_ID)
     thingsById = Object.fromEntries(things.map(t => [t.thingId, t]))
     rebuildGraph()
     logUi('state.resync.done', {
@@ -89,6 +118,10 @@ function startStream() {
   closeStream = openThingStream({
     // Mỗi delta (Thing-mảnh) -> merge vào state -> dịch lại -> đồ thị đổi.
     onDelta: (partial) => {
+      if (partial?.thingId === DETECTOR_ID) {
+        acceptDetector(deepMerge(detectorThing.value || {}, partial), 'sse')
+        return
+      }
       thingsById = applyDelta(thingsById, partial)   // MERGE (đã test kỹ)
       rebuildGraph()
     },
@@ -105,8 +138,17 @@ function startStream() {
   })
 }
 
-onMounted(loadTopology)
-onUnmounted(() => { if (closeStream) closeStream() })   // dọn kết nối khi rời trang
+const onVisible = () => { if (!document.hidden) tickClock() }
+onMounted(() => {
+  clockTimer = setInterval(tickClock, 250)
+  document.addEventListener('visibilitychange', onVisible)
+  loadTopology()
+})
+onUnmounted(() => {
+  if (closeStream) closeStream()
+  clearInterval(clockTimer)
+  document.removeEventListener('visibilitychange', onVisible)
+})
 
 // Nhận sự kiện click từ TopologyView -> cho InfoPanel biết đang chọn gì.
 const onNode = id => { selectedNodeId.value = id; selectedEdgeId.value = null }
@@ -287,12 +329,13 @@ async function watchForReflection(subject, target, params = {}, correlationId = 
     <div v-if="status === 'ready'" class="main">
       <TopologyView
         :graph="graph"
+        :highlight="detector.highlight"
         @node-selected="onNode"
         @edge-selected="onEdge"
         @selection-cleared="onClear"
       />
       <div class="side">
-        <AlertPanel :graph="graph" @focus="onAlertFocus" />
+        <AlertPanel :graph="graph" :detector="detector" @focus="onAlertFocus" />
         <InfoPanel
           :graph="graph"
           :selectedNodeId="selectedNodeId"
