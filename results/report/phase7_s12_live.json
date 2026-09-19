@@ -1,0 +1,435 @@
+{
+  "content": {
+    "trials": 20,
+    "ok": 20,
+    "git_hash": "9bd58902743a97ffdccfa9ca6a8eef045eb74b46",
+    "kill_to_stale": {
+      "n": 20,
+      "mean_ms": 2555.1,
+      "p50_ms": 2592.5000000000005,
+      "p95_ms": 2946.0,
+      "p99_ms": 3093.0,
+      "max_ms": 3093.0,
+      "min_ms": 2174.0
+    },
+    "by_mode": {
+      "crash": {
+        "n": 10,
+        "mean_ms": 2578.3,
+        "p50_ms": 2663.5,
+        "p95_ms": 3093.0,
+        "p99_ms": 3093.0,
+        "max_ms": 3093.0,
+        "min_ms": 2176.0
+      },
+      "hang": {
+        "n": 10,
+        "mean_ms": 2531.9,
+        "p50_ms": 2506.0,
+        "p95_ms": 2946.0,
+        "p99_ms": 2946.0,
+        "max_ms": 2946.0,
+        "min_ms": 2174.0
+      }
+    },
+    "start_to_fresh": {
+      "n": 20,
+      "mean_ms": 154.4,
+      "p50_ms": 103.0,
+      "p95_ms": 151.0,
+      "p99_ms": 1082.0,
+      "max_ms": 1082.0,
+      "min_ms": 83.0
+    },
+    "all_clear_while_stale": 0,
+    "first_load_dead_detector": {
+      "always_stale": true,
+      "all_clear_ever": false
+    },
+    "S12_pass": true,
+    "samples": [
+      {
+        "trial": 1,
+        "mode": "crash",
+        "bootId": "28f1ed440958",
+        "start_to_fresh_ms": 1082,
+        "kill_to_stale_ms": 2285,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 9,
+          "sent": 9,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.998,
+          "write_p95_ms": 22.352
+        }
+      },
+      {
+        "trial": 2,
+        "mode": "hang",
+        "bootId": "045e9f4f9e84",
+        "start_to_fresh_ms": 130,
+        "kill_to_stale_ms": 2603,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 9,
+          "sent": 6,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.328,
+          "write_p95_ms": 19.504
+        }
+      },
+      {
+        "trial": 3,
+        "mode": "crash",
+        "bootId": "3f96a0433c3d",
+        "start_to_fresh_ms": 130,
+        "kill_to_stale_ms": 2817,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 7,
+          "sent": 7,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.037,
+          "write_p95_ms": 14.824
+        }
+      },
+      {
+        "trial": 4,
+        "mode": "hang",
+        "bootId": "34f8b45fe001",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2174,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 9,
+          "sent": 6,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.951,
+          "write_p95_ms": 13.616
+        }
+      },
+      {
+        "trial": 5,
+        "mode": "crash",
+        "bootId": "0c9c9230456c",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2643,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 5,
+          "sent": 5,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.842,
+          "write_p95_ms": 12.674
+        }
+      },
+      {
+        "trial": 6,
+        "mode": "hang",
+        "bootId": "d86987f8cb64",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2307,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 8,
+          "sent": 5,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.939,
+          "write_p95_ms": 12.425
+        }
+      },
+      {
+        "trial": 7,
+        "mode": "crash",
+        "bootId": "2f09aa3410af",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2726,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 5,
+          "sent": 5,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.954,
+          "write_p95_ms": 11.652
+        }
+      },
+      {
+        "trial": 8,
+        "mode": "hang",
+        "bootId": "9e6c7943eead",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2582,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 9,
+          "sent": 6,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.012,
+          "write_p95_ms": 11.74
+        }
+      },
+      {
+        "trial": 9,
+        "mode": "crash",
+        "bootId": "b80e56301412",
+        "start_to_fresh_ms": 83,
+        "kill_to_stale_ms": 2684,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 7,
+          "sent": 7,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.857,
+          "write_p95_ms": 11.256
+        }
+      },
+      {
+        "trial": 10,
+        "mode": "hang",
+        "bootId": "731e60934302",
+        "start_to_fresh_ms": 151,
+        "kill_to_stale_ms": 2430,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 10,
+          "sent": 7,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.401,
+          "write_p95_ms": 13.451
+        }
+      },
+      {
+        "trial": 11,
+        "mode": "crash",
+        "bootId": "17593268c7a1",
+        "start_to_fresh_ms": 110,
+        "kill_to_stale_ms": 2231,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 6,
+          "sent": 6,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.021,
+          "write_p95_ms": 10.794
+        }
+      },
+      {
+        "trial": 12,
+        "mode": "hang",
+        "bootId": "7eb2689c5d53",
+        "start_to_fresh_ms": 105,
+        "kill_to_stale_ms": 2646,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 10,
+          "sent": 7,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.004,
+          "write_p95_ms": 11.851
+        }
+      },
+      {
+        "trial": 13,
+        "mode": "crash",
+        "bootId": "fa1347f65131",
+        "start_to_fresh_ms": 83,
+        "kill_to_stale_ms": 3093,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 7,
+          "sent": 7,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.786,
+          "write_p95_ms": 10.085
+        }
+      },
+      {
+        "trial": 14,
+        "mode": "hang",
+        "bootId": "ca10cb1ddcb5",
+        "start_to_fresh_ms": 84,
+        "kill_to_stale_ms": 2946,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 8,
+          "sent": 5,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.078,
+          "write_p95_ms": 10.521
+        }
+      },
+      {
+        "trial": 15,
+        "mode": "crash",
+        "bootId": "b8390a6bba30",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2439,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 5,
+          "sent": 5,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.005,
+          "write_p95_ms": 10.808
+        }
+      },
+      {
+        "trial": 16,
+        "mode": "hang",
+        "bootId": "eb3df7117804",
+        "start_to_fresh_ms": 103,
+        "kill_to_stale_ms": 2356,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 8,
+          "sent": 5,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.962,
+          "write_p95_ms": 10.056
+        }
+      },
+      {
+        "trial": 17,
+        "mode": "crash",
+        "bootId": "e10d065d67f9",
+        "start_to_fresh_ms": 83,
+        "kill_to_stale_ms": 2689,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 6,
+          "sent": 6,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.004,
+          "write_p95_ms": 9.657
+        }
+      },
+      {
+        "trial": 18,
+        "mode": "hang",
+        "bootId": "f4ed85d2be7a",
+        "start_to_fresh_ms": 130,
+        "kill_to_stale_ms": 2934,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 9,
+          "sent": 6,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.397,
+          "write_p95_ms": 10.255
+        }
+      },
+      {
+        "trial": 19,
+        "mode": "crash",
+        "bootId": "803768431788",
+        "start_to_fresh_ms": 113,
+        "kill_to_stale_ms": 2176,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 5,
+          "sent": 5,
+          "failed": 0,
+          "overwritten": 0,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 1.71,
+          "write_p95_ms": 10.634
+        }
+      },
+      {
+        "trial": 20,
+        "mode": "hang",
+        "bootId": "ded0a824f03b",
+        "start_to_fresh_ms": 83,
+        "kill_to_stale_ms": 2341,
+        "all_clear_shown_while_stale": false,
+        "ok": true,
+        "stats": {
+          "seq": 10,
+          "sent": 7,
+          "failed": 1,
+          "overwritten": 1,
+          "restarts": 0,
+          "exceptions": 0,
+          "on_tick_p95_ms": 2.103,
+          "write_p95_ms": 9.974
+        }
+      }
+    ]
+  },
+  "content_sha256": "d3b96a2e81945a18175c39bbb1e512c89478429fa94cbe0fbd347d4fbe5911a0",
+  "written_at_utc": "2026-09-19T08:27:32+00:00"
+}
