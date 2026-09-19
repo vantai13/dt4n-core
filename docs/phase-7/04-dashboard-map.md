@@ -68,8 +68,9 @@ S12 ∈ [3000 - 1000 + L, 3000 + L + 250]
     = [2000 + L, 3250 + L] ms
 ```
 
-Với Ditto giả, sáu mẫu là `2799, 2296, 2477, 3100, 2717, 2135` ms: min 2135
-ms, max 3100 ms, đều nằm trong khoảng lý thuyết khi `L ≈ 0` và dưới S12 5 s.
+Với Ditto giả, lần chạy xác nhận cuối có sáu mẫu
+`2194, 2235, 2878, 2576, 2395, 2937` ms: min 2194 ms, max 2937 ms, đều nằm
+trong khoảng lý thuyết khi `L ≈ 0` và dưới S12 5 s.
 
 ## 5. Bốn tầng kiểm thử
 
@@ -88,15 +89,18 @@ lần kill ngẫu nhiên đều dưới 5 s; snapshot seq cũ sau reconnect bị
 
 | Chỉ số | Dự đoán trước đo | Kết quả live |
 |---|---|---|
-| `kill_to_stale` min | khoảng 2.0–2.1 s | Chưa đo |
-| `kill_to_stale` max | khoảng 3.2–3.5 s, không quá 5 s | Chưa đo |
-| crash và hang | cùng phân phối | Chưa đo |
-| `start_to_fresh` p95 | dưới 1.5 s | Chưa đo |
-| `all_clear_while_stale` | 0 | Chưa đo |
-| tải trang khi detector chết | `always_stale=true`, `all_clear_ever=false` | Chưa đo |
+| `kill_to_stale` min | khoảng 2.0–2.1 s | **2.174 s** |
+| `kill_to_stale` max | khoảng 3.2–3.5 s, không quá 5 s | **3.093 s** |
+| crash và hang | cùng phân phối | mean **2.578 s / 2.532 s**, max **3.093 s / 2.946 s** |
+| `start_to_fresh` p95 | dưới 1.5 s | **0.151 s**; max đầu tiên **1.082 s** |
+| `all_clear_while_stale` | 0 | **0** |
+| tải trang khi detector chết | `always_stale=true`, `all_clear_ever=false` | **đúng cả hai** |
 
-Bảng này được ghi trước khi chạy `measure_phase7_s12_live.py` và sẽ giữ nguyên
-cột dự đoán khi bổ sung số đo.
+Bảng dự đoán được commit ở `9bd5890` trước khi chạy live và cột dự đoán được
+giữ nguyên. Cả 20/20 trial (10 crash, 10 hang) đạt S12; p50 là 2.593 s, p95
+2.946 s. Artifact được gắn đúng git hash `9bd58902743a97ffdccfa9ca6a8eef045eb74b46`
+và có content SHA-256
+`d3b96a2e81945a18175c39bbb1e512c89478429fa94cbe0fbd347d4fbe5911a0`.
 
 ## 7. Giới hạn
 
