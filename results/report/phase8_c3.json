@@ -1,0 +1,118 @@
+{
+  "content": {
+    "lesson": "8.6",
+    "metric": "C3",
+    "definition": "act CONG BO tren twin -> capacity.bwMbps cua link truy nhap thu pham = 7.0 (xac nhan bang trang thai quan sat duoc, khong bang ma 202)",
+    "anchor_note": "moc bat dau la `act`, KHONG phai luc flood bat dau: tre phat hien (~3.4 s) thuoc S-rows Phase 7, nam NGOAI C3",
+    "measured_directly": true,
+    "phase_randomised": true,
+    "budget_ms": 10000.0,
+    "summary": {
+      "n": 9,
+      "min_ms": 1025.23,
+      "p50_ms": 1026.51,
+      "p95_ms": 2032.1,
+      "max_ms": 2032.1,
+      "mean_ms": 1361.21
+    },
+    "c3_pass": true,
+    "n_aborted": 3,
+    "log_counts": {
+      "WARNING": 2
+    },
+    "rows": [
+      {
+        "i": 0,
+        "aborted": false,
+        "c3_ms": 1025.7540339989646,
+        "saw_act": true
+      },
+      {
+        "i": 1,
+        "aborted": false,
+        "c3_ms": 2032.095668000693,
+        "saw_act": true
+      },
+      {
+        "i": 2,
+        "aborted": false,
+        "c3_ms": 2012.0309640005871,
+        "saw_act": true
+      },
+      {
+        "i": 3,
+        "aborted": false,
+        "c3_ms": 2030.6004760004726,
+        "saw_act": true
+      },
+      {
+        "i": 4,
+        "aborted": false,
+        "c3_ms": 1025.225154000509,
+        "saw_act": true
+      },
+      {
+        "i": 5,
+        "aborted": false,
+        "c3_ms": 1046.572847999414,
+        "saw_act": true
+      },
+      {
+        "i": 6,
+        "aborted": false,
+        "c3_ms": 1026.3021329992625,
+        "saw_act": true
+      },
+      {
+        "i": 7,
+        "aborted": true,
+        "detail": {
+          "bw": {
+            "h1-s1": 7.0,
+            "h2-s1": 20.0,
+            "h3-s1": 20.0
+          },
+          "detector": "normal"
+        }
+      },
+      {
+        "i": 8,
+        "aborted": false,
+        "c3_ms": 1026.5096339990123,
+        "saw_act": true
+      },
+      {
+        "i": 9,
+        "aborted": true,
+        "detail": {
+          "bw": {
+            "h1-s1": 7.0,
+            "h2-s1": 20.0,
+            "h3-s1": 20.0
+          },
+          "detector": "normal"
+        }
+      },
+      {
+        "i": 10,
+        "aborted": false,
+        "c3_ms": 1025.7869420001953,
+        "saw_act": true
+      },
+      {
+        "i": 11,
+        "aborted": true,
+        "detail": {
+          "bw": {
+            "h1-s1": 7.0,
+            "h2-s1": 20.0,
+            "h3-s1": 20.0
+          },
+          "detector": "normal"
+        }
+      }
+    ]
+  },
+  "content_sha256": "1deb76a58925482aead3cea1d204ca5976462efd34c6e997b93b9caf99f09cf8",
+  "written_at_utc": "2026-09-20T11:54:03+00:00"
+}

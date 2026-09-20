@@ -1,8 +1,7 @@
 // Phase 8.5: controlView là MAP thuần của (mode, stale). Test ở đây khoá
 // đúng ba thứ: tính thuần, firewall "không suy từ hiện thực", và all-clear.
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { test } from 'node:test'
 
 import { createFreshness, observeFreshness } from '../src/lib/freshness.js'
@@ -53,9 +52,14 @@ test('controlView không suy diễn từ hiện thực (bwMbps/txRate)', () => {
 test('chỉ có MỘT allClear trong toàn dashboard', () => {
   // Ngu nghia doi -> KHONG de ban cu song song duoi cung mot ten. Hoac xoa,
   // hoac doi ten, de lap trinh vien phai chon CO Y THUC.
-  const files = execSync("grep -rln 'export function allClear' src/")
-    .toString().trim().split('\n').filter(Boolean)
-  assert.deepEqual(files, ['src/lib/controlView.js'])
+  // Doc bang fs, KHONG goi grep: test phai chay dung du cwd la dashboard/ hay
+  // goc repo (test/test_phase7_freshness.py chay `node --test` tu goc repo).
+  const libDir = new URL('../src/lib/', import.meta.url)
+  const hits = readdirSync(libDir)
+    .filter(name => name.endsWith('.js'))
+    .filter(name => readFileSync(new URL(name, libDir), 'utf8')
+      .includes('export function allClear'))
+  assert.deepEqual(hits, ['controlView.js'])
 })
 
 // ---------------------------------------------------------------- thuần
