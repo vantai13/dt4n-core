@@ -1,0 +1,5372 @@
+{
+  "content": {
+    "lesson": "7.6",
+    "seed": 7006,
+    "arms_run": [
+      "log_first",
+      "log_late",
+      "no_log"
+    ],
+    "tag": "",
+    "cooldown_s": 8.0,
+    "tail_s": 10.0,
+    "arms": {
+      "log_first": {
+        "n": 4,
+        "act_entries": 0,
+        "alarm_entries": 0,
+        "env_alarm_ticks": 0,
+        "suppressed_ticks": 84,
+        "all_started_from_normal": true
+      },
+      "log_late": {
+        "n": 4,
+        "act_entries": 0,
+        "alarm_entries": 4,
+        "env_alarm_ticks": 4,
+        "suppressed_ticks": 84,
+        "all_started_from_normal": true
+      },
+      "no_log": {
+        "n": 4,
+        "act_entries": 4,
+        "alarm_entries": 4,
+        "env_alarm_ticks": 84,
+        "suppressed_ticks": 0,
+        "all_started_from_normal": true
+      }
+    },
+    "verdict": {
+      "S11_live_pass": true,
+      "race_negative_shows_alarm": true,
+      "control_shows_act": true,
+      "lease_pass": true,
+      "error_records": 0
+    },
+    "lease": {
+      "pair": "lease-85b4a8ac",
+      "t_expiry_wall": 1789834801.1786857,
+      "suppressed_before_expiry": 120,
+      "suppressed_after_expiry": 0,
+      "stale_ticks_after_expiry": 8,
+      "first_stale_delay_s": 0.2828049659729004,
+      "published_after_expiry": [
+        "act",
+        "suspect"
+      ],
+      "pass": true,
+      "revert": {
+        "pair": "lease-85b4a8ac",
+        "kind": "revert",
+        "link": "s1-s2",
+        "mode": "log_first",
+        "t_log_wall": 1789834809.2081378,
+        "t_post_wall": 1789834809.2081382,
+        "post": {
+          "cid": "990b2b4b-dbce-4c01-bba8-541df0729427",
+          "subject": "enableLink",
+          "target": "org.dt4n:link-s1-s2",
+          "params": {},
+          "http_status": 202,
+          "post_error": null,
+          "post_ms": 29.79799899912905
+        },
+        "t_decide_wall": 1789834809.2079797
+      }
+    },
+    "rows": [
+      {
+        "mode": "no_log",
+        "link": "s1-s3",
+        "pair": "no_log-cfbf8124",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-cfbf8124",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "no_log",
+          "t_post_wall": 1789834150.6711454,
+          "post": {
+            "cid": "84aa1891-3963-41e6-8d3b-f2a9c8c8aaf7",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 26.12632599993958
+          },
+          "t_decide_wall": 1789834150.6711435
+        },
+        "revert": {
+          "pair": "no_log-cfbf8124",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "no_log",
+          "t_post_wall": 1789834170.6974628,
+          "post": {
+            "cid": "f31fcc77-b6d2-4c1e-9ef2-3ddc3006954f",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 30.141412000375567
+          },
+          "t_decide_wall": 1789834170.6974607
+        },
+        "window_wall": [
+          1789834150.6711435,
+          1789834188.6974607
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "ticks": [
+          {
+            "seq": 9,
+            "t_source": 1789834151.4135349,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 10,
+            "t_source": 1789834152.4135995,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 11,
+            "t_source": 1789834153.413672,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 12,
+            "t_source": 1789834154.4137204,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 13,
+            "t_source": 1789834155.4138012,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 14,
+            "t_source": 1789834156.4138522,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 15,
+            "t_source": 1789834157.4139013,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 16,
+            "t_source": 1789834158.4139764,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 17,
+            "t_source": 1789834159.4140146,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 18,
+            "t_source": 1789834160.4141157,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 19,
+            "t_source": 1789834161.4141965,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 20,
+            "t_source": 1789834162.414252,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 21,
+            "t_source": 1789834163.4142962,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 22,
+            "t_source": 1789834164.4143748,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 23,
+            "t_source": 1789834165.414451,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 24,
+            "t_source": 1789834166.4145374,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 25,
+            "t_source": 1789834167.4146225,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 26,
+            "t_source": 1789834168.4146554,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 27,
+            "t_source": 1789834169.4147208,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 28,
+            "t_source": 1789834170.414798,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 29,
+            "t_source": 1789834171.4148843,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 30,
+            "t_source": 1789834172.4149644,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 31,
+            "t_source": 1789834173.415039,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 32,
+            "t_source": 1789834174.4151232,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 33,
+            "t_source": 1789834175.4151976,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 34,
+            "t_source": 1789834176.4152772,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 35,
+            "t_source": 1789834177.4153075,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 36,
+            "t_source": 1789834178.4153886,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 37,
+            "t_source": 1789834179.4154785,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 38,
+            "t_source": 1789834180.415566,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 39,
+            "t_source": 1789834181.4156468,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 40,
+            "t_source": 1789834182.4157283,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 41,
+            "t_source": 1789834183.4158072,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 42,
+            "t_source": 1789834184.4158669,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 43,
+            "t_source": 1789834185.4159477,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 44,
+            "t_source": 1789834186.4159787,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 45,
+            "t_source": 1789834187.4160514,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 46,
+            "t_source": 1789834188.4161339,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 0
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s3",
+        "pair": "log_first-72365b36",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-72365b36",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834194.9618185,
+          "t_post_wall": 1789834194.9618192,
+          "post": {
+            "cid": "2f8bfc78-7d36-4988-8b8f-390073d2fe74",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 26.08419100215542
+          },
+          "t_decide_wall": 1789834194.9615932
+        },
+        "revert": {
+          "pair": "log_first-72365b36",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834214.9882915,
+          "t_post_wall": 1789834214.988292,
+          "post": {
+            "cid": "1aa58910-0f96-4d49-98e0-af8a86ff23ae",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.299579000507947
+          },
+          "t_decide_wall": 1789834214.9881032
+        },
+        "window_wall": [
+          1789834194.9615932,
+          1789834232.9881032
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 53,
+            "t_source": 1789834195.416605,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 54,
+            "t_source": 1789834196.416669,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 55,
+            "t_source": 1789834197.4167452,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 56,
+            "t_source": 1789834198.4168277,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 57,
+            "t_source": 1789834199.4168665,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 58,
+            "t_source": 1789834200.4169474,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 59,
+            "t_source": 1789834201.4170268,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 60,
+            "t_source": 1789834202.4170747,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 61,
+            "t_source": 1789834203.4171593,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 62,
+            "t_source": 1789834204.4172525,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 63,
+            "t_source": 1789834205.4172914,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 64,
+            "t_source": 1789834206.4173696,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 65,
+            "t_source": 1789834207.4174461,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 66,
+            "t_source": 1789834208.4175282,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 67,
+            "t_source": 1789834209.417605,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 68,
+            "t_source": 1789834210.4176857,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 69,
+            "t_source": 1789834211.4177418,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 70,
+            "t_source": 1789834212.417823,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 71,
+            "t_source": 1789834213.4179063,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 72,
+            "t_source": 1789834214.417982,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 73,
+            "t_source": 1789834215.4180634,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 74,
+            "t_source": 1789834216.4181514,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 75,
+            "t_source": 1789834217.4182284,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 76,
+            "t_source": 1789834218.418309,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 77,
+            "t_source": 1789834219.418386,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 78,
+            "t_source": 1789834220.4184637,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 79,
+            "t_source": 1789834221.4185371,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 80,
+            "t_source": 1789834222.4186234,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 81,
+            "t_source": 1789834223.4186652,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 82,
+            "t_source": 1789834224.4187484,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 83,
+            "t_source": 1789834225.418785,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 84,
+            "t_source": 1789834226.4188626,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 85,
+            "t_source": 1789834227.418946,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 86,
+            "t_source": 1789834228.4190228,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 87,
+            "t_source": 1789834229.4191084,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 88,
+            "t_source": 1789834230.4191878,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 89,
+            "t_source": 1789834231.4192872,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 90,
+            "t_source": 1789834232.4193609,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 0
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s2",
+        "pair": "log_late-615d2543",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-615d2543",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_late",
+          "t_post_wall": 1789834239.3160274,
+          "post": {
+            "cid": "4cc9fe24-edbe-472e-9ee8-b9a0a559e85a",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 31.2028400003328
+          },
+          "late_after_seq": 97,
+          "t_log_wall": 1789834239.4978044,
+          "t_decide_wall": 1789834239.3160267
+        },
+        "revert": {
+          "pair": "log_late-615d2543",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834259.498049,
+          "t_post_wall": 1789834259.4980495,
+          "post": {
+            "cid": "c4b56b6c-c1fc-4b18-b547-3b56b036f5dd",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.665960002603242
+          },
+          "t_decide_wall": 1789834259.497893
+        },
+        "window_wall": [
+          1789834239.3160267,
+          1789834277.497893
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 0,
+          "alarm_entries": 1,
+          "env_alarm": 1,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 97,
+            "t_source": 1789834239.4198334,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 98,
+            "t_source": 1789834240.4199018,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 99,
+            "t_source": 1789834241.4199848,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 100,
+            "t_source": 1789834242.4200222,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 101,
+            "t_source": 1789834243.420081,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 102,
+            "t_source": 1789834244.4201815,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 103,
+            "t_source": 1789834245.420281,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 104,
+            "t_source": 1789834246.4203472,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 105,
+            "t_source": 1789834247.420438,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 106,
+            "t_source": 1789834248.420506,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 107,
+            "t_source": 1789834249.42059,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 108,
+            "t_source": 1789834250.4206767,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 109,
+            "t_source": 1789834251.4207594,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 110,
+            "t_source": 1789834252.4208424,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 111,
+            "t_source": 1789834253.4209492,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 112,
+            "t_source": 1789834254.4209847,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 113,
+            "t_source": 1789834255.42107,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 114,
+            "t_source": 1789834256.4211493,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 115,
+            "t_source": 1789834257.4212315,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 116,
+            "t_source": 1789834258.421314,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 117,
+            "t_source": 1789834259.421407,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 118,
+            "t_source": 1789834260.4214854,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 119,
+            "t_source": 1789834261.4215763,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 120,
+            "t_source": 1789834262.4216282,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 121,
+            "t_source": 1789834263.4216788,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 122,
+            "t_source": 1789834264.4217653,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 123,
+            "t_source": 1789834265.4218464,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 124,
+            "t_source": 1789834266.4219007,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 125,
+            "t_source": 1789834267.4219825,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 126,
+            "t_source": 1789834268.4220593,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 127,
+            "t_source": 1789834269.422144,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 128,
+            "t_source": 1789834270.422187,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 129,
+            "t_source": 1789834271.4222798,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 130,
+            "t_source": 1789834272.4222982,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 131,
+            "t_source": 1789834273.422369,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 132,
+            "t_source": 1789834274.422442,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 133,
+            "t_source": 1789834275.4224868,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 134,
+            "t_source": 1789834276.4225662,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 135,
+            "t_source": 1789834277.422601,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 0
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s3",
+        "pair": "log_first-854e0864",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-854e0864",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834283.828708,
+          "t_post_wall": 1789834283.8287082,
+          "post": {
+            "cid": "114b4a99-92da-4055-aa33-0c67dc662341",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.200347998994403
+          },
+          "t_decide_wall": 1789834283.8285434
+        },
+        "revert": {
+          "pair": "log_first-854e0864",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834303.8582551,
+          "t_post_wall": 1789834303.8582554,
+          "post": {
+            "cid": "f87b1d96-9557-4bd1-a658-5fd0678dc8d6",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.350410000915872
+          },
+          "t_decide_wall": 1789834303.8580916
+        },
+        "window_wall": [
+          1789834283.8285434,
+          1789834321.8580916
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 142,
+            "t_source": 1789834284.423137,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 143,
+            "t_source": 1789834285.4232066,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 144,
+            "t_source": 1789834286.4232876,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 145,
+            "t_source": 1789834287.423362,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 146,
+            "t_source": 1789834288.4234247,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 147,
+            "t_source": 1789834289.4234731,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 148,
+            "t_source": 1789834290.4235532,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 149,
+            "t_source": 1789834291.4236314,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 150,
+            "t_source": 1789834292.4237165,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 151,
+            "t_source": 1789834293.423801,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 152,
+            "t_source": 1789834294.4238505,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 153,
+            "t_source": 1789834295.4239357,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 154,
+            "t_source": 1789834296.4240131,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 155,
+            "t_source": 1789834297.4240944,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 156,
+            "t_source": 1789834298.4241667,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 157,
+            "t_source": 1789834299.4242465,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 158,
+            "t_source": 1789834300.4242961,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 159,
+            "t_source": 1789834301.4243832,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 160,
+            "t_source": 1789834302.4244363,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 161,
+            "t_source": 1789834303.4245205,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 162,
+            "t_source": 1789834304.4246075,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 163,
+            "t_source": 1789834305.424689,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 164,
+            "t_source": 1789834306.4247212,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 165,
+            "t_source": 1789834307.424753,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 166,
+            "t_source": 1789834308.4248242,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 167,
+            "t_source": 1789834309.4249065,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 168,
+            "t_source": 1789834310.4249964,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 169,
+            "t_source": 1789834311.4250824,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 170,
+            "t_source": 1789834312.425152,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 171,
+            "t_source": 1789834313.425225,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 172,
+            "t_source": 1789834314.4252992,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 173,
+            "t_source": 1789834315.4253778,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 174,
+            "t_source": 1789834316.4254599,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 175,
+            "t_source": 1789834317.4255378,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 176,
+            "t_source": 1789834318.4256237,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 177,
+            "t_source": 1789834319.425695,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 178,
+            "t_source": 1789834320.4257755,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 179,
+            "t_source": 1789834321.425857,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 1
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s3",
+        "pair": "log_late-49c5e01b",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-49c5e01b",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_late",
+          "t_post_wall": 1789834328.101998,
+          "post": {
+            "cid": "f02e05f0-b3a2-488a-9d44-44b166e12492",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 26.262192001013318
+          },
+          "late_after_seq": 186,
+          "t_log_wall": 1789834328.5294273,
+          "t_decide_wall": 1789834328.101997
+        },
+        "revert": {
+          "pair": "log_late-49c5e01b",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834348.5296667,
+          "t_post_wall": 1789834348.5296671,
+          "post": {
+            "cid": "2ecb306c-cd6a-4cee-b146-0f3a856b15fd",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.935361002164427
+          },
+          "t_decide_wall": 1789834348.529507
+        },
+        "window_wall": [
+          1789834328.101997,
+          1789834366.529507
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 0,
+          "alarm_entries": 1,
+          "env_alarm": 1,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 186,
+            "t_source": 1789834328.4264014,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 187,
+            "t_source": 1789834329.426483,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 188,
+            "t_source": 1789834330.4265585,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 189,
+            "t_source": 1789834331.4266,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 190,
+            "t_source": 1789834332.4266744,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 191,
+            "t_source": 1789834333.4267418,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 192,
+            "t_source": 1789834334.4268208,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 193,
+            "t_source": 1789834335.4269001,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 194,
+            "t_source": 1789834336.426977,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 195,
+            "t_source": 1789834337.42703,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 196,
+            "t_source": 1789834338.427109,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 197,
+            "t_source": 1789834339.4271898,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 198,
+            "t_source": 1789834340.4272816,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 199,
+            "t_source": 1789834341.4273622,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 200,
+            "t_source": 1789834342.4274411,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 201,
+            "t_source": 1789834343.4275017,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 202,
+            "t_source": 1789834344.4275467,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 203,
+            "t_source": 1789834345.4276152,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 204,
+            "t_source": 1789834346.427658,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 205,
+            "t_source": 1789834347.4277399,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 206,
+            "t_source": 1789834348.4278252,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 207,
+            "t_source": 1789834349.4278708,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 208,
+            "t_source": 1789834350.4279644,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 209,
+            "t_source": 1789834351.4279895,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 210,
+            "t_source": 1789834352.4280372,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 211,
+            "t_source": 1789834353.4281154,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 212,
+            "t_source": 1789834354.428174,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 213,
+            "t_source": 1789834355.428237,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 214,
+            "t_source": 1789834356.428299,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 215,
+            "t_source": 1789834357.4283776,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 216,
+            "t_source": 1789834358.4284446,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 217,
+            "t_source": 1789834359.4284928,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 218,
+            "t_source": 1789834360.4285414,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 219,
+            "t_source": 1789834361.4286182,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 220,
+            "t_source": 1789834362.4286983,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 221,
+            "t_source": 1789834363.4287794,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 222,
+            "t_source": 1789834364.428863,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 223,
+            "t_source": 1789834365.428944,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 224,
+            "t_source": 1789834366.4290204,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 1
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-bf513d6f",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-bf513d6f",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834373.1129305,
+          "post": {
+            "cid": "0c439214-f327-42e0-a37f-261a420c540e",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 24.504641998646548
+          },
+          "t_decide_wall": 1789834373.1129296
+        },
+        "revert": {
+          "pair": "no_log-bf513d6f",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834393.1376135,
+          "post": {
+            "cid": "2e38ffb8-d046-41c8-a6e2-edeecf3631aa",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 30.33422099906602
+          },
+          "t_decide_wall": 1789834393.1376116
+        },
+        "window_wall": [
+          1789834373.1129296,
+          1789834411.1376116
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "ticks": [
+          {
+            "seq": 231,
+            "t_source": 1789834373.4294944,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 232,
+            "t_source": 1789834374.429538,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 233,
+            "t_source": 1789834375.4296193,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 234,
+            "t_source": 1789834376.4296985,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 235,
+            "t_source": 1789834377.4297814,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 236,
+            "t_source": 1789834378.4298244,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 237,
+            "t_source": 1789834379.4299085,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 238,
+            "t_source": 1789834380.4299903,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 239,
+            "t_source": 1789834381.4300818,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 240,
+            "t_source": 1789834382.4301627,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 241,
+            "t_source": 1789834383.4302485,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 242,
+            "t_source": 1789834384.43029,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 243,
+            "t_source": 1789834385.4303486,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 244,
+            "t_source": 1789834386.4304078,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 245,
+            "t_source": 1789834387.4304852,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 246,
+            "t_source": 1789834388.4305298,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 247,
+            "t_source": 1789834389.4306111,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 248,
+            "t_source": 1789834390.4306617,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 249,
+            "t_source": 1789834391.4307413,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 250,
+            "t_source": 1789834392.4308205,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 251,
+            "t_source": 1789834393.430897,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 252,
+            "t_source": 1789834394.430963,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 253,
+            "t_source": 1789834395.4310422,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 254,
+            "t_source": 1789834396.4311237,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 255,
+            "t_source": 1789834397.431162,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 256,
+            "t_source": 1789834398.4312046,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 257,
+            "t_source": 1789834399.43124,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 258,
+            "t_source": 1789834400.4313004,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 259,
+            "t_source": 1789834401.4313805,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 260,
+            "t_source": 1789834402.431453,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 261,
+            "t_source": 1789834403.4315243,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 262,
+            "t_source": 1789834404.4315991,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 263,
+            "t_source": 1789834405.431681,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 264,
+            "t_source": 1789834406.4317129,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 265,
+            "t_source": 1789834407.4317803,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 266,
+            "t_source": 1789834408.4318595,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 267,
+            "t_source": 1789834409.4319422,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 268,
+            "t_source": 1789834410.4320014,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 1
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-146aa092",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-146aa092",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834417.5492442,
+          "post": {
+            "cid": "2573398f-234f-4397-bc69-f53862b01c36",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 28.79957199911587
+          },
+          "t_decide_wall": 1789834417.549243
+        },
+        "revert": {
+          "pair": "no_log-146aa092",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834437.5782366,
+          "post": {
+            "cid": "f7c5b3d8-a947-40de-872b-a126dfd109b7",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.252137999719707
+          },
+          "t_decide_wall": 1789834437.5782354
+        },
+        "window_wall": [
+          1789834417.549243,
+          1789834455.5782354
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "env_alarm": 21,
+          "held": 2,
+          "normal": 15
+        },
+        "ticks": [
+          {
+            "seq": 276,
+            "t_source": 1789834418.4325597,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 277,
+            "t_source": 1789834419.4326384,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 278,
+            "t_source": 1789834420.432711,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 279,
+            "t_source": 1789834421.432807,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 280,
+            "t_source": 1789834422.4328556,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 281,
+            "t_source": 1789834423.4329405,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 282,
+            "t_source": 1789834424.432992,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 283,
+            "t_source": 1789834425.4330728,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 284,
+            "t_source": 1789834426.4331176,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 285,
+            "t_source": 1789834427.4331915,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 286,
+            "t_source": 1789834428.4332767,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 287,
+            "t_source": 1789834429.4332998,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 288,
+            "t_source": 1789834430.4333582,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 289,
+            "t_source": 1789834431.4334295,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 290,
+            "t_source": 1789834432.4335134,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 291,
+            "t_source": 1789834433.4335883,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 292,
+            "t_source": 1789834434.433674,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 293,
+            "t_source": 1789834435.4337559,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 294,
+            "t_source": 1789834436.433801,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 295,
+            "t_source": 1789834437.433881,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 296,
+            "t_source": 1789834438.4339607,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 297,
+            "t_source": 1789834439.434046,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 298,
+            "t_source": 1789834440.4340923,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 299,
+            "t_source": 1789834441.4341774,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 300,
+            "t_source": 1789834442.434259,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 301,
+            "t_source": 1789834443.4342978,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 302,
+            "t_source": 1789834444.4343643,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 303,
+            "t_source": 1789834445.4344506,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 304,
+            "t_source": 1789834446.43453,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 305,
+            "t_source": 1789834447.434611,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 306,
+            "t_source": 1789834448.4347003,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 307,
+            "t_source": 1789834449.4347823,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 308,
+            "t_source": 1789834450.4348655,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 309,
+            "t_source": 1789834451.4349296,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 310,
+            "t_source": 1789834452.435009,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 311,
+            "t_source": 1789834453.4350922,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 312,
+            "t_source": 1789834454.4351654,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 313,
+            "t_source": 1789834455.4352593,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 2
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s2",
+        "pair": "log_first-858008ee",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-858008ee",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834461.8141336,
+          "t_post_wall": 1789834461.8141346,
+          "post": {
+            "cid": "b915ee26-66a9-4982-a294-59f6b87e3ca2",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 33.52179799912847
+          },
+          "t_decide_wall": 1789834461.8139293
+        },
+        "revert": {
+          "pair": "log_first-858008ee",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834481.8479612,
+          "t_post_wall": 1789834481.8479614,
+          "post": {
+            "cid": "69e5d142-1ced-4035-8ff1-6417e3e7c98d",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.823452001437545
+          },
+          "t_decide_wall": 1789834481.8478403
+        },
+        "window_wall": [
+          1789834461.8139293,
+          1789834499.8478403
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 320,
+            "t_source": 1789834462.435783,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 321,
+            "t_source": 1789834463.4358683,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 322,
+            "t_source": 1789834464.4359505,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 323,
+            "t_source": 1789834465.436028,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 324,
+            "t_source": 1789834466.4360826,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 325,
+            "t_source": 1789834467.4361184,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 326,
+            "t_source": 1789834468.4362,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 327,
+            "t_source": 1789834469.436234,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 328,
+            "t_source": 1789834470.4363015,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 329,
+            "t_source": 1789834471.436366,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 330,
+            "t_source": 1789834472.4364483,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 331,
+            "t_source": 1789834473.4365337,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 332,
+            "t_source": 1789834474.4366229,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 333,
+            "t_source": 1789834475.4367025,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 334,
+            "t_source": 1789834476.436793,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 335,
+            "t_source": 1789834477.4368587,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 336,
+            "t_source": 1789834478.4369419,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 337,
+            "t_source": 1789834479.4370162,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 338,
+            "t_source": 1789834480.4370904,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 339,
+            "t_source": 1789834481.437184,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 340,
+            "t_source": 1789834482.4372227,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 341,
+            "t_source": 1789834483.437295,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 342,
+            "t_source": 1789834484.4373744,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 343,
+            "t_source": 1789834485.4374583,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 344,
+            "t_source": 1789834486.4375286,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 345,
+            "t_source": 1789834487.4376242,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 346,
+            "t_source": 1789834488.4376986,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 347,
+            "t_source": 1789834489.4377766,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 348,
+            "t_source": 1789834490.4378486,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 349,
+            "t_source": 1789834491.4379246,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 350,
+            "t_source": 1789834492.438002,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 351,
+            "t_source": 1789834493.4380581,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 352,
+            "t_source": 1789834494.4381347,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 353,
+            "t_source": 1789834495.4381795,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 354,
+            "t_source": 1789834496.4382768,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 355,
+            "t_source": 1789834497.43829,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 356,
+            "t_source": 1789834498.4383721,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 357,
+            "t_source": 1789834499.4384282,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 2
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s3",
+        "pair": "log_late-07e0725c",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-07e0725c",
+          "kind": "inject",
+          "link": "s1-s3",
+          "mode": "log_late",
+          "t_post_wall": 1789834506.8430889,
+          "post": {
+            "cid": "e43bc883-ceec-4107-93c5-578c2c048e58",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 24.923550998209976
+          },
+          "late_after_seq": 365,
+          "t_log_wall": 1789834507.520139,
+          "t_decide_wall": 1789834506.8430877
+        },
+        "revert": {
+          "pair": "log_late-07e0725c",
+          "kind": "revert",
+          "link": "s1-s3",
+          "mode": "log_first",
+          "t_log_wall": 1789834527.5204325,
+          "t_post_wall": 1789834527.5204327,
+          "post": {
+            "cid": "839894ac-c23b-4bbf-b699-69701ffe9334",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s3",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.43479999844567
+          },
+          "t_decide_wall": 1789834527.5202706
+        },
+        "window_wall": [
+          1789834506.8430877,
+          1789834545.5202706
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 0,
+          "alarm_entries": 1,
+          "env_alarm": 1,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 365,
+            "t_source": 1789834507.43888,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 366,
+            "t_source": 1789834508.4389572,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 367,
+            "t_source": 1789834509.4390397,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 368,
+            "t_source": 1789834510.4391112,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 369,
+            "t_source": 1789834511.4392195,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 370,
+            "t_source": 1789834512.4393084,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 371,
+            "t_source": 1789834513.4393642,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 372,
+            "t_source": 1789834514.4394393,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 373,
+            "t_source": 1789834515.4395216,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 374,
+            "t_source": 1789834516.439599,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 375,
+            "t_source": 1789834517.4396667,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 376,
+            "t_source": 1789834518.4398015,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 377,
+            "t_source": 1789834519.4398808,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 378,
+            "t_source": 1789834520.4399586,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 379,
+            "t_source": 1789834521.4400363,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 380,
+            "t_source": 1789834522.4401097,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 381,
+            "t_source": 1789834523.4401944,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 382,
+            "t_source": 1789834524.440289,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 383,
+            "t_source": 1789834525.4403691,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 384,
+            "t_source": 1789834526.4404638,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 385,
+            "t_source": 1789834527.4405425,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 386,
+            "t_source": 1789834528.4406276,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 387,
+            "t_source": 1789834529.4406993,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 388,
+            "t_source": 1789834530.4407787,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 389,
+            "t_source": 1789834531.4408634,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 390,
+            "t_source": 1789834532.440943,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 391,
+            "t_source": 1789834533.441016,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 392,
+            "t_source": 1789834534.4410965,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 393,
+            "t_source": 1789834535.4411871,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 394,
+            "t_source": 1789834536.4412878,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 395,
+            "t_source": 1789834537.441365,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 396,
+            "t_source": 1789834538.4414263,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 397,
+            "t_source": 1789834539.4415064,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 398,
+            "t_source": 1789834540.4415867,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 399,
+            "t_source": 1789834541.4416664,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 400,
+            "t_source": 1789834542.4417455,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 401,
+            "t_source": 1789834543.4418297,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 402,
+            "t_source": 1789834544.4419007,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 403,
+            "t_source": 1789834545.4419837,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 2
+      },
+      {
+        "mode": "log_late",
+        "link": "s1-s2",
+        "pair": "log_late-ddbd42ba",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_late-ddbd42ba",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_late",
+          "t_post_wall": 1789834552.4219906,
+          "post": {
+            "cid": "b6444748-f015-45c6-83a0-695fec6664ea",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 25.42997899945476
+          },
+          "late_after_seq": 410,
+          "t_log_wall": 1789834552.5481088,
+          "t_decide_wall": 1789834552.4219897
+        },
+        "revert": {
+          "pair": "log_late-ddbd42ba",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834572.5483594,
+          "t_post_wall": 1789834572.5483599,
+          "post": {
+            "cid": "d2cb1603-97a5-4285-aa98-1a543e9dafcd",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 28.983784999581985
+          },
+          "t_decide_wall": 1789834572.5481849
+        },
+        "window_wall": [
+          1789834552.4219897,
+          1789834590.5481849
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 0,
+          "alarm_entries": 1,
+          "env_alarm": 1,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 410,
+            "t_source": 1789834552.4425173,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 411,
+            "t_source": 1789834553.4425533,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 412,
+            "t_source": 1789834554.4426298,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 413,
+            "t_source": 1789834555.4427125,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 414,
+            "t_source": 1789834556.4427915,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 415,
+            "t_source": 1789834557.4428911,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 416,
+            "t_source": 1789834558.4429748,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 417,
+            "t_source": 1789834559.443052,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 418,
+            "t_source": 1789834560.4431365,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 419,
+            "t_source": 1789834561.4432046,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 420,
+            "t_source": 1789834562.4432893,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 421,
+            "t_source": 1789834563.4433808,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 422,
+            "t_source": 1789834564.4434206,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 423,
+            "t_source": 1789834565.443479,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 424,
+            "t_source": 1789834566.443552,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 425,
+            "t_source": 1789834567.4436438,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 426,
+            "t_source": 1789834568.443725,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 427,
+            "t_source": 1789834569.4438026,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 428,
+            "t_source": 1789834570.4438906,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 429,
+            "t_source": 1789834571.443975,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 430,
+            "t_source": 1789834572.4440243,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 431,
+            "t_source": 1789834573.444111,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 432,
+            "t_source": 1789834574.4441879,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 433,
+            "t_source": 1789834575.4442735,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 434,
+            "t_source": 1789834576.4443436,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 435,
+            "t_source": 1789834577.4444215,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 436,
+            "t_source": 1789834578.4444764,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 437,
+            "t_source": 1789834579.4445348,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 438,
+            "t_source": 1789834580.4446132,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 439,
+            "t_source": 1789834581.4446955,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 440,
+            "t_source": 1789834582.4447706,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 441,
+            "t_source": 1789834583.4448516,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 442,
+            "t_source": 1789834584.444922,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 443,
+            "t_source": 1789834585.4449651,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 444,
+            "t_source": 1789834586.4450464,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 445,
+            "t_source": 1789834587.4450994,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 446,
+            "t_source": 1789834588.4451785,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 447,
+            "t_source": 1789834589.4452515,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 448,
+            "t_source": 1789834590.4453006,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 3
+      },
+      {
+        "mode": "no_log",
+        "link": "s1-s2",
+        "pair": "no_log-62851277",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "no_log-62851277",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834597.4399602,
+          "post": {
+            "cid": "6b36f5f8-cb8f-4315-b277-159bf96c7e7f",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 27.734290997614153
+          },
+          "t_decide_wall": 1789834597.4399593
+        },
+        "revert": {
+          "pair": "no_log-62851277",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "no_log",
+          "t_post_wall": 1789834617.4678817,
+          "post": {
+            "cid": "77661c51-5e7c-454c-8974-80bd50687dc8",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.76390899857506
+          },
+          "t_decide_wall": 1789834617.4678805
+        },
+        "window_wall": [
+          1789834597.4399593,
+          1789834635.4678805
+        ],
+        "counts": {
+          "ticks": 39,
+          "act_entries": 1,
+          "alarm_entries": 1,
+          "normal": 16,
+          "env_alarm": 21,
+          "held": 2
+        },
+        "ticks": [
+          {
+            "seq": 455,
+            "t_source": 1789834597.445765,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 456,
+            "t_source": 1789834598.4458547,
+            "fsm": "suspect",
+            "published": "suspect",
+            "cause": "",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 457,
+            "t_source": 1789834599.4459136,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 458,
+            "t_source": 1789834600.445996,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 459,
+            "t_source": 1789834601.446074,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 460,
+            "t_source": 1789834602.4461153,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 461,
+            "t_source": 1789834603.4461954,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 462,
+            "t_source": 1789834604.4462337,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 463,
+            "t_source": 1789834605.446289,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 464,
+            "t_source": 1789834606.446361,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 465,
+            "t_source": 1789834607.4464293,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 466,
+            "t_source": 1789834608.4464993,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 467,
+            "t_source": 1789834609.446589,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 468,
+            "t_source": 1789834610.446671,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 469,
+            "t_source": 1789834611.4467163,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 470,
+            "t_source": 1789834612.446785,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 471,
+            "t_source": 1789834613.4468665,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 472,
+            "t_source": 1789834614.4469504,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 473,
+            "t_source": 1789834615.447046,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 474,
+            "t_source": 1789834616.447121,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 475,
+            "t_source": 1789834617.4472039,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 476,
+            "t_source": 1789834618.4473014,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 477,
+            "t_source": 1789834619.4473817,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 478,
+            "t_source": 1789834620.4474626,
+            "fsm": "act",
+            "published": "act",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 479,
+            "t_source": 1789834621.4475465,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 480,
+            "t_source": 1789834622.4476318,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 481,
+            "t_source": 1789834623.4477172,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 482,
+            "t_source": 1789834624.447793,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 483,
+            "t_source": 1789834625.447883,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 484,
+            "t_source": 1789834626.4479716,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 485,
+            "t_source": 1789834627.4480534,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 486,
+            "t_source": 1789834628.4481337,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 487,
+            "t_source": 1789834629.448217,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 488,
+            "t_source": 1789834630.4482949,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 489,
+            "t_source": 1789834631.4483778,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 490,
+            "t_source": 1789834632.4484184,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 491,
+            "t_source": 1789834633.448495,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 492,
+            "t_source": 1789834634.448577,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 493,
+            "t_source": 1789834635.44865,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 3
+      },
+      {
+        "mode": "log_first",
+        "link": "s1-s2",
+        "pair": "log_first-9cc2ab27",
+        "started_from_normal": true,
+        "inject": {
+          "pair": "log_first-9cc2ab27",
+          "kind": "inject",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834642.1224713,
+          "t_post_wall": 1789834642.1224723,
+          "post": {
+            "cid": "ee856835-b70b-4eab-83a7-c4fa8d5d6d45",
+            "subject": "disableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 25.46271000028355
+          },
+          "t_decide_wall": 1789834642.122245
+        },
+        "revert": {
+          "pair": "log_first-9cc2ab27",
+          "kind": "revert",
+          "link": "s1-s2",
+          "mode": "log_first",
+          "t_log_wall": 1789834662.1482806,
+          "t_post_wall": 1789834662.148281,
+          "post": {
+            "cid": "15d1db00-c72c-4bbb-a0e5-7f429b7a4abe",
+            "subject": "enableLink",
+            "target": "org.dt4n:link-s1-s2",
+            "params": {},
+            "http_status": 202,
+            "post_error": null,
+            "post_ms": 29.689286999200704
+          },
+          "t_decide_wall": 1789834662.1481256
+        },
+        "window_wall": [
+          1789834642.122245,
+          1789834680.1481256
+        ],
+        "counts": {
+          "ticks": 38,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "suppressed": 21,
+          "normal": 17
+        },
+        "ticks": [
+          {
+            "seq": 500,
+            "t_source": 1789834642.4491704,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": true,
+            "act_rule": true
+          },
+          {
+            "seq": 501,
+            "t_source": 1789834643.4492538,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 502,
+            "t_source": 1789834644.4493313,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 503,
+            "t_source": 1789834645.449405,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 504,
+            "t_source": 1789834646.44947,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 505,
+            "t_source": 1789834647.4502933,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 506,
+            "t_source": 1789834648.4503736,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 507,
+            "t_source": 1789834649.4504519,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 508,
+            "t_source": 1789834650.4505312,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 509,
+            "t_source": 1789834651.4506197,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 510,
+            "t_source": 1789834652.4507,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 511,
+            "t_source": 1789834653.4507718,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 512,
+            "t_source": 1789834654.4508517,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 513,
+            "t_source": 1789834655.450933,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 514,
+            "t_source": 1789834656.4510224,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 515,
+            "t_source": 1789834657.4511006,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 516,
+            "t_source": 1789834658.4511476,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 517,
+            "t_source": 1789834659.4512117,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 518,
+            "t_source": 1789834660.451298,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 519,
+            "t_source": 1789834661.4513726,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": true
+          },
+          {
+            "seq": 520,
+            "t_source": 1789834662.4514477,
+            "fsm": "unknown",
+            "published": "unknown",
+            "cause": "suppressed_intervention",
+            "envelope": true,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 521,
+            "t_source": 1789834663.4515326,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 522,
+            "t_source": 1789834664.4516087,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 523,
+            "t_source": 1789834665.4516952,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 524,
+            "t_source": 1789834666.4517663,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 525,
+            "t_source": 1789834667.4518418,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 526,
+            "t_source": 1789834668.4519398,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 527,
+            "t_source": 1789834669.4520268,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 528,
+            "t_source": 1789834670.4521008,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 529,
+            "t_source": 1789834671.4521344,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 530,
+            "t_source": 1789834672.4521713,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 531,
+            "t_source": 1789834673.4522374,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 532,
+            "t_source": 1789834674.4522882,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 533,
+            "t_source": 1789834675.452354,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 534,
+            "t_source": 1789834676.4524255,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 535,
+            "t_source": 1789834677.452487,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 536,
+            "t_source": 1789834678.452547,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          },
+          {
+            "seq": 537,
+            "t_source": 1789834679.4526067,
+            "fsm": "normal",
+            "published": "normal",
+            "cause": "",
+            "envelope": false,
+            "conservation": false,
+            "act_rule": false
+          }
+        ],
+        "rep": 3
+      }
+    ],
+    "log_counts": {
+      "WARNING": 2
+    },
+    "first_errors": []
+  },
+  "content_sha256": "faf6a6400413fbf8c0d3e5ff665250907688bbd468b5f799cad7e094c377b50b",
+  "written_at_utc": "2026-09-19T16:20:11+00:00"
+}

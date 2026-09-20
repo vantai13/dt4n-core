@@ -1,0 +1,22 @@
+{
+  "content": {
+    "steps": {
+      "s12": {
+        "cmd": [
+          "scripts/measure_phase7_s12_live.py",
+          "--trials",
+          "20"
+        ],
+        "rc": 1,
+        "started_utc": "2026-09-19T15:58:10+00:00",
+        "minutes": 0.3,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {}
+      }
+    },
+    "frozen_commit": "9917e07d7a594792caea191661b733e0ec87a11d"
+  },
+  "content_sha256": "c5c10d9b21c4e1ff7e729bd48d0d2464c21aab37d3c54778e078894a11faa1ee",
+  "written_at_utc": "2026-09-19T15:58:31+00:00"
+}

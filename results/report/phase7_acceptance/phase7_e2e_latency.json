@@ -1,0 +1,1041 @@
+{
+  "content": {
+    "lesson": "7.5",
+    "git_hash": "9917e07d7a594792caea191661b733e0ec87a11d",
+    "seed": 7005,
+    "event": "flood h1->srv1 47M",
+    "clock_bridge": {
+      "start": {
+        "offset_s": 19502.713463949,
+        "error_bound_ms": 0.3525419997458812,
+        "rtt_min_ms": 0.7050839994917624,
+        "rtt_median_ms": 1.320929000939941,
+        "n": 31
+      },
+      "end": {
+        "offset_s": 19502.7134709465,
+        "error_bound_ms": 0.33677250030450523,
+        "rtt_min_ms": 0.6735450006090105,
+        "rtt_median_ms": 0.7429679972119629,
+        "n": 31
+      },
+      "drift_ms": 0.006997499440331012
+    },
+    "n_trials": 25,
+    "n_detected": 25,
+    "warmup_excluded": [
+      0
+    ],
+    "layers": {
+      "phys_obs": {
+        "n": 25,
+        "mean_ms": 1116.1095985602878,
+        "p50_ms": 1208.7608410001849,
+        "p95_ms": 1497.4749020002491,
+        "p99_ms": 1595.0751529999252,
+        "max_ms": 1595.0751529999252,
+        "min_ms": 606.102371999441
+      },
+      "detect": {
+        "n": 25,
+        "mean_ms": 1.350724719959544,
+        "p50_ms": 1.3001669976802077,
+        "p95_ms": 1.6713039985916112,
+        "p99_ms": 1.7139910014520865,
+        "max_ms": 1.7139910014520865,
+        "min_ms": 1.004802998068044
+      },
+      "mailbox": {
+        "n": 25,
+        "mean_ms": 0.6213166001543868,
+        "p50_ms": 0.550900000234833,
+        "p95_ms": 0.8142650003719609,
+        "p99_ms": 0.8301480011141393,
+        "max_ms": 0.8301480011141393,
+        "min_ms": 0.43895999988308176
+      },
+      "write_2xx": {
+        "n": 25,
+        "mean_ms": 7.403725320036756,
+        "p50_ms": 7.251850998727605,
+        "p95_ms": 8.02909800040652,
+        "p99_ms": 10.189706001256127,
+        "max_ms": 10.189706001256127,
+        "min_ms": 6.974223997531226
+      },
+      "fanout_sse": {
+        "n": 25,
+        "mean_ms": 7.4173407786292955,
+        "p50_ms": 7.271445498190587,
+        "p95_ms": 8.097118497971678,
+        "p99_ms": 10.21425749786431,
+        "max_ms": 10.21425749786431,
+        "min_ms": 6.986053496802924
+      },
+      "vue_flush": {
+        "n": 25,
+        "mean_ms": 3.8360000001557637,
+        "p50_ms": 3.700000001117587,
+        "p95_ms": 4.600000000209548,
+        "p99_ms": 5.699999997887062,
+        "max_ms": 5.699999997887062,
+        "min_ms": 3.1000000017229468
+      },
+      "paint": {
+        "n": 25,
+        "mean_ms": 24.211999999388354,
+        "p50_ms": 24.70000000175787,
+        "p95_ms": 30.900000001565786,
+        "p99_ms": 31.799999997019768,
+        "max_ms": 31.799999997019768,
+        "min_ms": 16.399999996792758
+      }
+    },
+    "budgets": {
+      "s4_like_from_cmd": {
+        "n": 25,
+        "mean_ms": 1460.1415881198773,
+        "p50_ms": 1557.5340350005717,
+        "p95_ms": 1836.506993000512,
+        "p99_ms": 1937.1640799981833,
+        "max_ms": 1937.1640799981833,
+        "min_ms": 947.9195290005009
+      },
+      "twin_ui": {
+        "n": 25,
+        "mean_ms": 36.0866573783278,
+        "p50_ms": 37.2181914972316,
+        "p95_ms": 43.08805050095543,
+        "p99_ms": 43.18111849715933,
+        "max_ms": 43.18111849715933,
+        "min_ms": 28.060560496669495
+      },
+      "e2e_from_event": {
+        "n": 25,
+        "mean_ms": 1153.5469806585752,
+        "p50_ms": 1240.1665414981835,
+        "p95_ms": 1535.1023254988831,
+        "p99_ms": 1633.9771215025394,
+        "max_ms": 1633.9771215025394,
+        "min_ms": 645.2320054959273
+      },
+      "e2e_from_cmd": {
+        "n": 25,
+        "mean_ms": 1496.228245498205,
+        "p50_ms": 1587.272260498139,
+        "p95_ms": 1873.0598274996737,
+        "p99_ms": 1974.4754634994024,
+        "max_ms": 1974.4754634994024,
+        "min_ms": 985.4747844947269
+      },
+      "inject_cmd": {
+        "n": 25,
+        "mean_ms": 342.6812648396299,
+        "p50_ms": 337.95750200079056,
+        "p95_ms": 369.80793199836626,
+        "p99_ms": 401.53126399673056,
+        "max_ms": 401.53126399673056,
+        "min_ms": 334.76183399761794
+      }
+    },
+    "verdict_p95": {
+      "s4_like_from_cmd": true,
+      "twin_ui": true,
+      "e2e_from_event": true
+    },
+    "randomization": {
+      "inject_phase_sorted": [
+        0.058,
+        0.068,
+        0.166,
+        0.219,
+        0.256,
+        0.266,
+        0.288,
+        0.296,
+        0.331,
+        0.332,
+        0.347,
+        0.436,
+        0.443,
+        0.448,
+        0.477,
+        0.544,
+        0.569,
+        0.75,
+        0.791,
+        0.802,
+        0.833,
+        0.891,
+        0.968,
+        0.992,
+        0.993
+      ],
+      "inject_offset_s_sorted": [
+        0.058,
+        0.068,
+        0.166,
+        0.219,
+        0.256,
+        0.266,
+        0.288,
+        0.296,
+        0.331,
+        0.332,
+        0.347,
+        0.436,
+        0.443,
+        0.448,
+        0.477,
+        0.544,
+        0.569,
+        0.75,
+        0.791,
+        0.802,
+        0.833,
+        0.891,
+        0.968,
+        0.992,
+        0.993
+      ],
+      "definition": "v2: (tA - t_in previous tick) mod nominal 1.0 s",
+      "quartile_counts": [
+        4,
+        11,
+        3,
+        7
+      ]
+    },
+    "tick_dt_across_inject": {
+      "n": 25,
+      "mean_ms": 1166.3367591999122,
+      "p50_ms": 1003.4417870010657,
+      "p95_ms": 2001.466245001211,
+      "p99_ms": 2001.8204119987786,
+      "max_ms": 2001.8204119987786,
+      "min_ms": 996.1555289992248
+    },
+    "max_consecutive_dt": {
+      "n": 25,
+      "mean_ms": 1046.4250248399912,
+      "p50_ms": 1002.9209920030553,
+      "p95_ms": 1240.7989359999192,
+      "p99_ms": 1296.3134659985371,
+      "max_ms": 1296.3134659985371,
+      "min_ms": 996.1555289992248
+    },
+    "ticks_inside_cmd_total": 3,
+    "conflated_trials": 0,
+    "rows": [
+      {
+        "trial": 0,
+        "warmup": true,
+        "detected": true,
+        "inject_phase": 0.48520971832299875,
+        "tick_dt_across_inject_ms": 997.8273449996777,
+        "inject_offset_s": 0.4841555250022793,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 997.8273449996777,
+        "seq_alarm": 6,
+        "seq_written": 6,
+        "seq_shown": 6,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1175.4000389992143,
+          "detect": 1.5925580009934492,
+          "mailbox": 0.8244809978350531,
+          "write_2xx": 7.574703002319438,
+          "fanout_sse": 7.46522850022302,
+          "vue_flush": 5.700000001525041,
+          "paint": 29.89999999772408
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1515.1792659999046,
+          "twin_ui": 43.889709497307194,
+          "e2e_from_event": 1220.882306497515,
+          "e2e_from_cmd": 1559.0689754972118,
+          "inject_cmd": 338.18666899969685
+        }
+      },
+      {
+        "trial": 1,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.2874114599079607,
+        "tick_dt_across_inject_ms": 1001.0422899977129,
+        "inject_offset_s": 0.2877110259978508,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1001.0422899977129,
+        "seq_alarm": 21,
+        "seq_written": 21,
+        "seq_shown": 21,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1377.9071500030113,
+          "detect": 1.3001669976802077,
+          "mailbox": 0.550900000234833,
+          "write_2xx": 7.352693999564508,
+          "fanout_sse": 7.274652500200318,
+          "vue_flush": 4.199999999400461,
+          "paint": 28.800000000046566
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1715.8440130006056,
+          "twin_ui": 40.82555249988218,
+          "e2e_from_event": 1420.0328695005737,
+          "e2e_from_cmd": 1756.6695655004878,
+          "inject_cmd": 336.6366959999141
+        }
+      },
+      {
+        "trial": 2,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.06799698151236976,
+        "tick_dt_across_inject_ms": 1002.6806850000867,
+        "inject_offset_s": 0.06817926000076113,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1002.6806850000867,
+        "seq_alarm": 35,
+        "seq_written": 35,
+        "seq_shown": 35,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1595.0751529999252,
+          "detect": 1.590585001395084,
+          "mailbox": 0.8142650003719609,
+          "write_2xx": 8.02909800040652,
+          "fanout_sse": 8.097118497971678,
+          "vue_flush": 3.700000001117587,
+          "paint": 24.70000000175787
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1937.1640799981833,
+          "twin_ui": 37.3113835012191,
+          "e2e_from_event": 1633.9771215025394,
+          "e2e_from_cmd": 1974.4754634994024,
+          "inject_cmd": 340.498341996863
+        }
+      },
+      {
+        "trial": 3,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6465118929814627,
+        "tick_dt_across_inject_ms": 1159.5878160005668,
+        "inject_offset_s": 0.7496873140007665,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1159.5878160005668,
+        "seq_alarm": 48,
+        "seq_written": 48,
+        "seq_shown": 48,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 916.8490500014741,
+          "detect": 1.6713039985916112,
+          "mailbox": 0.8017260006454308,
+          "write_2xx": 7.428003998938948,
+          "fanout_sse": 7.400753500405699,
+          "vue_flush": 3.599999996367842,
+          "paint": 23.700000001554145
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1256.5246890007984,
+          "twin_ui": 35.502479498973116,
+          "e2e_from_event": 954.0228334990388,
+          "e2e_from_cmd": 1292.0271684997715,
+          "inject_cmd": 338.0043350007327
+        }
+      },
+      {
+        "trial": 4,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4960121738958521,
+        "tick_dt_across_inject_ms": 2000.8141759972204,
+        "inject_offset_s": 0.9924281889980193,
+        "ticks_inside_cmd": 1,
+        "max_consecutive_dt_ms": 1000.7067429978633,
+        "seq_alarm": 62,
+        "seq_written": 62,
+        "seq_shown": 62,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 662.4090799996338,
+          "detect": 1.2761940015479922,
+          "mailbox": 0.7802340005582664,
+          "write_2xx": 7.218353999633109,
+          "fanout_sse": 7.205530499049928,
+          "vue_flush": 3.6000000000058208,
+          "paint": 25.69999999832362
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1009.6621810007491,
+          "twin_ui": 37.285764497937635,
+          "e2e_from_event": 700.9710384991195,
+          "e2e_from_cmd": 1046.9479454986867,
+          "inject_cmd": 345.9769069995673
+        }
+      },
+      {
+        "trial": 5,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.2958964461080991,
+        "tick_dt_across_inject_ms": 1001.2077600003977,
+        "inject_offset_s": 0.2962538179999683,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1001.2077600003977,
+        "seq_alarm": 75,
+        "seq_written": 75,
+        "seq_shown": 75,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1365.1623549994838,
+          "detect": 1.2952840006619226,
+          "mailbox": 0.49959199895965867,
+          "write_2xx": 7.171099001425318,
+          "fanout_sse": 7.218599497718969,
+          "vue_flush": 3.5000000025320332,
+          "paint": 25.99999999802094
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1705.4060289992776,
+          "twin_ui": 37.2181914972316,
+          "e2e_from_event": 1403.6758304973773,
+          "e2e_from_cmd": 1742.6242204965092,
+          "inject_cmd": 338.9483899991319
+        }
+      },
+      {
+        "trial": 6,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.33035743657076927,
+        "tick_dt_across_inject_ms": 1002.9209920030553,
+        "inject_offset_s": 0.3313224080011423,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1002.9209920030553,
+        "seq_alarm": 88,
+        "seq_written": 88,
+        "seq_shown": 88,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1335.7368479992147,
+          "detect": 1.7139910014520865,
+          "mailbox": 0.8301480011141393,
+          "write_2xx": 7.479015999706462,
+          "fanout_sse": 7.507597496442031,
+          "vue_flush": 3.200000002834713,
+          "paint": 20.49999999871943
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1673.2549160005874,
+          "twin_ui": 32.037745499110315,
+          "e2e_from_event": 1369.488584499777,
+          "e2e_from_cmd": 1705.2926614996977,
+          "inject_cmd": 335.80407699992065
+        }
+      },
+      {
+        "trial": 7,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.3313618253190436,
+        "tick_dt_across_inject_ms": 1002.1509680009331,
+        "inject_offset_s": 0.33207457400203566,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1002.1509680009331,
+        "seq_alarm": 101,
+        "seq_written": 101,
+        "seq_shown": 101,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1335.0831240022671,
+          "detect": 1.1611779991653748,
+          "mailbox": 0.4894900012004655,
+          "write_2xx": 7.367059999523917,
+          "fanout_sse": 7.390854498225963,
+          "vue_flush": 3.1999999991967343,
+          "paint": 20.699999997304985
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1671.6110699999263,
+          "twin_ui": 31.780344495928148,
+          "e2e_from_event": 1368.0246464973607,
+          "e2e_from_cmd": 1703.3914144958544,
+          "inject_cmd": 335.36676799849374
+        }
+      },
+      {
+        "trial": 8,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.5674969133392886,
+        "tick_dt_across_inject_ms": 1002.5990620015364,
+        "inject_offset_s": 0.568971873002738,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1002.5990620015364,
+        "seq_alarm": 115,
+        "seq_written": 115,
+        "seq_shown": 115,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1096.2115699985588,
+          "detect": 1.5457279987458605,
+          "mailbox": 0.4944989996147342,
+          "write_2xx": 7.29960500029847,
+          "fanout_sse": 7.4219034977431875,
+          "vue_flush": 3.200000002834713,
+          "paint": 21.49999999892316
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1432.7006399980746,
+          "twin_ui": 32.61640249911579,
+          "e2e_from_event": 1130.3737004964205,
+          "e2e_from_cmd": 1465.3170424971904,
+          "inject_cmd": 334.9433420007699
+        }
+      },
+      {
+        "trial": 9,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.2565542835427714,
+        "tick_dt_across_inject_ms": 999.4881530001294,
+        "inject_offset_s": 0.25642296700243605,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 999.4881530001294,
+        "seq_alarm": 128,
+        "seq_written": 128,
+        "seq_shown": 128,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1406.8437379974057,
+          "detect": 1.0252590000163764,
+          "mailbox": 0.44989300295128487,
+          "write_2xx": 7.456932999048149,
+          "fanout_sse": 7.510270497732563,
+          "vue_flush": 4.600000000209548,
+          "paint": 16.399999996792758
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1744.5184539974434,
+          "twin_ui": 28.960163497686153,
+          "e2e_from_event": 1436.8291604951082,
+          "e2e_from_cmd": 1773.4786174951296,
+          "inject_cmd": 336.64945700002136
+        }
+      },
+      {
+        "trial": 10,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6640459552712515,
+        "tick_dt_across_inject_ms": 1208.2795559981605,
+        "inject_offset_s": 0.8023531519975222,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1208.2795559981605,
+        "seq_alarm": 143,
+        "seq_written": 143,
+        "seq_shown": 143,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 861.6995649972523,
+          "detect": 1.605114000994945,
+          "mailbox": 0.800532001449028,
+          "write_2xx": 7.53583599725971,
+          "fanout_sse": 7.487518498237478,
+          "vue_flush": 3.899999999703141,
+          "paint": 30.900000001565786
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1199.4522880013392,
+          "twin_ui": 43.08805050095543,
+          "e2e_from_event": 906.3927294992027,
+          "e2e_from_cmd": 1242.5403385022946,
+          "inject_cmd": 336.14760900309193
+        }
+      },
+      {
+        "trial": 11,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4837526604263012,
+        "tick_dt_across_inject_ms": 2001.8204119987786,
+        "inject_offset_s": 0.9683859500000835,
+        "ticks_inside_cmd": 1,
+        "max_consecutive_dt_ms": 1001.845222999691,
+        "seq_alarm": 156,
+        "seq_written": 156,
+        "seq_shown": 156,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 663.6265300003288,
+          "detect": 1.011778000247432,
+          "mailbox": 0.5124809977132827,
+          "write_2xx": 7.103203002770897,
+          "fanout_sse": 7.168637497670716,
+          "vue_flush": 3.700000004755566,
+          "paint": 31.799999997019768
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1034.4462399989425,
+          "twin_ui": 43.18111849715933,
+          "e2e_from_event": 707.8194264977355,
+          "e2e_from_cmd": 1077.6273584961018,
+          "inject_cmd": 369.80793199836626
+        }
+      },
+      {
+        "trial": 12,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4753590774198316,
+        "tick_dt_across_inject_ms": 1003.3722730004229,
+        "inject_offset_s": 0.4769621180021204,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1003.3722730004229,
+        "seq_alarm": 170,
+        "seq_written": 170,
+        "seq_shown": 170,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1185.1844560005702,
+          "detect": 1.4705370012961794,
+          "mailbox": 0.6478629984485451,
+          "write_2xx": 7.223954999062698,
+          "fanout_sse": 7.194389498181408,
+          "vue_flush": 3.400000001420267,
+          "paint": 29.799999996612314
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1525.7680089998757,
+          "twin_ui": 41.042252494662534,
+          "e2e_from_event": 1227.697245496529,
+          "e2e_from_cmd": 1566.8102614945383,
+          "inject_cmd": 339.11301599800936
+        }
+      },
+      {
+        "trial": 13,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.21711506700781488,
+        "tick_dt_across_inject_ms": 1009.2469629998959,
+        "inject_offset_s": 0.21912272199915606,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1009.2469629998959,
+        "seq_alarm": 184,
+        "seq_written": 184,
+        "seq_shown": 184,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1445.9394769983192,
+          "detect": 1.0811920001287945,
+          "mailbox": 0.4923330016026739,
+          "write_2xx": 10.189706001256127,
+          "fanout_sse": 10.21425749786431,
+          "vue_flush": 3.1000000017229468,
+          "paint": 26.200000000244472
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1782.5154659985856,
+          "twin_ui": 40.0065905014344,
+          "e2e_from_event": 1487.0272594998823,
+          "e2e_from_cmd": 1822.52205650002,
+          "inject_cmd": 335.4947970001376
+        }
+      },
+      {
+        "trial": 14,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.3463318889195079,
+        "tick_dt_across_inject_ms": 1001.5759249981784,
+        "inject_offset_s": 0.3468776820009225,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1001.5759249981784,
+        "seq_alarm": 198,
+        "seq_written": 198,
+        "seq_shown": 198,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1252.9737780023424,
+          "detect": 1.3152690007700585,
+          "mailbox": 0.6717579999531154,
+          "write_2xx": 7.14431799860904,
+          "fanout_sse": 7.238776499434607,
+          "vue_flush": 4.599999996571569,
+          "paint": 25.900000000547152
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1655.820310999843,
+          "twin_ui": 38.41053449650644,
+          "e2e_from_event": 1292.699581499619,
+          "e2e_from_cmd": 1694.2308454963495,
+          "inject_cmd": 401.53126399673056
+        }
+      },
+      {
+        "trial": 15,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.1648841968700671,
+        "tick_dt_across_inject_ms": 1008.5267670001485,
+        "inject_offset_s": 0.1662901259987848,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1008.5267670001485,
+        "seq_alarm": 213,
+        "seq_written": 213,
+        "seq_shown": 213,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1497.4749020002491,
+          "detect": 1.0745889994723257,
+          "mailbox": 0.4644549990189262,
+          "write_2xx": 7.432254002196714,
+          "fanout_sse": 7.488379502319731,
+          "vue_flush": 4.499999999097781,
+          "paint": 24.099999998725252
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1836.506993000512,
+          "twin_ui": 36.55283449916169,
+          "e2e_from_event": 1535.1023254988831,
+          "e2e_from_cmd": 1873.0598274996737,
+          "inject_cmd": 337.95750200079056
+        }
+      },
+      {
+        "trial": 16,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.44197726445766444,
+        "tick_dt_across_inject_ms": 1001.3143719988875,
+        "inject_offset_s": 0.4425581869982125,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1001.3143719988875,
+        "seq_alarm": 227,
+        "seq_written": 227,
+        "seq_shown": 227,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1213.6935279995669,
+          "detect": 1.4585630015062634,
+          "mailbox": 0.4974170005880296,
+          "write_2xx": 7.076159999996889,
+          "fanout_sse": 7.063328495860333,
+          "vue_flush": 3.3000000003085006,
+          "paint": 23.400000001856824
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1560.329742002068,
+          "twin_ui": 34.26074549861369,
+          "e2e_from_event": 1249.4128364996868,
+          "e2e_from_cmd": 1594.5904875006818,
+          "inject_cmd": 345.17765100099496
+        }
+      },
+      {
+        "trial": 17,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4333326346083816,
+        "tick_dt_across_inject_ms": 1006.8328650013427,
+        "inject_offset_s": 0.43629353800133686,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1006.8328650013427,
+        "seq_alarm": 240,
+        "seq_written": 240,
+        "seq_shown": 240,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1215.9556630031148,
+          "detect": 1.004802998068044,
+          "mailbox": 0.43895999988308176,
+          "write_2xx": 7.041002001642482,
+          "fanout_sse": 7.046452501526801,
+          "vue_flush": 4.499999999097781,
+          "paint": 23.300000000745058
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1564.1322849987773,
+          "twin_ui": 35.28541250125272,
+          "e2e_from_event": 1252.2458785024355,
+          "e2e_from_cmd": 1599.41769750003,
+          "inject_cmd": 347.1718189975945
+        }
+      },
+      {
+        "trial": 18,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4468485747124378,
+        "tick_dt_across_inject_ms": 1002.7017659995181,
+        "inject_offset_s": 0.44805585499852896,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1002.7017659995181,
+        "seq_alarm": 255,
+        "seq_written": 255,
+        "seq_shown": 255,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1208.7608410001849,
+          "detect": 1.6674750004312955,
+          "mailbox": 0.7223920001706574,
+          "write_2xx": 7.441696998284897,
+          "fanout_sse": 7.315833499887958,
+          "vue_flush": 3.3000000003085006,
+          "paint": 18.39999999720021
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1557.5340350005717,
+          "twin_ui": 29.738225497567328,
+          "e2e_from_event": 1240.1665414981835,
+          "e2e_from_cmd": 1587.272260498139,
+          "inject_cmd": 347.10571899995557
+        }
+      },
+      {
+        "trial": 19,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.26667818756088363,
+        "tick_dt_across_inject_ms": 996.1555289992248,
+        "inject_offset_s": 0.2656529510022665,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 996.1555289992248,
+        "seq_alarm": 268,
+        "seq_written": 268,
+        "seq_shown": 268,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1396.8874240017612,
+          "detect": 1.6503160004504025,
+          "mailbox": 0.7448819997080136,
+          "write_2xx": 7.251850998727605,
+          "fanout_sse": 7.271445498190587,
+          "vue_flush": 3.899999999703141,
+          "paint": 17.100000000937143
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1733.2995739998296,
+          "twin_ui": 29.016327498538885,
+          "e2e_from_event": 1427.5540675007505,
+          "e2e_from_cmd": 1762.3159014983685,
+          "inject_cmd": 334.76183399761794
+        }
+      },
+      {
+        "trial": 20,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.5420754148834247,
+        "tick_dt_across_inject_ms": 1003.4417870010657,
+        "inject_offset_s": 0.5439411229999678,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1003.4417870010657,
+        "seq_alarm": 281,
+        "seq_written": 281,
+        "seq_shown": 281,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 1121.667825998884,
+          "detect": 1.6059829977166373,
+          "mailbox": 0.8139630008372478,
+          "write_2xx": 7.139582001400413,
+          "fanout_sse": 7.144250499550253,
+          "vue_flush": 3.399999997782288,
+          "paint": 18.10000000114087
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1459.698863000085,
+          "twin_ui": 29.45821349931066,
+          "e2e_from_event": 1152.7320224959112,
+          "e2e_from_cmd": 1489.1570764993958,
+          "inject_cmd": 336.42505400348455
+        }
+      },
+      {
+        "trial": 21,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6711258793329107,
+        "tick_dt_across_inject_ms": 1240.7989359999192,
+        "inject_offset_s": 0.8327322769982857,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1240.7989359999192,
+        "seq_alarm": 295,
+        "seq_written": 295,
+        "seq_shown": 295,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 830.4882949996681,
+          "detect": 1.0700600032578222,
+          "mailbox": 0.4745070000353735,
+          "write_2xx": 6.974223997531226,
+          "fanout_sse": 6.986053496802924,
+          "vue_flush": 3.1999999991967343,
+          "paint": 17.400000000634464
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1166.4762200016412,
+          "twin_ui": 28.060560496669495,
+          "e2e_from_event": 859.6189154995955,
+          "e2e_from_cmd": 1194.5367804983107,
+          "inject_cmd": 334.91786499871523
+        }
+      },
+      {
+        "trial": 22,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.6872027664327052,
+        "tick_dt_across_inject_ms": 1296.3134659985371,
+        "inject_offset_s": 0.8908301999981632,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1296.3134659985371,
+        "seq_alarm": 309,
+        "seq_written": 309,
+        "seq_shown": 309,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 774.5497220021207,
+          "detect": 1.2382779968902469,
+          "mailbox": 0.5174830002943054,
+          "write_2xx": 7.19811500312062,
+          "fanout_sse": 7.216997499199351,
+          "vue_flush": 5.699999997887062,
+          "paint": 29.0000000022701
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1111.9548669994401,
+          "twin_ui": 42.43448049965082,
+          "e2e_from_event": 818.2224804986618,
+          "e2e_from_cmd": 1154.389347499091,
+          "inject_cmd": 336.1668670004292
+        }
+      },
+      {
+        "trial": 23,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.659603741945864,
+        "tick_dt_across_inject_ms": 1199.7639319997688,
+        "inject_offset_s": 0.7913687789987307,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1199.7639319997688,
+        "seq_alarm": 322,
+        "seq_written": 322,
+        "seq_shown": 322,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 874.6996600020793,
+          "detect": 1.1688249978760723,
+          "mailbox": 0.7884690021455754,
+          "write_2xx": 7.273698000062723,
+          "fanout_sse": 7.272533497598488,
+          "vue_flush": 3.700000001117587,
+          "paint": 30.79999999681604
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1211.2682859988126,
+          "twin_ui": 42.56100249767769,
+          "e2e_from_event": 918.4294874976331,
+          "e2e_from_cmd": 1253.8292884964903,
+          "inject_cmd": 335.39980099885724
+        }
+      },
+      {
+        "trial": 24,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.4960995932252229,
+        "tick_dt_across_inject_ms": 2001.466245001211,
+        "inject_offset_s": 0.9929265899991151,
+        "ticks_inside_cmd": 1,
+        "max_consecutive_dt_ms": 1003.7555080016318,
+        "seq_alarm": 336,
+        "seq_written": 336,
+        "seq_shown": 336,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 661.7578570003388,
+          "detect": 1.1912679983652197,
+          "mailbox": 0.442726999608567,
+          "write_2xx": 7.065323999995599,
+          "fanout_sse": 7.034075497358572,
+          "vue_flush": 4.499999999097781,
+          "paint": 26.00000000165892
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 1009.7309230004612,
+          "twin_ui": 37.97680249772384,
+          "e2e_from_event": 700.9259274964279,
+          "e2e_from_cmd": 1047.707725498185,
+          "inject_cmd": 346.7817980017571
+        }
+      },
+      {
+        "trial": 25,
+        "warmup": false,
+        "detected": true,
+        "inject_phase": 0.05772198850735946,
+        "tick_dt_across_inject_ms": 1004.3162840011064,
+        "inject_offset_s": 0.05797113300286583,
+        "ticks_inside_cmd": 0,
+        "max_consecutive_dt_ms": 1004.3162840011064,
+        "seq_alarm": 348,
+        "seq_written": 348,
+        "seq_shown": 348,
+        "state_first": "suspect",
+        "conflated": false,
+        "layers_ms": {
+          "phys_obs": 606.102371999441,
+          "detect": 1.574378002260346,
+          "mailbox": 0.7919459967524745,
+          "write_2xx": 7.2003450004558545,
+          "fanout_sse": 7.263309500558535,
+          "vue_flush": 4.400000001623994,
+          "paint": 25.099999995291
+        },
+        "budget_ms": {
+          "s4_like_from_cmd": 947.9195290005009,
+          "twin_ui": 37.555255494226,
+          "e2e_from_event": 645.2320054959273,
+          "e2e_from_cmd": 985.4747844947269,
+          "inject_cmd": 340.2427789987996
+        }
+      }
+    ],
+    "figure": "results/report/phase7_e2e_latency.png"
+  },
+  "content_sha256": "da423909ffd0b903a81586c838048eab74fa83262c1a9e2bea38c76c2804abf2",
+  "written_at_utc": "2026-09-19T16:08:44+00:00"
+}

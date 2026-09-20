@@ -1,0 +1,85 @@
+{
+  "content": {
+    "steps": {
+      "s12": {
+        "cmd": [
+          "scripts/measure_phase7_s12_live.py",
+          "--trials",
+          "20"
+        ],
+        "rc": 0,
+        "started_utc": "2026-09-19T15:59:03+00:00",
+        "minutes": 3.5,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {
+          "phase7_s12_live.json": "04f4b49a59d739d8efb2401275bb980342e49eec1779091471d297ef5982a816"
+        }
+      },
+      "e2e": {
+        "cmd": [
+          "scripts/measure_phase7_e2e.py",
+          "--trials",
+          "25"
+        ],
+        "rc": 0,
+        "started_utc": "2026-09-19T16:02:32+00:00",
+        "minutes": 6.2,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {
+          "phase7_e2e_latency.json": "f315d073e5439dd331a8dc3282d2e6b8348d6965bbcdf9b1668653a848d9d4b2",
+          "phase7_e2e_latency.png": "e51309c183305fe75dd65bc5425a32e05acd4cadc4a4eedc713d79bc297aa748"
+        }
+      },
+      "s11": {
+        "cmd": [
+          "scripts/run_phase7_s11_live.py",
+          "--reps",
+          "4",
+          "--lease"
+        ],
+        "rc": 0,
+        "started_utc": "2026-09-19T16:08:45+00:00",
+        "minutes": 11.4,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {
+          "phase7_s11_live.json": "3706db7b88bc8dfdfd2640d3e6ab47f94452c3a378a3329aeff0d74fe1a2f4d0",
+          "phase7_residual_intervention.json": "6300cfac3eeb3300d28d2fd0a98e6db68d39be2a186ff9c5b9be89c2bb949522"
+        }
+      },
+      "contention": {
+        "cmd": [
+          "scripts/run_phase7_contention.py",
+          "--block",
+          "300"
+        ],
+        "rc": 0,
+        "started_utc": "2026-09-19T16:20:12+00:00",
+        "minutes": 20.4,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {
+          "phase7_contention.json": "3dfdbfdf1a63a7601f6de6c3a64dcdd145b2faf96ee8bad07081a1843e5f15d3"
+        }
+      },
+      "soak": {
+        "cmd": [
+          "scripts/soak_phase7_live_v2.py"
+        ],
+        "rc": 0,
+        "started_utc": "2026-09-19T23:22:33+00:00",
+        "minutes": 45.5,
+        "commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+        "controller": "started",
+        "receipts": {
+          "phase7_soak_live_v2.json": "1a508996725cb327bee0cdb2790cab15248b0ae671e80c09e54a0260bf9d1971"
+        }
+      }
+    },
+    "frozen_commit": "9917e07d7a594792caea191661b733e0ec87a11d"
+  },
+  "content_sha256": "50c24be3c281bff48323b7189877c265b4105da4bd9bf20e258b3933222aeff3",
+  "written_at_utc": "2026-09-20T00:08:04+00:00"
+}
