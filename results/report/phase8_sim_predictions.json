@@ -1,0 +1,244 @@
+{
+  "content": {
+    "prediction_id": "DT4N-P8-SIM-PREDICTIONS",
+    "lesson": "8.2",
+    "sealed_before": "moi phep do live cua 8.6 va 8.7",
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "sim_params": {
+      "n_act": 2,
+      "release_m": 3,
+      "cooldown_s": 8.0,
+      "d_obs_s": 1.433,
+      "d_cmd_s": 0.984,
+      "tick_unknown_after_tc": 1,
+      "suppressed_during_mitigation": true
+    },
+    "dead_time_s": 11.433,
+    "parameter_sources": {
+      "n_act=2, release_m=3, cooldown_s=8.0": "models/detector-release-1.0.0.json -> content.fsm_params",
+      "d_obs_s=1.433 (p95)": "results/report/phase7_e2e_latency.json -> layers.phys_obs.p95_ms = 1432.619",
+      "d_cmd_s=0.984 (p95)": "results/report/latency_command_randomized.json -> result.p95_ms = 984.190",
+      "tick=1.0 s": "bridge/detector_contract.py::TICK_INTERVAL_MS = 1000",
+      "limit_mbps=7.0": "results/report/phase8_prereg.json -> content.actuator.limit_mbps",
+      "default_mbps=20.0": "mininet/topology.py:88 (bw_backbone=20)",
+      "t_max_s=110 < 120": "ml/intervention_log.py::MAX_OPEN_S = 120.0",
+      "probe_w_s=14 >= 11.433": "cooldown 8.0 + phys_obs p95 1.433 + n_act 2 tick",
+      "tick_unknown_after_tc=1": "F8-6: setBandwidth dung lai qdisc, bo dem ve 0"
+    },
+    "caveat": "latency_command_randomized.json do tren collector qdisc_v2, con release detector-release-1.0.0 doi collector v3-qdisc-ratevalid; do tre lenh la duong truyen (Ditto -> agent -> tc) nen khong phu thuoc phien ban feature, nhung day la mot khac biet phai khai.",
+    "modes": {
+      "continuous_flood_600s": {
+        "n_actions": 13,
+        "n_mitigations": 7,
+        "n_reverts": 6,
+        "harm_s": 58.0,
+        "blind_s": 584.0,
+        "flood_s": 600.0,
+        "total_s": 600.0,
+        "max_open_s": 110.0,
+        "harm_fraction": 0.0967,
+        "blind_fraction": 0.9733
+      },
+      "quiet_600s": {
+        "n_actions": 0,
+        "n_mitigations": 0,
+        "n_reverts": 0,
+        "harm_s": 0.0,
+        "blind_s": 0.0,
+        "flood_s": 0.0,
+        "total_s": 600.0,
+        "max_open_s": 0.0,
+        "harm_fraction": 0.0,
+        "blind_fraction": 0.0
+      },
+      "bangbang_control_600s": {
+        "n_actions": 92,
+        "n_mitigations": 46,
+        "n_reverts": 46,
+        "harm_s": 416.0,
+        "blind_s": 506.0,
+        "flood_s": 600.0,
+        "total_s": 600.0,
+        "max_open_s": 4.0,
+        "harm_fraction": 0.6933,
+        "blind_fraction": 0.8433
+      },
+      "continuous_flood_600s_optimistic_p50": {
+        "n_actions": 13,
+        "n_mitigations": 7,
+        "n_reverts": 6,
+        "harm_s": 58.0,
+        "blind_s": 584.0,
+        "flood_s": 600.0,
+        "total_s": 600.0,
+        "max_open_s": 110.0,
+        "harm_fraction": 0.0967,
+        "blind_fraction": 0.9733
+      },
+      "continuous_flood_600s_unsuppressed_branch_B": {
+        "n_actions": 13,
+        "n_mitigations": 7,
+        "n_reverts": 6,
+        "harm_s": 58.0,
+        "blind_s": 584.0,
+        "flood_s": 600.0,
+        "total_s": 600.0,
+        "max_open_s": 110.0,
+        "harm_fraction": 0.0967,
+        "blind_fraction": 0.9733
+      }
+    },
+    "timeline_continuous_flood": [
+      [
+        3.0,
+        "inject",
+        "act_localized",
+        0
+      ],
+      [
+        18.0,
+        "revert",
+        "hold_expired",
+        0
+      ],
+      [
+        27.0,
+        "inject",
+        "probe_failed_backoff",
+        1
+      ],
+      [
+        57.0,
+        "revert",
+        "hold_expired",
+        1
+      ],
+      [
+        66.0,
+        "inject",
+        "probe_failed_backoff",
+        2
+      ],
+      [
+        126.0,
+        "revert",
+        "hold_expired",
+        2
+      ],
+      [
+        135.0,
+        "inject",
+        "probe_failed_backoff",
+        3
+      ],
+      [
+        245.0,
+        "revert",
+        "hold_expired",
+        3
+      ],
+      [
+        254.0,
+        "inject",
+        "probe_failed_backoff",
+        4
+      ],
+      [
+        364.0,
+        "revert",
+        "hold_expired",
+        4
+      ],
+      [
+        373.0,
+        "inject",
+        "probe_failed_backoff",
+        5
+      ],
+      [
+        483.0,
+        "revert",
+        "hold_expired",
+        5
+      ],
+      [
+        492.0,
+        "inject",
+        "probe_failed_backoff",
+        6
+      ]
+    ],
+    "poisson": {
+      "n_seeds": 10000,
+      "horizon_s": 1800.0,
+      "rate_per_hour": 6.0,
+      "mean_duration_s": 120.0,
+      "n_actions": {
+        "min": 0,
+        "p50": 14,
+        "p95": 26,
+        "max": 41,
+        "mean": 13.5709
+      },
+      "n_mitigations": {
+        "min": 0,
+        "p50": 7,
+        "p95": 13,
+        "max": 21,
+        "mean": 6.8773
+      },
+      "harm_fraction": {
+        "min": 0.08873720136518772,
+        "p50": 0.20149253731343283,
+        "p95": 0.3488372093023256,
+        "max": 1.0,
+        "mean": 0.2195
+      },
+      "blind_fraction": {
+        "min": 0.0,
+        "p50": 0.17722222222222223,
+        "p95": 0.445,
+        "max": 0.8577777777777778,
+        "mean": 0.1949
+      },
+      "max_open_s": {
+        "min": 0.0,
+        "p50": 110.0,
+        "p95": 110.0,
+        "max": 110.0,
+        "mean": 80.4219
+      }
+    },
+    "predictions": {
+      "C6_bound_actions_per_600s_under_continuous_flood": 13,
+      "C6_actions_per_600s_when_normal": 0,
+      "C6_bound_actions_per_1800s_poisson_p95": 26,
+      "C12_blind_fraction_during_continuous_flood": 0.9733,
+      "C12_blind_fraction_poisson_p50": 0.17722222222222223,
+      "C12_blind_fraction_when_normal": 0.0,
+      "harm_fraction_vs_bangbang": {
+        "circuit_breaker": 0.0967,
+        "bangbang": 0.6933
+      },
+      "max_open_s_must_stay_below": 120.0
+    },
+    "upstream_sha256": {
+      "controller/policy.py": "297db6e3d3774ed5f67388d50d087ce6acdfdba171b9994b7903cb4cd036190c",
+      "controller/sim.py": "1a92854ca97906246ddc5843729d3bfe177db2e04971c7ac3bcf510bc89c023e",
+      "controller/localize.py": "9dba6b29ee259640f48bafc0ff2fa298c17b2b41ad99601f80994619a0776301",
+      "results/report/phase8_prereg.json": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7"
+    },
+    "deviation_policy": "immutable after creation"
+  },
+  "content_sha256": "a38c6434f8d333c3eb0ec7cd2e6abe49342d7d02c21cb7cfa4687f1528504c88",
+  "written_at_utc": "2026-09-20T02:53:02+00:00"
+}
