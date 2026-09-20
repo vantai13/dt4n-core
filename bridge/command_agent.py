@@ -73,6 +73,16 @@ SWITCH_CONNECT_POLL = 0.3
 # chỉ được thực thi một lần; các bản lặp được ack OK nhưng không chạm Mininet.
 _processed_ids = OrderedDict()
 _processed_lock = threading.Lock()
+
+# ---- Phase 8.4: dead-man switch o phia AGENT --------------------------------
+# Watchdog PHAI nam ben kia ranh gioi hong: watchdog nam cung tien trinh voi
+# cai no giam sat thi chet cung no. Controller chet -> khong ai gia han ->
+# agent tu tra bang thong ve gia tri truoc khi co lease.
+LEASE_TICK_S = 1.0
+LEASE_MIN_S = 1.0
+LEASE_MAX_S = 60.0
+_leases = {}            # target -> {'expiry_mono', 'restore_bw', 'lease_s'}
+_lease_lock = threading.Lock()
 _PROCESSED_MAX = 500
 
 
@@ -124,6 +134,82 @@ def audit(correlation_id, subject, target, params, result, reason=None):
             f.write(json.dumps(row, ensure_ascii=False) + '\n')
     except Exception as e:
         log.warning('Ghi audit lỗi (bỏ qua): %s', e)
+
+
+def _arm_lease(target, ln, lease_s):
+    """Ghi han VA gia tri phuc hoi.
+
+    restore_bw phai la gia tri TRUOC lease dau tien. Neu ghi de moi lan gia han,
+    lan gia han thu hai se chup lay chinh gia tri dang bi gioi han lam gia tri
+    phuc hoi -> watchdog "phuc hoi" ve dung gia tri do -> dead-man switch VO HIEU
+    ma khong bao mot loi nao. Day la loai bug te nhat: co che an toan trong nhu
+    dang chay.
+    """
+    with _lease_lock:
+        existing = _leases.get(target)
+        restore = (existing['restore_bw'] if existing
+                   else getattr(ln, 'dt4n_bw', None))
+        _leases[target] = {
+            'expiry_mono': time.monotonic() + float(lease_s),
+            'restore_bw': restore,
+            'lease_s': float(lease_s),
+        }
+
+
+def _clear_lease(target):
+    """Lenh KHONG kem leaseS la mot khang dinh tuyet doi moi -> huy lease cu."""
+    with _lease_lock:
+        _leases.pop(target, None)
+
+
+def lease_state():
+    """Ban sao trang thai lease, cho test va chan doan."""
+    with _lease_lock:
+        return {key: dict(value) for key, value in _leases.items()}
+
+
+def expired_leases(now_mono=None):
+    """Lay ra (va XOA) cac lease da het han. Tach rieng de test duoc."""
+    now_mono = time.monotonic() if now_mono is None else now_mono
+    with _lease_lock:
+        expired = [(target, dict(value)) for target, value in _leases.items()
+                   if now_mono >= value['expiry_mono']]
+        for target, _ in expired:
+            _leases.pop(target, None)
+    return expired
+
+
+def lease_watchdog(net, net_lock=None, stop_event=None, clock=time.monotonic):
+    """Luong doc lap trong tien trinh AGENT: tu phuc hoi khi lease het han."""
+    stop_event = stop_event or threading.Event()
+    while not stop_event.wait(LEASE_TICK_S):
+        try:
+            _sweep_leases(net, net_lock, clock())
+        except Exception as exc:                    # watchdog khong duoc chet
+            log.warning('lease watchdog loi (bo qua): %s', exc)
+
+
+def _sweep_leases(net, net_lock, now_mono):
+    """Mot nhip watchdog. Tra so lease da tu phuc hoi."""
+    restored = 0
+    for target, value in expired_leases(now_mono):
+        restore = value.get('restore_bw')
+        if restore is None:
+            continue
+        log.warning('LEASE HET HAN %s (%.1fs) -> tu phuc hoi bw=%s',
+                    target, value.get('lease_s', -1), restore)
+        params = {'bw': float(restore)}
+        if net_lock is not None:
+            with net_lock:
+                result = h_set_bandwidth(net, target, params)
+        else:
+            result = h_set_bandwidth(net, target, params)
+        audit(None, 'setBandwidth', target, params,
+              'lease_expired_autorevert', 'khong duoc gia han: %s' % (result[2],))
+        flow_event('AGENT', 'LEASE_EXPIRED', None, 'setBandwidth', target,
+                   level='WARN', detail='auto revert bw=%s' % restore)
+        restored += 1
+    return restored
 
 
 def _resolve_link(net, thing_id):
@@ -249,6 +335,24 @@ def h_set_bandwidth(net, target, params):
     if not (BW_MIN < bw <= BW_MAX):
         return _reject(400, 'bw out of range (%d, %d], got %s' %
                        (BW_MIN, BW_MAX, bw))
+    lease_s = params.get('leaseS')
+    if lease_s is not None:
+        if (isinstance(lease_s, bool) or not isinstance(lease_s, (int, float))
+                or not (LEASE_MIN_S <= float(lease_s) <= LEASE_MAX_S)):
+            return _reject(400, 'leaseS out of range [%s, %s], got %r'
+                           % (LEASE_MIN_S, LEASE_MAX_S, lease_s))
+        _arm_lease(target, ln, lease_s)
+    else:
+        _clear_lease(target)
+
+    # ---- Phase 8.4: KHONG TAC DUNG PHU KHI LAP ------------------------------
+    # Lu y dang ve KET QUA la chua du cho vong reconcile: intf.config() dung lai
+    # qdisc -> bo dem goi ve 0 -> 1 tick unknown(missing_data) (F8-6, da do o
+    # 8.3). Gui lai dinh ky se tao mot tick mu MOI LAN. No-op khi bw khong doi
+    # bien lenh thanh KHONG TAC DUNG PHU KHI LAP, khong chi lu y dang.
+    if getattr(ln, 'dt4n_bw', None) == float(bw):
+        return _ok('link bw already %s Mbps (no-op)' % bw)
+
     cfg = {'bw': float(bw)}
     delay = getattr(ln, 'dt4n_delay', None)
     if delay:
@@ -694,6 +798,14 @@ def run(net=None, net_lock=None, stop_event=None):
     Bản 4.2: net và net_lock nhận vào nhưng CHƯA dùng (chưa chạm mạng). Nhận
     SẴN từ bây giờ để 4.3 dùng ngay, không phải đổi chữ ký hàm.
     """
+    watchdog = None
+    if net is not None:
+        # Phase 8.4: dead-man switch chay trong tien trinh AGENT, doc lap voi
+        # controller. Controller chet -> lease het han -> bang thong tu phuc hoi.
+        watchdog = threading.Thread(
+            target=lease_watchdog, args=(net, net_lock, stop_event),
+            name='lease-watchdog', daemon=True)
+        watchdog.start()
     log.info('Command Agent start (bản 4.4: nghe + thực thi + response). controller=%s',
              CONTROLLER_THING_ID)
     session = requests.Session()

@@ -1,0 +1,38 @@
+{
+  "content": {
+    "lesson": "8.4",
+    "duration_s": 300.0,
+    "flood": true,
+    "controller_stats": {
+      "ticks": 301,
+      "commands": 44,
+      "renewals": 36,
+      "drift_fixes": 0,
+      "orphans_reverted": 0,
+      "exceptions": 0,
+      "unknown_observed": 0
+    },
+    "controller_final": {
+      "mode": "HOLD",
+      "reason": "shutting_down",
+      "episode": 1,
+      "attempt": 0
+    },
+    "twin": {
+      "events": 4460,
+      "dropped": 0,
+      "reconnects": 0
+    },
+    "detector": {
+      "ticks": 304,
+      "dropped": 0
+    },
+    "intervention_log_len": 8,
+    "audit_path": "/home/ubuntu/dt4n-core/logs/controller_audit.jsonl",
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "a8c1e9321bdfac9b6603a490921fa87ef297a40c4087bbe14b453c78541591ea",
+  "written_at_utc": "2026-09-20T08:42:39+00:00"
+}

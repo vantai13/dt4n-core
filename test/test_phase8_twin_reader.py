@@ -168,3 +168,74 @@ def test_bo_qua_dong_khong_phai_data():
 def test_gzip_bi_tat():
     """gzip giu event nho trong buffer -> controller nhan tre hoac khong nhan."""
     assert SSE_HEADERS["Accept-Encoding"] == "identity"
+
+
+# ------------------------------------------------------------ prime (8.4)
+
+
+class FakeGetSession:
+    """GET tra anh chup day du; SSE sau do chi tra delta."""
+
+    def __init__(self, items, status=200):
+        self.items = items
+        self.status = status
+        self.calls = 0
+
+    def get(self, url, **kwargs):
+        self.calls += 1
+        session = self
+
+        class Response:
+            status_code = session.status
+
+            def json(self):
+                return session.items
+
+        return Response()
+
+
+def test_sse_mot_minh_khong_bao_gio_co_role():
+    """Bai hoc 8.4: SSE chi gui TRUONG THAY DOI. `attributes.role` khong bao gio
+    doi nen khong bao gio xuat hien trong stream -> roles() rong -> localize()
+    thay 0 ung vien -> controller khong bao gio hanh dong."""
+    reader = TwinReader(clock=FakeClock())
+    reader.apply({"thingId": "org.dt4n:host-h1",
+                  "features": {"traffic": {"properties": {"txRate": 1.0}}}})
+    assert reader.roles() == {"h1": None}
+
+
+def test_prime_moi_cache_bang_anh_chup():
+    reader = TwinReader(clock=FakeClock())
+    session = FakeGetSession([
+        {"thingId": "org.dt4n:host-h1",
+         "attributes": {"type": "host", "role": "client"},
+         "features": {"traffic": {"properties": {"txRate": 1.0}}}},
+        {"thingId": "org.dt4n:link-h1-s1",
+         "features": {"capacity": {"properties": {"bwMbps": 20.0}}}},
+    ])
+    assert reader.prime(session) == 2
+    assert reader.roles() == {"h1": "client"}
+    assert reader.observed_bw() == {"h1-s1": 20.0}
+    # delta sau do khong duoc lam mat truong tinh
+    reader.apply({"thingId": "org.dt4n:host-h1",
+                  "features": {"traffic": {"properties": {"txRate": 9.0}}}})
+    assert reader.roles() == {"h1": "client"}
+
+
+def test_prime_khong_tinh_vao_monotonic_read():
+    """Anh chup REST khong phai ban tin trong dong: khong duoc lam R3 hieu nham."""
+    reader = TwinReader(clock=FakeClock())
+    session = FakeGetSession([
+        {"thingId": DETECTOR_THING_ID,
+         "features": {"freshness": {"properties": fresh_props(100)}}},
+    ])
+    reader.prime(session)
+    assert reader.dropped == 0
+    # ban tin THAT voi seq nho hon van duoc xu ly binh thuong (chua arm)
+    reader.apply(detector_delta(state="normal", seq=1))
+    assert reader.detector_view_fields()["state"] == "normal"
+
+
+def test_prime_loi_mang_khong_lam_sap():
+    reader = TwinReader(clock=FakeClock())
+    assert reader.prime(FakeGetSession([], status=503)) == 0

@@ -1,0 +1,243 @@
+{
+  "content": {
+    "lesson": "8.4",
+    "what": "tre xac nhan DU DUONG: t_decide -> observed_bw() thay gia tri moi",
+    "not_what": "tre actuator o 8.3 (0.03-0.11 s) chi do toi luc tc doi, doc thang trong tien trinh Mininet",
+    "n_requested": 25,
+    "seed": 8004,
+    "phase_randomised": true,
+    "link": "h1-s1",
+    "limit_mbps": 7.0,
+    "lease_ttl_s": 15.0,
+    "confirm_inject": {
+      "n": 25,
+      "min_ms": 163.746,
+      "p50_ms": 667.288,
+      "p95_ms": 1003.002,
+      "max_ms": 1097.486,
+      "mean_ms": 635.382
+    },
+    "confirm_revert": {
+      "n": 25,
+      "min_ms": 970.81,
+      "p50_ms": 993.728,
+      "p95_ms": 1034.82,
+      "max_ms": 1041.683,
+      "mean_ms": 998.01
+    },
+    "n_timeout": 0,
+    "twin": {
+      "events": 3107,
+      "dropped": 0,
+      "reconnects": 0
+    },
+    "c3_budget_ms": 10000,
+    "log_counts": {
+      "WARNING": 2
+    },
+    "rows": [
+      {
+        "i": 0,
+        "confirm_inject_s": 0.4818669589999445,
+        "confirm_revert_s": 0.9733598990000019,
+        "twin_events": 373,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 1,
+        "confirm_inject_s": 0.24884553399999731,
+        "confirm_revert_s": 1.0065753709999399,
+        "twin_events": 486,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 2,
+        "confirm_inject_s": 0.8139365060000046,
+        "confirm_revert_s": 0.9708099389999916,
+        "twin_events": 597,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 3,
+        "confirm_inject_s": 0.3207112090000237,
+        "confirm_revert_s": 1.0176334940000515,
+        "twin_events": 713,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 4,
+        "confirm_inject_s": 0.42198933899999247,
+        "confirm_revert_s": 0.975600972000052,
+        "twin_events": 824,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 5,
+        "confirm_inject_s": 0.933299586999965,
+        "confirm_revert_s": 1.0136862769999198,
+        "twin_events": 937,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 6,
+        "confirm_inject_s": 0.763947088000009,
+        "confirm_revert_s": 0.993109282999967,
+        "twin_events": 1048,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 7,
+        "confirm_inject_s": 0.7037073069999451,
+        "confirm_revert_s": 1.0348201520000657,
+        "twin_events": 1164,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 8,
+        "confirm_inject_s": 1.0030023780000192,
+        "confirm_revert_s": 1.0212245779999876,
+        "twin_events": 1290,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 9,
+        "confirm_inject_s": 0.7442216419999568,
+        "confirm_revert_s": 1.0416833710000901,
+        "twin_events": 1401,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 10,
+        "confirm_inject_s": 0.45341188099996543,
+        "confirm_revert_s": 1.0046791959999837,
+        "twin_events": 1515,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 11,
+        "confirm_inject_s": 0.2756826820000242,
+        "confirm_revert_s": 0.9720470380000279,
+        "twin_events": 1628,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 12,
+        "confirm_inject_s": 0.5293125330000521,
+        "confirm_revert_s": 1.0040968839999778,
+        "twin_events": 1741,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 13,
+        "confirm_inject_s": 0.5733817349999981,
+        "confirm_revert_s": 0.9937277379999614,
+        "twin_events": 1852,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 14,
+        "confirm_inject_s": 0.8515575419999095,
+        "confirm_revert_s": 0.9806518200000482,
+        "twin_events": 1967,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 15,
+        "confirm_inject_s": 0.6434476960000666,
+        "confirm_revert_s": 1.0070029500000146,
+        "twin_events": 2080,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 16,
+        "confirm_inject_s": 0.9333207209999728,
+        "confirm_revert_s": 0.9916234519999989,
+        "twin_events": 2191,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 17,
+        "confirm_inject_s": 0.16374642000005224,
+        "confirm_revert_s": 0.9872121899999229,
+        "twin_events": 2304,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 18,
+        "confirm_inject_s": 1.0974863669999877,
+        "confirm_revert_s": 1.002321869999946,
+        "twin_events": 2432,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 19,
+        "confirm_inject_s": 0.6672880170000326,
+        "confirm_revert_s": 1.0033532530000002,
+        "twin_events": 2545,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 20,
+        "confirm_inject_s": 0.3196226080000315,
+        "confirm_revert_s": 0.9867199939999409,
+        "twin_events": 2656,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 21,
+        "confirm_inject_s": 0.9433143850000079,
+        "confirm_revert_s": 0.9811744810000391,
+        "twin_events": 2768,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 22,
+        "confirm_inject_s": 0.46420545299997684,
+        "confirm_revert_s": 1.0021369440000854,
+        "twin_events": 2884,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 23,
+        "confirm_inject_s": 0.6964563390000649,
+        "confirm_revert_s": 0.992654749000053,
+        "twin_events": 2995,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      },
+      {
+        "i": 24,
+        "confirm_inject_s": 0.8367875709999453,
+        "confirm_revert_s": 0.9923535399999537,
+        "twin_events": 3107,
+        "twin_dropped": 0,
+        "twin_reconnects": 0
+      }
+    ]
+  },
+  "content_sha256": "dbeb6e400b608dd33e216a49026f87409cddec995d6749e81627f8228f6e2ea4",
+  "written_at_utc": "2026-09-20T08:22:36+00:00"
+}

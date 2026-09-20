@@ -1,0 +1,417 @@
+#!/usr/bin/env python3
+"""Vong kin Phase 8 - KHOANG THU BA, doc lap voi collector (Lesson 8.4).
+
+Kien truc 4 luong:
+
+    collector ──mailbox──> detector-writer ──PATCH──> Ditto
+                                                        │ SSE
+                                                   twin-sse
+                                                        │ cache
+                                                   CONTROL   <- file nay
+
+Diem giao DUY NHAT giua khoang collector va khoang control la intervention_log
+(control GHI, collector DOC), boc bang LockedInterventionLog.
+
+KHONG chay trong callback cua collector: gui lenh p95 984 ms se lam collector tre tick ->
+tick_overruns -> chuoi thoi gian meo -> detector DA DONG BANG cho ket qua khac
+luc train. Controller se pha chinh cam bien no phu thuoc (vong phan hoi duong
+o tang TAI NGUYEN, kho thay hon o tang logic).
+
+EDGE cho quyet dinh (latch muc tieu tai suon len), LEVEL cho duy tri (moi nhip
+so desired voi observed). Ly do LEVEL: su kien co the mat o BON cho da biet -
+mailbox ghi de, PATCH khong retry, SSE reconnect tra ban cu, R3 bo ca ban tin.
+"""
+from __future__ import annotations
+
+import logging
+import threading
+import time
+from collections import deque
+from dataclasses import asdict, replace
+
+from bridge.detector_contract import new_boot_id
+from controller.audit import AuditLog, sha
+from controller.intervene import to_command, to_intervention
+from controller.policy import (
+    Action,
+    ControllerState,
+    DetectorView,
+    PolicyParams,
+    decide,
+    desired_bw,
+    link_of,
+)
+
+log = logging.getLogger("controller.runner")
+
+TICK_S = 1.0
+EPS_MBPS = 0.01              # so thuc: khong bao gio so sanh bang `==`
+RENEW_PERIOD_S = 5.0         # chiu duoc 2 lan lo trong LEASE_TTL_S
+LEASE_TTL_S = 15.0           # 3 x chu ky gia han
+BOOT_SSE_WAIT_S = 10.0
+# Sau khi gui lenh, twin can ~1 tick collector + PATCH + SSE moi phan anh gia
+# tri moi (do that o 8.4: p50 667 ms, p95 1003 ms). Trong khoang do, "observed
+# khac desired" la TRE QUAN SAT, khong phai troi gia tri: coi la troi se gui
+# them mot lenh thua moi lan can thiep.
+CONFIRM_GRACE_S = 2.0
+SHUTDOWN_TIMEOUT_S = 5.0
+CRASH_LOOP = (5, 60.0)
+ACCESS_SWITCH = "s1"         # ditto/topology_spec.json: client deu treo vao s1
+
+
+def _row(item) -> dict:
+    return asdict(item)
+
+
+def _view_row(view: DetectorView) -> dict:
+    return {
+        "state": view.state,
+        "cause": view.cause,
+        "affected": list(view.affected),
+        "fresh": view.fresh,
+        "bootId": view.boot_id,
+        "seq": view.seq,
+    }
+
+
+def _slim(result) -> dict:
+    if not isinstance(result, dict):
+        return {"result": str(result)}
+    return {key: result.get(key)
+            for key in ("cid", "http_status", "post_ms", "post_error")}
+
+
+class ControlRunner:
+    """Vong dieu khien. Moi thu ban (I/O, dong ho, mang) nam o day; decide() van thuan."""
+
+    def __init__(self, twin, log_store, routing, send_command, publish=None,
+                 params=None, audit_path="logs/controller_audit.jsonl",
+                 clock=time.monotonic, wall_clock=time.time, sleeper=None):
+        self.twin = twin                  # TwinReader        (hop dong A)
+        self.log = log_store              # LockedInterventionLog (hop dong B)
+        self.routing = routing
+        self.send = send_command          # env.send_command(cmd, cid=...)  (hop dong C)
+        self.publish = publish            # callable(document) -> PATCH controlloop (D)
+        self.params = params or PolicyParams()
+        self.audit = AuditLog(audit_path)  # hop dong E
+        self.clock = clock
+        self.wall_clock = wall_clock
+
+        self.cstate = ControllerState(mode="HOLD", reason="never_started")
+        self.boot_id = new_boot_id()
+        self.seq = 0
+        self.opened_at_mono = None
+        self._last_renew = {}
+        self._last_send = {}
+        self._stop = threading.Event()
+        self._sleep = sleeper or self._stop.wait
+        self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
+        self.stats = {
+            "ticks": 0, "commands": 0, "renewals": 0, "drift_fixes": 0,
+            "orphans_reverted": 0, "exceptions": 0, "unknown_observed": 0,
+        }
+
+    # ------------------------------------------------------------ khoi dong
+
+    def bootstrap_safe_state(self):
+        """Revert-first: don TRANG THAI VO CHU truoc khi nhan quyet dinh moi.
+
+        Giong crash recovery cua CSDL: undo giao dich do dang truoc khi nhan
+        giao dich moi. Neu bo qua, mot controller restart se tin minh dang IDLE
+        trong khi mang van bi gioi han, va KHONG AI se go.
+        """
+        deadline = self.clock() + BOOT_SSE_WAIT_S
+        observed = self.twin.observed_bw()
+        while not observed and self.clock() < deadline:
+            self._sleep(0.2)
+            observed = self.twin.observed_bw()
+        if not observed:
+            # CHUA BIET != KHONG CO CAN THIEP. IDLE nghia la "toi da kiem tra va
+            # khong co gi dang mo" - noi the luc nay la noi doi.
+            log.error("khong co du lieu bw tu twin sau %.0f s -> HOLD",
+                      BOOT_SSE_WAIT_S)
+            self.cstate = ControllerState(mode="HOLD", reason="boot_no_twin_data")
+            return self.cstate
+
+        roles = self.twin.roles()
+        for link, bw in sorted(observed.items()):
+            if not self._owned(link, roles):
+                continue     # chi dieu hoa tai nguyen MINH so huu (chong fighting controllers)
+            if abs(bw - self.params.default_mbps) <= EPS_MBPS:
+                continue
+            log.warning("trang thai VO CHU: %s bw=%.2f -> phuc hoi %.2f",
+                        link, bw, self.params.default_mbps)
+            action = Action(
+                "revert", link, self.params.default_mbps,
+                "ctl-%s-orphan-%s:revert" % (self.boot_id, link),
+                "orphan_revert",
+            )
+            # Revert orphan CUNG phai write-ahead: doi bw cung la mot nhieu loan
+            # (reset qdisc) va detector se bao dong neu khong duoc bao truoc.
+            self._execute(action)
+            self.stats["orphans_reverted"] += 1
+
+        self.cstate = ControllerState(mode="IDLE", reason="boot_clean")
+        return self.cstate
+
+    def _owned(self, link: str, roles: dict) -> bool:
+        """Chi link truy nhap cua client: `<client>-s1` (prereg 8.1)."""
+        host, _, switch = link.partition("-")
+        return switch == ACCESS_SWITCH and roles.get(host) == "client"
+
+    # ------------------------------------------------------------ vong chinh
+
+    def run_forever(self):
+        self.bootstrap_safe_state()
+        next_tick = self.clock()
+        while not self._stop.is_set():
+            next_tick += TICK_S
+            try:
+                self.tick()
+            except Exception:
+                self.stats["exceptions"] += 1
+                self._exc_times.append(self.clock())
+                log.exception("loi trong control tick")
+                if (len(self._exc_times) > CRASH_LOOP[0]
+                        and self._exc_times[-1] - self._exc_times[0] < CRASH_LOOP[1]):
+                    self._enter_crash_loop()
+                    return "crash_loop"
+            remaining = next_tick - self.clock()
+            if remaining > 0:
+                self._sleep(remaining)
+            else:
+                next_tick = self.clock()     # bi tre -> KHONG don tick bu
+        return "stopped"
+
+    def tick(self):
+        now = self.clock()
+        self.stats["ticks"] += 1
+
+        # 1) EDGE: quyet dinh - ham THUAN, moi dau vao tu twin
+        view = self.build_view()
+        cstate_before = self.cstate
+        actions, self.cstate = decide(view, cstate_before, now, self.params)
+        if self.cstate.open_id and not cstate_before.open_id:
+            self.opened_at_mono = now
+        if not self.cstate.open_id:
+            self.opened_at_mono = None
+            self._last_renew.clear()
+
+        for action in actions:
+            self._execute(action, view=view, cstate_before=cstate_before,
+                          cstate_after=self.cstate, now_mono=now)
+
+        # 2) LEVEL: dieu hoa desired vs observed
+        self.reconcile(now)
+
+        # 3) Cong bo trang thai cua CHINH controller (hop dong D)
+        self._publish(now)
+        return self.cstate
+
+    def build_view(self) -> DetectorView:
+        fields = self.twin.detector_view_fields()
+        return DetectorView(
+            state=fields["state"],
+            cause=fields["cause"],
+            affected=fields["affected"],
+            roles=tuple(sorted(self.twin.roles().items())),
+            fresh=fields["fresh"],
+            boot_id=fields["boot_id"],
+            seq=fields["seq"],
+        )
+
+    # ------------------------------------------------------------ LEVEL
+
+    def reconcile(self, now):
+        """desired - observed. Vong nay KHONG co bo nho ve viec da gui lenh hay chua."""
+        desired = desired_bw(self.cstate, self.params)
+        observed = self.twin.observed_bw()
+        for link, want in sorted(desired.items()):
+            have = observed.get(link)
+            if have is None:
+                self.stats["unknown_observed"] += 1
+                continue                       # CHUA BIET != SAI
+            if abs(have - want) > EPS_MBPS:
+                if now - self._last_send.get(link, float("-inf")) < CONFIRM_GRACE_S:
+                    continue          # TRE QUAN SAT, chua phai troi gia tri
+                self._reassert(link, want, now, "drift")
+                self.stats["drift_fixes"] += 1
+            elif now - self._last_renew.get(link, float("-inf")) >= RENEW_PERIOD_S:
+                self._reassert(link, want, now, "lease_renew")
+                self.stats["renewals"] += 1
+
+    def renewal_cid(self, now) -> str:
+        """Tat dinh: cung (open_id, opened_at, now) -> cung cid, nen C10 van dung lai duoc.
+
+        Khong dung lai cid cu vi `processed_result` se tra ket qua cache va
+        KHONG cham Mininet -> lease khong duoc gia han.
+        """
+        base = self.cstate.open_id or "ctl-%s-unowned" % self.boot_id
+        opened = self.opened_at_mono if self.opened_at_mono is not None else now
+        index = int((now - opened) // RENEW_PERIOD_S)
+        return "%s#r%d" % (base, index)
+
+    def _reassert(self, link, bw, now, reason):
+        """Gui LAI lenh. KHONG append InterventionLog: MOT ACTION = MOT APPEND.
+
+        Append lan hai se ValueError (id tat dinh, log append-only) -> crash.
+        Lenh trung gia tri la no-op o phia agent (ban va 8.4) nen khong reset qdisc.
+        """
+        cid = self.renewal_cid(now)
+        command = {
+            "subject": "setBandwidth",
+            "target": "org.dt4n:link-" + link,
+            "params": {"bw": float(bw), "leaseS": LEASE_TTL_S},
+            "cid": cid,
+        }
+        result = self.send(command, cid=cid)
+        self._last_renew[link] = now
+        self._last_send[link] = now
+        self.stats["commands"] += 1
+        self.audit.append({
+            "kind": "reassert", "reason": reason, "t_mono": now,
+            "t_wall": self.wall_clock(), "command": command,
+            "result": _slim(result),
+        })
+        return result
+
+    # ------------------------------------------------------------ EDGE
+
+    def _execute(self, action, view=None, cstate_before=None,
+                 cstate_after=None, now_mono=None):
+        now_mono = self.clock() if now_mono is None else now_mono
+        # WALL CLOCK: FSM so t_start voi t_source cua snapshot (M8). KHONG dung
+        # monotonic o day du policy dung monotonic cho deadline - hai dong ho,
+        # hai muc dich, khong duoc lan.
+        t_wall = self.wall_clock()
+        intervention = to_intervention(action, self.routing, t_wall)
+        self.log.append(intervention)                       # (1) WRITE-AHEAD (M5)
+        command = to_command(action)
+        if action.kind == "inject":
+            command["params"]["leaseS"] = LEASE_TTL_S       # dead-man switch
+        result = self.send(command, cid=command["cid"])     # (2) roi moi gui
+        self.stats["commands"] += 1
+        # Lenh vua gui DA gia han lease; khong de vong LEVEL gui them mot lan
+        # nua ngay trong cung mot nhip (se thanh hai lenh cho mot quyet dinh).
+        if action.kind == "inject":
+            self._last_renew[action.link] = now_mono
+        self._last_send[action.link] = now_mono
+        self.audit.append({
+            "kind": action.kind,
+            "t_mono": now_mono,
+            "t_wall": t_wall,
+            "input": None if view is None else _view_row(view),
+            "roles": None if view is None else dict(view.roles),
+            "now_mono": now_mono,
+            "params_sha256": sha(asdict(self.params)),
+            "cstate_before": None if cstate_before is None else _row(cstate_before),
+            "cstate_after": None if cstate_after is None else _row(cstate_after),
+            "actions": [_row(action)],
+            "intervention": {
+                "id": intervention.id,
+                "action": intervention.action,
+                "blast_radius_n": len(intervention.blast_radius),
+                "routing_sha256": intervention.routing_sha256,
+            },
+            "command": command,
+            "result": _slim(result),
+        })
+        return result
+
+    # ------------------------------------------------------------ hop dong D
+
+    def _publish(self, now):
+        if self.publish is None:
+            return None
+        from bridge import controlloop_contract as CL
+
+        self.seq += 1
+        iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(self.wall_clock()))
+        document = CL.build_document(
+            self.cstate, self.params,
+            boot_id=self.boot_id, seq=self.seq, heartbeat_at=iso,
+            decided_at=iso, now_mono=now, dropped=getattr(self.twin, "dropped", 0),
+            provenance=self.provenance(),
+        )
+        try:
+            self.publish(document)
+        except Exception:
+            log.exception("PATCH controlloop that bai (bo qua mot nhip)")
+        return document
+
+    def provenance(self) -> dict:
+        from ml import campaign as C
+
+        def digest(rel):
+            try:
+                return C.sha256_bytes((C.ROOT / rel).read_bytes())
+            except OSError:
+                return ""
+
+        return {
+            "policySha256": digest("controller/policy.py"),
+            "preregSha256": digest("results/report/phase8_prereg.json"),
+            "simPredictionsSha256": digest("results/report/phase8_sim_predictions.json"),
+            "contractSha256": digest("results/report/phase8_contract.json"),
+            "detectorReleaseSha256": self.twin.detector_view_fields().get(
+                "release_sha256", ""
+            ),
+        }
+
+    # ------------------------------------------------------------ tat / hong
+
+    def shutdown(self, timeout_s=SHUTDOWN_TIMEOUT_S):
+        """Go can thiep dang mo TRUOC khi thoat.
+
+        KHONG dua vao dead-man switch o duong thoat BINH THUONG: switch la luoi
+        an toan cho truong hop bat thuong. Dua vao no moi lan restart = 17 s suy
+        giam khong can thiet.
+        """
+        self._stop.set()
+        deadline = self.clock() + timeout_s
+        if self.cstate.open_id and self.cstate.target:
+            action = Action(
+                "revert", link_of(self.cstate.target), self.params.default_mbps,
+                self.cstate.open_id.replace(":inject", ":revert"),
+                "graceful_shutdown",
+            )
+            try:
+                self._execute(action)
+                self.cstate = replace(self.cstate, mode="HOLD", target=None,
+                                      open_id=None, deadline_mono=None,
+                                      window_end_mono=None,
+                                      reason="shutting_down")
+            except Exception:
+                # Go that bai KHONG duoc ngan tien trinh thoat, neu khong
+                # `systemctl stop` se treo. Lease la luoi do.
+                log.exception("go can thiep luc tat that bai -> dua vao lease")
+        else:
+            self.cstate = replace(self.cstate, mode="HOLD",
+                                  reason="shutting_down")
+        if self.clock() > deadline:
+            log.warning("tat em qua han %.1f s", timeout_s)
+        self._publish(self.clock())
+        return self.cstate
+
+    def _enter_crash_loop(self):
+        """Fail-closed: go can thiep, ngung quyet dinh, NHUNG giu heartbeat.
+
+        Chet im lang khac han voi "con song va dang tu choi hoat dong": cai sau
+        nhin thay duoc tren dashboard.
+        """
+        log.error("crash loop: %d loi trong %.0f s -> ngung quyet dinh",
+                  len(self._exc_times), CRASH_LOOP[1])
+        try:
+            if self.cstate.open_id and self.cstate.target:
+                action = Action(
+                    "revert", link_of(self.cstate.target), self.params.default_mbps,
+                    self.cstate.open_id.replace(":inject", ":revert"), "crash_loop",
+                )
+                self._execute(action)
+        except Exception:
+            log.exception("go can thiep khi crash loop that bai -> dua vao lease")
+        self.cstate = replace(self.cstate, mode="HOLD", reason="crash_loop")
+        self._publish(self.clock())
+
+    def stop(self):
+        self._stop.set()
