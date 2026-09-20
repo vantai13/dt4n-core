@@ -253,7 +253,16 @@ chứng**.
 **Cách xử lý:** thiết kế gỡ **theo lịch** nên không đọc `normal` cũng không đọc
 `suppressed` để quyết định. Sim chạy **cả hai** kịch bản và
 `test_ket_qua_khong_doi_theo_an_so_93` chứng minh số hành động **giống hệt**.
-Lesson 8.3 (đo lại S11 cho `setBandwidth`) sẽ đóng ẩn số này.
+
+> ✅ **ĐÃ ĐÓNG ở Lesson 8.3 (đo live): khả năng A.**
+> `results/report/phase8_s11_bw_flood.json` — trong khoảng giảm thiểu, nhánh
+> `log_first` cho 19/19 tick `unknown(suppressed_intervention)` với
+> `envelope=True, act_rule=True`: tín hiệu thô **có**, bị vùng ức chế nuốt.
+> Khả năng B (`normal`) không xảy ra lần nào.
+> Ngoại lệ: 1/3 round cho 18 tick `act` không bị ức chế, vì `ml/fsm.py` chỉ ức chế
+> khi **mọi** entity vi phạm nằm trong vùng, mà `link-s2-s3` nằm ngoài vùng 15/16.
+> Không phá thiết kế (ở `MITIGATING`, `ACT` không sinh hành động mới) nhưng phải
+> khai: tỷ lệ tick bị ức chế dưới flood **không phải 100%**.
 
 > 🚨 **Cấm:** dùng `suppressed_intervention` làm tín hiệu "flood vẫn còn". Nó
 > không nằm trong hợp đồng R1–R4, phụ thuộc nội tại `blast_radius.py`, và là tín

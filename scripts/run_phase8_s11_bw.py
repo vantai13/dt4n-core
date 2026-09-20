@@ -50,7 +50,8 @@ TAIL_S = 10.0             # giong 7.6
 HOLD_S = 20.0             # << MAX_OPEN_S 120 s: khong duoc cham lease
 SETTLE_S = 5.0
 DEFAULT_BW = 20.0         # mininet/topology.py:88
-QUIET_BW = 1.0            # DUOI tai nen 2 Mbps -> chac chan sinh drop
+QUIET_BW = 1.0            # DUOI tai nen 2 Mbps
+QUIET_UDP_RATE_MBPS = 5   # amendment 1: nen UDP h1->srv1 (xem docs/phase-8/03b)
 FLOOD_BW = 7.0            # dung tham so that cua policy
 FLOOD_RATE_MBPS = 47      # giong F-flood-* cua Phase 5
 LINK = "h1-s1"
@@ -198,9 +199,19 @@ def seal(path, content):
     )
 
 
+def _verdict(scenario, valid, by_arm) -> str:
+    if scenario not in ("quiet", "quiet_udp"):
+        return "N/A (khong dung lam gate: da co act do flood, khong quy ket duoc)"
+    if not valid:
+        return ("INVALID (doi chung duong 0 act: khong phan biet duoc "
+                "write-ahead hieu qua voi actuator vo hai)")
+    return "PASS" if by_arm.get("log_first", {}).get("act_entries", 1) == 0 else "FAIL"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--scenario", choices=("quiet", "flood"), required=True)
+    parser.add_argument("--scenario", choices=("quiet", "quiet_udp", "flood"),
+                        required=True)
     parser.add_argument("--reps", type=int, default=5)
     parser.add_argument("--seed", type=int, default=8003)
     parser.add_argument("--arms", default="log_first,log_late,no_log")
@@ -211,7 +222,7 @@ def main() -> int:
         print("hop dong 8.3 chua niem phong; chay build_phase8_contract.py truoc")
         return 2
 
-    bw = QUIET_BW if args.scenario == "quiet" else FLOOD_BW
+    bw = FLOOD_BW if args.scenario == "flood" else QUIET_BW
     rng = random.Random(args.seed)
     counter = LevelCounter()
     logging.getLogger().addHandler(counter)
@@ -224,8 +235,15 @@ def main() -> int:
         )
         live.wait_published("normal", timeout_s=120)
         flood = None
-        if args.scenario == "flood":
-            flood = TrafficFlood("h1", "srv1", FLOOD_RATE_MBPS)
+        if args.scenario in ("flood", "quiet_udp"):
+            # quiet_udp: nen UDP VUA PHAI (5 Mbps < tran tai hop le train 6.182)
+            # de detector van `normal` truoc khi can thiep, nhung UDP KHONG lui
+            # buoc nen bop bang thong CHAC CHAN sinh qdisc drop -> co tin hieu
+            # de doi chung duong quan sat duoc. Nen TCP 2 Mbps cua kich ban
+            # `quiet` bi TCP hap thu (gioi han S1 = 0.30), khong sinh tin hieu.
+            rate = (FLOOD_RATE_MBPS if args.scenario == "flood"
+                    else QUIET_UDP_RATE_MBPS)
+            flood = TrafficFlood("h1", "srv1", rate)
             with live.env.net_lock:
                 flood.apply(live.env.net)
             time.sleep(10.0)      # de flood on dinh va detector vao act
@@ -267,10 +285,15 @@ def main() -> int:
             "first_tick_after_inject": [r["first_tick_after_inject"] for r in subset],
         }
 
-    valid = args.scenario != "quiet" or by_arm.get("no_log", {}).get("act_entries", 0) >= 1
+    gate_scenarios = ("quiet", "quiet_udp")
+    positive_control = by_arm.get("no_log", {}).get("act_entries", 0)
+    valid = (args.scenario not in gate_scenarios) or positive_control >= 1
     content = {
         "lesson": "8.3",
         "scenario": args.scenario,
+        "udp_background_mbps": (QUIET_UDP_RATE_MBPS if args.scenario == "quiet_udp"
+                                else (FLOOD_RATE_MBPS if args.scenario == "flood"
+                                      else 0)),
         "actuator": "setBandwidth",
         "link": LINK,
         "bw_mbps": bw,
@@ -285,11 +308,10 @@ def main() -> int:
         "contract_sha256": C.sha256_bytes(CONTRACT.read_bytes()),
         "arms": by_arm,
         "measurement_valid": bool(valid),
-        "c8_verdict": (
-            "PASS" if (args.scenario == "quiet" and valid
-                       and by_arm.get("log_first", {}).get("act_entries", 1) == 0)
-            else ("N/A (khong dung lam gate)" if args.scenario == "flood" else "FAIL")
-        ),
+        # Nhan verdict phai phan biet VO HIEU voi FAIL: phep do vo hieu nghia la
+        # khong phan biet duoc "write-ahead hieu qua" voi "actuator vo hai",
+        # KHONG co nghia la write-ahead that bai.
+        "c8_verdict": _verdict(args.scenario, valid, by_arm),
         "log_counts": counter.counts,
         "rows": rows,
     }

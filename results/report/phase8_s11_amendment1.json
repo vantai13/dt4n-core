@@ -1,0 +1,149 @@
+{
+  "content": {
+    "amendment_id": "DT4N-P8.3-A1",
+    "lesson": "8.3",
+    "contract_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+    "trigger": "Dieu kien vo hieu da khoa truoc trong phase8_contract.json::s11_predictions.invalidation_rule da xay ra.",
+    "what_happened": {
+      "scenario": "quiet (bw 1.0 Mbps, nen TCP 2 Mbps/client)",
+      "arms": {
+        "log_first": {
+          "n": 5,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "published_during_mitigation": {
+            "unknown/missing_data": 5,
+            "normal": 95
+          }
+        },
+        "log_late": {
+          "n": 5,
+          "act_entries": 0,
+          "alarm_entries": 0,
+          "published_during_mitigation": {
+            "unknown/missing_data": 5,
+            "normal": 146
+          }
+        },
+        "no_log": {
+          "n": 5,
+          "act_entries": 0,
+          "alarm_entries": 5,
+          "published_during_mitigation": {
+            "unknown/missing_data": 5,
+            "normal": 95
+          }
+        }
+      },
+      "positive_control_act_entries": 0,
+      "verdict_label_in_receipt": "FAIL",
+      "corrected_verdict": "INVALID (doi chung duong 0 act: khong phan biet duoc write-ahead hieu qua voi actuator vo hai). Nhan 'FAIL' trong receipt goc la LOI DAT TEN cua harness, da sua trong scripts/run_phase8_s11_bw.py::_verdict; KHONG co nghia la write-ahead that bai."
+    },
+    "root_cause": "Nen `normal` cua mininet/traffic.py::start_background_load la TCP (scenario='normal' -> udp=False). Bop bang thong xuong 1 Mbps chi lam TCP lui buoc; khong co gi bi drop o qdisc nen envelope khong thay vi pham. Day chinh la gioi han S1 = 0.30 da khai trong hop dong ban giao Phase 7: 'envelope bo sot phan lon su co ma TCP hap thu thanh muc thong luong thap hon'. Ha bw them nua cung khong doi ban chat.",
+    "amendment": {
+      "new_scenario": "quiet_udp",
+      "change": "them mot luong nen UDP h1->srv1 5 Mbps (rl.scenarios.TrafficFlood) truoc khi can thiep; UDP KHONG lui buoc nen bop xuong 1 Mbps chac chan sinh qdisc drop -> co tin hieu quan sat duoc",
+      "why_5_mbps": "5 < tran tai hop le tren train 6.181986 Mbps (phase8_prereg.json) nen detector van `normal` truoc can thiep; va san tai dong deu g=min(client tx) van ~2 Mbps < nguong guard 4.312610 nen guard vung van hanh khong bat",
+      "not_changed": [
+        "PolicyParams.limit_mbps van 7.0 (1 Mbps la tham so cua PHEP DO)",
+        "ba nhanh log_first/log_late/no_log giu nguyen khuon 7.6",
+        "hold 20 s, cooldown 8 s, tail 10 s, pha ngau nhien giu nguyen"
+      ]
+    },
+    "result_after_amendment": {
+      "scenario": "quiet_udp",
+      "arms": {
+        "log_first": {
+          "n": 5,
+          "act_entries": 0,
+          "alarm_entries": 4,
+          "published_during_mitigation": {
+            "unknown/missing_data": 5,
+            "normal": 7,
+            "unknown/suppressed_intervention": 87,
+            "suspect": 1
+          }
+        },
+        "log_late": {
+          "n": 5,
+          "act_entries": 0,
+          "alarm_entries": 10,
+          "published_during_mitigation": {
+            "unknown/missing_data": 5,
+            "normal": 8,
+            "suspect": 6,
+            "unknown/suppressed_intervention": 99
+          }
+        },
+        "no_log": {
+          "n": 5,
+          "act_entries": 5,
+          "alarm_entries": 7,
+          "published_during_mitigation": {
+            "normal": 7,
+            "unknown/missing_data": 5,
+            "suspect": 5,
+            "act": 84
+          }
+        }
+      },
+      "measurement_valid": true,
+      "c8_verdict": "PASS"
+    },
+    "flood_scenario": {
+      "purpose": "dong an so 9.3 cua Lesson 8.2, KHONG dung lam gate",
+      "arms": {
+        "log_first": {
+          "n": 3,
+          "act_entries": 4,
+          "alarm_entries": 4,
+          "published_during_mitigation": {
+            "unknown/missing_data": 3,
+            "unknown/suppressed_intervention": 38,
+            "suspect": 1,
+            "act": 18
+          }
+        },
+        "log_late": {
+          "n": 3,
+          "act_entries": 4,
+          "alarm_entries": 6,
+          "published_during_mitigation": {
+            "unknown/missing_data": 3,
+            "suspect": 3,
+            "unknown/suppressed_intervention": 40,
+            "act": 20
+          }
+        },
+        "no_log": {
+          "n": 3,
+          "act_entries": 6,
+          "alarm_entries": 6,
+          "published_during_mitigation": {
+            "unknown/missing_data": 3,
+            "suspect": 3,
+            "act": 54
+          }
+        }
+      },
+      "unknown_93_closed": "A",
+      "evidence": "log_first rep0/rep1: 19/19 tick trong khoang giam thieu deu la unknown(suppressed_intervention) voi envelope=True act_rule=True - tin hieu tho CO, nhung bi vung uc che nuot dung nhu kha nang A",
+      "exception_found": {
+        "round": "log_first rep2",
+        "observed": "18 tick `act` khong bi uc che",
+        "mechanism": "ml/fsm.py chi uc che khi TAT CA entity vi pham nam trong vung (`local <= zone`). Vung cua can thiep tren h1-s1 la 15/16 entity; entity duy nhat ngoai vung la link-s2-s3. Do do chi can mot vi pham roi vao link-s2-s3 (duong nen srv1->srv2 di qua bottleneck 5 Mbps) la ca tick khong duoc uc che.",
+        "impact_on_design": "Khong pha thiet ke 8.2: o trang thai MITIGATING, nhan ACT KHONG sinh hanh dong moi (chi lich moi go). Nhung phai khai vao gioi han: duoi flood, ty le tick bi uc che khong phai 100%.",
+        "rate": "1/3 round log_first duoi flood"
+      }
+    },
+    "f8_6_confirmed": {
+      "claim": "setBandwidth dung lai qdisc -> 1 tick unknown(missing_data)",
+      "observed": "29/30 round quiet+quiet_udp co tick dau sau inject la unknown/missing_data; va trong kich ban flood, ca inject lan revert deu sinh dung mot tick missing_data",
+      "exception": "1 round (quiet_udp/no_log rep0) tick dau la `normal`: lenh co hieu luc sau moc lay mau cua tick do"
+    },
+    "effect_latency_note": "effect_latency_s do bang cach doc thang link.dt4n_bw trong tien trinh Mininet, tuc do tre ACTUATOR (post -> tc da doi), KHONG phai do tre xac nhan qua twin. Do tre qua twin them collector 1 tick + write_2xx + fanout_sse va se duoc do o 8.4.",
+    "deviation_policy": "immutable after creation"
+  },
+  "content_sha256": "390121f8be2994f19581e73bd10dbe6aca83d40e77d282ede3c7e74b98cd123d",
+  "written_at_utc": "2026-09-20T04:49:26+00:00"
+}
