@@ -1,0 +1,364 @@
+{
+  "content": {
+    "verdict_id": "DT4N-P7-VERDICTS",
+    "frozen_commit": "9917e07d7a594792caea191661b733e0ec87a11d",
+    "receipts": {
+      "s12": {
+        "file": "phase7_acceptance/phase7_s12_live.json",
+        "sha256": "04f4b49a59d739d8efb2401275bb980342e49eec1779091471d297ef5982a816",
+        "started_utc": "2026-09-19T15:59:03+00:00"
+      },
+      "e2e": {
+        "file": "phase7_acceptance/phase7_e2e_latency.json",
+        "sha256": "f315d073e5439dd331a8dc3282d2e6b8348d6965bbcdf9b1668653a848d9d4b2",
+        "started_utc": "2026-09-19T16:02:32+00:00"
+      },
+      "s11": {
+        "file": "phase7_acceptance/phase7_s11_live.json",
+        "sha256": "3706db7b88bc8dfdfd2640d3e6ab47f94452c3a378a3329aeff0d74fe1a2f4d0",
+        "started_utc": "2026-09-19T16:08:45+00:00"
+      },
+      "contention": {
+        "file": "phase7_acceptance/phase7_contention.json",
+        "sha256": "3dfdbfdf1a63a7601f6de6c3a64dcdd145b2faf96ee8bad07081a1843e5f15d3",
+        "started_utc": "2026-09-19T16:20:12+00:00"
+      },
+      "soak": {
+        "file": "phase7_acceptance/phase7_soak_live_v2.json",
+        "sha256": "1a508996725cb327bee0cdb2790cab15248b0ae671e80c09e54a0260bf9d1971",
+        "started_utc": "2026-09-19T23:22:33+00:00"
+      }
+    },
+    "pins_6r_ok": true,
+    "rule": "phan quyet = so da niem phong so voi slo.target; khong nguoi nao go tay",
+    "release_rule": "amendment 3: released = G1 & G2 & G3 & G4 (khong phai moi SLO PASS)",
+    "slo": {
+      "S1": {
+        "sli": "per_incident_detection_rate (tang suspect)",
+        "target": {
+          "op": ">=",
+          "value": 0.875,
+          "unit": "ty le su co"
+        },
+        "phase6r": {
+          "verdict": "FAIL",
+          "value": 0.3,
+          "from": null
+        },
+        "final": "FAIL",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S2": {
+        "sli": "su kien bao dong sai moi gio, nen tinh",
+        "target": {
+          "op": "<=",
+          "value": 3.0,
+          "unit": "su kien/gio",
+          "kind": "gioi han tren 95%"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": 0.9994102664066693,
+          "from": null
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S3": {
+        "sli": "MTBFA, nen tinh",
+        "target": {
+          "op": ">=",
+          "value": 20.0,
+          "unit": "phut",
+          "kind": "gioi han duoi 95%"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": 60.03540489505583,
+          "from": null
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S4": {
+        "sli": "time_to_detect p95 (snapshot dau co dau vet -> doi trang thai)",
+        "target": {
+          "op": "<=",
+          "value": 3000,
+          "unit": "ms"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": 2007.1563720703125,
+          "from": null
+        },
+        "phase7": {
+          "value": 1836.506993000512,
+          "field": "budgets.s4_like_from_cmd.p95_ms (cung dinh nghia 6R: inject cmd -> san sang)",
+          "extra": {
+            "n": 25,
+            "event": "flood h1->srv1 47M"
+          }
+        },
+        "final": "PASS",
+        "basis": "do LIVE tren commit dong bang"
+      },
+      "S4b": {
+        "sli": "tran debounce N (rang buoc suy ra tu S4)",
+        "target": {
+          "op": "<=",
+          "value": 2,
+          "unit": "tick"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S5": {
+        "sli": "latency p95 observe()+step(), gom flatten + aggregate + score + FSM",
+        "target": {
+          "op": "<=",
+          "value": 50,
+          "unit": "ms"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "phase7": {
+          "value": 1.6165269989869557,
+          "field": "S5_live_p95_ms_worst_block (ABBA)",
+          "extra": {
+            "cycle_scan_p95_ms_mean": {
+              "ON": 72.01111316680908,
+              "OFF": 72.14152812957764
+            }
+          }
+        },
+        "final": "PASS",
+        "basis": "do LIVE tren commit dong bang"
+      },
+      "S6": {
+        "sli": "tang RSS sau 30 phut",
+        "target": {
+          "op": "<=",
+          "value": 1.0,
+          "unit": "MiB"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "phase7": {
+          "value": 0.52734375,
+          "field": "S6_v2.delta_mib (prereg DT4N-P7-S6-V2: bo warmup 300 s)",
+          "extra": {
+            "v1_protocol_same_run_mib": 1.48828125,
+            "errors": 0
+          }
+        },
+        "final": "PASS",
+        "basis": "do LIVE tren commit dong bang",
+        "history": [
+          {
+            "when": "7.6",
+            "file": "phase7_soak_live.json",
+            "verdict": "FAIL",
+            "delta_mib": 2.77,
+            "cause": "bo dem nghien cuu timeline chay mac dinh (tracemalloc 1725 KiB)"
+          },
+          {
+            "when": "7.7p1",
+            "file": "phase7_soak_live_v2.json",
+            "prereg": "phase7_s6_v2_prereg.json"
+          }
+        ]
+      },
+      "S7": {
+        "sli": "khong dao dong",
+        "target": {
+          "op": "==",
+          "value": 0,
+          "unit": "mau X->Y->X trong cua so su co"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": null
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S8": {
+        "sli": "hanh vi khi thieu du lieu",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "ty le tick co cot non-finite -> unknown"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S9": {
+        "sli": "trang thai sau restart",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "ty le tick dau dung policy"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      },
+      "S10": {
+        "sli": "hanh vi o tai ngoai vung hieu chinh",
+        "target": {
+          "kind": "bao, khong dat muc tieu"
+        },
+        "phase6r": {
+          "verdict": "REPORT_ONLY",
+          "value": null,
+          "from": null
+        },
+        "final": "REPORT_ONLY",
+        "basis": "khong co nguong; hanh vi moi: guard 7.1 KN1 -> unknown(out_of_operating_range) tren 6-10 Mbps"
+      },
+      "S11": {
+        "sli": "chong tu-kich-hoat",
+        "target": {
+          "op": "==",
+          "value": 0,
+          "unit": "lan vao act do controller"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "phase7": {
+          "value": 0,
+          "field": "arms.log_first.act_entries (n >= 3 can thiep that)",
+          "extra": {
+            "n": 4,
+            "controls": {
+              "log_late": {
+                "n": 4,
+                "act_entries": 0,
+                "alarm_entries": 4,
+                "env_alarm_ticks": 4,
+                "suppressed_ticks": 84,
+                "all_started_from_normal": true
+              },
+              "no_log": {
+                "n": 4,
+                "act_entries": 4,
+                "alarm_entries": 4,
+                "env_alarm_ticks": 84,
+                "suppressed_ticks": 0,
+                "all_started_from_normal": true
+              }
+            },
+            "lease_pass": true
+          }
+        },
+        "final": "PASS",
+        "basis": "do LIVE tren commit dong bang",
+        "history": [
+          {
+            "when": "7.6",
+            "note": "log_late ban dau lech 2 tick do off-by-one harness; chay bo sung phase7_s11_live_offbyone_fix.json"
+          }
+        ]
+      },
+      "S12": {
+        "sli": "staleness khi detector chet",
+        "target": {
+          "op": "<=",
+          "value": 5000,
+          "unit": "ms den luc twin stale"
+        },
+        "phase6r": {
+          "verdict": "DEFERRED",
+          "value": null,
+          "from": null
+        },
+        "phase7": {
+          "value": 3014.0,
+          "field": "kill_to_stale.max_ms (moi trial, khong phai p95)",
+          "extra": {
+            "p95_ms": 2925.0,
+            "trials": 20,
+            "all_clear_while_stale": 0,
+            "first_load_dead_detector": {
+              "always_stale": true,
+              "all_clear_ever": false
+            }
+          }
+        },
+        "final": "PASS",
+        "basis": "do LIVE tren commit dong bang",
+        "history": [
+          {
+            "when": "6R",
+            "verdict": "DEFERRED",
+            "why": "amendment 4: thuoc tinh tich hop"
+          }
+        ]
+      },
+      "S13": {
+        "sli": "truy vet mo hinh",
+        "target": {
+          "op": "==",
+          "value": 1.0,
+          "unit": "payload co modelVersion + artifact_sha256"
+        },
+        "phase6r": {
+          "verdict": "PASS",
+          "value": null,
+          "from": "phase6r_stability_v2"
+        },
+        "final": "PASS",
+        "basis": "mang sang 6R: ml/*.py + models trung bit voi phase6r_manifest"
+      }
+    },
+    "gates": {
+      "G1": true,
+      "G2": true,
+      "G3": true,
+      "G4": true,
+      "released": true
+    },
+    "budgets_master_plan": {
+      "e2e_from_event": {
+        "p95_ms": 1535.1023254988831,
+        "target_ms": 5000,
+        "meets": true
+      },
+      "twin_ui": {
+        "p95_ms": 43.08805050095543,
+        "target_ms": 1000,
+        "meets": true
+      }
+    },
+    "fails_declared": [
+      "S1"
+    ]
+  },
+  "content_sha256": "a601e2939e22986e6c153ff15bed83339eb40109a0cedb9daaab0870a5c2c29d",
+  "written_at_utc": "2026-09-20T00:08:54+00:00"
+}
