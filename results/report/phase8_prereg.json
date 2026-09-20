@@ -1,0 +1,268 @@
+{
+  "content": {
+    "prereg_id": "DT4N-P8-CLOSED-LOOP-MITIGATION",
+    "lesson": "8.1",
+    "knowledge_state": "Thiet ke, actuator, luat dinh vi v2, ba kha nang KN1-KN3 va bang C1-C12 lay nguyen tu huong dan Lesson 8.1. Du lieu Phase 5 (8 train + 10 C/F) va Phase 6R R-set deu DA MO tu Phase 6R/7, nen ket qua offline o day la in-sample doi voi thiet ke da nhin thay chung.",
+    "protocol_deviation": {
+      "occurred": true,
+      "detail": "Hai probe 8.1-A va 8.1-B da chay TRUOC khi seal file nay, va ket qua tren R-set Phase 6R da duoc doc truoc khi ghi KN. Khong the tuyen bo blind prereg. Bu lai: luat khong co tham so tu do nao duoc chinh sau khi nhin so, va moi con so lay tu train deu di qua tuong lua train-only."
+    },
+    "problem_renaming": {
+      "from": "Closed-loop failover (twin chuyen huong traffic)",
+      "to": "Closed-loop mitigation (twin gioi han toc do tai nguon)",
+      "reason": "failover tang du lieu DA co san trong vong trong: mininet/controller_static.py::port_status_handler cap nhat down_edges roi goi next_hop_table(excluded_edges=...) trong vai mili-giay. Vong ngoai (twin, giay) chi them gia tri o tang CHINH SACH. Chi so PART V doi tu 'traffic chuyen huong < 10 s' thanh 'giam thieu co hieu luc < 10 s' (C3), kem ly do nay."
+    },
+    "controllability_table": [
+      {
+        "actuator": "disableLink s1-s2",
+        "physical_effect": "Ryu tinh lai duong, traffic di s1-s3-s2",
+        "helps_victim": false,
+        "why": "duong vong xuyen link bottleneck 5 Mbps (mininet/topology.py:72); flood di theo, nghen nang hon"
+      },
+      {
+        "actuator": "disableLink s2-srv1",
+        "physical_effect": "co lap srv1",
+        "helps_victim": false,
+        "why": "srv1 chi co mot canh trong ditto/topology_spec.json (['srv1','s2']); khong co LB/DNS/NAT nao doi dich 10.0.0.4 -> 10.0.0.5"
+      },
+      {
+        "actuator": "disableSwitch s1",
+        "physical_effect": "tat switch goc cua ca ba client",
+        "helps_victim": false,
+        "why": "h1,h2,h3 deu treo vao s1 (topology_spec.json); pha huy toan bo dich vu"
+      },
+      {
+        "actuator": "disableHost h1 / enableHost h1",
+        "physical_effect": "tat han thu pham",
+        "helps_victim": true,
+        "why": "co hieu luc nhung pha huy: h1 con traffic hop le 2 Mbps; khong dao nguoc em"
+      },
+      {
+        "actuator": "enableLink / enableSwitch",
+        "physical_effect": "khoi phuc thu da tat",
+        "helps_victim": false,
+        "why": "khong phai cong cu giam thieu; chi la duong lui cua cac lenh tren"
+      },
+      {
+        "actuator": "setBandwidth h1-s1 bw=L",
+        "physical_effect": "gioi han toc do tai cong vao cua thu pham",
+        "helps_victim": true,
+        "why": "cat flood tai nguon, giu lai L Mbps cho traffic hop le, dao nguoc duoc bang mot lenh setBandwidth khac; twin quan sat duoc qua dt4n_bw (bridge/command_agent.py:258 ghi, bridge/collector.py:403 doc)"
+      }
+    ],
+    "actuator": {
+      "command": "setBandwidth",
+      "target_link": "<client bi chi mat>-s1",
+      "limit_mbps": 7.0,
+      "limit_derivation": "tran tai hop le cao nhat tung quan sat tren dung 8 run train = 6.181986 Mbps, lam tron len Mbps nguyen",
+      "limit_owner": {
+        "run_id": "N-vary-s1007-r1",
+        "tick": 16,
+        "host": "h3"
+      },
+      "reversibility": "setBandwidth ve bw goc (20 Mbps, mininet/topology.py:88)",
+      "observability_channel": "link-<x>-s1.features.capacity.bwMbps (khong nam trong 71 cot dac trung cua envelope-1.0.0 -> doc no khong vi pham N13)"
+    },
+    "localization_rule": {
+      "version": "v2",
+      "file": "controller/localize.py",
+      "sha256": "9dba6b29ee259640f48bafc0ff2fa298c17b2b41ad99601f80994619a0776301",
+      "free_parameters": 0,
+      "statement": [
+        "candidates = {host in evidence.affected | attributes.role == 'client'}",
+        "|candidates| == 0 -> NO_ACTION(no_client_candidate)",
+        "|candidates| == 1 -> TARGET = candidate do",
+        "|candidates| >= 2 -> NO_ACTION(ambiguous_multiple_clients)  # fail-closed"
+      ],
+      "latch": "sau khi chon TARGET, controller sang MITIGATING va KHONG danh gia lai luat cho toi khi episode ket thuc",
+      "latch_justification": {
+        "runs_where_per_tick_would_differ": [
+          "F-flood-h1_to_srv1-s3005-r1",
+          "RC-flood-h1_to_srv1-s4201-r1"
+        ],
+        "mechanism": "recovery burst: sau khi flood tat, TCP cua nan nhan xa backlog (h3 len 18.4 Mbps o tick 46) va nan nhan vao affected; danh gia moi tick se bop bang thong dung nan nhan dang hoi phuc"
+      }
+    },
+    "dormant_extension_delta_gap": {
+      "status": "CHUA KICH HOAT",
+      "delta_mbps": 5.365956,
+      "delta_mbps_exact": 5.36595616,
+      "owner": {
+        "run_id": "N-vary-s1008-r2",
+        "tick": 26,
+        "host": "h2",
+        "top_mbps": 5.366516,
+        "second_mbps": 0.00056
+      },
+      "decision": "GIU du 8 run train, KHONG loai N-vary-s1008-r2",
+      "reason": "loai s1008 -> Delta = 3.245677 -> luat gap ban nham o run binh thuong ['C-vary-s2002-r1', 'F-shift-s1-s2-s3007-r1', 'F-shift-s1-s3-s3008-r1', 'N-vary-s1008-r2', 'RC-shift-s1-s2-s4203-r1', 'RD-degrade-s1-s2-rho125-s4103-r1', 'RD-degrade-s1-s2-rho150-s4102-r1', 'RD-degrade-s1-s2-rho200-s4101-r1', 'RN-load10M-s4015-r1', 'RN-load10M-s4016-r2']",
+      "why_not_used_now": "tai moi tick act tren du lieu da mo, |candidates| chi bang 0, 1 hoac 3; truong hop 3 la RN-load8M/10M noi cau tra loi dung la KHONG hanh dong. Nhanh Delta se la code chua tung chay. Neu sau nay |candidates| >= 2 xay ra that trong live, phai do lai Delta truoc khi bat."
+    },
+    "preconditions": [
+      "decision.state == 'act' (R1, N10)",
+      "freshness con han (R3, N12)",
+      "cause not in {stale_intervention, out_of_operating_range} (N15, N16)",
+      "controller dang o IDLE (chua co can thiep mo)"
+    ],
+    "prohibitions": {
+      "R1": "chi hanh dong khi decision.state == 'act' (state DA CONG BO, sau guard)",
+      "R2": "dung evidence.affected cua chinh tick do, KHONG dung decision.affected",
+      "R3": "kiem freshness bang MonotonicFreshness truoc moi lenh",
+      "R4": "ghi releaseVersion/releaseSha256 vao audit cua moi quyet dinh",
+      "N10": "khong hanh dong khi suspect",
+      "N11": "khong hanh dong dua tren evidence.conservation hay actRule",
+      "N12": "khong hanh dong khi freshness het TTL",
+      "N13": "khong tinh lai state/feature/nguong cua detector",
+      "N14": "tick suspect chi-residual sau can thiep khong phai bug",
+      "N15": "cause == 'stale_intervention' -> revert can thiep dang mo, khong tao moi",
+      "N16": "cause == 'out_of_operating_range' -> khong hanh dong"
+    },
+    "outcome_declared": {
+      "branches": {
+        "KN1": "100% flood -> dung nguon VA 100% khong-flood -> khong hanh dong => dong vong TU DONG",
+        "KN2": "dung nguon nhung co khong-flood bi hanh dong => thu hep dieu kien trien khai",
+        "KN3": "khong dinh vi duoc => vong BAN TU DONG, controller de xuat, nguoi duyet"
+      },
+      "observed_offline": "KN1",
+      "confusion_matrix": {
+        "correct_latch": 4,
+        "wrong_latch": 0,
+        "missed": 0,
+        "correct_silence": 39
+      },
+      "n_runs_probed": 43,
+      "caveat": "offline, in-sample, n_flood = 4. C1 that do o 8.6 live."
+    },
+    "slo": [
+      {
+        "id": "C1",
+        "measures": "hanh dong dung nguon",
+        "objective": "100% (n >= 10 live)",
+        "gate": true,
+        "measured_at_lesson": "8.6"
+      },
+      {
+        "id": "C2",
+        "measures": "khong hanh dong voi admin_down/shift/degrade",
+        "objective": "0 lan",
+        "gate": true,
+        "measured_at_lesson": "8.1 offline + 8.7 live"
+      },
+      {
+        "id": "C3",
+        "measures": "tre act -> thu pham bi gioi han (p95)",
+        "objective": "<= 10000 ms",
+        "gate": true,
+        "measured_at_lesson": "8.6"
+      },
+      {
+        "id": "C4",
+        "measures": "nan nhan hoi phuc >= 80% nen (p95)",
+        "objective": "<= 15 s",
+        "gate": false,
+        "measured_at_lesson": "8.6"
+      },
+      {
+        "id": "C5",
+        "measures": "A/B goodput nan nhan (co - khong controller)",
+        "objective": "CI95 > 0",
+        "gate": true,
+        "measured_at_lesson": "8.6"
+      },
+      {
+        "id": "C6",
+        "measures": "so hanh dong / 10 phut (khong dao dong)",
+        "objective": "<= can sim; 0 luc binh thuong",
+        "gate": true,
+        "measured_at_lesson": "8.7"
+      },
+      {
+        "id": "C7",
+        "measures": "hanh dong tren trigger bi cam",
+        "objective": "0",
+        "gate": true,
+        "measured_at_lesson": "8.2 + 8.7"
+      },
+      {
+        "id": "C8",
+        "measures": "S11 cho setBandwidth: controller khong tu kich hoat detector",
+        "objective": "0",
+        "gate": true,
+        "measured_at_lesson": "8.3"
+      },
+      {
+        "id": "C9",
+        "measures": "controller chet -> UI STALE va gioi han tu go",
+        "objective": "<= 5 s / <= TTL",
+        "gate": true,
+        "measured_at_lesson": "8.7"
+      },
+      {
+        "id": "C10",
+        "measures": "quyet dinh dung lai bit-exact tu audit",
+        "objective": "100%",
+        "gate": true,
+        "measured_at_lesson": "8.8"
+      },
+      {
+        "id": "C11",
+        "measures": "on dinh 30 phut: RSS, 0 ERROR",
+        "objective": "<= 1 MiB; 0",
+        "gate": true,
+        "measured_at_lesson": "8.7"
+      },
+      {
+        "id": "C12",
+        "measures": "ty le thoi gian mu (vung uc che)",
+        "objective": "bao cao, khong dat nguong",
+        "gate": false,
+        "measured_at_lesson": "8.7"
+      }
+    ],
+    "suppression_zone": {
+      "intervention_link": "h1-s1",
+      "n_entities": 15,
+      "n_model_entities": 16,
+      "entities": [
+        "host-h1",
+        "host-h2",
+        "host-h3",
+        "host-srv1",
+        "host-srv2",
+        "link-h1-s1",
+        "link-h2-s1",
+        "link-h3-s1",
+        "link-s1-s2",
+        "link-s1-s3",
+        "link-s2-srv1",
+        "link-s3-srv2",
+        "switch-s1",
+        "switch-s2",
+        "switch-s3"
+      ],
+      "outside_zone": [
+        "link-s2-s3"
+      ]
+    },
+    "known_limitations": [
+      "degrade tren s1-s2 khong bao gio vao act (0 tick tren F-degrade-s1-s2-s3003-r1 va ca 5 run RD-degrade-s1-s2-*): controller tuan thu hop dong SE KHONG BAO GIO phan ung voi loai su co nay. Day la gioi han S1=0.30 hien ra o tang hanh dong, khong phai loi controller.",
+      "nan nhan bi bo doi KHONG duoc detector phat hien (h3 tut 2.15 -> 0.01 Mbps trong F-flood-h1_to_srv1-s3005-r1 ma khong vao affected). He thay thu pham, khong thay hau qua.",
+      "vung uc che = 15/16 entity cua model trong moi khoang giam thiep; chi link-s2-s3 con nhin thay. Mot su co thu hai trong khoang do bi che hoan toan.",
+      "rate limit o link truy nhap cung bop traffic hop le cua chinh thu pham; flood la UDP (rl/scenarios.py::TrafficFlood dung iperf -u) nen hang doi day va lossPct cua link-h1-s1 se tang - phai do lai S11 cho actuator moi o 8.3.",
+      "n = 4 run flood trong du lieu da mo (2 Phase 5 + 2 Phase 6R). Mong. C1 that den tu A/B live 8.6.",
+      "luat v2 im lang khi co >= 2 ung vien (fail-closed). Chu dich, nhung la gioi han: hai thu pham dong thoi se khong duoc xu ly tu dong."
+    ],
+    "upstream_sha256": {
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+      "results/report/phase7_prereg.json": "88a245a7e414f8f57e5d091f6b6bc4a8b024d0f8e0b1847b6261dbb74c5b3b4a",
+      "results/report/phase8_actionability.json": "ffadd8fa4ce1d6aa2efcd34e0c2a2feb97bd488ea89f4fd91ceaec6b1e48b862",
+      "results/report/phase8_localization_probe.json": "0acb63cd71678b1a012c0a264d2de89428341171a483787e7edda74db535fc34",
+      "scripts/probe_phase8_actionability.py": "0b6829b1fff687b1a8ac3b29c17bbb0f9ff9e134b3dcf98588e9fa9ec407a787",
+      "scripts/probe_phase8_localization.py": "6ab142800f3204d58c6ddc90b68d27dec6219f533c69178cd05cfb06fea7f864",
+      "scripts/phase8_replay.py": "6b39546c0f4108079b68333ca6d57add3ec9898274ad99ece1fa8df510f8dd94"
+    },
+    "deviation_policy": "immutable after creation; moi thay doi phai la amendment rieng"
+  },
+  "content_sha256": "cd7d168c168f7afbe0a7e2fbab28fdb10b163acdfbfb3b2565c47802e22f70c4",
+  "written_at_utc": "2026-09-20T02:03:05+00:00"
+}
