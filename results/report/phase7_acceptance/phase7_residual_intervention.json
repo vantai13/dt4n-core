@@ -1,0 +1,23 @@
+{
+  "content": {
+    "lesson": "7.6",
+    "per_intervention_residual_only_ticks": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "p50": 0,
+    "max": 0,
+    "per_intervention_held_ticks": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "act_entries_from_residual": 0,
+    "note": "residual is not suppressed by InterventionLog; it may only reach suspect"
+  },
+  "content_sha256": "d3ea9ed4021f0aab05abfa68865e17d1490d1c563ef425a54c7a9fe179784572",
+  "written_at_utc": "2026-09-19T16:20:11+00:00"
+}
