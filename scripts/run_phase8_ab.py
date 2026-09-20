@@ -55,7 +55,8 @@ def main() -> int:
     rng = random.Random(args.seed)
     counter = LevelCounter()
     logging.getLogger().addHandler(counter)
-    audit_dir = C.ROOT / "logs/phase8_ab"
+    audit_dir = C.ROOT / ("logs/phase8_ab/%s"
+                          % datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     audit_dir.mkdir(parents=True, exist_ok=True)
 
     per_trial_s = SETTLE_S + args.flood_s + 45

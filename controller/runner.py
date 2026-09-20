@@ -110,14 +110,20 @@ class ControlRunner:
         # (FSM, backoff, actuator, lease, audit, reconcile). Mac dinh la detector.
         self.view_provider = view_provider
 
-        self.cstate = ControllerState(mode="HOLD", reason="never_started")
         self.boot_id = new_boot_id()
+        self.cstate = ControllerState(mode="HOLD", reason="never_started",
+                                      incarnation=self.boot_id)
         self.seq = 0
         self.opened_at_mono = None
         self._last_renew = {}
         self._last_send = {}
         self._drift_streak = {}
         self._stop = threading.Event()
+        # tick() va shutdown() cung sua cstate VA cung co the phat `revert` cho
+        # cung mot open_id. Chay song song -> hai duong sinh CUNG mot
+        # intervention_id -> InterventionLog.append nem ValueError (id tat dinh,
+        # append-only). Day la mot data race THAT, bat duoc khi chay A/B live.
+        self._lock = threading.RLock()
         self._sleep = sleeper or self._stop.wait
         self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
         self.stats = {
@@ -144,7 +150,8 @@ class ControlRunner:
             # khong co gi dang mo" - noi the luc nay la noi doi.
             log.error("khong co du lieu bw tu twin sau %.0f s -> HOLD",
                       BOOT_SSE_WAIT_S)
-            self.cstate = ControllerState(mode="HOLD", reason="boot_no_twin_data")
+            self.cstate = ControllerState(mode="HOLD", reason="boot_no_twin_data",
+                                          incarnation=self.boot_id)
             return self.cstate
 
         roles = self.twin.roles()
@@ -165,7 +172,8 @@ class ControlRunner:
             self._execute(action)
             self.stats["orphans_reverted"] += 1
 
-        self.cstate = ControllerState(mode="IDLE", reason="boot_clean")
+        self.cstate = ControllerState(mode="IDLE", reason="boot_clean",
+                                      incarnation=self.boot_id)
         return self.cstate
 
     def _owned(self, link: str, roles: dict) -> bool:
@@ -183,6 +191,8 @@ class ControlRunner:
             try:
                 self.tick()
             except Exception:
+                if self._stop.is_set():
+                    break                       # dang tat: khong tinh la crash loop
                 self.stats["exceptions"] += 1
                 self._exc_times.append(self.clock())
                 log.exception("loi trong control tick")
@@ -198,6 +208,16 @@ class ControlRunner:
         return "stopped"
 
     def tick(self):
+        with self._lock:
+            return self._tick_locked()
+
+    def _tick_locked(self):
+        # Sau khi shutdown() da dat co dung, vong tick KHONG duoc phat them hanh
+        # dong nao: no se sinh LAI dung `revert` ma shutdown vua phat (id tat
+        # dinh) -> InterventionLog.append nem ValueError -> chuoi ngoai le ->
+        # crash loop gia. Bat duoc khi chay A/B live o 8.6.
+        if self._stop.is_set():
+            return self.cstate
         now = self.clock()
         self.stats["ticks"] += 1
 
@@ -418,6 +438,10 @@ class ControlRunner:
     # ------------------------------------------------------------ tat / hong
 
     def shutdown(self, timeout_s=SHUTDOWN_TIMEOUT_S):
+        with self._lock:
+            return self._shutdown_locked(timeout_s)
+
+    def _shutdown_locked(self, timeout_s=SHUTDOWN_TIMEOUT_S):
         """Go can thiep dang mo TRUOC khi thoat.
 
         KHONG dua vao dead-man switch o duong thoat BINH THUONG: switch la luoi
@@ -426,6 +450,8 @@ class ControlRunner:
         """
         self._stop.set()
         deadline = self.clock() + timeout_s
+        # Sau khi doat khoa, vong tick co the VUA go xong (open_id = None) ->
+        # khong con gi de go. shutdown phai LU Y DANG.
         if self.cstate.open_id and self.cstate.target:
             action = Action(
                 "revert", link_of(self.cstate.target), self.params.default_mbps,

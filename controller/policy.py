@@ -90,6 +90,12 @@ class ControllerState:
     episode: int = 0                      # tang moi lan vao MITIGATING tu IDLE
     reason: str = "boot"
     mode_before_hold: str | None = None
+    # Lan chay (incarnation) cua CHINH controller. Phai co trong id can thiep:
+    # view.boot_id la bootId cua DETECTOR va no khong doi khi controller khoi
+    # dong lai, nen mot controller moi se sinh lai dung "e1-k0:inject" va
+    # InterventionLog (append-only) nem ValueError. Bat duoc khi chay A/B o 8.6,
+    # noi moi luot dung mot ControlRunner moi tren cung mot detector.
+    incarnation: str = ""
 
 
 @dataclass(frozen=True)
@@ -148,8 +154,16 @@ def hold_seconds(params: PolicyParams, attempt: int) -> float:
 
 
 def _iid(view: DetectorView, cstate: ControllerState, kind: str) -> str:
-    """Id TAT DINH. KHONG ngau nhien: C10 doi dung lai bit-exact tu audit."""
-    return "ctl-%s-e%d-k%d:%s" % (view.boot_id, cstate.episode, cstate.attempt, kind)
+    """Id TAT DINH. KHONG ngau nhien: C10 doi dung lai bit-exact tu audit.
+
+    Gom CA bootId cua detector (truy vet ban tin nao sinh ra quyet dinh) LAN
+    incarnation cua controller (phan biet hai lan chay controller tren cung mot
+    detector). Thieu ve thu hai -> trung id -> append-only nem ValueError.
+    """
+    prefix = "ctl-%s" % view.boot_id
+    if cstate.incarnation:
+        prefix += "-" + cstate.incarnation
+    return "%s-e%d-k%d:%s" % (prefix, cstate.episode, cstate.attempt, kind)
 
 
 def link_of(host: str) -> str:

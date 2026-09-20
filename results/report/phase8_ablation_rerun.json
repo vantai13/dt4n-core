@@ -1,0 +1,545 @@
+{
+  "content": {
+    "lesson": "8.6",
+    "experiment": "ablation A (detector) vs C (threshold rule)",
+    "threshold_mbps": 6.18198616,
+    "threshold_owner": {
+      "run_id": "N-vary-s1007-r1",
+      "tick": 16,
+      "host": "h3"
+    },
+    "threshold_source": "8 run train qua ml/operating_range.py::_assert_train_path",
+    "n_act_ticks": 2,
+    "seed": 20260920,
+    "block_orders": [
+      "CAAC",
+      "ACCA",
+      "ACCA",
+      "ACCA",
+      "ACCA",
+      "CAAC"
+    ],
+    "primary_definition": {
+      "quantity": "mean txRate h3",
+      "unit": "Mbps",
+      "window_s": [
+        2.0,
+        122.0
+      ],
+      "anchor": "t_flood"
+    },
+    "n_trials": 24,
+    "n_aborted": 0,
+    "measurement_valid": true,
+    "primary": {
+      "n_blocks": 6,
+      "block_diffs": [
+        0.0,
+        0.0003,
+        -0.0001,
+        0.0017,
+        0.0,
+        0.0
+      ],
+      "mean_diff": 0.0003,
+      "ci95": [
+        -0.0,
+        0.0009
+      ],
+      "ci95_excludes_zero": false,
+      "randomization_test": {
+        "p_two_sided": 0.28125,
+        "exact": true,
+        "n_perm": 64
+      },
+      "caveat": "bootstrap percentile voi 6 khoi la THO: bien CI chi roi vao mot tap huu han nho va do phu thuc te thuong < 95%; doc block_diffs va randomization_test truoc"
+    },
+    "n_commands": {
+      "n_blocks": 6,
+      "block_diffs": [
+        0.0,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        -1.0
+      ],
+      "mean_diff": -0.3333,
+      "ci95": [
+        -0.6667,
+        0.0833
+      ],
+      "ci95_excludes_zero": false,
+      "randomization_test": {
+        "p_two_sided": 0.3125,
+        "exact": true,
+        "n_perm": 64
+      },
+      "caveat": "bootstrap percentile voi 6 khoi la THO: bien CI chi roi vao mot tap huu han nho va do phu thuc te thuong < 95%; doc block_diffs va randomization_test truoc"
+    },
+    "prediction_was": "KHONG co khac biet dang ke tren kich ban flood; khac biet nam o cac ca AM TINH (replay offline: luat nguong ban vao nan nhan o F-shift-s1-s2 tick 42)",
+    "log_counts": {
+      "WARNING": 2
+    },
+    "trials": [
+      {
+        "block": 0,
+        "index": 0,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789907969.5867991,
+        "primary": 2.1455631433333333,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1457156053333333,
+          "h2": 2.1409881926666667,
+          "h1": 7.566039869333333,
+          "srv1_rx": 9.720747266666667,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 0,
+        "index": 1,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789908123.3760254,
+        "primary": 2.1455418039999996,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1456076746666666,
+          "h2": 2.1349648919999997,
+          "h1": 7.640506224,
+          "srv1_rx": 9.795167222666667,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 0,
+        "index": 2,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789908278.1807919,
+        "primary": 2.1455499766666666,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.145546946666667,
+          "h2": 2.134988958666667,
+          "h1": 7.514473936666666,
+          "srv1_rx": 9.678153216,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 0,
+        "index": 3,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789908432.7796824,
+        "primary": 2.145510882644628,
+        "n_ticks": 121,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455166853333334,
+          "h2": 2.13496168661157,
+          "h1": 7.46020406876033,
+          "srv1_rx": 9.614855214545454,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 1,
+        "index": 0,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789908586.8675666,
+        "primary": 2.145513588,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455155786666666,
+          "h2": 2.1349496333333335,
+          "h1": 8.122457599333334,
+          "srv1_rx": 10.28624177,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 1,
+        "index": 1,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789908737.8394,
+        "primary": 2.1455170480672265,
+        "n_ticks": 119,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455463786666664,
+          "h2": 2.134955881680672,
+          "h1": 7.362085659159663,
+          "srv1_rx": 9.528019707563024,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 1,
+        "index": 2,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789908889.4611747,
+        "primary": 2.1455204366666663,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455414746666666,
+          "h2": 2.1349528273333336,
+          "h1": 7.533355222666667,
+          "srv1_rx": 9.687956052,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 1,
+        "index": 3,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789909043.8724568,
+        "primary": 2.1460460727272723,
+        "n_ticks": 121,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1453099612903226,
+          "h2": 2.1361238618181817,
+          "h1": 8.215975087603306,
+          "srv1_rx": 10.361447912066115,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 2,
+        "index": 0,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789909195.7335756,
+        "primary": 2.147401901333333,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1470776106666665,
+          "h2": 2.136995818,
+          "h1": 7.954205768,
+          "srv1_rx": 10.110755291333334,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 2,
+        "index": 1,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789909350.2590168,
+        "primary": 2.1474954326666666,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1471084213333334,
+          "h2": 2.136728112,
+          "h1": 7.510493733333333,
+          "srv1_rx": 9.677248207333331,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 2,
+        "index": 2,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789909504.5791895,
+        "primary": 2.147584635333333,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1478678479999997,
+          "h2": 2.136929898,
+          "h1": 7.539015450666667,
+          "srv1_rx": 9.698630377999999,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 2,
+        "index": 3,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789909658.6725485,
+        "primary": 2.1474539339999996,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1531180400000003,
+          "h2": 2.134974669333333,
+          "h1": 7.571628973333333,
+          "srv1_rx": 9.735554391333332,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 3,
+        "index": 0,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789909812.760601,
+        "primary": 2.147055694,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.15164456,
+          "h2": 2.1349602473333333,
+          "h1": 7.664585241333333,
+          "srv1_rx": 9.827602215999999,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 3,
+        "index": 1,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789909966.9289408,
+        "primary": 2.145512482,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.145520517333333,
+          "h2": 2.1349532113333334,
+          "h1": 7.466618756666666,
+          "srv1_rx": 9.621185516666666,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 3,
+        "index": 2,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789910118.3139422,
+        "primary": 2.145506148,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.145529869333333,
+          "h2": 2.134953688,
+          "h1": 7.5101396713333335,
+          "srv1_rx": 9.673743779999999,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 3,
+        "index": 3,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789910270.1637423,
+        "primary": 2.1474387966666666,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.153210168,
+          "h2": 2.1349518873333335,
+          "h1": 8.136359075333333,
+          "srv1_rx": 10.308945303999998,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 4,
+        "index": 0,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789910421.7212634,
+        "primary": 2.1455400206666666,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455281386666667,
+          "h2": 2.1349782233333334,
+          "h1": 7.653182377333334,
+          "srv1_rx": 9.816912586666666,
+          "n_commands": 28,
+          "n_renewals": 21,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 4,
+        "index": 1,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789910576.149121,
+        "primary": 2.145504107333333,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1454890719999997,
+          "h2": 2.1349878226666665,
+          "h1": 7.481101842666666,
+          "srv1_rx": 9.653790686666666,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 4,
+        "index": 2,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789910727.559077,
+        "primary": 2.1455014359999995,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.145525517333333,
+          "h2": 2.1349428899999996,
+          "h1": 7.5231453539999995,
+          "srv1_rx": 9.686835106666667,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 4,
+        "index": 3,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789910881.9467025,
+        "primary": 2.1455082906666667,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455159706666667,
+          "h2": 2.134952816,
+          "h1": 8.212990377333332,
+          "srv1_rx": 10.367518563333332,
+          "n_commands": 26,
+          "n_renewals": 19,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 5,
+        "index": 0,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789911036.228558,
+        "primary": 2.1455201033333333,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455240506666664,
+          "h2": 2.1349584626666664,
+          "h1": 7.484477452666666,
+          "srv1_rx": 9.657393570666667,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 5,
+        "index": 1,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789911187.1749773,
+        "primary": 2.1455138278991597,
+        "n_ticks": 119,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455017226666664,
+          "h2": 2.134952704537815,
+          "h1": 8.135580027563025,
+          "srv1_rx": 10.308556030924368,
+          "n_commands": 25,
+          "n_renewals": 18,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 5,
+        "index": 2,
+        "arm": "A",
+        "aborted": false,
+        "t_flood": 1789911338.4440136,
+        "primary": 2.1455225799999997,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455458186666667,
+          "h2": 2.134958666666667,
+          "h1": 7.506144378,
+          "srv1_rx": 9.669860746666666,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      },
+      {
+        "block": 5,
+        "index": 3,
+        "arm": "C",
+        "aborted": false,
+        "t_flood": 1789911489.926441,
+        "primary": 2.1455140746666665,
+        "n_ticks": 120,
+        "n_ticks_invalid": 0,
+        "secondary": {
+          "h3_window30": 2.1455335866666663,
+          "h2": 2.1349540953333332,
+          "h1": 7.557742719999999,
+          "srv1_rx": 9.712501280666666,
+          "n_commands": 27,
+          "n_renewals": 20,
+          "n_drift": 0
+        }
+      }
+    ]
+  },
+  "content_sha256": "07243d3e60943a3deb4dfbd74843bc5812b6bae014d1cd73530ac6d792a14659",
+  "written_at_utc": "2026-09-20T13:40:23+00:00"
+}

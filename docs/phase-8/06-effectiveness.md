@@ -231,3 +231,149 @@ kín nằm ở chu kỳ lấy mẫu và đường lệnh, không ở suy luận.
 | `scripts/run_phase8_ab.py` | A vs B |
 | `scripts/run_phase8_ablation.py` | A vs C |
 | `test/test_phase8_ab_stats.py` | 12 known-answer test |
+
+---
+
+# KẾT QUẢ (viết SAU khi đo; dự đoán đã khoá ở commit `e1e0143`)
+
+## 10. C5 — A/B controller BẬT vs TẮT
+
+`results/report/phase8_ab_c5.json` (`b4da398a…`) · 8 khối × 4 lượt = **32 lượt**,
+**0 lượt bị huỷ**, `measurement_valid = true`.
+Thứ tự khối do đồng xu có seed: `BAAB ABBA ABBA ABBA ABBA BAAB BAAB ABBA`.
+
+**Biến chính — goodput h3, cửa sổ 120 s (Mbps):**
+
+| | |
+|---|---|
+| hiệu số theo khối | 1,953 · 1,978 · 1,876 · 1,905 · 1,792 · 1,900 · 1,832 · 1,909 |
+| **effect size** | **+1,893 Mbps** |
+| **CI95 bootstrap (trên khối)** | **[1,854 ; 1,931]** — hoàn toàn trên 0 |
+| randomization test (chính xác, 2⁸ = 256 hoán vị) | **p = 0,0078** = 2/256, **giá trị nhỏ nhất có thể** với 8 khối |
+| **C5** | **PASS** |
+
+Ba con số nói cùng một câu chuyện: tám hiệu số thô đều dương và nằm trong dải hẹp
+1,79–1,98; CI95 hẹp và xa 0; phép kiểm hoán vị đạt sàn. **Không có khối nào đi
+ngược chiều.**
+
+**Dự đoán khoá trước là +1,7 Mbps; đo được +1,893.** Dự đoán hơi bảo thủ vì tôi
+ước tính 82% thời gian được bảo vệ, thực tế cao hơn (h3 gần như giữ nguyên mức
+nền 2,15 Mbps trong cửa sổ 120 s).
+
+**Biến thứ cấp (đăng ký trước, không phải gate):**
+
+| Biến | Chênh lệch A − B | CI95 | Đọc |
+|---|---|---|---|
+| h3, cửa sổ **30 s** | **+1,439** | [1,295 ; 1,553] | đúng dự đoán: **nhỏ hơn** cửa sổ 120 s (+1,893), vì cửa sổ ngắn chỉ nhìn thấy chu kỳ đầu — chu kỳ tệ nhất. Dự đoán +1,1; đo +1,44 |
+| **h2 (đối chứng âm)** | **−0,0003** | **[−0,0012 ; +0,0003]** | **CI95 chứa 0** ✅ — h2 không bị ảnh hưởng, đúng như phải thế |
+| h1 (cái giá) | **−11,974** | [−12,151 ; −11,810] | thủ phạm mất ~12 Mbps: đúng ngữ nghĩa ingress policing, đã khai ở prereg 8.1 (giới hạn số 4) |
+| rxRate srv1 | **−9,895** | [−10,084 ; −9,733] | flood tới đích giảm ~10 Mbps — controller chặn tại nguồn |
+
+Đối chứng âm đạt là điều kiện để tin biến chính: nếu h2 lệch, ta đã phải điều tra
+trước khi kết luận.
+
+## 11. C3 — đo TRỰC TIẾP từ `act` tới lúc giới hạn có hiệu lực
+
+`results/report/phase8_c3.json` · n = **9 lượt hợp lệ / 12 lượt thử**, pha ngẫu nhiên.
+
+```
+min 1025,2 ms | p50 1026,5 ms | p95 2032,1 ms | max 2032,1 ms
+gate: p95 <= 10 000 ms   ->   PASS, biên 80%
+```
+
+**Phân bố lưỡng đỉnh tại ~1026 ms và ~2032 ms** — tức là **đúng một hoặc hai chu
+kỳ control tick**. Đây là bằng chứng trực tiếp cho điều đã dự đoán ở §8: nút thắt
+của vòng kín là **chu kỳ lấy mẫu/quyết định**, không phải lớp suy luận (detector
+chấm điểm hết ~1,4 ms).
+
+**Ba lượt bị huỷ, và lý do đáng nói:** ở các lượt 7, 9, 11, `require_clean` thấy
+`h1-s1` vẫn ở 7,0 Mbps — **controller vẫn đang giữ giới hạn theo lịch** (hold có
+thể tới `T_max` = 110 s sau khi flood đã tắt). Đó là **thiết kế đang hoạt động
+đúng** (gỡ theo lịch, không gỡ vì "trông có vẻ khoẻ"), không phải lỗi. Đã nâng
+thời gian chờ rửa trôi của harness C3 lên 180 s và ghi lại ở đây thay vì im lặng
+bỏ ba lượt.
+
+## 12. Ablation — A (detector) vs C (luật ngưỡng), đo LIVE
+
+`results/report/phase8_ablation_rerun.json` (`07243d3e…`) · 6 khối × 4 lượt =
+**24 lượt**, **0 lượt huỷ**. Thứ tự: `CAAC ACCA ACCA ACCA ACCA CAAC`.
+`X = 6,18198616 Mbps`, owner `(N-vary-s1007-r1, tick 16, h3)`, lấy qua
+`_assert_train_path` và **không chỉnh**.
+
+| | A (detector) | C (luật ngưỡng) |
+|---|---|---|
+| goodput h3 trung bình (12 lượt mỗi nhánh) | **2,1462 Mbps** | **2,1459 Mbps** |
+| số lệnh / lượt | 25–28 | 26–27 |
+
+| Chênh lệch A − C | Giá trị |
+|---|---|
+| hiệu số theo khối (Mbps) | 0,0000 · 0,0003 · −0,0001 · 0,0017 · 0,0000 · 0,0000 |
+| effect size | **+0,0003 Mbps** |
+| CI95 bootstrap | **[−0,0000 ; +0,0009]** — **chứa 0** |
+| randomization test (2⁶ = 64 hoán vị) | **p = 0,281** |
+| số lệnh, A − C | −0,33 lệnh, CI95 [−0,667 ; +0,083] — **chứa 0** |
+
+**Dự đoán khoá trước đã đúng:** *"KHÔNG có khác biệt đáng kể trên kịch bản
+flood"*. Khác biệt đo được là **3 phần vạn Mbps** — nhỏ hơn độ phân giải thực tế
+của phép đo ba bậc độ lớn.
+
+Dự đoán phụ *"nhánh C có thể cho số hành động cao hơn do thiếu ức chế can thiệp"*
+**không xảy ra**, và lý do đáng nói: nhánh C **thừa hưởng toàn bộ FSM circuit
+breaker** của ta (latch, backoff, gỡ theo lịch). Trong `MITIGATING`, nhãn `ACT`
+không sinh hành động mới — nên dù luật ngưỡng "kêu" mỗi tick, vòng vẫn chỉ hành
+động theo lịch. **Đây là bằng chứng live cho giá trị của thiết kế 8.2**, tách
+khỏi giá trị của detector.
+
+> ⚠️ **Caveat tự động của `ab_stats`:** 6 khối là ít cho bootstrap percentile; đọc
+> hiệu số thô và randomization test trước. Ở đây cả ba đồng thuận (hiệu số ≈ 0,
+> CI chứa 0, p = 0,28) nên kết luận vững.
+
+### Kết luận ablation (viết cho chương kết quả)
+
+> Trên kịch bản tấn công flood — kịch bản duy nhất mà hệ được thiết kế để hành
+> động — một luật ngưỡng đơn biến lấy từ cùng tập huấn luyện đạt hiệu quả **không
+> phân biệt được** với pipeline phát hiện đầy đủ (chênh lệch +0,0003 Mbps,
+> CI95 chứa 0, p = 0,28), và trong replay offline nó còn nhanh hơn một chu kỳ lấy
+> mẫu ở một trong hai run. Đóng góp đo được của pipeline nằm ở nơi khác: trên tám
+> run không-flood, luật ngưỡng chỉ mặt sai một lần, và lần đó nó nhắm vào **nạn
+> nhân** trong giai đoạn hồi phục (`F-shift-s1-s2`, tick 42 → h3); pipeline im
+> lặng ở cả tám. Ngoài ra luật ngưỡng vận hành gần như **không có biên**: năm
+> trong mười tám run chỉ cách ngưỡng **đúng một chu kỳ lấy mẫu**, trong đó có một
+> run đối chứng hoàn toàn bình thường (đỉnh 6,43 so với ngưỡng 6,18).
+>
+> Với một loại sự cố đã biết và đặc trưng rõ, một luật đơn giản là đủ. Giá trị của
+> pipeline là ở việc **từ chối hành động** khi tín hiệu không phải thứ nó được
+> hiệu chuẩn để nhận ra — tính chất chỉ đo được bằng các ca **âm tính**.
+
+## 13. Sự cố hạ tầng trong lúc đo (khai đầy đủ)
+
+Lượt ablation **đầu tiên** (8 khối) phải **bỏ**: từ khối 4 trở đi Ditto trả
+`503 ThingUnavailable`, collector báo `PATCH ... -> 500`, và mọi lượt sau đó cho
+`primary=None`.
+
+**Nguyên nhân gốc, đã xác định bằng số:** container MongoDB chạm trần bộ nhớ
+cgroup — `252,4 MiB / 256 MiB` — khiến truy vấn chậm tới **55 s** (log Mongo:
+`durationMillis: 55253`), Ditto không đọc được kho và trả 503. Đĩa 24%, RAM máy
+còn 22 GB ⇒ **không phải cạn tài nguyên máy, mà là trần bộ nhớ của container**.
+
+Xử lý: khởi động lại `mongodb` + `things`/`things-search`/`gateway`, xác nhận
+Ditto trả 200 và Mongo về 204 MiB, rồi **chạy lại ablation với 6 khối** (giảm
+thời lượng để ở trong ngân sách bộ nhớ). Lượt hỏng **không** được dùng để tính
+bất kỳ con số nào.
+
+> Đây là **phép đo vô hiệu do hạ tầng**, khác hẳn *giả thuyết bị bác bỏ* — cùng
+> cách phân biệt đã áp dụng ở amendment 8.3. Ghi lại vì nó là một giới hạn thật
+> của môi trường thí nghiệm: **ngân sách bộ nhớ của Ditto/Mongo giới hạn độ dài
+> tối đa của một chiến dịch đo liên tục** (~3,5 giờ trong quan sát này).
+
+## 14. Tổng kết số của Lesson 8.6
+
+| Chỉ số | Kết quả | Gate |
+|---|---|---|
+| **C5** goodput nạn nhân, A vs B | **+1,893 Mbps**, CI95 [1,854 ; 1,931], p = 0,0078 | ✅ **PASS** |
+| C5 (cửa sổ 30 s, thứ cấp) | +1,439 Mbps, CI95 [1,295 ; 1,553] | báo cáo |
+| Đối chứng âm h2 | −0,0003 Mbps, CI95 [−0,0012 ; +0,0003] chứa 0 | ✅ đạt |
+| Cái giá: h1 | −11,974 Mbps | khai trước ở prereg 8.1 |
+| **C3** act → giới hạn có hiệu lực | p50 1026 ms, **p95 2032 ms** | ✅ **PASS** (biên 80%) |
+| Ablation A vs C | +0,0003 Mbps, CI95 chứa 0, p = 0,281 | dự đoán ĐÚNG |
+| Lượt bị huỷ | 0/32 (A/B), 0/24 (ablation) | ✅ < 20% |

@@ -558,3 +558,101 @@ def test_c10_dung_lai_duoc_ca_tick_act_khong_hanh_dong(tmp_path):
                             row["t_mono"], PolicyParams())
     assert actions == () and asdict(after) == row["cstate_after"]
     assert after.reason == "idle_no_client_candidate"
+
+
+def test_shutdown_va_tick_khong_sinh_trung_intervention_id(tmp_path):
+    """Data race THAT, bat duoc khi chay A/B live o 8.6:
+
+    tick() va shutdown() cung co the phat `revert` cho CUNG mot open_id. Id la
+    tat dinh va InterventionLog la append-only -> lan thu hai nem ValueError va
+    lam chet luong control. Ca hai phai di qua CUNG mot khoa, va shutdown phai
+    LU Y DANG (vong tick co the vua go xong).
+    """
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()                                   # inject, open_id = ...k0:inject
+    clock.advance(PolicyParams().t0_s)
+    runner.tick()                                   # het gio giu -> revert k0
+    assert runner.cstate.mode == "PROBING" and runner.cstate.open_id is None
+    cstate = runner.shutdown()                      # KHONG duoc append lai k0:revert
+    assert cstate.mode == "HOLD"
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids)) == 2
+
+
+def test_shutdown_goi_hai_lan_van_an_toan(tmp_path):
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()
+    runner.shutdown()
+    runner.shutdown()                               # lu y dang
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids))
+
+
+def test_tick_va_shutdown_song_song_khong_nem(tmp_path):
+    """Chay that hai luong: khong duoc co ngoai le nao thoat ra."""
+    import threading
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()
+    errors = []
+
+    def ticker():
+        for _ in range(200):
+            try:
+                clock.advance(1.0)
+                runner.tick()
+            except Exception as exc:                # noqa: BLE001
+                errors.append(exc)
+
+    thread = threading.Thread(target=ticker)
+    thread.start()
+    try:
+        runner.shutdown()
+    except Exception as exc:                        # noqa: BLE001
+        errors.append(exc)
+    thread.join()
+    assert errors == []
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids))
+
+
+def test_tick_sau_shutdown_khong_phat_hanh_dong(tmp_path):
+    """Sau shutdown(), vong tick con song them mot nhip se sinh LAI dung `revert`
+    ma shutdown vua phat (id tat dinh) -> ValueError -> chuoi ngoai le -> crash
+    loop GIA. Bat duoc khi chay A/B live o 8.6."""
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    send = FakeSend(twin)
+    runner, clock = make_runner(tmp_path, twin, send=send)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()                                   # inject
+    runner.shutdown()                               # revert + dat co dung
+    n_before = len(send.calls)
+    for _ in range(5):
+        clock.advance(TICK_S)
+        runner.tick()                               # phai la no-op hoan toan
+    assert len(send.calls) == n_before
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids))
+    assert runner.stats["exceptions"] == 0
+
+
+def test_hai_controller_tren_cung_detector_khong_trung_id(tmp_path):
+    """view.boot_id la bootId cua DETECTOR va khong doi khi controller khoi dong
+    lai. Neu id chi dua vao no, moi ControlRunner moi se sinh lai dung
+    "e1-k0:inject" -> InterventionLog append-only nem ValueError. Do la loi that
+    lam hong hai lan chay A/B dau tien o 8.6 (moi luot mot ControlRunner moi)."""
+    shared = LockedInterventionLog(InMemoryInterventionLog())
+    for _ in range(3):
+        twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+        runner, clock = make_runner(tmp_path, twin, log_store=shared)
+        runner.cstate = ControllerState(mode="IDLE", incarnation=runner.boot_id)
+        runner.tick()                        # inject: KHONG duoc nem
+        runner.shutdown()                    # revert
+    ids = [item.id for item in shared.snapshot()]
+    assert len(ids) == len(set(ids)) == 6    # 3 luot x (inject + revert)
