@@ -93,3 +93,22 @@ def test_ham_thuan():
               / "measurements/ab_stats.py").read_text(encoding="utf-8")
     for forbidden in ("import time", "open(", "requests", "datetime"):
         assert forbidden not in source
+
+
+def test_arm_means_va_canh_bao_tran():
+    """SD ~ 0 tren mot nhanh = thuoc do co the BAO HOA, khong phai do chinh xac."""
+    from measurements.ab_stats import arm_means, ceiling_warnings
+
+    rows = trials([2.1462] * 8, [0.25, 0.14, 0.30, 0.55, 0.19, 0.22, 0.17, 0.28])
+    stats = arm_means(rows)
+    assert stats["A"]["sd"] == 0.0 and stats["A"]["n"] == 8
+    assert stats["B"]["sd"] > 0.1
+    warnings = ceiling_warnings(stats)
+    assert len(warnings) == 1 and "TRAN" in warnings[0] and "nhanh A" in warnings[0]
+
+
+def test_summarise_kem_arm_means():
+    result = summarise(trials([2.0, 2.1, 1.9, 2.2, 2.0, 2.1, 1.95, 2.05],
+                              [1.0, 1.1, 0.9, 1.2, 1.0, 1.1, 0.95, 1.05]))
+    assert set(result["arm_means"]) == {"A", "B"}
+    assert result["ceiling_warnings"] == []          # bien thien binh thuong

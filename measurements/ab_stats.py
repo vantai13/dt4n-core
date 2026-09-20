@@ -79,6 +79,46 @@ def randomization_test(diffs, n_perm=20000, seed=20260920):
     return {"p_two_sided": hits / n_perm, "exact": False, "n_perm": n_perm}
 
 
+CEILING_CV = 0.005      # SD/mean < 0.5% -> nghi thuoc do dang BAO HOA
+
+
+def arm_means(trials, key="primary", arms=("A", "B")):
+    """Trung binh + SD tung nhanh. Day la thu giup nguoi doc phat hien HIEU UNG
+    TRAN trong 5 giay: mot nhanh co SD ~ 0 nghia la thuoc do co the da cham tran
+    chu khong phai phep do chinh xac."""
+    out = {}
+    for arm in arms:
+        values = [t[key] for t in trials if t["arm"] == arm and t[key] is not None]
+        if not values:
+            continue
+        mean = sum(values) / len(values)
+        if len(values) > 1:
+            var = sum((v - mean) ** 2 for v in values) / (len(values) - 1)
+            sd = var ** 0.5
+        else:
+            sd = 0.0
+        out[arm] = {"mean": round(mean, 4), "sd": round(sd, 4), "n": len(values),
+                    "min": round(min(values), 4), "max": round(max(values), 4)}
+    return out
+
+
+def ceiling_warnings(stats: dict) -> list:
+    """Canh bao khi mot nhanh co he so bien thien qua nho.
+
+    Mot thuoc do BAO HOA boi ca hai phuong an KHONG THE phan biet chung: CI95
+    hep se bi hieu nham thanh "bang chung tuong duong rat manh".
+    """
+    warnings = []
+    for arm, item in stats.items():
+        mean = max(abs(item["mean"]), 1e-9)
+        cv = item["sd"] / mean
+        if cv < CEILING_CV:
+            warnings.append(
+                "nhanh %s: SD/mean = %.4f < %.3f -> NGHI HIEU UNG TRAN, kiem tra "
+                "xem bien ket cuc co bao hoa khong" % (arm, cv, CEILING_CV))
+    return warnings
+
+
 def summarise(trials, key="primary", arm_a="A", arm_b="B", **kwargs):
     """Goi du mot lan: hieu tho theo khoi + effect size + CI + hoan vi."""
     diffs = block_diffs(trials, key=key, arm_a=arm_a, arm_b=arm_b)
@@ -88,8 +128,11 @@ def summarise(trials, key="primary", arm_a="A", arm_b="B", **kwargs):
         caveat = ("bootstrap percentile voi %d khoi la THO: bien CI chi roi vao "
                   "mot tap huu han nho va do phu thuc te thuong < 95%%; doc "
                   "block_diffs va randomization_test truoc" % len(diffs))
+    stats = arm_means(trials, key=key, arms=(arm_a, arm_b))
     return {
         "n_blocks": len(diffs),
+        "arm_means": stats,
+        "ceiling_warnings": ceiling_warnings(stats),
         # LUON in hieu tho: trung binh + CI khong bao gio thay the duoc du lieu.
         "block_diffs": [round(d, 4) for d in diffs],
         "mean_diff": None if mean is None else round(mean, 4),
