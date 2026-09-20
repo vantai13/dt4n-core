@@ -656,3 +656,82 @@ def test_hai_controller_tren_cung_detector_khong_trung_id(tmp_path):
         runner.shutdown()                    # revert
     ids = [item.id for item in shared.snapshot()]
     assert len(ids) == len(set(ids)) == 6    # 3 luot x (inject + revert)
+
+
+def test_bootstrap_lu_y_dang(tmp_path):
+    """Goi hai lan tren cung trang thai vo chu KHONG duoc sinh lai id orphan.
+
+    Bat duoc o chaos 8.7: harness goi bootstrap_safe_state() roi run_forever goi
+    lai -> ValueError -> luong control CHET NGAY KHI KHOI DONG -> moi luot sau
+    do abort ma khong ai biet nguyen nhan.
+    """
+    twin = FakeTwin(bw={"h1-s1": 7.0})
+    send = FakeSend(twin)
+    runner, clock = make_runner(tmp_path, twin, send=send)
+    first = runner.bootstrap_safe_state()
+    n_cmds = len(send.calls)
+    second = runner.bootstrap_safe_state()          # KHONG duoc nem
+    assert first.mode == second.mode == "IDLE"
+    assert len(send.calls) == n_cmds
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids)) == 1
+
+
+def test_bootstrap_nhieu_link_vo_chu_khong_trung_id(tmp_path):
+    twin = FakeTwin(bw={"h1-s1": 7.0, "h2-s1": 5.0, "h3-s1": 20.0})
+    runner, clock = make_runner(tmp_path, twin)
+    runner.bootstrap_safe_state()
+    ids = [item.id for item in runner.log.snapshot()]
+    assert len(ids) == len(set(ids)) == 2
+    assert runner.stats["orphans_reverted"] == 2
+
+
+def test_bootstrap_khong_co_du_lieu_thi_cho_thu_lai(tmp_path):
+    twin = FakeTwin(bw={})
+    runner, clock = make_runner(tmp_path, twin)
+    assert runner.bootstrap_safe_state().reason == "boot_no_twin_data"
+    twin.bw["h1-s1"] = 7.0
+    assert runner.bootstrap_safe_state().mode == "IDLE"   # lan sau kiem duoc
+
+
+def test_bootstrap_dong_ban_ghi_vo_chu(tmp_path):
+    """Mot inject chua dong cua LAN CHAY TRUOC lam FSM giu `stale_intervention`
+    VINH VIEN (stale_open luon tra no) va theo N15 moi controller sau do TU CHOI
+    hanh dong. Revert-first chi sua bw la CHUA DU.
+
+    Phat hien bang chaos 8.7: sau mot lan kill controller, moi luot sau deu
+    "khong vao duoc MITIGATING" du mang dang bi flood that (h1 20 Mbps, h3 0,01).
+    """
+    from ml.intervention_log import MAX_OPEN_S, Intervention
+
+    shared = LockedInterventionLog(InMemoryInterventionLog())
+    shared.append(Intervention(
+        id="ctl-oldboot-e1-k0:inject", t_start=1000.0, actor="controller",
+        action="inject:rate_limit", targets={"links": ["h1-s1"], "flows": []},
+        blast_radius=frozenset({"link-h1-s1"}), routing_sha256="x"))
+    assert shared.stale_open(1000.0 + MAX_OPEN_S + 1)        # dang ket
+
+    twin = FakeTwin(bw={"h1-s1": 20.0})
+    runner, clock = make_runner(tmp_path, twin, log_store=shared)
+    runner.bootstrap_safe_state()
+
+    assert runner.stats["orphan_log_closed"] == 1
+    assert shared.stale_open(1000.0 + MAX_OPEN_S + 1) == []   # so sach da dong
+    ids = [item.id for item in shared.snapshot()]
+    assert "ctl-oldboot-e1-k0:revert" in ids
+    assert len(ids) == len(set(ids))
+
+
+def test_bootstrap_khong_dong_can_thiep_cua_chinh_minh(tmp_path):
+    """Chi dong ban ghi cua LAN CHAY TRUOC; can thiep dang mo cua chinh minh
+    thuoc ve vong tick, khong phai viec cua bootstrap."""
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE", incarnation=runner.boot_id)
+    runner.tick()                                   # inject cua chinh minh
+    own = [i.id for i in runner.log.snapshot()][0]
+    runner.bootstrap_safe_state(force=True)
+    # KHONG dong ban ghi cua chinh minh qua duong "vo chu"
+    assert runner.stats["orphan_log_closed"] == 0
+    reverts = [i.id for i in runner.log.snapshot() if i.kind == "revert"]
+    assert own.replace(":inject", ":revert") not in reverts

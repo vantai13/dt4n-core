@@ -59,6 +59,36 @@ def wait_bw(twin, want, timeout_s, link=LINK):
     return None
 
 
+def wait_sensor_back(twin, timeout_s):
+    """Cho toi khi CAM BIEN that su nhin lai duoc: cong bo `act` tro lai hoac
+    bao `stale_intervention` (lease het han). Mot tick `missing_data` KHONG tinh."""
+    deadline = time.monotonic() + timeout_s
+    while time.monotonic() < deadline:
+        fields = twin.detector_view_fields()
+        if fields["state"] == "act" or fields["cause"] == "stale_intervention":
+            return time.monotonic()
+        time.sleep(0.1)
+    return None
+
+
+def diagnose(rig):
+    """Chup trang thai luc abort: thieu no thi 'khong vao duoc MITIGATING' la
+    mot cau noi, khong phai mot du kien."""
+    fields = rig.twin.detector_view_fields()
+    last = {}
+    for row in reversed(getattr(rig, "sampler", None).rows if getattr(rig, "sampler", None) else []):
+        if row["host"] not in last:
+            last[row["host"]] = round(row["tx_mbps"], 3)
+        if len(last) >= 4:
+            break
+    return {"detector_state": fields["state"], "detector_cause": fields["cause"],
+            "detector_fresh": fields["fresh"],
+            "affected": list(fields["affected"])[:4],
+            "bw": rig.twin.observed_bw(),
+            "last_tx_mbps": last,
+            "controller_mode": rig.controller.cstate.mode if rig.controller else None}
+
+
 def wait_mode(controller, modes, timeout_s):
     deadline = time.monotonic() + timeout_s
     while time.monotonic() < deadline:
@@ -80,13 +110,15 @@ def wait_cause_not(twin, cause, timeout_s):
 class Rig:
     """Mot vong kin song, dung chung cho moi dong chaos."""
 
-    def __init__(self, live, twin, detector, audit_dir):
+    def __init__(self, live, twin, detector, audit_dir, sampler=None):
         self.live, self.twin, self.detector = live, twin, detector
+        self.sampler = sampler
         self.audit_dir = audit_dir
         self.controller = None
         self.thread = None
         self.flood = None
         self.index = 0
+        self.cleanups = 0
 
     def start_controller(self, tag):
         self.index += 1
@@ -125,11 +157,27 @@ class Rig:
         with self.live.env.net_lock:
             for host in ("h1", "h2"):
                 TrafficFlood(host, "srv1", 1).revert(self.live.env.net)
-        # dua bw ve mac dinh du controller da chet
+        # Dua bw ve mac dinh du controller da chet. cid phai DUY NHAT moi lan:
+        # dung lai cid cu se bi dedup cua command_agent tra ket qua cu MA KHONG
+        # CHAM MININET -> link ket o 7 Mbps -> moi luot sau do "khong vao duoc
+        # MITIGATING". Bug cua HARNESS, va cung la minh chung dedup chay dung.
+        self.cleanups += 1
         self.live.env.send_command(
             {"subject": "setBandwidth", "target": "org.dt4n:link-" + LINK,
-             "params": {"bw": DEFAULT_MBPS}}, cid="chaos-cleanup-%d" % self.index)
-        require_clean(self.live, self.twin, timeout_s=180.0)
+             "params": {"bw": DEFAULT_MBPS}},
+            cid="chaos-cleanup-%d-%d" % (self.cleanups, int(time.time())))
+        # Cho het UC CHE MO COI: mot can thiep chua dong (controller bi giet)
+        # giu FSM uc che toi MAX_OPEN_S. Khong cho thi luot sau se abort va ta
+        # tuong la loi harness - do chinh la thu da xay ra o chaos v1/v2.
+        deadline = time.monotonic() + MAX_OPEN_S + 30
+        while time.monotonic() < deadline:
+            if self.twin.detector_view_fields().get("cause") != "suppressed_intervention":
+                break
+            time.sleep(1.0)
+        ok, detail = require_clean(self.live, self.twin, timeout_s=180.0)
+        if not ok:
+            print("   [cleanup] KHONG sach duoc: %s" % detail)
+        return ok
 
 
 # ---------------------------------------------------------------- cac dong
@@ -142,14 +190,15 @@ def row_c9(rig, rng, params):
     try:
         t_mit = wait_mode(controller, ("MITIGATING",), 40)
         if t_mit is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         time.sleep(rng.uniform(0.0, params.t0_s * 0.6))      # PHA NGAU NHIEN
         t_kill = time.monotonic()
         rig.stop_controller(graceful=False)                  # mo phong kill -9
         t_restored = wait_bw(rig.twin, DEFAULT_MBPS, LEASE_TTL_S + 25)
-        t_unsup = wait_cause_not(rig.twin, "suppressed_intervention",
-                                 MAX_OPEN_S + 40)
+        # `wait_cause_not` don thuan la SAI: mot tick missing_data (reset qdisc
+        # cua watchdog) cung lam cause doi. Phai cho CAM BIEN nhin lai duoc.
+        t_unsup = wait_sensor_back(rig.twin, MAX_OPEN_S + 40)
         return {
             "t_physical_safe_s": None if t_restored is None else round(t_restored - t_kill, 2),
             "t_sensor_restored_s": None if t_unsup is None else round(t_unsup - t_kill, 2),
@@ -167,7 +216,7 @@ def row_drift(rig, rng, params):
     flood = rig.start_flood()
     try:
         if wait_mode(controller, ("MITIGATING",), 40) is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         time.sleep(rng.uniform(0.0, 3.0))
         before = controller.stats["drift_fixes"]
@@ -198,7 +247,7 @@ def row_second_flood(rig, rng, params):
     flood2 = None
     try:
         if wait_mode(controller, ("MITIGATING",), 40) is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         time.sleep(rng.uniform(0.0, params.t0_s * 0.5))
         t_second = time.monotonic()
@@ -229,7 +278,7 @@ def row_restart(rig, rng, params):
     flood = rig.start_flood()
     try:
         if wait_mode(controller, ("MITIGATING",), 40) is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         time.sleep(rng.uniform(0.0, 5.0))
         rig.stop_controller(graceful=False)              # chet, de lai bw = 7
@@ -261,7 +310,7 @@ def row_agent_kill(rig, rng, params):
     flood = rig.start_flood()
     try:
         if wait_mode(controller, ("MITIGATING",), 40) is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         before = controller.stats["commands"]
         # agent chay trong CUNG tien trinh (EnvRunner) nen khong kill -9 duoc;
@@ -293,7 +342,7 @@ def row_control(rig, rng, params):
     flood = rig.start_flood()
     try:
         if wait_mode(controller, ("MITIGATING",), 40) is None:
-            return {"aborted": "khong vao duoc MITIGATING"}
+            return {"aborted": "khong vao duoc MITIGATING", "diag": diagnose(rig)}
         wait_bw(rig.twin, LIMIT_MBPS, 15)
         time.sleep(30.0)
         return {"mode": controller.cstate.mode,
@@ -347,7 +396,7 @@ def main() -> int:
         while time.monotonic() < deadline and LINK not in twin.observed_bw():
             time.sleep(0.2)
         sampler = TwinSampler(twin).start()
-        rig = Rig(live, twin, detector, audit_dir)
+        rig = Rig(live, twin, detector, audit_dir, sampler=sampler)
         try:
             for rep in range(args.reps):
                 for name in names:

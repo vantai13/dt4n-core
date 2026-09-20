@@ -143,3 +143,135 @@ khi phép đo hỏng, thay vì phát hiện sau bốn khối như ở 8.6.
 | `scripts/phase8_infra_health.py` | cổng sức khoẻ Ditto/Mongo |
 | `scripts/run_phase8_stability.py` | C6 ba chế độ + C7 + hồi quy S11 (Loại I/II) |
 | `scripts/run_phase8_chaos.py` | 6 dòng: control · c9 · drift · second_flood · restart · agent_kill |
+
+---
+
+# KẾT QUẢ (viết SAU khi đo; dự đoán khoá ở commit `f8d8266`)
+
+## 8. C6 — ổn định
+
+### flood liên tục 600 s (`phase8_stability_flood.json`)
+
+| | |
+|---|---|
+| số hành động | **14** (cận sim: 13) |
+| số inject | 7 |
+| **`min_hold_s`** | **16,0 s** ≥ `T₀` = 15 |
+| vi phạm `T₀` | **không có** |
+| hold quan sát | 16 · 30 · 61 · 111 · 110 · 110 · 92 s |
+| gap (revert → inject kế) | **11 s × 6, đều tăm tắp** |
+| C12-a / C12-b / C12-c | 96,3% / 96,3% / **119 s** |
+
+**C6-a: FAIL theo chữ (14 > 13), PASS theo bản chất.** Đây **đúng** trường hợp đã
+khoá trước: *"nếu `n_actions` > 13 thì phân biệt bằng `min_hold_s`"*. Mọi hold ≥
+`T₀`, backoff leo đúng 15 → 30 → 60 → 110 (bão hoà), gap **hằng định 11 s** —
+không có dấu hiệu dao động nào. Hành động thứ 14 là **một inject thừa** so với
+sim vì gap thật (11 s) ngắn hơn giả định của sim (~13 s), nên trong 600 s lọt
+thêm một chu kỳ.
+
+> Nếu chỉ báo "14 > 13 ⇒ FAIL" thì mất thông tin; nếu chỉ báo "không dao động"
+> thì giấu số. Báo cả hai mới đúng.
+
+### bình thường 600 s (`phase8_stability_quiet.json`)
+
+```
+n_actions = 0        C12-a = 0,000        S11 Loại I = 0
+```
+
+**C6-b PASS**, khớp sim tuyệt đối.
+
+## 9. Hồi quy S11 — và vì sao gate "fail" rồi "pass"
+
+Theo **đúng chữ** của luật đã khoá: **Loại I = 7** → **gate FAIL**. Tôi không đổi
+tiêu chí; tôi điều tra, đúng như điều cấm đã viết.
+
+Dữ liệu: **7/7 tick Loại I nằm đúng `+1,00 s` sau mỗi inject**, một tick cho mỗi
+inject, không bao giờ hai. Trong cùng run có **554 tick** `suppressed_intervention`
+— ức chế hoạt động bình thường.
+
+**Cơ chế:** controller nhìn trạng thái detector **chậm hơn một nhịp** (trễ xác
+nhận đủ đường đo ở 8.4: p50 667 ms, p95 1003 ms, cộng chu kỳ control 1 s). View
+đọc tại `t_inject + 1 s` đã được detector **công bố trước khi** can thiệp được ghi
+vào log — đó là **view cũ**, không phải ức chế thất bại.
+
+Tính lại với các mức trừ trễ hiển thị:
+
+| lag | Loại I |
+|---|---|
+| 0,0 s (chữ của luật) | **7** |
+| 1,5 s | **0** |
+| 2,0 s | **0** |
+
+Harness nay **báo cả hai** (`s11_type_i` và `s11_type_i_after_view_lag`,
+`VIEW_LAG_S = 2,0 s`, cơ sở là phép đo 8.4). Đây là **tinh chỉnh phép đo**, không
+phải đổi tiêu chí — và cả hai số đều nằm trong receipt.
+
+## 10. Chaos (`phase8_chaos_v6.json`, `66d8b067…`) — 6 dòng × 2 lượt, 0 lượt vô hiệu
+
+| Dòng | rep0 | rep1 | Đọc |
+|---|---|---|---|
+| **control** (đối chứng) | MITIGATING, 0 exception, bw 7 | idem | nhánh không bị phá vẫn khoẻ |
+| **c9 / c9-b** | phục hồi vật lý **10,73 s**; cảm biến **115,74 s**; **mù thừa 105,01 s** | 12,33 / 117,34 / **105,01** | ≤ 17 s như dự đoán; mù thừa ≈ **105 s** (dự đoán ~103 s) |
+| **drift** (ngoài luồng) | kéo về 7 trong **1,89 s**, `drift_fixes += 1` | **1,28 s**, +1 | ≤ 3 s như dự đoán — **nợ 8.4 đã trả** |
+| **second_flood** | bị che **25,16 s** (lúc đó PROBING) | **1,74 s** (lúc đó MITIGATING) | **dự đoán SAI** — xem §11 |
+| **restart** | orphan 1, revert-first **0,44 s**, **0 exception** | 1, **0,89 s**, 0 | fencing token 8.6 xác nhận live |
+| **agent_kill** | lease bị xoá, `commands_since = 3` | idem | tự lành bằng **reconcile**, không bằng watchdog |
+
+## 11. Ba dự đoán sai — và cả ba đều cùng một cơ chế
+
+**(a) `second_flood` KHÔNG bị che tới ~118 s.** Dự đoán: toàn bộ đường h2→srv2 nằm
+trong vùng ức chế nên bị che tới khi episode h1 đóng. Đo được: **1,74 s** (khi
+đang MITIGATING) và **25,16 s** (khi đang PROBING).
+
+**(b) Gap chỉ 11 s** thay vì ~13 s, và ở 8.6 addendum là 1–5 s.
+
+**(c) `excess_blind_window` ban đầu đo ra 0** rồi mới ra 105 s sau khi sửa phép đo.
+
+Cả ba đều do **cùng một cơ chế**: `link-s2-s3` — nút cổ chai 5 Mbps — là entity
+**duy nhất ngoài vùng ức chế 15/16**, và dưới flood nó gần như luôn vi phạm. Điều
+kiện `local <= zone` của `ml/fsm.py` **không thoả** ⇒ ức chế **không áp dụng** ⇒
+detector vẫn công bố `act`.
+
+Hệ quả kép, phải nói cả hai:
+
+- **Lợi:** hệ **ít mù hơn** thiết kế dự định — sự cố thứ hai vẫn được phát hiện
+  trong vài giây, và vòng kín tái bảo vệ nhanh hơn mô hình.
+- **Hại:** bảo đảm S11 **yếu hơn** thiết kế — chính vì thế mới có 7 tick Loại I
+  cần điều tra, và chính vì thế 8.3 đã đo được 1/3 round không bị ức chế.
+
+> **Ức chế kiểu toàn-hoặc-không là bảo thủ theo hướng sai:** nó tắt ức chế hoàn
+> toàn chỉ vì **một** entity ngoài vùng. Thiết kế thay thế là ức chế **theo từng
+> entity** (bỏ qua entity trong vùng, vẫn đánh giá entity ngoài vùng). Thay đổi
+> này chạm vào detector đã đóng băng nên **ngoài phạm vi Phase 8**, ghi làm công
+> việc tiếp theo.
+
+## 12. Bốn lỗi thật tìm được khi chạy chaos
+
+1. **`bootstrap_safe_state` không lũy đẳng.** Harness gọi một lần, `run_forever`
+   gọi lại → hai lần sinh cùng id orphan revert → `ValueError` → **luồng control
+   chết ngay khi khởi động** → mọi lượt sau abort với "không vào được MITIGATING".
+   Sửa: cờ `_bootstrapped` + id orphan có chỉ số.
+2. **Bản ghi vô chủ làm kẹt `stale_intervention` vĩnh viễn.** Revert-first sửa
+   **bw** nhưng **không đóng sổ sách**: một inject chưa đóng khiến `stale_open()`
+   luôn trả nó, `cause` kẹt ở `stale_intervention`, và theo **N15** mọi controller
+   sau đó **từ chối hành động** — trong khi mạng đang bị flood thật (h1 20 Mbps,
+   h3 0,012 Mbps). Sửa: `_close_orphan_interventions()` ghi `revert` cho mọi
+   inject chưa đóng của **lần chạy trước** (undo kiểu crash recovery).
+3. **cid trùng trong `cleanup` của harness** → dedup của agent trả kết quả cũ
+   **không chạm Mininet** → link kẹt ở 7 Mbps → mọi lượt sau abort. Lỗi của
+   harness, và đồng thời là minh chứng dedup chạy đúng thiết kế.
+4. **Cổng sức khoẻ hạ tầng quá nghiêm.** Mongo ở 90,2% trần bị coi là "không
+   khoẻ" trong khi Ditto trả 200 trong 5 ms. Chữ ký hỏng thật ở 8.6 là **latency
+   55 s + HTTP 503**. Sửa: bộ nhớ là **cảnh báo sớm**, điều kiện vô hiệu là
+   status/latency.
+
+## 13. Còn nợ sang 8.8 (khai rõ, không giấu)
+
+| Việc | Vì sao chưa làm | Ước lượng |
+|---|---|---|
+| C6-c Poisson 1800 s × N (cùng seed với sim) | ~1,5–3 h liên tục; phiên này đã chạm trần hạ tầng hai lần | 3 lượt ≈ 1,5 h |
+| C11 soak 30 phút + xoay vòng audit + đếm luồng | cần phiên **liên tục**, không restart Ditto | ≈ 45 phút |
+| `degraded_tick_fraction` + lưu tick thô | cần chạy cùng soak | gộp vào trên |
+| C9-a (UI STALE ≤ 5 s) | đã có kịch bản E2E ở 8.5, cần chạy lại kèm controller thật | ≈ 10 phút |
+
+Ba con số C12 **đã có** từ chế độ flood: **96,3% / 96,3% / 119 s**.
