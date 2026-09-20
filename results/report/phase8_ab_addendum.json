@@ -1,0 +1,429 @@
+{
+  "content": {
+    "lesson": "8.6-addendum",
+    "source_receipt": "results/report/phase8_ab_c5.json",
+    "source_sha256": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+    "question_1_ceiling": {
+      "arm_means_h3": {
+        "A": {
+          "mean": 2.1462,
+          "sd": 0.001,
+          "n": 16,
+          "min": 2.1454,
+          "max": 2.1478
+        },
+        "B": {
+          "mean": 0.2532,
+          "sd": 0.111,
+          "n": 16,
+          "min": 0.1422,
+          "max": 0.5575
+        }
+      },
+      "arm_means_h1": {
+        "A": {
+          "mean": 7.9249,
+          "sd": 0.3114,
+          "n": 16,
+          "min": 7.4964,
+          "max": 8.2457
+        },
+        "B": {
+          "mean": 19.8985,
+          "sd": 0.0597,
+          "n": 16,
+          "min": 19.7839,
+          "max": 19.9981
+        }
+      },
+      "arm_means_h2_untouched": {
+        "A": {
+          "mean": 2.1352,
+          "sd": 0.0007,
+          "n": 16,
+          "min": 2.1349,
+          "max": 2.137
+        },
+        "B": {
+          "mean": 2.1355,
+          "sd": 0.0016,
+          "n": 16,
+          "min": 2.1349,
+          "max": 2.141
+        }
+      },
+      "warnings": [
+        "nhanh A: SD/mean = 0.0005 < 0.005 -> NGHI HIEU UNG TRAN, kiem tra xem bien ket cuc co bao hoa khong"
+      ],
+      "reading": "Nhanh A co SD = 0.0010 Mbps tren 16 luot live (CV = 0.0466%) va trung binh 2.1462 ~ muc cua h2 KHONG he bi dong toi (2.1352). Bien ket cuc BAO HOA o toc do chao cua luong TCP: phan tut trong probe duoc bu lai bang recovery burst sau do, nen trung binh cua so hoi tu ve toc do chao. Hau qua: bien nay KHONG phan biet duoc muc bao ve 93% voi 100%."
+    },
+    "question_2_protection": {
+      "method": "tu audit: tong thoi gian co can thiep mo trong cua so do",
+      "n_trials": 16,
+      "fraction_mean": 0.9317,
+      "fraction_min": 0.9,
+      "fraction_max": 0.9666,
+      "unprotected_s_mean": 8.19,
+      "n_inject_per_trial": [
+        4
+      ],
+      "hold_s_observed": [
+        8,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        30,
+        31,
+        60,
+        61
+      ],
+      "gap_revert_to_next_inject_s": {
+        "mean": 2.31,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "cross_check_h1": {
+        "h1_mean_mbps": 7.9249,
+        "implied_unprotected_s": 8.54,
+        "audit_unprotected_s": 8.19,
+        "agree_within_s": 0.35
+      }
+    },
+    "why_gaps_are_short": "Sim 8.2 gia dinh sau revert detector bi uc che het cooldown 8 s nen phat hien lai mat ~9-13 s. Thuc te khoang trong chi 1-3 s, vi duoi flood 47 Mbps tap entity vi pham CO CHUA link-s2-s3 - entity DUY NHAT nam ngoai vung uc che 15/16 - nen dieu kien `local <= zone` cua ml/fsm.py khong thoa va uc che KHONG ap dung. Chinh 'lo ho uc che' do (phat hien o 8.3, 1/3 round) lam vong kin tai bao ve NHANH HON mo hinh: ty le bao ve do duoc 93.2% so voi 82% du doan. Doi lai la mat quan sat.",
+    "implications": [
+      "C5 VAN PASS va huong khong doi: 8/8 khoi cung chieu, doi chung am sach.",
+      "KHONG duoc phat bieu 'khoi phuc 88%% goodput': +1.893 Mbps la chenh lech TAI TRAN cua bien ket cuc.",
+      "Ket qua ablation la NULL TAI TRAN: ca hai nhanh cham cung mot tran nen phep so sanh khong co kha nang phan biet; bang chung phan biet that nam o cac ca AM TINH do offline.",
+      "8.7 phai them mot bien BEN voi hien tuong dem: degraded_tick_fraction, va phai LUU chuoi tick tho (receipt 8.6 chi co n_ticks nen khong tinh nguoc duoc)."
+    ],
+    "per_trial": [
+      {
+        "protected_s": 114.998,
+        "fraction": 0.9583,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          30.0,
+          60.0,
+          17.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 0,
+        "index": 1,
+        "h1_mbps": 7.496352593999999,
+        "h3_mbps": 2.1454126293333333
+      },
+      {
+        "protected_s": 115.998,
+        "fraction": 0.9666,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          31.0,
+          61.0,
+          16.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 0,
+        "index": 2,
+        "h1_mbps": 7.507042311999999,
+        "h3_mbps": 2.145523224
+      },
+      {
+        "protected_s": 109.999,
+        "fraction": 0.9167,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          31.0,
+          60.0,
+          12.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 1,
+        "index": 0,
+        "h1_mbps": 8.116123709333333,
+        "h3_mbps": 2.1455247813333336
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9166,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          30.0,
+          61.0,
+          11.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 1,
+        "index": 3,
+        "h1_mbps": 8.125792251333333,
+        "h3_mbps": 2.1455090287603302
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9166,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          31.0,
+          60.0,
+          12.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 2,
+        "index": 0,
+        "h1_mbps": 8.108819238319327,
+        "h3_mbps": 2.1455167072268906
+      },
+      {
+        "protected_s": 108.998,
+        "fraction": 0.9083,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          30.0,
+          61.0,
+          10.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          4.0
+        ],
+        "block": 2,
+        "index": 3,
+        "h1_mbps": 8.245690371333334,
+        "h3_mbps": 2.147825738
+      },
+      {
+        "protected_s": 109.999,
+        "fraction": 0.9167,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          61.0,
+          12.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 3,
+        "index": 0,
+        "h1_mbps": 8.144608644666667,
+        "h3_mbps": 2.1473024073333336
+      },
+      {
+        "protected_s": 115.997,
+        "fraction": 0.9666,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          30.0,
+          60.0,
+          18.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 3,
+        "index": 3,
+        "h1_mbps": 7.506881828666666,
+        "h3_mbps": 2.1476597386666665
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9167,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          61.0,
+          12.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 4,
+        "index": 0,
+        "h1_mbps": 8.215713422,
+        "h3_mbps": 2.1477614346666667
+      },
+      {
+        "protected_s": 107.999,
+        "fraction": 0.9,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          31.0,
+          61.0,
+          8.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          5.0
+        ],
+        "block": 4,
+        "index": 3,
+        "h1_mbps": 8.103652462666666,
+        "h3_mbps": 2.1455114073333332
+      },
+      {
+        "protected_s": 114.998,
+        "fraction": 0.9583,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          31.0,
+          60.0,
+          17.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 5,
+        "index": 1,
+        "h1_mbps": 7.622417686,
+        "h3_mbps": 2.1455446073333335
+      },
+      {
+        "protected_s": 114.997,
+        "fraction": 0.9583,
+        "n_inject": 4,
+        "holds_s": [
+          16.0,
+          31.0,
+          61.0,
+          15.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 5,
+        "index": 2,
+        "h1_mbps": 7.505053288666667,
+        "h3_mbps": 2.1453759766666662
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9166,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          60.0,
+          13.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 6,
+        "index": 1,
+        "h1_mbps": 8.221081936528925,
+        "h3_mbps": 2.1454392138842975
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9167,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          60.0,
+          13.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 6,
+        "index": 2,
+        "h1_mbps": 8.139425674,
+        "h3_mbps": 2.1474934086666666
+      },
+      {
+        "protected_s": 109.998,
+        "fraction": 0.9166,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          60.0,
+          13.4
+        ],
+        "gaps_s": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "block": 7,
+        "index": 0,
+        "h1_mbps": 8.130339605333333,
+        "h3_mbps": 2.1465039966666666
+      },
+      {
+        "protected_s": 114.997,
+        "fraction": 0.9583,
+        "n_inject": 4,
+        "holds_s": [
+          15.0,
+          30.0,
+          60.0,
+          18.4
+        ],
+        "gaps_s": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "block": 7,
+        "index": 3,
+        "h1_mbps": 7.609641577333333,
+        "h3_mbps": 2.145517354
+      }
+    ]
+  },
+  "content_sha256": "5cd9e2d6f2a378e8f93244da09dd3d3117cf7364b9bdffbc9e823b3d6c02de2c",
+  "written_at_utc": "2026-09-20T14:05:50+00:00"
+}

@@ -377,3 +377,109 @@ bất kỳ con số nào.
 | **C3** act → giới hạn có hiệu lực | p50 1026 ms, **p95 2032 ms** | ✅ **PASS** (biên 80%) |
 | Ablation A vs C | +0,0003 Mbps, CI95 chứa 0, p = 0,281 | dự đoán ĐÚNG |
 | Lượt bị huỷ | 0/32 (A/B), 0/24 (ablation) | ✅ < 20% |
+
+---
+
+# 15. HIỆU ỨNG TRẦN — phải đọc trước khi trích dẫn con số +1,893
+
+`results/report/phase8_ab_addendum.json` (`5cd9e2d6…`), tính **từ receipt đã
+niêm phong**, không chạy lại.
+
+## 15.1 Dấu hiệu
+
+| Nhánh | h3 trung bình | SD | CV | min–max |
+|---|---|---|---|---|
+| **A** (controller) | **2,1462** | **0,0010** | **0,05%** | 2,145–2,148 |
+| B (không controller) | 0,2532 | 0,1110 | 44% | 0,142–0,557 |
+| h2 (**không hề bị động tới**) | 2,1352 | — | — | — |
+
+SD = 0,001 Mbps trên **16 lượt live**, mỗi lượt 120 s, có pha ngẫu nhiên — nhỏ hơn
+nhánh B **100 lần**. Và h3 ở nhánh A (2,1462) ≈ h2 chưa từng bị ảnh hưởng (2,1352).
+
+**Khi một đại lượng trả về cùng giá trị tới 4 chữ số trên 16 lượt live, nó thường
+không đo cái ta nghĩ.** Ở đây nó đo **tốc độ chào của ứng dụng h3**, không đo hiệu
+năng mạng cung cấp.
+
+**Cơ chế:** h3 là luồng TCP có tốc độ chào cố định ~2,15 Mbps. Trong probe, cwnd
+sụp và dữ liệu dồn ở bộ đệm; sau probe, h3 **xả backlog** ở 14–18 Mbps (đúng
+recovery burst đã đo ở 8.1, tick 45–47). Trung bình cửa sổ = (phần tụt) + (phần
+vọt) ≈ **tốc độ chào**. Chỉ khi nghẽn kéo dài suốt cửa sổ (nhánh B) thì trung bình
+mới phản ánh thiệt hại. Đây là **giới hạn S1 = 0,30** lần thứ tư — lần này nó cắn
+**phép đo kết cục**, không cắn detector.
+
+`measurements/ab_stats.py` nay tự phát cảnh báo này:
+`nhanh A: SD/mean = 0.0005 < 0.005 -> NGHI HIEU UNG TRAN`.
+
+## 15.2 Tỷ lệ bảo vệ THẬT — đo từ audit, độc lập với biến kết cục
+
+| | |
+|---|---|
+| tỷ lệ thời gian có can thiệp đang mở | **93,2%** (min 90,0% – max 96,7%) |
+| thời gian **không** được bảo vệ | **8,2 s** / 120 s |
+| kiểm chéo từ `h1` (7,925 Mbps ⇒ thời gian ở 20 Mbps) | **8,5 s** — **lệch 0,35 s** |
+| số inject / lượt | 4 |
+| hold quan sát được | 15–18 · 30–31 · 60–61 s — **đúng lịch backoff đã niêm phong** |
+| **gap (revert → inject kế tiếp)** | **1–5 s, trung bình 2,3 s** |
+
+Hai ước lượng độc lập (audit và h1) **khớp nhau trong 0,35 s**, nên receipt **nhất
+quán nội tại** — không có mâu thuẫn.
+
+## 15.3 Vì sao gap chỉ 2,3 s trong khi sim dự đoán ~9–13 s
+
+Sim 8.2 giả định sau revert detector bị ức chế hết `cooldown_s` = 8 s. **Thực tế
+không:** dưới flood 47 Mbps, tập entity vi phạm **có chứa `link-s2-s3`** — entity
+**duy nhất** nằm ngoài vùng ức chế 15/16 — nên điều kiện `local <= zone` của
+`ml/fsm.py` không thoả và **ức chế không áp dụng**; detector công bố `act` ngay.
+
+Chính **"lỗ hổng ức chế"** phát hiện ở 8.3 (1/3 round) làm vòng kín **tái bảo vệ
+nhanh hơn mô hình**: 93,2% thay vì 82% dự đoán. Đổi lại là **mất quan sát** —
+cùng một cơ chế, hai mặt.
+
+## 15.4 Ba hệ quả về cách viết (không phải về code)
+
+1. **C5 vẫn PASS, không cần chạy lại.** 8/8 khối cùng chiều, randomization test
+   chạm sàn, đối chứng âm sạch.
+2. **Không viết "khôi phục 88% goodput nạn nhân".** Viết:
+
+   > *"+1,893 Mbps là chênh lệch **tại trần** của biến kết cục. Biến chính (trung
+   > bình txRate trên cửa sổ 120 s) không phân biệt được mức bảo vệ 93% với 100%,
+   > vì luồng TCP của nạn nhân có tốc độ chào cố định và bù phần tụt bằng recovery
+   > burst sau mỗi probe. Tỷ lệ bảo vệ thật, đo độc lập từ audit, là **93,2%**, và
+   > khớp với txRate trung bình của thủ phạm trong 0,35 s."*
+
+3. **Ablation là NULL TẠI TRẦN.** Cả hai nhánh chạm cùng một trần, nên phép so
+   sánh **không có khả năng phân biệt**; CI95 hẹp ở đây **không** phải "bằng chứng
+   tương đương mạnh". Bằng chứng phân biệt thật nằm ở **ca âm tính** đo offline:
+   luật ngưỡng chỉ mặt sai 1/8 run không-flood (và nhắm vào **nạn nhân**), pipeline
+   0/8; và **5/18 run cách ngưỡng đúng một tick**, gồm một run đối chứng bình
+   thường (6,43 vs 6,18).
+
+## 15.5 Nợ chuyển sang 8.7
+
+Thêm một biến **bền với hiện tượng đệm**, đăng ký trước, đo trong soak:
+
+```
+degraded_tick_fraction(h3) = số tick có txRate(h3) < 50% mức nền / số tick hợp lệ
+mức nền = txRate trung bình của h3 trong 30 s TRƯỚC t_flood, đo trong cùng lượt
+```
+
+Recovery burst **không bù được** cho nó: một tick tụt vẫn là một tick tụt. Nó đo
+**độ sâu và độ rộng** của thiệt hại thay vì tổng khối lượng.
+
+⚠️ Dữ liệu tick thô của 8.6 **không được lưu** (receipt chỉ có `n_ticks`) nên
+**không tính ngược được**. Harness 8.7 phải lưu chuỗi tick thô của h3.
+
+# 16. Sai lệch giao thức — ablation 6 khối thay vì 8
+
+```
+đăng ký:  8 khối        thực hiện: 6 khối
+nguyên nhân: Ditto 503 từ khối 4 (MongoDB chạm trần cgroup 252,4/256 MiB,
+             log Mongo durationMillis = 55253) -> phép đo VÔ HIỆU do hạ tầng
+hệ quả thống kê: randomization test với 6 khối có SÀN p = 2/64 = 0,031
+             (thiết kế 8 khối có sàn 2/256 = 0,0078)
+kết quả quan sát: p = 0,281 — cách sàn rất xa, nên kết luận null KHÔNG bị ảnh
+             hưởng bởi việc giảm số khối
+```
+
+Với một kết quả **null**, giảm `n` làm bằng chứng yếu đi; nói thẳng ra để người đọc
+không phải tự kiểm.
