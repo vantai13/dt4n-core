@@ -134,6 +134,19 @@ def _append_detector(ents):
     return ents
 
 
+def _append_controlloop(ents):
+    """Phase 8.3 (hợp đồng D): controlloop Thing khởi tạo fail-safe HOLD/never_started."""
+    from bridge.controlloop_contract import (
+        CONTROLLOOP_THING_ID, initial_controlloop_body)
+
+    ents.append({
+        'thing_id': CONTROLLOOP_THING_ID,
+        'kind': 'controlloop',
+        'body': initial_controlloop_body(POLICY_ID),
+    })
+    return ents
+
+
 def _append_paths(ents, probes=(('h1', 'srv1'),)):
     """Append fixed path probe Things. Collector currently probes h1 -> srv1."""
     for src, dst in probes:
@@ -162,7 +175,7 @@ def entities_from_net(net):
         seen.add(tid)
         ents.append({'thing_id': tid, 'kind': 'link', 'body': _link_body(a, b)})
     _append_paths(ents)
-    return _append_detector(_append_controller(ents))
+    return _append_controlloop(_append_detector(_append_controller(ents)))
 
 
 def entities_from_spec(path):
@@ -189,7 +202,7 @@ def entities_from_spec(path):
         seen.add(tid)
         ents.append({'thing_id': tid, 'kind': 'link', 'body': _link_body(a, b)})
     _append_paths(ents, probes=spec.get('pathProbes', (('h1', 'srv1'),)))
-    return _append_detector(_append_controller(ents))
+    return _append_controlloop(_append_detector(_append_controller(ents)))
 
 
 # ===========================================================================

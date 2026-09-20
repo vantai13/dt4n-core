@@ -308,7 +308,7 @@ class EnvRunner:
             self.session = make_session()
         return fetch_snapshot(self.session, self.thing_ids, cache=cache)
 
-    def send_command(self, cmd):
+    def send_command(self, cmd, cid=None):
         """Send one agent action through the real Ditto -> Command Agent path.
 
         ``cmd`` is the dict returned by ``ActionSpace.to_command()``:
@@ -333,7 +333,10 @@ class EnvRunner:
         if not subject or not target:
             raise ValueError('command requires subject and target: %r' % cmd)
 
-        cid = str(uuid.uuid4())
+        # Phase 8.3 (hợp đồng C): caller có thể ghim correlation id để dedup của
+        # command_agent khớp với intervention_id tất định. Không truyền -> hành vi
+        # cũ y nguyên (uuid ngẫu nhiên), nên caller Phase 4 không đổi gì.
+        cid = str(cid or cmd.get('cid') or uuid.uuid4())
         params = dict(cmd.get('params') or {})
         body = {'target': target, 'clientCorrelationId': cid}
         body.update(params)
