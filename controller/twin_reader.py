@@ -32,6 +32,7 @@ SSE_PATH = (
     "/things?namespaces=%s&fields=thingId,attributes,features" % NAMESPACE
 )
 RECONNECT_BACKOFF_S = 1.0
+PRIME_PATH = SSE_PATH       # cung bo loc, nhung la GET mot lan
 
 
 def deep_merge(base: dict, delta: dict) -> dict:
@@ -57,14 +58,51 @@ class TwinReader:
         self.dropped = 0            # so ban tin bi bo vi R3
         self.reconnects = 0
         self.events = 0
+        self.primed = 0
         self.last_event_mono = None
         self._lock = threading.Lock()
         self._clock = clock
+
+    # ---------------------------------------------------------- moi cache
+
+    def prime(self, session=None) -> int:
+        """GET mot lan toan bo Things de MOI cache truoc khi nghe SSE.
+
+        BAT BUOC, va day la bai hoc dat gia cua 8.4: SSE chi gui TRUONG THAY
+        DOI. `attributes.role` cua host KHONG BAO GIO doi, nen no KHONG BAO GIO
+        xuat hien trong stream. Chi nghe SSE => roles() tra toan None =>
+        localize() thay 0 ung vien client => controller KHONG BAO GIO hanh dong,
+        du detector bao `act` va `affected` co host-h1.
+
+        Mau chuan cua moi consumer stream: SNAPSHOT roi moi STREAM.
+        """
+        session = session or requests.Session()
+        try:
+            response = session.get(self.base_url + PRIME_PATH, auth=self.auth,
+                                   timeout=(5, 10))
+        except requests.RequestException:
+            return 0
+        if response.status_code != 200:
+            return 0
+        try:
+            items = response.json()
+        except ValueError:
+            return 0
+        if isinstance(items, dict):
+            items = items.get("items") or []
+        primed = 0
+        for item in items:
+            if isinstance(item, dict) and item.get("thingId"):
+                self.apply(item, check_freshness=False)
+                primed += 1
+        self.primed = primed
+        return primed
 
     # ---------------------------------------------------------- vong SSE
 
     def run_forever(self, stop_event, session=None):
         session = session or requests.Session()
+        self.prime(session)
         while not stop_event.is_set():
             try:
                 self.stream_once(session, stop_event)
@@ -73,6 +111,9 @@ class TwinReader:
             if not stop_event.is_set():
                 self.reconnects += 1
                 stop_event.wait(RECONNECT_BACKOFF_S)
+                # Moi lai sau khi dut: ban tin bo lo luc dut co the la ban duy
+                # nhat mang mot truong tinh.
+                self.prime(session)
 
     def stream_once(self, session, stop_event):
         url = self.base_url + SSE_PATH
@@ -95,13 +136,17 @@ class TwinReader:
 
     # ---------------------------------------------------------- gop + R3
 
-    def apply(self, delta: dict):
-        """Gop mot delta vao cache. R3 duoc kiem TRUOC khi gop."""
+    def apply(self, delta: dict, check_freshness: bool = True):
+        """Gop mot delta vao cache. R3 duoc kiem TRUOC khi gop.
+
+        `check_freshness=False` chi dung cho prime(): anh chup REST khong phai
+        mot ban tin trong dong nen khong duoc tinh vao monotonic-read.
+        """
         thing_id = delta.get("thingId")
         if not thing_id:
             return
         with self._lock:
-            if thing_id == DETECTOR_THING_ID:
+            if thing_id == DETECTOR_THING_ID and check_freshness:
                 # R3: seq lui / trung / bootId da retired -> BO CA BAN TIN.
                 # Kiem TRUOC khi gop; neu kiem sau, cache da nhiem ban tin lui
                 # va MonotonicFreshness tro thanh vo dung.
