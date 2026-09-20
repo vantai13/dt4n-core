@@ -1,0 +1,84 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "mode": "quiet",
+    "duration_s": 600.0,
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "sim_bound_actions_flood_600s": 13,
+    "sim_quiet_actions": 0,
+    "sim_poisson": {
+      "min": 0,
+      "p50": 14,
+      "p95": 26,
+      "max": 41,
+      "mean": 13.5709
+    },
+    "runs": [
+      {
+        "run_index": 0,
+        "seed": null,
+        "t0": 1789914022.9941082,
+        "t1": 1789914622.9961767,
+        "duration_s": 600.0,
+        "n_actions": 0,
+        "n_inject": 0,
+        "n_commands": 0,
+        "n_exceptions": 0,
+        "holds_s": [],
+        "min_hold_s": null,
+        "violates_t0": [],
+        "gaps_s": [],
+        "c12": {
+          "window_s": 600.002,
+          "blind_s": 0,
+          "c12a_fraction_of_uptime": 0.0,
+          "c12b_fraction_of_incident": null,
+          "c12c_longest_blind_s": 0.0,
+          "incident_s": 0,
+          "n_spans": 0
+        },
+        "s11_type_i": [],
+        "s11_type_i_after_view_lag": [],
+        "s11_view_lag_s": 2.0,
+        "s11_type_ii_count": 0,
+        "flood_spans_planned": [],
+        "infra": {
+          "healthy": true,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 7.3,
+          "mongo_used_mib": 203.5,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.795,
+          "checked_at": 1789914624.034035
+        }
+      }
+    ],
+    "c6_pass": true,
+    "s11_regression_pass_literal": true,
+    "s11_regression_pass_after_view_lag": true,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 10.2,
+      "mongo_used_mib": 200.0,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.781,
+      "checked_at": 1789914002.5471716
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "36d04c8c1d6438c9c38908d093a785d725d5eca2b90ceddab2acd390271e260c",
+  "written_at_utc": "2026-09-20T14:30:26+00:00"
+}

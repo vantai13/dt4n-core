@@ -1,0 +1,172 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "mode": "flood",
+    "duration_s": 600.0,
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "sim_bound_actions_flood_600s": 13,
+    "sim_quiet_actions": 0,
+    "sim_poisson": {
+      "min": 0,
+      "p50": 14,
+      "p95": 26,
+      "max": 41,
+      "mean": 13.5709
+    },
+    "runs": [
+      {
+        "run_index": 0,
+        "seed": null,
+        "t0": 1789913332.1286776,
+        "t1": 1789913932.5258837,
+        "duration_s": 600.4,
+        "n_actions": 14,
+        "n_inject": 7,
+        "n_commands": 104,
+        "n_exceptions": 0,
+        "holds_s": [
+          16.0,
+          30.0,
+          61.0,
+          111.0,
+          110.0,
+          110.0,
+          92.4
+        ],
+        "min_hold_s": 16.0,
+        "violates_t0": [],
+        "gaps_s": [
+          11.0,
+          11.0,
+          11.0,
+          11.0,
+          11.0,
+          11.0
+        ],
+        "c12": {
+          "window_s": 600.397,
+          "blind_s": 578.395,
+          "c12a_fraction_of_uptime": 0.9634,
+          "c12b_fraction_of_incident": 0.9633,
+          "c12c_longest_blind_s": 119.0,
+          "incident_s": 600.0,
+          "n_spans": 7
+        },
+        "s11_type_i": [
+          {
+            "t_wall": 1789913337.1287572,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913364.1287744,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913405.128749,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913477.1287758,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913599.128769,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913720.1287627,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789913841.1287537,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          }
+        ],
+        "s11_type_ii_count": 0,
+        "flood_spans_planned": [
+          [
+            0.0,
+            600.0
+          ]
+        ],
+        "infra": {
+          "healthy": true,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 8.4,
+          "mongo_used_mib": 200.0,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.781,
+          "checked_at": 1789913933.5716968
+        }
+      }
+    ],
+    "c6_pass": false,
+    "s11_regression_pass": false,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 14.6,
+      "mongo_used_mib": 193.1,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.754,
+      "checked_at": 1789913310.8548858
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "5c24bb3fee369cd04a87b15561c5011ecdc29f270a2a1f5df0efe1727b710de9",
+  "written_at_utc": "2026-09-20T14:18:56+00:00"
+}

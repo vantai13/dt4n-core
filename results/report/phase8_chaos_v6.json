@@ -1,0 +1,255 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "experiment": "chaos duoi vong kin",
+    "seed": 20260920,
+    "reps": 2,
+    "rows": [
+      "control",
+      "c9",
+      "drift",
+      "second_flood",
+      "restart",
+      "agent_kill"
+    ],
+    "lease_ttl_s": 15.0,
+    "max_open_s": 120.0,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 28.5,
+      "mongo_used_mib": 96.32,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.376,
+      "memory_warning": false,
+      "checked_at": 1789917524.846547
+    },
+    "n_invalid_infra": 0,
+    "results": [
+      {
+        "row": "control",
+        "rep": 0,
+        "t_start": 1789917548.1869035,
+        "result": {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 0,
+        "t_start": 1789917591.6504364,
+        "result": {
+          "t_physical_safe_s": 10.73,
+          "t_sensor_restored_s": 115.74,
+          "excess_blind_window_s": 105.01,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 0,
+        "t_start": 1789917736.6080625,
+        "result": {
+          "t_recover_s": 1.89,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 0,
+        "t_start": 1789917758.6487434,
+        "result": {
+          "t_masked_s": 25.16,
+          "detected": true,
+          "mode_at_second_flood": "PROBING"
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 0,
+        "t_start": 1789917803.7068145,
+        "result": {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.44,
+          "exceptions": 0,
+          "mode": "IDLE"
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 0,
+        "t_start": 1789917820.5461907,
+        "result": {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 20.0,
+          "still_limited": false,
+          "commands_since": 3,
+          "t_observed_s": 20.0
+        }
+      },
+      {
+        "row": "control",
+        "rep": 1,
+        "t_start": 1789917851.57826,
+        "result": {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 1,
+        "t_start": 1789917890.6349056,
+        "result": {
+          "t_physical_safe_s": 12.33,
+          "t_sensor_restored_s": 117.34,
+          "excess_blind_window_s": 105.01,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 1,
+        "t_start": 1789918037.6368184,
+        "result": {
+          "t_recover_s": 1.28,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 1,
+        "t_start": 1789918057.6556482,
+        "result": {
+          "t_masked_s": 1.74,
+          "detected": true,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 1,
+        "t_start": 1789918073.6632705,
+        "result": {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.89,
+          "exceptions": 0,
+          "mode": "IDLE"
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 1,
+        "t_start": 1789918086.5771604,
+        "result": {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 20.0,
+          "still_limited": false,
+          "commands_since": 3,
+          "t_observed_s": 20.0
+        }
+      }
+    ],
+    "summary": {
+      "control": [
+        {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        },
+        {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        }
+      ],
+      "c9": [
+        {
+          "t_physical_safe_s": 10.73,
+          "t_sensor_restored_s": 115.74,
+          "excess_blind_window_s": 105.01,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        },
+        {
+          "t_physical_safe_s": 12.33,
+          "t_sensor_restored_s": 117.34,
+          "excess_blind_window_s": 105.01,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        }
+      ],
+      "drift": [
+        {
+          "t_recover_s": 1.89,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        },
+        {
+          "t_recover_s": 1.28,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        }
+      ],
+      "second_flood": [
+        {
+          "t_masked_s": 25.16,
+          "detected": true,
+          "mode_at_second_flood": "PROBING"
+        },
+        {
+          "t_masked_s": 1.74,
+          "detected": true,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      ],
+      "restart": [
+        {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.44,
+          "exceptions": 0,
+          "mode": "IDLE"
+        },
+        {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.89,
+          "exceptions": 0,
+          "mode": "IDLE"
+        }
+      ],
+      "agent_kill": [
+        {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 20.0,
+          "still_limited": false,
+          "commands_since": 3,
+          "t_observed_s": 20.0
+        },
+        {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 20.0,
+          "still_limited": false,
+          "commands_since": 3,
+          "t_observed_s": 20.0
+        }
+      ]
+    },
+    "log_counts": {
+      "WARNING": 10
+    }
+  },
+  "content_sha256": "66d8b06745d30a37e773b5047eb9e3d67a95174cc1b3621e282b99db9d08a52f",
+  "written_at_utc": "2026-09-20T15:28:40+00:00"
+}

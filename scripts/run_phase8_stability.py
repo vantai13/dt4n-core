@@ -56,7 +56,14 @@ def poisson_spans(seed, horizon_s):
     return spans
 
 
-def classify_act_ticks(rows, spans, routing, target_link):
+# Tre hien thi: controller nhin trang thai detector CHAM hon mot nhip. Do o 8.4:
+# xac nhan du duong p50 667 ms / p95 1003 ms, cong chu ky control tick 1 s. Mot
+# view doc tai t_inject + 1 s co the da duoc detector CONG BO TRUOC khi can thiep
+# duoc ghi vao log - do la view CU, khong phai uc che that bai.
+VIEW_LAG_S = 2.0
+
+
+def classify_act_ticks(rows, spans, routing, target_link, lag_s=0.0):
     """Quy ket moi tick `act` trong khoang can thiep: Loai I hay Loai II.
 
     Doc tu cac dong audit `decision` - DUNG cai controller nhin thay (timeline
@@ -73,7 +80,7 @@ def classify_act_ticks(rows, spans, routing, target_link):
         if view.get("state") != "act":
             continue
         t_wall = row.get("t_wall")
-        if t_wall is None or not any(lo <= t_wall < hi for lo, hi in spans):
+        if t_wall is None or not any(lo + lag_s <= t_wall < hi for lo, hi in spans):
             continue
         affected = set(view.get("affected") or ())
         item = {"t_wall": t_wall, "affected": sorted(affected)}
@@ -195,9 +202,12 @@ def main() -> int:
                     for a, b in zip(pairs, pairs[1:])
                     if a["t_revert"] is not None]
             spans_wall = [(t0 + lo, t0 + hi) for lo, hi in spans_plan]
-            type_i, type_ii = classify_act_ticks(
-                rows, blind_time.merge(blind_time.intervals(rows)),
-                routing, "h1-s1")
+            spans_int = blind_time.merge(blind_time.intervals(rows))
+            # BAO CA HAI: theo dung chu cua luat da khoa (lag = 0) VA sau khi
+            # tru tre hien thi da do o 8.4. Khong im lang doi tieu chi.
+            type_i, type_ii = classify_act_ticks(rows, spans_int, routing, "h1-s1")
+            type_i_lag, _ = classify_act_ticks(rows, spans_int, routing, "h1-s1",
+                                               lag_s=VIEW_LAG_S)
             c12 = blind_time.summarise(rows, t0, t1, incident_spans=spans_wall)
             results.append({
                 "run_index": run_index, "seed": seed,
@@ -211,7 +221,9 @@ def main() -> int:
                 "violates_t0": [round(h, 2) for h in holds if h < params.t0_s - 0.5],
                 "gaps_s": [round(g, 2) for g in gaps],
                 "c12": c12,
-                "s11_type_i": type_i,          # GATE: phai rong
+                "s11_type_i": type_i,          # GATE theo dung chu cua luat
+                "s11_type_i_after_view_lag": type_i_lag,
+                "s11_view_lag_s": VIEW_LAG_S,
                 "s11_type_ii_count": len(type_ii),
                 "flood_spans_planned": spans_plan,
                 "infra": infra_check(raise_on_fail=False),
@@ -239,7 +251,9 @@ def main() -> int:
             if args.mode == "flood" else
             all(r["n_actions"] == 0 for r in results) if args.mode == "quiet" else
             None),
-        "s11_regression_pass": all(not r["s11_type_i"] for r in results),
+        "s11_regression_pass_literal": all(not r["s11_type_i"] for r in results),
+        "s11_regression_pass_after_view_lag": all(
+            not r["s11_type_i_after_view_lag"] for r in results),
         "health_before": health_before,
         "log_counts": counter.counts,
     }

@@ -126,20 +126,30 @@ class ControlRunner:
         self._lock = threading.RLock()
         self._sleep = sleeper or self._stop.wait
         self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
+        # bootstrap_safe_state() phai LU Y DANG: harness co the goi no truoc roi
+        # run_forever goi lai. Goi hai lan tren cung mot trang thai vo chu se
+        # sinh LAI dung id orphan revert -> append-only nem ValueError -> luong
+        # control CHET NGAY KHI KHOI DONG (bat duoc o chaos 8.7: moi luot sau do
+        # abort voi "khong vao duoc MITIGATING").
+        self._bootstrapped = False
         self.stats = {
             "ticks": 0, "commands": 0, "renewals": 0, "drift_fixes": 0,
             "orphans_reverted": 0, "exceptions": 0, "unknown_observed": 0,
+            "orphan_log_closed": 0,
         }
 
     # ------------------------------------------------------------ khoi dong
 
-    def bootstrap_safe_state(self):
+    def bootstrap_safe_state(self, force=False):
         """Revert-first: don TRANG THAI VO CHU truoc khi nhan quyet dinh moi.
 
         Giong crash recovery cua CSDL: undo giao dich do dang truoc khi nhan
         giao dich moi. Neu bo qua, mot controller restart se tin minh dang IDLE
         trong khi mang van bi gioi han, va KHONG AI se go.
         """
+        if self._bootstrapped and not force:
+            return self.cstate            # LU Y DANG
+        self._bootstrapped = True
         deadline = self.clock() + BOOT_SSE_WAIT_S
         observed = self.twin.observed_bw()
         while not observed and self.clock() < deadline:
@@ -150,9 +160,18 @@ class ControlRunner:
             # khong co gi dang mo" - noi the luc nay la noi doi.
             log.error("khong co du lieu bw tu twin sau %.0f s -> HOLD",
                       BOOT_SSE_WAIT_S)
+            self._bootstrapped = False        # chua kiem duoc -> cho phep thu lai
             self.cstate = ControllerState(mode="HOLD", reason="boot_no_twin_data",
                                           incarnation=self.boot_id)
             return self.cstate
+
+        # (1) DON BAN GHI truoc khi don trang thai vat ly: mot can thiep chua
+        # dong cua LAN CHAY TRUOC lam FSM giu `stale_intervention` VINH VIEN
+        # (stale_open() luon tra no), va theo N15 moi controller sau do se TU
+        # CHOI hanh dong. Revert-first chi sua bw la CHUA DU - phat hien bang
+        # chaos 8.7: sau mot lan kill, moi luot sau deu "khong vao duoc
+        # MITIGATING" du mang dang bi flood that.
+        self._close_orphan_interventions()
 
         roles = self.twin.roles()
         for link, bw in sorted(observed.items()):
@@ -164,7 +183,8 @@ class ControlRunner:
                         link, bw, self.params.default_mbps)
             action = Action(
                 "revert", link, self.params.default_mbps,
-                "ctl-%s-orphan-%s:revert" % (self.boot_id, link),
+                "ctl-%s-orphan%d-%s:revert" % (self.boot_id,
+                                               self.stats["orphans_reverted"], link),
                 "orphan_revert",
             )
             # Revert orphan CUNG phai write-ahead: doi bw cung la mot nhieu loan
@@ -175,6 +195,37 @@ class ControlRunner:
         self.cstate = ControllerState(mode="IDLE", reason="boot_clean",
                                       incarnation=self.boot_id)
         return self.cstate
+
+    def _close_orphan_interventions(self) -> int:
+        """Ghi `revert` cho moi inject chua dong cua cac lan chay TRUOC.
+
+        Giong undo cua crash recovery: dua SO SACH ve nhat quan truoc khi nhan
+        quyet dinh moi. Chi dong nhung cai KHONG phai cua incarnation nay.
+        """
+        snapshot = getattr(self.log, "snapshot", None)
+        if snapshot is None:
+            return 0
+        items = snapshot()
+        closed = {item.id.rsplit(":", 1)[0] for item in items
+                  if getattr(item, "kind", "") == "revert"}
+        n = 0
+        for item in items:
+            if getattr(item, "kind", "") != "inject":
+                continue
+            key = item.id.rsplit(":", 1)[0]
+            if key in closed or self.boot_id in key:
+                continue                      # da dong, hoac cua chinh minh
+            from ml.intervention_log import Intervention
+
+            log.warning("BAN GHI VO CHU: %s chua dong -> ghi revert de dong so", item.id)
+            self.log.append(Intervention(
+                id=key + ":revert", t_start=self.wall_clock(), actor="controller",
+                action="revert:rate_limit", targets=item.targets,
+                blast_radius=item.blast_radius, routing_sha256=item.routing_sha256))
+            closed.add(key)
+            n += 1
+        self.stats["orphan_log_closed"] = self.stats.get("orphan_log_closed", 0) + n
+        return n
 
     def _owned(self, link: str, roles: dict) -> bool:
         """Chi link truy nhap cua client: `<client>-s1` (prereg 8.1)."""

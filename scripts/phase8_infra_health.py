@@ -66,13 +66,18 @@ def check(raise_on_fail=True) -> dict:
     latency_ms = (time.monotonic() - started) * 1000.0
     used, limit = mongo_memory()
     fraction = (used / limit) if (used and limit) else None
-    healthy = (status == 200 and latency_ms <= LATENCY_LIMIT_MS
-               and (fraction is None or fraction < MEM_WARN_FRACTION))
+    # Chu y: bo nho cao mot minh KHONG phai hong. Chu ky hong that o 8.6 la
+    # LATENCY 55 s + HTTP 503; Mongo van chay o ~90% tran trong trang thai binh
+    # thuong (WiredTiger giu cache sat tran). Nen bo nho la CANH BAO SOM, con
+    # dieu kien VO HIEU la status/latency.
+    healthy = status == 200 and latency_ms <= LATENCY_LIMIT_MS
+    memory_warning = fraction is not None and fraction >= MEM_WARN_FRACTION
     report = {
         "healthy": healthy, "http_status": status, "error": error,
         "latency_ms": round(latency_ms, 1),
         "mongo_used_mib": used, "mongo_limit_mib": limit,
         "mongo_fraction": None if fraction is None else round(fraction, 3),
+        "memory_warning": bool(memory_warning),
         "checked_at": time.time(),
     }
     if not healthy and raise_on_fail:
