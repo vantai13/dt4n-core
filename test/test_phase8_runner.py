@@ -531,3 +531,30 @@ def test_reconcile_every_phai_bat():
     assert default and default > 0
     assert should_reconcile(default, default) is True
     assert should_reconcile(1, 0) is False
+
+
+def test_c10_dung_lai_duoc_ca_tick_act_khong_hanh_dong(tmp_path):
+    """Tick `act` ma localize() tra None: khong doi mode, khong sinh action,
+    NHUNG van phai dung lai duoc - day la loai tick kho giai thich nhat."""
+    from dataclasses import asdict
+
+    from controller.audit import read_rows
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act",
+                    affected=("org.dt4n:host-srv1",))       # chi co server
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()
+    row = [r for r in read_rows(runner.audit.path) if r["kind"] == "decision"][-1]
+    assert row["n_actions"] == 0 and row["changed"] is False
+    assert "roles" in row, "thieu roles -> khong goi lai decide() duoc"
+    view = DetectorView(
+        state=row["input"]["state"], cause=row["input"]["cause"],
+        affected=tuple(row["input"]["affected"]),
+        roles=tuple(sorted(row["roles"].items())), fresh=row["input"]["fresh"],
+        boot_id=row["input"]["bootId"], seq=row["input"]["seq"],
+    )
+    actions, after = decide(view, ControllerState(**row["cstate_before"]),
+                            row["t_mono"], PolicyParams())
+    assert actions == () and asdict(after) == row["cstate_after"]
+    assert after.reason == "idle_no_client_candidate"

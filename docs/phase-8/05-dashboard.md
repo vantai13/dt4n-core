@@ -143,10 +143,16 @@ Và nó **suy ra thuần bằng MAP**, không thêm suy diễn nào: detector **
 hiện trên trang.
 
 Con số 15/16 **chưa** hiện trên UI: nó nằm trong `intervention.blast_radius_n` của
-audit, không nằm trên twin. Thêm `blastRadiusN` vào `features.decision` của
-`controlloop` sẽ phải sửa **hợp đồng D đã niêm phong** (`47464487…`) → cần một
-**amendment**. Quyết định hiện tại: **nhãn định tính trước**, amendment để lại cho
-8.7 khi C12 cần con số; ghi ra đây để không ai tưởng là bỏ quên.
+audit, không nằm trên twin.
+
+**Quyết định (đã cân nhắc lại, không mở amendment):** `blast_radius_n` là **hằng
+số 15** cho mọi can thiệp `setBandwidth` trên link truy nhập — nó đã được tính và
+niêm phong trong prereg 8.1 (`cd7d168c`, `B_intervention.n_entities`). Nhãn tĩnh
+*"15/16 thành phần"* lấy từ prereg là **đủ chính xác** và **không cần** động vào
+hợp đồng D (`47464487…`). C12 ở 8.7 cần tỷ lệ **theo thời gian** (bao nhiêu phần
+trăm tick bị ức chế), và con số đó đến từ **audit + timeline detector**, không
+đến từ Thing `controlloop`. Vậy amendment là **không cần thiết** — ghi ra đây để
+quyết định này có dấu vết.
 
 ## 9. Lỗi tìm được khi thi công
 
@@ -164,6 +170,43 @@ audit, không nằm trên twin. Thêm `blastRadiusN` vào `features.decision` c�
 
 3. **Không có test nào bắt được hai lỗi này ngoài E2E.** Unit test JS vẫn xanh
    30/30 khi trang hỏng hoàn toàn. Đây là lý do 8.5 phải có E2E Chromium.
+   *Unit test kiểm hàm, không kiểm hệ*: `controlView.js` thuần và đúng 100%;
+   cái hỏng là **dây nối**.
+
+> ⚠️ **Chế độ hỏng nguy hiểm nhất của UI giám sát.** Trong SPA phản ứng
+> (Vue/React), một exception trong computed **không** làm trang trắng — nó làm
+> trang **đóng băng im lặng**, và màn hình tiếp tục hiển thị dữ liệu cũ trông
+> hoàn toàn hợp lý. Freshness chỉ bảo vệ khi **dữ liệu** cũ, **không** bảo vệ khi
+> **khung nhìn** đóng băng: ở đây chính `data-detector-freshness` cũng đứng im.
+> Việc rẻ cho 8.7: gắn `app.config.errorHandler` + `window.onerror` đẩy vào
+> `logUi` mức `error`, để lần sau chuyện này **tự báo**.
+
+## 9b. Sửa đổi test Phase 7 (ghi chú thủ tục)
+
+```
+file:      test/test_phase7_ui_e2e.py::test_s12_kill_to_stale_under_5s
+sửa:       bật control_beating trước khi mở trang (4 dòng, có comment tại chỗ)
+lý do:     từ 8.5, all-clear đòi CẢ HAI nguồn sống. Test này đo staleness của
+           DETECTOR nên controller phải đập nhịp bình thường.
+KHÔNG đổi: ngưỡng ≤ 5 s, cách kill, cách đo, số lần lặp.
+           Phép đo S12 giữ nguyên bản chất -> receipt phase7_s12 cũ VẪN HỢP LỆ.
+```
+
+Ghi ra đây vì ai checkout tag `phase-7-complete` rồi checkout nhánh này sẽ thấy
+file khác nhau; cùng kỷ luật với `phase8_s11_amendment1.json`.
+
+## 9c. Xoá `allClear` cũ thay vì để sống song song
+
+`detectorView.js::allClear` (ngữ nghĩa Phase 7, chỉ nhìn detector) đã **bị xoá**.
+Nếu để lại, người tiếp theo gõ `import { allClear } from '../lib/detectorView.js'`
+— trình soạn thảo tự gợi ý — và có ngay "All systems normal" trong lúc đang
+MITIGATING. Tệ hơn: `detectorView.test.mjs` vẫn test hàm cũ và **vẫn xanh**, nên
+suite không bao giờ báo động.
+
+> **Nguyên tắc:** khi ngữ nghĩa của một hàm thay đổi, đừng để bản cũ sống song
+> song **dưới cùng một cái tên**. Hoặc xoá, hoặc đổi tên bản cũ để lập trình viên
+> phải chọn có ý thức. Firewall test `chỉ có MỘT allClear trong toàn dashboard`
+> canh gác điều này bằng máy.
 
 ## 10. Receipt
 

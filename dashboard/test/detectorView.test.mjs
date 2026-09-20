@@ -2,7 +2,12 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
 import { createFreshness, observeFreshness } from '../src/lib/freshness.js'
-import { detectorView, severityOf, allClear, DETECTOR_SEVERITY } from '../src/lib/detectorView.js'
+import { detectorView, severityOf, DETECTOR_SEVERITY } from '../src/lib/detectorView.js'
+// allClear song o controlView.js tu 8.5 (doi ca controller). Cac test duoi day
+// truyen mot controller SONG va IDLE de van do dung cai chung muon do: detector.
+import { allClear as allClearBoth } from '../src/lib/controlView.js'
+const LIVE_IDLE = { present: true, stale: false, mode: 'IDLE' }
+const allClear = (n, view) => allClearBoth(n, view, LIVE_IDLE)
 
 const GRAPH = {
   nodes: [{ id: 'h1' }, { id: 'srv1' }, { id: 's1' }],
