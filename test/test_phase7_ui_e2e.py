@@ -61,6 +61,10 @@ def test_first_load_with_dead_detector_is_stale_never_all_clear(browser, ditto):
 
 def test_s12_kill_to_stale_under_5s(browser, ditto, tmp_path):
     ditto.beating.set()
+    # Tu 8.5, all-clear doi CA HAI nguon con song va controller o IDLE. Test nay
+    # do staleness cua DETECTOR nen phai cho controller dap binh thuong, neu
+    # khong "All systems normal" khong bao gio xuat hien (dung theo thiet ke moi).
+    ditto.control_beating.set()
     page = open_page(browser, ditto)
     page.wait_for_function(FRESH, timeout=8000)
     page.wait_for_function(state_is("normal"), timeout=8000)

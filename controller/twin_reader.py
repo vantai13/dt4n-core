@@ -92,9 +92,18 @@ class TwinReader:
             items = items.get("items") or []
         primed = 0
         for item in items:
-            if isinstance(item, dict) and item.get("thingId"):
-                self.apply(item, check_freshness=False)
-                primed += 1
+            if not isinstance(item, dict) or not item.get("thingId"):
+                continue
+            if item["thingId"] == DETECTOR_THING_ID:
+                # Thing detector duoc PATCH TOAN BO moi tick (vong chay cua detector
+                # dung build_document roi transport) nen KHONG co truong tinh nao can
+                # prime. Prime no se ghi vao cache MA KHONG qua MonotonicFreshness
+                # -> cache va bo theo doi lech nhau -> cache co the di LUI khi mot
+                # event seq nho hon (nhung lon hon seq cua tracker) toi. Chinh la
+                # thu R3 sinh ra de chan.
+                continue
+            self.apply(item, check_freshness=False)
+            primed += 1
         self.primed = primed
         return primed
 

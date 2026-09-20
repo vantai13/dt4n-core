@@ -54,6 +54,15 @@ BOOT_SSE_WAIT_S = 10.0
 # khac desired" la TRE QUAN SAT, khong phai troi gia tri: coi la troi se gui
 # them mot lenh thua moi lan can thiep.
 CONFIRM_GRACE_S = 2.0
+# Khe ho list-then-watch (prime GET tai t0, SSE mo tai t1): su kien trong
+# [t0, t1] bi mat. Tu lanh nho sync_agent day FULL STATE moi `reconcile_every`
+# chu ky (mac dinh 30, bridge/sync_agent.py:54). Neu ai do ha ve 0, cache co
+# the sai VINH VIEN -> test_reconcile_every_phai_bat canh gac dieu do.
+STALE_OBSERVE_HEAL_S = 30.0
+# Khi mot vong sua loi lap lai ma loi khong bien mat, no khong con sua loi nua -
+# no dang thanh NGUON TAI. Sau 3 lan troi lien tiep, gian chu ky gui lai.
+DRIFT_STREAK_ALERT = 3
+DRIFT_BACKOFF_MAX_S = 30.0
 SHUTDOWN_TIMEOUT_S = 5.0
 CRASH_LOOP = (5, 60.0)
 ACCESS_SWITCH = "s1"         # ditto/topology_spec.json: client deu treo vao s1
@@ -103,6 +112,7 @@ class ControlRunner:
         self.opened_at_mono = None
         self._last_renew = {}
         self._last_send = {}
+        self._drift_streak = {}
         self._stop = threading.Event()
         self._sleep = sleeper or self._stop.wait
         self._exc_times = deque(maxlen=CRASH_LOOP[0] + 1)
@@ -197,6 +207,13 @@ class ControlRunner:
             self.opened_at_mono = None
             self._last_renew.clear()
 
+        # C10 doi 100% QUYET DINH dung lai duoc, khong phai 100% hanh dong.
+        # Mot quyet dinh KHONG sinh hanh dong van la mot quyet dinh - va la loai
+        # kho giai thich nhat ("vi sao luc do controller khong lam gi?").
+        # Day cung la cong cu chan doan dau tien: loi live #1 cua 8.4 (291 tick
+        # / 0 lenh) se lo ra ngay o 291 dong `idle_no_client_candidate`.
+        self._audit_tick(view, cstate_before, self.cstate, actions, now)
+
         for action in actions:
             self._execute(action, view=view, cstate_before=cstate_before,
                           cstate_after=self.cstate, now_mono=now)
@@ -207,6 +224,26 @@ class ControlRunner:
         # 3) Cong bo trang thai cua CHINH controller (hop dong D)
         self._publish(now)
         return self.cstate
+
+    def _audit_tick(self, view, cstate_before, cstate_after, actions, now):
+        """Moi lan goi decide() deu de lai dau vet du de goi lai decide()."""
+        changed = (cstate_after.mode != cstate_before.mode) or bool(actions)
+        row = {
+            "kind": "decision",
+            "t_mono": now,
+            "t_wall": self.wall_clock(),
+            "input": _view_row(view),
+            "cstate_before": _row(cstate_before),
+            "cstate_after": _row(cstate_after),
+            "n_actions": len(actions),
+            "changed": changed,
+        }
+        if changed:
+            # roles + params chi ghi khi co chuyen bien: dong thuong ~180 byte,
+            # 1 Hz -> soak 30 phut ~ 1800 dong ~ 320 KB.
+            row["roles"] = dict(view.roles)
+            row["params_sha256"] = sha(asdict(self.params))
+        return self.audit.append(row)
 
     def build_view(self) -> DetectorView:
         fields = self.twin.detector_view_fields()
@@ -232,11 +269,23 @@ class ControlRunner:
                 self.stats["unknown_observed"] += 1
                 continue                       # CHUA BIET != SAI
             if abs(have - want) > EPS_MBPS:
-                if now - self._last_send.get(link, float("-inf")) < CONFIRM_GRACE_S:
-                    continue          # TRE QUAN SAT, chua phai troi gia tri
+                streak = self._drift_streak.get(link, 0)
+                # Gian dan 2 -> 4 -> 8 ... (tran 30 s): 3 lan lien tiep nghia la
+                # lenh KHONG mat, ma quan sat bi ket hoac co TAC NHAN KHAC dang
+                # ghi de. Ca hai deu khong sua duoc bang cach ban them lenh.
+                wait = min(CONFIRM_GRACE_S * (2 ** streak), DRIFT_BACKOFF_MAX_S)
+                if now - self._last_send.get(link, float("-inf")) < wait:
+                    continue          # TRE QUAN SAT hoac dang giam tan suat
+                self._drift_streak[link] = streak + 1
+                if self._drift_streak[link] >= DRIFT_STREAK_ALERT:
+                    log.error("DRIFT DAI DANG %s: want=%.2f have=%.2f streak=%d "
+                              "(khe ho list-then-watch tu lanh trong <= %.0f s)",
+                              link, want, have, self._drift_streak[link],
+                              STALE_OBSERVE_HEAL_S)
                 self._reassert(link, want, now, "drift")
                 self.stats["drift_fixes"] += 1
             elif now - self._last_renew.get(link, float("-inf")) >= RENEW_PERIOD_S:
+                self._drift_streak.pop(link, None)   # da khop lai -> quen chuoi troi
                 self._reassert(link, want, now, "lease_renew")
                 self.stats["renewals"] += 1
 

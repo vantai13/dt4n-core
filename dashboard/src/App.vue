@@ -11,6 +11,7 @@ import { logUi } from './services/debugLog.js'
 import { thingsToGraph, applyDelta, deepMerge } from './lib/translate.js'
 import { createFreshness, observeFreshness } from './lib/freshness.js'
 import { detectorView } from './lib/detectorView.js'
+import { controlView } from './lib/controlView.js'
 import { markDetectorChange } from './lib/perfProbe.js'
 
 // ---------------------------------------------------------------------------
@@ -39,6 +40,14 @@ let reflectionToken = 0
 const DETECTOR_ID = (import.meta.env.VITE_DITTO_NAMESPACE || 'org.dt4n') + ':detector'
 const detectorThing = ref(null)
 const detectorTracker = createFreshness()
+// Phase 8.5: HAI nguồn sống độc lập -> HAI tracker. KHÔNG bao giờ dùng chung
+// một tracker: `retired` sẽ lẫn bootId của nhau và CẢ HAI thành STALE vĩnh viễn.
+// Cũng KHÔNG bao giờ gộp thành một nhãn "cập nhật lần cuối": nguồn sống sẽ che
+// nguồn chết (masking) — ô nguy hiểm nhất của ma trận 4 trạng thái.
+const CONTROLLOOP_ID = (import.meta.env.VITE_DITTO_NAMESPACE || 'org.dt4n') + ':controlloop'
+const controlThing = ref(null)
+const controlTracker = createFreshness()
+const controlReceivedAtMs = ref(0)
 const nowMs = ref(performance.now())
 let clockTimer = null
 const tickClock = () => { nowMs.value = performance.now() }
@@ -63,6 +72,26 @@ function acceptDetector(candidate, source, tRecv = performance.now()) {
   return accepted
 }
 
+function acceptControl(candidate, source, tRecv = performance.now()) {
+  const freshness = candidate?.features?.freshness?.properties
+  const accepted = observeFreshness(controlTracker, freshness, performance.now())
+  if (accepted) {
+    controlThing.value = candidate
+    controlReceivedAtMs.value = tRecv
+  } else {
+    logUi('control.rejected', { source, seq: freshness?.seq }, 'warn')
+  }
+  tickClock()
+  return accepted
+}
+
+const control = computed(() => controlView(
+  controlThing.value,
+  controlTracker,
+  nowMs.value,
+  controlReceivedAtMs.value,
+))
+
 const detector = computed(() => detectorView(
   detectorThing.value,
   detectorTracker,
@@ -81,7 +110,11 @@ async function resync(reason = 'manual') {
     const all = await fetchAllThings()         // search index có thể trả detector cũ
     const detectorSnapshot = all.find(t => t.thingId === DETECTOR_ID)
     if (detectorSnapshot) acceptDetector(detectorSnapshot, 'resync')
-    const things = all.filter(t => t.thingId !== DETECTOR_ID)
+    const controlSnapshot = all.find(t => t.thingId === CONTROLLOOP_ID)
+    if (controlSnapshot) acceptControl(controlSnapshot, 'resync')
+    // controlloop khong phai node/edge: loc ra khoi do thi nhu detector.
+    const things = all.filter(
+      t => t.thingId !== DETECTOR_ID && t.thingId !== CONTROLLOOP_ID)
     thingsById = Object.fromEntries(things.map(t => [t.thingId, t]))
     rebuildGraph()
     logUi('state.resync.done', {
@@ -132,6 +165,10 @@ function startStream() {
     onDelta: (partial, tRecv) => {
       if (partial?.thingId === DETECTOR_ID) {
         acceptDetector(deepMerge(detectorThing.value || {}, partial), 'sse', tRecv)
+        return
+      }
+      if (partial?.thingId === CONTROLLOOP_ID) {
+        acceptControl(deepMerge(controlThing.value || {}, partial), 'sse', tRecv)
         return
       }
       thingsById = applyDelta(thingsById, partial)   // MERGE (đã test kỹ)
@@ -342,12 +379,14 @@ async function watchForReflection(subject, target, params = {}, correlationId = 
       <TopologyView
         :graph="graph"
         :highlight="detector.highlight"
+        :shielded="control.shielded"
         @node-selected="onNode"
         @edge-selected="onEdge"
         @selection-cleared="onClear"
       />
       <div class="side">
-        <AlertPanel :graph="graph" :detector="detector" @focus="onAlertFocus" />
+        <AlertPanel :graph="graph" :detector="detector" :control="control"
+                    @focus="onAlertFocus" />
         <InfoPanel
           :graph="graph"
           :selectedNodeId="selectedNodeId"

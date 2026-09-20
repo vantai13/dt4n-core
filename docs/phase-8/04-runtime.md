@@ -165,15 +165,59 @@ rồi PATCH ngay trong tick đó), và trễ lệnh trong lần chạy này th�
 Phase 7 (đo dưới hồ sơ tải khác). Phân bố `revert` chụm quanh ~1 tick, đúng với
 việc thành phần chờ tick chi phối.
 
-Ngân sách C3:
+Ngân sách C3 — **hai dòng tách bạch, chỉ một dòng là gate**:
 
 ```
-phát hiện (phys_obs p95 1,433 + n_act 2 tick)   ≈ 3,4 s
-chu kỳ quyết định của controller                ≤ 1,0 s
-xác nhận đủ đường (p95)                          ≈ 1,0 s
-─────────────────────────────────────────────────────
-                                                 ≈ 5,4 s  <  10 s  ✅ biên 46%
+C3 (theo ĐỊNH NGHĨA NIÊM PHONG: act công bố -> giới hạn có hiệu lực)   ← GATE
+    chu kỳ quyết định của controller   ≤ 1,0 s
+  + xác nhận đủ đường (p95)             ≈ 1,0 s
+  ────────────────────────────────────────────
+                                        ≈ 2,0 s  <  10 s   ✅ biên 80%
+
+Trễ đầu-cuối (THAM KHẢO, KHÔNG phải C3: flood bắt đầu -> giới hạn có hiệu lực)
+    phát hiện (phys_obs p95 1,433 + n_act 2 tick)  ≈ 3,4 s
+  + C3                                              ≈ 2,0 s
+  ────────────────────────────────────────────────────────
+                                                     ≈ 5,4 s
 ```
+
+Mốc bắt đầu của C3 là **`act` được công bố**, không phải lúc flood bắt đầu; trễ
+phát hiện 3,4 s thuộc S-rows Phase 7, đã đo rồi. Harness 8.6 sẽ đo từ `act`, nên
+con số nó in ra phải khớp dòng trên (~2,0 s), không phải dòng dưới.
+
+**Về chênh lệch inject/revert** (667 ms vs 994 ms p50): nằm trong dao động do pha
+lấy mẫu; n = 25 chưa đủ để khẳng định đây là khác biệt hệ thống.
+
+## 7b. Khe hở list-then-watch, và lưới đỡ có sẵn từ Phase 2.5
+
+`prime()` chụp ảnh tại `t0`, SSE mở tại `t1 > t0`: sự kiện phát ra trong `[t0, t1]`
+**bị mất**. Với Thing detector không sao (mỗi tick PATCH lại toàn bộ). Với
+`link.capacity.bwMbps` thì nghiêm trọng: nó chỉ đổi khi ta đổi nó, nên một thay
+đổi rơi đúng khe sẽ làm cache **sai lâu dài** và vòng reconcile bắn lệnh mãi.
+
+Đây là bài toán kinh điển *list-then-watch* (Kubernetes giải bằng `resourceVersion`;
+Ditto SSE không có thứ tương đương). **Lưới đỡ đã có sẵn từ Phase 2.5:**
+`bridge/sync_agent.py:54` đẩy **toàn bộ trạng thái** mỗi `reconcile_every = 30`
+chu kỳ, nên khe hở **tự lành trong ≤ 30 s**, không phải vĩnh viễn. Đây là lần thứ
+hai một cơ chế Phase 2 cứu Phase 8 (lần trước: dedup theo correlation id).
+
+Ghi thành hằng số kiểm chéo `STALE_OBSERVE_HEAL_S = 30.0` và canh gác bằng
+`test_reconcile_every_phai_bat`: nếu ai đó hạ `reconcile_every` về 0, cache có thể
+sai vĩnh viễn.
+
+**Và giảm tần suất khi trôi dai dẳng:** nếu cứ 2 s bắn một lệnh suốt cửa sổ 30 s
+thì mất ~15 lệnh vô ích. Nay giãn 2 → 4 → 8 … (trần 30 s), và từ lần thứ 3 ghi
+`log.error("DRIFT DAI DANG …")`. *Khi một vòng sửa lỗi lặp lại mà lỗi không biến
+mất, nó không còn sửa lỗi nữa — nó đang thành nguồn tải.*
+
+## 7c. Quy tắc rút ra từ lỗi `__len__` + `or`
+
+> Chỉ dùng `x or default` khi `x` là **kiểu vô hướng**. Với object, luôn
+> `x if x is not None else default`.
+
+Bug này xảy ra với **mọi** lớp có `__len__`, `__bool__` hoặc `__eq__` tùy biến, và
+nó im lặng 100%: một log rỗng (hợp lệ) bị coi là "không có" và bị thay bằng mặc
+định. Ở đây nó làm cả một test đo nhầm đối tượng.
 
 ## 8. Chạy thật: vòng kín đầu-cuối
 
@@ -206,6 +250,14 @@ ctl-<boot>-e1-k3:inject  probe_failed_backoff   (giữ 110 s)
 Đúng lịch 15 → 30 → 60 → 110 mà `phase8_sim_predictions.json` đã niêm phong ở 8.2.
 
 ## 9. Lỗi thật tìm được khi chạy live (không phải lỗi giả định)
+
+**(a') `prime()` từng chọc thủng R3.** Bản đầu ghi thẳng mọi Thing vào cache mà
+không qua `MonotonicFreshness`, kể cả Thing detector — cache và bộ theo dõi lệch
+nhau, và một event có seq nhỏ hơn bản đã prime (nhưng lớn hơn seq của tracker) sẽ
+kéo cache **đi lùi**, đúng thứ R3 sinh ra để chặn. Sửa: `prime()` **bỏ qua**
+`org.dt4n:detector`, vì Thing đó được PATCH toàn bộ mỗi tick nên không có trường
+tĩnh nào cần prime; chỉ host/link mới cần (chúng đi qua `bridge/differ.py` —
+*"chỉ trả phần ĐỔI"*). Có test `test_cache_detector_khong_the_di_lui_sau_prime`.
 
 **(a) SSE một mình không bao giờ mang `attributes.role`.** Lần chạy vòng kín đầu
 tiên: 291 tick, **0 lệnh**, dù detector báo `act` và `affected` có `host-h1`.
@@ -241,4 +293,18 @@ bằng `is None`. Bài học: lớp nào định nghĩa `__len__` thì **không 
 | `results/report/phase8_confirm_latency.json` | n=25, p50 667 ms / p95 1003 ms |
 | `results/report/phase8_loop_run.json` | thống kê một lượt vòng kín 300 s |
 | `logs/controller_audit.jsonl` | 48 dòng, chuỗi hash hợp lệ |
-| `test/test_phase8_runner.py` (21) · `test_command_agent_noop.py` (8) · `test_phase8_twin_reader.py` (17) | kiểm bằng máy |
+| `test/test_phase8_runner.py` (26) · `test_command_agent_noop.py` (8) · `test_phase8_twin_reader.py` (19) | kiểm bằng máy |
+
+## 11. Hai việc chuyển sang 8.7 (đã khai, chưa đo)
+
+1. **C9-b — cửa sổ mù thừa khi controller treo:** `kill -9` lúc MITIGATING; đo
+   `t_tc_restored` (kỳ vọng ≤ 17 s) và `t_detector_unsuppressed` (≤ 120 s); hiệu
+   hai số là cửa sổ mù thừa (≤ 103 s).
+2. **Thí nghiệm drift (chaos):** trong lúc controller MITIGATING (bw = 7), gửi
+   `setBandwidth bw=12` **từ ngoài** (curl thẳng vào Ditto inbox) để mô phỏng một
+   tác nhân khác. Kỳ vọng: controller kéo về 7 trong ≤ 1 tick + `CONFIRM_GRACE_S`,
+   audit có `reason="drift"`, `drift_fixes` tăng đúng 1. Đây cũng là bài kiểm tra
+   *"ai thắng khi hai tác nhân tranh một tài nguyên"*.
+   Lý do phải làm: sau khi thêm cửa sổ ân hạn, `drift_fixes = 0` trong mọi lượt
+   live — nhánh quan trọng nhất của vòng level-triggered **chưa từng chạy thật**,
+   mới chỉ có unit test với fake.

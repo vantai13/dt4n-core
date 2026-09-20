@@ -106,10 +106,52 @@ def detector_doc(
     }
 
 
+def controlloop_doc(
+    boot: str,
+    seq: int,
+    mode: str = "IDLE",
+    target: str = "",
+    limit_mbps: float = 0.0,
+    hold_remaining_s: float = 0.0,
+    probe_remaining_s: float = 0.0,
+    reason: str = "",
+) -> dict:
+    """Thing controlloop (hop dong D, Phase 8.3) cho E2E cua 8.5."""
+    return {
+        "thingId": f"{NS}:controlloop",
+        "attributes": {"type": "controller", "role": "closed-loop-controller"},
+        "features": {
+            "decision": {"properties": {
+                "mode": mode, "target": target, "limitMbps": limit_mbps,
+                "reason": reason, "decidedAt": "",
+            }},
+            "schedule": {"properties": {
+                "holdRemainingS": hold_remaining_s,
+                "probeRemainingS": probe_remaining_s,
+                "attempt": 0, "episode": 1,
+            }},
+            "freshness": {"properties": {
+                "bootId": boot, "seq": seq, "heartbeatAt": "",
+                "ttlTicks": 3, "tickIntervalMs": 1000, "dropped": 0,
+            }},
+        },
+    }
+
+
 class FakeDitto:
     def __init__(self, port: int = 0):
         self.things = topology_things()
         self.search_detector = detector_doc("", -1, "unknown")
+        # Phase 8.5: nguon song THU HAI, nhip tim DOC LAP voi detector.
+        self.search_control = controlloop_doc("", -1, "HOLD", reason="never_started")
+        self.control_boot = "ctlboot1"
+        self.control_seq = 0
+        self.control_mode = "IDLE"
+        self.control_target = ""
+        self.control_limit = 0.0
+        self.control_hold_s = 0.0
+        self.control_probe_s = 0.0
+        self.control_beating = threading.Event()
         self.boot = "boot1"
         self.seq = 0
         self.state = "normal"
@@ -141,7 +183,8 @@ class FakeDitto:
 
             def do_GET(self):
                 if self.path.startswith("/ditto/api/2/search/things"):
-                    return self._json({"items": fake.things + [fake.search_detector]})
+                    return self._json({"items": fake.things
+                                        + [fake.search_detector, fake.search_control]})
                 if self.path.startswith("/ditto-sse/"):
                     return self._sse()
                 relative = self.path.split("?")[0].lstrip("/") or "index.html"
@@ -212,6 +255,15 @@ class FakeDitto:
                 self.push(document)
                 self.last_beat_mono = time.monotonic()
                 self.seq += 1
+            if self.control_beating.is_set():
+                # Nhip tim RIENG: dung rieng no de kiem masking (detector song
+                # che controller chet) ma khong dung toi detector.
+                self.push(controlloop_doc(
+                    self.control_boot, self.control_seq, self.control_mode,
+                    self.control_target, self.control_limit,
+                    self.control_hold_s, self.control_probe_s,
+                ))
+                self.control_seq += 1
             time.sleep(1.0)
 
     def push(self, document):
@@ -223,6 +275,29 @@ class FakeDitto:
         with self._lock:
             for client_queue in list(self.clients):
                 client_queue.put(None)
+
+    def set_control(self, mode="IDLE", target="", limit_mbps=0.0,
+                    hold_remaining_s=0.0, probe_remaining_s=0.0):
+        self.control_mode = mode
+        self.control_target = target
+        self.control_limit = limit_mbps
+        self.control_hold_s = hold_remaining_s
+        self.control_probe_s = probe_remaining_s
+
+    def push_control(self, **kwargs):
+        self.set_control(**kwargs)
+        document = controlloop_doc(
+            self.control_boot, self.control_seq, self.control_mode,
+            self.control_target, self.control_limit,
+            self.control_hold_s, self.control_probe_s,
+        )
+        self.control_seq += 1
+        self.push(document)
+        return document
+
+    def stop_control_heartbeat(self):
+        """CHI controller chet; detector van dap binh thuong."""
+        self.control_beating.clear()
 
     def restart_detector(self, boot: str):
         self.boot, self.seq, self.state = boot, 0, "warming_up"
