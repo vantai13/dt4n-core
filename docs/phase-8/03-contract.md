@@ -173,3 +173,108 @@ ghi amendment, chạy lại.
 | `controller/audit.py` | hợp đồng E |
 | `scripts/run_phase8_s11_bw.py` | harness đo S11 (hai kịch bản, ba nhánh) |
 | `test/test_phase8_contract.py` (20) · `test_phase8_twin_reader.py` (13) · `test_phase8_audit.py` (9) · `test_phase4_command_regression.py` (4) | kiểm bằng máy |
+
+---
+
+# Kết quả đo S11 (phần này viết SAU khi đo, dự đoán đã khoá ở commit `6523ae1`)
+
+## Lượt 1 — kịch bản `quiet`: **phép đo VÔ HIỆU**, đúng điều kiện đã khoá
+
+`results/report/phase8_s11_bw_quiet.json` (bw 1.0 Mbps, nền TCP 2 Mbps/client, 5 rep × 3 nhánh)
+
+| nhánh | act entries | alarm entries | published trong khoảng giảm thiểu |
+|---|---|---|---|
+| `log_first` | 0 | 0 | 5 × `unknown/missing_data`, 95 × `normal` |
+| `log_late` | 0 | 0 | 5 × `unknown/missing_data`, 146 × `normal` |
+| **`no_log`** | **0** | 5 | 5 × `unknown/missing_data`, 95 × `normal` |
+
+Đối chứng **dương** cho 0 act ⇒ theo đúng luật đã khoá, phép đo **vô hiệu**: không
+phân biệt được "write-ahead hiệu quả" với "actuator vốn vô hại".
+
+**Nguyên nhân cơ chế:** nền `normal` của `mininet/traffic.py::start_background_load`
+là **TCP** (`scenario='normal'` → `udp=False`). Bóp băng thông chỉ làm TCP lùi bước,
+không gói nào bị drop ở qdisc nên envelope không thấy vi phạm. Đây **chính là** giới
+hạn S1 = 0.30 đã khai trong hợp đồng bàn giao Phase 7. Hạ `bw` thấp hơn nữa cũng
+không đổi bản chất.
+
+> Nhãn `c8_verdict` trong receipt gốc ghi `FAIL` — đó là **lỗi đặt tên của harness**,
+> đã sửa thành `INVALID` trong `_verdict()`. Vô hiệu **không** có nghĩa là write-ahead
+> thất bại. Bản sửa ghi trong `results/report/phase8_s11_amendment1.json`
+> (`390121f8…`).
+
+## Lượt 2 — amendment 1, kịch bản `quiet_udp`: **C8 PASS**
+
+Thêm luồng nền **UDP** h1→srv1 **5 Mbps** trước khi can thiệp (UDP không lùi bước →
+bóp xuống 1 Mbps chắc chắn sinh qdisc drop). Chọn 5 Mbps vì: nhỏ hơn trần tải hợp lệ
+train 6.181986 Mbps (detector vẫn `normal` trước can thiệp) và sàn `g = min(client tx)`
+vẫn ~2 Mbps < ngưỡng guard 4.312610 (guard không bật). `PolicyParams.limit_mbps` **vẫn
+là 7.0** — 1 Mbps là tham số của **phép đo**.
+
+`results/report/phase8_s11_bw_quiet_udp.json` (5 rep × 3 nhánh)
+
+| nhánh | act entries | alarm entries | published trong khoảng giảm thiểu | vai trò |
+|---|---|---|---|---|
+| **`log_first`** | **0** ✅ | 4 | 87 × `suppressed_intervention`, 5 × `missing_data`, 7 × `normal`, 1 × `suspect` | nhánh ĐÚNG |
+| `log_late` | 0 | 10 | 99 × `suppressed_intervention`, 6 × `suspect` | đối chứng ÂM ✅ |
+| **`no_log`** | **5** ✅ | 7 | **84 × `act`**, 5 × `suspect` | đối chứng DƯƠNG ✅ |
+
+```
+C8 = PASS   (measurement_valid = True, n = 5/nhánh, all_started_from_normal = True)
+lease_touched = False   (hold 20 s << MAX_OPEN_S 120 s)
+0 ERROR trong log (2 WARNING)
+```
+
+Đọc bảng: cùng một actuator, cùng một nhiễu loạn — **chỉ khác thứ tự ghi log**. Ghi
+trước → 0 lần vào `act`; không ghi → 5/5 lần vào `act` với 84 tick act. Đó là bằng
+chứng trực tiếp rằng **write-ahead (M5) là thứ giữ cho vòng không tự kích hoạt**,
+chứ không phải may mắn.
+
+**Trễ hiệu lực actuator**: 0,03–0,11 s (`log_first`, `no_log`). Lưu ý đây là trễ
+**post → `tc` đã đổi**, đo bằng cách đọc thẳng `link.dt4n_bw` trong tiến trình
+Mininet; **không phải** trễ xác nhận qua twin (còn cộng 1 tick collector +
+`write_2xx` + `fanout_sse`), sẽ đo ở 8.4.
+
+## Lượt 3 — kịch bản `flood`: **đóng ẩn số 9.3 → khả năng A**
+
+`results/report/phase8_s11_bw_flood.json` (flood UDP 47 Mbps đang chạy, bw 7.0, 3 rep)
+
+Trong khoảng giảm thiểu, nhánh `log_first` (rep 0 và 1) cho **19/19 tick**:
+
+```
++0.1  unknown  missing_data             env=False act_rule=False   ← reset qdisc (F8-6)
++1.1  unknown  suppressed_intervention  env=True  act_rule=True
+...   (17 tick giống hệt)
++19.1 unknown  suppressed_intervention  env=True  act_rule=True
++20.1 unknown  missing_data             env=False                  ← revert cũng reset qdisc
+```
+
+**Ẩn số 9.3 đóng: khả năng A.** Tín hiệu thô **có** (`envelope=True`, `act_rule=True`
+mọi tick) nhưng bị vùng ức chế nuốt → công bố `unknown(suppressed_intervention)`.
+Khả năng B (`normal`) **không** xảy ra lần nào.
+
+**Ngoại lệ tìm được (quan trọng, phải khai):** `log_first` rep 2 cho **18 tick `act`
+không bị ức chế**. Cơ chế: [ml/fsm.py](../../ml/fsm.py) chỉ ức chế khi **mọi** entity
+vi phạm nằm trong vùng (`local <= zone`). Vùng của can thiệp trên `h1-s1` là 15/16
+entity; entity duy nhất **ngoài** vùng là `link-s2-s3` (bottleneck 5 Mbps mang nền
+srv1→srv2). Chỉ cần một vi phạm rơi vào đó là cả tick không được ức chế.
+
+- **Không phá thiết kế 8.2:** ở `MITIGATING`, nhãn `ACT` **không** sinh hành động mới
+  — chỉ lịch mới gỡ. Đây là một lợi ích cụ thể của circuit breaker.
+- **Nhưng phải vào mục Giới hạn:** dưới flood, tỷ lệ tick bị ức chế **không phải
+  100%** (quan sát 1/3 round). C12 ở 8.7 phải đo cả tỷ lệ này.
+
+## F8-6 xác nhận
+
+`setBandwidth` dựng lại qdisc → **đúng 1 tick** `unknown(missing_data)`: quan sát ở
+**29/30** round của `quiet` + `quiet_udp`, và ở kịch bản flood **cả `inject` lẫn
+`revert`** đều sinh đúng một tick. Ngoại lệ duy nhất: `quiet_udp/no_log` rep 0, tick
+đầu là `normal` (lệnh có hiệu lực sau mốc lấy mẫu của tick đó).
+
+## Receipt của phần đo
+
+| File | Nội dung |
+|---|---|
+| `results/report/phase8_s11_bw_quiet.json` | lượt 1, **vô hiệu** (giữ lại làm dấu vết) |
+| `results/report/phase8_s11_bw_quiet_udp.json` | lượt 2, **C8 PASS** |
+| `results/report/phase8_s11_bw_flood.json` | lượt 3, đóng ẩn số 9.3 |
+| `results/report/phase8_s11_amendment1.json` | `390121f8…` — nguyên nhân, sửa đổi, nhãn verdict đúng |
