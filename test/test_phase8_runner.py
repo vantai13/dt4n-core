@@ -427,3 +427,107 @@ def test_tat_em_giu_dau_vet_episode(tmp_path):
     cstate = runner.shutdown()
     assert cstate.episode == episode == 1   # khong xoa dau vet khi tat
     assert cstate.mode == "HOLD" and cstate.open_id is None
+
+
+# ------------------------------------------------- Phan A: soat lai 8.4
+
+
+def test_moi_tick_deu_co_dau_vet_C10(tmp_path):
+    """C10 = 100% QUYET DINH, khong phai 100% hanh dong.
+
+    Quyet dinh khong sinh hanh dong ("thay act nhung khong dinh vi duoc") la
+    loai kho giai thich nhat, va la loai vo hinh neu chi ghi audit khi co lenh.
+    """
+    from controller.audit import read_rows
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="normal")
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    for _ in range(5):
+        clock.advance(TICK_S)
+        runner.tick()
+    rows = read_rows(runner.audit.path)
+    decisions = [r for r in rows if r["kind"] == "decision"]
+    assert len(decisions) == 5                     # moi tick MOT dong
+    assert all(r["n_actions"] == 0 for r in decisions)
+    assert all(r["cstate_after"]["reason"].startswith("idle_") for r in decisions)
+
+
+def test_audit_ghi_ly_do_khong_hanh_dong(tmp_path):
+    """Loi live #1 cua 8.4 (291 tick / 0 lenh) phai lo ra ngay tu audit."""
+    from controller.audit import read_rows
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    twin.roles = lambda: {"h1": None, "srv1": None}     # thieu role (loi live #1)
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()
+    rows = [r for r in read_rows(runner.audit.path) if r["kind"] == "decision"]
+    assert rows[-1]["cstate_after"]["reason"] == "idle_no_client_candidate"
+    assert rows[-1]["n_actions"] == 0
+
+
+def test_dung_lai_bit_exact_tu_dong_decision(tmp_path):
+    """Dong `decision` phai DU de goi lai decide() va ra ket qua trung khop."""
+    from dataclasses import asdict
+
+    from controller.audit import read_rows
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    runner, clock = make_runner(tmp_path, twin)
+    runner.cstate = ControllerState(mode="IDLE")
+    for state in ("act", "normal", "normal"):
+        twin.state = state
+        twin.affected = (H1,) if state == "act" else ()
+        clock.advance(TICK_S)
+        runner.tick()
+    n = 0
+    for row in read_rows(runner.audit.path):
+        if row["kind"] != "decision" or not row.get("roles"):
+            continue
+        view = DetectorView(
+            state=row["input"]["state"], cause=row["input"]["cause"],
+            affected=tuple(row["input"]["affected"]),
+            roles=tuple(sorted(row["roles"].items())), fresh=row["input"]["fresh"],
+            boot_id=row["input"]["bootId"], seq=row["input"]["seq"],
+        )
+        before = ControllerState(**row["cstate_before"])
+        actions, after = decide(view, before, row["t_mono"], PolicyParams())
+        assert asdict(after) == row["cstate_after"]
+        assert len(actions) == row["n_actions"]
+        n += 1
+    assert n >= 1
+
+
+def test_troi_dai_dang_thi_gian_tan_suat(tmp_path):
+    """Vong sua loi lap lai ma loi khong het thi khong con sua loi - no thanh tai."""
+    from controller.runner import DRIFT_BACKOFF_MAX_S
+
+    twin = FakeTwin(bw={"h1-s1": 20.0}, state="act", affected=(H1,))
+    send = FakeSend(None)                       # lenh khong bao gio co hieu luc
+    runner, clock = make_runner(tmp_path, twin, send=send)
+    runner.cstate = ControllerState(mode="IDLE")
+    runner.tick()                               # inject
+    sends = []
+    for _ in range(120):
+        clock.advance(TICK_S)
+        runner.tick()
+        sends.append(len(send.calls))
+    # khong duoc ban moi CONFIRM_GRACE_S trong suot 120 s
+    assert runner.stats["drift_fixes"] < 120 / 4
+    gaps = [b - a for a, b in zip(sends, sends[1:])]
+    assert sum(gaps) < 40
+    assert DRIFT_BACKOFF_MAX_S >= 30.0
+
+
+def test_reconcile_every_phai_bat():
+    """Khe ho list-then-watch tu lanh nho sync_agent; ha ve 0 la cache sai vinh vien."""
+    import inspect
+
+    from bridge.sync_agent import run as run_sync
+    from bridge.sync_agent import should_reconcile
+
+    default = inspect.signature(run_sync).parameters["reconcile_every"].default
+    assert default and default > 0
+    assert should_reconcile(default, default) is True
+    assert should_reconcile(1, 0) is False

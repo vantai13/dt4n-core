@@ -239,3 +239,39 @@ def test_prime_khong_tinh_vao_monotonic_read():
 def test_prime_loi_mang_khong_lam_sap():
     reader = TwinReader(clock=FakeClock())
     assert reader.prime(FakeGetSession([], status=503)) == 0
+
+
+def test_prime_khong_cham_thing_detector():
+    """prime() ghi thang vao cache khong qua MonotonicFreshness. Voi Thing
+    detector dieu do mo mot cua hau vong qua R3: cache co the di LUI khi mot
+    event co seq nho hon ban da prime (nhung lon hon seq cua tracker) toi.
+
+    Khong can prime no: detector_runner PATCH TOAN BO document moi tick.
+    """
+    reader = TwinReader(clock=FakeClock())
+    session = FakeGetSession([
+        {"thingId": DETECTOR_THING_ID,
+         "features": {"decision": {"properties": {"state": "act"}},
+                      "freshness": {"properties": fresh_props(200)}}},
+        {"thingId": "org.dt4n:host-h1",
+         "attributes": {"type": "host", "role": "client"}},
+    ])
+    assert reader.prime(session) == 1                 # chi host, khong detector
+    assert DETECTOR_THING_ID not in reader.things
+    assert reader.roles() == {"h1": "client"}
+
+
+def test_cache_detector_khong_the_di_lui_sau_prime():
+    """Bat bien cua R3 phai giu nguyen ke ca khi co prime xen giua."""
+    reader = TwinReader(clock=FakeClock())
+    reader.apply(detector_delta(state="normal", seq=10))
+    reader.apply(detector_delta(state="act", affected=["org.dt4n:host-h1"], seq=11))
+    reader.prime(FakeGetSession([
+        {"thingId": DETECTOR_THING_ID,
+         "features": {"decision": {"properties": {"state": "normal"}},
+                      "freshness": {"properties": fresh_props(200)}}},
+    ]))
+    assert reader.detector_view_fields()["state"] == "act"      # prime khong ghi de
+    reader.apply(detector_delta(state="normal", seq=10))        # ban tin lui
+    assert reader.detector_view_fields()["state"] == "act"      # van bi bo
+    assert reader.dropped == 1

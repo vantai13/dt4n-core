@@ -1,7 +1,8 @@
 <template>
   <div class="topology-view">
     <h3>NETWORK TOPOLOGY</h3>
-    <div class="diagram-container" ref="networkContainer" :data-highlight="hlAttr"></div>
+    <div class="diagram-container" ref="networkContainer"
+         :data-highlight="hlAttr" :data-shielded="shAttr"></div>
   </div>
 </template>
 
@@ -12,10 +13,16 @@ import 'vis-network/styles/vis-network.css'
 
 // props.graph = { nodes: [...], edges: [...] } ĐÃ được translate.js dịch sẵn.
 // TopologyView KHÔNG còn đoán loại / parse label -> chỉ lo VẼ (Separation of Concerns).
-const props = defineProps(['graph', 'highlight'])
+const props = defineProps(['graph', 'highlight', 'shielded'])
 const emit = defineEmits(['node-selected', 'edge-selected', 'selection-cleared'])
 const highlighted = computed(() => new Set(props.highlight || []))
 const hlAttr = computed(() => [...highlighted.value].sort().join(','))
+// Phase 8.5: "muc tieu cua can thiep dang mo" la bien du lieu THU BA, truc giao
+// voi mau (health) va voi vien day + ⚑ (detector neu ten). Mot bien mot kenh:
+// nhoi hai bien vao mot kenh la mat thong tin. Kenh o day la KIEU NET (net dut),
+// goi dung ngu nghia "tam thoi, se duoc go".
+const shieldedSet = computed(() => new Set(props.shielded || []))
+const shAttr = computed(() => [...shieldedSet.value].sort().join(','))
 
 const networkContainer = ref(null)
 const networkInstance = ref(null)
@@ -25,13 +32,15 @@ const nodesDS = new DataSet([])
 const edgesDS = new DataSet([])
 
 // Trigger cập nhật khi dữ liệu đổi (so sánh bằng chuỗi hóa).
-const graphKey = computed(() => JSON.stringify(props.graph) + '|' + hlAttr.value)
+const graphKey = computed(() =>
+  JSON.stringify(props.graph) + '|' + hlAttr.value + '|' + shAttr.value)
 
 // --- Dịch node (đã có type/state) -> định dạng vis-network + màu theo trạng thái ---
 function toVisNodes(nodes) {
   if (!Array.isArray(nodes)) return []
   return nodes.map(n => {
     const flagged = highlighted.value.has(n.id)
+    const shielded = shieldedSet.value.has(n.id)
     // Chọn 'group' (kiểu tô màu) theo type + HEALTH (do twin tính sẵn).
     // KHÔNG tự suy trạng thái ở frontend -> health là single source of truth.
     let group = n.type                       // 'host' | 'switch' (mặc định = ok)
@@ -40,11 +49,13 @@ function toVisNodes(nodes) {
 
     return {
       id: n.id,
-      label: flagged ? `⚑ ${n.id}` : n.id,
+      label: (flagged ? '⚑ ' : '') + (shielded ? '🛡 ' : '') + n.id,
       borderWidth: flagged ? 7 : 3,
+      shapeProperties: shielded ? { borderDashes: [6, 4] } : { borderDashes: false },
       group,
       title: `${n.id}\nType: ${n.type}\nStatus: ${n.state}`
-        + (flagged ? '\nDetector: bị nêu tên' : ''),
+        + (flagged ? '\nDetector: bị nêu tên' : '')
+        + (shielded ? '\nController: đang bị giới hạn băng thông' : ''),
     }
   })
 }
@@ -54,6 +65,7 @@ function toVisEdges(edges) {
   if (!Array.isArray(edges)) return []
   return edges.map(e => {
     const flagged = highlighted.value.has(e.id)
+    const shielded = shieldedSet.value.has(e.id)
     // Đổi màu theo HEALTH (do twin tính, Lựa chọn B) — KHÔNG dùng e.state, vì
     // state chỉ có up/down/unknown, không bao giờ = 'warning'/'high-load'.
     // (Đây là lỗi cũ: nhánh warning/high-load chết vì nhìn nhầm trường.)
@@ -65,10 +77,10 @@ function toVisEdges(edges) {
       id: e.id,
       from: e.from,
       to: e.to,
-      label: flagged ? '⚑' : ' ',
+      label: (flagged ? '⚑' : '') + (shielded ? '🛡' : '') || ' ',
       color: { color, highlight: color, hover: color },
       width: flagged ? width + 3 : width,
-      dashes,
+      dashes: shielded ? [6, 4] : dashes,
       smooth: { type: 'continuous', roundness: 0.5 },
       font: { color: '#00F7F7', size: 11, strokeWidth: 3, strokeColor: '#0f172a' },
     }

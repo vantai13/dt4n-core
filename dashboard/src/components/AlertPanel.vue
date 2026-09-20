@@ -27,6 +27,39 @@
       </div>
     </div>
 
+    <div class="control" :class="control.severity || 'ok'"
+         :data-control-freshness="control.stale ? 'stale' : 'fresh'"
+         :data-control-mode="control.mode">
+      <div class="det-line">
+        <span class="sev-dot"></span>
+        <span class="who">Vòng kín</span>
+        <span class="det-state">{{ control.modeLabel }}</span>
+      </div>
+      <div v-if="control.stale" class="det-sub">
+        {{ control.lastConfirmedAgoMs === null
+            ? 'chưa từng nhận nhịp tim của controller'
+            : 'nhịp tim cuối ' + (control.lastConfirmedAgoMs / 1000).toFixed(1) + ' s trước' }}
+      </div>
+      <template v-else>
+        <div class="det-sub">{{ control.modeDetail }}</div>
+        <div v-if="control.mode === 'MITIGATING' && control.target" class="det-sub">
+          🛡 {{ control.target }} giới hạn {{ control.limitMbps }} Mbps<span
+            v-if="control.holdRemainingS !== null">, probe sau
+            {{ Math.ceil(control.holdRemainingS) }} s</span>
+        </div>
+        <div v-else-if="control.mode === 'PROBING' && control.probeRemainingS !== null"
+             class="det-sub">
+          đang thăm dò, còn {{ Math.ceil(control.probeRemainingS) }} s
+        </div>
+      </template>
+    </div>
+
+    <div v-if="observability" class="observability" :class="observability.level">
+      <span class="sev-dot"></span>
+      <span class="who">{{ observability.label }}</span>
+      <span class="what">{{ observability.detail }}</span>
+    </div>
+
     <div v-if="clear" class="all-good">
       <span class="ok-dot"></span> All systems normal
     </div>
@@ -47,12 +80,12 @@
 
 <script setup>
 import { computed } from 'vue'
-import { allClear } from '../lib/detectorView.js'
+import { allClear, observabilityNote } from '../lib/controlView.js'
 
 // DERIVED STATE (Lesson 3.4): KHÔNG lưu danh sách cảnh báo riêng. Tính TRỰC TIẾP
 // từ graph mỗi khi graph đổi -> KHÔNG BAO GIỜ lệch với topology (single source).
 // "derive, don't duplicate": nếu lưu riêng, alert có thể mâu thuẫn topology.
-const props = defineProps(['graph', 'detector'])
+const props = defineProps(['graph', 'detector', 'control'])
 defineEmits(['focus'])
 
 const SEV = { critical: 3, warning: 2 }   // chỉ liệt kê những mức này
@@ -86,13 +119,18 @@ function severityOf(item) {
   return null                              // ok/unknown -> không phải cảnh báo
 }
 
-const clear = computed(() => allClear(alerts.value.length, props.detector))
+// 8.5: all-clear KHÔNG còn chỉ nhìn detector. `normal` trong lúc controller
+// đang MITIGATING là sự khoẻ mạnh DO CHÍNH NÓ tạo ra (bài học 8.2).
+const clear = computed(() => allClear(alerts.value.length, props.detector, props.control))
+const observability = computed(() => observabilityNote(props.detector))
 
 // Badge đếm đổi màu theo mức nặng nhất đang có.
 const worstClass = computed(() => {
   const detectorSeverity = props.detector?.severity
+  const controlSeverity = props.control?.severity
   if (detectorSeverity === 'critical' || alerts.value.some(a => a.severity === 'critical')) return 'critical'
-  if (detectorSeverity === 'warning' || alerts.value.some(a => a.severity === 'warning')) return 'warning'
+  if (detectorSeverity === 'warning' || controlSeverity === 'warning'
+      || controlSeverity === 'stale' || alerts.value.some(a => a.severity === 'warning')) return 'warning'
   if (!clear.value) return 'unknown'
   return 'ok'
 })
@@ -118,6 +156,20 @@ h3 { color: #00F7F7; text-transform: uppercase; letter-spacing: 1px; font-size: 
 .detector.unknown .sev-dot { background: #64748b; }
 .detector.warning .sev-dot { background: #f97316; }
 .detector.critical .sev-dot { background: #F60000; box-shadow: 0 0 6px #F60000; }
+.control { border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; margin: 0.5rem 0; font-size: 0.82rem; }
+.control .sev-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; }
+.control.active { border-color: #38bdf8; }
+.control.active .sev-dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+.control.warning { border-color: #f97316; }
+.control.warning .sev-dot { background: #f97316; }
+.control.stale { border-color: #a855f7; }
+.control.stale .sev-dot { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
+.control.unknown .sev-dot { background: #64748b; }
+.observability { display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  border: 1px dashed #f59e0b; border-radius: 6px; padding: 5px 8px; margin: 0.5rem 0;
+  font-size: 0.78rem; color: #fcd34d; }
+.observability .sev-dot { width: 9px; height: 9px; border-radius: 50%; background: #f59e0b; }
+.observability .what { color: #94a3b8; }
 .no-device-alert { color: #94a3b8; font-size: 0.8rem; padding: 4px 0; }
 .all-good { color: #86efac; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; padding: 6px 0; }
 .ok-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
