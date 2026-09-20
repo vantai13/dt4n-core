@@ -1,0 +1,195 @@
+{
+  "content": {
+    "contract_id": "DT4N-P8-CONTRACTS",
+    "lesson": "8.3",
+    "sealed_before": "scripts/run_phase8_s11_bw.py va controller/runner.py",
+    "A_input": {
+      "rule": "controller la CONSUMER cua twin, ngang hang voi dashboard",
+      "source": "SSE Things, cung endpoint dashboard dung",
+      "sse_path": "/things?namespaces=org.dt4n&fields=thingId,attributes,features",
+      "forbidden": [
+        "doc bien trang thai trong bo nho cua vong detector",
+        "import detector_runner",
+        "doc .published"
+      ],
+      "enforced_by": "test/test_phase8_contract.py::test_controller_khong_doc_tat_runner",
+      "cost_ms_p95": {
+        "write_2xx": 11.173,
+        "fanout_sse": 11.03,
+        "total": 22.203,
+        "budget_C3_ms": 10000,
+        "fraction": 0.0022
+      },
+      "freshness_rule": "R3 kiem TRUOC khi gop delta; seq lui/trung/bootId retired -> bo CA ban tin",
+      "fields_read": [
+        "decision.state",
+        "decision.cause",
+        "evidence.affected",
+        "freshness.*",
+        "provenance.releaseSha256"
+      ],
+      "never_read": [
+        "decision.affected (co quan tinh hysteresis, R2)",
+        "evidence.conservation",
+        "evidence.actRule (N11)"
+      ]
+    },
+    "B_intervention": {
+      "action_names": {
+        "inject": "inject:rate_limit",
+        "revert": "revert:rate_limit"
+      },
+      "targets": {
+        "links": [
+          "<client>-s1"
+        ],
+        "flows": []
+      },
+      "radius_function": "ml.blast_radius.radius",
+      "why_not_detour": "setBandwidth khong doi topology -> Ryu khong reroute -> khong co hanh lang vong. Luat ghim trong release: radius_with_detour CHI cho can thiep admin_down.",
+      "why_not_flows": "targets bang flows lam mu 16/16 entity thay vi 15/16",
+      "blast_radius_h1_s1": [
+        "host-h1",
+        "host-h2",
+        "host-h3",
+        "host-srv1",
+        "host-srv2",
+        "link-h1-s1",
+        "link-h2-s1",
+        "link-h3-s1",
+        "link-s1-s2",
+        "link-s1-s3",
+        "link-s2-srv1",
+        "link-s3-srv2",
+        "switch-s1",
+        "switch-s2",
+        "switch-s3"
+      ],
+      "n_entities": 15,
+      "append_rule": "MOI action do decide() phat ra -> DUNG MOT lan append(). Gui lai lenh (reconcile) -> KHONG append, chi POST lai voi cung cid; append lan hai se ValueError vi id tat dinh.",
+      "write_ahead": "append() TRUOC khi POST (M5) de FSM kip bit mat"
+    },
+    "C_command": {
+      "subject": "setBandwidth",
+      "params": "tuyet doi {'bw': <Mbps>}, khong bao gio tuong doi",
+      "correlation_id": "= intervention_id (tat dinh, khong ngau nhien)",
+      "delivery": "at-least-once",
+      "guarantee": "dedup cua command_agent chi la TOI UU (cache LRU mat khi agent restart); LU Y DANG moi la bao dam dung dan",
+      "effect_confirmation": {
+        "channel": "org.dt4n:link-<x>.features.capacity.bwMbps",
+        "chain": [
+          "command_agent.py:258 ln.dt4n_bw",
+          "collector.py:403 getattr(link,'dt4n_bw')",
+          "collector.py:639 features['capacity']",
+          "PATCH -> SSE -> TwinReader.observed_bw()"
+        ],
+        "not": "ma HTTP 202 (timeout=0 nghia la Ditto da nhan thu, khong phai viec da xong)",
+        "n13_safe": "capacity khong nam trong 71 cot cua envelope-1.0.0"
+      },
+      "env_runner_change": "send_command(cmd, cid=None); khong truyen -> uuid4 nhu cu"
+    },
+    "D_output": {
+      "thing_id": "org.dt4n:controlloop",
+      "initial_state": "HOLD / never_started (fail-safe, KHONG BAO GIO IDLE)",
+      "modes": [
+        "IDLE",
+        "MITIGATING",
+        "PROBING",
+        "HOLD"
+      ],
+      "schedule_is_interval_not_timestamp": {
+        "fields": [
+          "holdRemainingS",
+          "probeRemainingS"
+        ],
+        "why": [
+          "dong ho trinh duyet khong dong bo",
+          "time.time() co the nhay lui khi NTP hieu chinh",
+          "monotonic khong co y nghia lien tien trinh"
+        ]
+      },
+      "ttl_ticks": 3,
+      "why": "detector song co the CHE MAT controller chet; C9 can freshness rieng"
+    },
+    "E_audit": {
+      "format": "JSONL append-only, hash chain (tamper-evident)",
+      "fields_required_for_C10": [
+        "input",
+        "roles",
+        "now_mono",
+        "params_sha256",
+        "cstate_before",
+        "cstate_after",
+        "actions"
+      ],
+      "canonical": "json.dumps(sort_keys=True, separators=(',',':'), ensure_ascii=True)",
+      "durability": "fsync moi dong",
+      "rotation": "chuoi lien tuc qua nhieu file qua rotated_head_sha256"
+    },
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "lease_max_open_s": 120.0,
+    "s11_predictions": {
+      "quiet/log_first": {
+        "act_entries": 0,
+        "rule": "== 0",
+        "gate": "C8"
+      },
+      "quiet/log_late": {
+        "alarm_entries": 1,
+        "rule": ">= 1",
+        "role": "doi chung am: harness du nhay"
+      },
+      "quiet/no_log": {
+        "act_entries": 1,
+        "rule": ">= 1",
+        "role": "doi chung duong: actuator that su sinh tin hieu"
+      },
+      "first_tick_after_inject": {
+        "expect": "unknown/missing_data",
+        "why": "F8-6: setBandwidth dung lai qdisc -> bo dem ve 0 -> 1 tick unknown"
+      },
+      "flood/published_during_mitigation": {
+        "expect": "A",
+        "why": "UDP 47 Mbps dap vao shaper 7 Mbps -> qdiscDropDelta cua link-h1-s1 tang vot -> alarming=True -> entity thuoc radius 15/16 -> unknown(suppressed_intervention)",
+        "alternative_B": "gioi han dua moi thu ve trong bien -> normal sau 3 tick"
+      },
+      "lease": {
+        "expect": "khong cham",
+        "why": "hold 20 s << MAX_OPEN_S 120 s"
+      },
+      "invalidation_rule": "Neu quiet/no_log = 0 act -> phep do VO HIEU (khong phan biet duoc 'write-ahead hieu qua' voi 'actuator vo hai'), phai tang nhieu loan, ghi amendment va chay lai."
+    },
+    "s11_measurement_note": "Hai kich ban. QUIET: tai binh thuong 2 Mbps, bop xuong 1 Mbps de CHAC CHAN sinh drop (o 7 Mbps > 2 Mbps se khong co gi bi drop, nhanh no_log cung 0 act -> phep do vo hieu). 1 Mbps la tham so cua PHEP DO, khong phai cua policy: PolicyParams.limit_mbps van la 7.0. FLOOD: flood 47 Mbps dang chay, bop xuong 7.0 dung tham so that - dung de dong an so 9.3, KHONG dung lam gate C8 vi da co act do flood nen khong quy ket nhan qua duoc.",
+    "pinned_sha256": {
+      "controller/localize.py": "9dba6b29ee259640f48bafc0ff2fa298c17b2b41ad99601f80994619a0776301",
+      "controller/policy.py": "297db6e3d3774ed5f67388d50d087ce6acdfdba171b9994b7903cb4cd036190c",
+      "controller/sim.py": "1a92854ca97906246ddc5843729d3bfe177db2e04971c7ac3bcf510bc89c023e",
+      "controller/twin_reader.py": "022944379b5e4f343f2a494916b98e12dbbfc57ad14534687c6a43dbefe415d2",
+      "controller/intervene.py": "87eaa4a57cf70ed1fe7c744d17b71302d96ab628905b89589bd819a77d89a418",
+      "controller/audit.py": "75e54146175ff14c0a4006444a1296220d522b7e8fb7600d6dee9ea1257a4efc",
+      "bridge/controlloop_contract.py": "9e3aae9c0db8d4f47043659d03da668d5d5cd520e26122af7eca8c95a3a46bbe",
+      "bridge/detector_contract.py": "7fe789f74d106dff0eead7b21c78e7ec6b08f64adeef0576153cdaa7b3e7798f",
+      "bridge/freshness.py": "0cabbf65e2593c9cf760ee5759cfead387bff6def1ffde4db2f4137f9fbab5ae",
+      "bridge/command_agent.py": "c9826576ecffa1e7303695f140e5e168d95454c9e059dd8a35d74ceccdf440f3",
+      "bridge/collector.py": "f98979a82f8f347a227b2bddb81b00eb5081dedda442f01b2d7799979b4193cf",
+      "mininet/env_runner.py": "30ca7c5db30db12bccf227f23a53729ed3cf3d3e048aa9a4ac63e12ddc565682",
+      "ml/intervention_log.py": "22874cab8b2d29e41d6cf48b5963ecc0e1f7d7ea75da85a84d34fb81f71544ee",
+      "ml/blast_radius.py": "5a9dff171decb6148cd786f304f6ac94c30222fb986acd2df04784f375d953a0",
+      "models/detector-release-1.0.0.json": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+      "results/report/phase8_prereg.json": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+      "results/report/phase8_sim_predictions.json": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+      "results/report/phase7_prereg.json": "88a245a7e414f8f57e5d091f6b6bc4a8b024d0f8e0b1847b6261dbb74c5b3b4a"
+    },
+    "deviation_policy": "immutable after creation"
+  },
+  "content_sha256": "47464487d438f32212e53a0e599c2fc605023248fb8e06ed0c521e81ce7cbc93",
+  "written_at_utc": "2026-09-20T03:25:43+00:00"
+}
