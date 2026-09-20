@@ -95,7 +95,8 @@ class ControlRunner:
 
     def __init__(self, twin, log_store, routing, send_command, publish=None,
                  params=None, audit_path="logs/controller_audit.jsonl",
-                 clock=time.monotonic, wall_clock=time.time, sleeper=None):
+                 clock=time.monotonic, wall_clock=time.time, sleeper=None,
+                 view_provider=None):
         self.twin = twin                  # TwinReader        (hop dong A)
         self.log = log_store              # LockedInterventionLog (hop dong B)
         self.routing = routing
@@ -105,6 +106,9 @@ class ControlRunner:
         self.audit = AuditLog(audit_path)  # hop dong E
         self.clock = clock
         self.wall_clock = wall_clock
+        # Ablation 8.6: thay DUY NHAT nguon kich hoat, giu nguyen moi thu khac
+        # (FSM, backoff, actuator, lease, audit, reconcile). Mac dinh la detector.
+        self.view_provider = view_provider
 
         self.cstate = ControllerState(mode="HOLD", reason="never_started")
         self.boot_id = new_boot_id()
@@ -238,14 +242,18 @@ class ControlRunner:
             "n_actions": len(actions),
             "changed": changed,
         }
-        if changed:
-            # roles + params chi ghi khi co chuyen bien: dong thuong ~180 byte,
-            # 1 Hz -> soak 30 phut ~ 1800 dong ~ 320 KB.
+        # roles la DAU VAO BAT BUOC cua localize() moi khi nhan la ACT. Tick
+        # "act nhung khong dinh vi duoc" KHONG lam doi mode nen changed=False -
+        # ma do lai dung la loai tick can dung lai nhat (loi live #1 cua 8.4:
+        # 291 tick nhu vay). Thieu roles o day = C10 khong dat o dung cho kho nhat.
+        if changed or view.state == "act":
             row["roles"] = dict(view.roles)
             row["params_sha256"] = sha(asdict(self.params))
         return self.audit.append(row)
 
     def build_view(self) -> DetectorView:
+        if self.view_provider is not None:
+            return self.view_provider()
         fields = self.twin.detector_view_fields()
         return DetectorView(
             state=fields["state"],

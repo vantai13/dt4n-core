@@ -59,7 +59,8 @@ export function detectorView(thing, tracker, nowMs, graph = { nodes: [], edges: 
   }
 }
 
-export function allClear(deviceAlertCount, view) {
-  return deviceAlertCount === 0 && view.present && !view.stale && view.state === 'normal'
-    && !view.cause
-}
+// allClear CHUYEN sang controlView.js tu Phase 8.5: all-clear doi CA detector
+// LAN controller (mode === 'IDLE' va con song). Ban cu chi nhin detector se bao
+// "All systems normal" trong luc controller dang MITIGATING - dung thu ma ca
+// Lesson 8.5 ton tai de ngan. KHONG giu ban cu song song duoi cung mot ten:
+// nguoi tiep theo (ke ca chinh minh sau ba thang) se import nham va khong ai bao.
