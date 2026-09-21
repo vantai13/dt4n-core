@@ -34,6 +34,11 @@
         "file_sha256": "7d953b59f588130f14845f8ae9fe34649b519f9b2ca4372cf15c3a5ca30b8a86",
         "content_sha256": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1"
       },
+      "c10_v3": {
+        "file": "results/report/phase8_c10_v3.json",
+        "file_sha256": "ed0328c470049abe8657a1d1c84edd96d88a59074dc519809bcc21aa8d5f28ef",
+        "content_sha256": "6a2dbf91ffe055052756c379f19efce5864032bc14a85121aa11327e2f263c15"
+      },
       "c11_outcome": {
         "file": "results/report/phase8_c11_outcome.json",
         "file_sha256": "1c025b89566b1720b4dca088962593f380dfa667056fc3af7f26bd5f2097a5d5",
@@ -44,6 +49,11 @@
         "file_sha256": "216e9a3bcccb6bf54644c5fc893c9197670dcc76874cd42595dfa5b0b7669a5a",
         "content_sha256": "38d2623d2af4119f5b524428873375b39831ba63c70ff4417f793ec2b853696e"
       },
+      "c1_control": {
+        "file": "results/report/phase8_c1_control.json",
+        "file_sha256": "a42180bf51b2b297d51ad0c160de2aff346d6b69f44a3f44a7bb4567cf196614",
+        "content_sha256": "b57d6f6dfba6d9f0441b812e9e1eb5089dabe7ffc5a0ef1f5a8e0bd00bc57148"
+      },
       "c3": {
         "file": "results/report/phase8_c3.json",
         "file_sha256": "7e583ee9a14f9ef0b13cbad179bc5abd25dd7c48f5c693edfaafc0a626efcde1",
@@ -53,6 +63,16 @@
         "file": "results/report/phase8_chaos_v6.json",
         "file_sha256": "0afe9ae4a36e2ff38173340e1234477b9778bb27be0959eb454ca49c988bf86e",
         "content_sha256": "66d8b06745d30a37e773b5047eb9e3d67a95174cc1b3621e282b99db9d08a52f"
+      },
+      "chaos_second_flood": {
+        "file": "results/report/phase8_chaos_second_flood.json",
+        "file_sha256": "12024ceb67be7ff037e0c0879abfb0bcf069dbb5642459f8871c4a4b80dbc9dc",
+        "content_sha256": "a823e7ffb00447a801cd164824ccab04d98eac92329953e2a0e181eca174d961"
+      },
+      "closure_prereg": {
+        "file": "results/report/phase8_closure_prereg.json",
+        "file_sha256": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "content_sha256": "af952f480ef5b9bdc11a4ca9e08005fe465f0f153b49ab4cd11f958e72130a8e"
       },
       "contract": {
         "file": "results/report/phase8_contract.json",
@@ -143,6 +163,16 @@
         "file": "results/report/phase8_stability_quiet.json",
         "file_sha256": "682631f43ce50850b989078217f52dcf19dbbb4d0661623fa99a60470d9709e2",
         "content_sha256": "36d04c8c1d6438c9c38908d093a785d725d5eca2b90ceddab2acd390271e260c"
+      },
+      "suppression_modes": {
+        "file": "results/report/phase8_suppression_modes.json",
+        "file_sha256": "f19d0af1b89d6f090bd3f56fff05374105b6c40d12f5f51a90b696e08d840ddf",
+        "content_sha256": "c6d919ab2810dff222d0af8aeb77027935b78e79dfd701e42439438e8e9aed06"
+      },
+      "target_audit": {
+        "file": "results/report/phase8_target_audit.json",
+        "file_sha256": "ed1b5e43d76a7b72009daeb2c68e0a20618f543f5377328f81ad315ce90f4319",
+        "content_sha256": "36f9e920e87d904d00d914391f4ab4cc0cb419ac1560dcc37d96805fb6fe57cd"
       },
       "ui_c9a": {
         "file": "results/report/phase8_ui_stale.json",
@@ -332,6 +362,48 @@
         "recomputed": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1",
         "ok": true,
         "note": null
+      },
+      {
+        "receipt": "chaos_second_flood",
+        "sealed": "a823e7ffb00447a801cd164824ccab04d98eac92329953e2a0e181eca174d961",
+        "recomputed": "a823e7ffb00447a801cd164824ccab04d98eac92329953e2a0e181eca174d961",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "closure_prereg",
+        "sealed": "af952f480ef5b9bdc11a4ca9e08005fe465f0f153b49ab4cd11f958e72130a8e",
+        "recomputed": "af952f480ef5b9bdc11a4ca9e08005fe465f0f153b49ab4cd11f958e72130a8e",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "target_audit",
+        "sealed": "36f9e920e87d904d00d914391f4ab4cc0cb419ac1560dcc37d96805fb6fe57cd",
+        "recomputed": "36f9e920e87d904d00d914391f4ab4cc0cb419ac1560dcc37d96805fb6fe57cd",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c1_control",
+        "sealed": "b57d6f6dfba6d9f0441b812e9e1eb5089dabe7ffc5a0ef1f5a8e0bd00bc57148",
+        "recomputed": "b57d6f6dfba6d9f0441b812e9e1eb5089dabe7ffc5a0ef1f5a8e0bd00bc57148",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "suppression_modes",
+        "sealed": "c6d919ab2810dff222d0af8aeb77027935b78e79dfd701e42439438e8e9aed06",
+        "recomputed": "c6d919ab2810dff222d0af8aeb77027935b78e79dfd701e42439438e8e9aed06",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c10_v3",
+        "sealed": "6a2dbf91ffe055052756c379f19efce5864032bc14a85121aa11327e2f263c15",
+        "recomputed": "6a2dbf91ffe055052756c379f19efce5864032bc14a85121aa11327e2f263c15",
+        "ok": true,
+        "note": null
       }
     ],
     "dependency_chain": [
@@ -405,6 +477,42 @@
         "expect_from": "ab_c5:content",
         "expect": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
         "got": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+        "ok": true
+      },
+      {
+        "receipt": "c1_control",
+        "field": "prereg_sha256",
+        "key": null,
+        "expect_from": "closure_prereg",
+        "expect": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "got": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "ok": true
+      },
+      {
+        "receipt": "c1_control",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "suppression_modes",
+        "field": "prereg_sha256",
+        "key": null,
+        "expect_from": "closure_prereg",
+        "expect": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "got": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "ok": true
+      },
+      {
+        "receipt": "chaos_second_flood",
+        "field": "closure_prereg_sha256",
+        "key": null,
+        "expect_from": "closure_prereg",
+        "expect": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+        "got": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
         "ok": true
       },
       {
@@ -482,8 +590,8 @@
         "file": "controller/policy.py",
         "state": "DRIFT",
         "sealed": "297db6e3d377",
-        "current": "c850cb8051d5",
-        "declared": "8.4/8.6: them `incarnation` vao ControllerState (hai lan chay controller tren cung mot detector sinh trung intervention_id) va sua HOLD/deadline. Da chay lai sim + C6 + C7 + C10 sau do."
+        "current": "5b63aedd629b",
+        "declared": "8.4/8.6: them `incarnation` vao ControllerState (hai lan chay controller tren cung mot detector sinh trung intervention_id) va sua HOLD/deadline. Da chay lai sim + C6 + C7 + C10 sau do. 8.9 AMENDMENT A2: cach ly probe_w_s sau probe_target_changed (khop LATCH da dang ky o 8.1); thay doi DON DIEU (chi them nhanh tra ve ()), sim 2000 seed trung het, replay audit cu bit-exact, C10-v3 tren audit moi."
       },
       {
         "file": "controller/sim.py",
@@ -534,13 +642,13 @@
         "measures": "hanh dong dung nguon",
         "objective": "100% (n >= 10 live)",
         "gate": true,
-        "verdict": "PASS",
-        "measured": "moi inject nham h1-s1; 7 inject o 8.7 flood, 4 inject/luot x 16 luot o 8.6",
+        "verdict": "FAIL",
+        "measured": "audit cu: 408 inject, 0 sai muc tieu | E1: KN3, sai 12, dung voi thu pham != h1: 6, theo kich ban {\"h1_srv2\": {\"correct_latch\": 1, \"silent\": 0, \"wrong_target\": 4}, \"h2_srv2\": {\"correct_latch\": 5, \"silent\": 0, \"wrong_target\": 0}, \"h3_srv1\": {\"correct_latch\": 1, \"silent\": 0, \"wrong_target\": 4}, \"stop_in_probe\": {\"correct_latch\": 1, \"silent\": 0, \"wrong_target\": 4}}",
         "evidence": [
-          "phase8_ab_c5.json",
-          "phase8_stability_flood.json"
+          "phase8_target_audit.json",
+          "phase8_c1_control.json"
         ],
-        "note": "dinh danh muc tieu doc tu intervention_id trong audit; xem phase8_gap_reconciliation.json de biet pho affected"
+        "note": "silent khong tinh la sai nhung phai khai coverage (KN2)"
       },
       {
         "id": "C2",
@@ -710,10 +818,24 @@
         "measures": null,
         "objective": null,
         "gate": null,
-        "verdict": "INVALID",
-        "measured": "second_flood n = 2, khoang [1.74; 25.16] s (ty so 14x) -> SO BO, khong duoc dua vao system card nhu mot uoc luong",
-        "evidence": [],
-        "note": "NO 8.8"
+        "verdict": "PASS",
+        "measured": "second_flood n = 5 (phat hien 5, kiem duyet 0): t_masked = [1.54, 1.74, 18.34, 21.95, 24.15] s; n_suppressed_seen = [1, 2, 103, 80, 98]",
+        "evidence": [
+          "phase8_chaos_second_flood.json"
+        ],
+        "note": "ket luan DINH TINH (co phat hien duoc khong) vung; uoc luong DINH LUONG (bao lau) chi vung khi n >= 5"
+      },
+      {
+        "id": "E3-modes",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "flood 600 s x 3: che do = ['SUPPRESSION', 'SUPPRESSION', 'SUPPRESSION'] | H0-OUTLIER False, H-FEEDBACK False, H-BISTABLE False | so hanh dong = [None, None, None]",
+        "evidence": [
+          "phase8_suppression_modes.json"
+        ],
+        "note": "PASS o day = phep do HOP LE, khong phai gia thuyet dung; C12 phai bao theo che do"
       },
       {
         "id": "C10",
@@ -721,9 +843,9 @@
         "objective": "100%",
         "gate": true,
         "verdict": "PASS",
-        "measured": "2101/2101 quyet dinh dung lai bit-exact (1.0); chuoi hash: True; du bang chung: True",
+        "measured": "1803/1803 quyet dinh dung lai bit-exact (1.0); chuoi hash: True; du bang chung: True",
         "evidence": [
-          "phase8_c10_v2.json"
+          "phase8_c10_v3.json"
         ],
         "note": "n_decisions > 0 duoc kiem tuong minh: khop == tong == 0 la PASS GIA"
       },
@@ -755,15 +877,15 @@
       }
     ],
     "counts": {
-      "PASS": 14,
-      "FAIL": 0,
-      "INVALID": 2,
+      "PASS": 15,
+      "FAIL": 1,
+      "INVALID": 1,
       "PASS-with-model-correction": 1
     },
     "n_gate_invalid": 0,
     "problems": [],
-    "acceptance_pass": true
+    "acceptance_pass": false
   },
-  "content_sha256": "a8f20e3a0d587f50b2104eef6e6c29d2589c08f96790fe286c6c9d4b2512f24a",
-  "written_at_utc": "2026-09-21T08:37:29+00:00"
+  "content_sha256": "031033198cfc18da2384df7001ce3b7b5161ace8a4a9e907ed836e143914332a",
+  "written_at_utc": "2026-09-21T12:14:25+00:00"
 }
