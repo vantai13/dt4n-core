@@ -129,7 +129,7 @@ trên mỗi run. Fast scorer v2 đạt p95 0,943 ms; soak 30 phút tăng 0,2852 
 [receipt tổng v2](results/report/phase6r_stability_v2.json). Phase 8 vẫn bị
 khóa chờ S11 live + S12; nhãn và protected estimand S2/S3 vẫn chưa mở.
 
-### Vòng điều khiển kín — Phase 8
+### Vòng điều khiển kín — Phase 8 (closure 8.9: chưa đạt gate C1)
 
 Controller đọc twin như một consumer ngang hàng với dashboard, định vị **một**
 client thủ phạm, và giới hạn tốc độ tại link truy nhập của nó bằng
@@ -137,12 +137,21 @@ client thủ phạm, và giới hạn tốc độ tại link truy nhập của n
 lệnh. A/B 32 lượt live: **+1,893 Mbps** cho nạn nhân (CI95 [1,854; 1,931]);
 `act` → giới hạn có hiệu lực p95 **2032 ms**.
 
-**Đọc mục Giới hạn trước khi dùng.** Hệ không làm failover đường đi, không
-phản ứng với `degrade`, không thấy nạn nhân bị bỏ đói, và **mù 96,3% thời gian
-trong lúc đang giảm thiểu**.
-[System card v4](docs/SYSTEM_CARD_v4.md) ·
-[nghiệm thu](docs/phase-8/08-acceptance.md) ·
-`python3 scripts/accept_phase8.py --strict`
+**Không bật actuator tự động.** Đối chứng E1 ở 8.9 có 12/20 lượt nhắm sai mục
+tiêu, nên C1 FAIL và nghiệm thu strict trả 1. Chỉ dùng ở chế độ đề xuất để con
+người duyệt cho tới khi có amendment mới được preregister và đo lại.
+
+Tái lập hồ sơ closure:
+
+```bash
+git checkout phase/8-closure
+tar -xzf results/evidence/phase8/phase8_audits.tar.gz
+.venv/bin/python scripts/accept_phase8.py --strict  # rc=1 do C1 FAIL da niem phong
+```
+
+[System card v4.1](docs/SYSTEM_CARD_v4.md) ·
+[nghiệm thu 8.8](docs/phase-8/08-acceptance.md) ·
+[closure 8.9](docs/phase-8/09-closure.md)
 
 ## Dữ liệu trước ML (bản v2)
 
