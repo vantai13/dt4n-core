@@ -1,0 +1,482 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "mode": "flood",
+    "duration_s": 600.0,
+    "prereg_sha256": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+    "contract_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+    "sim_sha256": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+    "release_sha256": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "sim_bound_actions_flood_600s": 13,
+    "sim_quiet_actions": 0,
+    "sim_poisson": {
+      "min": 0,
+      "p50": 14,
+      "p95": 26,
+      "max": 41,
+      "mean": 13.5709
+    },
+    "runs": [
+      {
+        "run_index": 0,
+        "seed": null,
+        "t0": 1789991900.2820513,
+        "t1": 1789992500.6786401,
+        "duration_s": 600.4,
+        "n_actions": 14,
+        "n_inject": 7,
+        "n_commands": 104,
+        "n_exceptions": 0,
+        "holds_s": [
+          15.0,
+          31.0,
+          61.0,
+          111.0,
+          110.0,
+          111.0,
+          90.4
+        ],
+        "min_hold_s": 15.0,
+        "violates_t0": [],
+        "gaps_s": [
+          11.0,
+          11.0,
+          11.0,
+          11.0,
+          12.0,
+          11.0
+        ],
+        "c12": {
+          "window_s": 600.397,
+          "blind_s": 577.393,
+          "c12a_fraction_of_uptime": 0.9617,
+          "c12b_fraction_of_incident": 0.9617,
+          "c12c_longest_blind_s": 119.0,
+          "incident_s": 600.0,
+          "n_spans": 7
+        },
+        "degraded_tick_fraction": {
+          "h1": {
+            "baseline_mbps": 7.0031,
+            "floor_mbps": 3.5016,
+            "floor_ratio": 0.5,
+            "n_valid": 601,
+            "n_invalid": 0,
+            "n_degraded": 2,
+            "fraction": 0.0033,
+            "mean_mbps_inside": 8.4908
+          },
+          "h2": {
+            "baseline_mbps": 2.1349,
+            "floor_mbps": 1.0675,
+            "floor_ratio": 0.5,
+            "n_valid": 601,
+            "n_invalid": 0,
+            "n_degraded": 0,
+            "fraction": 0.0,
+            "mean_mbps_inside": 2.1362
+          },
+          "h3": {
+            "baseline_mbps": 2.1454,
+            "floor_mbps": 1.0727,
+            "floor_ratio": 0.5,
+            "n_valid": 598,
+            "n_invalid": 0,
+            "n_degraded": 21,
+            "fraction": 0.0351,
+            "mean_mbps_inside": 2.1719
+          },
+          "srv1": {
+            "baseline_mbps": 2.2005,
+            "floor_mbps": 1.1002,
+            "floor_ratio": 0.5,
+            "n_valid": 601,
+            "n_invalid": 0,
+            "n_degraded": 0,
+            "fraction": 0.0,
+            "mean_mbps_inside": 2.2054
+          },
+          "srv2": {
+            "baseline_mbps": 0.038,
+            "floor_mbps": 0.019,
+            "floor_ratio": 0.5,
+            "n_valid": 601,
+            "n_invalid": 0,
+            "n_degraded": 0,
+            "fraction": 0.0,
+            "mean_mbps_inside": 0.0394
+          }
+        },
+        "n_raw_ticks_saved": 3007,
+        "s11_type_i": [
+          {
+            "t_wall": 1789991905.2820172,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789991931.2820594,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789991973.2820582,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789992045.2820575,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789992167.2820628,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789992289.2820816,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          },
+          {
+            "t_wall": 1789992411.2820575,
+            "affected": [
+              "org.dt4n:host-h1",
+              "org.dt4n:host-srv1",
+              "org.dt4n:link-h1-s1",
+              "org.dt4n:link-s1-s2",
+              "org.dt4n:link-s2-srv1"
+            ]
+          }
+        ],
+        "s11_type_i_after_view_lag": [],
+        "s11_view_lag_s": 2.0,
+        "s11_type_ii_count": 0,
+        "s11_by_t_source": {
+          "predicate": "t_start <= t_source < t_revert + cooldown_s",
+          "n_timeline": 604,
+          "n_t_source_resolved": 604,
+          "type_i": [],
+          "type_ii_count": 0,
+          "unattributed": [
+            {
+              "t_wall": 1789991904.282095,
+              "t_source": 1789991903.0301504,
+              "seq": 6,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991904.2837803,
+              "t_source_minus_t_start": -1.254
+            },
+            {
+              "t_wall": 1789991905.2820172,
+              "t_source": 1789991904.0302272,
+              "seq": 7,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991904.2837803,
+              "t_source_minus_t_start": -0.254
+            },
+            {
+              "t_wall": 1789991930.2820883,
+              "t_source": 1789991929.0321164,
+              "seq": 32,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991930.2837565,
+              "t_source_minus_t_start": -1.252
+            },
+            {
+              "t_wall": 1789991931.2820594,
+              "t_source": 1789991930.0321946,
+              "seq": 33,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991930.2837565,
+              "t_source_minus_t_start": -0.252
+            },
+            {
+              "t_wall": 1789991972.2821128,
+              "t_source": 1789991971.035219,
+              "seq": 74,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991972.286003,
+              "t_source_minus_t_start": -1.251
+            },
+            {
+              "t_wall": 1789991973.2820582,
+              "t_source": 1789991972.0352569,
+              "seq": 75,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789991972.286003,
+              "t_source_minus_t_start": -0.251
+            },
+            {
+              "t_wall": 1789992044.2821,
+              "t_source": 1789992043.0404243,
+              "seq": 146,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992044.2838001,
+              "t_source_minus_t_start": -1.243
+            },
+            {
+              "t_wall": 1789992045.2820575,
+              "t_source": 1789992044.0405004,
+              "seq": 147,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992044.2838001,
+              "t_source_minus_t_start": -0.243
+            },
+            {
+              "t_wall": 1789992166.2820709,
+              "t_source": 1789992165.0496285,
+              "seq": 268,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992166.2839584,
+              "t_source_minus_t_start": -1.234
+            },
+            {
+              "t_wall": 1789992167.2820628,
+              "t_source": 1789992166.0497231,
+              "seq": 269,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992166.2839584,
+              "t_source_minus_t_start": -0.234
+            },
+            {
+              "t_wall": 1789992288.2822182,
+              "t_source": 1789992287.0586567,
+              "seq": 390,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992288.2841601,
+              "t_source_minus_t_start": -1.226
+            },
+            {
+              "t_wall": 1789992289.2820816,
+              "t_source": 1789992288.0587497,
+              "seq": 391,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992288.2841601,
+              "t_source_minus_t_start": -0.225
+            },
+            {
+              "t_wall": 1789992410.2820868,
+              "t_source": 1789992409.06745,
+              "seq": 512,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992410.2840524,
+              "t_source_minus_t_start": -1.217
+            },
+            {
+              "t_wall": 1789992411.2820575,
+              "t_source": 1789992410.067531,
+              "seq": 513,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789992410.2840524,
+              "t_source_minus_t_start": -0.217
+            }
+          ]
+        },
+        "flood_spans_planned": [
+          [
+            0.0,
+            600.0
+          ]
+        ],
+        "infra": {
+          "healthy": true,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 6.6,
+          "mongo_used_mib": 207.6,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.811,
+          "memory_warning": false,
+          "checked_at": 1789992501.731004
+        }
+      }
+    ],
+    "c6_pass": false,
+    "s11_regression_pass_literal": false,
+    "s11_regression_pass_after_view_lag": true,
+    "s11_regression_pass_by_t_source": true,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 8.9,
+      "mongo_used_mib": 195.8,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.765,
+      "memory_warning": false,
+      "checked_at": 1789991879.0923078
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "9095b54ee1db65da208546d7f08722dfb67872ff873ce4f70d67f1616fc34913",
+  "written_at_utc": "2026-09-21T12:08:24+00:00"
+}
