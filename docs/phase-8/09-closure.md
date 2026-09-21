@@ -76,3 +76,40 @@ Cả **5/5** lượt đều phát hiện, 0 censored. `t_masked_s` là
 Receipt nghiệm thu cuối: `results/report/phase8_acceptance.json` — 15 PASS,
 1 FAIL, 1 INVALID không-gate, 1 PASS-with-model-correction; 32/32 content SHA
 và 15/15 dependency khớp.
+
+## 7. Chẩn đoán hậu kiểm (không đổi verdict)
+
+Receipt: `results/report/phase8_closure_diagnostics.json`.
+
+**D1 — E1 bị ô nhiễm nền.** Sau hai flood h2→srv2 liên tiếp (trial 03, 04),
+h2 nằm trong `affected` lúc detector `normal` ở mọi trial còn lại. 12 trial bẩn
+trùng 1-1 với 12 wrong-target. Bằng chứng phân biệt **sạch** chỉ gồm trial 00–03
+(4/4 đúng, gồm out-of-sample h1→srv2), n = 4. `n_correct_nonh1_culprit = 6`
+thổi phồng khả năng phân biệt: 4 lượt h2→srv2 sau trial 04 bị gây nhiễu.
+
+**Cơ chế.** Mơ hồ ở tick act đầu → fail-closed suốt flood (không bảo vệ) →
+flood dừng, detector còn `act` do hysteresis, `affected` chỉ còn h2 → policy
+định vị lại ở IDLE → phạt người ngoài cuộc. Đây là lần lệch thứ hai khỏi LATCH
+của prereg 8.1; A2 chỉ vá đường PROBING.
+
+**D3 — phản thực tế.** Chốt theo episode đúng như prereg chuyển 12/12 wrong
+thành im lặng và giữ nguyên 8/8 kết quả đúng. Kết quả này in-sample; im lặng
+không đồng nghĩa với bảo vệ.
+
+**Lỗi harness.** `require_clean` kiểm `state == normal`, không kiểm tập
+`affected`. Trạng thái `normal` không đồng nghĩa với phiên sạch.
+
+**D2 — chế độ ức chế là thuộc tính của phiên.** Tỷ lệ tick `normal` có
+`link-s2-s3` là 100% ở A/B và E1, nhưng chỉ 0–10% ở bốn stability-flood có
+552–561 tick suppressed. Các phiên Poisson không suppression cũng có tỷ lệ
+99,98–100%. Dữ liệu cho thấy baseline `s2-s3` của phiên quyết định phần lớn
+mode. Tương quan với thời lượng luồng nền (H-DURATION) chưa được kiểm và được
+chuyển sang Phase 9.
+
+**Vì sao C1 = FAIL vẫn đúng.** Host có bất thường nhẹ kéo dài tồn tại trong
+mạng thật; hệ hiện tại có thể phạt chúng khi một sự cố không liên quan kết
+thúc. Chẩn đoán này sửa cách hiểu nguyên nhân, không sửa verdict.
+
+Con số test chính thức là worktree sạch: **1782 passed, 11 skipped**. Workspace
+có log/dữ liệu cục bộ nên chạy thêm các test phụ thuộc hiện vật và cho
+1796 passed, 4 skipped; chỉ con số worktree sạch là thứ clone mới tái lập được.

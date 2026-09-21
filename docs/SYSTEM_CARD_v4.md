@@ -131,6 +131,7 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **A3** | Giới hạn ở link truy nhập cũng **bóp traffic HỢP LỆ của thủ phạm**: h1 **−11,97 Mbps** (CI95 [−12,15; −11,81]) trong A/B | `phase8_ab_c5.json::secondary.h1` |
 | **A4** | Giới hạn là **7,0 Mbps cố định**, không thích nghi. Nó đến từ trần tải hợp lệ trên **8 run train** (6,181986 Mbps). Tải hợp lệ vượt con số đó sẽ bị bóp oan | `phase8_prereg.json::actuator.limit_derivation` |
 | **A5** | Sau khi mục tiêu đổi trong PROBING, controller cách ly **14 s**. Recovery burst không bị re-latch ngay, nhưng một thủ phạm thật xuất hiện trong khoảng đó có thể bị trễ tối đa 14 s | amendment A2, `test_phase8_quarantine.py` |
+| **A6** | Nếu detector còn `act` sau khi sự cố gốc hết, controller có thể giới hạn một host có bất thường dưới ngưỡng kéo dài. E1 đo được **12/20** trial nhắm sai theo đường này | `phase8_closure_diagnostics.json::D1,D3` |
 
 ### B. Khả năng phát hiện (kế thừa Phase 6/7, vẫn còn nguyên)
 
@@ -149,7 +150,7 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **C1** | Vùng ức chế **15/16** thực thể của mô hình | `phase8_prereg.json::suppression_zone` |
 | **C2** | Tỷ lệ mù phải báo **theo chế độ**. Campaign cũ: 96,3% trong sự cố, cửa sổ dài nhất 119 s. E3 mới: **3/3 run** vào SUPPRESSION với 552–561 tick suppressed/600 s | `phase8_stability_flood.json`, `phase8_suppression_modes.json` |
 | **C3** | Trên tổng thời gian: 0,0% ở quiet; Poisson trung bình 12,86%; flood suppression gần toàn cửa sổ. Không số đơn nào là “tỷ lệ mù của hệ” | `phase8_poisson.json`, `phase8_suppression_modes.json` |
-| **C4** ⚠️ | Ức chế toàn-hoặc-không đã lặp lại **3/3** run E3. H0-OUTLIER, H-FEEDBACK và H-BISTABLE đã đăng ký đều không phù hợp; biến quyết định mode vẫn chưa xác định. Second-flood cho hai cụm latency gắn chặt với số mẫu suppressed | `phase8_suppression_modes.json`, `phase8_chaos_second_flood.json` |
+| **C4** ⚠️ | Mode phần lớn do baseline `link-s2-s3` của **từng phiên** quyết định: A/B và E1 có s2-s3 trong **100%** tick normal và 0 suppressed; bốn stability-flood chỉ **0–10%**, với 552–561 suppressed tick. H-DURATION là tương quan hậu kiểm, chưa phải quan hệ nhân quả | `phase8_closure_diagnostics.json::D2_s2s3_baseline` |
 | | *Đề xuất (ngoài phạm vi):* ức chế theo **TỪNG thực thể** thay vì toàn-hoặc-không | `08-acceptance.md §5.3` |
 
 ### D. Chế độ hỏng và hồi phục
@@ -170,6 +171,7 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **E3** | Chiến dịch đo liên tục > **~3,5 h** chạm trần bộ nhớ Ditto/Mongo (**252,4/256 MiB**, truy vấn **55 s**, HTTP 503). Cổng hạ tầng phải cảnh báo theo **triệu chứng** (latency + mã lỗi), không theo **tài nguyên**: 90% Mongo là bình thường (đo được 75,4% lúc khoẻ) | 8.6 + 8.7, `scripts/phase8_infra_health.py` |
 | **E4** | `second_flood`: **5/5 phát hiện**, 0 censored; latency **[1,54; 1,74; 18,34; 21,95; 24,15] s**, median 18,34 s. Cụm chậm có 80–103 mẫu suppressed, cụm nhanh 1–2; n=5 chỉ hỗ trợ kết luận định tính | `phase8_chaos_second_flood.json` |
 | **E5** | Sửa một phần từ 8.9: receipt mới E1/E3/E4 khai SHA prereg/contract/policy. Năm receipt cũ vẫn không khai tham chiếu và không được hồi tố | `phase8_acceptance.json::dependency_chain_not_declared` |
+| **E6** | Harness E1 chấp nhận phiên “bẩn” vì `require_clean` chỉ kiểm `state == normal`, không kiểm client ngoài cuộc trong `affected`. **Normal không đồng nghĩa sạch**; 12 phiên bẩn trùng 1-1 với 12 wrong-target | `phase8_closure_diagnostics.json::D1_contamination` |
 
 ### F. Phạm vi thực nghiệm
 
