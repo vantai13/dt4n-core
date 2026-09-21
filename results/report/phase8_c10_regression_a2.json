@@ -1,0 +1,33 @@
+{
+  "content": {
+    "n_decisions": 2101,
+    "n_match": 2101,
+    "mismatches": [],
+    "params_sha256_seen": [
+      "c2b681645d16b6c47f2d081d2917dd678113bd2be503ca5e229b44910436e3e1"
+    ],
+    "files": [
+      "logs/phase8_soak/20260921T075931Z/soak.jsonl.1",
+      "logs/phase8_soak/20260921T075931Z/soak.jsonl.2",
+      "logs/phase8_soak/20260921T075931Z/soak.jsonl.3",
+      "logs/phase8_soak/20260921T075931Z/soak.jsonl.4",
+      "logs/phase8_soak/20260921T075931Z/soak.jsonl"
+    ],
+    "chains": [
+      {
+        "head": "soak.jsonl",
+        "n_files": 5,
+        "ok": true,
+        "n_rows": 2182,
+        "head_sha256": "99b55738b9231163ecb523e3342da84be273df5da007e4597f9ccd81836e19e1"
+      }
+    ],
+    "fraction": 1.0,
+    "c10_pass": true,
+    "params_sha256_consistent": true,
+    "min_decisions_required": 1000,
+    "enough_evidence": true
+  },
+  "content_sha256": "0dbe789c6ad46556ee518c97520a1c5b37d3395f7179b5055d1223b1e0012034",
+  "written_at_utc": "2026-09-21T10:28:56+00:00"
+}
