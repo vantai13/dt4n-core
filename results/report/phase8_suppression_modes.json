@@ -1,0 +1,253 @@
+{
+  "content": {
+    "lesson": "8.9",
+    "experiment": "E3 suppression modes",
+    "prereg_sha256": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+    "mode_rule": "SUPPRESSION neu n_ticks_suppressed >= 50",
+    "runs": [
+      {
+        "tag": "flood_rep1",
+        "dir": "logs/phase8_stability/flood_rep1_113411",
+        "mode": "SUPPRESSION",
+        "first_alarm_has_s2_s3": true,
+        "suppressed_first_half": 272,
+        "suppressed_second_half": 289,
+        "mode_switched_within_run": false,
+        "background": {
+          "n": 600,
+          "median_mbps": 2.154,
+          "min_mbps": 2.15,
+          "n_below_1mbps": 0
+        },
+        "n_files": 1,
+        "gap_s": {
+          "n": 6,
+          "mean": 10.0,
+          "min": 10.0,
+          "max": 10.0,
+          "distinct": [
+            10.0
+          ]
+        },
+        "hold_s": {
+          "n": 7,
+          "mean": 76.77,
+          "min": 16.0,
+          "max": 111.0,
+          "distinct": [
+            16.0,
+            30.0,
+            60.0,
+            99.38,
+            110.0,
+            111.0
+          ]
+        },
+        "n_alarming_ticks": 17,
+        "n_alarming_with_link_s2_s3": 4,
+        "fraction_alarming_out_of_zone": 0.2353,
+        "n_ticks_suppressed": 561,
+        "state_cause_histogram": {
+          "unknown/suppressed_intervention": 561,
+          "unknown/missing_data": 13,
+          "normal/": 10,
+          "suspect/": 10,
+          "act/": 7
+        },
+        "top_affected_sets": [
+          {
+            "n": 13,
+            "entities": [
+              "host-h1",
+              "host-srv1",
+              "link-h1-s1",
+              "link-s1-s2",
+              "link-s2-srv1"
+            ]
+          },
+          {
+            "n": 2,
+            "entities": [
+              "host-h1",
+              "host-srv1",
+              "link-h1-s1",
+              "link-s1-s2",
+              "link-s2-s3",
+              "link-s2-srv1"
+            ]
+          },
+          {
+            "n": 2,
+            "entities": [
+              "host-h1",
+              "link-h1-s1",
+              "link-s2-s3"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "flood_rep2",
+        "dir": "logs/phase8_stability/flood_rep2_114607",
+        "mode": "SUPPRESSION",
+        "first_alarm_has_s2_s3": true,
+        "suppressed_first_half": 271,
+        "suppressed_second_half": 285,
+        "mode_switched_within_run": false,
+        "background": {
+          "n": 600,
+          "median_mbps": 2.154,
+          "min_mbps": 2.14,
+          "n_below_1mbps": 0
+        },
+        "n_files": 1,
+        "gap_s": {
+          "n": 6,
+          "mean": 10.0,
+          "min": 10.0,
+          "max": 10.0,
+          "distinct": [
+            10.0
+          ]
+        },
+        "hold_s": {
+          "n": 7,
+          "mean": 76.77,
+          "min": 16.0,
+          "max": 110.0,
+          "distinct": [
+            16.0,
+            30.0,
+            61.0,
+            100.38,
+            110.0
+          ]
+        },
+        "n_alarming_ticks": 17,
+        "n_alarming_with_link_s2_s3": 4,
+        "fraction_alarming_out_of_zone": 0.2353,
+        "n_ticks_suppressed": 556,
+        "state_cause_histogram": {
+          "unknown/suppressed_intervention": 556,
+          "normal/": 15,
+          "unknown/missing_data": 13,
+          "suspect/": 10,
+          "act/": 7
+        },
+        "top_affected_sets": [
+          {
+            "n": 13,
+            "entities": [
+              "host-h1",
+              "host-srv1",
+              "link-h1-s1",
+              "link-s1-s2",
+              "link-s2-srv1"
+            ]
+          },
+          {
+            "n": 2,
+            "entities": [
+              "host-h1",
+              "host-srv1",
+              "link-h1-s1",
+              "link-s1-s2",
+              "link-s2-s3",
+              "link-s2-srv1"
+            ]
+          },
+          {
+            "n": 2,
+            "entities": [
+              "host-h1",
+              "link-h1-s1",
+              "link-s2-s3"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "flood_rep3",
+        "dir": "logs/phase8_stability/flood_rep3_115759",
+        "mode": "SUPPRESSION",
+        "first_alarm_has_s2_s3": false,
+        "suppressed_first_half": 268,
+        "suppressed_second_half": 284,
+        "mode_switched_within_run": false,
+        "background": {
+          "n": 601,
+          "median_mbps": 2.154,
+          "min_mbps": 2.149,
+          "n_below_1mbps": 0
+        },
+        "n_files": 1,
+        "gap_s": {
+          "n": 6,
+          "mean": 11.17,
+          "min": 11.0,
+          "max": 12.0,
+          "distinct": [
+            11.0,
+            12.0
+          ]
+        },
+        "hold_s": {
+          "n": 7,
+          "mean": 75.62,
+          "min": 15.0,
+          "max": 111.0,
+          "distinct": [
+            15.0,
+            31.0,
+            61.0,
+            90.36,
+            110.0,
+            111.0
+          ]
+        },
+        "n_alarming_ticks": 22,
+        "n_alarming_with_link_s2_s3": 1,
+        "fraction_alarming_out_of_zone": 0.0455,
+        "n_ticks_suppressed": 552,
+        "state_cause_histogram": {
+          "unknown/suppressed_intervention": 552,
+          "normal/": 14,
+          "act/": 14,
+          "unknown/missing_data": 13,
+          "suspect/": 8
+        },
+        "top_affected_sets": [
+          {
+            "n": 21,
+            "entities": [
+              "host-h1",
+              "host-srv1",
+              "link-h1-s1",
+              "link-s1-s2",
+              "link-s2-srv1"
+            ]
+          },
+          {
+            "n": 1,
+            "entities": [
+              "host-h1",
+              "link-h1-s1",
+              "link-s2-s3"
+            ]
+          }
+        ]
+      }
+    ],
+    "modes": [
+      "SUPPRESSION",
+      "SUPPRESSION",
+      "SUPPRESSION"
+    ],
+    "H0_OUTLIER_consistent": false,
+    "H_FEEDBACK_consistent": false,
+    "H_BISTABLE_consistent_where_testable": false,
+    "note": "'consistent' = khong bi bac bo tren n=3, KHONG phai 'da chung minh'"
+  },
+  "content_sha256": "c6d919ab2810dff222d0af8aeb77027935b78e79dfd701e42439438e8e9aed06",
+  "written_at_utc": "2026-09-21T12:08:40+00:00"
+}

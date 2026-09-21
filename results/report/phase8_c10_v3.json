@@ -1,0 +1,45 @@
+{
+  "content": {
+    "n_decisions": 1803,
+    "n_match": 1803,
+    "mismatches": [],
+    "params_sha256_seen": [
+      "c2b681645d16b6c47f2d081d2917dd678113bd2be503ca5e229b44910436e3e1"
+    ],
+    "files": [
+      "logs/phase8_stability/flood_rep1_113411/run_00.jsonl",
+      "logs/phase8_stability/flood_rep2_114607/run_00.jsonl",
+      "logs/phase8_stability/flood_rep3_115759/run_00.jsonl"
+    ],
+    "chains": [
+      {
+        "head": "run_00.jsonl",
+        "n_files": 1,
+        "ok": true,
+        "n_rows": 706,
+        "head_sha256": "c2f5353cecd963d3329d0e9ac6a03939ce5f512b933f77492adfc9ba9e291d95"
+      },
+      {
+        "head": "run_00.jsonl",
+        "n_files": 1,
+        "ok": true,
+        "n_rows": 707,
+        "head_sha256": "cdc579130363ed88e7313cdadc7a0dbbf42ec6a572e0dd4ee81d4f467e8216d0"
+      },
+      {
+        "head": "run_00.jsonl",
+        "n_files": 1,
+        "ok": true,
+        "n_rows": 705,
+        "head_sha256": "73820c69e93db1a98fd8b9e4a0ea1f1184be73fb04b28e7deca2ed5d85310d13"
+      }
+    ],
+    "fraction": 1.0,
+    "c10_pass": true,
+    "params_sha256_consistent": true,
+    "min_decisions_required": 1000,
+    "enough_evidence": true
+  },
+  "content_sha256": "6a2dbf91ffe055052756c379f19efce5864032bc14a85121aa11327e2f263c15",
+  "written_at_utc": "2026-09-21T12:08:40+00:00"
+}
