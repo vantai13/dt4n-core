@@ -1,0 +1,135 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "experiment": "chaos duoi vong kin",
+    "prereg_sha256": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+    "contract_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+    "closure_prereg_sha256": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+    "policy_sha256": "5b63aedd629be103a7a8cbfb67b43f8fdab1ed674451f4b5b91beccad1e50b68",
+    "seed": 20260920,
+    "reps": 5,
+    "rows": [
+      "second_flood"
+    ],
+    "lease_ttl_s": 15.0,
+    "max_open_s": 120.0,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 8.8,
+      "mongo_used_mib": 207.8,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.812,
+      "memory_warning": false,
+      "checked_at": 1789992654.4949465
+    },
+    "n_invalid_infra": 0,
+    "results": [
+      {
+        "row": "second_flood",
+        "rep": 0,
+        "t_start": 1789992676.8054938,
+        "result": {
+          "t_masked_s": 1.54,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 1,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 1,
+        "t_start": 1789992692.7154188,
+        "result": {
+          "t_masked_s": 1.74,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 2,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 2,
+        "t_start": 1789992710.8489184,
+        "result": {
+          "t_masked_s": 24.15,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 103,
+          "mode_at_second_flood": "PROBING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 3,
+        "t_start": 1789992753.8770487,
+        "result": {
+          "t_masked_s": 18.34,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 80,
+          "mode_at_second_flood": "PROBING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 4,
+        "t_start": 1789992794.819026,
+        "result": {
+          "t_masked_s": 21.95,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 98,
+          "mode_at_second_flood": "PROBING"
+        }
+      }
+    ],
+    "summary": {
+      "second_flood": [
+        {
+          "t_masked_s": 1.54,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 1,
+          "mode_at_second_flood": "MITIGATING"
+        },
+        {
+          "t_masked_s": 1.74,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 2,
+          "mode_at_second_flood": "MITIGATING"
+        },
+        {
+          "t_masked_s": 24.15,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 103,
+          "mode_at_second_flood": "PROBING"
+        },
+        {
+          "t_masked_s": 18.34,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 80,
+          "mode_at_second_flood": "PROBING"
+        },
+        {
+          "t_masked_s": 21.95,
+          "detected": true,
+          "censored_at_s": null,
+          "n_suppressed_seen": 98,
+          "mode_at_second_flood": "PROBING"
+        }
+      ]
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "a823e7ffb00447a801cd164824ccab04d98eac92329953e2a0e181eca174d961",
+  "written_at_utc": "2026-09-21T12:13:57+00:00"
+}
