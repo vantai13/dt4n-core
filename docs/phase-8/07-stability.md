@@ -165,9 +165,24 @@ khi phép đo hỏng, thay vì phát hiện sau bốn khối như ở 8.6.
 **C6-a: FAIL theo chữ (14 > 13), PASS theo bản chất.** Đây **đúng** trường hợp đã
 khoá trước: *"nếu `n_actions` > 13 thì phân biệt bằng `min_hold_s`"*. Mọi hold ≥
 `T₀`, backoff leo đúng 15 → 30 → 60 → 110 (bão hoà), gap **hằng định 11 s** —
-không có dấu hiệu dao động nào. Hành động thứ 14 là **một inject thừa** so với
-sim vì gap thật (11 s) ngắn hơn giả định của sim (~13 s), nên trong 600 s lọt
-thêm một chu kỳ.
+không có dấu hiệu dao động nào.
+
+> **⚠️ ĐÍNH CHÍNH 8.8 — nguyên nhân thật của "14 vs 13", và nó khác cái viết
+> dưới đây.** Giải thích gốc (*"một inject thừa vì gap thật 11 s ngắn hơn giả
+> định ~13 s của sim"*) **sai**: sim dùng trễ chết 11,433 s, gần như đúng bằng
+> gap đo được 11,0 s, nên nó không thể lọt thêm một chu kỳ vì lý do đó.
+>
+> Nguyên nhân đúng, tính được bằng số học từ chính bảng trên: cộng dồn
+> `holds + gaps` cho thấy hold thứ 7 bắt đầu ở 504 s và lẽ ra kết thúc ở
+> 504 + 110 = **614 s, NGOÀI chân trời 600 s**. Nó kết thúc ở 596,4 s vì run
+> hết giờ và `ControlRunner.shutdown()` **gỡ can thiệp đang mở**. Hành động thứ
+> 14 là **revert của tắt êm**, không phải một inject thừa: `n_inject = 7`,
+> `n_revert = 7`.
+>
+> Cận đúng là **13 + 1 = 14**, và cái sai là **sim** (nó cắt ngang can thiệp
+> đang mở mà không gỡ; một hệ thật bắt buộc phải gỡ). Sim đã được vá và
+> known-answer test ra **đúng 14**. Verdict: **PASS-with-model-correction**.
+> Xem `08-acceptance.md §0.1`.
 
 > Nếu chỉ báo "14 > 13 ⇒ FAIL" thì mất thông tin; nếu chỉ báo "không dao động"
 > thì giấu số. Báo cả hai mới đúng.
@@ -205,6 +220,44 @@ Tính lại với các mức trừ trễ hiển thị:
 Harness nay **báo cả hai** (`s11_type_i` và `s11_type_i_after_view_lag`,
 `VIEW_LAG_S = 2,0 s`, cơ sở là phép đo 8.4). Đây là **tinh chỉnh phép đo**, không
 phải đổi tiêu chí — và cả hai số đều nằm trong receipt.
+
+### 9.1 Thay "trừ trễ" bằng một vị từ — sửa ở 8.8
+
+Cách xử lý trên đúng về bản chất, nhưng cách **phát biểu** ("trừ 1,5–2,0 s")
+trông giống nới định nghĩa, và bất kỳ hằng số nào cũng mời câu hỏi *"vì sao 1,5
+mà không phải 2,5?"*. Dữ liệu ở đây mạnh hơn cách nó đang được dùng: **đúng một
+tick biên cho mỗi can thiệp** không phải nhiễu — đó là **một cơ chế**, và cơ chế
+đó có tên.
+
+**Cửa sổ đua của write-ahead.** Cuộc đua thật không phải *log vs lệnh* (M5 đã
+xử lý) mà là *log vs snapshot ĐÃ ĐANG BAY*: collector lấy mẫu tại `t_source`,
+FSM chấm nó vài trăm ms sau. Nếu can thiệp được ghi vào **giữa hai mốc đó**,
+snapshot ấy bị chấm dựa trên một sổ can thiệp **chưa tồn tại lúc nó được lấy
+mẫu**.
+
+`InterventionLog.active(source_time)` **đã** so với `t_source`, đúng như phải
+thế. Nên hệ **không sai** — chỉ có **quy tắc quy kết** đang đếm tick theo đồng
+hồ tường. Thay bằng đúng vị từ mà FSM dùng, **không có hằng số nào**:
+
+```python
+# measurements/attribution.py
+def in_intervention_window(t_source, t_start, t_revert, cooldown_s=8.0):
+    end = (t_revert + cooldown_s) if t_revert is not None else t_start + 120.0
+    return t_start <= t_source < end
+```
+
+Một tick có `t_source < t_start` là **nhân quả đi trước**: nó không thể do can
+thiệp gây ra, nên nó không phải bằng chứng cho "ức chế lẽ ra phải bật mà không
+bật". Ba rổ: `type_i` (GATE), `type_ii` (có entity ngoài vùng), `unattributed`
+(ghi kèm `t_source − t_start` để người đọc tự kiểm).
+
+Lợi ích so với "trừ 1,5–2,0 s": không hằng số tuỳ ý; **cùng đồng hồ, cùng vị từ**
+với cơ chế đang được kiểm; và tự chứng minh được từ receipt.
+
+⚠️ **Run 8.7 không lưu `t_source` nên KHÔNG quy kết lại được.** Không trừ một
+hằng số để nó biến mất. `scripts/run_phase8_stability.py` nay dump
+`DetectorRunner.timeline` và join theo `(bootId, seq)`; verdict chính thức
+(**C8-r**) đến từ các run của 8.8. Xem `08-acceptance.md §0.3`.
 
 ## 10. Chaos (`phase8_chaos_v6.json`, `66d8b067…`) — 6 dòng × 2 lượt, 0 lượt vô hiệu
 
@@ -275,3 +328,19 @@ Hệ quả kép, phải nói cả hai:
 | C9-a (UI STALE ≤ 5 s) | đã có kịch bản E2E ở 8.5, cần chạy lại kèm controller thật | ≈ 10 phút |
 
 Ba con số C12 **đã có** từ chế độ flood: **96,3% / 96,3% / 119 s**.
+
+> **⚠️ Cách phát biểu (8.8).** Ở run này C12-a = C12-b không phải vì chúng đo
+> cùng một thứ, mà vì **toàn bộ run là một sự cố** (`incident_s = 600,0`,
+> `window_s = 600,4`) — hai mẫu số bằng nhau. Ở chế độ quiet, C12-a = 0. Hai
+> chế độ cực đoan, không con số nào phản ánh vận hành thật:
+>
+> ```
+> C12-b (tỷ lệ mù TRONG LÚC có sự cố)          = 96,3%   ← đo được, chắc chắn
+> C12-c (cửa sổ mù liên tục dài nhất)          = 119 s   ← đo được, chắc chắn
+> C12-a (tỷ lệ mù trên TỔNG thời gian vận hành) = phụ thuộc chu kỳ làm việc
+>        flood liên tục 600 s → 96,3%  (cận trên)
+>        bình thường 600 s    →  0,0%  (cận dưới)
+>        tải Poisson 1800 s   → đo ở 8.8   ← con số duy nhất có nghĩa
+> ```
+>
+> **Không được trích "96,3% thời gian hệ bị mù" như một tuyên bố toàn cục.**

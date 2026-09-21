@@ -1,0 +1,769 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "strict": true,
+    "verdict_taxonomy": {
+      "PASS": "tieu chi thoa dung nhu khoa truoc",
+      "FAIL": "tieu chi khong thoa, he co van de that",
+      "INVALID": "phep do khong sinh tin hieu do duoc (chua do, hoac do ma bien ket cuc bao hoa)",
+      "PASS-with-model-correction": "thoa sau khi SUA CAN theo mo hinh; phai qua du 4 rao: cause_identified, model_not_data, known_answer_test, declared_in_receipt_and_system_card"
+    },
+    "receipts": {
+      "ab_addendum": {
+        "file": "results/report/phase8_ab_addendum.json",
+        "file_sha256": "bc7ccd78b928beed4e759e266527fd30511884dd4befa50de711dfe37028b8c6",
+        "content_sha256": "5cd9e2d6f2a378e8f93244da09dd3d3117cf7364b9bdffbc9e823b3d6c02de2c"
+      },
+      "ab_c5": {
+        "file": "results/report/phase8_ab_c5.json",
+        "file_sha256": "b864cfc593d4039ed7c1aadc6d0917edc6f0f11706d018631a4eea10182a65ce",
+        "content_sha256": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd"
+      },
+      "ablation": {
+        "file": "results/report/phase8_ablation_rerun.json",
+        "file_sha256": "5016d05d5a42680015aaa6c7df2b33465dc9a2317d33ce1f9a3dbd8371370d68",
+        "content_sha256": "07243d3e60943a3deb4dfbd74843bc5812b6bae014d1cd73530ac6d792a14659"
+      },
+      "actionability": {
+        "file": "results/report/phase8_actionability.json",
+        "file_sha256": "ffadd8fa4ce1d6aa2efcd34e0c2a2feb97bd488ea89f4fd91ceaec6b1e48b862",
+        "content_sha256": null
+      },
+      "c10": {
+        "file": "results/report/phase8_c10_v2.json",
+        "file_sha256": "7d953b59f588130f14845f8ae9fe34649b519f9b2ca4372cf15c3a5ca30b8a86",
+        "content_sha256": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1"
+      },
+      "c11_outcome": {
+        "file": "results/report/phase8_c11_outcome.json",
+        "file_sha256": "1c025b89566b1720b4dca088962593f380dfa667056fc3af7f26bd5f2097a5d5",
+        "content_sha256": "efeaecfe3e2f11d767b14d9f45f122dc7568f97d5386c4e9d340caab9072e17c"
+      },
+      "c11_prediction": {
+        "file": "results/report/phase8_c11_prediction.json",
+        "file_sha256": "216e9a3bcccb6bf54644c5fc893c9197670dcc76874cd42595dfa5b0b7669a5a",
+        "content_sha256": "38d2623d2af4119f5b524428873375b39831ba63c70ff4417f793ec2b853696e"
+      },
+      "c3": {
+        "file": "results/report/phase8_c3.json",
+        "file_sha256": "7e583ee9a14f9ef0b13cbad179bc5abd25dd7c48f5c693edfaafc0a626efcde1",
+        "content_sha256": "1deb76a58925482aead3cea1d204ca5976462efd34c6e997b93b9caf99f09cf8"
+      },
+      "chaos": {
+        "file": "results/report/phase8_chaos_v6.json",
+        "file_sha256": "0afe9ae4a36e2ff38173340e1234477b9778bb27be0959eb454ca49c988bf86e",
+        "content_sha256": "66d8b06745d30a37e773b5047eb9e3d67a95174cc1b3621e282b99db9d08a52f"
+      },
+      "contract": {
+        "file": "results/report/phase8_contract.json",
+        "file_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "content_sha256": "47464487d438f32212e53a0e599c2fc605023248fb8e06ed0c521e81ce7cbc93"
+      },
+      "gap_reconciliation": {
+        "file": "results/report/phase8_gap_reconciliation.json",
+        "file_sha256": "8ce6efb7af853691dafe1c4887fe395ec449d6279d1866fa792deb71d91d8040",
+        "content_sha256": "f8a81c53dad8f78a0690252db89008c3f03985d058d401337e3ef2c45acdc882"
+      },
+      "hypothesis": {
+        "file": "results/report/phase8_suppression_hypothesis.json",
+        "file_sha256": "1049fd8404e3af4b97f7c4693e9bc6a776a51563ac71f99b5730ebcd344bddbb",
+        "content_sha256": "b1a3153e184b379f31f3bd5e2d944174cf9a4d57e12a192d47dd9a53052764c7"
+      },
+      "localization": {
+        "file": "results/report/phase8_localization_probe.json",
+        "file_sha256": "0acb63cd71678b1a012c0a264d2de89428341171a483787e7edda74db535fc34",
+        "content_sha256": null
+      },
+      "poisson": {
+        "file": "results/report/phase8_stability_poisson.json",
+        "file_sha256": "38cfb1fa3bafdc90bc401cdbadda31bb087ae63082a490bcac43e60ffa2e0628",
+        "content_sha256": "801e68af8480170c99cae4792a201de97099470c1ea6a53b54025fa2a66b041c"
+      },
+      "poisson_analysis": {
+        "file": "results/report/phase8_poisson.json",
+        "file_sha256": "cd6e30142e6b24adfa9f7d905ac7d90225fcce0829c6624651886599e888af00",
+        "content_sha256": "6e2a21a4301c1b5420d2fee3a1c1ebde316e8dc7817bb0515de2e07f72a3e64b"
+      },
+      "prereg": {
+        "file": "results/report/phase8_prereg.json",
+        "file_sha256": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "content_sha256": "cd7d168c168f7afbe0a7e2fbab28fdb10b163acdfbfb3b2565c47802e22f70c4"
+      },
+      "s11_amendment": {
+        "file": "results/report/phase8_s11_amendment1.json",
+        "file_sha256": "1d933626182ea03b07a61b4a0253ec75e2e46fc7390b8b91a83c42086a5fe8b9",
+        "content_sha256": "390121f8be2994f19581e73bd10dbe6aca83d40e77d282ede3c7e74b98cd123d"
+      },
+      "s11_flood": {
+        "file": "results/report/phase8_s11_bw_flood.json",
+        "file_sha256": "aecfde56c60988e4df13530a8cbd3f747d07c4dca1b9ab1b0635d0d2614a983e",
+        "content_sha256": "9058fbb7b26913fae7fd528266a0987fae274b6479b40871a2adba787f0cb735"
+      },
+      "s11_quiet": {
+        "file": "results/report/phase8_s11_bw_quiet.json",
+        "file_sha256": "79622c5b766d1783d8b4ea7fa7e51e411f3ea882ff3196adffe607e89a5fcec9",
+        "content_sha256": "184918ae7e8cbac51c1558edb1355bcf6fe11d265d251f64831988d47e418a4d"
+      },
+      "s11_quiet_udp": {
+        "file": "results/report/phase8_s11_bw_quiet_udp.json",
+        "file_sha256": "82ab3e8a02e684e83c5671d571bf9a5c6fb178ac3f560bcd4cd2d05f9cbe8aad",
+        "content_sha256": "7d53c3841f12712072b3622ecacb8513ce60ade07ec99b643945b46fece913c3"
+      },
+      "sim": {
+        "file": "results/report/phase8_sim_predictions.json",
+        "file_sha256": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+        "content_sha256": "a38c6434f8d333c3eb0ec7cd2e6abe49342d7d02c21cb7cfa4687f1528504c88"
+      },
+      "soak": {
+        "file": "results/report/phase8_soak.json",
+        "file_sha256": "f4a2fef662278074cad2fa5d1a6fa7588394a3d5a5d4592777aafe2fe97eccf7",
+        "content_sha256": "164819d627c7b2fb3edbe8ac6d8e76860d8c2ac881a8fc12fb6dbdbeb9d99398"
+      },
+      "soak_c10": {
+        "file": "results/report/phase8_c10_v2.json",
+        "file_sha256": "7d953b59f588130f14845f8ae9fe34649b519f9b2ca4372cf15c3a5ca30b8a86",
+        "content_sha256": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1"
+      },
+      "soak_production": {
+        "file": "results/report/phase8_soak_production.json",
+        "file_sha256": "71be859c4a8a861d8e3189144800572c06a0a76e9e9dacc7a045e5e3573ffaa4",
+        "content_sha256": "699f642ca01f4d688b871b9ba7a964a16a4a90ce2ae4ae54bd3faebe9a010a68"
+      },
+      "soak_production_v2": {
+        "file": "results/report/phase8_soak_production_v2.json",
+        "file_sha256": "e79b4ffc9006580cf4bae6ac1a4149b61a5f9585a2d3b563104bf6634006694a",
+        "content_sha256": "a5592303be856c99b4bb87cfe6b3ef0f0fdbe9175ff5a455fe6030fc7e3b006d"
+      },
+      "stability_flood": {
+        "file": "results/report/phase8_stability_flood.json",
+        "file_sha256": "bce44a7fead0214c4c0f43e64a64a3157982a2c39b235b27aab311819c55d983",
+        "content_sha256": "5c24bb3fee369cd04a87b15561c5011ecdc29f270a2a1f5df0efe1727b710de9"
+      },
+      "stability_quiet": {
+        "file": "results/report/phase8_stability_quiet.json",
+        "file_sha256": "682631f43ce50850b989078217f52dcf19dbbb4d0661623fa99a60470d9709e2",
+        "content_sha256": "36d04c8c1d6438c9c38908d093a785d725d5eca2b90ceddab2acd390271e260c"
+      },
+      "ui_c9a": {
+        "file": "results/report/phase8_ui_stale.json",
+        "file_sha256": "a7875338099f9da596a86d55e8d51191b09c989cfb78384af782a22d89e0f10c",
+        "content_sha256": "d155e63131985ad2b0f003db8cbbace55d3ac2faa2c85c8bddb9b33b51d5c6b9"
+      }
+    },
+    "content_sha_checks": [
+      {
+        "receipt": "prereg",
+        "sealed": "cd7d168c168f7afbe0a7e2fbab28fdb10b163acdfbfb3b2565c47802e22f70c4",
+        "recomputed": "cd7d168c168f7afbe0a7e2fbab28fdb10b163acdfbfb3b2565c47802e22f70c4",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "sim",
+        "sealed": "a38c6434f8d333c3eb0ec7cd2e6abe49342d7d02c21cb7cfa4687f1528504c88",
+        "recomputed": "a38c6434f8d333c3eb0ec7cd2e6abe49342d7d02c21cb7cfa4687f1528504c88",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "contract",
+        "sealed": "47464487d438f32212e53a0e599c2fc605023248fb8e06ed0c521e81ce7cbc93",
+        "recomputed": "47464487d438f32212e53a0e599c2fc605023248fb8e06ed0c521e81ce7cbc93",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "s11_flood",
+        "sealed": "9058fbb7b26913fae7fd528266a0987fae274b6479b40871a2adba787f0cb735",
+        "recomputed": "9058fbb7b26913fae7fd528266a0987fae274b6479b40871a2adba787f0cb735",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "s11_quiet",
+        "sealed": "184918ae7e8cbac51c1558edb1355bcf6fe11d265d251f64831988d47e418a4d",
+        "recomputed": "184918ae7e8cbac51c1558edb1355bcf6fe11d265d251f64831988d47e418a4d",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "s11_quiet_udp",
+        "sealed": "7d53c3841f12712072b3622ecacb8513ce60ade07ec99b643945b46fece913c3",
+        "recomputed": "7d53c3841f12712072b3622ecacb8513ce60ade07ec99b643945b46fece913c3",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "s11_amendment",
+        "sealed": "390121f8be2994f19581e73bd10dbe6aca83d40e77d282ede3c7e74b98cd123d",
+        "recomputed": "390121f8be2994f19581e73bd10dbe6aca83d40e77d282ede3c7e74b98cd123d",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c3",
+        "sealed": "1deb76a58925482aead3cea1d204ca5976462efd34c6e997b93b9caf99f09cf8",
+        "recomputed": "1deb76a58925482aead3cea1d204ca5976462efd34c6e997b93b9caf99f09cf8",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "ab_c5",
+        "sealed": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+        "recomputed": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "ab_addendum",
+        "sealed": "5cd9e2d6f2a378e8f93244da09dd3d3117cf7364b9bdffbc9e823b3d6c02de2c",
+        "recomputed": "5cd9e2d6f2a378e8f93244da09dd3d3117cf7364b9bdffbc9e823b3d6c02de2c",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "ablation",
+        "sealed": "07243d3e60943a3deb4dfbd74843bc5812b6bae014d1cd73530ac6d792a14659",
+        "recomputed": "07243d3e60943a3deb4dfbd74843bc5812b6bae014d1cd73530ac6d792a14659",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "stability_flood",
+        "sealed": "5c24bb3fee369cd04a87b15561c5011ecdc29f270a2a1f5df0efe1727b710de9",
+        "recomputed": "5c24bb3fee369cd04a87b15561c5011ecdc29f270a2a1f5df0efe1727b710de9",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "stability_quiet",
+        "sealed": "36d04c8c1d6438c9c38908d093a785d725d5eca2b90ceddab2acd390271e260c",
+        "recomputed": "36d04c8c1d6438c9c38908d093a785d725d5eca2b90ceddab2acd390271e260c",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "chaos",
+        "sealed": "66d8b06745d30a37e773b5047eb9e3d67a95174cc1b3621e282b99db9d08a52f",
+        "recomputed": "66d8b06745d30a37e773b5047eb9e3d67a95174cc1b3621e282b99db9d08a52f",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "gap_reconciliation",
+        "sealed": "f8a81c53dad8f78a0690252db89008c3f03985d058d401337e3ef2c45acdc882",
+        "recomputed": "f8a81c53dad8f78a0690252db89008c3f03985d058d401337e3ef2c45acdc882",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "poisson",
+        "sealed": "801e68af8480170c99cae4792a201de97099470c1ea6a53b54025fa2a66b041c",
+        "recomputed": "801e68af8480170c99cae4792a201de97099470c1ea6a53b54025fa2a66b041c",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "poisson_analysis",
+        "sealed": "6e2a21a4301c1b5420d2fee3a1c1ebde316e8dc7817bb0515de2e07f72a3e64b",
+        "recomputed": "6e2a21a4301c1b5420d2fee3a1c1ebde316e8dc7817bb0515de2e07f72a3e64b",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "hypothesis",
+        "sealed": "b1a3153e184b379f31f3bd5e2d944174cf9a4d57e12a192d47dd9a53052764c7",
+        "recomputed": "b1a3153e184b379f31f3bd5e2d944174cf9a4d57e12a192d47dd9a53052764c7",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "soak",
+        "sealed": "164819d627c7b2fb3edbe8ac6d8e76860d8c2ac881a8fc12fb6dbdbeb9d99398",
+        "recomputed": "164819d627c7b2fb3edbe8ac6d8e76860d8c2ac881a8fc12fb6dbdbeb9d99398",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "soak_production",
+        "sealed": "699f642ca01f4d688b871b9ba7a964a16a4a90ce2ae4ae54bd3faebe9a010a68",
+        "recomputed": "699f642ca01f4d688b871b9ba7a964a16a4a90ce2ae4ae54bd3faebe9a010a68",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "soak_production_v2",
+        "sealed": "a5592303be856c99b4bb87cfe6b3ef0f0fdbe9175ff5a455fe6030fc7e3b006d",
+        "recomputed": "a5592303be856c99b4bb87cfe6b3ef0f0fdbe9175ff5a455fe6030fc7e3b006d",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c11_prediction",
+        "sealed": "38d2623d2af4119f5b524428873375b39831ba63c70ff4417f793ec2b853696e",
+        "recomputed": "38d2623d2af4119f5b524428873375b39831ba63c70ff4417f793ec2b853696e",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c11_outcome",
+        "sealed": "efeaecfe3e2f11d767b14d9f45f122dc7568f97d5386c4e9d340caab9072e17c",
+        "recomputed": "efeaecfe3e2f11d767b14d9f45f122dc7568f97d5386c4e9d340caab9072e17c",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "c10",
+        "sealed": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1",
+        "recomputed": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "ui_c9a",
+        "sealed": "d155e63131985ad2b0f003db8cbbace55d3ac2faa2c85c8bddb9b33b51d5c6b9",
+        "recomputed": "d155e63131985ad2b0f003db8cbbace55d3ac2faa2c85c8bddb9b33b51d5c6b9",
+        "ok": true,
+        "note": null
+      },
+      {
+        "receipt": "soak_c10",
+        "sealed": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1",
+        "recomputed": "5ebba5d7e28d68409449f4fc4abe51c53ba6ccf6643469718fb44c5486d06fb1",
+        "ok": true,
+        "note": null
+      }
+    ],
+    "dependency_chain": [
+      {
+        "receipt": "sim",
+        "field": "upstream_sha256",
+        "key": "results/report/phase8_prereg.json",
+        "expect_from": "prereg",
+        "expect": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "got": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "ok": true
+      },
+      {
+        "receipt": "contract",
+        "field": "pinned_sha256",
+        "key": "results/report/phase8_prereg.json",
+        "expect_from": "prereg",
+        "expect": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "got": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "ok": true
+      },
+      {
+        "receipt": "contract",
+        "field": "pinned_sha256",
+        "key": "results/report/phase8_sim_predictions.json",
+        "expect_from": "sim",
+        "expect": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+        "got": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+        "ok": true
+      },
+      {
+        "receipt": "s11_flood",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "s11_quiet",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "s11_quiet_udp",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "s11_amendment",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "ab_addendum",
+        "field": "source_sha256",
+        "key": null,
+        "expect_from": "ab_c5:content",
+        "expect": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+        "got": "b4da398a1892de44b0649c20e08dffe92201a4162d355f5bd2ab8dcc5cba83fd",
+        "ok": true
+      },
+      {
+        "receipt": "poisson",
+        "field": "prereg_sha256",
+        "key": null,
+        "expect_from": "prereg",
+        "expect": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "got": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+        "ok": true
+      },
+      {
+        "receipt": "poisson",
+        "field": "contract_sha256",
+        "key": null,
+        "expect_from": "contract",
+        "expect": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "got": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+        "ok": true
+      },
+      {
+        "receipt": "poisson",
+        "field": "sim_sha256",
+        "key": null,
+        "expect_from": "sim",
+        "expect": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+        "got": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+        "ok": true
+      }
+    ],
+    "dependency_chain_not_declared": [
+      "ab_c5",
+      "c3",
+      "stability_flood",
+      "stability_quiet",
+      "chaos"
+    ],
+    "pinned_sources": [
+      {
+        "file": "bridge/collector.py",
+        "state": "OK"
+      },
+      {
+        "file": "bridge/command_agent.py",
+        "state": "DRIFT",
+        "sealed": "c9826576ecff",
+        "current": "e0b1b2403dbb",
+        "declared": "8.6: them fencing token cho lease; 8.7: sua duong lease khi agent chet."
+      },
+      {
+        "file": "bridge/controlloop_contract.py",
+        "state": "OK"
+      },
+      {
+        "file": "bridge/detector_contract.py",
+        "state": "OK"
+      },
+      {
+        "file": "bridge/freshness.py",
+        "state": "OK"
+      },
+      {
+        "file": "controller/audit.py",
+        "state": "OK"
+      },
+      {
+        "file": "controller/intervene.py",
+        "state": "OK"
+      },
+      {
+        "file": "controller/localize.py",
+        "state": "OK"
+      },
+      {
+        "file": "controller/policy.py",
+        "state": "DRIFT",
+        "sealed": "297db6e3d377",
+        "current": "c850cb8051d5",
+        "declared": "8.4/8.6: them `incarnation` vao ControllerState (hai lan chay controller tren cung mot detector sinh trung intervention_id) va sua HOLD/deadline. Da chay lai sim + C6 + C7 + C10 sau do."
+      },
+      {
+        "file": "controller/sim.py",
+        "state": "DRIFT",
+        "sealed": "1a92854ca979",
+        "current": "6d8989e0ce36",
+        "declared": "8.8 DINH CHINH MO HINH: them revert cua tat em khi het chan troi. Can C6-a doi tu 13 thanh 14. Co known-answer test (test_phase8_acceptance_fixes.py) va tai lap duoc con so cu bang SimParams(graceful_shutdown_revert=False)."
+      },
+      {
+        "file": "controller/twin_reader.py",
+        "state": "DRIFT",
+        "sealed": "022944379b5e",
+        "current": "b9868c961ddf",
+        "declared": "8.4: R3 kiem freshness TRUOC khi gop delta (bo CA ban tin khi seq lui/trung/bootId retired)."
+      },
+      {
+        "file": "mininet/env_runner.py",
+        "state": "OK"
+      },
+      {
+        "file": "ml/blast_radius.py",
+        "state": "OK"
+      },
+      {
+        "file": "ml/intervention_log.py",
+        "state": "OK"
+      },
+      {
+        "file": "models/detector-release-1.0.0.json",
+        "state": "OK"
+      },
+      {
+        "file": "results/report/phase7_prereg.json",
+        "state": "OK"
+      },
+      {
+        "file": "results/report/phase8_prereg.json",
+        "state": "OK"
+      },
+      {
+        "file": "results/report/phase8_sim_predictions.json",
+        "state": "OK"
+      }
+    ],
+    "criteria": [
+      {
+        "id": "C1",
+        "measures": "hanh dong dung nguon",
+        "objective": "100% (n >= 10 live)",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "moi inject nham h1-s1; 7 inject o 8.7 flood, 4 inject/luot x 16 luot o 8.6",
+        "evidence": [
+          "phase8_ab_c5.json",
+          "phase8_stability_flood.json"
+        ],
+        "note": "dinh danh muc tieu doc tu intervention_id trong audit; xem phase8_gap_reconciliation.json de biet pho affected"
+      },
+      {
+        "id": "C2",
+        "measures": "khong hanh dong voi admin_down/shift/degrade",
+        "objective": "0 lan",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "quiet 600 s live: 0 hanh dong; offline probe: xem receipt",
+        "evidence": [
+          "phase8_localization_probe.json",
+          "phase8_stability_quiet.json"
+        ],
+        "note": null
+      },
+      {
+        "id": "C3",
+        "measures": "tre act -> thu pham bi gioi han (p95)",
+        "objective": "<= 10000 ms",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "p95 = 2032.1 ms (ngan sach 10000.0 ms, n = 9)",
+        "evidence": [
+          "phase8_c3.json"
+        ],
+        "note": null
+      },
+      {
+        "id": "C4",
+        "measures": "nan nhan hoi phuc >= 80% nen (p95)",
+        "objective": "<= 15 s",
+        "gate": false,
+        "verdict": "INVALID",
+        "measured": "khong do duoc: bien ket cuc BAO HOA o toc do chao TCP (nhanh A CV = 0.0466%), nen 'hoi phuc >= 80% nen' khong phan biet duoc voi 'khong bi anh huong'",
+        "evidence": [
+          "phase8_ab_addendum.json"
+        ],
+        "note": "khong phai gate. Bien thay the (degraded_tick_fraction) duoc dinh nghia o measurements/degraded.py va do o 8.8."
+      },
+      {
+        "id": "C5",
+        "measures": "A/B goodput nan nhan (co - khong controller)",
+        "objective": "CI95 > 0",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "mean_diff = 1.893 Mbps, CI95 [1.8535, 1.9307], p = 0.0078125 (8 khoi)",
+        "evidence": [
+          "phase8_ab_c5.json"
+        ],
+        "note": "+1.893 Mbps la chenh lech TAI TRAN cua bien ket cuc; KHONG duoc doc thanh 'khoi phuc 88% goodput'"
+      },
+      {
+        "id": "C6-a",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS-with-model-correction",
+        "measured": "flood 600 s: 14 hanh dong (can moi 14 = 13 tu chinh sach + 1 revert cua tat em); min_hold = 16.0 s >= T0 = 15 s; violates_t0 = []",
+        "evidence": [
+          "phase8_stability_flood.json",
+          "phase8_sim_predictions.json"
+        ],
+        "note": null,
+        "model_correction": {
+          "sealed_bound": 13,
+          "corrected_bound": 14,
+          "why": "sim a38c6434 cat ngang can thiep dang mo luc het chan troi ma KHONG go. He THAT bat buoc phai go (ControlRunner.shutdown): neu khong, mang ket o 7 Mbps voi mot ban ghi can thiep khong ai so huu - dung loi #2 cua chaos 8.7. Vay cai sai la SIM.",
+          "arithmetic": "holds = [16.0, 30.0, 61.0, 111.0, 110.0, 110.0, 92.4], gaps = [11.0, 11.0, 11.0, 11.0, 11.0, 11.0], cong don = 596.4 s tren horizon 600.4 s. Hold cuoi 92.4 s < lich T_max 110 s -> no BI CAT NGANG, khong ket thuc theo lich (le ra den 614 s, NGOAI chan troi). n_inject = 7 = n_revert -> hanh dong thu 14 la revert cua tat em.",
+          "cause_identified": true,
+          "model_not_data": true,
+          "known_answer_test": true,
+          "declared_in_receipt_and_system_card": true,
+          "all_gates_pass": true
+        }
+      },
+      {
+        "id": "C6-b",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "quiet 600 s: 0 hanh dong (can: 0)",
+        "evidence": [
+          "phase8_stability_quiet.json"
+        ],
+        "note": null
+      },
+      {
+        "id": "C6-c",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "poisson 1800 s x 3 seed, so THEO CAP voi sim DA VA: live = [12, 18, 0], sim cung seed = [12, 18, 0], delta = [0, 0, 0] (|delta| tb = 0.0); vi pham T0: False",
+        "evidence": [
+          "phase8_poisson.json"
+        ],
+        "note": "can la sim cua CHINH seed do, KHONG phai p50/p95 cua 10000 seed"
+      },
+      {
+        "id": "C7",
+        "measures": "hanh dong tren trigger bi cam",
+        "objective": "0",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "khong cap nao giu < T0 ([]); 0 hanh dong luc binh thuong",
+        "evidence": [
+          "phase8_stability_flood.json",
+          "phase8_stability_quiet.json",
+          "test/test_phase8_policy.py"
+        ],
+        "note": null
+      },
+      {
+        "id": "C8",
+        "measures": "S11 cho setBandwidth: controller khong tu kich hoat detector",
+        "objective": "0",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "gate = nhanh quiet_udp: PASS (measurement_valid = True) | quiet TCP: INVALID (doi chung duong 0 act; nhan 'FAIL' goc la loi dat ten, xem DT4N-P8.3-A1) | flood: N/A (khong dung lam gate: da co act do flood, khong quy ket duoc)",
+        "evidence": [
+          "phase8_s11_bw_quiet_udp.json",
+          "phase8_s11_amendment1.json",
+          "phase8_s11_bw_quiet.json",
+          "phase8_s11_bw_flood.json"
+        ],
+        "note": null
+      },
+      {
+        "id": "C8-r",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "Poisson 1800 s x 3 seed: S11 Loai I = 0 bang vi tu `t_start <= t_source < t_revert + cooldown_s`; khong quy ket duoc (t_source ngoai moi cua so) = 7",
+        "evidence": [
+          "phase8_poisson.json",
+          "measurements/attribution.py"
+        ],
+        "note": null
+      },
+      {
+        "id": "C9-a",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "UI chuyen STALE sau 3178.0 ms (ngan sach 5000 ms); detector KHONG bi lay: True",
+        "evidence": [
+          "phase8_ui_stale.json"
+        ],
+        "note": null
+      },
+      {
+        "id": "C9-b",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "PASS",
+        "measured": "controller chet -> vat ly an toan sau [10.73, 12.33] s; nhung cua so mu THUA [105.01, 105.01] s (lease 15 s < MAX_OPEN_S 120 s)",
+        "evidence": [
+          "phase8_chaos_v6.json"
+        ],
+        "note": "n = 2 luot - ket luan DINH TINH vung, uoc luong DINH LUONG so bo"
+      },
+      {
+        "id": "chaos-sf",
+        "measures": null,
+        "objective": null,
+        "gate": null,
+        "verdict": "INVALID",
+        "measured": "second_flood n = 2, khoang [1.74; 25.16] s (ty so 14x) -> SO BO, khong duoc dua vao system card nhu mot uoc luong",
+        "evidence": [],
+        "note": "NO 8.8"
+      },
+      {
+        "id": "C10",
+        "measures": "quyet dinh dung lai bit-exact tu audit",
+        "objective": "100%",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "2101/2101 quyet dinh dung lai bit-exact (1.0); chuoi hash: True; du bang chung: True",
+        "evidence": [
+          "phase8_c10_v2.json"
+        ],
+        "note": "n_decisions > 0 duoc kiem tuong minh: khop == tong == 0 la PASS GIA"
+      },
+      {
+        "id": "C11",
+        "measures": "on dinh 30 phut: RSS, 0 ERROR",
+        "objective": "<= 1 MiB; 0",
+        "gate": true,
+        "verdict": "PASS",
+        "measured": "dRSS = 0.9453125 MiB; ERROR = 0; thread +0; xoay vong 4 lan, chuoi lien: True | production, warmup 300 s, cua so verdict [300, 2100] s",
+        "evidence": [
+          "phase8_soak_production_v2.json"
+        ],
+        "note": "Ap dung dung giao thuc S6 v2 da dang ky o Phase 7; nguong giu nguyen 1.0 MiB. Hai luot cu duoc giu lam dau vet sai cau hinh/sai cua so."
+      },
+      {
+        "id": "C12",
+        "measures": "ty le thoi gian mu (vung uc che)",
+        "objective": "bao cao, khong dat nguong",
+        "gate": false,
+        "verdict": "PASS",
+        "measured": "C12-b (trong luc CO SU CO) = 0.9633 | C12-c (cua so mu lien tuc dai nhat) = 119.0 s | C12-a (tren TONG thoi gian van hanh) PHU THUOC CHU KY LAM VIEC: flood lien tuc 600 s -> 0.9634 (can tren), binh thuong 600 s -> 0.0 (can duoi), tai Poisson 1800 s -> 0.1286",
+        "evidence": [
+          "phase8_stability_flood.json",
+          "phase8_stability_quiet.json",
+          "phase8_stability_poisson.json"
+        ],
+        "note": "khong dat nguong (gate = false). KHONG duoc trich '96.3% thoi gian he bi mu' nhu mot tuyen bo toan cuc: mau so cua no la THOI GIAN CO SU CO."
+      }
+    ],
+    "counts": {
+      "PASS": 14,
+      "FAIL": 0,
+      "INVALID": 2,
+      "PASS-with-model-correction": 1
+    },
+    "n_gate_invalid": 0,
+    "problems": [],
+    "acceptance_pass": true
+  },
+  "content_sha256": "a8f20e3a0d587f50b2104eef6e6c29d2589c08f96790fe286c6c9d4b2512f24a",
+  "written_at_utc": "2026-09-21T08:37:29+00:00"
+}

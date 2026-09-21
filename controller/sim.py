@@ -48,6 +48,15 @@ class SimParams:
     #     Thiet ke KHONG phu thuoc vao cau tra loi (go theo lich), nhung sim
     #     chay ca hai kich ban de bao cao hai cot du doan. 8.3 se dong an so.
     suppressed_during_mitigation: bool = True
+    # --- DINH CHINH MO HINH (8.8, tu do luong 8.7).
+    #     Ban sim niem phong o 8.2 (a38c6434) cat ngang can thiep dang mo khi
+    #     het chan troi ma KHONG go. He THAT bat buoc phai go: ControlRunner.
+    #     shutdown() (controller/runner.py::_shutdown_locked) phat `revert` cho
+    #     open_id truoc khi thoat - neu khong, mang ket o 7 Mbps vinh vien vi
+    #     khong con ai so huu ban ghi can thiep do (chinh la loi #2 cua chaos
+    #     8.7). Vi vay cai SAI la SIM, khong phai he: can dung = 13 + 1 = 14.
+    #     Dat True = mo hinh hoa tat em. False = tai lap dung so 8.2.
+    graceful_shutdown_revert: bool = True
 
 
 @dataclass
@@ -60,6 +69,9 @@ class SimResult:
     flood_s: float = 0.0        # tong thoi gian flood
     total_s: float = 0.0
     max_open_s: float = 0.0     # khoang giu dai nhat (phai < MAX_OPEN_S)
+    # Hanh dong do TAT EM phat ra, khong do decide(). Dem RIENG de can C6 noi
+    # ro "13 tu chinh sach + 1 tu vong doi", chu khong gop thanh mot so 14 mo ho.
+    n_shutdown_reverts: int = 0
     timeline: list = field(default_factory=list)
 
     @property
@@ -73,6 +85,7 @@ class SimResult:
     def as_dict(self) -> dict:
         return {
             "n_actions": self.n_actions,
+            "n_shutdown_reverts": self.n_shutdown_reverts,
             "n_mitigations": self.n_mitigations,
             "n_reverts": self.n_reverts,
             "harm_s": round(self.harm_s, 3),
@@ -182,6 +195,22 @@ def run(flood_schedule, horizon_s, policy_params=None, sim_params=None,
                 )
 
         t = round(t + TICK_S, 3)
+
+    # ---- tat em: mot can thiep con MO luc het chan troi PHAI duoc go ----
+    # Day la hanh dong thu 14 cua run flood 600 s do o 8.7. No khong phai mot
+    # "hanh dong cua chinh sach" (decide() khong phat ra no) ma la mot hanh dong
+    # cua VONG DOI tien trinh; nhung no VAN la mot lenh setBandwidth that gui
+    # vao mang, nen no PHAI duoc dem trong can C6.
+    if sim_params.graceful_shutdown_revert and open_since is not None:
+        result.n_actions += 1
+        result.n_reverts += 1
+        result.n_shutdown_reverts += 1
+        result.max_open_s = max(result.max_open_s, horizon_s - open_since)
+        if keep_timeline:
+            result.timeline.append(
+                (round(horizon_s, 2), "revert", "graceful_shutdown", cstate.attempt)
+            )
+        open_since = None
     return result
 
 

@@ -129,7 +129,18 @@ class Live:
 
     def wait_published(self, state, calm_ticks=3, timeout_s=90.0):
         deadline = time.monotonic() + timeout_s
+        consecutive = 0
         while time.monotonic() < deadline:
+            # Production intentionally disables the per-tick research
+            # timeline.  Readiness must still work there; otherwise every
+            # production harness waits the full timeout despite already
+            # publishing the requested state.
+            if self.runner.timeline.maxlen == 0:
+                consecutive = consecutive + 1 if self.runner.published == state else 0
+                if consecutive >= calm_ticks:
+                    return True
+                time.sleep(0.25)
+                continue
             timeline = list(self.runner.timeline)[-calm_ticks:]
             if len(timeline) == calm_ticks and all(
                 entry["published"] == state for entry in timeline

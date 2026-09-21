@@ -1,0 +1,216 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "experiment": "chaos duoi vong kin",
+    "seed": 20260920,
+    "reps": 2,
+    "rows": [
+      "control",
+      "c9",
+      "drift",
+      "second_flood",
+      "restart",
+      "agent_kill"
+    ],
+    "lease_ttl_s": 15.0,
+    "max_open_s": 120.0,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 9.6,
+      "mongo_used_mib": 229.7,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.897,
+      "checked_at": 1789917321.7968864
+    },
+    "n_invalid_infra": 11,
+    "results": [
+      {
+        "row": "control",
+        "rep": 0,
+        "t_start": 1789917344.1345544,
+        "result": {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 0,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.3,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917388.0842917
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 0,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.6,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917390.0892355
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 0,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.5,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917392.0934117
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 0,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.9,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917394.0964375
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 0,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 6.2,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917396.1012185
+        }
+      },
+      {
+        "row": "control",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.4,
+          "mongo_used_mib": 230.9,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917398.1052709
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.5,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917400.1095378
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.8,
+          "mongo_used_mib": 230.8,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917402.1130247
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.8,
+          "mongo_used_mib": 230.9,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917404.1173332
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.9,
+          "mongo_used_mib": 230.9,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917406.1213915
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 1,
+        "invalid_infra": {
+          "healthy": false,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 6.0,
+          "mongo_used_mib": 230.9,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.902,
+          "checked_at": 1789917408.1249282
+        }
+      }
+    ],
+    "summary": {
+      "control": [
+        {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 5,
+          "bw": 7.0
+        }
+      ],
+      "c9": [],
+      "drift": [],
+      "second_flood": [],
+      "restart": [],
+      "agent_kill": []
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "ed427942704095a789f66bdffaa42e693cfe14deb87369ab287f9f2b97dbc77a",
+  "written_at_utc": "2026-09-20T15:16:51+00:00"
+}

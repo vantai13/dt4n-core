@@ -1,0 +1,257 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "experiment": "chaos duoi vong kin",
+    "seed": 20260920,
+    "reps": 3,
+    "rows": [
+      "control",
+      "c9",
+      "drift",
+      "second_flood",
+      "restart",
+      "agent_kill"
+    ],
+    "lease_ttl_s": 15.0,
+    "max_open_s": 120.0,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 8.6,
+      "mongo_used_mib": 203.5,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.795,
+      "checked_at": 1789914650.3236446
+    },
+    "n_invalid_infra": 0,
+    "results": [
+      {
+        "row": "control",
+        "rep": 0,
+        "t_start": 1789914671.3754787,
+        "result": {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 7,
+          "bw": 7.0
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 0,
+        "t_start": 1789914710.2737167,
+        "result": {
+          "t_physical_safe_s": 15.69,
+          "t_sensor_restored_s": 15.69,
+          "excess_blind_window_s": 0.0,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 0,
+        "t_start": 1789914742.2581468,
+        "result": {
+          "t_recover_s": 1.89,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 0,
+        "t_start": 1789914757.3121145,
+        "result": {
+          "t_masked_s": 2.15,
+          "detected": true,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 0,
+        "t_start": 1789914772.4341178,
+        "result": {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.43,
+          "exceptions": 0,
+          "mode": "IDLE"
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 0,
+        "t_start": 1789914789.2463727,
+        "result": {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 7.0,
+          "still_limited": true,
+          "commands_since": 4,
+          "t_observed_s": 20.0
+        }
+      },
+      {
+        "row": "control",
+        "rep": 1,
+        "t_start": 1789914818.3066761,
+        "result": {
+          "mode": "IDLE",
+          "exceptions": 0,
+          "commands": 4,
+          "bw": 20.0
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 1,
+        "t_start": 1789914861.2637198,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 1,
+        "t_start": 1789914913.3327734,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 1,
+        "t_start": 1789914965.3959053,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 1,
+        "t_start": 1789915017.2119102,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 1,
+        "t_start": 1789915070.291691,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "control",
+        "rep": 2,
+        "t_start": 1789915122.3506334,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "c9",
+        "rep": 2,
+        "t_start": 1789915175.4156325,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "drift",
+        "rep": 2,
+        "t_start": 1789915228.2449667,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "second_flood",
+        "rep": 2,
+        "t_start": 1789915275.3115413,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "restart",
+        "rep": 2,
+        "t_start": 1789915334.381636,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      },
+      {
+        "row": "agent_kill",
+        "rep": 2,
+        "t_start": 1789915381.4437199,
+        "result": {
+          "aborted": "khong vao duoc MITIGATING"
+        }
+      }
+    ],
+    "summary": {
+      "control": [
+        {
+          "mode": "MITIGATING",
+          "exceptions": 0,
+          "commands": 7,
+          "bw": 7.0
+        },
+        {
+          "mode": "IDLE",
+          "exceptions": 0,
+          "commands": 4,
+          "bw": 20.0
+        }
+      ],
+      "c9": [
+        {
+          "t_physical_safe_s": 15.69,
+          "t_sensor_restored_s": 15.69,
+          "excess_blind_window_s": 0.0,
+          "lease_ttl_s": 15.0,
+          "max_open_s": 120.0
+        }
+      ],
+      "drift": [
+        {
+          "t_recover_s": 1.89,
+          "drift_fixes_delta": 1,
+          "mode_after": "MITIGATING"
+        }
+      ],
+      "second_flood": [
+        {
+          "t_masked_s": 2.15,
+          "detected": true,
+          "mode_at_second_flood": "MITIGATING"
+        }
+      ],
+      "restart": [
+        {
+          "orphans_reverted": 1,
+          "t_revert_first_s": 0.43,
+          "exceptions": 0,
+          "mode": "IDLE"
+        }
+      ],
+      "agent_kill": [
+        {
+          "n_leases_cleared": 1,
+          "bw_after_lease_ttl": 7.0,
+          "still_limited": true,
+          "commands_since": 4,
+          "t_observed_s": 20.0
+        }
+      ]
+    },
+    "log_counts": {
+      "WARNING": 22
+    }
+  },
+  "content_sha256": "21fe80bfefa0d5ef376211609ed45caac9751019d46329f91f97b49162575f17",
+  "written_at_utc": "2026-09-20T14:44:01+00:00"
+}

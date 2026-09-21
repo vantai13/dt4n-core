@@ -426,14 +426,39 @@ quán nội tại** — không có mâu thuẫn.
 
 ## 15.3 Vì sao gap chỉ 2,3 s trong khi sim dự đoán ~9–13 s
 
-Sim 8.2 giả định sau revert detector bị ức chế hết `cooldown_s` = 8 s. **Thực tế
-không:** dưới flood 47 Mbps, tập entity vi phạm **có chứa `link-s2-s3`** — entity
-**duy nhất** nằm ngoài vùng ức chế 15/16 — nên điều kiện `local <= zone` của
-`ml/fsm.py` không thoả và **ức chế không áp dụng**; detector công bố `act` ngay.
+> **⚠️ ĐÍNH CHÍNH 8.8 — phạm vi của phát biểu này hẹp hơn bản gốc.**
+> Receipt: `results/report/phase8_gap_reconciliation.json`. Xem
+> `08-acceptance.md §0.2`. Bản gốc phát biểu như một tính chất của *hệ dưới
+> flood 47 Mbps*; nó chỉ đúng cho *chiến dịch 8.6*. Đoạn dưới đã sửa.
+
+Sim 8.2 giả định sau revert detector bị ức chế hết `cooldown_s` = 8 s. **Trong
+chiến dịch A/B 8.6 thì không:** ở **1846/1846** tick báo động của nhánh A, tập
+entity vi phạm **có chứa `link-s2-s3`** — entity **duy nhất** nằm ngoài vùng ức
+chế 15/16 — nên điều kiện `local <= zone` của `ml/fsm.py` không thoả và **ức chế
+không áp dụng một lần nào** (0 tick `suppressed_intervention` trên toàn chiến
+dịch); detector công bố `act` ngay.
 
 Chính **"lỗ hổng ức chế"** phát hiện ở 8.3 (1/3 round) làm vòng kín **tái bảo vệ
-nhanh hơn mô hình**: 93,2% thay vì 82% dự đoán. Đổi lại là **mất quan sát** —
-cùng một cơ chế, hai mặt.
+nhanh hơn mô hình** *trong chiến dịch này*: 93,2% thay vì 82% dự đoán. Đổi lại
+là **mất quan sát** — cùng một cơ chế, hai mặt.
+
+**Nhưng nó KHÔNG phải một tính chất ổn định của hệ.** Trong chiến dịch stability
+8.7, cùng flood h1→srv1 47 Mbps, cùng policy, cùng release:
+
+| | 8.6 A/B nhánh A | 8.7 stability flood |
+|---|---|---|
+| tick báo động chứa `link-s2-s3` | 1846/1846 = **100,0%** | 2/23 = **8,7%** |
+| tick `unknown/suppressed_intervention` | **0** | **554** |
+| gap đo được | 1–5 s (mean 2,31) | **11,0 s × 6** |
+
+11,0 s khớp trễ chết của sim (8,0 + 1,433 + 2 = **11,433 s**) trong **0,43 s**.
+Cả hai con số gap tính lại bằng **đúng một hàm** (`measurements.blind_time.gaps`)
+và ra đúng số trong receipt, nên **không phải lệch định nghĩa** — đó là hai chế
+độ vật lý khác nhau của cùng một cơ chế ức chế.
+
+**Điều kiện phân biệt hai chế độ CHƯA XÁC ĐỊNH ĐƯỢC.** Đây là một ẩn số được
+khai, không phải một kết luận. Hệ quả: không được trích tỷ lệ mù C12 như một
+hằng số của hệ.
 
 ## 15.4 Ba hệ quả về cách viết (không phải về code)
 
@@ -446,6 +471,11 @@ cùng một cơ chế, hai mặt.
    > vì luồng TCP của nạn nhân có tốc độ chào cố định và bù phần tụt bằng recovery
    > burst sau mỗi probe. Tỷ lệ bảo vệ thật, đo độc lập từ audit, là **93,2%**, và
    > khớp với txRate trung bình của thủ phạm trong 0,35 s."*
+
+   **Độ lớn của phần bù (đính chính 8.8):** 8,19 s không được bảo vệ trên cửa sổ
+   120 s ⇒ trung bình "thật" của h3 ≈ **2,00 Mbps**; đo được **2,146**. Phần bù
+   do recovery burst ≈ **0,15 Mbps**, **không phải ≈ 0,5 Mbps**. Cơ chế trần vẫn
+   đúng (CV nhánh A = 0,05%, A ≈ h2 chưa bị động tới), nhưng **độ lớn nhỏ hơn**.
 
 3. **Ablation là NULL TẠI TRẦN.** Cả hai nhánh chạm cùng một trần, nên phép so
    sánh **không có khả năng phân biệt**; CI95 hẹp ở đây **không** phải "bằng chứng
@@ -468,6 +498,14 @@ Recovery burst **không bù được** cho nó: một tick tụt vẫn là một
 
 ⚠️ Dữ liệu tick thô của 8.6 **không được lưu** (receipt chỉ có `n_ticks`) nên
 **không tính ngược được**. Harness 8.7 phải lưu chuỗi tick thô của h3.
+
+> **Trả nợ ở 8.8.** `measurements/degraded.py` cài đúng vị từ trên, với một
+> khác biệt được khai: **mức nền lấy bằng TRUNG VỊ của các tick hợp lệ NGOÀI
+> mọi khoảng sự cố trong CHÍNH run đó**, không phải trung bình 30 s trước
+> `t_flood`. Lý do: trung vị không bị một burst đơn lẻ kéo lên, và lấy nền từ
+> chính run làm nó bền với trôi tải nền giữa các run. `FLOOR_RATIO = 0,5` khoá
+> TRƯỚC khi chạy. Cả `run_phase8_soak.py` lẫn `run_phase8_stability.py` nay lưu
+> chuỗi tick thô (`ticks_*.json`) để người khác tính lại bằng định nghĩa của họ.
 
 # 16. Sai lệch giao thức — ablation 6 khối thay vì 8
 

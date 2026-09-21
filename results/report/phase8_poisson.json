@@ -1,0 +1,216 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "source_receipt": "results/report/phase8_stability_poisson.json",
+    "source_sha256": "801e68af8480170c99cae4792a201de97099470c1ea6a53b54025fa2a66b041c",
+    "horizon_s": 1800.0,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "paired_comparison": [
+      {
+        "seed": 0,
+        "sim": {
+          "seed": 0,
+          "n_spans": 2,
+          "flood_s": 206.2,
+          "n_actions": 12,
+          "n_shutdown_reverts": 0,
+          "n_mitigations": 6,
+          "blind_fraction": 0.1678,
+          "harm_fraction": 0.2146
+        },
+        "live": {
+          "n_actions": 12,
+          "n_inject": 6,
+          "n_exceptions": 0,
+          "min_hold_s": 15.0,
+          "violates_t0": [],
+          "c12a": 0.156,
+          "c12b": 0.9631,
+          "c12c_longest_blind_s": 227.0,
+          "degraded_tick_fraction_h3": 0.0
+        },
+        "delta_actions_live_minus_sim": 0,
+        "s11_by_t_source": {
+          "n_type_i": 0,
+          "type_ii_count": 178,
+          "n_unattributed": 4,
+          "n_t_source_resolved": 1804
+        },
+        "affected_profile": {
+          "n_alarming": 196,
+          "n_with_out_of_zone": 196,
+          "fraction_out_of_zone": 1.0,
+          "n_suppressed_ticks": 1
+        },
+        "bg_flow_srv2_rx": {
+          "n": 1802,
+          "median_mbps": 4.2641,
+          "first_half_median": 4.2642,
+          "second_half_median": 4.2639,
+          "min_mbps": 4.2292,
+          "max_mbps": 4.3095,
+          "n_below_1mbps": 0,
+          "fraction_below_1mbps": 0.0
+        }
+      },
+      {
+        "seed": 1,
+        "sim": {
+          "seed": 1,
+          "n_spans": 3,
+          "flood_s": 332.6,
+          "n_actions": 18,
+          "n_shutdown_reverts": 0,
+          "n_mitigations": 9,
+          "blind_fraction": 0.2378,
+          "harm_fraction": 0.1976
+        },
+        "live": {
+          "n_actions": 18,
+          "n_inject": 9,
+          "n_exceptions": 0,
+          "min_hold_s": 15.0,
+          "violates_t0": [],
+          "c12a": 0.2299,
+          "c12b": 0.9648,
+          "c12c_longest_blind_s": 237.0,
+          "degraded_tick_fraction_h3": 0.0
+        },
+        "delta_actions_live_minus_sim": 0,
+        "s11_by_t_source": {
+          "n_type_i": 0,
+          "type_ii_count": 300,
+          "n_unattributed": 3,
+          "n_t_source_resolved": 3606
+        },
+        "affected_profile": {
+          "n_alarming": 323,
+          "n_with_out_of_zone": 323,
+          "fraction_out_of_zone": 1.0,
+          "n_suppressed_ticks": 0
+        },
+        "bg_flow_srv2_rx": {
+          "n": 1801,
+          "median_mbps": 4.2639,
+          "first_half_median": 4.2638,
+          "second_half_median": 4.2639,
+          "min_mbps": 3.885,
+          "max_mbps": 4.8556,
+          "n_below_1mbps": 0,
+          "fraction_below_1mbps": 0.0
+        }
+      },
+      {
+        "seed": 2,
+        "sim": {
+          "seed": 2,
+          "n_spans": 0,
+          "flood_s": 0,
+          "n_actions": 0,
+          "n_shutdown_reverts": 0,
+          "n_mitigations": 0,
+          "blind_fraction": 0.0,
+          "harm_fraction": 0.0
+        },
+        "live": {
+          "n_actions": 0,
+          "n_inject": 0,
+          "n_exceptions": 0,
+          "min_hold_s": null,
+          "violates_t0": [],
+          "c12a": 0.0,
+          "c12b": null,
+          "c12c_longest_blind_s": 0.0,
+          "degraded_tick_fraction_h3": null
+        },
+        "delta_actions_live_minus_sim": 0,
+        "s11_by_t_source": {
+          "n_type_i": 0,
+          "type_ii_count": 0,
+          "n_unattributed": 0,
+          "n_t_source_resolved": 4096
+        },
+        "affected_profile": {
+          "n_alarming": 0,
+          "n_with_out_of_zone": 0,
+          "fraction_out_of_zone": null,
+          "n_suppressed_ticks": 0
+        },
+        "bg_flow_srv2_rx": {
+          "n": 1800,
+          "median_mbps": 4.2637,
+          "first_half_median": 4.2637,
+          "second_half_median": 4.2638,
+          "min_mbps": 4.2494,
+          "max_mbps": 4.278,
+          "n_below_1mbps": 0,
+          "fraction_below_1mbps": 0.0
+        }
+      }
+    ],
+    "c6c": {
+      "live_actions": [
+        12,
+        18,
+        0
+      ],
+      "sim_actions_same_seed": [
+        12,
+        18,
+        0
+      ],
+      "delta_live_minus_sim": [
+        0,
+        0,
+        0
+      ],
+      "mean_abs_delta": 0.0,
+      "all_within_sim_population_min_max": true,
+      "no_t0_violation": true,
+      "note": "so THEO CAP voi sim DA VA (graceful_shutdown_revert=True). Can dung la sim cua CHINH seed do, khong phai p50/p95 cua 10000 seed."
+    },
+    "c12a_poisson": {
+      "per_seed": [
+        0.156,
+        0.2299,
+        0.0
+      ],
+      "mean": 0.1286,
+      "min": 0.0,
+      "max": 0.2299,
+      "meaning": "ty le mu tren TONG thoi gian van hanh duoi chu ky lam viec Poisson 6 su co/gio, thoi luong trung binh 120 s. Day la con so DUY NHAT co nghia cho system card; 96.3% (flood lien tuc) la CAN TREN va 0.0% (quiet) la CAN DUOI."
+    },
+    "c8r": {
+      "n_type_i_total": 0,
+      "n_unattributed_total": 7,
+      "predicate": "t_start <= t_source < t_revert + cooldown_s"
+    },
+    "hypothesis_test": {
+      "hypothesis_sha256": "b1a3153e184b379f31f3bd5e2d944174cf9a4d57e12a192d47dd9a53052764c7",
+      "hypothesis_id": "DT4N-P8.8-H-SUPPRESSION-BISTABLE",
+      "fraction_out_of_zone_per_seed": [
+        1.0,
+        1.0,
+        null
+      ],
+      "srv2_rx_median_mbps_per_seed": [
+        4.2641,
+        4.2639,
+        4.2637
+      ],
+      "n_suppressed_ticks_per_seed": [
+        1,
+        0,
+        0
+      ],
+      "verdict": "KHONG KIEM DUOC (thieu du lieu srv2 hoac audit)",
+      "rule": "neu bac bo thi GHI BAC BO, khong bia gia thuyet moi sau khi nhin so (dieu da khoa trong chinh file gia thuyet)"
+    }
+  },
+  "content_sha256": "6e2a21a4301c1b5420d2fee3a1c1ebde316e8dc7817bb0515de2e07f72a3e64b",
+  "written_at_utc": "2026-09-21T03:21:47+00:00"
+}

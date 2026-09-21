@@ -62,6 +62,13 @@ STALE_OBSERVE_HEAL_S = 30.0
 # Khi mot vong sua loi lap lai ma loi khong bien mat, no khong con sua loi nua -
 # no dang thanh NGUON TAI. Sau 3 lan troi lien tiep, gian chu ky gui lai.
 DRIFT_STREAK_ALERT = 3
+# `stale_intervention` la mot cai TAT: theo N15 controller khong duoc tao can
+# thiep moi trong khi no bat. No tu tat khi ban ghi duoc DONG. Neu khong ai
+# dong (ban ghi vo chu - loi #2 cua chaos 8.7), no bat VINH VIEN va IM LANG:
+# khong exception, tick deu, UI xanh, va controller khong bao gio hanh dong nua.
+# Mot co che fail-safe khong co duong thoat khong con la an toan, no la mot che
+# do hong. Toi thieu phai KEU. 30 tick = 30 s o 1 Hz.
+STALE_INTERVENTION_STREAK_ALERT = 30
 DRIFT_BACKOFF_MAX_S = 30.0
 SHUTDOWN_TIMEOUT_S = 5.0
 CRASH_LOOP = (5, 60.0)
@@ -118,6 +125,7 @@ class ControlRunner:
         self._last_renew = {}
         self._last_send = {}
         self._drift_streak = {}
+        self._stale_intervention_streak = 0
         self._stop = threading.Event()
         # tick() va shutdown() cung sua cstate VA cung co the phat `revert` cho
         # cung mot open_id. Chay song song -> hai duong sinh CUNG mot
@@ -136,6 +144,8 @@ class ControlRunner:
             "ticks": 0, "commands": 0, "renewals": 0, "drift_fixes": 0,
             "orphans_reverted": 0, "exceptions": 0, "unknown_observed": 0,
             "orphan_log_closed": 0,
+            "stale_intervention_n_ticks": 0,
+            "stale_intervention_max_streak": 0,
         }
 
     # ------------------------------------------------------------ khoi dong
@@ -282,6 +292,8 @@ class ControlRunner:
             self.opened_at_mono = None
             self._last_renew.clear()
 
+        self._watch_stale_intervention(view)
+
         # C10 doi 100% QUYET DINH dung lai duoc, khong phai 100% hanh dong.
         # Mot quyet dinh KHONG sinh hanh dong van la mot quyet dinh - va la loai
         # kho giai thich nhat ("vi sao luc do controller khong lam gi?").
@@ -299,6 +311,28 @@ class ControlRunner:
         # 3) Cong bo trang thai cua CHINH controller (hop dong D)
         self._publish(now)
         return self.cstate
+
+    def _watch_stale_intervention(self, view):
+        """Keu khi N15 bat lien tuc qua lau - dau hieu co ban ghi khong ai dong.
+
+        KHONG tu dong go: go ho ban ghi cua mot controller khac la dung cai
+        vong phan hoi duong ma N15 sinh ra de chan. Chi bao nguoi.
+        """
+        if view.cause != "stale_intervention":
+            self._stale_intervention_streak = 0
+            return
+        self._stale_intervention_streak += 1
+        self.stats["stale_intervention_n_ticks"] += 1
+        self.stats["stale_intervention_max_streak"] = max(
+            self.stats["stale_intervention_max_streak"],
+            self._stale_intervention_streak)
+        streak = self._stale_intervention_streak
+        if streak == STALE_INTERVENTION_STREAK_ALERT or (
+                streak > STALE_INTERVENTION_STREAK_ALERT
+                and streak % STALE_INTERVENTION_STREAK_ALERT == 0):
+            log.error(
+                "stale_intervention lien tuc %d tick: co the co ban ghi vo chu "
+                "khong ai dong -> controller dang bi TAT VINH VIEN (N15)", streak)
 
     def _audit_tick(self, view, cstate_before, cstate_after, actions, now):
         """Moi lan goi decide() deu de lai dau vet du de goi lai decide()."""

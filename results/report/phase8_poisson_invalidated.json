@@ -1,0 +1,36 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "kind": "phep do VO HIEU do HA TANG (khong phai gia thuyet bi bac bo)",
+    "campaign": "Poisson 1800 s x 3 seed, bat dau 2026-09-21T00:33:13Z",
+    "artifacts_preserved": "logs/phase8_stability/poisson_003315_INVALIDATED/",
+    "what_happened": "Trong khi chien dich dang chay seed 2, mot phien lam viec khac (tro ly) chay `sudo mn -c` luc ~01:45:30Z de don mot topology ma no TUONG la rac. Topology do chinh la topology dang duoc chien dich nay dung. `mn -c` cung giet Ryu. Collector ngung sinh snapshot luc 01:46:50Z trong khi vong controller VAN tiep tuc tick va ghi audit -> seed 2 chay MU tu thoi diem do.",
+    "cause": "loi thao tac cua nguoi van hanh (tro ly), KHONG phai loi cua he thong duoc do",
+    "per_seed": {
+      "seed_0": {
+        "file": "run_00.jsonl",
+        "n_rows": 1856,
+        "finished_utc": "2026-09-21T01:03Z",
+        "status": "HOP LE - ket thuc truoc moi can thiep"
+      },
+      "seed_1": {
+        "file": "run_01.jsonl",
+        "n_rows": 1901,
+        "finished_utc": "2026-09-21T01:33Z",
+        "status": "HOP LE - ket thuc truoc moi can thiep"
+      },
+      "seed_2": {
+        "file": "run_02.jsonl",
+        "n_rows": 947,
+        "started_utc": "2026-09-21T01:33Z",
+        "collector_died_utc": "2026-09-21T01:46:50Z",
+        "status": "VO HIEU - mat nguon du lieu o giua chung"
+      }
+    },
+    "decision": "KHONG dung seed 0/1 cua luot nay de ghep voi mot seed 2 chay rieng: ghep hai lan goi harness khac nhau lam chien dich mat tinh dong nhat ma khong ai kiem duoc. Chay lai CA BA seed trong MOT lan goi. Luot nay khong duoc dung de tinh bat ky con so nao.",
+    "receipt_written": false,
+    "note": "Cung cach phan biet da ap dung o 8.6 (ablation 503) va amendment 8.3."
+  },
+  "content_sha256": "87fcdd47b35f0ee158154d20a8e24b9e9fd5f1588cd8a4367bb2c865dff9efc6",
+  "written_at_utc": "2026-09-21T01:49:45.951453+00:00"
+}

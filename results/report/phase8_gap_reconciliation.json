@@ -1,0 +1,168 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "question": "gap = 2.31 s (8.6) vs 11.0 s (8.7) duoi cung mot kich thich danh nghia. Loi DINH NGHIA hay khac biet VAT LY?",
+    "method": "Doc audit da niem phong cua ca hai chien dich, tinh lai bang DUNG mot ham measurements.blind_time.gaps (gap_k = t_inject[k+1] - t_revert[k], ghep theo pair_key). Khong chay lai thi nghiem nao.",
+    "single_definition": "measurements.blind_time.pairs + .gaps",
+    "recompute_matches_sealed_receipts": {
+      "ab_mean": true,
+      "ab_min": true,
+      "ab_max": true,
+      "stability_gaps": true
+    },
+    "definitions_agree": true,
+    "campaign_8_6_ab_arm_A": {
+      "n_files": 16,
+      "gap_s": {
+        "n": 48,
+        "mean": 2.31,
+        "min": 1.0,
+        "max": 5.0,
+        "distinct": [
+          1.0,
+          3.0,
+          4.0,
+          5.0
+        ]
+      },
+      "hold_s": {
+        "n": 64,
+        "mean": 30.05,
+        "min": 8.37,
+        "max": 61.0,
+        "distinct": [
+          8.37,
+          10.36,
+          11.36,
+          12.36,
+          13.36,
+          15.0,
+          15.43,
+          16.0,
+          16.42,
+          17.4,
+          17.43,
+          18.36
+        ]
+      },
+      "n_alarming_ticks": 1846,
+      "n_alarming_with_link_s2_s3": 1846,
+      "fraction_alarming_out_of_zone": 1.0,
+      "n_ticks_suppressed": 0,
+      "state_cause_histogram": {
+        "act/": 1733,
+        "normal/": 140,
+        "suspect/": 113,
+        "unknown/missing_data": 110
+      },
+      "top_affected_sets": [
+        {
+          "n": 1687,
+          "entities": [
+            "host-h1",
+            "link-h1-s1",
+            "link-s2-s3"
+          ]
+        },
+        {
+          "n": 139,
+          "entities": [
+            "host-h1",
+            "host-srv1",
+            "link-h1-s1",
+            "link-s1-s2",
+            "link-s2-s3",
+            "link-s2-srv1"
+          ]
+        },
+        {
+          "n": 14,
+          "entities": [
+            "link-s2-s3"
+          ]
+        },
+        {
+          "n": 2,
+          "entities": [
+            "link-h1-s1",
+            "link-s2-s3"
+          ]
+        }
+      ]
+    },
+    "campaign_8_7_stability_flood": {
+      "n_files": 1,
+      "gap_s": {
+        "n": 6,
+        "mean": 11.0,
+        "min": 11.0,
+        "max": 11.0,
+        "distinct": [
+          11.0
+        ]
+      },
+      "hold_s": {
+        "n": 7,
+        "mean": 75.77,
+        "min": 16.0,
+        "max": 111.0,
+        "distinct": [
+          16.0,
+          30.0,
+          61.0,
+          92.37,
+          110.0,
+          111.0
+        ]
+      },
+      "n_alarming_ticks": 23,
+      "n_alarming_with_link_s2_s3": 2,
+      "fraction_alarming_out_of_zone": 0.087,
+      "n_ticks_suppressed": 554,
+      "state_cause_histogram": {
+        "unknown/suppressed_intervention": 554,
+        "act/": 14,
+        "unknown/missing_data": 13,
+        "normal/": 11,
+        "suspect/": 9
+      },
+      "top_affected_sets": [
+        {
+          "n": 21,
+          "entities": [
+            "host-h1",
+            "host-srv1",
+            "link-h1-s1",
+            "link-s1-s2",
+            "link-s2-srv1"
+          ]
+        },
+        {
+          "n": 2,
+          "entities": [
+            "host-h1",
+            "link-h1-s1",
+            "link-s2-s3"
+          ]
+        }
+      ]
+    },
+    "sim_dead_time_s": 11.433,
+    "verdict": "DINH NGHIA GIONG NHAU. Ca hai receipt tinh lai bang cung mot ham ra DUNG con so da niem phong, nen gia thuyet 'hai harness dinh nghia gap khac nhau' bi BAC BO. Chenh lech la VAT LY.",
+    "mechanism_from_the_same_audits": {
+      "claim": "Khac biet nam o UC CHE, va no doc duoc thang tu cung nhung file audit do - khong phai suy dien.",
+      "evidence": [
+        "8.6 arm A: 1846/1846 tick bao dong co link-s2-s3 (entity DUY NHAT ngoai vung 15/16) -> `local <= zone` KHONG thoa -> uc che khong bao gio ap dung: 0 tick suppressed_intervention tren toan chien dich.",
+        "8.7 flood: 2/23 tick bao dong co link-s2-s3 -> uc che BAT: 554 tick suppressed_intervention.",
+        "Khi uc che BAT, gap do duoc = 11.0 s, khop voi tre chet cua sim 8.2 = 11.433 s trong 0.43 s. Khi uc che TAT, gap = 1 tick."
+      ]
+    },
+    "what_must_be_retracted": [
+      "phase8_ab_addendum::why_gaps_are_short phat bieu qua rong: 'duoi flood 47 Mbps tap entity vi pham CO CHUA link-s2-s3'. Dung cho chien dich 8.6 (100.0% tick bao dong), SAI cho chien dich 8.7 (8.7%). Phai gioi han phat bieu vao dieu kien da do.",
+      "docs/phase-8/06-effectiveness.md: phan bu do recovery burst la ~0.15 Mbps (8.19 s khong bao ve tren 120 s -> trung binh 'that' ~2.00 Mbps so voi 2.146 do duoc), KHONG phai ~0.5 Mbps."
+    ],
+    "open_question": "DIEU KIEN phan biet hai che do uc che (0/1846 tick o 8.6 so voi 554/577 tick o 8.7) CHUA XAC DINH DUOC tu cac hien vat hien co. Day la mot an so DUOC KHAI, khong phai mot ket luan. He qua cho system card: khong duoc phat bieu ty le mu C12 nhu mot hang so cua he - no phu thuoc mot bien chua biet."
+  },
+  "content_sha256": "f8a81c53dad8f78a0690252db89008c3f03985d058d401337e3ef2c45acdc882",
+  "written_at_utc": "2026-09-20T23:54:58+00:00"
+}

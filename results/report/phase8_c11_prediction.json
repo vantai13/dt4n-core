@@ -1,0 +1,35 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "criterion": "C11",
+    "sealed_threshold_mib": 1.0,
+    "threshold_unchanged": true,
+    "first_run": {
+      "file": "results/report/phase8_soak.json",
+      "content_sha256": "164819d627c7b2fb3edbe8ac6d8e76860d8c2ac881a8fc12fb6dbdbeb9d99398",
+      "delta_mib": 5.2109375,
+      "production_flag_used": false,
+      "second_half_slope_kib_per_min": 136.0817878750463
+    },
+    "defect": "Lan chay dau KHONG dung --production, nen detector.timeline (deque 4096, van dang day) va sampler.rows (khong gioi han) - CA HAI la dung cu do - nam trong cung tien trinh duoc do RSS. Giao thuc da dang ky (run_phase8_soak.py:72-77, soak_phase7_live_v2.py:60) yeu cau do o cau hinh production.",
+    "correction_kind": "model_not_data",
+    "why_model_not_data": "Nguong giu nguyen 1.0 MiB; khong tru hang so nao; khong doi dinh nghia dRSS. Chi chay DUNG cau hinh da dang ky tu Phase 7.",
+    "independent_decomposition": {
+      "n_ticks": 6237,
+      "n_timeline": 1804,
+      "ticks_mib": 2.04,
+      "timeline_mib": 2.61,
+      "sum_mib": 4.65
+    },
+    "residual_mib": 0.56,
+    "PREDICTION": {
+      "statement": "Chay lai soak 1800 s VOI --production se cho dRSS <= 1.0 MiB.",
+      "point_estimate_mib": 0.56,
+      "falsifier": "Neu dRSS o cau hinh production VAN > 1.0 MiB thi gia thuyet 'dung cu do chiem cho' bi BAC BO va do la RO RI THAT -> C11 FAIL, phai dieu tra tiep, KHONG duoc noi nguong.",
+      "sealed_before_run_utc": "2026-09-21T01:47:55.493449+00:00"
+    },
+    "known_answer_test": "Du doan duoc ghim TRUOC khi chay lai, va no TIEN DOAN con so chu khong THEO SAU no. Rao #2 va #3 cua verdict taxonomy."
+  },
+  "content_sha256": "38d2623d2af4119f5b524428873375b39831ba63c70ff4417f793ec2b853696e",
+  "written_at_utc": "2026-09-21T01:47:55.493534+00:00"
+}

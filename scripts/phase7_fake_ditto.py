@@ -147,6 +147,7 @@ class FakeDitto:
         self.control_boot = "ctlboot1"
         self.control_seq = 0
         self.control_mode = "IDLE"
+        self.control_reason = ""
         self.control_target = ""
         self.control_limit = 0.0
         self.control_hold_s = 0.0
@@ -262,6 +263,7 @@ class FakeDitto:
                     self.control_boot, self.control_seq, self.control_mode,
                     self.control_target, self.control_limit,
                     self.control_hold_s, self.control_probe_s,
+                    getattr(self, "control_reason", ""),
                 ))
                 self.control_seq += 1
             time.sleep(1.0)
@@ -277,12 +279,14 @@ class FakeDitto:
                 client_queue.put(None)
 
     def set_control(self, mode="IDLE", target="", limit_mbps=0.0,
-                    hold_remaining_s=0.0, probe_remaining_s=0.0):
+                    hold_remaining_s=0.0, probe_remaining_s=0.0, reason=""):
         self.control_mode = mode
         self.control_target = target
         self.control_limit = limit_mbps
         self.control_hold_s = hold_remaining_s
         self.control_probe_s = probe_remaining_s
+        # 8.8: `reason` phan biet IDLE "ranh" voi IDLE "bi troi tay" (N15/N16).
+        self.control_reason = reason
 
     def push_control(self, **kwargs):
         self.set_control(**kwargs)
@@ -290,6 +294,7 @@ class FakeDitto:
             self.control_boot, self.control_seq, self.control_mode,
             self.control_target, self.control_limit,
             self.control_hold_s, self.control_probe_s,
+            getattr(self, "control_reason", ""),
         )
         self.control_seq += 1
         self.push(document)

@@ -15,11 +15,11 @@ const det = (over = {}) => ({
 })
 
 function controlThing({ mode = 'IDLE', target = '', limit = 0, hold = 0,
-                        probe = 0, seq = 1, boot = 'ctl-1' } = {}) {
+                        probe = 0, seq = 1, boot = 'ctl-1', reason = 'x' } = {}) {
   return {
     thingId: 'org.dt4n:controlloop',
     features: {
-      decision: { properties: { mode, target, limitMbps: limit, reason: 'x',
+      decision: { properties: { mode, target, limitMbps: limit, reason,
                                 decidedAt: '' } },
       schedule: { properties: { holdRemainingS: hold, probeRemainingS: probe,
                                 attempt: 0, episode: 1 } },
@@ -171,4 +171,55 @@ test('hai tracker độc lập, bootId không lẫn sang nhau', () => {
   assert.equal(observeFreshness(c, { bootId: 'ctl-1', seq: 2 }, 1100), true)
   assert.equal(c.retired.size, 0)
   assert.equal(d.retired.size, 1)
+})
+
+// ---------------------------------------------------------------- 8.8
+// Chaos 8.7 lộ ra một lỗ hổng trung thực của UI 8.5: `mode = IDLE` với
+// `reason = idle_stale_intervention` nghĩa là "tôi bị trói tay", không phải
+// "không có gì để làm". Hai trạng thái đó đòi hỏi hai hành vi khác nhau từ
+// người vận hành, nên chúng không được chia chung một nhãn.
+test('IDLE vì N15 không được hiện là RẢNH', () => {
+  const view = controlView(controlThing({ reason: 'idle_stale_intervention' }),
+                           armed(), 0)
+  assert.equal(view.mode, 'IDLE')
+  assert.equal(view.blocked, true)
+  assert.equal(view.modeLabel, 'KHÔNG THỂ HÀNH ĐỘNG')
+  assert.equal(view.severity, 'warning')
+  assert.match(view.modeDetail, /N15/)
+})
+
+test('IDLE vì N16 (ngoài vùng vận hành) cũng là bị trói tay', () => {
+  const view = controlView(controlThing({ reason: 'idle_out_of_range' }), armed(), 0)
+  assert.equal(view.blocked, true)
+  assert.equal(view.modeLabel, 'KHÔNG THỂ HÀNH ĐỘNG')
+})
+
+test('IDLE bình thường vẫn là RẢNH', () => {
+  const view = controlView(controlThing({ reason: 'idle_quiet' }), armed(), 0)
+  assert.equal(view.blocked, false)
+  assert.equal(view.modeLabel, 'RẢNH')
+  assert.equal(view.severity, null)
+})
+
+test('MITIGATING mang reason lạ không bị nhầm là bị trói tay', () => {
+  const view = controlView(
+    controlThing({ mode: 'MITIGATING', reason: 'idle_stale_intervention' }), armed(), 0)
+  assert.equal(view.blocked, false)
+  assert.equal(view.modeLabel, 'ĐANG GIẢM THIỂU')
+})
+
+test('bị trói tay thì KHÔNG được báo tất cả ổn', () => {
+  const ok = controlView(controlThing({ reason: 'idle_quiet' }), armed(), 0)
+  const blocked = controlView(controlThing({ reason: 'idle_stale_intervention' }),
+                              armed(), 0)
+  assert.equal(allClear(0, det(), ok), true)
+  assert.equal(allClear(0, det(), blocked), false)
+})
+
+test('STALE thắng bị trói tay: không khẳng định gì từ bản tin chết', () => {
+  const view = controlView(controlThing({ reason: 'idle_stale_intervention' }),
+                           armed('ctl-1', 0), 60_000)
+  assert.equal(view.stale, true)
+  assert.equal(view.blocked, false)
+  assert.equal(view.modeLabel, 'KHÔNG XÁC NHẬN ĐƯỢC')
 })

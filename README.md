@@ -129,6 +129,21 @@ trên mỗi run. Fast scorer v2 đạt p95 0,943 ms; soak 30 phút tăng 0,2852 
 [receipt tổng v2](results/report/phase6r_stability_v2.json). Phase 8 vẫn bị
 khóa chờ S11 live + S12; nhãn và protected estimand S2/S3 vẫn chưa mở.
 
+### Vòng điều khiển kín — Phase 8
+
+Controller đọc twin như một consumer ngang hàng với dashboard, định vị **một**
+client thủ phạm, và giới hạn tốc độ tại link truy nhập của nó bằng
+`setBandwidth` — có thể đảo ngược, theo lịch backoff mũ, ghi log trước khi gửi
+lệnh. A/B 32 lượt live: **+1,893 Mbps** cho nạn nhân (CI95 [1,854; 1,931]);
+`act` → giới hạn có hiệu lực p95 **2032 ms**.
+
+**Đọc mục Giới hạn trước khi dùng.** Hệ không làm failover đường đi, không
+phản ứng với `degrade`, không thấy nạn nhân bị bỏ đói, và **mù 96,3% thời gian
+trong lúc đang giảm thiểu**.
+[System card v4](docs/SYSTEM_CARD_v4.md) ·
+[nghiệm thu](docs/phase-8/08-acceptance.md) ·
+`python3 scripts/accept_phase8.py --strict`
+
 ## Dữ liệu trước ML (bản v2)
 
 `run_sync` mặc định sinh TCP normal **2 Mbps/client** tới hai server luân phiên và UDP srv1→srv2 **2 Mbps**. Chọn `--traffic-profile server-only` để tái lập tải của nghiệm thu v1; `--traffic-profile idle` để tắt tải, hoặc `--traffic-profile flood --flood-rate 50M` cho flood. `run_phase1` có `--normal-rate`, `--rate` và `--server-bg-rate`.

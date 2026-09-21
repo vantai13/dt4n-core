@@ -9,6 +9,27 @@
 // Suy từ bwMbps sẽ nói dối ở cả ba.
 import { isStale } from './freshness.js'
 
+// 8.8: `mode = IDLE` KHÔNG phải lúc nào cũng nghĩa là "không có gì để làm".
+// Chaos 8.7 lộ ra một trạng thái thứ hai mang đúng nhãn IDLE: controller bị
+// N15/N16 CẤM hành động trong khi mạng đang bị flood thật — im lặng, không
+// exception, tick đều, UI xanh. Hai trạng thái đó khác nhau về CÁI NGƯỜI VẬN
+// HÀNH PHẢI LÀM (một cái: không làm gì; cái kia: vào xem ngay), nên chúng
+// không được chia chung một nhãn. `reason` do chính policy phát ra
+// (controller/policy.py::decide -> "idle_" + label.lower()) nên đây vẫn là
+// ÁNH XẠ, không phải suy diễn.
+export const BLOCKED_REASONS = Object.freeze({
+  idle_stale_intervention:
+    'Có bản ghi can thiệp mở quá hạn mà chưa ai đóng (N15). Controller KHÔNG '
+    + 'được tạo can thiệp mới cho tới khi sổ sách được đóng.',
+  idle_out_of_range:
+    'Tải nằm ngoài vùng vận hành đã hiệu chuẩn (N16). Controller từ chối hành '
+    + 'động vì detector không còn đáng tin ở chế độ này.',
+})
+
+export function blockedDetail(mode, reason) {
+  return mode === 'IDLE' ? (BLOCKED_REASONS[reason] ?? null) : null
+}
+
 export const CONTROL_SEVERITY = Object.freeze({
   IDLE: null,             // không có gì để báo
   MITIGATING: 'active',   // đang can thiệp
@@ -61,15 +82,20 @@ export function controlView(thing, tracker, nowMs, receivedAtMs = nowMs) {
     stale ? null : Math.max(0, (Number(value) || 0) - elapsedS)
 
   const target = decision.target || ''
+  const blocked = stale ? null : blockedDetail(mode, decision.reason ?? '')
   return {
     present: !!thing,
     stale,
     mode,
-    modeLabel: stale ? 'KHÔNG XÁC NHẬN ĐƯỢC' : (MODE_LABEL[mode] ?? mode),
+    modeLabel: stale
+      ? 'KHÔNG XÁC NHẬN ĐƯỢC'
+      : (blocked ? 'KHÔNG THỂ HÀNH ĐỘNG' : (MODE_LABEL[mode] ?? mode)),
     modeDetail: stale
       ? 'Không nhận được nhịp tim của controller.'
-      : (MODE_DETAIL[mode] ?? 'Chế độ lạ — dashboard này không hiểu.'),
-    severity: controlSeverityOf(mode, stale),
+      : (blocked ?? MODE_DETAIL[mode] ?? 'Chế độ lạ — dashboard này không hiểu.'),
+    // "bị trói tay" là lúc cần con người, cùng hạng với HOLD — không phải null.
+    blocked: !!blocked,
+    severity: blocked ? 'warning' : controlSeverityOf(mode, stale),
     target,
     limitMbps: Number(decision.limitMbps) || 0,
     holdRemainingS: countdown(schedule.holdRemainingS),
@@ -96,6 +122,7 @@ export function allClear(deviceAlertCount, detector, control) {
     && !!control && control.present   // chưa bootstrap Thing -> không được nói "ổn"
     && !control.stale                 // chống masking: detector sống che controller chết
     && control.mode === 'IDLE'        // `normal` khi đang MITIGATING là do CHÍNH nó tạo ra
+    && !control.blocked               // IDLE vì BỊ CẤM hành động không phải "ổn" (8.8)
 }
 
 // Quan sát bị thu hẹp: ÁNH XẠ từ `cause` do CHÍNH detector công bố, không suy diễn.

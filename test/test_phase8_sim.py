@@ -32,10 +32,21 @@ def test_sim_khop_tinh_tay_voi_flood_lien_tuc():
       revert 126 -> inject 135 -> revert 245 -> inject 254 -> revert 364 ->
       inject 373 -> revert 483 -> inject 492   => 7 mitigation, 13 hanh dong
     Gay hai = 3 (truoc lan dau) + 6 probe x ~9 s ~= 58 s / 600 s ~= 9.7%
+
+    DINH CHINH MO HINH o 8.8: can thiep thu 7 (inject o t=492) van CON MO luc
+    het chan troi. Ban sim niem phong o 8.2 cat ngang no ma khong go, nen no
+    dem 13. He THAT bat buoc phai go khi tat (ControlRunner.shutdown) - neu
+    khong, mang ket o 7 Mbps voi mot ban ghi can thiep khong ai so huu. Vi vay
+    can dung la 13 + 1 = 14, va do la dung con so do live o 8.7. Cai sai la
+    SIM, khong phai he. Hai nhanh duoi day khoa ca hai phia cua ban sua.
     """
     res = run(always, 600.0, PolicyParams(t0_s=15, t_max_s=110, probe_w_s=14))
     assert res.n_mitigations == 7
-    assert res.n_actions == 13
+    assert res.n_actions == 14, "phai co them revert cua tat em"
+    assert res.n_shutdown_reverts == 1
+    old = run(always, 600.0, PolicyParams(t0_s=15, t_max_s=110, probe_w_s=14),
+              sim_params=SimParams(graceful_shutdown_revert=False))
+    assert old.n_actions == 13, "phai tai lap duoc con so da niem phong o 8.2"
     assert res.harm_s == 58.0
     assert 0.05 < res.harm_fraction < 0.15
     assert res.max_open_s <= 110.0
