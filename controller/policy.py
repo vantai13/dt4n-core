@@ -230,8 +230,16 @@ def decide(
             if loc.target is None:
                 return (), replace(cstate, reason="probe_act_" + loc.reason)
             if loc.target != cstate.target:
-                # thu pham doi -> bo nho backoff cu vo nghia -> fail-closed
-                return (), _idle(cstate, "probe_target_changed")
+                # thu pham doi -> bo nho backoff cu vo nghia -> fail-closed.
+                # CACH LY probe_w_s giay: ung vien moi xuat hien NGAY sau khi go
+                # gioi han rat co the la NAN NHAN dang recovery burst (8.1), khong
+                # phai thu pham moi. Tai dung window_end_mono (IDLE von luon None)
+                # de KHONG them truong vao ControllerState -> audit cu van dung
+                # lai bit-exact (C10 lam hoi quy).
+                quarantined = _idle(cstate, "probe_target_changed")
+                return (), replace(
+                    quarantined, window_end_mono=now_mono + params.probe_w_s
+                )
             return _inject(
                 view,
                 replace(cstate, attempt=cstate.attempt + 1),
@@ -242,6 +250,10 @@ def decide(
         return (), replace(cstate, reason="probing")
 
     # ---------- IDLE ----------
+    if cstate.window_end_mono is not None:  # dang cach ly sau doi muc tieu
+        if now_mono < cstate.window_end_mono:
+            return (), replace(cstate, reason="idle_quarantine")
+        cstate = replace(cstate, window_end_mono=None)
     if label != ACT:
         return (), replace(cstate, reason="idle_" + label.lower())
     loc = localize(view.affected, dict(view.roles))
