@@ -1,0 +1,29 @@
+{
+  "content": {
+    "n_decisions": 601,
+    "n_match": 601,
+    "mismatches": [],
+    "params_sha256_seen": [
+      "c2b681645d16b6c47f2d081d2917dd678113bd2be503ca5e229b44910436e3e1"
+    ],
+    "files": [
+      "logs/phase8_stability/flood_140830/run_00.jsonl"
+    ],
+    "chains": [
+      {
+        "head": "run_00.jsonl",
+        "n_files": 1,
+        "ok": true,
+        "n_rows": 705,
+        "head_sha256": "7460388c3498b178ebad5c49a6ecfdb207c0a478500ed92869fd4270f0a58c83"
+      }
+    ],
+    "fraction": 1.0,
+    "c10_pass": true,
+    "params_sha256_consistent": true,
+    "min_decisions_required": 100,
+    "enough_evidence": true
+  },
+  "content_sha256": "23f44fb209885c0ebb89ea02350410663894019df3eecef22b9f71f81e6de55a",
+  "written_at_utc": "2026-09-20T23:56:33+00:00"
+}

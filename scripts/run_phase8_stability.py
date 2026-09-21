@@ -38,7 +38,7 @@ from phase8_infra_health import check as infra_check  # noqa: E402
 
 from controller.policy import PolicyParams  # noqa: E402
 from controller.twin_reader import TwinReader  # noqa: E402
-from measurements import blind_time  # noqa: E402
+from measurements import attribution, blind_time, degraded  # noqa: E402
 from ml import campaign as C  # noqa: E402
 from ml.blast_radius import Routing, radius  # noqa: E402
 from rl.scenarios import TrafficFlood  # noqa: E402
@@ -97,19 +97,11 @@ def audit_rows(path):
     return read_rows(path) if Path(path).exists() else []
 
 
-def pairs_from_audit(rows):
-    injects, reverts = {}, {}
-    for row in rows:
-        if row.get("kind") not in ("inject", "revert") or not row.get("actions"):
-            continue
-        key = blind_time.pair_key(row["actions"][0]["intervention_id"])
-        (injects if row["kind"] == "inject" else reverts)[key] = row["t_wall"]
-    out = []
-    for key, t_inject in sorted(injects.items(), key=lambda kv: kv[1]):
-        out.append({"key": key, "t_inject": t_inject,
-                    "t_revert": reverts.get(key),
-                    "hold_s": (reverts[key] - t_inject) if key in reverts else None})
-    return out
+# Ghep cap va `gap` dung DUY NHAT mot dinh nghia, o measurements/blind_time.py.
+# Truoc 8.8 moi harness tu ghep lay; hai receipt bao 2.31 s va 11.0 s cho cung
+# mot dai luong va khong ai chung minh duoc do la dinh nghia hay vat ly. Gio
+# khong con cho de lech nua (xem results/report/phase8_gap_reconciliation.json).
+pairs_from_audit = blind_time.pairs
 
 
 def main() -> int:
@@ -151,7 +143,12 @@ def main() -> int:
         deadline = time.monotonic() + 30
         while time.monotonic() < deadline and "h1-s1" not in twin.observed_bw():
             time.sleep(0.2)
-        sampler = TwinSampler(twin).start()
+        # Lay mau CA srv2: luong nen srv1->srv2 UDP 2 Mbps la thu DUY NHAT di
+        # qua link-s2-s3 (mininet/traffic.py::start_server_to_server), va
+        # link-s2-s3 la entity duy nhat NGOAI vung uc che. Gia thuyet niem
+        # phong o results/report/phase8_suppression_hypothesis.json can chinh
+        # chuoi nay de kiem. Khong lay mau srv2 = khong kiem duoc.
+        sampler = TwinSampler(twin, hosts=("h1", "h2", "h3", "srv1", "srv2")).start()
 
         for run_index, seed in enumerate(runs):
             require_clean(live, twin, timeout_s=180.0)
@@ -195,12 +192,13 @@ def main() -> int:
                 thread.join(10)
             t1 = time.time()
 
+            timeline = list(detector.timeline)
+            (audit_dir / ("timeline_%02d.json" % run_index)).write_text(
+                json.dumps(timeline), encoding="utf-8")
             rows = audit_rows(audit_path)
             pairs = pairs_from_audit(rows)
-            holds = [p["hold_s"] for p in pairs if p["hold_s"]]
-            gaps = [b["t_inject"] - a["t_revert"]
-                    for a, b in zip(pairs, pairs[1:])
-                    if a["t_revert"] is not None]
+            holds = blind_time.holds(pairs)
+            gaps = blind_time.gaps(pairs)
             spans_wall = [(t0 + lo, t0 + hi) for lo, hi in spans_plan]
             spans_int = blind_time.merge(blind_time.intervals(rows))
             # BAO CA HAI: theo dung chu cua luat da khoa (lag = 0) VA sau khi
@@ -208,7 +206,23 @@ def main() -> int:
             type_i, type_ii = classify_act_ticks(rows, spans_int, routing, "h1-s1")
             type_i_lag, _ = classify_act_ticks(rows, spans_int, routing, "h1-s1",
                                                lag_s=VIEW_LAG_S)
+            # QUY KET CHINH THUC tu 8.8: vi tu `t_source` - cung dong ho, cung
+            # bien ma InterventionLog.active() dung. Khong con hang so tru tay.
+            zone = {"org.dt4n:" + e
+                    for e in radius(routing, {"links": ["h1-s1"], "flows": []})}
+            tmap = attribution.source_time_index(timeline)
+            src_i, src_ii, src_un = attribution.classify(rows, pairs, zone, tmap)
             c12 = blind_time.summarise(rows, t0, t1, incident_spans=spans_wall)
+            # Bien ket cuc BEN voi hien tuong dem (no tu 8.6). Luu CA tick tho
+            # de nguoi khac tinh lai bang dinh nghia cua ho - receipt 8.6 chi
+            # co n_ticks nen khong tinh nguoc duoc, do la mot loi da mac.
+            ticks = [r for r in sampler.rows if t0 <= r["t_wall"] < t1]
+            (audit_dir / ("ticks_%02d.json" % run_index)).write_text(
+                json.dumps(ticks), encoding="utf-8")
+            degraded_block = {
+                host: degraded.fraction(ticks, spans_wall, host)
+                for host in ("h1", "h2", "h3", "srv1", "srv2")
+            }
             results.append({
                 "run_index": run_index, "seed": seed,
                 "t0": t0, "t1": t1, "duration_s": round(t1 - t0, 1),
@@ -221,10 +235,21 @@ def main() -> int:
                 "violates_t0": [round(h, 2) for h in holds if h < params.t0_s - 0.5],
                 "gaps_s": [round(g, 2) for g in gaps],
                 "c12": c12,
+                "degraded_tick_fraction": degraded_block,
+                "n_raw_ticks_saved": len(ticks),
                 "s11_type_i": type_i,          # GATE theo dung chu cua luat
                 "s11_type_i_after_view_lag": type_i_lag,
                 "s11_view_lag_s": VIEW_LAG_S,
                 "s11_type_ii_count": len(type_ii),
+                "s11_by_t_source": {
+                    "predicate": "t_start <= t_source < t_revert + cooldown_s",
+                    "n_timeline": len(timeline),
+                    "n_t_source_resolved": sum(1 for v in tmap.values()
+                                               if v is not None),
+                    "type_i": src_i,             # GATE that su cua 8.8
+                    "type_ii_count": len(src_ii),
+                    "unattributed": src_un,      # t_source < t_start: nhan qua di truoc
+                },
                 "flood_spans_planned": spans_plan,
                 "infra": infra_check(raise_on_fail=False),
             })
@@ -239,8 +264,22 @@ def main() -> int:
 
     sim = json.loads(SIM.read_text(encoding="utf-8"))["content"]
     bound = sim["modes"]["continuous_flood_600s"]["n_actions"]
+    # Khai THAM CHIEU vao receipt (sua o 8.8). Truoc do harness nay khong ghi
+    # tham chieu nao, nen "do dung he" chi suy ra duoc tu quy trinh chu khong
+    # kiem duoc tu hien vat - dung loai lo hong ma kiem chuoi phu thuoc ton tai
+    # de bat. Ghi sha cua FILE (khong phai content_sha256) de khop voi cach
+    # phase8_contract.pinned_sha256 ghim.
+    import hashlib
+
+    def _file_sha(rel):
+        return hashlib.sha256((C.ROOT / rel).read_bytes()).hexdigest()
+
     content = {
         "lesson": "8.7", "mode": args.mode, "duration_s": args.duration,
+        "prereg_sha256": _file_sha("results/report/phase8_prereg.json"),
+        "contract_sha256": _file_sha("results/report/phase8_contract.json"),
+        "sim_sha256": _file_sha("results/report/phase8_sim_predictions.json"),
+        "release_sha256": _file_sha("models/detector-release-1.0.0.json"),
         "policy_params": params.__dict__,
         "sim_bound_actions_flood_600s": bound,
         "sim_quiet_actions": sim["modes"]["quiet_600s"]["n_actions"],
@@ -254,6 +293,8 @@ def main() -> int:
         "s11_regression_pass_literal": all(not r["s11_type_i"] for r in results),
         "s11_regression_pass_after_view_lag": all(
             not r["s11_type_i_after_view_lag"] for r in results),
+        "s11_regression_pass_by_t_source": all(
+            not r["s11_by_t_source"]["type_i"] for r in results),
         "health_before": health_before,
         "log_counts": counter.counts,
     }

@@ -1,0 +1,82 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "amends": "results/report/phase8_poisson.json :: hypothesis_test",
+    "amends_sha256": "6e2a21a4301c1b5420d2fee3a1c1ebde316e8dc7817bb0515de2e07f72a3e64b",
+    "hypothesis_id": "DT4N-P8.8-H-SUPPRESSION-BISTABLE",
+    "hypothesis_sha256": "b1a3153e184b379f31f3bd5e2d944174cf9a4d57e12a192d47dd9a53052764c7",
+    "hypothesis_unchanged": true,
+    "sealed_verdict_kept": "KHONG KIEM DUOC (thieu du lieu srv2 hoac audit)",
+    "defect_1_vacuous_vs_missing": "Guard coi seed 2 (fraction_out_of_zone = None) la THIEU DU LIEU. That ra lich Poisson seed 2 co 0 span flood -> 0 tick bao dong -> tien de cua P2 RONG. Mot seed khong su co khong lam mat kha nang kiem cua hai seed co su co.",
+    "defect_2_confounded_proxy": "Proxy 'srv2 rx >= 1 Mbps' KHONG do duoc luong nen: srv2 nhan ca h2->srv2 TCP (~2.135) lan srv1->srv2 UDP nen (~2.129). Luong nen chet han thi srv2_rx van ~2.1 > 1.0 va phep kiem van bao 'song'. Thay bang uoc luong sach bg = srv2_rx - h2_tx.",
+    "thresholds_unchanged": {
+      "fraction_out_of_zone": "> 0.5 (nhu da niem phong)",
+      "suppressed_ticks": "THAP (<= 5)",
+      "note": "Chi doi PROXY tinh song/chet, va doi theo huong CHAT HON."
+    },
+    "declared_post_hoc": "Ban sua nay duoc lam SAU khi nhin so. Vi vay: (a) receipt da niem phong KHONG bi sua nguoc, (b) ban sua lam phep kiem KHO pass hon chu khong de hon, (c) ly do va huong deu ghi o day de nguoi khac tu phan xu.",
+    "per_seed": [
+      {
+        "seed": 0,
+        "n_flood_spans_scheduled": 2,
+        "n_alarming_ticks": 196,
+        "antecedent_vacuous": false,
+        "srv2_rx_median_CONFOUNDED": 4.2641,
+        "background_clean": {
+          "estimator": "srv2_rx - h2_tx",
+          "n": 1775,
+          "median_mbps": 2.129,
+          "min_mbps": 2.089,
+          "first_half_median": 2.129,
+          "second_half_median": 2.129,
+          "n_below_1mbps": 0
+        },
+        "fraction_out_of_zone": 1.0,
+        "n_suppressed_ticks": 1
+      },
+      {
+        "seed": 1,
+        "n_flood_spans_scheduled": 3,
+        "n_alarming_ticks": 323,
+        "antecedent_vacuous": false,
+        "srv2_rx_median_CONFOUNDED": 4.2639,
+        "background_clean": {
+          "estimator": "srv2_rx - h2_tx",
+          "n": 1801,
+          "median_mbps": 2.129,
+          "min_mbps": 2.115,
+          "first_half_median": 2.129,
+          "second_half_median": 2.129,
+          "n_below_1mbps": 0
+        },
+        "fraction_out_of_zone": 1.0,
+        "n_suppressed_ticks": 0
+      },
+      {
+        "seed": 2,
+        "n_flood_spans_scheduled": 0,
+        "n_alarming_ticks": 0,
+        "antecedent_vacuous": true,
+        "srv2_rx_median_CONFOUNDED": 4.2637,
+        "background_clean": {
+          "estimator": "srv2_rx - h2_tx",
+          "n": 1800,
+          "median_mbps": 2.129,
+          "min_mbps": 2.115,
+          "first_half_median": 2.129,
+          "second_half_median": 2.129,
+          "n_below_1mbps": 0
+        },
+        "fraction_out_of_zone": null,
+        "n_suppressed_ticks": 0
+      }
+    ],
+    "background_flow_alive_all_seeds": true,
+    "verdict_amended": "PHU HOP P2 tren 2/3 seed CO SU CO: luong nen song on dinh (uoc luong sach, khong phai proxy nhieu) VA ty le tick chua link-s2-s3 > 50% VA so tick suppressed THAP.",
+    "P1_status": "CHUA TINH (can so sanh txRate trong/ngoai tick co link-s2-s3)",
+    "P3_status": "RONG: luong nen KHONG tut o bat ky seed nao (n_below_1mbps = 0, hai nua giong nhau), nen tien de cua P3 khong xay ra.",
+    "consequence_for_system_card": "Muc C4 giu nguyen an so ve DIEU KIEN phan biet hai che do. Cai da biet them: duoi Poisson, ca hai seed co su co deu roi vao che do 8.6 (uc che gan nhu khong bao gio ap dung) trong khi luong nen song on dinh 2.129 Mbps. Dieu do PHU HOP voi gia thuyet nhung CHUA la bang chung nhan qua: chua co seed nao luong nen chet de lam doi chung."
+  },
+  "content_sha256": "5f01b70e7bd900a0a85796f2d8f173235aa1378c2dfc2687fe00b392a20ec377",
+  "written_at_utc": "2026-09-21T03:23:44.949019+00:00"
+}

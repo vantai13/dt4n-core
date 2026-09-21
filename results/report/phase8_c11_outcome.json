@@ -1,0 +1,108 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "criterion": "C11",
+    "tests": "results/report/phase8_c11_prediction.json",
+    "prediction_sha256": "b18a3e8fe2a51b655115e541f32546ce9fb3b68ee1c0cb335c38cd5f897b99ed",
+    "measured_receipt": "results/report/phase8_soak_production.json",
+    "measured_sha256": "699f642ca01f4d688b871b9ba7a964a16a4a90ce2ae4ae54bd3faebe9a010a68",
+    "threshold_mib": 1.0,
+    "predicted_mib": 0.56,
+    "measured_mib": 1.30859375,
+    "prediction_error_mib": 0.749,
+    "PREDICTION_OUTCOME": "SAI - falsifier da ghim BI KICH HOAT",
+    "falsifier_text": "Neu dRSS o cau hinh production VAN > 1.0 MiB thi gia thuyet 'dung cu do chiem cho' bi BAC BO va do la RO RI THAT -> C11 FAIL, phai dieu tra tiep, KHONG duoc noi nguong.",
+    "verdict": "FAIL",
+    "verdict_is_not_model_correction": "KHONG duoc xep PASS-with-model-correction. Rao #2 doi ban sua phai TIEN DOAN con so; ban sua cua toi tien doan 0.56 va do ra 1.309, tuc la no SAI, va sai sang phia BEN KIA nguong. Xep loai 4 o day chinh la 'sua can vi do duoc' - dung dinh nghia gian lan.",
+    "what_the_hypothesis_got_RIGHT": {
+      "claim": "dung cu do (timeline deque + sampler.rows) chiem phan lon dRSS",
+      "first_run_mib": 5.2109375,
+      "production_run_mib": 1.30859375,
+      "reduction_mib": 3.902,
+      "predicted_reduction_mib": 4.65,
+      "note": "Bo dung cu do ha dRSS 3.90 MiB that. Hieu ung la THAT va CHIEM PHAN LON. Nhung 'chiem phan lon' khong du de PASS."
+    },
+    "what_the_hypothesis_got_WRONG": {
+      "residual_mib": 1.30859375,
+      "still_over_threshold_by_mib": 0.309,
+      "why_my_decomposition_was_biased": "Toi do chi phi bo nho bang cach NAP LAI file JSON da ghi ra dia roi coi do la chi phi giu trong tien trinh. Hai thu khong bang nhau: dict tu json.load khac cau truc tich luy dan, va khong tinh phan manh allocator. Chinh 'phep do doc lap' cua toi la mot PROXY CO THIEN LECH - cung loai loi voi proxy `srv2_rx` bi nhieu ma phep kiem gia thuyet mac phai."
+    },
+    "residual_growth_is_real": {
+      "second_half_slope_kib_per_min": 27.00692971760106,
+      "first_run_slope_kib_per_min": 136.0817878750463,
+      "rss_track_t_kib": [
+        [
+          300,
+          89424
+        ],
+        [
+          601,
+          89708
+        ],
+        [
+          901,
+          89892
+        ],
+        [
+          1202,
+          90036
+        ],
+        [
+          1502,
+          90148
+        ],
+        [
+          1800,
+          90340
+        ]
+      ],
+      "deltas_per_300s_kib": [
+        [
+          601,
+          284
+        ],
+        [
+          901,
+          184
+        ],
+        [
+          1202,
+          144
+        ],
+        [
+          1502,
+          112
+        ],
+        [
+          1800,
+          192
+        ]
+      ],
+      "reading": "Do doc nua sau 27.01 KiB/phut la TANG BEN, khong phai mot cu cap phat roi phang. Ngoai suy 24 h ~ 38 MiB. Khong tham hoa, nhung KHONG duoc goi la 'khong ro ri'.",
+      "not_explained_by": {
+        "intervention_log": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24
+        ],
+        "intervention_log_note": "24 phan tu cho 12 can thiep - qua nho de giai thich 1.3 MiB.",
+        "threads": 0,
+        "exceptions": 0
+      }
+    },
+    "other_c11_components_PASS": {
+      "errors": 0,
+      "thread_growth": 0,
+      "exceptions": 0,
+      "audit_chain_ok": true,
+      "chain_spans_rotation": true,
+      "note": "Chi thanh phan RSS truot. Ba thanh phan con lai cua C11 dat."
+    },
+    "next_step_named": "Phase 9 muc 1: chay soak production co tracemalloc/objgraph de quy trach 1.3 MiB nay ve tung diem cap phat. KHONG doan tiep - lan nay doan da sai roi."
+  },
+  "content_sha256": "efeaecfe3e2f11d767b14d9f45f122dc7568f97d5386c4e9d340caab9072e17c",
+  "written_at_utc": "2026-09-21T04:01:13.711463+00:00"
+}

@@ -1,0 +1,43 @@
+{
+  "content": {
+    "n_decisions": 3602,
+    "n_match": 3602,
+    "mismatches": [],
+    "params_sha256_seen": [
+      "c2b681645d16b6c47f2d081d2917dd678113bd2be503ca5e229b44910436e3e1"
+    ],
+    "files": [
+      "logs/phase8_soak/20260921T000229Z/soak.jsonl.1",
+      "logs/phase8_soak/20260921T000229Z/soak.jsonl.2",
+      "logs/phase8_soak/20260921T000229Z/soak.jsonl.3",
+      "logs/phase8_soak/20260921T000229Z/soak.jsonl",
+      "logs/phase8_soak/20260921T032352Z/soak.jsonl.1",
+      "logs/phase8_soak/20260921T032352Z/soak.jsonl.2",
+      "logs/phase8_soak/20260921T032352Z/soak.jsonl.3",
+      "logs/phase8_soak/20260921T032352Z/soak.jsonl"
+    ],
+    "chains": [
+      {
+        "head": "soak.jsonl",
+        "n_files": 4,
+        "ok": true,
+        "n_rows": 1870,
+        "head_sha256": "b8391bdb629e26a85e4fd1878b45bfc80fab103a5a87d2d37fdea6211b45fa9a"
+      },
+      {
+        "head": "soak.jsonl",
+        "n_files": 4,
+        "ok": true,
+        "n_rows": 1870,
+        "head_sha256": "373dccef6f759a756eea0dd2d8c3be6cf7d27490039c3cf52d3326f834659832"
+      }
+    ],
+    "fraction": 1.0,
+    "c10_pass": true,
+    "params_sha256_consistent": true,
+    "min_decisions_required": 1000,
+    "enough_evidence": true
+  },
+  "content_sha256": "c3b1ecfc8744c5cdee6c78c2ff682b21a36a364913d872fa4490bf6516934007",
+  "written_at_utc": "2026-09-21T04:00:40+00:00"
+}

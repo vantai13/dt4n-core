@@ -1,0 +1,180 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "experiment": "C11 soak",
+    "config": {
+      "production": true,
+      "timeline_samples": 0,
+      "sampler": false,
+      "warmup_s": 300.0,
+      "verdict_window_s": [
+        300.0,
+        2100.0
+      ],
+      "comparable_to_phase7": true,
+      "why": "Phase 7 dang ky nguong <= 1 MiB tren CAU HINH PRODUCTION (timeline tat, khong sampler) va loai 300 s warmup. Cau hinh co do dac mang them hai bo dem cua DUNG CU DO, hoac do tu t=0, khong so truc tiep voi nguong do duoc."
+    },
+    "duration_s": 1800.0,
+    "total_run_s": 2100.0,
+    "duty_cycle": {
+      "flood_on_s": 60.0,
+      "period_s": 300.0,
+      "n_flood_spans": 7
+    },
+    "audit": {
+      "path": "logs/phase8_soak/20260921T075931Z/soak.jsonl",
+      "max_rows_per_file": 500,
+      "rotated_files": [
+        "soak.jsonl.1",
+        "soak.jsonl.2",
+        "soak.jsonl.3",
+        "soak.jsonl.4"
+      ],
+      "n_rotations": 4,
+      "n_rows_all_files": 2182,
+      "chain": {
+        "ok": true,
+        "n_rows": 2182,
+        "head_sha256": "99b55738b9231163ecb523e3342da84be273df5da007e4597f9ccd81836e19e1",
+        "n_files": 5
+      },
+      "chain_spans_rotation": true
+    },
+    "resources": {
+      "rss": {
+        "delta_kib": 968,
+        "delta_mib": 0.9453125,
+        "peak_kib": 89488,
+        "second_half_slope_kib_per_min": 20.512161995308063
+      },
+      "rss_full_run_report_only": {
+        "delta_kib": 1856,
+        "delta_mib": 1.8125,
+        "peak_kib": 89488,
+        "second_half_slope_kib_per_min": 22.32701637984657
+      },
+      "n_rss_samples": 209,
+      "n_rss_samples_verdict": 180,
+      "threads_start": 9,
+      "threads_max": 9,
+      "thread_growth": 0,
+      "intervention_log_len_series": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28
+      ]
+    },
+    "controller_stats": {
+      "ticks": 2101,
+      "commands": 77,
+      "renewals": 49,
+      "drift_fixes": 0,
+      "orphans_reverted": 0,
+      "exceptions": 0,
+      "unknown_observed": 0,
+      "orphan_log_closed": 0,
+      "stale_intervention_n_ticks": 0,
+      "stale_intervention_max_streak": 0
+    },
+    "n_interventions": 14,
+    "holds_s": [
+      15.0,
+      31.0,
+      15.0,
+      30.0,
+      15.0,
+      31.0,
+      15.0,
+      31.0,
+      16.0,
+      30.0,
+      16.0,
+      30.0,
+      16.0,
+      30.0
+    ],
+    "gaps_s": [
+      11.0,
+      243.0,
+      11.0,
+      244.0,
+      11.0,
+      244.0,
+      11.0,
+      243.0,
+      11.0,
+      243.0,
+      11.0,
+      244.0,
+      11.0
+    ],
+    "degraded_tick_fraction": {
+      "h1": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      },
+      "h2": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      },
+      "h3": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      }
+    },
+    "n_raw_ticks_saved": 0,
+    "log_counts": {
+      "WARNING": 2
+    },
+    "c11_thresholds": {
+      "max_delta_mib": 1.0,
+      "max_thread_growth": 0,
+      "max_errors": 0
+    },
+    "c11_pass": true,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 17.8,
+      "mongo_used_mib": 210.9,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.824,
+      "memory_warning": false,
+      "checked_at": 1789977571.0654771
+    },
+    "health_after": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 11.0,
+      "mongo_used_mib": 242.7,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.948,
+      "memory_warning": true,
+      "checked_at": 1789979695.9695773
+    },
+    "pid_note": "RSS do tren tien trinh harness (PID 56985), bao gom ca detector + controller + collector cung tien trinh"
+  },
+  "content_sha256": "a5592303be856c99b4bb87cfe6b3ef0f0fdbe9175ff5a455fe6030fc7e3b006d",
+  "written_at_utc": "2026-09-21T08:34:55+00:00"
+}

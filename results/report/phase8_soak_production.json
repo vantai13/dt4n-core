@@ -1,0 +1,161 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "experiment": "C11 soak",
+    "config": {
+      "production": true,
+      "timeline_samples": 0,
+      "sampler": false,
+      "comparable_to_phase7": true,
+      "why": "Phase 7 dang ky nguong <= 1 MiB tren CAU HINH PRODUCTION (timeline tat, khong sampler). Cau hinh co do dac mang them hai bo dem cua DUNG CU DO, nen khong so truc tiep voi nguong do duoc."
+    },
+    "duration_s": 1800.0,
+    "duty_cycle": {
+      "flood_on_s": 60.0,
+      "period_s": 300.0,
+      "n_flood_spans": 6
+    },
+    "audit": {
+      "path": "logs/phase8_soak/20260921T032352Z/soak.jsonl",
+      "max_rows_per_file": 500,
+      "rotated_files": [
+        "soak.jsonl.1",
+        "soak.jsonl.2",
+        "soak.jsonl.3"
+      ],
+      "n_rotations": 3,
+      "n_rows_all_files": 1870,
+      "chain": {
+        "ok": true,
+        "n_rows": 1870,
+        "head_sha256": "373dccef6f759a756eea0dd2d8c3be6cf7d27490039c3cf52d3326f834659832",
+        "n_files": 4
+      },
+      "chain_spans_rotation": true
+    },
+    "resources": {
+      "rss": {
+        "delta_kib": 1340,
+        "delta_mib": 1.30859375,
+        "peak_kib": 90340,
+        "second_half_slope_kib_per_min": 27.00692971760106
+      },
+      "n_rss_samples": 179,
+      "threads_start": 9,
+      "threads_max": 9,
+      "thread_growth": 0,
+      "intervention_log_len_series": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24
+      ]
+    },
+    "controller_stats": {
+      "ticks": 1801,
+      "commands": 66,
+      "renewals": 42,
+      "drift_fixes": 0,
+      "orphans_reverted": 0,
+      "exceptions": 0,
+      "unknown_observed": 0,
+      "orphan_log_closed": 0,
+      "stale_intervention_n_ticks": 0,
+      "stale_intervention_max_streak": 0
+    },
+    "n_interventions": 12,
+    "holds_s": [
+      16.0,
+      31.0,
+      15.0,
+      31.0,
+      16.0,
+      30.0,
+      15.0,
+      31.0,
+      15.0,
+      30.0,
+      15.0,
+      30.0
+    ],
+    "gaps_s": [
+      11.0,
+      243.0,
+      11.0,
+      243.0,
+      11.0,
+      244.0,
+      11.0,
+      243.0,
+      11.0,
+      244.0,
+      10.0
+    ],
+    "degraded_tick_fraction": {
+      "h1": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      },
+      "h2": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      },
+      "h3": {
+        "baseline_mbps": null,
+        "n_valid": 0,
+        "n_invalid": 0,
+        "n_degraded": null,
+        "fraction": null,
+        "floor_mbps": null,
+        "floor_ratio": 0.5
+      }
+    },
+    "n_raw_ticks_saved": 0,
+    "log_counts": {
+      "WARNING": 2
+    },
+    "c11_thresholds": {
+      "max_delta_mib": 1.0,
+      "max_thread_growth": 0,
+      "max_errors": 0
+    },
+    "c11_pass": false,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 23.6,
+      "mongo_used_mib": 91.18,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.356,
+      "memory_warning": false,
+      "checked_at": 1789961032.2692366
+    },
+    "health_after": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 12.3,
+      "mongo_used_mib": 144.8,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.566,
+      "memory_warning": false,
+      "checked_at": 1789963165.1323464
+    },
+    "pid_note": "RSS do tren tien trinh harness (PID 1055146), bao gom ca detector + controller + collector cung tien trinh"
+  },
+  "content_sha256": "699f642ca01f4d688b871b9ba7a964a16a4a90ce2ae4ae54bd3faebe9a010a68",
+  "written_at_utc": "2026-09-21T03:59:25+00:00"
+}

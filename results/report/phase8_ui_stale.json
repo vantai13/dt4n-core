@@ -1,0 +1,81 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "metric": "C9-a",
+    "definition": "controller ngung nhip tim -> data-control-freshness doi sang 'stale' tren trang that (Chromium headless)",
+    "budget_ms": 5000.0,
+    "n": 5,
+    "stale_after_ms": 3178.0,
+    "max_ms": 3178.0,
+    "min_ms": 3118.6,
+    "samples": [
+      {
+        "trial": 0,
+        "stale_after_ms": 3178.0,
+        "all_clear_before": true,
+        "all_clear_after": false,
+        "label": true,
+        "detector_freshness": "fresh"
+      },
+      {
+        "trial": 1,
+        "stale_after_ms": 3139.0,
+        "all_clear_before": true,
+        "all_clear_after": false,
+        "label": true,
+        "detector_freshness": "fresh"
+      },
+      {
+        "trial": 2,
+        "stale_after_ms": 3120.2,
+        "all_clear_before": true,
+        "all_clear_after": false,
+        "label": true,
+        "detector_freshness": "fresh"
+      },
+      {
+        "trial": 3,
+        "stale_after_ms": 3118.6,
+        "all_clear_before": true,
+        "all_clear_after": false,
+        "label": true,
+        "detector_freshness": "fresh"
+      },
+      {
+        "trial": 4,
+        "stale_after_ms": 3139.6,
+        "all_clear_before": true,
+        "all_clear_after": false,
+        "label": true,
+        "detector_freshness": "fresh"
+      }
+    ],
+    "detector_not_infected": true,
+    "all_clear_suppressed_after_death": true,
+    "blocked_idle_rows": [
+      {
+        "reason": "idle_quiet",
+        "expect_label": "RẢNH",
+        "label_present": true,
+        "all_clear": true
+      },
+      {
+        "reason": "idle_stale_intervention",
+        "expect_label": "KHÔNG THỂ HÀNH ĐỘNG",
+        "label_present": true,
+        "all_clear": false
+      },
+      {
+        "reason": "idle_out_of_range",
+        "expect_label": "KHÔNG THỂ HÀNH ĐỘNG",
+        "label_present": true,
+        "all_clear": false
+      }
+    ],
+    "blocked_idle_pass": true,
+    "c9a_pass": true,
+    "dashboard_note": "dashboard/dist duoc build lai o 8.8 sau khi sua controlView.js (IDLE bi troi tay). Day la mot thay doi cua LOP TRINH BAY, khong dong cham vong dieu khien."
+  },
+  "content_sha256": "d155e63131985ad2b0f003db8cbbace55d3ac2faa2c85c8bddb9b33b51d5c6b9",
+  "written_at_utc": "2026-09-21T00:08:31+00:00"
+}

@@ -1,0 +1,72 @@
+{
+  "content": {
+    "lesson": "8.8",
+    "corrects": "results/report/phase8_soak.json",
+    "corrects_sha256": "164819d627c7b2fb3edbe8ac6d8e76860d8c2ac881a8fc12fb6dbdbeb9d99398",
+    "defect": "harness doc mot file audit hien tai trong khi chinh no ep xoay vong (max_rows = 500), nen holds_s / gaps_s / n_interventions bi DEM THIEU.",
+    "not_affected": [
+      "c11_pass va moi thanh phan cua no (RSS, ERROR, thread, exception)",
+      "audit.chain: verify_chain da di theo thu tu xoay vong tu dau",
+      "n_rotations, chain_spans_rotation"
+    ],
+    "fixed_in_script": "scripts/run_phase8_soak.py (_rotation_order + read_rows)",
+    "files_read": [
+      "soak.jsonl.1",
+      "soak.jsonl.2",
+      "soak.jsonl.3",
+      "soak.jsonl"
+    ],
+    "sealed_values": {
+      "n_interventions": 2,
+      "holds_s": [
+        15.0,
+        31.0
+      ],
+      "gaps_s": [
+        11.0
+      ]
+    },
+    "corrected_values": {
+      "n_rows_all_files": 1870,
+      "n_decisions": 1801,
+      "n_actions": 24,
+      "n_interventions": 12,
+      "holds_s": [
+        15.0,
+        31.0,
+        16.0,
+        30.0,
+        15.0,
+        30.0,
+        16.0,
+        30.0,
+        15.0,
+        31.0,
+        15.0,
+        31.0
+      ],
+      "gaps_s": [
+        11.0,
+        243.0,
+        11.0,
+        243.0,
+        11.0,
+        245.0,
+        11.0,
+        243.0,
+        11.0,
+        243.0,
+        11.0
+      ]
+    },
+    "chain_recheck": {
+      "ok": true,
+      "n_rows": 1870,
+      "head_sha256": "b8391bdb629e26a85e4fd1878b45bfc80fab103a5a87d2d37fdea6211b45fa9a",
+      "n_files": 4
+    },
+    "gap_definition": "measurements.blind_time.gaps (mot dinh nghia duy nhat)"
+  },
+  "content_sha256": "4aad224a413104c04423e2c39261f03fd4893e44056dc82aa30f019efa3b8d38",
+  "written_at_utc": "2026-09-21T00:33:07+00:00"
+}

@@ -99,3 +99,60 @@ def summarise(rows, t_start, t_end, incident_spans=(), **kwargs):
         "incident_s": round(incident_s, 3),
         "n_spans": len(merge(spans)),
     }
+
+
+# ---------------------------------------------------------------- dinh nghia GAP
+# MOT dinh nghia duy nhat, dung chung boi MOI harness Phase 8.
+#
+# Ly do ton tai: o 8.7 hai receipt bao hai gia tri cho cung mot dai luong
+#   phase8_ab_addendum (8.6):     gap mean 2.31 s (min 1.0, max 5.0)
+#   phase8_stability_flood (8.7): gap = 11.0 s x 6, hang dinh
+# va hai con so ay ung ho hai cau chuyen trai nguoc nhau ve lo hong uc che.
+# Khi mot dai luong xuat hien hai lan voi hai gia tri, do LUON la mot bug -
+# trong phep do hoac trong dinh nghia - cho toi khi chung minh duoc dieu kien
+# khac nhau o dau. Ham nay loai bo kha nang thu hai: hai harness khong con cho
+# nao de lech dinh nghia nua.
+
+
+def pairs(rows):
+    """Ghep inject/revert theo pair_key, sap theo t_inject.
+
+    Tra [{key, t_inject, t_revert|None, hold_s|None}]. Mot inject khong co
+    revert (lease/ cat ngang) co t_revert = None va KHONG sinh gap.
+    """
+    injects, reverts = {}, {}
+    for row in rows:
+        if row.get("kind") not in ("inject", "revert"):
+            continue
+        actions = row.get("actions") or []
+        if not actions:
+            continue
+        key = pair_key(actions[0]["intervention_id"])
+        (injects if row["kind"] == "inject" else reverts)[key] = row["t_wall"]
+    out = []
+    for key, t_inject in sorted(injects.items(), key=lambda kv: kv[1]):
+        t_revert = reverts.get(key)
+        out.append({
+            "key": key,
+            "t_inject": t_inject,
+            "t_revert": t_revert,
+            "hold_s": None if t_revert is None else t_revert - t_inject,
+        })
+    return out
+
+
+def gaps(paired):
+    """gap_k = t_inject[k+1] - t_revert[k]. KHONG bao gio dinh nghia khac.
+
+    Bo qua cap co t_revert = None: khong the tinh khoang tu mot cai chua dong.
+    """
+    out = []
+    for left, right in zip(paired, paired[1:]):
+        if left["t_revert"] is None:
+            continue
+        out.append(right["t_inject"] - left["t_revert"])
+    return out
+
+
+def holds(paired):
+    return [p["hold_s"] for p in paired if p["hold_s"] is not None]
