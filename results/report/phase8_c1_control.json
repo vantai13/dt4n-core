@@ -1,0 +1,795 @@
+{
+  "content": {
+    "lesson": "8.9",
+    "experiment": "E1 C1-control",
+    "prereg_sha256": "e24bc81bea94c0bb484bbce1e117a2410d0ec7a1b0d6a85820fa01feade01e20",
+    "contract_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+    "policy_sha256": "5b63aedd629be103a7a8cbfb67b43f8fdab1ed674451f4b5b91beccad1e50b68",
+    "seed": 20260921,
+    "plan": [
+      "stop_in_probe",
+      "h1_srv2",
+      "h3_srv1",
+      "h2_srv2",
+      "h2_srv2",
+      "h1_srv2",
+      "stop_in_probe",
+      "h3_srv1",
+      "h1_srv2",
+      "h3_srv1",
+      "h2_srv2",
+      "stop_in_probe",
+      "stop_in_probe",
+      "h3_srv1",
+      "h2_srv2",
+      "h1_srv2",
+      "stop_in_probe",
+      "h3_srv1",
+      "h2_srv2",
+      "h1_srv2"
+    ],
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 13.8,
+      "mongo_used_mib": 242.1,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.946,
+      "memory_warning": true,
+      "checked_at": 1789987849.1538496
+    },
+    "n_trials": 20,
+    "n_aborted": 0,
+    "by_scenario": {
+      "h3_srv1": {
+        "correct_latch": 1,
+        "wrong_target": 4,
+        "silent": 0
+      },
+      "h2_srv2": {
+        "correct_latch": 5,
+        "wrong_target": 0,
+        "silent": 0
+      },
+      "h1_srv2": {
+        "correct_latch": 1,
+        "wrong_target": 4,
+        "silent": 0
+      },
+      "stop_in_probe": {
+        "correct_latch": 1,
+        "wrong_target": 4,
+        "silent": 0
+      }
+    },
+    "n_wrong_target": 12,
+    "n_correct_nonh1_culprit": 6,
+    "outcome": "KN3",
+    "c1_control_pass": false,
+    "log_counts": {
+      "WARNING": 2
+    },
+    "trials": [
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "c91153658cb7a030d04a745fc48d99d848aeb9450abaa5cd626c7c6ebfd7b444",
+        "scenario": "stop_in_probe",
+        "index": 0,
+        "t_flood": 1789987892.132691,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 1.695730027525307,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/00_stop_in_probe.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "936fc3a9c67e91c3170112c7d9fee932db3453d55c1c1daf57cdd8fb63c31217",
+        "scenario": "h1_srv2",
+        "index": 1,
+        "t_flood": 1789987966.2766407,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/01_h1_srv2.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "eeca9aa9163232360f50f080860839f64f7384206d6fb6b8b054fbac453bc483",
+        "scenario": "h3_srv1",
+        "index": 2,
+        "t_flood": 1789988080.4865134,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/02_h3_srv1.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "7a4d1da7715c6ca8c00692ba1b58b9221d240f5928c1178130d7d9d9104c22d8",
+        "scenario": "h2_srv2",
+        "index": 3,
+        "t_flood": 1789988195.2136168,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/03_h2_srv2.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "94afac8401fb5443f95453400788abfb4f732e51e5be51cbd335ef2f6f789f34",
+        "scenario": "h2_srv2",
+        "index": 4,
+        "t_flood": 1789988309.8407626,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/04_h2_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "c61c9a847390d8bfedd5ab569f5a6a080fd56eab3e75f85df6deaababe092b2a",
+        "scenario": "h1_srv2",
+        "index": 5,
+        "t_flood": 1789988424.1687562,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/05_h1_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "7d2091496db469076e17d46c5331bf04ae6182dc44ad3263a05a93eafbab13d4",
+        "scenario": "stop_in_probe",
+        "index": 6,
+        "t_flood": 1789988536.191591,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 0.8569995760742457,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/06_stop_in_probe.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "3735d155cb99ecfda96c89fb61ea314c02aae6c723a694355e65761ee7bff02d",
+        "scenario": "h3_srv1",
+        "index": 7,
+        "t_flood": 1789988709.6280372,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/07_h3_srv1.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "724757c20d82ae55657a8d1ae0b4c110f6881db41d53e4d43ab4b7d53dd7614c",
+        "scenario": "h1_srv2",
+        "index": 8,
+        "t_flood": 1789988821.7739072,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/08_h1_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "ab8c5d3ab182a2193ef8adb1d7738d31a0b3657c042be3b2cb74fd60b5735885",
+        "scenario": "h3_srv1",
+        "index": 9,
+        "t_flood": 1789988933.9554427,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/09_h3_srv1.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "c7e8dae2b81376849d8afad92eb2b5dcf4939284ba6e739202ea07aee371fd40",
+        "scenario": "h2_srv2",
+        "index": 10,
+        "t_flood": 1789989046.0861657,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/10_h2_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "290efa04016106871beb20ef74fd5ea19d6dd1a1f98a23db812d0a0f8addd606",
+        "scenario": "stop_in_probe",
+        "index": 11,
+        "t_flood": 1789989160.5839937,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 2.582600129468908,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/11_stop_in_probe.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "7eeee31c275223c37184d36e7dc90d647f48a711b762e73afc4cc39c443a727a",
+        "scenario": "stop_in_probe",
+        "index": 12,
+        "t_flood": 1789989335.362665,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 0.16892378626517324,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/12_stop_in_probe.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "91282735548b288fa8f5dff9f27c2c5ead3b27552fe2b834238685d11c6788ca",
+        "scenario": "h3_srv1",
+        "index": 13,
+        "t_flood": 1789989507.3452895,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/13_h3_srv1.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "a876ccf85e50dc84cd19133c7c50d7c4bab965ec94a11c0b1eec4044a26229ea",
+        "scenario": "h2_srv2",
+        "index": 14,
+        "t_flood": 1789989619.5805833,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/14_h2_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "4aa470024e7ca424db4d880c13643e64cf816f678971bd6e8e32ae21106e5939",
+        "scenario": "h1_srv2",
+        "index": 15,
+        "t_flood": 1789989734.2212124,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/15_h1_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "d35ff77fc11939f81b2eb29e2cbd626a864f62f4dba67c88f57869d56ff8807d",
+        "scenario": "stop_in_probe",
+        "index": 16,
+        "t_flood": 1789989846.3874483,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 1.4813446597156497,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/16_stop_in_probe.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "8f2783ad540e9db26d609b97c806baa026296923bce5bbd1b0ad445960cc048d",
+        "scenario": "h3_srv1",
+        "index": 17,
+        "t_flood": 1789990019.7003653,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/17_h3_srv1.jsonl"
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "775c444bcda2bf53afe55af98b1bf8e56f52cb6f03840a4ff657034dd61afcf5",
+        "scenario": "h2_srv2",
+        "index": 18,
+        "t_flood": 1789990132.0435462,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/18_h2_srv2.jsonl"
+      },
+      {
+        "outcome": "wrong_target",
+        "inject_links": [
+          "h2-s1"
+        ],
+        "wrong_links": [
+          "h2-s1"
+        ],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_ambiguous_multiple_clients",
+          "idle_quiet"
+        ],
+        "audit_sha256": "d841224b553a6464d67bbc41d1804904b7b6987b4a4eb8358e4292167db187bf",
+        "scenario": "h1_srv2",
+        "index": 19,
+        "t_flood": 1789990247.3890274,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "audit": "logs/phase8_c1_control/20260921T105049Z/19_h1_srv2.jsonl"
+      }
+    ]
+  },
+  "content_sha256": "b57d6f6dfba6d9f0441b812e9e1eb5089dabe7ffc5a0ef1f5a8e0bd00bc57148",
+  "written_at_utc": "2026-09-21T11:32:21+00:00"
+}

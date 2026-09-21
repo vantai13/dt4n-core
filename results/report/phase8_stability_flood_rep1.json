@@ -1,0 +1,287 @@
+{
+  "content": {
+    "lesson": "8.7",
+    "mode": "flood",
+    "duration_s": 600.0,
+    "prereg_sha256": "03de4b39926ddf0863a89ee2c3a226104e585bfcf66ab193de2c44f13b847b23",
+    "contract_sha256": "f795ac1acfa65d85b06c8fb92d9968323bfd310d239bbb31625f4d70bf321f8f",
+    "sim_sha256": "bc73df39dbe589a7c508e9f5c5cde3857cedbefae635368bd1ac24d3df15b167",
+    "release_sha256": "254b574c6426c32503364f445b928ed1f63667b02dd7e615d5518d0781b383a7",
+    "policy_params": {
+      "t0_s": 15.0,
+      "t_max_s": 110.0,
+      "probe_w_s": 14.0,
+      "growth": 2.0,
+      "limit_mbps": 7.0,
+      "default_mbps": 20.0,
+      "lease_margin_s": 5.0
+    },
+    "sim_bound_actions_flood_600s": 13,
+    "sim_quiet_actions": 0,
+    "sim_poisson": {
+      "min": 0,
+      "p50": 14,
+      "p95": 26,
+      "max": 41,
+      "mean": 13.5709
+    },
+    "runs": [
+      {
+        "run_index": 0,
+        "seed": null,
+        "t0": 1789990472.0545757,
+        "t1": 1789991072.4678738,
+        "duration_s": 600.4,
+        "n_actions": 14,
+        "n_inject": 7,
+        "n_commands": 105,
+        "n_exceptions": 0,
+        "holds_s": [
+          16.0,
+          30.0,
+          60.0,
+          111.0,
+          111.0,
+          110.0,
+          99.4
+        ],
+        "min_hold_s": 16.0,
+        "violates_t0": [],
+        "gaps_s": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "c12": {
+          "window_s": 600.413,
+          "blind_s": 585.412,
+          "c12a_fraction_of_uptime": 0.975,
+          "c12b_fraction_of_incident": 0.975,
+          "c12c_longest_blind_s": 119.0,
+          "incident_s": 600.0,
+          "n_spans": 7
+        },
+        "degraded_tick_fraction": {
+          "h1": {
+            "baseline_mbps": null,
+            "n_valid": 600,
+            "n_invalid": 0,
+            "n_degraded": null,
+            "fraction": null,
+            "floor_mbps": null,
+            "floor_ratio": 0.5
+          },
+          "h2": {
+            "baseline_mbps": null,
+            "n_valid": 600,
+            "n_invalid": 0,
+            "n_degraded": null,
+            "fraction": null,
+            "floor_mbps": null,
+            "floor_ratio": 0.5
+          },
+          "h3": {
+            "baseline_mbps": null,
+            "n_valid": 595,
+            "n_invalid": 0,
+            "n_degraded": null,
+            "fraction": null,
+            "floor_mbps": null,
+            "floor_ratio": 0.5
+          },
+          "srv1": {
+            "baseline_mbps": null,
+            "n_valid": 600,
+            "n_invalid": 0,
+            "n_degraded": null,
+            "fraction": null,
+            "floor_mbps": null,
+            "floor_ratio": 0.5
+          },
+          "srv2": {
+            "baseline_mbps": null,
+            "n_valid": 600,
+            "n_invalid": 0,
+            "n_degraded": null,
+            "fraction": null,
+            "floor_mbps": null,
+            "floor_ratio": 0.5
+          }
+        },
+        "n_raw_ticks_saved": 2995,
+        "s11_type_i": [],
+        "s11_type_i_after_view_lag": [],
+        "s11_view_lag_s": 2.0,
+        "s11_type_ii_count": 0,
+        "s11_by_t_source": {
+          "predicate": "t_start <= t_source < t_revert + cooldown_s",
+          "n_timeline": 605,
+          "n_t_source_resolved": 605,
+          "type_i": [],
+          "type_ii_count": 0,
+          "unattributed": [
+            {
+              "t_wall": 1789990475.0546837,
+              "t_source": 1789990474.3025138,
+              "seq": 6,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990475.0564542,
+              "t_source_minus_t_start": -0.754
+            },
+            {
+              "t_wall": 1789990501.0546384,
+              "t_source": 1789990500.3044646,
+              "seq": 32,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990501.0562274,
+              "t_source_minus_t_start": -0.752
+            },
+            {
+              "t_wall": 1789990541.0545857,
+              "t_source": 1789990540.307466,
+              "seq": 72,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990541.0559926,
+              "t_source_minus_t_start": -0.749
+            },
+            {
+              "t_wall": 1789990611.0546632,
+              "t_source": 1789990610.3127744,
+              "seq": 142,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990611.0562787,
+              "t_source_minus_t_start": -0.744
+            },
+            {
+              "t_wall": 1789990732.0546386,
+              "t_source": 1789990731.3217635,
+              "seq": 263,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990732.0562108,
+              "t_source_minus_t_start": -0.734
+            },
+            {
+              "t_wall": 1789990853.0546362,
+              "t_source": 1789990852.3307142,
+              "seq": 384,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990853.056291,
+              "t_source_minus_t_start": -0.726
+            },
+            {
+              "t_wall": 1789990973.0546365,
+              "t_source": 1789990972.339518,
+              "seq": 504,
+              "affected": [
+                "org.dt4n:host-h1",
+                "org.dt4n:host-srv1",
+                "org.dt4n:link-h1-s1",
+                "org.dt4n:link-s1-s2",
+                "org.dt4n:link-s2-srv1"
+              ],
+              "owner": null,
+              "t_start": null,
+              "lead_s": null,
+              "nearest_t_start": 1789990973.0563378,
+              "t_source_minus_t_start": -0.717
+            }
+          ]
+        },
+        "flood_spans_planned": [
+          [
+            0.0,
+            600.0
+          ]
+        ],
+        "infra": {
+          "healthy": true,
+          "http_status": 200,
+          "error": null,
+          "latency_ms": 5.9,
+          "mongo_used_mib": 184.7,
+          "mongo_limit_mib": 256.0,
+          "mongo_fraction": 0.721,
+          "memory_warning": false,
+          "checked_at": 1789991073.5206528
+        }
+      }
+    ],
+    "c6_pass": false,
+    "s11_regression_pass_literal": true,
+    "s11_regression_pass_after_view_lag": true,
+    "s11_regression_pass_by_t_source": true,
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 9.5,
+      "mongo_used_mib": 172.2,
+      "mongo_limit_mib": 256.0,
+      "mongo_fraction": 0.673,
+      "memory_warning": false,
+      "checked_at": 1789990451.6201987
+    },
+    "log_counts": {
+      "WARNING": 2
+    }
+  },
+  "content_sha256": "d9dcac96a4436a7cf53254355e1b17bd0b7d10bf1a157dd72b40fb88a8833822",
+  "written_at_utc": "2026-09-21T11:44:36+00:00"
+}
