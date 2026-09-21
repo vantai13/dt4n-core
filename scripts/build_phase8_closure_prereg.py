@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""Dang ky TRUOC cho buoc dong Phase 8 (8.9). Chay va COMMIT truoc moi phep do moi.
+
+Ghim: thiet ke E1-E4, du doan, luat phan xu, va ban sua implementation A2.
+Sau khi commit file nay, doi bat ky dong nao = amendment moi, co ly do.
+"""
+from __future__ import annotations
+
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from ml import campaign as C  # noqa: E402
+
+OUT = C.ROOT / "results/report/phase8_closure_prereg.json"
+
+
+def sha(rel):
+    return C.sha256_file(C.ROOT / rel)
+
+
+CONTENT = {
+    "prereg_id": "DT4N-P8.9-CLOSURE-PREREG",
+    "lesson": "8.9",
+    "upstream": {
+        "phase8_prereg.json": sha("results/report/phase8_prereg.json"),
+        "phase8_contract.json": sha("results/report/phase8_contract.json"),
+        "phase8_acceptance.json": sha("results/report/phase8_acceptance.json"),
+        "phase8_target_audit.json": sha("results/report/phase8_target_audit.json"),
+    },
+    "amendment_A2_policy": {
+        "defect": "prereg 8.1 quy dinh LATCH muc tieu cho ca episode; policy.py chi "
+        "fail-closed MOT tick sau probe_target_changed roi quay ve IDLE, tick "
+        "act tiep theo co ung vien duy nhat -> inject. Tai hien tat dinh bang "
+        "decide() thuan: PROBING(h1) + 2 tick act{h3} -> inject h3-s1.",
+        "found_by": "doc code khi dong phase, KHONG phai do nhin so live",
+        "fix": "sau probe_target_changed: IDLE + cach ly probe_w_s giay (tai dung "
+        "window_end_mono, khong them truong) -> khong inject trong cach ly.",
+        "why_probe_w_s": "recovery burst ~3 tick (8.1) + n_act 2 tick < 14 s; khong them "
+        "tham so tu do moi.",
+        "monotonicity": "ban sua CHI them mot nhanh tra ve () -> tap trang thai phat inject "
+        "co lai; khong the tao hanh dong moi -> C2, C6-b, C7 khong the xau di.",
+        "regression": [
+            "test/test_phase8_quarantine.py (fail tren policy cu, pass tren moi)",
+            "replay audit cu voi policy moi phai van bit-exact",
+            "sim 2000 seed Poisson phai TRUNG HET voi policy cu",
+        ],
+    },
+    "E1_c1_control": {
+        "question": "C1 co PHAN BIET duoc thu pham khong, hay chi dung vi thu pham luon la h1?",
+        "scenarios": {
+            "h3_srv1": {
+                "src": "h3",
+                "dst": "srv1",
+                "culprit": "h3",
+                "victim": "h1",
+                "prediction": "latch h3 5/5 (doi xung voi h1->srv1)",
+            },
+            "h2_srv2": {
+                "src": "h2",
+                "dst": "srv2",
+                "culprit": "h2",
+                "victim": None,
+                "prediction": "latch h2 5/5 (offline 2/2, live chua tung)",
+            },
+            "h1_srv2": {
+                "src": "h1",
+                "dst": "srv2",
+                "culprit": "h1",
+                "victim": "h2",
+                "prediction": "OUT-OF-SAMPLE, do tin cay thap: latch h1 neu detector "
+                "act; co the im lang (khong act)",
+            },
+            "stop_in_probe": {
+                "src": "h1",
+                "dst": "srv1",
+                "culprit": "h1",
+                "victim": "h3",
+                "prediction": "0 inject vao h3; co the khong kich hoat duoc "
+                "probe_target_changed -> bao 'dieu kien khong xay ra'",
+            },
+        },
+        "reps_per_scenario": 5,
+        "order": "xao tron co seed 20260921 theo khoi (moi khoi = 4 kich ban)",
+        "flood_s": 60.0,
+        "outcome_per_trial": "correct_latch | wrong_target | silent | aborted",
+        "possibilities": {
+            "KN1": "moi trial co inject deu dung thu pham, >= 3 trial thu pham != h1 dung",
+            "KN2": "0 wrong_target nhung co silent -> C1 PASS, pham vi hep (khai coverage)",
+            "KN3": ">= 1 wrong_target -> C1 FAIL -> vong kin chi duoc o che do DE XUAT",
+        },
+    },
+    "C1_evaluator_change": {
+        "old": "PASS neu n_inject > 0 (muc tieu KHONG duoc kiem bang may)",
+        "new": "PASS neu target_audit.n_wrong_target_total == 0 VA E1 khong co "
+        "wrong_target VA E1 co >= 3 correct_latch voi thu pham != h1",
+        "direction": "CHAT HON",
+    },
+    "E3_suppression_modes": {
+        "question": "che do 'uc che bat' cua 8.7 (n=1) co lap lai khong, va cai gi quyet dinh no?",
+        "design": "run_phase8_stability.py --mode flood --duration 600, 3 lan goi doc lap "
+        "(tag flood_rep1..3), restart Ditto stack giua cac lan",
+        "mode_rule": "SUPPRESSION neu n_ticks_suppressed >= 50, nguoc lai NO_SUPPRESSION",
+        "hypotheses": {
+            "H-BISTABLE": "uc che bat khi luong nen srv1->srv2 chet; du doan: bg song ca run "
+            "-> NO_SUPPRESSION va fraction_out_of_zone > 0.5",
+            "H-FEEDBACK": "che do do tick bao dong DAU TIEN quyet dinh roi tu duy tri; du doan: "
+            "tick dau co link-s2-s3 <=> NO_SUPPRESSION, va khong doi che do giua run",
+            "H0-OUTLIER": "8.7 la ngoai le; du doan: 3/3 NO_SUPPRESSION",
+        },
+        "consequence": "3/3 NO_SUPPRESSION -> C12-b/C6-a gap bao theo DIEU KIEN, run 8.7 ghi "
+        "la ngoai le n=1 chua giai thich; nguoc lai kiem H-FEEDBACK tren moi run",
+        "also_serves": "C6-a lap lai (n_actions <= 14, khong hold < T0) va C10-v3 tren policy moi",
+    },
+    "E4_second_flood": {
+        "design": "run_phase8_chaos.py --rows second_flood --reps 5 --tag second_flood",
+        "harness_change": "ghi them n_suppressed_seen (so lan doc cause=suppressed_intervention "
+        "trong luc cho) - lam TRUOC khi chay",
+        "censoring": "rep khong phat hien trong MAX_OPEN_S+30 s = quan sat BI KIEM DUYET "
+        "(censored), VAN tinh vao n; bao k/n phat hien + trung vi neu k >= 3",
+        "prediction": "t_masked HAI DINH: ~2 s khi khong uc che, ~ phan hold con lai + 8 s "
+        "khi uc che; n_suppressed_seen > 0 <=> t_masked lon",
+        "gate": False,
+    },
+    "release_rule_unchanged": "acceptance_pass = khong co gate FAIL va khong co gate INVALID",
+}
+
+
+def main() -> int:
+    if OUT.exists():
+        print("da niem phong, khong ghi de:", OUT)
+        return 1
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=C.ROOT,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    content = dict(CONTENT, registered_at_commit_parent=head)
+    C.atomic_json(
+        OUT,
+        {
+            "content": content,
+            "content_sha256": C.sha256_bytes(C.canonical_json(content).encode()),
+            "written_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        },
+    )
+    print("wrote", OUT)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
