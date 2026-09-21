@@ -255,8 +255,11 @@ def row_second_flood(rig, rng, params):
         # "phat hien" = detector cong bo act VA h2 nam trong affected
         deadline = time.monotonic() + MAX_OPEN_S + 30
         t_detected = None
+        n_suppressed_seen = 0  # 8.9/E4: che do uc che TRONG luc cho
         while time.monotonic() < deadline:
             fields = rig.twin.detector_view_fields()
+            if fields.get("cause") == "suppressed_intervention":
+                n_suppressed_seen += 1
             if fields["state"] == "act" and any("host-h2" in a
                                                 for a in fields["affected"]):
                 t_detected = time.monotonic()
@@ -265,6 +268,8 @@ def row_second_flood(rig, rng, params):
         return {
             "t_masked_s": None if t_detected is None else round(t_detected - t_second, 2),
             "detected": t_detected is not None,
+            "censored_at_s": None if t_detected is not None else MAX_OPEN_S + 30,
+            "n_suppressed_seen": n_suppressed_seen,
             "mode_at_second_flood": controller.cstate.mode,
         }
     finally:
@@ -428,6 +433,15 @@ def main() -> int:
 
     content = {
         "lesson": "8.7", "experiment": "chaos duoi vong kin",
+        # 8.9: khai tham chieu, ap dung tien toi.
+        "prereg_sha256": C.sha256_file(C.ROOT / "results/report/phase8_prereg.json"),
+        "contract_sha256": C.sha256_file(C.ROOT / "results/report/phase8_contract.json"),
+        "closure_prereg_sha256": (
+            C.sha256_file(C.ROOT / "results/report/phase8_closure_prereg.json")
+            if (C.ROOT / "results/report/phase8_closure_prereg.json").exists()
+            else None
+        ),
+        "policy_sha256": C.sha256_file(C.ROOT / "controller/policy.py"),
         "seed": args.seed, "reps": args.reps, "rows": names,
         "lease_ttl_s": LEASE_TTL_S, "max_open_s": MAX_OPEN_S,
         "health_before": health_before,

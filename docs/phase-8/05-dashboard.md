@@ -210,6 +210,11 @@ suite không bao giờ báo động.
 
 ## 10. Receipt
 
+Trong amendment A2 (8.9), `IDLE` có thể mang `reason = idle_quarantine` và
+`probeRemainingS > 0` trong 14 giây sau khi mục tiêu probe đổi. Dashboard vẫn
+ánh xạ theo `mode`, nên hình thức không đổi; người vận hành đọc reason sẽ thấy
+controller đang cách ly recovery burst, không phải IDLE thông thường.
+
 | File | Nội dung |
 |---|---|
 | `dashboard/src/lib/controlView.js` | MAP thuần `(mode, stale)`, `allClear` mở rộng, `observabilityNote` |

@@ -1,4 +1,4 @@
-# System card v4 — DT4N: detector + twin + **vòng điều khiển kín**
+# System card v4.1 — DT4N: detector + twin + **vòng điều khiển kín**
 
 Thay `docs/phase-7/model-card-v3.md`. Bản v3 mô tả một hệ **chỉ quan sát**. Bản
 v4 thêm thứ làm hệ này khác về bản chất: **một actuator**. Một hệ quan sát hỏng
@@ -60,7 +60,7 @@ Phát hiện bất thường mạng ở mức tick 1 giây trên bản sao số,
 
 | Tiêu chí | Đo được | Ngưỡng | Verdict |
 |---|---|---|---|
-| **C1** hành động đúng nguồn | 100% | 100% | PASS |
+| **C1** hành động đúng nguồn | E1: **12/20 sai mục tiêu**; h2→srv2 đúng 5/5, ba kịch bản còn lại mỗi kịch bản sai 4/5 | 100% | **FAIL** |
 | **C2** không hành động với admin_down/shift/degrade | 0 lần (0/20 run offline; 0 hành động / 600 s quiet live) | 0 | PASS |
 | **C3** `act` → giới hạn **có hiệu lực** (p95) | **2032 ms** (n = 9, p50 1027 ms) | ≤ 10 000 ms | PASS |
 | **C4** nạn nhân hồi phục ≥ 80% nền (p95) | — | ≤ 15 s | **INVALID** (§4 E1) |
@@ -73,7 +73,7 @@ Phát hiện bất thường mạng ở mức tick 1 giây trên bản sao số,
 | **C8-r** hồi quy S11 dưới vòng kín (vị từ `t_source`) | **0 Loại I**; 7 tick không quy kết vì `t_source` ngoài mọi cửa sổ | 0 | PASS |
 | **C9-a** controller chết → UI STALE | max **3178 ms** (n = 5); detector vẫn fresh | ≤ 5 s | PASS |
 | **C9-b** controller chết → vật lý an toàn | **10,73 s** và **12,33 s** (n = 2) | ≤ TTL + biên | PASS |
-| **C10** dựng lại bit-exact từ audit | **2101/2101** quyết định; hash chain liền qua 5 file | 100% | PASS |
+| **C10** dựng lại bit-exact từ audit | v2: **2101/2101**; A2/v3: **1803/1803** quyết định | 100% | PASS |
 | **C11** soak 30 phút: ΔRSS, ERROR | **0,9453 MiB** (968 KiB); 0 ERROR; thread +0; 0 exception | ≤ 1 MiB; 0 | PASS |
 | **C12** tỷ lệ thời gian mù | §4 C2–C3 | báo cáo, không đặt ngưỡng | PASS |
 
@@ -130,6 +130,7 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **A2** | Chỉ hành động khi thủ phạm là **MỘT** client trong `evidence.affected`. ≥ 2 ứng viên ⇒ **fail-closed, im lặng** | `controller/localize.py` (luật v2) |
 | **A3** | Giới hạn ở link truy nhập cũng **bóp traffic HỢP LỆ của thủ phạm**: h1 **−11,97 Mbps** (CI95 [−12,15; −11,81]) trong A/B | `phase8_ab_c5.json::secondary.h1` |
 | **A4** | Giới hạn là **7,0 Mbps cố định**, không thích nghi. Nó đến từ trần tải hợp lệ trên **8 run train** (6,181986 Mbps). Tải hợp lệ vượt con số đó sẽ bị bóp oan | `phase8_prereg.json::actuator.limit_derivation` |
+| **A5** | Sau khi mục tiêu đổi trong PROBING, controller cách ly **14 s**. Recovery burst không bị re-latch ngay, nhưng một thủ phạm thật xuất hiện trong khoảng đó có thể bị trễ tối đa 14 s | amendment A2, `test_phase8_quarantine.py` |
 
 ### B. Khả năng phát hiện (kế thừa Phase 6/7, vẫn còn nguyên)
 
@@ -146,9 +147,9 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | | Giới hạn | Receipt |
 |---|---|---|
 | **C1** | Vùng ức chế **15/16** thực thể của mô hình | `phase8_prereg.json::suppression_zone` |
-| **C2** | Tỷ lệ mù **trong lúc có sự cố** = **96,3%**; cửa sổ mù liên tục dài nhất = **119 s** | `phase8_stability_flood.json::runs[0].c12` |
-| **C3** | Tỷ lệ mù trên **TỔNG thời gian vận hành** phụ thuộc chu kỳ làm việc: **0,0%** (bình thường 600 s, cận dưới) … **96,3%** (flood liên tục 600 s, cận trên); tải Poisson 1800 s × 3 seed = **12,86%** trung bình (mỗi seed: 15,60%; 22,99%; 0,00%). **Không con số nào trong ba con số này là "tỷ lệ mù của hệ".** | `phase8_stability_*.json`, `phase8_poisson.json` |
-| **C4** ⚠️ | Ức chế là **TOÀN-HOẶC-KHÔNG**: chỉ bật khi **mọi** thực thể vi phạm nằm trong vùng. `link-s2-s3` (nút cổ chai 5 Mbps) là thực thể **duy nhất** ngoài vùng. **Và cơ chế này có HAI CHẾ ĐỘ mà điều kiện chuyển giữa chúng CHƯA XÁC ĐỊNH ĐƯỢC:** chiến dịch 8.6 → `link-s2-s3` vi phạm ở **1846/1846** tick báo động, ức chế **không bật một lần nào** (0 tick), gap = 1–5 s; chiến dịch 8.7 → **2/23** tick, ức chế bật **554** tick, gap = 11,0 s. Cùng flood 47 Mbps, cùng policy, cùng release. ⇒ **bảo đảm S11 và tỷ lệ mù C12 đều phụ thuộc một biến chưa biết.** | `phase8_gap_reconciliation.json` |
+| **C2** | Tỷ lệ mù phải báo **theo chế độ**. Campaign cũ: 96,3% trong sự cố, cửa sổ dài nhất 119 s. E3 mới: **3/3 run** vào SUPPRESSION với 552–561 tick suppressed/600 s | `phase8_stability_flood.json`, `phase8_suppression_modes.json` |
+| **C3** | Trên tổng thời gian: 0,0% ở quiet; Poisson trung bình 12,86%; flood suppression gần toàn cửa sổ. Không số đơn nào là “tỷ lệ mù của hệ” | `phase8_poisson.json`, `phase8_suppression_modes.json` |
+| **C4** ⚠️ | Ức chế toàn-hoặc-không đã lặp lại **3/3** run E3. H0-OUTLIER, H-FEEDBACK và H-BISTABLE đã đăng ký đều không phù hợp; biến quyết định mode vẫn chưa xác định. Second-flood cho hai cụm latency gắn chặt với số mẫu suppressed | `phase8_suppression_modes.json`, `phase8_chaos_second_flood.json` |
 | | *Đề xuất (ngoài phạm vi):* ức chế theo **TỪNG thực thể** thay vì toàn-hoặc-không | `08-acceptance.md §5.3` |
 
 ### D. Chế độ hỏng và hồi phục
@@ -167,8 +168,8 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **E1** | Biến kết cục chính (trung bình txRate nạn nhân) **BÃO HOÀ** ở tốc độ chào TCP: **không phân biệt được 93% bảo vệ với 100%**. CV nhánh A = **0,0466%**; trung bình nhánh A (2,1462) ≈ h2 chưa bị động tới (2,1352). Phần bù do recovery burst chỉ ≈ **0,15 Mbps** | `phase8_ab_addendum.json` |
 | **E2** | Ablation là **NULL TẠI TRẦN**, không phải bằng chứng tương đương: cả hai nhánh chạm cùng một trần nên phép so sánh **không có khả năng phân biệt**. Bằng chứng phân biệt thật nằm ở **ca âm tính offline**: luật ngưỡng chỉ mặt sai ở **8/43 run** (shift, degrade, load10M) và **nhắm vào nạn nhân**; pipeline 0 lần | `phase8_ablation_rerun.json`, `phase8_localization_probe.json::gap_rule_wrong_target_runs` |
 | **E3** | Chiến dịch đo liên tục > **~3,5 h** chạm trần bộ nhớ Ditto/Mongo (**252,4/256 MiB**, truy vấn **55 s**, HTTP 503). Cổng hạ tầng phải cảnh báo theo **triệu chứng** (latency + mã lỗi), không theo **tài nguyên**: 90% Mongo là bình thường (đo được 75,4% lúc khoẻ) | 8.6 + 8.7, `scripts/phase8_infra_health.py` |
-| **E4** | `second_flood`: **n = 2**, khoảng **[1,74; 25,16] s** (tỷ số 14×) — **SƠ BỘ**, không dùng như một ước lượng định lượng. |
-| **E5** | Năm receipt phép đo (`ab_c5`, `c3`, `stability_*`, `chaos`) **không khai tham chiếu** prereg/contract, nên "đo đúng hệ" **không kiểm được từ hiện vật** — chỉ suy ra được từ quy trình | `phase8_acceptance.json::dependency_chain_not_declared` |
+| **E4** | `second_flood`: **5/5 phát hiện**, 0 censored; latency **[1,54; 1,74; 18,34; 21,95; 24,15] s**, median 18,34 s. Cụm chậm có 80–103 mẫu suppressed, cụm nhanh 1–2; n=5 chỉ hỗ trợ kết luận định tính | `phase8_chaos_second_flood.json` |
+| **E5** | Sửa một phần từ 8.9: receipt mới E1/E3/E4 khai SHA prereg/contract/policy. Năm receipt cũ vẫn không khai tham chiếu và không được hồi tố | `phase8_acceptance.json::dependency_chain_not_declared` |
 
 ### F. Phạm vi thực nghiệm
 
@@ -178,10 +179,14 @@ Mỗi dòng: **một số** và **một receipt**. Đừng rút gọn mục này
 | **F2** | Dữ liệu dùng để thiết kế luật định vị **đã mở** từ Phase 6R/7 ⇒ kết quả offline ở 8.1 là **in-sample**; `n_flood = 4`. |
 | **F3** | Mininet, **không phải phần cứng thật**. Không có mất gói vật lý, không có jitter đường truyền thật, không có nhiều tenant. |
 | **F4** | Thủ phạm luôn là **một** client. Kịch bản **hai nguồn gây nghẽn đồng thời chưa bao giờ được chạy**. |
+| **F5** | Sim 8.2 mù cấu trúc với lỗi re-latch: detector mô phỏng không sinh ứng viên là nạn nhân, nên 2.000 seed trùng nhau không kiểm được A2. |
 
 ---
 
 ## 5. KHÔNG nên dùng hệ này để
+
+Với C1 FAIL ở 8.9, hệ chỉ phù hợp ở chế độ **đề xuất hành động để con người
+duyệt**. Không bật actuator tự động ngoài đúng phạm vi đã chứng minh.
 
 - **Phản ứng với suy giảm chất lượng (`degrade`)** — B1, B5.
 - **Bảo vệ khi có ≥ 2 nguồn gây nghẽn đồng thời** — A2 (fail-closed im lặng) +
@@ -229,8 +234,8 @@ Ba chứng cứ vật lý, ba file khác nhau:
 3. Hai lease (`LEASE_TTL_S` 15 s, `MAX_OPEN_S` 120 s) phải được đồng bộ, nếu
    không chấp nhận cửa sổ mù thừa ~105 s (D1).
 4. Người vận hành phải đọc **§4** và **§5** trước khi bật vòng kín.
-5. Trước mỗi lần bật lại: chạy `scripts/accept_phase8.py --strict` và đọc bảng
-   trôi mã nguồn.
+5. Không bật vòng kín tự động khi `scripts/accept_phase8.py --strict` còn trả
+   khác 0. Với receipt 8.9 hiện tại, chỉ chạy proposal + human approval.
 
 ---
 
@@ -238,6 +243,6 @@ Ba chứng cứ vật lý, ba file khác nhau:
 
 - Tổng quát hoá sang topology/tải/loại tấn công khác (F1–F4).
 - Hành vi khi có **hai** thủ phạm đồng thời.
-- Điều kiện chuyển giữa hai chế độ ức chế (C4) — **ẩn số được khai**.
+- Biến quyết định chế độ ức chế (C4); E3 chỉ xác nhận SUPPRESSION ở 3/3 run.
 - Rằng biến kết cục nào **không** bão hoà đo đúng hiệu quả bảo vệ. Ứng viên
   `degraded_tick_fraction` mới được đo lần đầu ở 8.8, chưa có đối chứng.

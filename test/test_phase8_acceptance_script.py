@@ -99,7 +99,7 @@ def test_dung_lai_that_tren_audit_that():
 
 # ------------------------------------------------- 4. --strict
 
-def test_strict_coi_INVALID_o_cong_la_that_bai(tmp_path):
+def test_strict_coi_INVALID_hoac_FAIL_o_cong_la_that_bai(tmp_path):
     import subprocess
 
     out = tmp_path / "acc.json"
@@ -108,7 +108,14 @@ def test_strict_coi_INVALID_o_cong_la_that_bai(tmp_path):
         cwd=ROOT, capture_output=True, text=True, check=False)
     content = json.loads(out.read_text(encoding="utf-8"))["content"]
     gate_invalid = content["n_gate_invalid"]
-    assert (proc.returncode == 0) == (gate_invalid == 0 and not content["problems"])
+    gate_fail = sum(
+        1
+        for row in content["criteria"]
+        if row.get("gate") and row["verdict"] == A.FAIL
+    )
+    assert (proc.returncode == 0) == (
+        gate_invalid == 0 and gate_fail == 0 and not content["problems"]
+    )
 
 
 def test_moi_verdict_thuoc_dung_mot_trong_bon_loai(tmp_path):
