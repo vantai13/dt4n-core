@@ -1,0 +1,406 @@
+{
+  "content": {
+    "lesson": "8.9-diagnostic",
+    "kind": "registered post-hoc diagnostic",
+    "changes_verdicts": false,
+    "archive_sha256": "e4a719ec7853428f2e0e3d559e03d0daa23ae8e3c68ac8c860565d4d3e810676",
+    "D1_contamination": [
+      {
+        "trial": "00_stop_in_probe",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "01_h1_srv2",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "02_h3_srv1",
+        "culprit": "host-h3",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "03_h2_srv2",
+        "culprit": "host-h2",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "04_h2_srv2",
+        "culprit": "host-h2",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "05_h1_srv2",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "06_stop_in_probe",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 1,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "07_h3_srv1",
+        "culprit": "host-h3",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "08_h1_srv2",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "09_h3_srv1",
+        "culprit": "host-h3",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "10_h2_srv2",
+        "culprit": "host-h2",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "11_stop_in_probe",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "12_stop_in_probe",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "13_h3_srv1",
+        "culprit": "host-h3",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "14_h2_srv2",
+        "culprit": "host-h2",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "15_h1_srv2",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "16_stop_in_probe",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "17_h3_srv1",
+        "culprit": "host-h3",
+        "n_pre_flood_ticks": 3,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      },
+      {
+        "trial": "18_h2_srv2",
+        "culprit": "host-h2",
+        "n_pre_flood_ticks": 2,
+        "bystanders_in_affected_while_normal": []
+      },
+      {
+        "trial": "19_h1_srv2",
+        "culprit": "host-h1",
+        "n_pre_flood_ticks": 1,
+        "bystanders_in_affected_while_normal": [
+          "host-h2"
+        ]
+      }
+    ],
+    "D2_s2s3_baseline": {
+      "phase8_ab/20260920T101925Z": {
+        "normal_ticks": 140,
+        "normal_with_s2s3": 140,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_c1_control/20260921T105049Z": {
+        "normal_ticks": 563,
+        "normal_with_s2s3": 563,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_chaos/20260920T143050Z": {
+        "normal_ticks": 53,
+        "normal_with_s2s3": 53,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_chaos/20260920T144534Z": {
+        "normal_ticks": 54,
+        "normal_with_s2s3": 54,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_chaos/20260920T145552Z": {
+        "normal_ticks": 41,
+        "normal_with_s2s3": 41,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_chaos/20260920T150133Z": {
+        "normal_ticks": 12,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 96
+      },
+      "phase8_chaos/20260920T150456Z": {
+        "normal_ticks": 28,
+        "normal_with_s2s3": 1,
+        "fraction": 0.0357,
+        "suppressed_ticks": 28
+      },
+      "phase8_chaos/20260920T151521Z": {
+        "normal_ticks": 3,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 23
+      },
+      "phase8_chaos/20260920T151844Z": {
+        "normal_ticks": 39,
+        "normal_with_s2s3": 1,
+        "fraction": 0.0256,
+        "suppressed_ticks": 140
+      },
+      "phase8_chaos/20260921T014951Z": {
+        "normal_ticks": 6853,
+        "normal_with_s2s3": 5022,
+        "fraction": 0.7328,
+        "suppressed_ticks": 303
+      },
+      "phase8_chaos/20260921T121054Z": {
+        "normal_ticks": 15,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 73
+      },
+      "phase8_soak/20260921T000229Z": {
+        "normal_ticks": 297,
+        "normal_with_s2s3": 1,
+        "fraction": 0.0034,
+        "suppressed_ticks": 51
+      },
+      "phase8_soak/20260921T032352Z": {
+        "normal_ticks": 299,
+        "normal_with_s2s3": 3,
+        "fraction": 0.01,
+        "suppressed_ticks": 51
+      },
+      "phase8_soak/20260921T040053Z": {
+        "normal_ticks": 17,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_soak/20260921T075931Z": {
+        "normal_ticks": 181,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_stability/flood_140830": {
+        "normal_ticks": 11,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 554
+      },
+      "phase8_stability/flood_rep1_113411": {
+        "normal_ticks": 10,
+        "normal_with_s2s3": 1,
+        "fraction": 0.1,
+        "suppressed_ticks": 561
+      },
+      "phase8_stability/flood_rep2_114607": {
+        "normal_ticks": 15,
+        "normal_with_s2s3": 1,
+        "fraction": 0.0667,
+        "suppressed_ticks": 556
+      },
+      "phase8_stability/flood_rep3_115759": {
+        "normal_ticks": 14,
+        "normal_with_s2s3": 0,
+        "fraction": 0.0,
+        "suppressed_ticks": 552
+      },
+      "phase8_stability/poisson_003315": {
+        "normal_ticks": 3991,
+        "normal_with_s2s3": 3991,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_stability/poisson_003315_INVALIDATED": {
+        "normal_ticks": 3991,
+        "normal_with_s2s3": 3991,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_stability/poisson_014708": {
+        "normal_ticks": 89,
+        "normal_with_s2s3": 89,
+        "fraction": 1.0,
+        "suppressed_ticks": 0
+      },
+      "phase8_stability/poisson_015100": {
+        "normal_ticks": 4846,
+        "normal_with_s2s3": 4845,
+        "fraction": 0.9998,
+        "suppressed_ticks": 1
+      },
+      "phase8_stability/quiet_142002": {
+        "normal_ticks": 601,
+        "normal_with_s2s3": 4,
+        "fraction": 0.0067,
+        "suppressed_ticks": 0
+      }
+    },
+    "D3_latch_counterfactual": [
+      {
+        "trial": "00_stop_in_probe",
+        "current_policy": "h1-s1",
+        "episode_latch": "h1-s1"
+      },
+      {
+        "trial": "01_h1_srv2",
+        "current_policy": "h1-s1",
+        "episode_latch": "h1-s1"
+      },
+      {
+        "trial": "02_h3_srv1",
+        "current_policy": "h3-s1",
+        "episode_latch": "h3-s1"
+      },
+      {
+        "trial": "03_h2_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": "h2-s1"
+      },
+      {
+        "trial": "04_h2_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": "h2-s1"
+      },
+      {
+        "trial": "05_h1_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "06_stop_in_probe",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "07_h3_srv1",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "08_h1_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "09_h3_srv1",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "10_h2_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": "h2-s1"
+      },
+      {
+        "trial": "11_stop_in_probe",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "12_stop_in_probe",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "13_h3_srv1",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "14_h2_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": "h2-s1"
+      },
+      {
+        "trial": "15_h1_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "16_stop_in_probe",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "17_h3_srv1",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      },
+      {
+        "trial": "18_h2_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": "h2-s1"
+      },
+      {
+        "trial": "19_h1_srv2",
+        "current_policy": "h2-s1",
+        "episode_latch": null
+      }
+    ],
+    "D3_replay_matches_live": true,
+    "caveat": "D3 la IN-SAMPLE tren chinh du lieu lam lo van de; chi la gia thuyet cho Phase 9"
+  },
+  "content_sha256": "1dfbde8285720f36824b84c1f01a0fb5a7ca6f2fac0e2279583a394df1925f4c",
+  "written_at_utc": "2026-09-21T14:24:38+00:00"
+}
