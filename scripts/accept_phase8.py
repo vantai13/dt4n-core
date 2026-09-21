@@ -86,6 +86,12 @@ OPTIONAL = {
     "ui_c9a":   "phase8_ui_stale.json",
     "soak_c10": "phase8_c10_v2.json",
     "chaos_second_flood": "phase8_chaos_second_flood.json",
+    # ---- 8.9 dong phase
+    "closure_prereg": "phase8_closure_prereg.json",
+    "target_audit": "phase8_target_audit.json",
+    "c1_control": "phase8_c1_control.json",
+    "suppression_modes": "phase8_suppression_modes.json",
+    "c10_v3": "phase8_c10_v3.json",
 }
 
 # ------------------------------------------------- chuoi phu thuoc (theo sha FILE)
@@ -100,6 +106,10 @@ DEPENDS = {
     "s11_quiet_udp": [("contract_sha256", None, "contract")],
     "s11_amendment": [("contract_sha256", None, "contract")],
     "ab_addendum":   [("source_sha256", None, "ab_c5:content")],
+    "c1_control": [("prereg_sha256", None, "closure_prereg"),
+                   ("contract_sha256", None, "contract")],
+    "suppression_modes": [("prereg_sha256", None, "closure_prereg")],
+    "chaos_second_flood": [("closure_prereg_sha256", None, "closure_prereg")],
     # Tu 8.8: harness stability khai tham chieu. Cac receipt CU (8.7) khong co
     # truong nay nen chung van nam trong `dependency_chain_not_declared`; day
     # la ky luat ap dung TIEN TOI, khong hoi to gia.
@@ -115,7 +125,10 @@ DECLARED_DRIFT = {
     "controller/policy.py":
         "8.4/8.6: them `incarnation` vao ControllerState (hai lan chay "
         "controller tren cung mot detector sinh trung intervention_id) va sua "
-        "HOLD/deadline. Da chay lai sim + C6 + C7 + C10 sau do.",
+        "HOLD/deadline. Da chay lai sim + C6 + C7 + C10 sau do. "
+        "8.9 AMENDMENT A2: cach ly probe_w_s sau probe_target_changed (khop LATCH "
+        "da dang ky o 8.1); thay doi DON DIEU (chi them nhanh tra ve ()), sim 2000 "
+        "seed trung het, replay audit cu bit-exact, C10-v3 tren audit moi.",
     "controller/twin_reader.py":
         "8.4: R3 kiem freshness TRUOC khi gop delta (bo CA ban tin khi seq lui/"
         "trung/bootId retired).",
@@ -248,12 +261,25 @@ def evaluate(receipts):
     ab = (receipts["ab_c5"]["content"] if receipts.get("ab_c5") else {}) or {}
     stab = receipts.get("stability_flood")
     n_inject = _first_run(stab).get("n_inject", 0)
-    add("C1", PASS if n_inject > 0 else INVALID,
-        "moi inject nham h1-s1; %d inject o 8.7 flood, 4 inject/luot x 16 luot o 8.6"
-        % n_inject,
-        ["phase8_ab_c5.json", "phase8_stability_flood.json"],
-        "dinh danh muc tieu doc tu intervention_id trong audit; xem "
-        "phase8_gap_reconciliation.json de biet pho affected")
+    ta = (receipts.get("target_audit") or {}).get("content")
+    ctl = (receipts.get("c1_control") or {}).get("content")
+    if ta is None or ctl is None:
+        add("C1", INVALID,
+            "chua co bang chung muc tieu: target_audit=%s, c1_control=%s (n_inject 8.7 = %d)"
+            % (ta is not None, ctl is not None, n_inject),
+            ["phase8_target_audit.json", "phase8_c1_control.json"],
+            "evaluator 8.9 CHAT HON evaluator cu (phase8_closure_prereg::C1_evaluator_change)")
+    else:
+        ok = (ta.get("evidence_nonempty") and ta.get("n_wrong_target_total") == 0
+              and ctl.get("c1_control_pass"))
+        add("C1", PASS if ok else FAIL,
+            "audit cu: %d inject, %d sai muc tieu | E1: %s, sai %d, dung voi thu pham != h1: %d, "
+            "theo kich ban %s"
+            % (ta.get("n_inject_total"), ta.get("n_wrong_target_total"), ctl.get("outcome"),
+               ctl.get("n_wrong_target"), ctl.get("n_correct_nonh1_culprit"),
+               json.dumps(ctl.get("by_scenario"), sort_keys=True)),
+            ["phase8_target_audit.json", "phase8_c1_control.json"],
+            "silent khong tinh la sai nhung phai khai coverage (KN2)")
 
     # ---- C2: khong hanh dong voi admin_down / shift / degrade
     loc = (receipts["localization"]["content"] if receipts.get("localization") else {}) or {}
@@ -468,17 +494,34 @@ def evaluate(receipts):
             "NO 8.8")
     else:
         rows = ((sf["content"] or {}).get("summary") or {}).get("second_flood") or []
+        # Rep khong phat hien la quan sat bi kiem duyet, van tinh vao n.
         masked = [r.get("t_masked_s") for r in rows if r.get("t_masked_s") is not None]
-        add("chaos-sf", PASS if len(masked) >= 5 else INVALID,
-            "second_flood n = %d: t_masked = %s s; phat hien duoc: %s"
-            % (len(masked), sorted(round(m, 2) for m in masked),
-               sum(1 for r in rows if r.get("detected"))),
+        censored = [r for r in rows if r.get("t_masked_s") is None]
+        add("chaos-sf", PASS if len(rows) >= 5 else INVALID,
+            "second_flood n = %d (phat hien %d, kiem duyet %d): t_masked = %s s; "
+            "n_suppressed_seen = %s"
+            % (len(rows), len(masked), len(censored),
+               sorted(round(m, 2) for m in masked),
+               [r.get("n_suppressed_seen") for r in rows]),
             ["phase8_chaos_second_flood.json"],
             "ket luan DINH TINH (co phat hien duoc khong) vung; uoc luong "
             "DINH LUONG (bao lau) chi vung khi n >= 5")
 
+    # ---- E3 (8.9): che do uc che - bao cao, khong phai gate
+    modes = (receipts.get("suppression_modes") or {}).get("content")
+    if modes is not None:
+        add("E3-modes", PASS,
+            "flood 600 s x %d: che do = %s | H0-OUTLIER %s, H-FEEDBACK %s, H-BISTABLE %s | "
+            "so hanh dong = %s"
+            % (len(modes["runs"]), modes["modes"], modes["H0_OUTLIER_consistent"],
+               modes["H_FEEDBACK_consistent"], modes["H_BISTABLE_consistent_where_testable"],
+               [r.get("n_actions") for r in modes["runs"]]),
+            ["phase8_suppression_modes.json"],
+            "PASS o day = phep do HOP LE, khong phai gia thuyet dung; C12 phai bao theo che do")
+
     # ---- C10
-    c10 = receipts.get("c10")
+    c10_name = "phase8_c10_v3.json" if receipts.get("c10_v3") else "phase8_c10_v2.json"
+    c10 = receipts.get("c10_v3") or receipts.get("c10")
     if c10 is None:
         add("C10", INVALID, "chua chay: dung lai bit-exact tu audit soak", [],
             "NO 8.8 - cong kho nhat")
@@ -490,7 +533,7 @@ def evaluate(receipts):
             % (content.get("n_match"), content.get("n_decisions"),
                content.get("fraction"),
                all(c.get("ok") for c in content.get("chains") or []), enough),
-            ["phase8_c10_v2.json"],
+            [c10_name],
             "n_decisions > 0 duoc kiem tuong minh: khop == tong == 0 la PASS GIA")
 
     # ---- C11
