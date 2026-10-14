@@ -1,0 +1,14 @@
+{
+  "chain_ok": false,
+  "chain": {
+    "ok": false,
+    "file": "cloud_actuator_audit.jsonl",
+    "broken_at_line": 133,
+    "seq": 131,
+    "expected_prev": "61814e35291d0b804a6e84d1bf46f985e6ce96fd087d39513ccb75bc99372851",
+    "found_prev": "3f8bfee6c2a2c069050e5da1dd77b6c2c65c7f8c17f350998351c0fdfdae5e5f"
+  },
+  "n_intent": 0,
+  "n_result": 0,
+  "orphans": []
+}

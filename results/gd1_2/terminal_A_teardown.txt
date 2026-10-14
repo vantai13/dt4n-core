@@ -1,0 +1,13 @@
+☁️  cloud collector: dt4n-asg mỗi 5.0s -> org.dt4n:cloud-pool
+11:21:42  desired=2 total=2 pending=0 inService=2 healthy=2 terminating=0
+11:21:47  desired=0 total=2 pending=0 inService=2 healthy=2 terminating=0
+11:21:52  desired=0 total=2 pending=0 inService=0 healthy=0 terminating=2
+11:22:52  desired=0 total=0 pending=0 inService=0 healthy=0 terminating=0
+11:22:56  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+11:23:01  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+11:23:06  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+11:23:11  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+11:23:16  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+11:23:21  ❌ đọc AWS lỗi: Không thấy ASG dt4n-asg (chưa chạy `cloud.infra up`?)
+
+⏹  dừng collector.

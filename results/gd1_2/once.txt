@@ -1,0 +1,15 @@
+{
+  "t_source": 1791951579.5601885,
+  "desired": 0,
+  "min": 0,
+  "max": 3,
+  "total": 0,
+  "pending": 0,
+  "inService": 0,
+  "healthy": 0,
+  "terminating": 0,
+  "instances": []
+}
+đẩy lên Ditto: ✅ OK
+--- đọc từ Ditto:
+{"total":0,"pending":0,"inService":0,"healthy":0,"terminating":0}

@@ -1,0 +1,25 @@
+    def test_2_every_drift_is_claimed_by_a_later_document(d):
+        """KHAI BAO: troi lech duoc phep, troi lech IM LANG thi khong."""
+        claimed = _claimed_after(d["sealed_at"])
+        undeclared = []
+        for relative, digest in sorted(d["pins"].items()):
+            target = _resolve(relative)
+            if not target.exists():
+                undeclared.append("%s (DA XOA)" % relative)
+            elif C.sha256_file(target) != digest:
+                if relative in claimed or _repinned_after(d["sealed_at"], relative, digest):
+                    continue
+                undeclared.append(relative)
+>       assert not undeclared, (
+            "%s: nhung file da pin nay khac HEAD ma KHONG tai lieu nao niem phong sau "
+            "do nhan trach nhiem: %s\n-> hoac hoan nguyen thay doi, hoac them chung "
+            "vao planned_changes cua mot amendment moi." % (d["name"], undeclared)
+        )
+E       AssertionError: phase6r_amendment_5.json: nhung file da pin nay khac HEAD ma KHONG tai lieu nao niem phong sau do nhan trach nhiem: ['ml/campaign_binding.py', 'scripts/launch_ml_dataset.py']
+E         -> hoac hoan nguyen thay doi, hoac them chung vao planned_changes cua mot amendment moi.
+E       assert not ['ml/campaign_binding.py', 'scripts/launch_ml_dataset.py']
+
+test/test_amendment_pin_ledger.py:289: AssertionError
+=========================== short test summary info ============================
+FAILED test/test_amendment_pin_ledger.py::test_2_every_drift_is_claimed_by_a_later_document[amendment_5]
+1 failed, 1794 passed, 11 skipped in 224.16s (0:03:44)

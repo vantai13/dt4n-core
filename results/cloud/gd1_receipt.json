@@ -1,0 +1,172 @@
+{
+  "what": "DT4N GĐ1 — bằng chứng ND4 (Auto Scaling, Failover, Load Balancing trên AWS)",
+  "criteria": {
+    "flood": "PASS nếu trong 600 s kể từ khi twin thấy ρ>0.8: healthy>=1; đúng 1 lệnh set_capacity applied trong cửa sổ; desired không vượt 1.",
+    "linkdown": "PASS nếu trong 600 s kể từ disableLink: healthy>=1; đúng 1 lệnh set_capacity applied trong cửa sổ; desired không vượt 1.",
+    "replace": "PASS nếu trong 600 s: máy bị báo hỏng biến mất khỏi nhóm và healthy trở lại bằng desired ban đầu; desired KHÔNG đổi suốt cửa sổ.",
+    "quiet": "PASS nếu suốt cửa sổ: 0 lệnh applied và desired luôn = 0.",
+    "lb": "PASS nếu 0 lỗi và mỗi máy healthy nhận >= 20% request (khi có 2 máy).",
+    "counting": "5 lượt không-INVALID đầu tiên của mỗi kịch bản, theo thứ tự chạy. INVALID = điều kiện đầu không đạt trong 300 s; được ghi và báo cáo."
+  },
+  "n_counted_per_scenario": 5,
+  "summary": {
+    "flood": {
+      "n_counted": 5,
+      "n_pass": 5,
+      "n_invalid_reported": 0,
+      "fail_reasons": [],
+      "segments": {
+        "applied_to_inservice_s": {
+          "n": 5,
+          "median": 17.6,
+          "min": 14.96,
+          "max": 19.46
+        },
+        "decision_to_applied_s": {
+          "n": 5,
+          "median": 0.55,
+          "min": 0.46,
+          "max": 0.63
+        },
+        "inject_to_onset_s": {
+          "n": 5,
+          "median": 2.07,
+          "min": 1.05,
+          "max": 2.08
+        },
+        "inservice_to_healthy_s": {
+          "n": 5,
+          "median": 10.24,
+          "min": 9.21,
+          "max": 10.26
+        },
+        "onset_to_decision_s": {
+          "n": 5,
+          "median": 4.71,
+          "min": 4.08,
+          "max": 5.58
+        },
+        "onset_to_healthy_s": {
+          "n": 5,
+          "median": 32.7,
+          "min": 30.71,
+          "max": 34.82
+        },
+        "recover_to_zero_s": {
+          "n": 5,
+          "median": 166.03,
+          "min": 155.91,
+          "max": 170.21
+        }
+      }
+    },
+    "linkdown": {
+      "n_counted": 5,
+      "n_pass": 5,
+      "n_invalid_reported": 0,
+      "fail_reasons": [],
+      "segments": {
+        "applied_to_inservice_s": {
+          "n": 5,
+          "median": 18.56,
+          "min": 14.26,
+          "max": 25.42
+        },
+        "decision_to_applied_s": {
+          "n": 5,
+          "median": 0.51,
+          "min": 0.46,
+          "max": 0.64
+        },
+        "inject_to_onset_s": {
+          "n": 5,
+          "median": 1.08,
+          "min": 1.07,
+          "max": 2.28
+        },
+        "inservice_to_healthy_s": {
+          "n": 5,
+          "median": 10.19,
+          "min": 9.19,
+          "max": 10.3
+        },
+        "onset_to_decision_s": {
+          "n": 5,
+          "median": 2.69,
+          "min": 2.28,
+          "max": 3.21
+        },
+        "onset_to_healthy_s": {
+          "n": 5,
+          "median": 31.62,
+          "min": 27.65,
+          "max": 37.99
+        },
+        "recover_to_zero_s": {
+          "n": 5,
+          "median": 165.99,
+          "min": 141.78,
+          "max": 200.08
+        }
+      }
+    },
+    "replace": {
+      "n_counted": 5,
+      "n_pass": 5,
+      "n_invalid_reported": 1,
+      "fail_reasons": [],
+      "segments": {
+        "degraded_s": {
+          "n": 5,
+          "median": 65.28,
+          "min": 34.68,
+          "max": 65.3
+        },
+        "inject_to_drop_s": {
+          "n": 5,
+          "median": 7.72,
+          "min": 4.69,
+          "max": 12.8
+        },
+        "inject_to_new_instance_s": {
+          "n": 5,
+          "median": 12.72,
+          "min": 4.69,
+          "max": 12.82
+        },
+        "inject_to_restored_s": {
+          "n": 5,
+          "median": 69.99,
+          "min": 47.48,
+          "max": 78.01
+        }
+      }
+    },
+    "quiet": {
+      "n_counted": 1,
+      "n_pass": 1,
+      "n_invalid_reported": 0,
+      "fail_reasons": [],
+      "segments": {}
+    },
+    "lb": {
+      "n_counted": 1,
+      "n_pass": 1,
+      "n_invalid_reported": 0,
+      "fail_reasons": [],
+      "segments": {}
+    }
+  },
+  "n_records": 18,
+  "provenance": {
+    "git_head": "17d692342e11c5fcbca07662545bc03393d0ae89",
+    "generated_at": 1791964419.5662472,
+    "inputs_sha256": {
+      "results/cloud/gd1_trials.jsonl": "fb1e6143cdfcd6f608cc94ab60607b12c90ac120b101bbf81d73f5f1b8f5ae43",
+      "logs/cloud_actuator_audit.jsonl": "45ef72ff682890e8bce1875004bab2098b56d5c78b1902a00d0dd7f62bd6f9af",
+      "logs/cloud_controller_audit.jsonl": "d8b8c69b1624bd5b1011b271c73d2898754fa9eb1a547bdc1165ab0d5570dbbf",
+      "logs/cloud_collector.jsonl": "ff22d233cef5885120f9466c3ec778d418c368fac95866d9ee77b892855a9d98"
+    }
+  },
+  "note": "n=5 chỉ cho thấy cơ chế lặp lại được; không đủ để ước lượng tỉ lệ lỗi thấp (rule of three: 0/5 lỗi -> cận trên 95% ~ 3/5)."
+}

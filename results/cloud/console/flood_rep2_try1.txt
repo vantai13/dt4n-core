@@ -1,0 +1,15 @@
+▶ flood lượt 2 — PASS nếu trong 600 s kể từ khi twin thấy ρ>0.8: healthy>=1; đúng 1 lệnh set_capacity applied trong cửa sổ; desired không vượt 1.
+
+👉 Gõ sẵn lệnh dưới ở mininet> (CHƯA Enter). Bấm Enter Ở ĐÂY, rồi
+   NGAY LẬP TỨC bấm Enter ở mininet>:
+      h1 iperf -c 10.0.0.4 -u -b 30M -t 60 &
+[auto] đã gửi vào mininet>: h1 iperf -c 10.0.0.4 -u -b 30M -t 60 &
+    (flood tự dừng sau 60 s; đang chờ bộ điều khiển bớt máy về 0)
+
+✅  PASS  
+   inject_to_onset_s          2.1 s
+   onset_to_decision_s        4.4 s
+   decision_to_applied_s      0.6 s
+   applied_to_inservice_s     17.6 s
+   inservice_to_healthy_s     9.2 s
+   onset_to_healthy_s         31.8 s

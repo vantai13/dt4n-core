@@ -1,0 +1,12 @@
+🔧 Region ap-southeast-1, tiền tố "dt4n", tối đa 3 máy
+  VPC vpc-0aa987d44cc242316, 3 subnet, AMI ami-0a37aadea3f79d3c3
+  ALB chỉ nhận request từ <operator-ip>/32
+  ✅ security group ALB: sg-0ce25b7f4c13df7b4
+  ✅ security group máy: sg-02e62c32b69c19ff8
+  ✅ launch template: lt-07736a5fd602ab4a4 (t3.micro)
+  ✅ target group: dt4n-tg
+  ⏳ chờ ALB sẵn sàng (thường 2–4 phút)...
+  ✅ ALB: http://dt4n-alb-1860286300.ap-southeast-1.elb.amazonaws.com
+  ✅ ASG: dt4n-asg (min 0, desired 0, max 3)
+
+🎉 Xong. Thử: python3 -m cloud.infra scale 2   rồi   status

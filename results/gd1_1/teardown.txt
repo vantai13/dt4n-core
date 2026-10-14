@@ -1,0 +1,24 @@
+scale 0 at 11:10:55
+✅ desired = 0 (đã kẹp vào [0, 3])
+down start 11:10:56
+🧹 Dọn hạ tầng "dt4n" ở ap-southeast-1
+    ... đang chờ ASG và các máy bị xóa (0s)
+    ... đang chờ ASG và các máy bị xóa (10s)
+    ... đang chờ ASG và các máy bị xóa (20s)
+    ... đang chờ ASG và các máy bị xóa (31s)
+    ... đang chờ ASG và các máy bị xóa (41s)
+    ... đang chờ ASG và các máy bị xóa (52s)
+    ... đang chờ ASG và các máy bị xóa (63s)
+    ... đang chờ ASG và các máy bị xóa (73s)
+    ... đang chờ ASG và các máy bị xóa (83s)
+  ✅ ASG
+  ✅ ALB
+    ... đang chờ target group được giải phóng (0s)
+  ✅ target group
+  ✅ launch template
+    ... đang chờ security group dt4n-alb-sg hết bị dùng (0s)
+  ✅ security group
+  ✅ không còn máy nào mang tag Project=dt4n
+
+🎉 Đã dọn xong.
+down end 11:12:50, took 114s

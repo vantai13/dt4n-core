@@ -1,0 +1,16 @@
+✅ set_capacity  cid=cloud-8ae840af49c5  outcome=noop  before=0  after=0  (396 ms)
+🧹 Dọn hạ tầng "dt4n" ở ap-southeast-1
+    ... đang chờ ASG và các máy bị xóa (0s)
+    ... đang chờ ASG và các máy bị xóa (10s)
+    ... đang chờ ASG và các máy bị xóa (20s)
+  ✅ ASG
+  ✅ ALB
+    ... đang chờ target group được giải phóng (0s)
+    ... đang chờ target group được giải phóng (5s)
+  ✅ target group
+  ✅ launch template
+    ... đang chờ security group dt4n-alb-sg hết bị dùng (0s)
+  ✅ security group
+  ✅ không còn máy nào mang tag Project=dt4n
+
+🎉 Đã dọn xong.

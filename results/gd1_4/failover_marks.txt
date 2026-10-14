@@ -1,0 +1,2 @@
+link s2 srv1 down lúc 11:48:35.758
+link s2 srv1 up lúc 11:49:10.805
