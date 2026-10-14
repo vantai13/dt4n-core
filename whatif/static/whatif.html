@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DT4N · Thử trước khi làm</title>
+<style>
+  :root { --ink:#1d2433; --muted:#5b6475; --line:#d9dee7; --bg:#f6f7f9; --card:#fff;
+          --ok:#2e7d32; --warm:#e0a106; --hot:#c62828; --off:#9aa3b2; --accent:#1f5fbf; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         color:var(--ink); background:var(--bg); }
+  header { padding:14px 20px; background:var(--card); border-bottom:1px solid var(--line); }
+  header h1 { margin:0; font-size:18px; }
+  header p { margin:2px 0 0; color:var(--muted); }
+  main { display:grid; grid-template-columns: 340px 1fr; gap:16px; padding:16px 20px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .card h2 { margin:0 0 10px; font-size:15px; }
+  label { display:block; margin:6px 0 2px; color:var(--muted); font-size:12px; }
+  select, input[type=number] { width:100%; padding:5px 6px; border:1px solid var(--line);
+         border-radius:5px; font:inherit; background:#fff; }
+  .row { display:flex; gap:6px; align-items:end; }
+  .row > * { flex:1; }
+  .check { display:flex; gap:6px; align-items:center; margin:8px 0 0; color:var(--ink); font-size:13px; }
+  button { font:inherit; border-radius:6px; padding:6px 10px; cursor:pointer;
+           border:1px solid var(--line); background:#fff; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); width:100%;
+                   margin-top:12px; padding:8px; font-weight:600; }
+  button.x { flex:0 0 auto; padding:4px 8px; color:var(--hot); }
+  .action { border:1px dashed var(--line); border-radius:6px; padding:8px; margin-top:8px; }
+  .action .title { font-weight:600; display:flex; justify-content:space-between; align-items:center; }
+  .banner { padding:8px 10px; border-radius:6px; background:#eef3fb; color:#244a87; margin-bottom:12px; }
+  .warn { background:#fff6e0; color:#7a5300; border-radius:6px; padding:8px 10px; margin:0 0 12px; }
+  .warn li { margin:2px 0; }
+  .error { background:#fdecec; color:#8a1c1c; border-radius:6px; padding:8px 10px; margin-bottom:12px; }
+  .topos { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  @media (max-width: 1100px) { .topos { grid-template-columns: 1fr; } }
+  .topo h3 { margin:0 0 4px; font-size:13px; color:var(--muted); font-weight:600; }
+  svg { width:100%; height:auto; background:#fbfcfd; border:1px solid var(--line); border-radius:6px; }
+  svg text { font-size:11px; paint-order:stroke; stroke:#fbfcfd; stroke-width:3px; }
+  svg .node circle { fill:#fff; stroke:var(--ink); stroke-width:1.5; }
+  svg .node text { font-weight:600; stroke:none; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:8px 0 14px; }
+  .legend i { display:inline-block; width:18px; height:4px; vertical-align:middle; margin-right:4px; }
+  table { border-collapse:collapse; width:100%; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); font-variant-numeric: tabular-nums; }
+  th { color:var(--muted); font-weight:600; font-size:12px; }
+  td.flag { color:var(--muted); }
+  .tag { display:inline-block; font-size:11px; padding:1px 6px; border-radius:10px; margin-left:4px; }
+  .tag.flag { background:#fff0d6; color:#7a5300; }
+  .tag.victim { background:#fdecec; color:#8a1c1c; }
+  .tag.dead { background:#eceff3; color:#4b5563; }
+  .muted { color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>DT4N · Thử trước khi làm (what-if)</h1>
+  <p>Dự đoán trên bản số của mạng. Trang này <strong>không gửi lệnh nào</strong> xuống mạng.</p>
+</header>
+<main>
+  <section class="card" aria-label="Thiết lập câu hỏi">
+    <h2>1. Đầu vào</h2>
+    <label for="source">Lấy trạng thái từ</label>
+    <select id="source">
+      <option value="twin">Twin đang chạy (Ditto)</option>
+      <option value="snapshot">Snapshot Phase 5 (không cần Ditto)</option>
+    </select>
+    <div id="snapBox" hidden>
+      <div class="row">
+        <div><label for="run">Run</label><select id="run"></select></div>
+        <div style="flex:0 0 70px"><label for="tick">Tick</label>
+          <input id="tick" type="number" min="0" max="59" value="30"></div>
+      </div>
+    </div>
+    <label class="check"><input id="restore" type="checkbox">
+      Coi luồng đã lùi sẽ quay lại mức cấu hình</label>
+    <label class="check"><input id="stale" type="checkbox">
+      Vẫn trả lời khi twin chưa đủ tươi</label>
+
+    <h2 style="margin-top:18px">2. Hành động muốn thử</h2>
+    <div class="row">
+      <select id="newOp" aria-label="Loại hành động">
+        <option value="setBandwidth">Đặt băng thông link</option>
+        <option value="disableLink">Tắt link</option>
+        <option value="enableLink">Bật link</option>
+        <option value="addDemand">Thêm luồng UDP (flood)</option>
+      </select>
+      <button id="addBtn" style="flex:0 0 auto">+ Thêm</button>
+    </div>
+    <div id="actions"></div>
+    <button id="askBtn" class="primary">Dự đoán</button>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <h2>3. Kết quả</h2>
+    <div class="banner">Ô màu theo ρ = tải / dung lượng của chiều nặng hơn. Số có
+      <span class="tag flag">ngoài vùng hợp lệ</span> là luồng TCP đi qua link nghẽn:
+      mô hình không đoán đúng TCP lùi, <strong>đừng dựa vào số đó để chọn</strong>.</div>
+    <div id="out" class="muted">Chọn đầu vào, thêm hành động (hoặc không) rồi bấm “Dự đoán”.</div>
+  </section>
+</main>
+
+<script>
+'use strict';
+const LINKS = ['h1-s1','h2-s1','h3-s1','s1-s2','s1-s3','s2-s3','s2-srv1','s3-srv2'];
+const HOSTS = ['h1','h2','h3','srv1','srv2'];
+const POS = { h1:[40,50], h2:[40,140], h3:[40,230], s1:[165,140], s2:[310,60], s3:[310,220],
+              srv1:[460,60], srv2:[460,220] };
+const $ = (id) => document.getElementById(id);
+const el = (tag, attrs = {}, text) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+};
+const svgEl = (tag, attrs = {}, text) => {
+  const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text !== undefined) n.textContent = text;
+  return n;
+};
+const fmt = (x) => (x === null || x === undefined) ? '–' : Number(x).toFixed(2);
+const short = (name) => name.split('/')[0].replace('->', '→');
+
+// ---------------------------------------------------------------- hành động
+function selectOf(options, value) {
+  const s = el('select');
+  for (const o of options) { const op = el('option', { value: o }, o); s.appendChild(op); }
+  if (value) s.value = value;
+  return s;
+}
+function addAction(op) {
+  const box = el('div', { class: 'action' });
+  box.dataset.op = op;
+  const names = { setBandwidth: 'Đặt băng thông', disableLink: 'Tắt link',
+                  enableLink: 'Bật link', addDemand: 'Thêm luồng UDP' };
+  const title = el('div', { class: 'title' }, names[op]);
+  const del = el('button', { class: 'x', 'aria-label': 'Bỏ hành động' }, '✕');
+  del.onclick = () => box.remove();
+  title.appendChild(del);
+  box.appendChild(title);
+  const row = el('div', { class: 'row' });
+  if (op === 'addDemand') {
+    row.append(wrap('Từ', selectOf(HOSTS, 'h1'), 'src'), wrap('Tới', selectOf(HOSTS, 'srv1'), 'dst'),
+               wrap('Mbps', num(50), 'mbps'));
+  } else {
+    row.append(wrap('Link', selectOf(LINKS, op === 'setBandwidth' ? 'h1-s1' : 's1-s2'), 'link'));
+    if (op === 'setBandwidth') row.append(wrap('Mbps', num(7), 'mbps'));
+  }
+  box.appendChild(row);
+  $('actions').appendChild(box);
+}
+function num(v) { const i = el('input', { type: 'number', min: '0.1', step: '0.1' }); i.value = v; return i; }
+function wrap(text, input, field) {
+  const d = el('div'); input.dataset.field = field;
+  d.append(el('label', {}, text), input); return d;
+}
+function readActions() {
+  return [...$('actions').children].map((box) => {
+    const a = { op: box.dataset.op };
+    box.querySelectorAll('[data-field]').forEach((i) => {
+      a[i.dataset.field] = i.dataset.field === 'mbps' ? Number(i.value) : i.value;
+    });
+    if (a.op === 'addDemand') a.kind = 'udp';
+    return a;
+  });
+}
+
+// ---------------------------------------------------------------- vẽ topology
+function colorOf(rho, down) {
+  if (down) return 'var(--off)';
+  return rho >= 1 ? 'var(--hot)' : rho >= 0.7 ? 'var(--warm)' : 'var(--ok)';
+}
+function drawTopo(pred, title) {
+  const wrapDiv = el('div', { class: 'topo' });
+  wrapDiv.appendChild(el('h3', {}, title));
+  const svg = svgEl('svg', { viewBox: '0 0 500 270', role: 'img', 'aria-label': title });
+  const flagged = new Set(pred.summary.outside_validity);
+  for (const key of LINKS) {
+    const [a, b] = key.split('-');
+    const [x1, y1] = POS[a], [x2, y2] = POS[b];
+    const down = pred.down.includes(key);
+    const ab = pred.links[`${a}->${b}`], ba = pred.links[`${b}->${a}`];
+    const heavy = !ab ? ba : !ba ? ab : (ab.rho >= ba.rho ? ab : ba);
+    const dir = heavy === ab ? `${a}→${b}` : `${b}→${a}`;
+    const rho = heavy ? heavy.rho : 0;
+    svg.appendChild(svgEl('line', { x1, y1, x2, y2, stroke: colorOf(rho, down),
+      'stroke-width': down ? 3 : 4 + Math.min(rho, 2) * 2, 'stroke-dasharray': down ? '6 5' : '' }));
+    // nhãn đặt lệch VUÔNG GÓC với đường kẻ (luôn về phía trên/trái) để không đè lên nét
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    let nx = -(y2 - y1) / len, ny = (x2 - x1) / len;
+    if (ny > 0) { nx = -nx; ny = -ny; }
+    const lx = (x1 + x2) / 2 + nx * 12, ly = (y1 + y2) / 2 + ny * 12 + 4;
+    const anchor = Math.abs(nx) > 0.9 ? (nx < 0 ? 'end' : 'start') : 'middle';
+    if (down) svg.appendChild(svgEl('text', { x: lx, y: ly, 'text-anchor': anchor }, '✕ tắt'));
+    else if (heavy && heavy.load > 0.05) {
+      const warn = heavy.flows.some((f) => flagged.has(f)) && rho > 1 ? ' ⚠' : '';
+      svg.appendChild(svgEl('text', { x: lx, y: ly, 'text-anchor': anchor },
+                            `${dir} ρ ${rho.toFixed(2)}${warn}`));
+    }
+  }
+  for (const [name, [x, y]] of Object.entries(POS)) {
+    const g = svgEl('g', { class: 'node' });
+    g.append(svgEl('circle', { cx: x, cy: y, r: 17 }),
+             svgEl('text', { x, y: y + 4, 'text-anchor': 'middle' }, name));
+    svg.appendChild(g);
+  }
+  wrapDiv.appendChild(svg);
+  return wrapDiv;
+}
+
+// ---------------------------------------------------------------- bảng luồng
+function flowTable(result) {
+  const labels = Object.keys(result);
+  const table = el('table');
+  const head = el('tr');
+  head.appendChild(el('th', {}, 'Luồng (Mbps tới đích)'));
+  labels.forEach((l) => head.appendChild(el('th', {}, l)));
+  table.appendChild(head);
+  const names = Object.keys(result[labels[0]].prediction.flows);
+  for (const n of names) {
+    const tr = el('tr');
+    tr.appendChild(el('td', {}, short(n)));
+    for (const l of labels) {
+      const r = result[l], f = r.prediction.flows[n];
+      const td = el('td', {}, f ? fmt(f.delivered) : '–');
+      if (f && !f.reachable) td.appendChild(el('span', { class: 'tag dead' }, 'không tới'));
+      if (f && f.outside_validity) { td.className = 'flag'; td.appendChild(el('span', { class: 'tag flag' }, 'ngoài vùng hợp lệ')); }
+      if (r.new_victims.includes(n)) td.appendChild(el('span', { class: 'tag victim' }, 'nạn nhân mới'));
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  return table;
+}
+
+// ---------------------------------------------------------------- hỏi server
+async function ask() {
+  const out = $('out');
+  out.className = '';
+  out.replaceChildren(el('p', { class: 'muted' }, 'Đang dự đoán…'));
+  const payload = { source: $('source').value, restore_nominal: $('restore').checked,
+                    allow_stale: $('stale').checked, actions: readActions() };
+  if (payload.source === 'snapshot') { payload.run = $('run').value; payload.tick = Number($('tick').value); }
+  let body, status;
+  try {
+    const res = await fetch('/api/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                                          body: JSON.stringify(payload) });
+    status = res.status; body = await res.json();
+  } catch (e) {
+    out.replaceChildren(el('div', { class: 'error' }, 'Không gọi được server what-if: ' + e));
+    return;
+  }
+  out.replaceChildren();
+  if (status !== 200) {
+    out.appendChild(el('div', { class: 'error' }, `Lỗi ${status}: ${body.error || ''}`));
+    if (body.report) out.appendChild(warnList(body.report.warnings));
+    return;
+  }
+  const rep = body.report;
+  const info = el('p', { class: 'muted' },
+    `Nguồn: ${rep.source}. Tuổi dữ liệu lớn nhất: ${rep.max_age_s === null ? '–' : rep.max_age_s.toFixed(1) + ' s'}. ` +
+    `Link tắt: ${rep.down.join(', ') || '–'}.`);
+  out.appendChild(info);
+  if (rep.warnings.length) out.appendChild(warnList(rep.warnings));
+  const topos = el('div', { class: 'topos' });
+  for (const [label, r] of Object.entries(body.result)) topos.appendChild(drawTopo(r.prediction, label));
+  out.appendChild(topos);
+  const legend = el('div', { class: 'legend' });
+  [['var(--ok)', 'ρ < 0,7'], ['var(--warm)', '0,7 ≤ ρ < 1'], ['var(--hot)', 'ρ ≥ 1 (mất gói)'],
+   ['var(--off)', 'link tắt']].forEach(([c, t]) => {
+    const s = el('span'); const i = el('i'); i.style.background = c; s.append(i, t); legend.appendChild(s);
+  });
+  out.append(legend, flowTable(body.result), el('p', { class: 'muted' }, body.note));
+}
+function warnList(items) {
+  const box = el('div', { class: 'warn' });
+  box.appendChild(el('strong', {}, 'Cảnh báo về đầu vào'));
+  const ul = el('ul');
+  items.forEach((w) => ul.appendChild(el('li', {}, w)));
+  box.appendChild(ul);
+  return box;
+}
+
+// ---------------------------------------------------------------- khởi động
+async function init() {
+  $('addBtn').onclick = () => addAction($('newOp').value);
+  $('askBtn').onclick = ask;
+  $('source').onchange = () => { $('snapBox').hidden = $('source').value !== 'snapshot'; };
+  try {
+    const res = await fetch('/api/snapshots');
+    const data = await res.json();
+    for (const r of data.runs) $('run').appendChild(el('option', { value: r }, r));
+    $('run').value = data.runs.find((r) => r.startsWith('F-flood-h1')) || data.runs[0];
+    $('tick').value = data.default_tick;
+  } catch (e) { /* trang vẫn dùng được với nguồn twin */ }
+}
+init();
+</script>
+</body>
+</html>

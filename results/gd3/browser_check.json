@@ -1,0 +1,126 @@
+{
+ "run_selected": "F-flood-h1_to_srv1-s3005-r1",
+ "tick": "30",
+ "q1_setBandwidth": {
+  "labels": {
+   "không làm gì": [
+    "h1→s1 ρ 1.00 ⚠",
+    "h2→s1 ρ 0.11",
+    "h3→s1 ρ 0.10",
+    "s1→s2 ρ 1.10 ⚠",
+    "s1→s3 ρ 0.11",
+    "s2→s3 ρ 0.43",
+    "s2→srv1 ρ 1.00",
+    "s3→srv2 ρ 0.22"
+   ],
+   "sau hành động": [
+    "h1→s1 ρ 2.86 ⚠",
+    "h2→s1 ρ 0.11",
+    "h3→s1 ρ 0.10",
+    "s1→s2 ρ 0.45",
+    "s1→s3 ρ 0.11",
+    "s2→s3 ρ 0.43",
+    "s2→srv1 ρ 0.45",
+    "s3→srv2 ρ 0.22"
+   ]
+  },
+  "table": [
+   [
+    "Luồng (Mbps tới đích)",
+    "không làm gì",
+    "sau hành động"
+   ],
+   [
+    "h1→srv1",
+    "18.18ngoài vùng hợp lệ",
+    "7.00ngoài vùng hợp lệnạn nhân mới"
+   ],
+   [
+    "h2→srv2",
+    "2.17",
+    "2.17"
+   ],
+   [
+    "h3→srv1",
+    "1.82ngoài vùng hợp lệ",
+    "2.00"
+   ],
+   [
+    "srv1→srv2",
+    "2.16",
+    "2.16"
+   ]
+  ],
+  "warnings": [
+   "h1 đang gửi 20.00 Mbps, gấp 10.0 lần mức cấu hình: twin không biết giao thức, cờ vùng hợp lệ của h1 không đáng tin",
+   "đã nâng h3 từ 0.01 lên mức cấu hình 2.0 Mbps (giả định: luồng đã lùi sẽ quay lại khi hết nghẽn)"
+  ],
+  "errors": []
+ },
+ "q2_disable_s1s2": {
+  "labels": {
+   "không làm gì": [
+    "h1→s1 ρ 1.00 ⚠",
+    "h2→s1 ρ 0.11",
+    "h3→s1 ρ 0.10",
+    "s1→s2 ρ 1.10 ⚠",
+    "s1→s3 ρ 0.11",
+    "s2→s3 ρ 0.43",
+    "s2→srv1 ρ 1.00",
+    "s3→srv2 ρ 0.22"
+   ],
+   "sau hành động": [
+    "h1→s1 ρ 1.00 ⚠",
+    "h2→s1 ρ 0.11",
+    "h3→s1 ρ 0.10",
+    "✕ tắt",
+    "s1→s3 ρ 1.21 ⚠",
+    "s3→s2 ρ 3.64 ⚠",
+    "s2→srv1 ρ 0.25",
+    "s3→srv2 ρ 0.20"
+   ]
+  },
+  "table": [
+   [
+    "Luồng (Mbps tới đích)",
+    "không làm gì",
+    "sau hành động"
+   ],
+   [
+    "h1→srv1",
+    "18.18ngoài vùng hợp lệ",
+    "4.55ngoài vùng hợp lệnạn nhân mới"
+   ],
+   [
+    "h2→srv2",
+    "2.17",
+    "1.79ngoài vùng hợp lệnạn nhân mới"
+   ],
+   [
+    "h3→srv1",
+    "1.82ngoài vùng hợp lệ",
+    "0.45ngoài vùng hợp lệnạn nhân mới"
+   ],
+   [
+    "srv1→srv2",
+    "2.16",
+    "2.16"
+   ]
+  ],
+  "warnings": [
+   "h1 đang gửi 20.00 Mbps, gấp 10.0 lần mức cấu hình: twin không biết giao thức, cờ vùng hợp lệ của h1 không đáng tin",
+   "đã nâng h3 từ 0.01 lên mức cấu hình 2.0 Mbps (giả định: luồng đã lùi sẽ quay lại khi hết nghẽn)"
+  ],
+  "errors": []
+ },
+ "q3_twin_no_sync": {
+  "labels": {},
+  "table": [],
+  "warnings": [
+   "Thing quá cũ (> 45 s): host-h1, host-h2, host-h3, host-srv1, host-srv2, link-h1-s1, link-h2-s1, link-h3-s1, link-s1-s2, link-s1-s3, link-s2-s3, link-s2-srv1, link-s3-srv2"
+  ],
+  "errors": [
+   "Lỗi 409: dữ liệu twin không đủ tươi hoặc thiếu Thing"
+  ]
+ }
+}
