@@ -1,0 +1,11 @@
+scale 2 sent at 11:20:03.660 (epoch 1791951603.657852322)
+✅ desired = 2 (đã kẹp vào [0, 3])
+t=+0.9s ditto: desired=0 pending=0 inService=0 healthy=0 tSourceAge=3.2s
+t=+6.0s ditto: desired=2 pending=0 inService=0 healthy=0 tSourceAge=3.4s
+t=+11.1s ditto: desired=2 pending=0 inService=0 healthy=0 tSourceAge=3.4s
+t=+16.2s ditto: desired=2 pending=0 inService=0 healthy=0 tSourceAge=3.5s
+t=+21.2s ditto: desired=2 pending=2 inService=0 healthy=0 tSourceAge=3.5s
+t=+26.3s ditto: desired=2 pending=1 inService=1 healthy=0 tSourceAge=3.6s
+t=+31.4s ditto: desired=2 pending=0 inService=2 healthy=0 tSourceAge=3.8s
+t=+36.5s ditto: desired=2 pending=0 inService=2 healthy=1 tSourceAge=3.8s
+t=+41.6s ditto: desired=2 pending=0 inService=2 healthy=2 tSourceAge=3.9s

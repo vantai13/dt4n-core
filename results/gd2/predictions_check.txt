@@ -1,0 +1,24 @@
+M1: 71 cột; cột vi phạm (v2 hẹp hơn v2-excl): ['agg.rate_absz_max']
+primary_k       v2-excl  tp=12 fp=0 fn=148 fpr_control=0.0
+primary_k       v2       tp=28 fp=1 fn=132 fpr_control=0.0
+secondary_dual  v2-excl  tp=127 fp=2 fn=33 fpr_control=0.0
+secondary_dual  v2       tp=127 fp=3 fn=33 fpr_control=0.0
+owner E primary v2: {'value': 8.36813299369038, 'run_id': 'N-vary-s1008-r3', 'tick': 33, 'held_out_config': 'normal_varying|vary'}
+owner K rate    v2: {'value': 20.0, 'run_id': 'N-vary-s1008-r3', 'tick': 39, 'held_out_config': 'normal_varying|vary'}
+v2-excl report keys có fp: ['fpr']
+v2 report keys có fp: ['fpr']
+v2-excl  agg.rate_absz_max bounds min=0.3337 max=7.6454
+v2       agg.rate_absz_max bounds min=0.3798 max=7.6467
+cột bảng tick: ['run_id', 'tick', 'y', 'k', 'excess', 'k_ind', 'k_rate', 'k_loss', 'judgeable71', 'judgeable_loss', 'alarm_primary_k', 'alarm_secondary_excess', 'alarm_secondary_dual', 'alarm_ablation_loss_only']
+FP MỚI alarm_primary_k:
+                run_id  tick  k_rate_ex  k_rate_v2  k_ind_v2  excess_ex  excess_v2
+F-shift-s1-s2-s3007-r1    42         23         23         0 169.944205 129.518461
+FP MỚI alarm_secondary_dual:
+                run_id  tick  k_rate_ex  k_rate_v2  k_ind_v2  excess_ex  excess_v2
+F-shift-s1-s2-s3007-r1    42         23         23         0 169.944205 129.518461
+mọi FP dual v2:
+                     run_id  tick  k_rate_v2  k_ind_v2
+F-flood-h1_to_srv1-s3005-r1    41         14         6
+F-flood-h2_to_srv2-s3006-r1    41         10         6
+     F-shift-s1-s2-s3007-r1    42         23         0
+[('inject', 20), ('revert', 40)]

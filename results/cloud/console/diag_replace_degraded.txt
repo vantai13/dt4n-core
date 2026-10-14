@@ -1,0 +1,6 @@
+Tách "healthy trở lại" khỏi "máy hỏng biến mất" (giây kể từ lúc báo hỏng):
+  rep 1: healthy tụt +7.7, healthy trở lại +27.1 (thiếu máy thật 19.4 s), máy hỏng biến mất +66.9
+  rep 2: healthy tụt +4.7, healthy trở lại +20.0 (thiếu máy thật 15.3 s), máy hỏng biến mất +70.0
+  rep 3: healthy tụt +12.7, healthy trở lại +28.0 (thiếu máy thật 15.3 s), máy hỏng biến mất +78.0
+  rep 4: healthy tụt +5.8, healthy trở lại +26.2 (thiếu máy thật 20.4 s), máy hỏng biến mất +71.0
+  rep 5: healthy tụt +12.8, healthy trở lại +27.1 (thiếu máy thật 14.3 s), máy hỏng biến mất +47.5

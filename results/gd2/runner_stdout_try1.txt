@@ -1,0 +1,112 @@
+[gen] namespace=org.dt4n.ml selected=1 pending=1
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (201)
+[3] Things:
+  ✅ org.dt4n.ml:host-h1 (201)
+  ✅ org.dt4n.ml:host-h2 (201)
+  ✅ org.dt4n.ml:host-h3 (201)
+  ✅ org.dt4n.ml:host-srv1 (201)
+  ✅ org.dt4n.ml:host-srv2 (201)
+  ✅ org.dt4n.ml:switch-s1 (201)
+  ✅ org.dt4n.ml:switch-s2 (201)
+  ✅ org.dt4n.ml:switch-s3 (201)
+  ✅ org.dt4n.ml:link-h1-s1 (201)
+  ✅ org.dt4n.ml:link-h2-s1 (201)
+  ✅ org.dt4n.ml:link-h3-s1 (201)
+  ✅ org.dt4n.ml:link-s1-s2 (201)
+  ✅ org.dt4n.ml:link-s1-s3 (201)
+  ✅ org.dt4n.ml:link-s2-s3 (201)
+  ✅ org.dt4n.ml:link-s2-srv1 (201)
+  ✅ org.dt4n.ml:link-s3-srv2 (201)
+  ✅ org.dt4n.ml:path-h1-srv1 (201)
+  ✅ org.dt4n.ml:controller (201)
+  ✅ org.dt4n.ml:detector (201)
+  ✅ org.dt4n.ml:controlloop (201)
+=== XONG: 20 tạo, 0 bỏ qua, tổng 20 Thing ===
+
+========================================================================
+[2026-10-14T08:49:45Z] RUN N-vary-s1008-r3                exec_index=0 split=train
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] VARYING h1 -> srv1 TCP lịch 1M/5s,1M/10s,3M/10s,2M/10s,5M/10s,1M/10s,4M/20s
+[traffic] VARYING h2 -> srv2 TCP lịch 1M/10s,3M/10s,2M/10s,5M/10s,1M/10s,4M/20s,1M/5s
+[traffic] VARYING h3 -> srv1 TCP lịch 3M/10s,2M/10s,5M/10s,1M/10s,4M/20s,1M/5s,1M/10s
+[gen] profile=varying, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/vantai/dt4n-core/data/phase5/gd2/raw/N-vary-s1008-r3.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-14T08:50:05Z
+[collector] snapshot #002 2026-10-14T08:50:06Z
+[collector] snapshot #003 2026-10-14T08:50:07Z
+[collector] snapshot #004 2026-10-14T08:50:08Z
+[collector] snapshot #005 2026-10-14T08:50:09Z
+[collector] snapshot #006 2026-10-14T08:50:10Z
+[collector] snapshot #007 2026-10-14T08:50:11Z
+[collector] snapshot #008 2026-10-14T08:50:12Z
+[collector] snapshot #009 2026-10-14T08:50:13Z
+[collector] snapshot #010 2026-10-14T08:50:14Z
+[collector] snapshot #011 2026-10-14T08:50:15Z
+[collector] snapshot #012 2026-10-14T08:50:16Z
+[collector] snapshot #013 2026-10-14T08:50:17Z
+[collector] snapshot #014 2026-10-14T08:50:18Z
+[collector] snapshot #015 2026-10-14T08:50:19Z
+[collector] snapshot #016 2026-10-14T08:50:20Z
+[collector] snapshot #017 2026-10-14T08:50:21Z
+[collector] snapshot #018 2026-10-14T08:50:22Z
+[collector] snapshot #019 2026-10-14T08:50:23Z
+[collector] snapshot #020 2026-10-14T08:50:24Z
+[collector] snapshot #021 2026-10-14T08:50:25Z
+[collector] snapshot #022 2026-10-14T08:50:26Z
+[collector] snapshot #023 2026-10-14T08:50:27Z
+[collector] snapshot #024 2026-10-14T08:50:28Z
+[collector] snapshot #025 2026-10-14T08:50:29Z
+[collector] snapshot #026 2026-10-14T08:50:30Z
+[collector] snapshot #027 2026-10-14T08:50:31Z
+[collector] snapshot #028 2026-10-14T08:50:32Z
+[collector] snapshot #029 2026-10-14T08:50:33Z
+[collector] snapshot #030 2026-10-14T08:50:34Z
+[collector] snapshot #031 2026-10-14T08:50:35Z
+[collector] snapshot #032 2026-10-14T08:50:36Z
+[collector] snapshot #033 2026-10-14T08:50:37Z
+[collector] snapshot #034 2026-10-14T08:50:38Z
+[collector] snapshot #035 2026-10-14T08:50:39Z
+[collector] snapshot #036 2026-10-14T08:50:40Z
+[collector] snapshot #037 2026-10-14T08:50:41Z
+[collector] snapshot #038 2026-10-14T08:50:42Z
+[collector] snapshot #039 2026-10-14T08:50:43Z
+[collector] snapshot #040 2026-10-14T08:50:44Z
+[collector] snapshot #041 2026-10-14T08:50:45Z
+[collector] snapshot #042 2026-10-14T08:50:46Z
+[collector] snapshot #043 2026-10-14T08:50:47Z
+[collector] snapshot #044 2026-10-14T08:50:48Z
+[collector] snapshot #045 2026-10-14T08:50:49Z
+[collector] snapshot #046 2026-10-14T08:50:50Z
+[collector] snapshot #047 2026-10-14T08:50:51Z
+[collector] snapshot #048 2026-10-14T08:50:52Z
+[collector] snapshot #049 2026-10-14T08:50:53Z
+[collector] snapshot #050 2026-10-14T08:50:54Z
+[collector] snapshot #051 2026-10-14T08:50:55Z
+[collector] snapshot #052 2026-10-14T08:50:56Z
+[collector] snapshot #053 2026-10-14T08:50:57Z
+[collector] snapshot #054 2026-10-14T08:50:58Z
+[collector] snapshot #055 2026-10-14T08:50:59Z
+[collector] snapshot #056 2026-10-14T08:51:00Z
+[collector] snapshot #057 2026-10-14T08:51:01Z
+[collector] snapshot #058 2026-10-14T08:51:02Z
+[collector] snapshot #059 2026-10-14T08:51:03Z
+[collector] snapshot #060 2026-10-14T08:51:04Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/vantai/dt4n-core/data/phase5/gd2/raw/N-vary-s1008-r3.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     N-vary-s1008-r3  snapshots=60  sep=-  sha=b41f57ac01ba
+[traffic] đã dừng các iperf server
+[gen] ok=1 failed=0 complete=True manifest=/home/vantai/dt4n-core/results/report/gd2_manifest.json

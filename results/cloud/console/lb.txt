@@ -1,0 +1,10 @@
+    … chờ hệ sạch: cần desired>=2 và healthy=desired (đang 1/1)
+    … chờ hệ sạch: cần desired>=2 và healthy=desired (đang 2/1)
+    … chờ hệ sạch: cần desired>=2 và healthy=desired (đang 2/1)
+    … chờ hệ sạch: cần desired>=2 và healthy=desired (đang 2/1)
+    … chờ hệ sạch: cần desired>=2 và healthy=desired (đang 2/1)
+Gửi 100 request tới http://dt4n-alb-1860286300.ap-southeast-1.elb.amazonaws.com/
+  i-0191804fcf7b9afc5     50  (50.0%)
+  i-090b398dbde7de7c2     50  (50.0%)
+
+✅  PASS  

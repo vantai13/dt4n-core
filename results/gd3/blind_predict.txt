@@ -1,0 +1,19 @@
+k (trên dây / danh nghĩa) = 1.061; tuổi twin lớn nhất 0.9 s
+
+case1 — flood UDP srv2 -> srv1 8 Mbps (ngược qua nút cổ chai s3->s2)
+   cửa sổ chấm ổn định: giây 9..55; ngoài vùng hợp lệ: không có
+   1a   tải chiều s3->s2 (Mbps)                        dự đoán    5.00
+   1b   lossPct link s2-s3 (%, hai chiều)              dự đoán   32.89
+   1c   tải chiều s2->srv1 (Mbps)                      dự đoán    9.29
+   1k1  ĐỐI CHỨNG: chiều s1->s3 không đổi (Mbps)       dự đoán    2.14
+   1k2  ĐỐI CHỨNG: chiều s2->s3 không đổi (Mbps)       dự đoán    2.12
+
+case2 — setBandwidth s2-s3 = 1,5 Mbps (mức chưa từng chạy)
+   cửa sổ chấm ổn định: giây 25..55; ngoài vùng hợp lệ: không có
+   2a   tải chiều s2->s3 (Mbps)                        dự đoán    1.50
+   2b   lossPct link s2-s3 (%, hai chiều)              dự đoán   29.33
+   2c   tải chiều s3->srv2 (Mbps)                      dự đoán    3.64
+   2t   giây tới lúc bắt đầu mất gói (lossPct > 1%)    dự đoán   19.43
+   2k1  ĐỐI CHỨNG: chiều s1->s2 không đổi (Mbps)       dự đoán    4.29
+
+✅ đã ghi results/gd3/blind_predictions.json — COMMIT nó trước khi đo.

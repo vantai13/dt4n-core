@@ -252,3 +252,6 @@ data/phase5/raw/*.partial
 data/phase5/quarantine/*.partial
 # Phase 7.7 acceptance: controller log (runtime, khong phai receipt)
 logs/phase7_acceptance_ryu.log
+
+# GĐ1: file state cục bộ
+cloud/.state.json

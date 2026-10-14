@@ -1,0 +1,9 @@
+▶ linkdown lượt 5 — PASS nếu trong 600 s kể từ disableLink: healthy>=1; đúng 1 lệnh set_capacity applied trong cửa sổ; desired không vượt 1.
+
+✅  PASS  
+   inject_to_onset_s          1.1 s
+   onset_to_decision_s        2.3 s
+   decision_to_applied_s      0.6 s
+   applied_to_inservice_s     18.6 s
+   inservice_to_healthy_s     10.2 s
+   onset_to_healthy_s         31.6 s

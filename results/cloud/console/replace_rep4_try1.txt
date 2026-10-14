@@ -1,0 +1,7 @@
+▶ replace lượt 4 — PASS nếu trong 600 s: máy bị báo hỏng biến mất khỏi nhóm và healthy trở lại bằng desired ban đầu; desired KHÔNG đổi suốt cửa sổ.
+
+✅  PASS  
+   inject_to_drop_s           5.8 s
+   inject_to_new_instance_s   10.9 s
+   inject_to_restored_s       71.0 s
+   degraded_s                 65.3 s

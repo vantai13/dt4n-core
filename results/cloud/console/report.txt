@@ -1,0 +1,34 @@
+
+| Kịch bản | Lượt tính | PASS | INVALID (đã báo) |
+|---|---|---|---|
+| flood | 5 | 5 | 0 |
+| linkdown | 5 | 5 | 0 |
+| replace | 5 | 5 | 1 |
+| quiet | 1 | 1 | 0 |
+| lb | 1 | 1 | 0 |
+
+flood — các chặng (giây, chỉ lượt PASS): trung vị [min; max]
+  inject_to_onset_s              2.1  [1.1; 2.1]  n=5
+  onset_to_decision_s            4.7  [4.1; 5.6]  n=5
+  decision_to_applied_s          0.6  [0.5; 0.6]  n=5
+  applied_to_inservice_s        17.6  [15.0; 19.5]  n=5
+  inservice_to_healthy_s        10.2  [9.2; 10.3]  n=5
+  onset_to_healthy_s            32.7  [30.7; 34.8]  n=5
+  recover_to_zero_s            166.0  [155.9; 170.2]  n=5
+
+linkdown — các chặng (giây, chỉ lượt PASS): trung vị [min; max]
+  inject_to_onset_s              1.1  [1.1; 2.3]  n=5
+  onset_to_decision_s            2.7  [2.3; 3.2]  n=5
+  decision_to_applied_s          0.5  [0.5; 0.6]  n=5
+  applied_to_inservice_s        18.6  [14.3; 25.4]  n=5
+  inservice_to_healthy_s        10.2  [9.2; 10.3]  n=5
+  onset_to_healthy_s            31.6  [27.6; 38.0]  n=5
+  recover_to_zero_s            166.0  [141.8; 200.1]  n=5
+
+replace — các chặng (giây, chỉ lượt PASS): trung vị [min; max]
+  inject_to_drop_s               7.7  [4.7; 12.8]  n=5
+  inject_to_new_instance_s      12.7  [4.7; 12.8]  n=5
+  inject_to_restored_s          70.0  [47.5; 78.0]  n=5
+  degraded_s                    65.3  [34.7; 65.3]  n=5
+
+receipt: results/cloud/gd1_receipt.json

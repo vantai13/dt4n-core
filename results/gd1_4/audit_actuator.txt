@@ -1,0 +1,12 @@
+{
+  "chain_ok": true,
+  "chain": {
+    "ok": true,
+    "n_rows": 56,
+    "head_sha256": "8fc94f9a7b466f907f5ddccc136976561d200becad22899835b22743b309ecba",
+    "n_files": 1
+  },
+  "n_intent": 28,
+  "n_result": 28,
+  "orphans": []
+}

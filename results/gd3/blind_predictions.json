@@ -1,0 +1,140 @@
+{
+  "content": {
+    "what": "GĐ3.5 — dự đoán MÙ, viết trước khi gây sự cố",
+    "created_utc": "2026-10-14T12:30:27+00:00",
+    "git_head": "ed42784b991810393d31121d3904a96c6f3cd54b",
+    "inputs_from_twin": {
+      "inputs_mbps": {
+        "h1->srv1": 2.14519912,
+        "h2->srv2": 2.14407696,
+        "h3->srv1": 2.1455361600000002,
+        "srv1->srv2": 2.12248952
+      },
+      "max_age_s": 0.8553602695465088,
+      "warnings": []
+    },
+    "k_wire_over_nominal": 1.06124476,
+    "tolerances": {
+      "rate_abs_mbps": 0.25,
+      "rate_rel": 0.05,
+      "loss_pp": 3.0,
+      "time_s": 3.0
+    },
+    "rules": "ĐẠT nếu |dự đoán − đo| <= max(0.25 Mbps, 5% dự đoán) với tải; <= 3 điểm % với lossPct; <= 3 s với thời điểm mất gói. Tải và lossPct lấy TRUNG BÌNH mẫu twin trong cửa sổ ổn định của từng ca. Mỗi ca đo MỘT lần; lần đo hỏng (twin không tươi, lệnh bị từ chối) được ghi lại và đo lại với --try 2, không bỏ dự đoán nào.",
+    "cases": {
+      "case1": {
+        "title": "flood UDP srv2 -> srv1 8 Mbps (ngược qua nút cổ chai s3->s2)",
+        "action": {
+          "op": "addDemand",
+          "src": "srv2",
+          "dst": "srv1",
+          "kind": "udp",
+          "mbps": 8.48995808
+        },
+        "fill_time_s": 3.4659442098513695,
+        "steady_window_s": [
+          9,
+          55
+        ],
+        "outside_validity": [],
+        "operator": [
+          "srv1 iperf -s -u -p 5099 > /tmp/blind_srv1.log 2>&1 &",
+          "srv2 iperf -c 10.0.0.4 -u -b 8M -p 5099 -t 60 &"
+        ],
+        "items": [
+          {
+            "id": "1a",
+            "what": "tải chiều s3->s2 (Mbps)",
+            "kind": "rate",
+            "dlink": "s3->s2",
+            "pred": 5.0
+          },
+          {
+            "id": "1b",
+            "what": "lossPct link s2-s3 (%, hai chiều)",
+            "kind": "loss",
+            "link": "s2-s3",
+            "pred": 32.885515307514915
+          },
+          {
+            "id": "1c",
+            "what": "tải chiều s2->srv1 (Mbps)",
+            "kind": "rate",
+            "dlink": "s2->srv1",
+            "pred": 9.29073528
+          },
+          {
+            "id": "1k1",
+            "kind": "rate",
+            "control": true,
+            "what": "ĐỐI CHỨNG: chiều s1->s3 không đổi (Mbps)",
+            "dlink": "s1->s3",
+            "pred": 2.14407696
+          },
+          {
+            "id": "1k2",
+            "kind": "rate",
+            "control": true,
+            "what": "ĐỐI CHỨNG: chiều s2->s3 không đổi (Mbps)",
+            "dlink": "s2->s3",
+            "pred": 2.12248952
+          }
+        ]
+      },
+      "case2": {
+        "title": "setBandwidth s2-s3 = 1,5 Mbps (mức chưa từng chạy)",
+        "action": {
+          "op": "setBandwidth",
+          "link": "s2-s3",
+          "mbps": 1.5
+        },
+        "fill_time_s": 19.431652439706944,
+        "steady_window_s": [
+          25,
+          55
+        ],
+        "outside_validity": [],
+        "operator": null,
+        "items": [
+          {
+            "id": "2a",
+            "what": "tải chiều s2->s3 (Mbps)",
+            "kind": "rate",
+            "dlink": "s2->s3",
+            "pred": 1.5
+          },
+          {
+            "id": "2b",
+            "what": "lossPct link s2-s3 (%, hai chiều)",
+            "kind": "loss",
+            "link": "s2-s3",
+            "pred": 29.32827296127238
+          },
+          {
+            "id": "2c",
+            "what": "tải chiều s3->srv2 (Mbps)",
+            "kind": "rate",
+            "dlink": "s3->srv2",
+            "pred": 3.64407696
+          },
+          {
+            "id": "2t",
+            "kind": "time",
+            "link": "s2-s3",
+            "what": "giây tới lúc bắt đầu mất gói (lossPct > 1%)",
+            "pred": 19.431652439706944
+          },
+          {
+            "id": "2k1",
+            "kind": "rate",
+            "control": true,
+            "what": "ĐỐI CHỨNG: chiều s1->s2 không đổi (Mbps)",
+            "dlink": "s1->s2",
+            "pred": 4.29073528
+          }
+        ]
+      }
+    }
+  },
+  "content_sha256": "e8011735042a064d4688eda20afa607299c1d27d382538c49defe999c9a26700"
+}

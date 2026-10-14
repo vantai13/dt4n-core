@@ -1,0 +1,14 @@
+GĐ2 — dự đoán và quy tắc, viết TRƯỚC khi thu N-vary-s1008-r3 và build envelope-2.0.0
+
+Quy tắc thử lại: tối đa 3 lần thu. Mọi lần trượt cổng được giữ trong quarantine
+và báo cáo. Trượt cả 3 lần -> dừng, điều tra nguyên nhân, không thử tiếp.
+
+Dự đoán cơ học (fit_bounds là min/max thuần; nếu sai thì mình hiểu sai code):
+ M1. Mọi biên của v2 rộng bằng hoặc hơn v2-excl (min nhỏ hơn hoặc bằng, max lớn hơn hoặc bằng).
+ M2. h3 dưới biên trong flood h1 (tick lỗi): v2 <= 13/20.
+ M3. Client dưới biên ở các run đối chứng C: v2 = 0.
+
+Dự đoán thực nghiệm (có thể sai):
+ E1. Run mới qua cổng client_traffic ngay lần thu đầu.
+ E2. Biên dưới txRate: h1 trong [0,8; 1,049], h3 trong [0,8; 0,843] Mbps.
+ E3. Recall/FPR của excess, dual, loss_only lệch so với v2-excl không quá 0,02.

@@ -1,0 +1,522 @@
+{
+  "what": "GĐ2 — cổng traffic từng client áp lên 18 run Phase 5",
+  "rule": {
+    "ratio": 0.5,
+    "min_fraction": 0.9,
+    "clients": [
+      "h1",
+      "h2",
+      "h3"
+    ]
+  },
+  "n_runs": 18,
+  "failing_runs": [
+    "N-vary-s1008-r2"
+  ],
+  "runs": {
+    "N-load1M-s1001-r1": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 0.5,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0607,
+          "median_mbps": 1.0731
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0231,
+          "median_mbps": 1.0727
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 0.8429,
+          "median_mbps": 1.0732
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-load1M-s1002-r2": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 0.5,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0486,
+          "median_mbps": 1.0733
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.071,
+          "median_mbps": 1.0835
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0495,
+          "median_mbps": 1.0732
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-load2M-s1003-r1": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1334,
+          "median_mbps": 2.1577
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1417,
+          "median_mbps": 2.1559
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1436,
+          "median_mbps": 2.1664
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-load2M-s1004-r2": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1437,
+          "median_mbps": 2.1563
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1206,
+          "median_mbps": 2.165
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1434,
+          "median_mbps": 2.1551
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-load4M-s1005-r1": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 2.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.2871,
+          "median_mbps": 4.311
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.2869,
+          "median_mbps": 4.3103
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.2696,
+          "median_mbps": 4.3104
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-load4M-s1006-r2": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 2.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.2872,
+          "median_mbps": 4.3109
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.2872,
+          "median_mbps": 4.3107
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 4.287,
+          "median_mbps": 4.3103
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-vary-s1007-r1": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 0.5,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0704,
+          "median_mbps": 3.2094
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.005,
+          "median_mbps": 3.2227
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0712,
+          "median_mbps": 4.2578
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "N-vary-s1008-r2": {
+      "split": "train",
+      "group": "N",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 0.5,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 0.0,
+          "min_mbps": 0.0,
+          "median_mbps": 0.0
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0717,
+          "median_mbps": 3.2197
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 0.0,
+          "min_mbps": 0.0,
+          "median_mbps": 0.0
+        }
+      },
+      "client_traffic_ok": false
+    },
+    "C-load2M-s2001-r1": {
+      "split": "test",
+      "group": "C",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1299,
+          "median_mbps": 2.1459
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1288,
+          "median_mbps": 2.1452
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1284,
+          "median_mbps": 2.1461
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "C-vary-s2002-r1": {
+      "split": "test",
+      "group": "C",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 0.5,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.067,
+          "median_mbps": 3.2183
+        },
+        "h2": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0677,
+          "median_mbps": 2.1477
+        },
+        "h3": {
+          "n_ticks": 59,
+          "frac_ok": 1.0,
+          "min_mbps": 1.0285,
+          "median_mbps": 2.1487
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-admin_down-s1-s2-s3001-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1458,
+          "median_mbps": 2.1466
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1454,
+          "median_mbps": 2.1478
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1449,
+          "median_mbps": 2.1467
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-admin_down-s1-s3-s3002-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1457,
+          "median_mbps": 2.1673
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1446,
+          "median_mbps": 2.1563
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1449,
+          "median_mbps": 2.1654
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-degrade-s1-s2-s3003-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1027,
+          "median_mbps": 2.1478
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1158,
+          "median_mbps": 2.148
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.102,
+          "median_mbps": 2.1477
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-degrade-s2-s3-s3004-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1447,
+          "median_mbps": 2.1683
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1454,
+          "median_mbps": 2.1684
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1436,
+          "median_mbps": 2.167
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-flood-h1_to_srv1-s3005-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1447,
+          "median_mbps": 2.1684
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1453,
+          "median_mbps": 2.1681
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1439,
+          "median_mbps": 2.1677
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-flood-h2_to_srv2-s3006-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1447,
+          "median_mbps": 2.1684
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1248,
+          "median_mbps": 2.1684
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.144,
+          "median_mbps": 2.1673
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-shift-s1-s2-s3007-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1447,
+          "median_mbps": 2.1684
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.145,
+          "median_mbps": 2.1681
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1443,
+          "median_mbps": 2.1677
+        }
+      },
+      "client_traffic_ok": true
+    },
+    "F-shift-s1-s3-s3008-r1": {
+      "split": "test",
+      "group": "F",
+      "old_gates_passed": true,
+      "client_traffic_threshold_mbps": 1.0,
+      "client_traffic_min_fraction": 0.9,
+      "client_traffic": {
+        "h1": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1447,
+          "median_mbps": 2.1683
+        },
+        "h2": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1451,
+          "median_mbps": 2.1684
+        },
+        "h3": {
+          "n_ticks": 20,
+          "frac_ok": 1.0,
+          "min_mbps": 2.1442,
+          "median_mbps": 2.1671
+        }
+      },
+      "client_traffic_ok": true
+    }
+  }
+}

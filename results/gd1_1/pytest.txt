@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-9.1.1, pluggy-1.6.0 -- /home/vantai/.venvs/dt4n-cloud/bin/python
+cachedir: .pytest_cache
+rootdir: /home/vantai/dt4n-core
+configfile: pytest.ini
+collecting ... collected 4 items
+
+test/test_cloud_infra.py::test_up_tao_du_tai_nguyen_bat_dau_0_may PASSED [ 25%]
+test/test_cloud_infra.py::test_up_lan_hai_bi_chan PASSED                 [ 50%]
+test/test_cloud_infra.py::test_scale_la_lenh_dat_muc_va_bi_kep_tran PASSED [ 75%]
+test/test_cloud_infra.py::test_down_don_sach_va_chay_lai_duoc PASSED     [100%]
+
+============================== 4 passed in 4.90s ===============================

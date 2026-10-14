@@ -1,0 +1,3 @@
+{"t": 1791979920.9968972, "status": 200, "source": "snapshot", "run": "F-flood-h1_to_srv1-s3005-r1", "tick": 30, "actions": [{"op": "setBandwidth", "link": "h1-s1", "mbps": 7}], "max_rho": {"không làm gì": 1.1, "sau hành động": 2.8574932342857147}, "error": null}
+{"t": 1791979921.7263486, "status": 200, "source": "snapshot", "run": "F-flood-h1_to_srv1-s3005-r1", "tick": 30, "actions": [{"op": "disableLink", "link": "s1-s2"}], "max_rho": {"không làm gì": 1.1, "sau hành động": 3.6410663775139183}, "error": null}
+{"t": 1791979923.0268881, "status": 409, "source": "twin", "run": null, "tick": null, "actions": [], "max_rho": {}, "error": "dữ liệu twin không đủ tươi hoặc thiếu Thing"}

@@ -1,0 +1,415 @@
+{
+  "note": "Tập test Phase 5 đã được mở ở Phase 6: các số dưới đây là MÔ TẢ, không phải xác nhận trên dữ liệu chưa thấy. Chỉ tập train thay đổi; cột, thuật toán, cách đặt ngưỡng, tập test giữ nguyên.",
+  "variants": {
+    "v1": {
+      "train_run_ids": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r2"
+      ],
+      "n_train_rows": 472,
+      "thresholds": {
+        "primary": {
+          "K": 31,
+          "E": 8.9688
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0
+        },
+        "rate_shared": {
+          "K": 31,
+          "E": 8.9688
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0
+        }
+      },
+      "owner_K_rate": {
+        "value": 31.0,
+        "run_id": "N-vary-s1008-r2",
+        "tick": 26,
+        "held_out_config": "normal_varying|vary"
+      },
+      "owner_E_primary": {
+        "value": 8.968806422101116,
+        "run_id": "N-vary-s1008-r2",
+        "tick": 33,
+        "held_out_config": "normal_varying|vary"
+      },
+      "lower_bound_txRate_mbps": {
+        "host-h1.traffic.txRate": 0.0,
+        "host-h2.traffic.txRate": 1.005,
+        "host-h3.traffic.txRate": 0.0
+      },
+      "victim_visibility": {
+        "C-load2M-s2001-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        },
+        "C-vary-s2002-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        }
+      },
+      "variants": {
+        "primary_k": {
+          "recall": 0.0,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0,
+          "fpr_control": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 160,
+          "delay_median": null,
+          "n_censored": 8,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.0,
+            "flood": 0.0,
+            "shift": 0.0
+          }
+        },
+        "secondary_excess": {
+          "recall": 0.8562,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0535,
+          "fpr_control": 0.0,
+          "tp": 137,
+          "fp": 23,
+          "fn": 23,
+          "delay_median": 0.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.475,
+            "flood": 1.0,
+            "shift": 0.95
+          }
+        },
+        "secondary_dual": {
+          "recall": 0.7937,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0047,
+          "fpr_control": 0.0,
+          "tp": 127,
+          "fp": 2,
+          "fn": 33,
+          "delay_median": 1.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        },
+        "ablation_loss_only": {
+          "recall": 0.5437,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0047,
+          "fpr_control": 0.0,
+          "tp": 87,
+          "fp": 2,
+          "fn": 73,
+          "delay_median": 1.0,
+          "n_censored": 3,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        }
+      }
+    },
+    "v2-excl": {
+      "train_run_ids": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1"
+      ],
+      "n_train_rows": 413,
+      "thresholds": {
+        "primary": {
+          "K": 24,
+          "E": 5.4965
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0
+        },
+        "rate_shared": {
+          "K": 24,
+          "E": 5.4965
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0
+        }
+      },
+      "owner_K_rate": {
+        "value": 24.0,
+        "run_id": "N-load1M-s1001-r1",
+        "tick": 25,
+        "held_out_config": "normal|1"
+      },
+      "owner_E_primary": {
+        "value": 5.496455566712993,
+        "run_id": "N-vary-s1007-r1",
+        "tick": 35,
+        "held_out_config": "normal_varying|vary"
+      },
+      "lower_bound_txRate_mbps": {
+        "host-h1.traffic.txRate": 1.049,
+        "host-h2.traffic.txRate": 1.005,
+        "host-h3.traffic.txRate": 0.843
+      },
+      "victim_visibility": {
+        "C-load2M-s2001-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        },
+        "C-vary-s2002-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 13
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 7
+        }
+      },
+      "variants": {
+        "primary_k": {
+          "recall": 0.075,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0,
+          "fpr_control": 0.0,
+          "tp": 12,
+          "fp": 0,
+          "fn": 148,
+          "delay_median": 7.0,
+          "n_censored": 7,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.0,
+            "flood": 0.3,
+            "shift": 0.0
+          }
+        },
+        "secondary_excess": {
+          "recall": 0.8562,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0535,
+          "fpr_control": 0.0,
+          "tp": 137,
+          "fp": 23,
+          "fn": 23,
+          "delay_median": 0.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.475,
+            "flood": 1.0,
+            "shift": 0.95
+          }
+        },
+        "secondary_dual": {
+          "recall": 0.7937,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0047,
+          "fpr_control": 0.0,
+          "tp": 127,
+          "fp": 2,
+          "fn": 33,
+          "delay_median": 1.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        },
+        "ablation_loss_only": {
+          "recall": 0.5437,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0047,
+          "fpr_control": 0.0,
+          "tp": 87,
+          "fp": 2,
+          "fn": 73,
+          "delay_median": 1.0,
+          "n_censored": 3,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        }
+      }
+    },
+    "v2": {
+      "train_run_ids": [
+        "N-load1M-s1001-r1",
+        "N-load1M-s1002-r2",
+        "N-load2M-s1003-r1",
+        "N-load2M-s1004-r2",
+        "N-load4M-s1005-r1",
+        "N-load4M-s1006-r2",
+        "N-vary-s1007-r1",
+        "N-vary-s1008-r3"
+      ],
+      "n_train_rows": 472,
+      "thresholds": {
+        "primary": {
+          "K": 20,
+          "E": 8.3681
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0
+        },
+        "rate_shared": {
+          "K": 20,
+          "E": 8.3681
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0
+        }
+      },
+      "owner_K_rate": {
+        "value": 20.0,
+        "run_id": "N-vary-s1008-r3",
+        "tick": 39,
+        "held_out_config": "normal_varying|vary"
+      },
+      "owner_E_primary": {
+        "value": 8.36813299369038,
+        "run_id": "N-vary-s1008-r3",
+        "tick": 33,
+        "held_out_config": "normal_varying|vary"
+      },
+      "lower_bound_txRate_mbps": {
+        "host-h1.traffic.txRate": 1.027,
+        "host-h2.traffic.txRate": 1.005,
+        "host-h3.traffic.txRate": 0.843
+      },
+      "victim_visibility": {
+        "C-load2M-s2001-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        },
+        "C-vary-s2002-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 0
+        },
+        "F-flood-h1_to_srv1-s3005-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 13
+        },
+        "F-shift-s1-s2-s3007-r1": {
+          "h1": 0,
+          "h2": 0,
+          "h3": 7
+        }
+      },
+      "variants": {
+        "primary_k": {
+          "recall": 0.175,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0023,
+          "fpr_control": 0.0,
+          "tp": 28,
+          "fp": 1,
+          "fn": 132,
+          "delay_median": 6.0,
+          "n_censored": 6,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.0,
+            "flood": 0.7,
+            "shift": 0.0
+          }
+        },
+        "secondary_excess": {
+          "recall": 0.8562,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0535,
+          "fpr_control": 0.0,
+          "tp": 137,
+          "fp": 23,
+          "fn": 23,
+          "delay_median": 0.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.475,
+            "flood": 1.0,
+            "shift": 0.95
+          }
+        },
+        "secondary_dual": {
+          "recall": 0.7937,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.007,
+          "fpr_control": 0.0,
+          "tp": 127,
+          "fp": 3,
+          "fn": 33,
+          "delay_median": 1.0,
+          "n_censored": 1,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        },
+        "ablation_loss_only": {
+          "recall": 0.5437,
+          "recall_ceiling": 0.975,
+          "fpr_all": 0.0047,
+          "fpr_control": 0.0,
+          "tp": 87,
+          "fp": 2,
+          "fn": 73,
+          "delay_median": 1.0,
+          "n_censored": 3,
+          "recall_by_fault": {
+            "admin_down": 0.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          }
+        }
+      }
+    }
+  },
+  "model_v2_sha256": "dd87c2e4bf12adf84bc1ab8126e772889e1a453c132e783b23b5f308949df9d3"
+}

@@ -1,0 +1,93 @@
+{
+  "campaign_id": "DT4N-GD2-REPLACE-S1008",
+  "design_locked": true,
+  "status": "planned_not_collected",
+  "n_runs": 1,
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "runs": [
+    {
+      "run_id": "N-vary-s1008-r3",
+      "group": "N",
+      "split": "train",
+      "profile": "normal_varying",
+      "load_mbps_per_client": null,
+      "load_schedule": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "fault": null,
+      "fault_target": null,
+      "seed": 1008,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 0,
+      "fault_parameters": {}
+    }
+  ],
+  "execution_order": [
+    "N-vary-s1008-r3"
+  ],
+  "split": {
+    "train": [
+      "N-vary-s1008-r3"
+    ],
+    "test": []
+  },
+  "replaces": "N-vary-s1008-r2",
+  "source_contract_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "gate": {
+    "client_traffic": {
+      "ratio": 0.5,
+      "min_fraction": 0.9,
+      "clients": [
+        "h1",
+        "h2",
+        "h3"
+      ]
+    }
+  },
+  "reason": "N-vary-s1008-r2 có h1, h3 txRate = 0 suốt run nhưng qua mọi cổng cũ; envelope-1.0.0 học biên dưới 0 cho h1, h3. Thu lại đúng cấu hình đó, thêm cổng client_traffic. Xem results/report/gd2_client_traffic_audit.json.",
+  "provenance": {
+    "git_hash": "2e1dd9dc187f4c58cd9f454c07f7187628d213bf",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/run_sync.log"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "design_content_sha256": "4333a1afb30306356a567270dddcf66d85126def2e34834dc7165bc51d413bb5"
+}

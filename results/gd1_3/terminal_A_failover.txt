@@ -1,0 +1,4 @@
+11:27:57  desired=2 total=3 pending=1 inService=1 healthy=1 terminating=1
+11:28:02  desired=2 total=3 pending=0 inService=2 healthy=1 terminating=1
+11:28:12  desired=2 total=3 pending=0 inService=2 healthy=2 terminating=1
+11:29:02  desired=2 total=2 pending=0 inService=2 healthy=2 terminating=0
