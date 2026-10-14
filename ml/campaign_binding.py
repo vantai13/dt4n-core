@@ -59,7 +59,24 @@ def _phase6r() -> CampaignBinding:
     )
 
 
-BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r}
+def _gd2() -> CampaignBinding:
+    """GĐ2: một run train thay thế cho N-vary-s1008-r2 (xem ml/gd2campaign.py)."""
+    from ml import gd2campaign as G
+    return CampaignBinding(
+        name='gd2',
+        load_contract=lambda: G.load_contract(),
+        contract_hash=lambda doc: G.design_hash(doc),
+        run_paths=lambda rid: G.run_paths(rid),
+        verify=lambda *args: G.verify_gd2_run(*args),
+        manifest_path=C.ROOT / G.MANIFEST_REL,
+        build_manifest=lambda *args: G.build_manifest(*args),
+        startup_log='logs/gd2_startup.log',
+        namespace_default='org.dt4n.ml',
+        supports_interventions=False,
+    )
+
+
+BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2}
 
 
 def get(name: str = 'phase5') -> CampaignBinding:

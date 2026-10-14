@@ -49,6 +49,11 @@ def main():
         integrity = C.check_contract_integrity(contract)
         print('[launch] %d run, base rate nominal %.4f'
               % (contract['n_runs'], contract['expected_base_rate_test']))
+    elif binding.name == 'gd2':
+        from ml import gd2campaign as G
+        integrity = G.check_integrity(contract)
+        print('[launch] gd2: %d run thay the cho %s'
+              % (contract['n_runs'], contract['replaces']))
     else:
         from ml import rcampaign as R
         amendment_1 = json.loads(
