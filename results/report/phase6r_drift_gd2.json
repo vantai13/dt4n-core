@@ -1,0 +1,92 @@
+{
+  "content": {
+    "declaration_id": "DT4N-GD2-DRIFT-1",
+    "kind": "pin_drift_declaration",
+    "scope_note": "Không phải amendment của Phase 6R: không đổi giả thuyết, dữ liệu, ngưỡng hay kết quả nào của 6R. Tên phase6r_ chỉ để sổ ghim quét được.",
+    "declares_drift_against": {
+      "document": "results/report/phase6r_amendment_5.json",
+      "amendment_5_content_sha256": "a26b9609e685841c90a9d59bafb881ca621ffb00b00ff32084c97fe8d40ff6ca"
+    },
+    "reason": "GĐ2 (ND2) thu một run train thay thế cho N-vary-s1008-r2 bằng đúng launcher và runner đã dùng cho Phase 5, nên cần đăng ký chiến dịch gd2 vào hai file này. Xem ml/gd2campaign.py.",
+    "git": {
+      "head": "e6c1176b42813ff998192df7cecd4fb77e8c1bb8",
+      "dirty_files": []
+    },
+    "code_sha256": {
+      "ml/campaign_binding.py": "33fe5222bb7a8caf0f2245bbcd2f4b77542a67e93ccefdcb45dbbd2598b7387a",
+      "scripts/launch_ml_dataset.py": "2ab4db063a947e80b1b1a4973aab80942933465c931fc7cd97f6e3fc8b00f8b9"
+    },
+    "changes": {
+      "ml/campaign_binding.py": "GĐ2: thêm hàm _gd2() và khóa \"gd2\" vào BINDINGS; _phase5 và _phase6r giữ nguyên",
+      "scripts/launch_ml_dataset.py": "GĐ2: thêm nhánh elif binding.name == \"gd2\" (kiểm hợp đồng gd2); nhánh phase5 và nhánh còn lại giữ nguyên"
+    },
+    "drift": [
+      {
+        "path": "ml/campaign_binding.py",
+        "pinned_by_amendment_5": "cb02bb0fb4525fe95a314f8fed16d3ba4c9e0b49776ae4d93ff2394144370882",
+        "now": "33fe5222bb7a8caf0f2245bbcd2f4b77542a67e93ccefdcb45dbbd2598b7387a",
+        "lines_added": 18,
+        "lines_removed": 1
+      },
+      {
+        "path": "scripts/launch_ml_dataset.py",
+        "pinned_by_amendment_5": "4a9081360f90293e5d195c69cfbbec8287a261d49c249dd27e6841b1cdf44bbb",
+        "now": "2ab4db063a947e80b1b1a4973aab80942933465c931fc7cd97f6e3fc8b00f8b9",
+        "lines_added": 5,
+        "lines_removed": 0
+      }
+    ],
+    "unchanged": "Hành vi của binding phase5 và phase6r không đổi; dữ liệu 6R được thu với bản đã ghim và vẫn kiểm được xuất xứ tại commit lịch sử (test_1 của sổ ghim).",
+    "verified_by": [
+      "test/test_campaign_binding.py",
+      "test/test_campaign_execution.py",
+      "test/test_gd2.py"
+    ],
+    "diff": [
+      "--- a/ml/campaign_binding.py",
+      "+++ b/ml/campaign_binding.py",
+      "@@ -59,7 +59,24 @@",
+      "     )",
+      " ",
+      " ",
+      "-BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r}",
+      "+def _gd2() -> CampaignBinding:",
+      "+    \"\"\"GĐ2: một run train thay thế cho N-vary-s1008-r2 (xem ml/gd2campaign.py).\"\"\"",
+      "+    from ml import gd2campaign as G",
+      "+    return CampaignBinding(",
+      "+        name='gd2',",
+      "+        load_contract=lambda: G.load_contract(),",
+      "+        contract_hash=lambda doc: G.design_hash(doc),",
+      "+        run_paths=lambda rid: G.run_paths(rid),",
+      "+        verify=lambda *args: G.verify_gd2_run(*args),",
+      "+        manifest_path=C.ROOT / G.MANIFEST_REL,",
+      "+        build_manifest=lambda *args: G.build_manifest(*args),",
+      "+        startup_log='logs/gd2_startup.log',",
+      "+        namespace_default='org.dt4n.ml',",
+      "+        supports_interventions=False,",
+      "+    )",
+      "+",
+      "+",
+      "+BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2}",
+      " ",
+      " ",
+      " def get(name: str = 'phase5') -> CampaignBinding:",
+      "--- a/scripts/launch_ml_dataset.py",
+      "+++ b/scripts/launch_ml_dataset.py",
+      "@@ -49,6 +49,11 @@",
+      "         integrity = C.check_contract_integrity(contract)",
+      "         print('[launch] %d run, base rate nominal %.4f'",
+      "               % (contract['n_runs'], contract['expected_base_rate_test']))",
+      "+    elif binding.name == 'gd2':",
+      "+        from ml import gd2campaign as G",
+      "+        integrity = G.check_integrity(contract)",
+      "+        print('[launch] gd2: %d run thay the cho %s'",
+      "+              % (contract['n_runs'], contract['replaces']))",
+      "     else:",
+      "         from ml import rcampaign as R",
+      "         amendment_1 = json.loads("
+    ],
+    "written_at_utc": "2026-10-14T08:44:42+00:00"
+  },
+  "content_sha256": "a0d50acdc5e113ca8e243a0156e5a35f3a05e910c7ea460f99374a3af233c7b1"
+}
