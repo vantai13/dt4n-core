@@ -1,0 +1,8 @@
+Đầu vào (ditto, tuổi lớn nhất 0.9 s):
+  nhu cầu (Mbps): h1→srv1 2.15  h2→srv2 2.14  h3→srv1 2.15  srv1→srv2 2.13
+  link tắt: -   băng thông khác mặc định: -
+
+[không làm gì] 
+   link nóng (ρ ≥ 0.9): -
+   luồng tới đích (Mbps): h1→srv1 2.15  h2→srv2 2.14  h3→srv1 2.15  srv1→srv2 2.13
+   nạn nhân mới: -   ngoài vùng hợp lệ: -
