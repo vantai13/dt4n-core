@@ -1,0 +1,5 @@
+Gõ ở mininet> (đã gõ lệnh 1 từ trước thì bỏ qua):
+    srv1 iperf -s -u -p 5099 > /tmp/blind_srv1.log 2>&1 &
+    srv2 iperf -c 10.0.0.4 -u -b 8M -p 5099 -t 60 &
+Gõ sẵn lệnh 2 (CHƯA Enter). Bấm Enter Ở ĐÂY rồi NGAY LẬP TỨC Enter ở mininet> [auto] đã gửi vào mininet>: srv2 iperf -c 10.0.0.4 -u -b 8M -p 5099 -t 60 &
+✅ đã ghi /home/vantai/dt4n-core/results/gd3/blind_samples_case1_try1.jsonl
