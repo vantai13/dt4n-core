@@ -1,0 +1,14 @@
+Đầu vào (snapshot F-flood-h1_to_srv1-s3005-r1 tick 30, tuổi lớn nhất 0.0 s):
+  nhu cầu (Mbps): h1→srv1 20.00  h2→srv2 2.17  h3→srv1 0.01  srv1→srv2 2.16
+  link tắt: -   băng thông khác mặc định: -
+  ⚠ h1 đang gửi 20.00 Mbps, gấp 10.0 lần mức cấu hình: twin không biết giao thức, cờ vùng hợp lệ của h1 không đáng tin
+  ⚠ đang có link gần/đang nghẽn (s1->s2 ρ=1.00): tốc độ đọc được có thể THẤP hơn nhu cầu thật (TCP đã lùi) -> dự đoán sau khi gỡ nghẽn đánh giá thấp tải của các luồng đã lùi; thử thêm --restore-nominal
+
+[không làm gì] 
+   link nóng (ρ ≥ 0.9): s1->s2=1.00 h1->s1=1.00 s2->srv1=1.00
+   luồng tới đích (Mbps): h1→srv1 19.99  h2→srv2 2.17  h3→srv1 0.01  srv1→srv2 2.16
+   nạn nhân mới: -   ngoài vùng hợp lệ: h1→srv1, h3→srv1
+[hành động] {"op": "setBandwidth", "link": "h1-s1", "mbps": 7.0}
+   link nóng (ρ ≥ 0.9): h1->s1=2.86
+   luồng tới đích (Mbps): h1→srv1 7.00  h2→srv2 2.17  h3→srv1 0.01  srv1→srv2 2.16
+   nạn nhân mới: h1→srv1   ngoài vùng hợp lệ: h1→srv1
