@@ -1,0 +1,27 @@
+GĐ2 — chấm dự đoán (results/gd2/predictions.txt, commit 62f14ae, đẩy lên GitHub TRƯỚC khi thu)
+
+Thu: N-vary-s1008-r3 qua mọi cổng ở lần thu ĐẦU TIÊN (0 lần quarantine).
+Build: models/envelope-2.0.0.json (sha dd87c2e4bf12…), so sánh results/report/gd2_envelope_compare.json.
+
+ M1. SAI ở 1/71 cột. agg.rate_absz_max: min v2-excl 0.3337 -> v2 0.3798 (HẸP hơn); max 7.6454 -> 7.6467.
+     70/71 cột đúng như dự đoán. Nguyên nhân: cột này là z-score chuẩn hóa bằng link_stats học
+     từ CHÍNH tập train (ml/features.py add_aggregate_features). Thêm một run vào train làm đổi
+     link_stats, nên giá trị cột của mọi dòng train đổi theo -> min/max không đơn điệu.
+     fit_bounds đúng là min/max thuần; tiền đề sai là "cột đầu vào cố định khi thêm run".
+     Hệ quả cho M2/M3: lập luận "biên rộng hơn thì ít tick ngoài biên hơn" chỉ đúng cho cột thô
+     (txRate từng client), không đúng cho cột tổng hợp.
+ M2. ĐÚNG. h3 dưới biên, flood h1 (tick lỗi): 13/20 (<= 13).
+ M3. ĐÚNG. Client dưới biên ở run đối chứng C: 0.
+ E1. ĐÚNG. Qua cổng client_traffic lần thu đầu: h1/h2/h3 frac_ok = 1.0; min 1.027/1.024/1.070 Mbps.
+ E2. ĐÚNG. Biên dưới txRate h1 = 1.027 (trong [0.8; 1.049]); h3 = 0.843 (trong [0.8; 0.843]).
+ E3. ĐÚNG. excess và loss_only không đổi; dual FPR 0.0047 -> 0.0070 (lệch 0.0023 <= 0.02),
+     recall dual không đổi (0.794).
+
+Phát hiện ngoài dự đoán (mô tả, test set đã mở ở Phase 6):
+ - Ngưỡng: K (rate_shared) 24 -> 20, E (primary) 5.50 -> 8.37; CẢ HAI do N-vary-s1008-r3 đặt
+   (fold vary bị giữ ra; tick 39 cho K, tick 33 cho E). K GIẢM khi thêm run vì khi fold load1M
+   bị giữ ra, phần fit nay có r3 -> biên rộng hơn -> k của load1M giảm từ 24 xuống <= 20.
+ - primary_k recall 0.075 -> 0.175, FP 0 -> 1. dual FP 2 -> 3.
+ - FP mới DUY NHẤT (cả primary_k và dual): F-shift-s1-s2-s3007-r1 tick 42, k_rate = 23 > K = 20.
+   Tick 42 = 2 tick sau revert (revert tick 40): nhãn "đang tiêm lỗi?" = 0 nhưng mạng còn trong
+   pha hồi -> FP THEO NHÃN, không phải báo nhầm trên mạng yên. fpr_control vẫn = 0.

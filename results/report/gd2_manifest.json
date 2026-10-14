@@ -1,0 +1,125 @@
+{
+  "campaign": "DT4N-GD2-REPLACE-S1008",
+  "design_content_sha256": "4333a1afb30306356a567270dddcf66d85126def2e34834dc7165bc51d413bb5",
+  "contract_integrity": {
+    "stored": "4333a1afb30306356a567270dddcf66d85126def2e34834dc7165bc51d413bb5",
+    "recomputed": "4333a1afb30306356a567270dddcf66d85126def2e34834dc7165bc51d413bb5",
+    "match": true
+  },
+  "collection_provenance": {
+    "git_hash": "62f14aef2c371f95bb3daf35c8248ef0b6dd935f",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "data/phase5/gd2/",
+      "logs/gd2_controller.log",
+      "logs/gd2_gen_N-vary-s1008-r3.log",
+      "logs/gd2_startup.log",
+      "logs/gd2_stdout.log",
+      "logs/run_sync.log",
+      "results/report/gd2_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "design_provenance": {
+    "git_hash": "2e1dd9dc187f4c58cd9f454c07f7187628d213bf",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/run_sync.log"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "started_utc": "2026-10-14T08:49:33Z",
+  "finished_utc": "2026-10-14T08:51:06Z",
+  "n_runs_expected": 1,
+  "n_runs_ok": 1,
+  "n_runs_failed": 0,
+  "runs_not_attempted": [],
+  "complete": true,
+  "split": {
+    "train": [
+      "N-vary-s1008-r3"
+    ],
+    "test": []
+  },
+  "runs": {
+    "N-vary-s1008-r3": {
+      "status": "ok",
+      "sha256": "b41f57ac01bac5c953dab7b7bced84381d336267c377b5056eab748d612edbe1",
+      "checks": {
+        "n_snapshots": 60,
+        "expected_ticks": 60,
+        "embedded_ticks_ok": true,
+        "tick_count_ok": true,
+        "run_id_uniform": true,
+        "collector_version": [
+          "v3-qdisc-ratevalid"
+        ],
+        "collector_version_uniform": true,
+        "t_rel_monotonic": true,
+        "baseline_link_presence_ok": true,
+        "qdisc_invalid_fraction_baseline": 0.0,
+        "qdisc_samples_baseline": 472,
+        "qdisc_invalid_ok": true,
+        "rate_invalid_fraction_baseline": 0.0,
+        "rate_samples_baseline": 472,
+        "rate_invalid_ok": true,
+        "links_down_in_normal_run": [],
+        "no_unexpected_down": true,
+        "events_complete": true,
+        "passed": true,
+        "failed_gates": [],
+        "client_traffic_threshold_mbps": 0.5,
+        "client_traffic_min_fraction": 0.9,
+        "client_traffic": {
+          "h1": {
+            "n_ticks": 59,
+            "frac_ok": 1.0,
+            "min_mbps": 1.027,
+            "median_mbps": 3.2139
+          },
+          "h2": {
+            "n_ticks": 59,
+            "frac_ok": 1.0,
+            "min_mbps": 1.0235,
+            "median_mbps": 3.2209
+          },
+          "h3": {
+            "n_ticks": 59,
+            "frac_ok": 1.0,
+            "min_mbps": 1.0698,
+            "median_mbps": 4.2598
+          }
+        },
+        "client_traffic_ok": true,
+        "runtime_error_count": 0,
+        "runtime_log_ok": true
+      },
+      "events": [],
+      "started_utc": "2026-10-14T08:49:45Z",
+      "finished_utc": "2026-10-14T08:51:05Z",
+      "reset_dirty": false,
+      "reset_mode": "soft"
+    }
+  },
+  "base_rate": {
+    "usable_test_ticks": 0,
+    "anomalous_test_ticks": 0,
+    "base_rate_measured": null,
+    "dumb_always_normal_accuracy": null,
+    "base_rate_nominal": null
+  },
+  "missing_data_rule": "Không fillna ở tầng thu. Mẫu qdiscValid/rateValid = false được GHI nguyên trạng; việc lọc do ml/dataset.py ở Lesson 5.6 quyết định.",
+  "warmup_rule": "Tick warmup được GHI, không bị xóa. Lọc tick < warmup_ticks ở tầng nạp. Nhờ vậy đổi quy tắc warmup không phải chạy lại chiến dịch."
+}
