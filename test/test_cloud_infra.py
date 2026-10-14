@@ -5,9 +5,9 @@ Không tốn tiền, không cần mạng, không cần key thật. Chạy:
 """
 import importlib
 
-import boto3
 import pytest
 
+boto3 = pytest.importorskip('boto3')
 moto = pytest.importorskip('moto')
 
 

@@ -155,11 +155,11 @@ def test_observe_thieu_thing_thi_quyet_dinh_hold():
 # ---------------------------------------------------------------------------
 # step() + CloudActuator THẬT trên moto: twin chậm -> lệnh lặp lại là noop
 # ---------------------------------------------------------------------------
-moto = pytest.importorskip('moto')
-
-
 @pytest.fixture
 def aws_env(monkeypatch, tmp_path):
+    # importorskip TRONG fixture: thiếu moto chỉ bỏ qua các test dùng AWS giả,
+    # 17 test decide() thuần ở trên vẫn chạy.
+    moto = pytest.importorskip('moto')
     monkeypatch.setenv('AWS_ACCESS_KEY_ID', 'testing')
     monkeypatch.setenv('AWS_SECRET_ACCESS_KEY', 'testing')
     monkeypatch.setenv('AWS_REGION', 'ap-southeast-1')
