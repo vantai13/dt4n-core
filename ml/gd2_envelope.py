@@ -164,7 +164,9 @@ def threshold_owners(base: pd.DataFrame, fam: dict) -> dict:
     return best
 
 
-def fit_and_evaluate(variant: str, root: Path, n_boot=None, rng_seed=None) -> dict:
+def fit_and_evaluate(variant: str, root: Path, n_boot=None, rng_seed=None,
+                     loader=None) -> dict:
+    """``loader(variant, root)`` thay load_variant_raw khi nguồn train khác (GĐ4)."""
     from scripts.run_phase6_envelope import evaluate, families_from_registration, \
         verify_registration
     fam = families_from_registration()
@@ -172,7 +174,7 @@ def fit_and_evaluate(variant: str, root: Path, n_boot=None, rng_seed=None) -> di
     n_boot = unc['n_boot'] if n_boot is None else n_boot
     rng_seed = unc['rng_seed'] if rng_seed is None else rng_seed
 
-    train_raw, test_raw, warmup, used = load_variant_raw(variant, root)
+    train_raw, test_raw, warmup, used = (loader or load_variant_raw)(variant, root)
 
     # (a) ngưỡng K/E: CHỈ train, leave-one-config-out (giống stage_cv)
     base, _ = apply_policy(train_raw, warmup_ticks=warmup)
