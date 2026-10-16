@@ -1,0 +1,116 @@
+{
+  "content": {
+    "declaration_id": "DT4N-GD4-DRIFT-1",
+    "kind": "pin_drift_declaration",
+    "scope_note": "Không phải amendment của Phase 6R: không đổi giả thuyết, dữ liệu, ngưỡng hay kết quả nào của 6R. Tên phase6r_ chỉ để sổ ghim quét được.",
+    "declares_drift_against": {
+      "document": "results/report/phase6r_drift_gd2.json",
+      "gd2_declaration_content_sha256": "a0d50acdc5e113ca8e243a0156e5a35f3a05e910c7ea460f99374a3af233c7b1"
+    },
+    "reason": "GĐ4 thu lại run train thay thế (gd4) và đợt nghiệm thu (gd4r) trên máy GCP bằng đúng launcher và runner đã dùng cho Phase 5 và 6R, nên cần đăng ký hai chiến dịch vào hai file này. Xem ml/gd4campaign.py, ml/gd4rcampaign.py.",
+    "git": {
+      "head": "b3a7bf5a0e2108586549eb4eb9590ebf24ded83f",
+      "dirty_files": []
+    },
+    "code_sha256": {
+      "ml/campaign_binding.py": "87b8be0a83173e7d33f7e30c2a0c1fe7fd90134dcc2d8baf2d0fd4091476a4a5",
+      "scripts/launch_ml_dataset.py": "f1f680486a0420e1e6341099afb93930879b38b47bc967ecdefd1d0f30c21b02"
+    },
+    "changes": {
+      "ml/campaign_binding.py": "GĐ4: thêm hàm _gd4(), _gd4r() và hai khóa vào BINDINGS; các binding cũ giữ nguyên",
+      "scripts/launch_ml_dataset.py": "GĐ4: thêm nhánh elif binding.name in (\"gd4\", \"gd4r\") (kiểm hợp đồng và máy thu); các nhánh cũ giữ nguyên"
+    },
+    "drift": [
+      {
+        "path": "ml/campaign_binding.py",
+        "pinned_by_gd2_declaration": "33fe5222bb7a8caf0f2245bbcd2f4b77542a67e93ccefdcb45dbbd2598b7387a",
+        "now": "87b8be0a83173e7d33f7e30c2a0c1fe7fd90134dcc2d8baf2d0fd4091476a4a5",
+        "lines_added": 37,
+        "lines_removed": 1
+      },
+      {
+        "path": "scripts/launch_ml_dataset.py",
+        "pinned_by_gd2_declaration": "2ab4db063a947e80b1b1a4973aab80942933465c931fc7cd97f6e3fc8b00f8b9",
+        "now": "f1f680486a0420e1e6341099afb93930879b38b47bc967ecdefd1d0f30c21b02",
+        "lines_added": 9,
+        "lines_removed": 0
+      }
+    ],
+    "unchanged": "Hành vi của binding phase5, phase6r và gd2 không đổi; runner (scripts/generate_ml_dataset.py), ml/rcampaign.py và ml/rcampaign_runtime.py không sửa.",
+    "verified_by": [
+      "test/test_campaign_binding.py",
+      "test/test_campaign_execution.py",
+      "test/test_gd2.py",
+      "test/test_gd4.py"
+    ],
+    "diff": [
+      "--- a/ml/campaign_binding.py",
+      "+++ b/ml/campaign_binding.py",
+      "@@ -76,7 +76,43 @@",
+      "     )",
+      " ",
+      " ",
+      "-BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2}",
+      "+def _gd4() -> CampaignBinding:",
+      "+    \"\"\"GĐ4: thu lại run train thay thế trên máy GCP (xem ml/gd4campaign.py).\"\"\"",
+      "+    from ml import gd4campaign as G",
+      "+    return CampaignBinding(",
+      "+        name='gd4',",
+      "+        load_contract=lambda: G.load_contract(),",
+      "+        contract_hash=lambda doc: G.design_hash(doc),",
+      "+        run_paths=lambda rid: G.run_paths(rid),",
+      "+        verify=lambda *args: G.verify_gd4_run(*args),",
+      "+        manifest_path=C.ROOT / G.MANIFEST_REL,",
+      "+        build_manifest=lambda *args: G.build_manifest(*args),",
+      "+        startup_log='logs/gd4_startup.log',",
+      "+        namespace_default='org.dt4n.ml',",
+      "+        supports_interventions=False,",
+      "+    )",
+      "+",
+      "+",
+      "+def _gd4r() -> CampaignBinding:",
+      "+    \"\"\"GĐ4: thu lại đợt nghiệm thu cho detector 2.1 (xem ml/gd4rcampaign.py).\"\"\"",
+      "+    from ml import gd4rcampaign as G",
+      "+    from ml import rcampaign_runtime as RT",
+      "+    return CampaignBinding(",
+      "+        name='gd4r',",
+      "+        load_contract=lambda: G.load_contract(),",
+      "+        contract_hash=lambda doc: G.design_hash(doc),",
+      "+        run_paths=lambda rid: G.run_paths(rid),",
+      "+        verify=lambda *args: G.verify_run(*args),",
+      "+        manifest_path=C.ROOT / G.MANIFEST_REL,",
+      "+        build_manifest=lambda *args: RT.build_manifest(*args),",
+      "+        startup_log='logs/gd4r_startup.log',",
+      "+        namespace_default='org.dt4n.ml',",
+      "+        supports_interventions=True,",
+      "+    )",
+      "+",
+      "+",
+      "+BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2,",
+      "+            'gd4': _gd4, 'gd4r': _gd4r}",
+      " ",
+      " ",
+      " def get(name: str = 'phase5') -> CampaignBinding:",
+      "--- a/scripts/launch_ml_dataset.py",
+      "+++ b/scripts/launch_ml_dataset.py",
+      "@@ -54,6 +54,15 @@",
+      "         integrity = G.check_integrity(contract)",
+      "         print('[launch] gd2: %d run thay the cho %s'",
+      "               % (contract['n_runs'], contract['replaces']))",
+      "+    elif binding.name in ('gd4', 'gd4r'):",
+      "+        from importlib import import_module",
+      "+        G = import_module('ml.gd4campaign' if binding.name == 'gd4' else 'ml.gd4rcampaign')",
+      "+        integrity = G.check_integrity(contract)",
+      "+        if socket.gethostname() != contract['collection_host']:",
+      "+            raise SystemExit('%s chi thu tren may %s, day la %s' % (",
+      "+                binding.name, contract['collection_host'], socket.gethostname()))",
+      "+        print('[launch] %s: %d run tren may %s' % (",
+      "+            binding.name, contract['n_runs'], contract['collection_host']))",
+      "     else:",
+      "         from ml import rcampaign as R",
+      "         amendment_1 = json.loads("
+    ],
+    "written_at_utc": "2026-10-16T03:34:14+00:00"
+  },
+  "content_sha256": "815ef7b08eecc4749980a0282abdefc07780acc65a98b6bf794306e9cb0aaba8"
+}
