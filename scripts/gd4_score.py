@@ -33,7 +33,9 @@ from ml.acceptance_metrics import incident, residual_run, s1_s4, s2_s3, s10  # n
 from ml.acceptance_pass import _num, run_one, specs_for  # noqa: E402
 from ml.blast_radius import Routing  # noqa: E402
 from ml.client_gate import client_traffic_check  # noqa: E402
+from ml.acceptance_pass import ALARM_ZONE  # noqa: E402
 from ml.fsm import DetectorFSM, FSMParams  # noqa: E402
+from ml.operating_range import OperatingRangeGuard, load_sealed_threshold  # noqa: E402
 from ml.release import DetectorRelease  # noqa: E402
 from ml.serve_fast import FastOnlineScorer  # noqa: E402
 
@@ -63,7 +65,25 @@ def _content(path: Path) -> dict:
     return doc['content'] if 'content' in doc else doc
 
 
-SCORED_GROUPS = ('RD', 'RS', 'RN')     # R-C, R-O không vào S1/S2/S4/S10
+SCORED_GROUPS = ('RD', 'RS', 'RN', 'RC')   # R-C chỉ mô tả; R-O không chấm
+GUARD_PREREG = 'phase7_prereg.json'           # ngưỡng bộ chặn vùng tải của detector_runner
+
+
+def _median(values):
+    values = sorted(values)
+    n = len(values)
+    if not n:
+        return None
+    return values[n // 2] if n % 2 else (values[n // 2 - 1] + values[n // 2]) / 2
+
+
+def _published(trace, flags, channel):
+    """Như bridge/detector_contract: bộ chặn bật thì trạng thái công bố là 'không rõ'."""
+    if len(trace.rows) != len(flags):
+        raise ValueError('số dòng trace lệch số ảnh chụp: %s' % trace.run_id)
+    fsm = [row.state[channel][1] in ALARM_ZONE for row in trace.rows]
+    return {'fsm_alarm_ticks': sum(fsm),
+            'published_alarm_ticks': sum(a and not g for a, g in zip(fsm, flags))}
 
 
 def score(release_path: Path, set_name: str, raw_dir: Path | None,
@@ -91,8 +111,10 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
     version = release.content['collector_version']
     threshold = release.conservation.threshold
     reader = SnapshotReader({k: v['sha256'] for k, v in manifest['runs'].items()})
+    guard_mbps = load_sealed_threshold(json.loads(
+        (REPORT / GUARD_PREREG).read_text(encoding='utf-8')))
 
-    traces, metas, gate = {}, {}, {}
+    traces, metas, gate, guards = {}, {}, {}, {}
     warmup = int(contract['constants']['warmup_ticks'])
     for run_id in order:
         meta = json.loads((raw / (run_id + '.meta.json')).read_text(encoding='utf-8'))
@@ -108,16 +130,22 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
         traces[run_id] = run_one(run_id, snapshots, scorer, specs, threshold,
                                  probes=probes_for(record))
         metas[run_id] = meta
-        g = client_traffic_check(record, snapshots, meta['events'], warmup)
-        gate[run_id] = {'ok': g['client_traffic_ok'],
-                        'min_mbps': {c: v['min_mbps'] for c, v in g['client_traffic'].items()},
-                        'frac_ok': {c: v['frac_ok'] for c, v in g['client_traffic'].items()},
-                        'threshold_mbps': g['client_traffic_threshold_mbps']}
+        gate[run_id] = _gate(record, snapshots, meta, warmup)
+        guard = OperatingRangeGuard(guard_mbps)
+        guards[run_id] = [bool(guard.update(snap)) for snap in snapshots]
 
-    rd, rs, rn = (groups.get(g, []) for g in ('RD', 'RS', 'RN'))
+    # Cổng lưu lượng cho các run đã thu nhưng không chấm (R-O): chỉ đọc đầu vào.
+    for record in sorted(contract['runs'], key=lambda r: r['exec_index']):
+        rid = record['run_id']
+        if rid in gate or manifest['runs'].get(rid, {}).get('status') != 'ok':
+            continue
+        meta = json.loads((raw / (rid + '.meta.json')).read_text(encoding='utf-8'))
+        gate[rid] = _gate(record, reader.read_once(rid, raw / (rid + '.jsonl')), meta, warmup)
+
+    rd, rs, rn, rc = (groups.get(g, []) for g in ('RD', 'RS', 'RN', 'RC'))
     per_run = {rid: residual_run(traces[rid], metas[rid]) for rid in rd}
     rho = {rid: per_run[rid]['rho'] for rid in rd}
-    out = {'S1_S4': {}, 'S2_S3': {}, 'S10': {}, 'by_rho': {}}
+    out = {'S1_S4': {}, 'S2_S3': {}, 'S10': {}, 'by_rho': {}, 'RC': {}, 'guard': {}}
     for channel in CHANNELS:
         if rd:
             incidents = {rid: incident(traces[rid], metas[rid], '%s@with_log' % channel)
@@ -133,6 +161,16 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
             out['S2_S3'][channel] = s2_s3([traces[r] for r in rs], '%s@no_log' % channel)
         if rn:
             out['S10'][channel] = {rid: s10(traces[rid], '%s@no_log' % channel) for rid in rn}
+        if rc:
+            out['RC'][channel] = {rid: incident(traces[rid], metas[rid], '%s@with_log' % channel)
+                                  for rid in rc}
+    for rid in order:
+        mode = 'with_log' if records[rid]['group'] in ('RD', 'RC') else 'no_log'
+        out['guard'][rid] = {'guard_ticks': sum(guards[rid]), 'n_ticks': len(guards[rid]),
+                             'mode': mode,
+                             **{ch: _published(traces[rid], guards[rid], '%s@%s' % (ch, mode))
+                                for ch in CHANNELS}}
+    out['guard_threshold_mbps'] = guard_mbps
     out['residual_per_run'] = per_run
     out['client_gate'] = gate
     out['process'] = {
@@ -143,6 +181,21 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
         'groups': {g: len(v) for g, v in groups.items()},
     }
     return out
+
+
+def _gate(record, snapshots, meta, warmup) -> dict:
+    g = client_traffic_check(record, snapshots, meta['events'], warmup)
+    return {'ok': g['client_traffic_ok'],
+            'min_mbps': {c: v['min_mbps'] for c, v in g['client_traffic'].items()},
+            'frac_ok': {c: v['frac_ok'] for c, v in g['client_traffic'].items()},
+            'threshold_mbps': g['client_traffic_threshold_mbps']}
+
+
+def _ttd(incidents: dict) -> dict:
+    values = sorted(v['t_detect_ms'] for v in incidents.values() if v['detected'])
+    return {'n_detected': len(values), 'n': len(incidents), 'values_ms': values,
+            'median_ms': _median(values), 'min_ms': values[0] if values else None,
+            'max_ms': values[-1] if values else None}
 
 
 def verdicts(result: dict) -> dict:
@@ -164,7 +217,9 @@ def verdicts(result: dict) -> dict:
                      'by_rho': result['by_rho']}
         out['S4'] = {'value_ms': s4, 'target': slo['S4']['target'],
                      'verdict': judge('S4', s4),
-                     'combined_value_ms': comb['summary']['t_detect_p95_ms']}
+                     'combined_value_ms': comb['summary']['t_detect_p95_ms'],
+                     'all_values': {ch: _ttd(result['S1_S4'][ch]['per_incident'])
+                                    for ch in CHANNELS}}
     else:
         out['S1'] = out['S4'] = pending
     if result['S2_S3']:
@@ -182,6 +237,12 @@ def verdicts(result: dict) -> dict:
             for rid, v in result['S10']['envelope_only'].items()}}
     else:
         out['S10'] = pending
+    if result['RC']:
+        out['RC_descriptive'] = {ch: {'per_incident': result['RC'][ch],
+                                      'ttd': _ttd(result['RC'][ch])} for ch in CHANNELS}
+    out['operational_guard'] = {
+        'threshold_mbps': result['guard_threshold_mbps'],
+        'per_run': result['guard']}
     return out
 
 
@@ -214,6 +275,7 @@ def main(argv=None) -> int:
     ap.add_argument('--out', required=True)
     ap.add_argument('--check-6r', action='store_true')
     ap.add_argument('--groups', nargs='+', choices=SCORED_GROUPS, default=list(SCORED_GROUPS))
+    ap.add_argument('--quiet', action='store_true', help='không in số ra màn hình')
     args = ap.parse_args(argv)
     out = Path(args.out)
     if out.exists():
@@ -227,6 +289,9 @@ def main(argv=None) -> int:
     C.atomic_json(out, {'content': content, 'content_sha256': C.sha256_bytes(
         C.canonical_json(content).encode('utf-8'))})
     v = content['verdicts']
+    if args.quiet:
+        print('đã ghi %s' % out)
+        return 0 if not args.check_6r or content['check_6r']['match'] else 1
     print('%s trên %s, nhóm %s' % (result['process']['release'], args.set, args.groups))
     if v['S1']['verdict'] != 'PENDING':
         print('S1 %s %s (combined %s) | theo rho env %s, comb %s' % (
