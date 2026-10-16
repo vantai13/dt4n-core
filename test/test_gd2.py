@@ -125,7 +125,7 @@ def test_binding_gd2_duoc_dang_ky():
     integ = G.check_integrity(doc, ROOT)
     assert b.contract_hash(doc) == doc['design_content_sha256']
     assert B.integrity_ok(b, doc, json.dumps(integ)) is True
-    assert set(B.BINDINGS) == {'phase5', 'phase6r', 'gd2'}
+    assert {'phase5', 'phase6r', 'gd2'} <= set(B.BINDINGS)
 
 
 # --------------------------------------------------------------------------- 3. envelope

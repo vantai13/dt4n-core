@@ -54,6 +54,15 @@ def main():
         integrity = G.check_integrity(contract)
         print('[launch] gd2: %d run thay the cho %s'
               % (contract['n_runs'], contract['replaces']))
+    elif binding.name in ('gd4', 'gd4r'):
+        from importlib import import_module
+        G = import_module('ml.gd4campaign' if binding.name == 'gd4' else 'ml.gd4rcampaign')
+        integrity = G.check_integrity(contract)
+        if socket.gethostname() != contract['collection_host']:
+            raise SystemExit('%s chi thu tren may %s, day la %s' % (
+                binding.name, contract['collection_host'], socket.gethostname()))
+        print('[launch] %s: %d run tren may %s' % (
+            binding.name, contract['n_runs'], contract['collection_host']))
     else:
         from ml import rcampaign as R
         amendment_1 = json.loads(
