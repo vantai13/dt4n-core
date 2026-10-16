@@ -1,0 +1,171 @@
+{
+  "content": {
+    "note": "Chỉ mô tả cơ chế bỏ sót trên s1–s2; không đổi kết quả của Chương 5.",
+    "runs": {
+      "RD-degrade-s1-s2-rho050-s5105-r1": {
+        "v21": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 0.0,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 5.608952607645111
+        },
+        "v1": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 0.0,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 8.968806422101116
+        }
+      },
+      "RD-degrade-s1-s2-rho080-s5104-r1": {
+        "v21": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 0.005113000000000465,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 5.608952607645111
+        },
+        "v1": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 0.005113000000000465,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 8.968806422101116
+        }
+      },
+      "RD-degrade-s1-s2-rho125-s5103-r1": {
+        "v21": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 13.022804392780994,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 5.608952607645111
+        },
+        "v1": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 11.256600141032568,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 8.968806422101116
+        }
+      },
+      "RD-degrade-s1-s2-rho150-s5102-r1": {
+        "v21": {
+          "excess_max_21_39": 0.995517223233519,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 64.19,
+          "excess_tick_41": 16.39864954426207,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 4,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 5.608952607645111
+        },
+        "v1": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 64.19,
+          "excess_tick_41": 13.914107800428122,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 8.968806422101116
+        }
+      },
+      "RD-degrade-s1-s2-rho200-s5101-r1": {
+        "v21": {
+          "excess_max_21_39": 0.27589904093864215,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.27381329524324655,
+          "excess_tick_41": 12.858153727651365,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 12
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 5.608952607645111
+        },
+        "v1": {
+          "excess_max_21_39": 0.0,
+          "ticks_with_indicator_violation_21_39": 0,
+          "k_indicator_max_21_39": 0,
+          "excess_tick_40": 0.0,
+          "excess_tick_41": 11.253382349914881,
+          "below_lower_bound_ticks_21_40": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          },
+          "n_ticks_21_39": 19,
+          "threshold_E": 8.968806422101116
+        }
+      }
+    },
+    "client_rate_width_mbps": {
+      "v21": {
+        "h1": 4.328,
+        "h2": 4.408,
+        "h3": 5.371
+      },
+      "v1": {
+        "h1": 5.376,
+        "h2": 4.408,
+        "h3": 6.182
+      }
+    },
+    "written_at_utc": "2026-10-16T09:27:11+00:00"
+  },
+  "content_sha256": "24eaf85c11be5ca8a5a9a59c73e9b697eb626e076f3c02d3666b411429e2655e"
+}
