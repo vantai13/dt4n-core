@@ -1,0 +1,662 @@
+{
+  "content": {
+    "version": "2.1.0",
+    "train_run_ids": [
+      "N-load1M-s1001-r1",
+      "N-load1M-s1002-r2",
+      "N-load2M-s1003-r1",
+      "N-load2M-s1004-r2",
+      "N-load4M-s1005-r1",
+      "N-load4M-s1006-r2",
+      "N-vary-s1007-r1",
+      "N-vary-s1008-r4"
+    ],
+    "envelope": {
+      "thresholds_v1": {
+        "primary": {
+          "K": 31,
+          "E": 8.968806422101116,
+          "n_pooled_rows": 472
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        },
+        "rate_shared": {
+          "K": 31,
+          "E": 8.968806422101116,
+          "n_pooled_rows": 472
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        }
+      },
+      "thresholds_v21": {
+        "primary": {
+          "K": 18,
+          "E": 5.608952607645111,
+          "n_pooled_rows": 472
+        },
+        "indicator": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        },
+        "rate_shared": {
+          "K": 18,
+          "E": 5.608952607645111,
+          "n_pooled_rows": 472
+        },
+        "loss_only": {
+          "K": 0,
+          "E": 0.0,
+          "n_pooled_rows": 472
+        }
+      },
+      "owners_v21": {
+        "primary": {
+          "k": {
+            "value": 18.0,
+            "run_id": "N-vary-s1007-r1",
+            "tick": 32,
+            "held_out_config": "normal_varying|vary"
+          },
+          "excess": {
+            "value": 5.608952607645111,
+            "run_id": "N-vary-s1008-r4",
+            "tick": 33,
+            "held_out_config": "normal_varying|vary"
+          }
+        },
+        "indicator": {
+          "k": {
+            "value": 0.0,
+            "run_id": "N-load4M-s1005-r1",
+            "tick": 1,
+            "held_out_config": "normal|4"
+          },
+          "excess": {
+            "value": 0.0,
+            "run_id": "N-load4M-s1005-r1",
+            "tick": 1,
+            "held_out_config": "normal|4"
+          }
+        },
+        "rate_shared": {
+          "k": {
+            "value": 18.0,
+            "run_id": "N-vary-s1007-r1",
+            "tick": 32,
+            "held_out_config": "normal_varying|vary"
+          },
+          "excess": {
+            "value": 5.608952607645111,
+            "run_id": "N-vary-s1008-r4",
+            "tick": 33,
+            "held_out_config": "normal_varying|vary"
+          }
+        },
+        "loss_only": {
+          "k": {
+            "value": 0.0,
+            "run_id": "N-load4M-s1005-r1",
+            "tick": 1,
+            "held_out_config": "normal|4"
+          },
+          "excess": {
+            "value": 0.0,
+            "run_id": "N-load4M-s1005-r1",
+            "tick": 1,
+            "held_out_config": "normal|4"
+          }
+        }
+      },
+      "content_sha256": "8df5c85d5eec59f995b38db02afa6a5e426a1b565a9203aae8ada818811d71a9"
+    },
+    "conservation": {
+      "R_v1": 0.0796613817054327,
+      "owner_v1": {
+        "run_id": "N-vary-s1008-r2",
+        "tick": 6,
+        "switch": "s1",
+        "config_id": "normal_varying|vary"
+      },
+      "R_v21": 0.07527469320529563,
+      "owner_v21": {
+        "run_id": "N-vary-s1008-r4",
+        "tick": 1,
+        "switch": "s2",
+        "config_id": "normal_varying|vary"
+      },
+      "r_max_by_config_v21": {
+        "normal_varying|vary": 0.075275,
+        "normal|1": 0.037674,
+        "normal|2": 0.021676,
+        "normal|4": 0.012133
+      },
+      "content_sha256": "92b29abd74d3d077a2828abdafd7b418d943002c3bde86d73e82cb73321e57a2"
+    },
+    "operating_range": {
+      "v1_train": {
+        "operating_range_T_mbps": 4.312610240000001,
+        "T_owner": {
+          "run_id": "N-load4M-s1006-r2",
+          "tick": 51
+        },
+        "client_tx_ceiling_mbps": 6.181986,
+        "ceiling_owner": {
+          "run_id": "N-vary-s1007-r1",
+          "tick": 16,
+          "host": "host-h3"
+        },
+        "clamp_limit_mbps": 7.0,
+        "clamp_above_ceiling": true,
+        "per_run": {
+          "N-load1M-s1001-r1": {
+            "max_g_mbps": 1.077265,
+            "max_client_tx_mbps": 1.272093
+          },
+          "N-load1M-s1002-r2": {
+            "max_g_mbps": 1.095736,
+            "max_client_tx_mbps": 1.120551
+          },
+          "N-load2M-s1003-r1": {
+            "max_g_mbps": 2.168926,
+            "max_client_tx_mbps": 2.191587
+          },
+          "N-load2M-s1004-r2": {
+            "max_g_mbps": 2.168423,
+            "max_client_tx_mbps": 2.191279
+          },
+          "N-load4M-s1005-r1": {
+            "max_g_mbps": 4.312265,
+            "max_client_tx_mbps": 4.314792
+          },
+          "N-load4M-s1006-r2": {
+            "max_g_mbps": 4.31261,
+            "max_client_tx_mbps": 4.332083
+          },
+          "N-vary-s1007-r1": {
+            "max_g_mbps": 4.282192,
+            "max_client_tx_mbps": 6.181986
+          },
+          "N-vary-s1008-r2": {
+            "max_g_mbps": 0.0,
+            "max_client_tx_mbps": 5.366516
+          }
+        }
+      },
+      "v21_train": {
+        "operating_range_T_mbps": 4.312610240000001,
+        "T_owner": {
+          "run_id": "N-load4M-s1006-r2",
+          "tick": 51
+        },
+        "client_tx_ceiling_mbps": 6.181986,
+        "ceiling_owner": {
+          "run_id": "N-vary-s1007-r1",
+          "tick": 16,
+          "host": "host-h3"
+        },
+        "clamp_limit_mbps": 7.0,
+        "clamp_above_ceiling": true,
+        "per_run": {
+          "N-load1M-s1001-r1": {
+            "max_g_mbps": 1.077265,
+            "max_client_tx_mbps": 1.272093
+          },
+          "N-load1M-s1002-r2": {
+            "max_g_mbps": 1.095736,
+            "max_client_tx_mbps": 1.120551
+          },
+          "N-load2M-s1003-r1": {
+            "max_g_mbps": 2.168926,
+            "max_client_tx_mbps": 2.191587
+          },
+          "N-load2M-s1004-r2": {
+            "max_g_mbps": 2.168423,
+            "max_client_tx_mbps": 2.191279
+          },
+          "N-load4M-s1005-r1": {
+            "max_g_mbps": 4.312265,
+            "max_client_tx_mbps": 4.314792
+          },
+          "N-load4M-s1006-r2": {
+            "max_g_mbps": 4.31261,
+            "max_client_tx_mbps": 4.332083
+          },
+          "N-vary-s1007-r1": {
+            "max_g_mbps": 4.282192,
+            "max_client_tx_mbps": 6.181986
+          },
+          "N-vary-s1008-r4": {
+            "max_g_mbps": 4.290426,
+            "max_client_tx_mbps": 5.554078
+          }
+        }
+      }
+    },
+    "release_content_sha256": "9df1b60c56db10380dd02b6867c9dfe9f7d81be202abc38a6dd3ee8b7c3475c3",
+    "compare_on_phase5_test_descriptive": {
+      "note": "Tập test Phase 5 đã được mở ở Phase 6: các số dưới đây là MÔ TẢ, không phải xác nhận trên dữ liệu chưa thấy. Chỉ tập train thay đổi; cột, thuật toán, cách đặt ngưỡng, tập test giữ nguyên.",
+      "variants": {
+        "v1": {
+          "train_run_ids": [
+            "N-load1M-s1001-r1",
+            "N-load1M-s1002-r2",
+            "N-load2M-s1003-r1",
+            "N-load2M-s1004-r2",
+            "N-load4M-s1005-r1",
+            "N-load4M-s1006-r2",
+            "N-vary-s1007-r1",
+            "N-vary-s1008-r2"
+          ],
+          "n_train_rows": 472,
+          "thresholds": {
+            "primary": {
+              "K": 31,
+              "E": 8.9688
+            },
+            "indicator": {
+              "K": 0,
+              "E": 0.0
+            },
+            "rate_shared": {
+              "K": 31,
+              "E": 8.9688
+            },
+            "loss_only": {
+              "K": 0,
+              "E": 0.0
+            }
+          },
+          "owner_K_rate": {
+            "value": 31.0,
+            "run_id": "N-vary-s1008-r2",
+            "tick": 26,
+            "held_out_config": "normal_varying|vary"
+          },
+          "owner_E_primary": {
+            "value": 8.968806422101116,
+            "run_id": "N-vary-s1008-r2",
+            "tick": 33,
+            "held_out_config": "normal_varying|vary"
+          },
+          "lower_bound_txRate_mbps": {
+            "host-h1.traffic.txRate": 0.0,
+            "host-h2.traffic.txRate": 1.005,
+            "host-h3.traffic.txRate": 0.0
+          },
+          "victim_visibility": {
+            "C-load2M-s2001-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            },
+            "C-vary-s2002-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            }
+          },
+          "variants": {
+            "primary_k": {
+              "recall": 0.0,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0,
+              "fpr_control": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 160,
+              "delay_median": null,
+              "n_censored": 8,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.0,
+                "flood": 0.0,
+                "shift": 0.0
+              }
+            },
+            "secondary_excess": {
+              "recall": 0.8562,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0535,
+              "fpr_control": 0.0,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "delay_median": 0.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.475,
+                "flood": 1.0,
+                "shift": 0.95
+              }
+            },
+            "secondary_dual": {
+              "recall": 0.7937,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0047,
+              "fpr_control": 0.0,
+              "tp": 127,
+              "fp": 2,
+              "fn": 33,
+              "delay_median": 1.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            },
+            "ablation_loss_only": {
+              "recall": 0.5437,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0047,
+              "fpr_control": 0.0,
+              "tp": 87,
+              "fp": 2,
+              "fn": 73,
+              "delay_median": 1.0,
+              "n_censored": 3,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            }
+          }
+        },
+        "v2": {
+          "train_run_ids": [
+            "N-load1M-s1001-r1",
+            "N-load1M-s1002-r2",
+            "N-load2M-s1003-r1",
+            "N-load2M-s1004-r2",
+            "N-load4M-s1005-r1",
+            "N-load4M-s1006-r2",
+            "N-vary-s1007-r1",
+            "N-vary-s1008-r3"
+          ],
+          "n_train_rows": 472,
+          "thresholds": {
+            "primary": {
+              "K": 20,
+              "E": 8.3681
+            },
+            "indicator": {
+              "K": 0,
+              "E": 0.0
+            },
+            "rate_shared": {
+              "K": 20,
+              "E": 8.3681
+            },
+            "loss_only": {
+              "K": 0,
+              "E": 0.0
+            }
+          },
+          "owner_K_rate": {
+            "value": 20.0,
+            "run_id": "N-vary-s1008-r3",
+            "tick": 39,
+            "held_out_config": "normal_varying|vary"
+          },
+          "owner_E_primary": {
+            "value": 8.36813299369038,
+            "run_id": "N-vary-s1008-r3",
+            "tick": 33,
+            "held_out_config": "normal_varying|vary"
+          },
+          "lower_bound_txRate_mbps": {
+            "host-h1.traffic.txRate": 1.027,
+            "host-h2.traffic.txRate": 1.005,
+            "host-h3.traffic.txRate": 0.843
+          },
+          "victim_visibility": {
+            "C-load2M-s2001-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            },
+            "C-vary-s2002-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 13
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 7
+            }
+          },
+          "variants": {
+            "primary_k": {
+              "recall": 0.175,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0023,
+              "fpr_control": 0.0,
+              "tp": 28,
+              "fp": 1,
+              "fn": 132,
+              "delay_median": 6.0,
+              "n_censored": 6,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.0,
+                "flood": 0.7,
+                "shift": 0.0
+              }
+            },
+            "secondary_excess": {
+              "recall": 0.8562,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0535,
+              "fpr_control": 0.0,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "delay_median": 0.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.475,
+                "flood": 1.0,
+                "shift": 0.95
+              }
+            },
+            "secondary_dual": {
+              "recall": 0.7937,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.007,
+              "fpr_control": 0.0,
+              "tp": 127,
+              "fp": 3,
+              "fn": 33,
+              "delay_median": 1.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            },
+            "ablation_loss_only": {
+              "recall": 0.5437,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0047,
+              "fpr_control": 0.0,
+              "tp": 87,
+              "fp": 2,
+              "fn": 73,
+              "delay_median": 1.0,
+              "n_censored": 3,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            }
+          }
+        },
+        "v21": {
+          "train_run_ids": [
+            "N-load1M-s1001-r1",
+            "N-load1M-s1002-r2",
+            "N-load2M-s1003-r1",
+            "N-load2M-s1004-r2",
+            "N-load4M-s1005-r1",
+            "N-load4M-s1006-r2",
+            "N-vary-s1007-r1",
+            "N-vary-s1008-r4"
+          ],
+          "n_train_rows": 472,
+          "thresholds": {
+            "primary": {
+              "K": 18,
+              "E": 5.609
+            },
+            "indicator": {
+              "K": 0,
+              "E": 0.0
+            },
+            "rate_shared": {
+              "K": 18,
+              "E": 5.609
+            },
+            "loss_only": {
+              "K": 0,
+              "E": 0.0
+            }
+          },
+          "owner_K_rate": {
+            "value": 18.0,
+            "run_id": "N-vary-s1007-r1",
+            "tick": 32,
+            "held_out_config": "normal_varying|vary"
+          },
+          "owner_E_primary": {
+            "value": 5.608952607645111,
+            "run_id": "N-vary-s1008-r4",
+            "tick": 33,
+            "held_out_config": "normal_varying|vary"
+          },
+          "lower_bound_txRate_mbps": {
+            "host-h1.traffic.txRate": 1.049,
+            "host-h2.traffic.txRate": 1.005,
+            "host-h3.traffic.txRate": 0.81
+          },
+          "victim_visibility": {
+            "C-load2M-s2001-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            },
+            "C-vary-s2002-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 0
+            },
+            "F-flood-h1_to_srv1-s3005-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 13
+            },
+            "F-shift-s1-s2-s3007-r1": {
+              "h1": 0,
+              "h2": 0,
+              "h3": 7
+            }
+          },
+          "variants": {
+            "primary_k": {
+              "recall": 0.2,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0093,
+              "fpr_control": 0.0,
+              "tp": 32,
+              "fp": 4,
+              "fn": 128,
+              "delay_median": 4.0,
+              "n_censored": 6,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.0,
+                "flood": 0.8,
+                "shift": 0.0
+              }
+            },
+            "secondary_excess": {
+              "recall": 0.8562,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0535,
+              "fpr_control": 0.0,
+              "tp": 137,
+              "fp": 23,
+              "fn": 23,
+              "delay_median": 0.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.475,
+                "flood": 1.0,
+                "shift": 0.95
+              }
+            },
+            "secondary_dual": {
+              "recall": 0.7937,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0116,
+              "fpr_control": 0.0,
+              "tp": 127,
+              "fp": 5,
+              "fn": 33,
+              "delay_median": 1.0,
+              "n_censored": 1,
+              "recall_by_fault": {
+                "admin_down": 1.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            },
+            "ablation_loss_only": {
+              "recall": 0.5437,
+              "recall_ceiling": 0.975,
+              "fpr_all": 0.0047,
+              "fpr_control": 0.0,
+              "tp": 87,
+              "fp": 2,
+              "fn": 73,
+              "delay_median": 1.0,
+              "n_censored": 3,
+              "recall_by_fault": {
+                "admin_down": 0.0,
+                "degrade": 0.25,
+                "flood": 0.975,
+                "shift": 0.95
+              }
+            }
+          }
+        }
+      }
+    },
+    "note": "Tập test Phase 5 đã mở từ Phase 6: các số so sánh chỉ là MÔ TẢ. Bản 2.1 được nghiệm thu trên đợt gd4r thu sau khi bản này khóa.",
+    "written_at_utc": "2026-10-16T03:41:55+00:00"
+  },
+  "content_sha256": "4b9fec531c837aff081f05a17a3fd65c54471a1ad4a2ff7d681dcfdeda9c673c"
+}

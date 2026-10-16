@@ -1,0 +1,141 @@
+{
+  "content": {
+    "verdicts": {
+      "S1": {
+        "verdict": "PENDING",
+        "note": "nhóm chưa thu, chưa chấm"
+      },
+      "S4": {
+        "verdict": "PENDING",
+        "note": "nhóm chưa thu, chưa chấm"
+      },
+      "S2": {
+        "verdict": "PENDING",
+        "note": "nhóm chưa thu, chưa chấm"
+      },
+      "S10": {
+        "verdict": "REPORT_ONLY",
+        "envelope_only": {
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          }
+        }
+      },
+      "operational_guard": {
+        "threshold_mbps": 4.312610240000001,
+        "per_run": {
+          "RN-load8M-s5014-r2": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            }
+          }
+        }
+      }
+    },
+    "result": {
+      "S1_S4": {},
+      "S2_S3": {},
+      "S10": {
+        "envelope_only": {
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          }
+        },
+        "combined": {
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          }
+        }
+      },
+      "by_rho": {},
+      "RC": {},
+      "guard": {
+        "RN-load8M-s5014-r2": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          }
+        }
+      },
+      "guard_threshold_mbps": 4.312610240000001,
+      "residual_per_run": {},
+      "client_gate": {
+        "RN-load8M-s5014-r2": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 8.5754,
+            "h2": 8.5756,
+            "h3": 8.5733
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 4.0
+        }
+      },
+      "process": {
+        "release": "detector-release-2.1.0",
+        "release_sha256": "9df1b60c56db10380dd02b6867c9dfe9f7d81be202abc38a6dd3ee8b7c3475c3",
+        "set": "gd4r",
+        "contract_sha256": "5cb3bbf2852e1f51a294ee873cf985a3820a11acce2876fb3c30e345050982fc",
+        "n_files_read": 1,
+        "n_runs_scored": 1,
+        "pass_conservation_mode": "shadow",
+        "groups": {
+          "RN": 1
+        },
+        "runs_filter": [
+          "RN-load8M-s5014-r2"
+        ]
+      }
+    },
+    "written_at_utc": "2026-10-16T05:20:28+00:00"
+  },
+  "content_sha256": "d31d4c77d98f70415ed64a866b172419a16d7d3882797a8841388274f4a3de2d"
+}

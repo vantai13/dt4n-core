@@ -76,7 +76,43 @@ def _gd2() -> CampaignBinding:
     )
 
 
-BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2}
+def _gd4() -> CampaignBinding:
+    """GĐ4: thu lại run train thay thế trên máy GCP (xem ml/gd4campaign.py)."""
+    from ml import gd4campaign as G
+    return CampaignBinding(
+        name='gd4',
+        load_contract=lambda: G.load_contract(),
+        contract_hash=lambda doc: G.design_hash(doc),
+        run_paths=lambda rid: G.run_paths(rid),
+        verify=lambda *args: G.verify_gd4_run(*args),
+        manifest_path=C.ROOT / G.MANIFEST_REL,
+        build_manifest=lambda *args: G.build_manifest(*args),
+        startup_log='logs/gd4_startup.log',
+        namespace_default='org.dt4n.ml',
+        supports_interventions=False,
+    )
+
+
+def _gd4r() -> CampaignBinding:
+    """GĐ4: thu lại đợt nghiệm thu cho detector 2.1 (xem ml/gd4rcampaign.py)."""
+    from ml import gd4rcampaign as G
+    from ml import rcampaign_runtime as RT
+    return CampaignBinding(
+        name='gd4r',
+        load_contract=lambda: G.load_contract(),
+        contract_hash=lambda doc: G.design_hash(doc),
+        run_paths=lambda rid: G.run_paths(rid),
+        verify=lambda *args: G.verify_run(*args),
+        manifest_path=C.ROOT / G.MANIFEST_REL,
+        build_manifest=lambda *args: RT.build_manifest(*args),
+        startup_log='logs/gd4r_startup.log',
+        namespace_default='org.dt4n.ml',
+        supports_interventions=True,
+    )
+
+
+BINDINGS = {'phase5': _phase5, 'phase6r': _phase6r, 'gd2': _gd2,
+            'gd4': _gd4, 'gd4r': _gd4r}
 
 
 def get(name: str = 'phase5') -> CampaignBinding:

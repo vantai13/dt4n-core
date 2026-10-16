@@ -1,0 +1,96 @@
+{
+  "content": {
+    "prereg_id": "DT4N-GD4-ACCEPTANCE-PREREG",
+    "purpose": "Nghiệm thu detector-release-2.1.0 (chỉ đổi dữ liệu train so với 1.0.0) trên đợt gd4r thu sau khi tài liệu này được commit.",
+    "frozen": {
+      "release": {
+        "file": "models/detector-release-2.1.0.json",
+        "content_sha256": "9df1b60c56db10380dd02b6867c9dfe9f7d81be202abc38a6dd3ee8b7c3475c3"
+      },
+      "components": {
+        "envelope": {
+          "name": "envelope-2.1.0",
+          "path": "models/envelope-2.1.0.json",
+          "content_sha256": "8df5c85d5eec59f995b38db02afa6a5e426a1b565a9203aae8ada818811d71a9"
+        },
+        "conservation": {
+          "name": "conservation-2.1.0",
+          "path": "results/report/gd4_conservation.json",
+          "content_sha256": "92b29abd74d3d077a2828abdafd7b418d943002c3bde86d73e82cb73321e57a2"
+        }
+      },
+      "fsm_params": {
+        "n_suspect": 1,
+        "n_act": 2,
+        "release_m": 3,
+        "cooldown_s": 8.0
+      },
+      "conservation_mode": "active",
+      "gd4r_contract_sha256": "5cb3bbf2852e1f51a294ee873cf985a3820a11acce2876fb3c30e345050982fc",
+      "slo": {
+        "file": "results/report/phase6r_slo.json",
+        "content_sha256": "a80fd5fb0325dac2e54c4aaf89c7610fec4de7aa082d3bfdaa1aaf56a4147ee3"
+      },
+      "code_sha256": {
+        "ml/acceptance_metrics.py": "fd5b11a3b8fd6dd3ccfab0cbd39ecd97ec7427cb04a4cd5ed665480b26a2b1bb",
+        "ml/acceptance_pass.py": "81ba0ded9a520e3e22d1f594df627a34eafd406f531527ee0579e2cd16a1088f",
+        "ml/acceptance_stats.py": "6743da1e35d650bfe595b576e705c6435521985c04055cd97fff875956d9dab2",
+        "ml/serve_fast.py": "42f90bea0d178162882f6601a6dc7162b7a586a7c21bed64a2be91a6ce6a3193",
+        "ml/serve.py": "29e772149fc1ee94d0aa31106db533490fd9c634eb65c77e7b2f8d95459203b1",
+        "ml/fsm.py": "9ba70b0207d1a43b581a67e5493381055c07f13c5e11fc67cb8eebb534e98f8c",
+        "ml/blast_radius.py": "5a9dff171decb6148cd786f304f6ac94c30222fb986acd2df04784f375d953a0",
+        "ml/intervention_log.py": "22874cab8b2d29e41d6cf48b5963ecc0e1f7d7ea75da85a84d34fb81f71544ee",
+        "ml/labels.py": "c947c9c25b9d793799a17ccb2a300f942a248dfe80f1bf5c619338382719a869",
+        "ml/model.py": "9c4b21985606fc4498031ab5a206aa158abaa10fda5bf72294d93b8272f0e435",
+        "ml/release.py": "43602be8c41b617d516f91694ed39d7deb0effad6dba7cebb30dd8afddd618c3",
+        "ml/gd4rcampaign.py": "f5cad96b6644030a84cfce406930bed33275c47d27c690512a16f78daedb68a1",
+        "ml/gd4_retrain.py": "a4cf0f6201b5fdf7baa4a8b1a2c6ef2e99e83f6bb668a0ecbab8669901602907"
+      }
+    },
+    "targets_unchanged_from_6r": {
+      "S1": {
+        "op": ">=",
+        "value": 0.875,
+        "unit": "ty le su co"
+      },
+      "S2": {
+        "op": "<=",
+        "value": 3.0,
+        "unit": "su kien/gio",
+        "kind": "gioi han tren 95%"
+      },
+      "S4": {
+        "op": "<=",
+        "value": 3000,
+        "unit": "ms"
+      },
+      "S10": {
+        "kind": "bao, khong dat muc tieu"
+      }
+    },
+    "primary": {
+      "S1": "tỉ lệ sự cố R-D được phát hiện ở mức đáng ngờ; kênh envelope_only, chế độ with_log; ml.acceptance_metrics.incident + s1_s4 -> detection_rate",
+      "S2": "cận trên 95% số báo động sai mỗi giờ trên 3 run R-S; kênh envelope_only, no_log; s2_s3 -> rate_upper_per_hour",
+      "S4": "p95 thời gian phát hiện trên các sự cố R-D được phát hiện; envelope_only; s1_s4 -> t_detect_p95_ms",
+      "S10": "R-N 6/8/10 Mbps: chỉ báo cáo alarm_ticks và fp (s10), không có mục tiêu",
+      "verdict_rule": "giá trị so với target 6R bằng toán tử đã ghi; không người nào gõ tay"
+    },
+    "descriptive_pre_declared": {
+      "combined": "S1, S2, S4 của kênh combined (envelope hoặc residual), như 6R",
+      "by_rho": "S1 tách theo rho của từng sự cố R-D (ml.acceptance_metrics.residual_run): rho >= 1,10 và rho <= 0,90",
+      "v1_on_gd4r": "detector-release-1.0.0 chấm trên cùng gd4r: tách ảnh hưởng của dữ liệu mới khỏi ảnh hưởng của mô hình mới",
+      "v21_on_6r": "detector-release-2.1.0 chấm trên 25 run 6R cũ (đã mở): chỉ mô tả, nếu dữ liệu LFS lấy được"
+    },
+    "validation_before_opening": "Script chấm phải tái lập ĐÚNG số 6R đã công bố khi chạy 1.0.0 trên 25 run 6R (S1 0,3; S2 0,9994; S4 2007 ms; combined 0,6 và 11001 ms; S10 từng run) trước khi đọc byte gd4r đầu tiên. Không tái lập được thì sửa script, không chạm gd4r.",
+    "commitments": [
+      "Báo kết quả của 2.1.0 dù tốt hay xấu hơn 1.0.0; không quay về 1.0.0 vì số xấu.",
+      "Chấm gd4r một lần; không đổi ngưỡng, cột, FSM, luật ức chế sau khi mở.",
+      "Run hỏng ở cổng thiết bị được thu lại, mọi lần thử được lưu và báo cáo; signal_present của R-D là covariate như 6R.",
+      "Không chạy lại vòng kín; kết quả vòng kín vẫn là của 1.0.0.",
+      "R-O (2 run) được thu để giữ thiết kế giống 6R nhưng không vào S1/S2/S4."
+    ],
+    "git_head": "ce62acb3c1996545f9e9d654a3c24b19430fcb3f",
+    "written_at_utc": "2026-10-16T03:43:20+00:00"
+  },
+  "content_sha256": "2918e76c34a765683f8b8eee2e6dc467534261673d2bff16e8eee2e9241e8bee"
+}

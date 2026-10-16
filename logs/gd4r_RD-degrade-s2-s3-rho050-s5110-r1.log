@@ -1,0 +1,90 @@
+2026-10-16 03:58:32,241 [INFO] env_runner: HARD reset
+2026-10-16 03:58:32,241 [INFO] sync_agent: Sync Agent dừng sau 470 chu kỳ.
+2026-10-16 03:58:32,998 [INFO] command_agent: Command Agent dừng.
+2026-10-16 03:58:32,998 [INFO] env_runner: EnvRunner.close(): stopping Mininet
+2026-10-16 03:58:33,691 [INFO] env_runner: EnvRunner.start()
+2026-10-16 03:58:38,089 [INFO] sync_agent: Sync Agent start: period=1.000s, tol=0.500, ping_every=20, reconcile_every=30, mode=None
+2026-10-16 03:58:38,090 [INFO] command_agent: Command Agent start (bản 4.4: nghe + thực thi + response). controller=org.dt4n.ml:controller
+2026-10-16 03:58:38,095 [INFO] command_agent: SSE kết nối OK, đang nghe lệnh tại http://localhost:8080/api/2/things/org.dt4n.ml:controller/inbox/messages
+2026-10-16 03:58:38,294 [INFO] sync_agent: Cycle #1 [RECONCILE]: 16/16 patch, elapsed=204ms
+2026-10-16 03:58:39,260 [INFO] sync_agent: Cycle #2 [delta]: 13/13 patch, elapsed=170ms
+2026-10-16 03:58:40,261 [INFO] sync_agent: Cycle #3 [delta]: 13/13 patch, elapsed=171ms
+2026-10-16 03:58:41,099 [INFO] env_runner: EnvRunner started in 7.4s, startup iperf=0; episode iperf baseline pending
+2026-10-16 03:58:41,261 [INFO] sync_agent: Cycle #4 [delta]: 13/13 patch, elapsed=171ms
+2026-10-16 03:58:42,191 [INFO] sync_agent: Cycle #5 [delta]: 2/2 patch, elapsed=101ms
+2026-10-16 03:58:44,277 [INFO] sync_agent: Cycle #7 [delta]: 13/13 patch, elapsed=187ms
+2026-10-16 03:58:45,269 [INFO] sync_agent: Cycle #8 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:58:46,273 [INFO] sync_agent: Cycle #9 [delta]: 13/13 patch, elapsed=182ms
+2026-10-16 03:58:47,275 [INFO] sync_agent: Cycle #10 [delta]: 13/13 patch, elapsed=184ms
+2026-10-16 03:58:48,297 [INFO] sync_agent: Cycle #11 [delta]: 13/13 patch, elapsed=205ms
+2026-10-16 03:58:49,277 [INFO] sync_agent: Cycle #12 [delta]: 13/13 patch, elapsed=184ms
+2026-10-16 03:58:50,271 [INFO] sync_agent: Cycle #13 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:58:50,844 [INFO] env_runner: Calibrated episode iperf baseline=7
+2026-10-16 03:58:51,262 [INFO] sync_agent: Cycle #14 [delta]: 13/13 patch, elapsed=169ms
+2026-10-16 03:58:52,265 [INFO] sync_agent: Cycle #15 [delta]: 13/13 patch, elapsed=172ms
+2026-10-16 03:58:54,273 [INFO] sync_agent: Cycle #17 [delta]: 13/13 patch, elapsed=180ms
+2026-10-16 03:58:55,272 [INFO] sync_agent: Cycle #18 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:58:56,263 [INFO] sync_agent: Cycle #19 [delta]: 13/13 patch, elapsed=169ms
+2026-10-16 03:58:57,271 [INFO] sync_agent: Cycle #20 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:58:58,275 [INFO] sync_agent: Cycle #21 [delta]: 13/13 patch, elapsed=180ms
+2026-10-16 03:58:59,270 [INFO] sync_agent: Cycle #22 [delta]: 13/13 patch, elapsed=176ms
+2026-10-16 03:59:00,265 [INFO] sync_agent: Cycle #23 [delta]: 13/13 patch, elapsed=171ms
+2026-10-16 03:59:01,271 [INFO] sync_agent: Cycle #24 [delta]: 13/13 patch, elapsed=176ms
+2026-10-16 03:59:02,268 [INFO] sync_agent: Cycle #25 [delta]: 13/13 patch, elapsed=173ms
+2026-10-16 03:59:03,272 [INFO] sync_agent: Cycle #26 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:04,270 [INFO] sync_agent: Cycle #27 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:05,277 [INFO] sync_agent: Cycle #28 [delta]: 13/13 patch, elapsed=181ms
+2026-10-16 03:59:06,270 [INFO] sync_agent: Cycle #29 [delta]: 13/13 patch, elapsed=174ms
+2026-10-16 03:59:07,281 [INFO] sync_agent: Cycle #30 [delta]: 13/13 patch, elapsed=185ms
+2026-10-16 03:59:08,301 [INFO] sync_agent: Cycle #31 [RECONCILE]: 16/16 patch, elapsed=205ms
+2026-10-16 03:59:09,283 [INFO] sync_agent: Cycle #32 [delta]: 13/13 patch, elapsed=187ms
+2026-10-16 03:59:10,276 [INFO] sync_agent: Cycle #33 [delta]: 13/13 patch, elapsed=179ms
+2026-10-16 03:59:11,273 [INFO] sync_agent: Cycle #34 [delta]: 13/13 patch, elapsed=176ms
+2026-10-16 03:59:12,276 [INFO] sync_agent: Cycle #35 [delta]: 13/13 patch, elapsed=179ms
+2026-10-16 03:59:13,274 [INFO] sync_agent: Cycle #36 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:14,273 [INFO] sync_agent: Cycle #37 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:15,271 [INFO] sync_agent: Cycle #38 [delta]: 13/13 patch, elapsed=173ms
+2026-10-16 03:59:16,273 [INFO] sync_agent: Cycle #39 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:17,275 [INFO] sync_agent: Cycle #40 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:18,270 [INFO] sync_agent: Cycle #41 [delta]: 13/13 patch, elapsed=171ms
+2026-10-16 03:59:18,576 [INFO] injection: INJECT {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.1373, 'delay': '2ms', 'baseline': 5.0}
+2026-10-16 03:59:19,276 [INFO] sync_agent: Cycle #42 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:59:20,276 [INFO] sync_agent: Cycle #43 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:21,275 [INFO] sync_agent: Cycle #44 [delta]: 13/13 patch, elapsed=176ms
+2026-10-16 03:59:22,276 [INFO] sync_agent: Cycle #45 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:23,273 [INFO] sync_agent: Cycle #46 [delta]: 13/13 patch, elapsed=174ms
+2026-10-16 03:59:24,288 [INFO] sync_agent: Cycle #47 [delta]: 13/13 patch, elapsed=188ms
+2026-10-16 03:59:25,295 [INFO] sync_agent: Cycle #48 [delta]: 13/13 patch, elapsed=195ms
+2026-10-16 03:59:26,279 [INFO] sync_agent: Cycle #49 [delta]: 13/13 patch, elapsed=179ms
+2026-10-16 03:59:27,282 [INFO] sync_agent: Cycle #50 [delta]: 13/13 patch, elapsed=181ms
+2026-10-16 03:59:28,278 [INFO] sync_agent: Cycle #51 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:59:29,278 [INFO] sync_agent: Cycle #52 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:30,274 [INFO] sync_agent: Cycle #53 [delta]: 13/13 patch, elapsed=173ms
+2026-10-16 03:59:31,274 [INFO] sync_agent: Cycle #54 [delta]: 13/13 patch, elapsed=172ms
+2026-10-16 03:59:32,276 [INFO] sync_agent: Cycle #55 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:33,285 [INFO] sync_agent: Cycle #56 [delta]: 13/13 patch, elapsed=183ms
+2026-10-16 03:59:34,279 [INFO] sync_agent: Cycle #57 [delta]: 13/13 patch, elapsed=177ms
+2026-10-16 03:59:35,277 [INFO] sync_agent: Cycle #58 [delta]: 13/13 patch, elapsed=174ms
+2026-10-16 03:59:36,271 [INFO] sync_agent: Cycle #59 [delta]: 13/13 patch, elapsed=168ms
+2026-10-16 03:59:37,281 [INFO] sync_agent: Cycle #60 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:59:38,310 [INFO] sync_agent: Cycle #61 [RECONCILE]: 16/16 patch, elapsed=207ms
+2026-10-16 03:59:39,291 [INFO] sync_agent: Cycle #62 [delta]: 13/13 patch, elapsed=187ms
+2026-10-16 03:59:40,282 [INFO] sync_agent: Cycle #63 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:59:41,283 [INFO] sync_agent: Cycle #64 [delta]: 13/13 patch, elapsed=179ms
+2026-10-16 03:59:42,277 [INFO] sync_agent: Cycle #65 [delta]: 13/13 patch, elapsed=173ms
+2026-10-16 03:59:43,292 [INFO] sync_agent: Cycle #66 [delta]: 13/13 patch, elapsed=187ms
+2026-10-16 03:59:44,279 [INFO] sync_agent: Cycle #67 [delta]: 13/13 patch, elapsed=174ms
+2026-10-16 03:59:45,283 [INFO] sync_agent: Cycle #68 [delta]: 13/13 patch, elapsed=178ms
+2026-10-16 03:59:46,276 [INFO] sync_agent: Cycle #69 [delta]: 13/13 patch, elapsed=171ms
+2026-10-16 03:59:47,279 [INFO] sync_agent: Cycle #70 [delta]: 13/13 patch, elapsed=173ms
+2026-10-16 03:59:48,287 [INFO] sync_agent: Cycle #71 [delta]: 13/13 patch, elapsed=182ms
+2026-10-16 03:59:49,289 [INFO] sync_agent: Cycle #72 [delta]: 13/13 patch, elapsed=183ms
+2026-10-16 03:59:50,278 [INFO] sync_agent: Cycle #73 [delta]: 13/13 patch, elapsed=172ms
+2026-10-16 03:59:51,281 [INFO] sync_agent: Cycle #74 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:52,285 [INFO] sync_agent: Cycle #75 [delta]: 13/13 patch, elapsed=179ms
+2026-10-16 03:59:53,281 [INFO] sync_agent: Cycle #76 [delta]: 13/13 patch, elapsed=174ms
+2026-10-16 03:59:54,277 [INFO] sync_agent: Cycle #77 [delta]: 13/13 patch, elapsed=170ms
+2026-10-16 03:59:55,283 [INFO] sync_agent: Cycle #78 [delta]: 13/13 patch, elapsed=176ms
+2026-10-16 03:59:56,290 [INFO] sync_agent: Cycle #79 [delta]: 13/13 patch, elapsed=182ms
+2026-10-16 03:59:57,283 [INFO] sync_agent: Cycle #80 [delta]: 13/13 patch, elapsed=175ms
+2026-10-16 03:59:58,285 [INFO] sync_agent: Cycle #81 [delta]: 13/13 patch, elapsed=178ms

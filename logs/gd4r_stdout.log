@@ -1,0 +1,2012 @@
+[gen] namespace=org.dt4n.ml selected=25 pending=25
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.ml:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controller đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:detector đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controlloop đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 20 bỏ qua, tổng 20 Thing ===
+
+========================================================================
+[2026-10-16T03:44:05Z] RUN RN-load6M-s5012-r2             exec_index=0 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @6M per client
+[traffic] NORMAL: h2 -> srv2 TCP @6M per client
+[traffic] NORMAL: h3 -> srv1 TCP @6M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load6M-s5012-r2.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:44:23Z
+[collector] snapshot #002 2026-10-16T03:44:24Z
+[collector] snapshot #003 2026-10-16T03:44:25Z
+[collector] snapshot #004 2026-10-16T03:44:26Z
+[collector] snapshot #005 2026-10-16T03:44:27Z
+[collector] snapshot #006 2026-10-16T03:44:28Z
+[collector] snapshot #007 2026-10-16T03:44:29Z
+[collector] snapshot #008 2026-10-16T03:44:30Z
+[collector] snapshot #009 2026-10-16T03:44:31Z
+[collector] snapshot #010 2026-10-16T03:44:32Z
+[collector] snapshot #011 2026-10-16T03:44:33Z
+[collector] snapshot #012 2026-10-16T03:44:34Z
+[collector] snapshot #013 2026-10-16T03:44:35Z
+[collector] snapshot #014 2026-10-16T03:44:36Z
+[collector] snapshot #015 2026-10-16T03:44:37Z
+[collector] snapshot #016 2026-10-16T03:44:38Z
+[collector] snapshot #017 2026-10-16T03:44:39Z
+[collector] snapshot #018 2026-10-16T03:44:40Z
+[collector] snapshot #019 2026-10-16T03:44:41Z
+[collector] snapshot #020 2026-10-16T03:44:42Z
+[collector] snapshot #021 2026-10-16T03:44:43Z
+[collector] snapshot #022 2026-10-16T03:44:44Z
+[collector] snapshot #023 2026-10-16T03:44:45Z
+[collector] snapshot #024 2026-10-16T03:44:46Z
+[collector] snapshot #025 2026-10-16T03:44:47Z
+[collector] snapshot #026 2026-10-16T03:44:48Z
+[collector] snapshot #027 2026-10-16T03:44:49Z
+[collector] snapshot #028 2026-10-16T03:44:50Z
+[collector] snapshot #029 2026-10-16T03:44:51Z
+[collector] snapshot #030 2026-10-16T03:44:52Z
+[collector] snapshot #031 2026-10-16T03:44:53Z
+[collector] snapshot #032 2026-10-16T03:44:54Z
+[collector] snapshot #033 2026-10-16T03:44:55Z
+[collector] snapshot #034 2026-10-16T03:44:56Z
+[collector] snapshot #035 2026-10-16T03:44:57Z
+[collector] snapshot #036 2026-10-16T03:44:58Z
+[collector] snapshot #037 2026-10-16T03:44:59Z
+[collector] snapshot #038 2026-10-16T03:45:00Z
+[collector] snapshot #039 2026-10-16T03:45:01Z
+[collector] snapshot #040 2026-10-16T03:45:02Z
+[collector] snapshot #041 2026-10-16T03:45:03Z
+[collector] snapshot #042 2026-10-16T03:45:04Z
+[collector] snapshot #043 2026-10-16T03:45:05Z
+[collector] snapshot #044 2026-10-16T03:45:06Z
+[collector] snapshot #045 2026-10-16T03:45:07Z
+[collector] snapshot #046 2026-10-16T03:45:08Z
+[collector] snapshot #047 2026-10-16T03:45:09Z
+[collector] snapshot #048 2026-10-16T03:45:10Z
+[collector] snapshot #049 2026-10-16T03:45:11Z
+[collector] snapshot #050 2026-10-16T03:45:12Z
+[collector] snapshot #051 2026-10-16T03:45:13Z
+[collector] snapshot #052 2026-10-16T03:45:14Z
+[collector] snapshot #053 2026-10-16T03:45:15Z
+[collector] snapshot #054 2026-10-16T03:45:16Z
+[collector] snapshot #055 2026-10-16T03:45:17Z
+[collector] snapshot #056 2026-10-16T03:45:18Z
+[collector] snapshot #057 2026-10-16T03:45:19Z
+[collector] snapshot #058 2026-10-16T03:45:20Z
+[collector] snapshot #059 2026-10-16T03:45:21Z
+[collector] snapshot #060 2026-10-16T03:45:22Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load6M-s5012-r2.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load6M-s5012-r2  snapshots=60  sep=-  sha=5b53f50e15ff
+
+========================================================================
+[2026-10-16T03:45:23Z] RUN RO-ctl_admin_down-s1-s2-s5301-r1 exec_index=1 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RO-ctl_admin_down-s1-s2-s5301-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:45:40Z
+[collector] snapshot #002 2026-10-16T03:45:41Z
+[collector] snapshot #003 2026-10-16T03:45:43Z
+[collector] snapshot #004 2026-10-16T03:45:44Z
+[collector] snapshot #005 2026-10-16T03:45:45Z
+[collector] snapshot #006 2026-10-16T03:45:46Z
+[collector] snapshot #007 2026-10-16T03:45:47Z
+[collector] snapshot #008 2026-10-16T03:45:48Z
+[collector] snapshot #009 2026-10-16T03:45:49Z
+[collector] snapshot #010 2026-10-16T03:45:50Z
+[collector] snapshot #011 2026-10-16T03:45:51Z
+[collector] snapshot #012 2026-10-16T03:45:52Z
+[collector] snapshot #013 2026-10-16T03:45:53Z
+[collector] snapshot #014 2026-10-16T03:45:54Z
+[collector] snapshot #015 2026-10-16T03:45:55Z
+[collector] snapshot #016 2026-10-16T03:45:56Z
+[collector] snapshot #017 2026-10-16T03:45:57Z
+[collector] snapshot #018 2026-10-16T03:45:58Z
+[collector] snapshot #019 2026-10-16T03:45:59Z
+[collector] snapshot #020 2026-10-16T03:46:00Z
+[collector] snapshot #021 2026-10-16T03:46:01Z
+[gen] INJECT tick=20 t_rel=20.095 {'type': 'LinkAdminDown', 'link_key': 's1-s2'}
+[collector] snapshot #022 2026-10-16T03:46:02Z
+[collector] snapshot #023 2026-10-16T03:46:03Z
+[collector] snapshot #024 2026-10-16T03:46:04Z
+[collector] snapshot #025 2026-10-16T03:46:05Z
+[collector] snapshot #026 2026-10-16T03:46:06Z
+[collector] snapshot #027 2026-10-16T03:46:07Z
+[collector] snapshot #028 2026-10-16T03:46:08Z
+[collector] snapshot #029 2026-10-16T03:46:09Z
+[collector] snapshot #030 2026-10-16T03:46:10Z
+[collector] snapshot #031 2026-10-16T03:46:11Z
+[collector] snapshot #032 2026-10-16T03:46:12Z
+[collector] snapshot #033 2026-10-16T03:46:13Z
+[collector] snapshot #034 2026-10-16T03:46:14Z
+[collector] snapshot #035 2026-10-16T03:46:15Z
+[collector] snapshot #036 2026-10-16T03:46:16Z
+[collector] snapshot #037 2026-10-16T03:46:17Z
+[collector] snapshot #038 2026-10-16T03:46:18Z
+[collector] snapshot #039 2026-10-16T03:46:19Z
+[collector] snapshot #040 2026-10-16T03:46:20Z
+[collector] snapshot #041 2026-10-16T03:46:21Z
+[gen] REVERT tick=40 t_rel=40.104
+[collector] snapshot #042 2026-10-16T03:46:22Z
+[collector] snapshot #043 2026-10-16T03:46:23Z
+[collector] snapshot #044 2026-10-16T03:46:24Z
+[collector] snapshot #045 2026-10-16T03:46:25Z
+[collector] snapshot #046 2026-10-16T03:46:26Z
+[collector] snapshot #047 2026-10-16T03:46:27Z
+[collector] snapshot #048 2026-10-16T03:46:28Z
+[collector] snapshot #049 2026-10-16T03:46:29Z
+[collector] snapshot #050 2026-10-16T03:46:30Z
+[collector] snapshot #051 2026-10-16T03:46:31Z
+[collector] snapshot #052 2026-10-16T03:46:32Z
+[collector] snapshot #053 2026-10-16T03:46:33Z
+[collector] snapshot #054 2026-10-16T03:46:34Z
+[collector] snapshot #055 2026-10-16T03:46:35Z
+[collector] snapshot #056 2026-10-16T03:46:36Z
+[collector] snapshot #057 2026-10-16T03:46:37Z
+[collector] snapshot #058 2026-10-16T03:46:38Z
+[collector] snapshot #059 2026-10-16T03:46:39Z
+[collector] snapshot #060 2026-10-16T03:46:40Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RO-ctl_admin_down-s1-s2-s5301-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RO-ctl_admin_down-s1-s2-s5301-r1  snapshots=60  sep=100.0  sha=23b4524f91fe
+
+========================================================================
+[2026-10-16T03:46:41Z] RUN RD-degrade-s2-s3-rho080-s5109-r1 exec_index=2 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho080-s5109-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:46:59Z
+[collector] snapshot #002 2026-10-16T03:47:00Z
+[collector] snapshot #003 2026-10-16T03:47:01Z
+[collector] snapshot #004 2026-10-16T03:47:02Z
+[collector] snapshot #005 2026-10-16T03:47:03Z
+[collector] snapshot #006 2026-10-16T03:47:04Z
+[collector] snapshot #007 2026-10-16T03:47:05Z
+[collector] snapshot #008 2026-10-16T03:47:06Z
+[collector] snapshot #009 2026-10-16T03:47:07Z
+[collector] snapshot #010 2026-10-16T03:47:08Z
+[collector] snapshot #011 2026-10-16T03:47:09Z
+[collector] snapshot #012 2026-10-16T03:47:10Z
+[collector] snapshot #013 2026-10-16T03:47:11Z
+[collector] snapshot #014 2026-10-16T03:47:12Z
+[collector] snapshot #015 2026-10-16T03:47:13Z
+[collector] snapshot #016 2026-10-16T03:47:14Z
+[collector] snapshot #017 2026-10-16T03:47:15Z
+[collector] snapshot #018 2026-10-16T03:47:16Z
+[collector] snapshot #019 2026-10-16T03:47:17Z
+[collector] snapshot #020 2026-10-16T03:47:18Z
+[collector] snapshot #021 2026-10-16T03:47:19Z
+[gen] INJECT tick=20 t_rel=20.094 {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.4608, 'delay': '2ms', 'baseline': 5.0}
+[collector] snapshot #022 2026-10-16T03:47:20Z
+[collector] snapshot #023 2026-10-16T03:47:21Z
+[collector] snapshot #024 2026-10-16T03:47:22Z
+[collector] snapshot #025 2026-10-16T03:47:23Z
+[collector] snapshot #026 2026-10-16T03:47:24Z
+[collector] snapshot #027 2026-10-16T03:47:25Z
+[collector] snapshot #028 2026-10-16T03:47:26Z
+[collector] snapshot #029 2026-10-16T03:47:27Z
+[collector] snapshot #030 2026-10-16T03:47:28Z
+[collector] snapshot #031 2026-10-16T03:47:29Z
+[collector] snapshot #032 2026-10-16T03:47:30Z
+[collector] snapshot #033 2026-10-16T03:47:31Z
+[collector] snapshot #034 2026-10-16T03:47:32Z
+[collector] snapshot #035 2026-10-16T03:47:33Z
+[collector] snapshot #036 2026-10-16T03:47:34Z
+[collector] snapshot #037 2026-10-16T03:47:35Z
+[collector] snapshot #038 2026-10-16T03:47:36Z
+[collector] snapshot #039 2026-10-16T03:47:37Z
+[collector] snapshot #040 2026-10-16T03:47:38Z
+[collector] snapshot #041 2026-10-16T03:47:39Z
+[gen] REVERT tick=40 t_rel=40.110
+[collector] snapshot #042 2026-10-16T03:47:40Z
+[collector] snapshot #043 2026-10-16T03:47:41Z
+[collector] snapshot #044 2026-10-16T03:47:42Z
+[collector] snapshot #045 2026-10-16T03:47:43Z
+[collector] snapshot #046 2026-10-16T03:47:44Z
+[collector] snapshot #047 2026-10-16T03:47:45Z
+[collector] snapshot #048 2026-10-16T03:47:46Z
+[collector] snapshot #049 2026-10-16T03:47:47Z
+[collector] snapshot #050 2026-10-16T03:47:48Z
+[collector] snapshot #051 2026-10-16T03:47:49Z
+[collector] snapshot #052 2026-10-16T03:47:50Z
+[collector] snapshot #053 2026-10-16T03:47:51Z
+[collector] snapshot #054 2026-10-16T03:47:52Z
+[collector] snapshot #055 2026-10-16T03:47:53Z
+[collector] snapshot #056 2026-10-16T03:47:54Z
+[collector] snapshot #057 2026-10-16T03:47:55Z
+[collector] snapshot #058 2026-10-16T03:47:56Z
+[collector] snapshot #059 2026-10-16T03:47:57Z
+[collector] snapshot #060 2026-10-16T03:47:58Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho080-s5109-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s2-s3-rho080-s5109-r1  snapshots=60  sep=0.037  sha=02808a4d9a38
+
+========================================================================
+[2026-10-16T03:47:59Z] RUN RD-degrade-s2-s3-rho125-s5108-r1 exec_index=3 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho125-s5108-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:48:16Z
+[collector] snapshot #002 2026-10-16T03:48:17Z
+[collector] snapshot #003 2026-10-16T03:48:18Z
+[collector] snapshot #004 2026-10-16T03:48:19Z
+[collector] snapshot #005 2026-10-16T03:48:20Z
+[collector] snapshot #006 2026-10-16T03:48:21Z
+[collector] snapshot #007 2026-10-16T03:48:22Z
+[collector] snapshot #008 2026-10-16T03:48:23Z
+[collector] snapshot #009 2026-10-16T03:48:24Z
+[collector] snapshot #010 2026-10-16T03:48:25Z
+[collector] snapshot #011 2026-10-16T03:48:26Z
+[collector] snapshot #012 2026-10-16T03:48:27Z
+[collector] snapshot #013 2026-10-16T03:48:28Z
+[collector] snapshot #014 2026-10-16T03:48:29Z
+[collector] snapshot #015 2026-10-16T03:48:30Z
+[collector] snapshot #016 2026-10-16T03:48:31Z
+[collector] snapshot #017 2026-10-16T03:48:32Z
+[collector] snapshot #018 2026-10-16T03:48:33Z
+[collector] snapshot #019 2026-10-16T03:48:34Z
+[collector] snapshot #020 2026-10-16T03:48:35Z
+[collector] snapshot #021 2026-10-16T03:48:36Z
+[gen] INJECT tick=20 t_rel=20.107 {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.6549, 'delay': '2ms', 'baseline': 5.0}
+[collector] snapshot #022 2026-10-16T03:48:37Z
+[collector] snapshot #023 2026-10-16T03:48:38Z
+[collector] snapshot #024 2026-10-16T03:48:39Z
+[collector] snapshot #025 2026-10-16T03:48:40Z
+[collector] snapshot #026 2026-10-16T03:48:41Z
+[collector] snapshot #027 2026-10-16T03:48:42Z
+[collector] snapshot #028 2026-10-16T03:48:43Z
+[collector] snapshot #029 2026-10-16T03:48:44Z
+[collector] snapshot #030 2026-10-16T03:48:45Z
+[collector] snapshot #031 2026-10-16T03:48:46Z
+[collector] snapshot #032 2026-10-16T03:48:47Z
+[collector] snapshot #033 2026-10-16T03:48:48Z
+[collector] snapshot #034 2026-10-16T03:48:49Z
+[collector] snapshot #035 2026-10-16T03:48:50Z
+[collector] snapshot #036 2026-10-16T03:48:51Z
+[collector] snapshot #037 2026-10-16T03:48:52Z
+[collector] snapshot #038 2026-10-16T03:48:53Z
+[collector] snapshot #039 2026-10-16T03:48:54Z
+[collector] snapshot #040 2026-10-16T03:48:55Z
+[collector] snapshot #041 2026-10-16T03:48:56Z
+[gen] REVERT tick=40 t_rel=40.119
+[collector] snapshot #042 2026-10-16T03:48:57Z
+[collector] snapshot #043 2026-10-16T03:48:58Z
+[collector] snapshot #044 2026-10-16T03:48:59Z
+[collector] snapshot #045 2026-10-16T03:49:00Z
+[collector] snapshot #046 2026-10-16T03:49:01Z
+[collector] snapshot #047 2026-10-16T03:49:02Z
+[collector] snapshot #048 2026-10-16T03:49:03Z
+[collector] snapshot #049 2026-10-16T03:49:04Z
+[collector] snapshot #050 2026-10-16T03:49:05Z
+[collector] snapshot #051 2026-10-16T03:49:06Z
+[collector] snapshot #052 2026-10-16T03:49:07Z
+[collector] snapshot #053 2026-10-16T03:49:08Z
+[collector] snapshot #054 2026-10-16T03:49:09Z
+[collector] snapshot #055 2026-10-16T03:49:10Z
+[collector] snapshot #056 2026-10-16T03:49:11Z
+[collector] snapshot #057 2026-10-16T03:49:12Z
+[collector] snapshot #058 2026-10-16T03:49:13Z
+[collector] snapshot #059 2026-10-16T03:49:14Z
+[collector] snapshot #060 2026-10-16T03:49:15Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho125-s5108-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s2-s3-rho125-s5108-r1  snapshots=60  sep=5.411  sha=0de74443e2f5
+
+========================================================================
+[2026-10-16T03:49:16Z] RUN RD-degrade-s1-s2-rho050-s5105-r1 exec_index=4 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho050-s5105-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:49:34Z
+[collector] snapshot #002 2026-10-16T03:49:35Z
+[collector] snapshot #003 2026-10-16T03:49:36Z
+[collector] snapshot #004 2026-10-16T03:49:37Z
+[collector] snapshot #005 2026-10-16T03:49:38Z
+[collector] snapshot #006 2026-10-16T03:49:39Z
+[collector] snapshot #007 2026-10-16T03:49:40Z
+[collector] snapshot #008 2026-10-16T03:49:41Z
+[collector] snapshot #009 2026-10-16T03:49:42Z
+[collector] snapshot #010 2026-10-16T03:49:43Z
+[collector] snapshot #011 2026-10-16T03:49:44Z
+[collector] snapshot #012 2026-10-16T03:49:45Z
+[collector] snapshot #013 2026-10-16T03:49:46Z
+[collector] snapshot #014 2026-10-16T03:49:47Z
+[collector] snapshot #015 2026-10-16T03:49:48Z
+[collector] snapshot #016 2026-10-16T03:49:49Z
+[collector] snapshot #017 2026-10-16T03:49:50Z
+[collector] snapshot #018 2026-10-16T03:49:51Z
+[collector] snapshot #019 2026-10-16T03:49:52Z
+[collector] snapshot #020 2026-10-16T03:49:53Z
+[collector] snapshot #021 2026-10-16T03:49:54Z
+[gen] INJECT tick=20 t_rel=20.094 {'type': 'LinkDegrade', 'link_key': 's1-s2', 'factor': 0.57, 'delay': '2ms', 'baseline': 20.0}
+[collector] snapshot #022 2026-10-16T03:49:55Z
+[collector] snapshot #023 2026-10-16T03:49:56Z
+[collector] snapshot #024 2026-10-16T03:49:57Z
+[collector] snapshot #025 2026-10-16T03:49:58Z
+[collector] snapshot #026 2026-10-16T03:49:59Z
+[collector] snapshot #027 2026-10-16T03:50:00Z
+[collector] snapshot #028 2026-10-16T03:50:01Z
+[collector] snapshot #029 2026-10-16T03:50:02Z
+[collector] snapshot #030 2026-10-16T03:50:03Z
+[collector] snapshot #031 2026-10-16T03:50:04Z
+[collector] snapshot #032 2026-10-16T03:50:05Z
+[collector] snapshot #033 2026-10-16T03:50:06Z
+[collector] snapshot #034 2026-10-16T03:50:07Z
+[collector] snapshot #035 2026-10-16T03:50:08Z
+[collector] snapshot #036 2026-10-16T03:50:09Z
+[collector] snapshot #037 2026-10-16T03:50:10Z
+[collector] snapshot #038 2026-10-16T03:50:11Z
+[collector] snapshot #039 2026-10-16T03:50:12Z
+[collector] snapshot #040 2026-10-16T03:50:13Z
+[collector] snapshot #041 2026-10-16T03:50:14Z
+[gen] REVERT tick=40 t_rel=40.107
+[collector] snapshot #042 2026-10-16T03:50:15Z
+[collector] snapshot #043 2026-10-16T03:50:16Z
+[collector] snapshot #044 2026-10-16T03:50:17Z
+[collector] snapshot #045 2026-10-16T03:50:18Z
+[collector] snapshot #046 2026-10-16T03:50:19Z
+[collector] snapshot #047 2026-10-16T03:50:20Z
+[collector] snapshot #048 2026-10-16T03:50:21Z
+[collector] snapshot #049 2026-10-16T03:50:22Z
+[collector] snapshot #050 2026-10-16T03:50:23Z
+[collector] snapshot #051 2026-10-16T03:50:24Z
+[collector] snapshot #052 2026-10-16T03:50:25Z
+[collector] snapshot #053 2026-10-16T03:50:26Z
+[collector] snapshot #054 2026-10-16T03:50:27Z
+[collector] snapshot #055 2026-10-16T03:50:28Z
+[collector] snapshot #056 2026-10-16T03:50:29Z
+[collector] snapshot #057 2026-10-16T03:50:30Z
+[collector] snapshot #058 2026-10-16T03:50:31Z
+[collector] snapshot #059 2026-10-16T03:50:32Z
+[collector] snapshot #060 2026-10-16T03:50:33Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho050-s5105-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s1-s2-rho050-s5105-r1  snapshots=60  sep=0.107  sha=51f3546dfec4
+
+========================================================================
+[2026-10-16T03:50:34Z] RUN RC-shift-s1-s3-s5204-r1        exec_index=5 split=r_set
+[traffic] đã dừng các iperf server
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.ml:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controller đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:detector đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controlloop đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 20 bỏ qua, tổng 20 Thing ===
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-shift-s1-s3-s5204-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:51:03Z
+[collector] snapshot #002 2026-10-16T03:51:04Z
+[collector] snapshot #003 2026-10-16T03:51:05Z
+[collector] snapshot #004 2026-10-16T03:51:06Z
+[collector] snapshot #005 2026-10-16T03:51:07Z
+[collector] snapshot #006 2026-10-16T03:51:08Z
+[collector] snapshot #007 2026-10-16T03:51:09Z
+[collector] snapshot #008 2026-10-16T03:51:10Z
+[collector] snapshot #009 2026-10-16T03:51:11Z
+[collector] snapshot #010 2026-10-16T03:51:12Z
+[collector] snapshot #011 2026-10-16T03:51:13Z
+[collector] snapshot #012 2026-10-16T03:51:14Z
+[collector] snapshot #013 2026-10-16T03:51:15Z
+[collector] snapshot #014 2026-10-16T03:51:16Z
+[collector] snapshot #015 2026-10-16T03:51:17Z
+[collector] snapshot #016 2026-10-16T03:51:18Z
+[collector] snapshot #017 2026-10-16T03:51:19Z
+[collector] snapshot #018 2026-10-16T03:51:20Z
+[collector] snapshot #019 2026-10-16T03:51:21Z
+[collector] snapshot #020 2026-10-16T03:51:22Z
+[collector] snapshot #021 2026-10-16T03:51:23Z
+[gen] INJECT tick=20 t_rel=20.092 {'type': 'CongestionShift', 'degrade_link': 's1-s3', 'factor': 0.9267575084512952, 'delay': '2ms', 'baseline': 20.0, 'flood_src': 'srv1', 'flood_dst': 'srv2', 'rate_mbps': 36}
+[collector] snapshot #022 2026-10-16T03:51:24Z
+[collector] snapshot #023 2026-10-16T03:51:25Z
+[collector] snapshot #024 2026-10-16T03:51:26Z
+[collector] snapshot #025 2026-10-16T03:51:27Z
+[collector] snapshot #026 2026-10-16T03:51:28Z
+[collector] snapshot #027 2026-10-16T03:51:29Z
+[collector] snapshot #028 2026-10-16T03:51:30Z
+[collector] snapshot #029 2026-10-16T03:51:31Z
+[collector] snapshot #030 2026-10-16T03:51:32Z
+[collector] snapshot #031 2026-10-16T03:51:33Z
+[collector] snapshot #032 2026-10-16T03:51:34Z
+[collector] snapshot #033 2026-10-16T03:51:35Z
+[collector] snapshot #034 2026-10-16T03:51:36Z
+[collector] snapshot #035 2026-10-16T03:51:37Z
+[collector] snapshot #036 2026-10-16T03:51:38Z
+[collector] snapshot #037 2026-10-16T03:51:39Z
+[collector] snapshot #038 2026-10-16T03:51:40Z
+[collector] snapshot #039 2026-10-16T03:51:41Z
+[collector] snapshot #040 2026-10-16T03:51:42Z
+[collector] snapshot #041 2026-10-16T03:51:43Z
+[gen] REVERT tick=40 t_rel=40.111
+[collector] snapshot #042 2026-10-16T03:51:44Z
+[collector] snapshot #043 2026-10-16T03:51:45Z
+[collector] snapshot #044 2026-10-16T03:51:46Z
+[collector] snapshot #045 2026-10-16T03:51:47Z
+[collector] snapshot #046 2026-10-16T03:51:48Z
+[collector] snapshot #047 2026-10-16T03:51:49Z
+[collector] snapshot #048 2026-10-16T03:51:50Z
+[collector] snapshot #049 2026-10-16T03:51:51Z
+[collector] snapshot #050 2026-10-16T03:51:52Z
+[collector] snapshot #051 2026-10-16T03:51:53Z
+[collector] snapshot #052 2026-10-16T03:51:54Z
+[collector] snapshot #053 2026-10-16T03:51:55Z
+[collector] snapshot #054 2026-10-16T03:51:56Z
+[collector] snapshot #055 2026-10-16T03:51:57Z
+[collector] snapshot #056 2026-10-16T03:51:58Z
+[collector] snapshot #057 2026-10-16T03:51:59Z
+[collector] snapshot #058 2026-10-16T03:52:00Z
+[collector] snapshot #059 2026-10-16T03:52:01Z
+[collector] snapshot #060 2026-10-16T03:52:02Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-shift-s1-s3-s5204-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RC-shift-s1-s3-s5204-r1  snapshots=60  sep=749.462  sha=7b7556546070
+
+========================================================================
+[2026-10-16T03:52:03Z] RUN RD-degrade-s1-s2-rho200-s5101-r1 exec_index=6 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho200-s5101-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:52:21Z
+[collector] snapshot #002 2026-10-16T03:52:22Z
+[collector] snapshot #003 2026-10-16T03:52:23Z
+[collector] snapshot #004 2026-10-16T03:52:24Z
+[collector] snapshot #005 2026-10-16T03:52:25Z
+[collector] snapshot #006 2026-10-16T03:52:26Z
+[collector] snapshot #007 2026-10-16T03:52:27Z
+[collector] snapshot #008 2026-10-16T03:52:28Z
+[collector] snapshot #009 2026-10-16T03:52:29Z
+[collector] snapshot #010 2026-10-16T03:52:30Z
+[collector] snapshot #011 2026-10-16T03:52:31Z
+[collector] snapshot #012 2026-10-16T03:52:32Z
+[collector] snapshot #013 2026-10-16T03:52:33Z
+[collector] snapshot #014 2026-10-16T03:52:34Z
+[collector] snapshot #015 2026-10-16T03:52:35Z
+[collector] snapshot #016 2026-10-16T03:52:36Z
+[collector] snapshot #017 2026-10-16T03:52:37Z
+[collector] snapshot #018 2026-10-16T03:52:38Z
+[collector] snapshot #019 2026-10-16T03:52:39Z
+[collector] snapshot #020 2026-10-16T03:52:40Z
+[collector] snapshot #021 2026-10-16T03:52:41Z
+[gen] INJECT tick=20 t_rel=20.095 {'type': 'LinkDegrade', 'link_key': 's1-s2', 'factor': 0.8925, 'delay': '2ms', 'baseline': 20.0}
+[collector] snapshot #022 2026-10-16T03:52:42Z
+[collector] snapshot #023 2026-10-16T03:52:43Z
+[collector] snapshot #024 2026-10-16T03:52:44Z
+[collector] snapshot #025 2026-10-16T03:52:45Z
+[collector] snapshot #026 2026-10-16T03:52:46Z
+[collector] snapshot #027 2026-10-16T03:52:47Z
+[collector] snapshot #028 2026-10-16T03:52:48Z
+[collector] snapshot #029 2026-10-16T03:52:49Z
+[collector] snapshot #030 2026-10-16T03:52:50Z
+[collector] snapshot #031 2026-10-16T03:52:51Z
+[collector] snapshot #032 2026-10-16T03:52:52Z
+[collector] snapshot #033 2026-10-16T03:52:53Z
+[collector] snapshot #034 2026-10-16T03:52:54Z
+[collector] snapshot #035 2026-10-16T03:52:55Z
+[collector] snapshot #036 2026-10-16T03:52:56Z
+[collector] snapshot #037 2026-10-16T03:52:57Z
+[collector] snapshot #038 2026-10-16T03:52:58Z
+[collector] snapshot #039 2026-10-16T03:52:59Z
+[collector] snapshot #040 2026-10-16T03:53:00Z
+[collector] snapshot #041 2026-10-16T03:53:01Z
+[gen] REVERT tick=40 t_rel=40.106
+[collector] snapshot #042 2026-10-16T03:53:02Z
+[collector] snapshot #043 2026-10-16T03:53:03Z
+[collector] snapshot #044 2026-10-16T03:53:04Z
+[collector] snapshot #045 2026-10-16T03:53:05Z
+[collector] snapshot #046 2026-10-16T03:53:06Z
+[collector] snapshot #047 2026-10-16T03:53:07Z
+[collector] snapshot #048 2026-10-16T03:53:08Z
+[collector] snapshot #049 2026-10-16T03:53:09Z
+[collector] snapshot #050 2026-10-16T03:53:10Z
+[collector] snapshot #051 2026-10-16T03:53:11Z
+[collector] snapshot #052 2026-10-16T03:53:12Z
+[collector] snapshot #053 2026-10-16T03:53:13Z
+[collector] snapshot #054 2026-10-16T03:53:14Z
+[collector] snapshot #055 2026-10-16T03:53:15Z
+[collector] snapshot #056 2026-10-16T03:53:16Z
+[collector] snapshot #057 2026-10-16T03:53:17Z
+[collector] snapshot #058 2026-10-16T03:53:18Z
+[collector] snapshot #059 2026-10-16T03:53:19Z
+[collector] snapshot #060 2026-10-16T03:53:20Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho200-s5101-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s1-s2-rho200-s5101-r1  snapshots=60  sep=27.487  sha=e00e2dd17c39
+
+========================================================================
+[2026-10-16T03:53:21Z] RUN RD-degrade-s2-s3-rho200-s5106-r1 exec_index=7 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho200-s5106-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:53:38Z
+[collector] snapshot #002 2026-10-16T03:53:39Z
+[collector] snapshot #003 2026-10-16T03:53:40Z
+[collector] snapshot #004 2026-10-16T03:53:41Z
+[collector] snapshot #005 2026-10-16T03:53:42Z
+[collector] snapshot #006 2026-10-16T03:53:43Z
+[collector] snapshot #007 2026-10-16T03:53:44Z
+[collector] snapshot #008 2026-10-16T03:53:45Z
+[collector] snapshot #009 2026-10-16T03:53:46Z
+[collector] snapshot #010 2026-10-16T03:53:47Z
+[collector] snapshot #011 2026-10-16T03:53:48Z
+[collector] snapshot #012 2026-10-16T03:53:49Z
+[collector] snapshot #013 2026-10-16T03:53:50Z
+[collector] snapshot #014 2026-10-16T03:53:51Z
+[collector] snapshot #015 2026-10-16T03:53:52Z
+[collector] snapshot #016 2026-10-16T03:53:53Z
+[collector] snapshot #017 2026-10-16T03:53:54Z
+[collector] snapshot #018 2026-10-16T03:53:55Z
+[collector] snapshot #019 2026-10-16T03:53:56Z
+[collector] snapshot #020 2026-10-16T03:53:57Z
+[collector] snapshot #021 2026-10-16T03:53:58Z
+[gen] INJECT tick=20 t_rel=20.148 {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.7843, 'delay': '2ms', 'baseline': 5.0}
+[collector] snapshot #022 2026-10-16T03:53:59Z
+[collector] snapshot #023 2026-10-16T03:54:00Z
+[collector] snapshot #024 2026-10-16T03:54:01Z
+[collector] snapshot #025 2026-10-16T03:54:02Z
+[collector] snapshot #026 2026-10-16T03:54:03Z
+[collector] snapshot #027 2026-10-16T03:54:04Z
+[collector] snapshot #028 2026-10-16T03:54:05Z
+[collector] snapshot #029 2026-10-16T03:54:06Z
+[collector] snapshot #030 2026-10-16T03:54:07Z
+[collector] snapshot #031 2026-10-16T03:54:08Z
+[collector] snapshot #032 2026-10-16T03:54:09Z
+[collector] snapshot #033 2026-10-16T03:54:10Z
+[collector] snapshot #034 2026-10-16T03:54:11Z
+[collector] snapshot #035 2026-10-16T03:54:12Z
+[collector] snapshot #036 2026-10-16T03:54:13Z
+[collector] snapshot #037 2026-10-16T03:54:14Z
+[collector] snapshot #038 2026-10-16T03:54:15Z
+[collector] snapshot #039 2026-10-16T03:54:16Z
+[collector] snapshot #040 2026-10-16T03:54:17Z
+[collector] snapshot #041 2026-10-16T03:54:18Z
+[gen] REVERT tick=40 t_rel=40.148
+[collector] snapshot #042 2026-10-16T03:54:19Z
+[collector] snapshot #043 2026-10-16T03:54:20Z
+[collector] snapshot #044 2026-10-16T03:54:21Z
+[collector] snapshot #045 2026-10-16T03:54:22Z
+[collector] snapshot #046 2026-10-16T03:54:23Z
+[collector] snapshot #047 2026-10-16T03:54:24Z
+[collector] snapshot #048 2026-10-16T03:54:25Z
+[collector] snapshot #049 2026-10-16T03:54:26Z
+[collector] snapshot #050 2026-10-16T03:54:27Z
+[collector] snapshot #051 2026-10-16T03:54:28Z
+[collector] snapshot #052 2026-10-16T03:54:29Z
+[collector] snapshot #053 2026-10-16T03:54:30Z
+[collector] snapshot #054 2026-10-16T03:54:31Z
+[collector] snapshot #055 2026-10-16T03:54:32Z
+[collector] snapshot #056 2026-10-16T03:54:33Z
+[collector] snapshot #057 2026-10-16T03:54:34Z
+[collector] snapshot #058 2026-10-16T03:54:35Z
+[collector] snapshot #059 2026-10-16T03:54:36Z
+[collector] snapshot #060 2026-10-16T03:54:37Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho200-s5106-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s2-s3-rho200-s5106-r1  snapshots=60  sep=245.878  sha=f5ae164151c2
+
+========================================================================
+[2026-10-16T03:54:39Z] RUN RN-load8M-s5013-r1             exec_index=8 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @8M per client
+[traffic] NORMAL: h2 -> srv2 TCP @8M per client
+[traffic] NORMAL: h3 -> srv1 TCP @8M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load8M-s5013-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:54:55Z
+[collector] snapshot #002 2026-10-16T03:54:56Z
+[collector] snapshot #003 2026-10-16T03:54:57Z
+[collector] snapshot #004 2026-10-16T03:54:58Z
+[collector] snapshot #005 2026-10-16T03:54:59Z
+[collector] snapshot #006 2026-10-16T03:55:00Z
+[collector] snapshot #007 2026-10-16T03:55:01Z
+[collector] snapshot #008 2026-10-16T03:55:02Z
+[collector] snapshot #009 2026-10-16T03:55:03Z
+[collector] snapshot #010 2026-10-16T03:55:04Z
+[collector] snapshot #011 2026-10-16T03:55:05Z
+[collector] snapshot #012 2026-10-16T03:55:06Z
+[collector] snapshot #013 2026-10-16T03:55:07Z
+[collector] snapshot #014 2026-10-16T03:55:08Z
+[collector] snapshot #015 2026-10-16T03:55:09Z
+[collector] snapshot #016 2026-10-16T03:55:10Z
+[collector] snapshot #017 2026-10-16T03:55:11Z
+[collector] snapshot #018 2026-10-16T03:55:12Z
+[collector] snapshot #019 2026-10-16T03:55:13Z
+[collector] snapshot #020 2026-10-16T03:55:14Z
+[collector] snapshot #021 2026-10-16T03:55:15Z
+[collector] snapshot #022 2026-10-16T03:55:16Z
+[collector] snapshot #023 2026-10-16T03:55:17Z
+[collector] snapshot #024 2026-10-16T03:55:18Z
+[collector] snapshot #025 2026-10-16T03:55:19Z
+[collector] snapshot #026 2026-10-16T03:55:20Z
+[collector] snapshot #027 2026-10-16T03:55:21Z
+[collector] snapshot #028 2026-10-16T03:55:22Z
+[collector] snapshot #029 2026-10-16T03:55:23Z
+[collector] snapshot #030 2026-10-16T03:55:24Z
+[collector] snapshot #031 2026-10-16T03:55:25Z
+[collector] snapshot #032 2026-10-16T03:55:26Z
+[collector] snapshot #033 2026-10-16T03:55:27Z
+[collector] snapshot #034 2026-10-16T03:55:28Z
+[collector] snapshot #035 2026-10-16T03:55:29Z
+[collector] snapshot #036 2026-10-16T03:55:30Z
+[collector] snapshot #037 2026-10-16T03:55:31Z
+[collector] snapshot #038 2026-10-16T03:55:32Z
+[collector] snapshot #039 2026-10-16T03:55:33Z
+[collector] snapshot #040 2026-10-16T03:55:34Z
+[collector] snapshot #041 2026-10-16T03:55:35Z
+[collector] snapshot #042 2026-10-16T03:55:36Z
+[collector] snapshot #043 2026-10-16T03:55:37Z
+[collector] snapshot #044 2026-10-16T03:55:38Z
+[collector] snapshot #045 2026-10-16T03:55:39Z
+[collector] snapshot #046 2026-10-16T03:55:40Z
+[collector] snapshot #047 2026-10-16T03:55:41Z
+[collector] snapshot #048 2026-10-16T03:55:42Z
+[collector] snapshot #049 2026-10-16T03:55:43Z
+[collector] snapshot #050 2026-10-16T03:55:44Z
+[collector] snapshot #051 2026-10-16T03:55:45Z
+[collector] snapshot #052 2026-10-16T03:55:46Z
+[collector] snapshot #053 2026-10-16T03:55:47Z
+[collector] snapshot #054 2026-10-16T03:55:48Z
+[collector] snapshot #055 2026-10-16T03:55:49Z
+[collector] snapshot #056 2026-10-16T03:55:50Z
+[collector] snapshot #057 2026-10-16T03:55:51Z
+[collector] snapshot #058 2026-10-16T03:55:52Z
+[collector] snapshot #059 2026-10-16T03:55:53Z
+[collector] snapshot #060 2026-10-16T03:55:54Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load8M-s5013-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load8M-s5013-r1  snapshots=60  sep=-  sha=85506fb9598b
+
+========================================================================
+[2026-10-16T03:55:56Z] RUN RN-load6M-s5011-r1             exec_index=9 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @6M per client
+[traffic] NORMAL: h2 -> srv2 TCP @6M per client
+[traffic] NORMAL: h3 -> srv1 TCP @6M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load6M-s5011-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:56:14Z
+[collector] snapshot #002 2026-10-16T03:56:15Z
+[collector] snapshot #003 2026-10-16T03:56:16Z
+[collector] snapshot #004 2026-10-16T03:56:17Z
+[collector] snapshot #005 2026-10-16T03:56:18Z
+[collector] snapshot #006 2026-10-16T03:56:19Z
+[collector] snapshot #007 2026-10-16T03:56:20Z
+[collector] snapshot #008 2026-10-16T03:56:21Z
+[collector] snapshot #009 2026-10-16T03:56:22Z
+[collector] snapshot #010 2026-10-16T03:56:23Z
+[collector] snapshot #011 2026-10-16T03:56:24Z
+[collector] snapshot #012 2026-10-16T03:56:25Z
+[collector] snapshot #013 2026-10-16T03:56:26Z
+[collector] snapshot #014 2026-10-16T03:56:27Z
+[collector] snapshot #015 2026-10-16T03:56:28Z
+[collector] snapshot #016 2026-10-16T03:56:29Z
+[collector] snapshot #017 2026-10-16T03:56:30Z
+[collector] snapshot #018 2026-10-16T03:56:31Z
+[collector] snapshot #019 2026-10-16T03:56:32Z
+[collector] snapshot #020 2026-10-16T03:56:33Z
+[collector] snapshot #021 2026-10-16T03:56:34Z
+[collector] snapshot #022 2026-10-16T03:56:35Z
+[collector] snapshot #023 2026-10-16T03:56:36Z
+[collector] snapshot #024 2026-10-16T03:56:37Z
+[collector] snapshot #025 2026-10-16T03:56:38Z
+[collector] snapshot #026 2026-10-16T03:56:39Z
+[collector] snapshot #027 2026-10-16T03:56:40Z
+[collector] snapshot #028 2026-10-16T03:56:41Z
+[collector] snapshot #029 2026-10-16T03:56:42Z
+[collector] snapshot #030 2026-10-16T03:56:43Z
+[collector] snapshot #031 2026-10-16T03:56:44Z
+[collector] snapshot #032 2026-10-16T03:56:45Z
+[collector] snapshot #033 2026-10-16T03:56:46Z
+[collector] snapshot #034 2026-10-16T03:56:47Z
+[collector] snapshot #035 2026-10-16T03:56:48Z
+[collector] snapshot #036 2026-10-16T03:56:49Z
+[collector] snapshot #037 2026-10-16T03:56:50Z
+[collector] snapshot #038 2026-10-16T03:56:51Z
+[collector] snapshot #039 2026-10-16T03:56:52Z
+[collector] snapshot #040 2026-10-16T03:56:53Z
+[collector] snapshot #041 2026-10-16T03:56:54Z
+[collector] snapshot #042 2026-10-16T03:56:55Z
+[collector] snapshot #043 2026-10-16T03:56:56Z
+[collector] snapshot #044 2026-10-16T03:56:57Z
+[collector] snapshot #045 2026-10-16T03:56:58Z
+[collector] snapshot #046 2026-10-16T03:56:59Z
+[collector] snapshot #047 2026-10-16T03:57:00Z
+[collector] snapshot #048 2026-10-16T03:57:01Z
+[collector] snapshot #049 2026-10-16T03:57:02Z
+[collector] snapshot #050 2026-10-16T03:57:03Z
+[collector] snapshot #051 2026-10-16T03:57:04Z
+[collector] snapshot #052 2026-10-16T03:57:05Z
+[collector] snapshot #053 2026-10-16T03:57:06Z
+[collector] snapshot #054 2026-10-16T03:57:07Z
+[collector] snapshot #055 2026-10-16T03:57:08Z
+[collector] snapshot #056 2026-10-16T03:57:09Z
+[collector] snapshot #057 2026-10-16T03:57:10Z
+[collector] snapshot #058 2026-10-16T03:57:11Z
+[collector] snapshot #059 2026-10-16T03:57:12Z
+[collector] snapshot #060 2026-10-16T03:57:13Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load6M-s5011-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load6M-s5011-r1  snapshots=60  sep=-  sha=380c89a86ec4
+
+========================================================================
+[2026-10-16T03:57:14Z] RUN RD-degrade-s1-s2-rho125-s5103-r1 exec_index=10 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho125-s5103-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:57:32Z
+[collector] snapshot #002 2026-10-16T03:57:33Z
+[collector] snapshot #003 2026-10-16T03:57:34Z
+[collector] snapshot #004 2026-10-16T03:57:35Z
+[collector] snapshot #005 2026-10-16T03:57:36Z
+[collector] snapshot #006 2026-10-16T03:57:37Z
+[collector] snapshot #007 2026-10-16T03:57:38Z
+[collector] snapshot #008 2026-10-16T03:57:39Z
+[collector] snapshot #009 2026-10-16T03:57:40Z
+[collector] snapshot #010 2026-10-16T03:57:41Z
+[collector] snapshot #011 2026-10-16T03:57:42Z
+[collector] snapshot #012 2026-10-16T03:57:43Z
+[collector] snapshot #013 2026-10-16T03:57:44Z
+[collector] snapshot #014 2026-10-16T03:57:45Z
+[collector] snapshot #015 2026-10-16T03:57:46Z
+[collector] snapshot #016 2026-10-16T03:57:47Z
+[collector] snapshot #017 2026-10-16T03:57:48Z
+[collector] snapshot #018 2026-10-16T03:57:49Z
+[collector] snapshot #019 2026-10-16T03:57:50Z
+[collector] snapshot #020 2026-10-16T03:57:51Z
+[collector] snapshot #021 2026-10-16T03:57:52Z
+[gen] INJECT tick=20 t_rel=20.093 {'type': 'LinkDegrade', 'link_key': 's1-s2', 'factor': 0.828, 'delay': '2ms', 'baseline': 20.0}
+[collector] snapshot #022 2026-10-16T03:57:53Z
+[collector] snapshot #023 2026-10-16T03:57:54Z
+[collector] snapshot #024 2026-10-16T03:57:55Z
+[collector] snapshot #025 2026-10-16T03:57:56Z
+[collector] snapshot #026 2026-10-16T03:57:57Z
+[collector] snapshot #027 2026-10-16T03:57:58Z
+[collector] snapshot #028 2026-10-16T03:57:59Z
+[collector] snapshot #029 2026-10-16T03:58:00Z
+[collector] snapshot #030 2026-10-16T03:58:01Z
+[collector] snapshot #031 2026-10-16T03:58:02Z
+[collector] snapshot #032 2026-10-16T03:58:03Z
+[collector] snapshot #033 2026-10-16T03:58:04Z
+[collector] snapshot #034 2026-10-16T03:58:05Z
+[collector] snapshot #035 2026-10-16T03:58:06Z
+[collector] snapshot #036 2026-10-16T03:58:07Z
+[collector] snapshot #037 2026-10-16T03:58:08Z
+[collector] snapshot #038 2026-10-16T03:58:09Z
+[collector] snapshot #039 2026-10-16T03:58:10Z
+[collector] snapshot #040 2026-10-16T03:58:11Z
+[collector] snapshot #041 2026-10-16T03:58:12Z
+[gen] REVERT tick=40 t_rel=40.107
+[collector] snapshot #042 2026-10-16T03:58:13Z
+[collector] snapshot #043 2026-10-16T03:58:14Z
+[collector] snapshot #044 2026-10-16T03:58:15Z
+[collector] snapshot #045 2026-10-16T03:58:16Z
+[collector] snapshot #046 2026-10-16T03:58:17Z
+[collector] snapshot #047 2026-10-16T03:58:18Z
+[collector] snapshot #048 2026-10-16T03:58:19Z
+[collector] snapshot #049 2026-10-16T03:58:20Z
+[collector] snapshot #050 2026-10-16T03:58:21Z
+[collector] snapshot #051 2026-10-16T03:58:22Z
+[collector] snapshot #052 2026-10-16T03:58:23Z
+[collector] snapshot #053 2026-10-16T03:58:24Z
+[collector] snapshot #054 2026-10-16T03:58:25Z
+[collector] snapshot #055 2026-10-16T03:58:26Z
+[collector] snapshot #056 2026-10-16T03:58:27Z
+[collector] snapshot #057 2026-10-16T03:58:28Z
+[collector] snapshot #058 2026-10-16T03:58:29Z
+[collector] snapshot #059 2026-10-16T03:58:30Z
+[collector] snapshot #060 2026-10-16T03:58:31Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho125-s5103-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s1-s2-rho125-s5103-r1  snapshots=60  sep=11.701  sha=d4c63c2fd131
+
+========================================================================
+[2026-10-16T03:58:32Z] RUN RD-degrade-s2-s3-rho050-s5110-r1 exec_index=11 split=r_set
+[traffic] đã dừng các iperf server
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.ml:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controller đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:detector đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controlloop đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 20 bỏ qua, tổng 20 Thing ===
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho050-s5110-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T03:58:58Z
+[collector] snapshot #002 2026-10-16T03:58:59Z
+[collector] snapshot #003 2026-10-16T03:59:00Z
+[collector] snapshot #004 2026-10-16T03:59:01Z
+[collector] snapshot #005 2026-10-16T03:59:02Z
+[collector] snapshot #006 2026-10-16T03:59:03Z
+[collector] snapshot #007 2026-10-16T03:59:04Z
+[collector] snapshot #008 2026-10-16T03:59:05Z
+[collector] snapshot #009 2026-10-16T03:59:06Z
+[collector] snapshot #010 2026-10-16T03:59:07Z
+[collector] snapshot #011 2026-10-16T03:59:08Z
+[collector] snapshot #012 2026-10-16T03:59:09Z
+[collector] snapshot #013 2026-10-16T03:59:10Z
+[collector] snapshot #014 2026-10-16T03:59:11Z
+[collector] snapshot #015 2026-10-16T03:59:12Z
+[collector] snapshot #016 2026-10-16T03:59:13Z
+[collector] snapshot #017 2026-10-16T03:59:14Z
+[collector] snapshot #018 2026-10-16T03:59:15Z
+[collector] snapshot #019 2026-10-16T03:59:16Z
+[collector] snapshot #020 2026-10-16T03:59:17Z
+[collector] snapshot #021 2026-10-16T03:59:18Z
+[gen] INJECT tick=20 t_rel=20.093 {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.1373, 'delay': '2ms', 'baseline': 5.0}
+[collector] snapshot #022 2026-10-16T03:59:19Z
+[collector] snapshot #023 2026-10-16T03:59:20Z
+[collector] snapshot #024 2026-10-16T03:59:21Z
+[collector] snapshot #025 2026-10-16T03:59:22Z
+[collector] snapshot #026 2026-10-16T03:59:23Z
+[collector] snapshot #027 2026-10-16T03:59:24Z
+[collector] snapshot #028 2026-10-16T03:59:25Z
+[collector] snapshot #029 2026-10-16T03:59:26Z
+[collector] snapshot #030 2026-10-16T03:59:27Z
+[collector] snapshot #031 2026-10-16T03:59:28Z
+[collector] snapshot #032 2026-10-16T03:59:29Z
+[collector] snapshot #033 2026-10-16T03:59:30Z
+[collector] snapshot #034 2026-10-16T03:59:31Z
+[collector] snapshot #035 2026-10-16T03:59:32Z
+[collector] snapshot #036 2026-10-16T03:59:33Z
+[collector] snapshot #037 2026-10-16T03:59:34Z
+[collector] snapshot #038 2026-10-16T03:59:35Z
+[collector] snapshot #039 2026-10-16T03:59:36Z
+[collector] snapshot #040 2026-10-16T03:59:37Z
+[collector] snapshot #041 2026-10-16T03:59:38Z
+[gen] REVERT tick=40 t_rel=40.105
+[collector] snapshot #042 2026-10-16T03:59:39Z
+[collector] snapshot #043 2026-10-16T03:59:40Z
+[collector] snapshot #044 2026-10-16T03:59:41Z
+[collector] snapshot #045 2026-10-16T03:59:42Z
+[collector] snapshot #046 2026-10-16T03:59:43Z
+[collector] snapshot #047 2026-10-16T03:59:44Z
+[collector] snapshot #048 2026-10-16T03:59:45Z
+[collector] snapshot #049 2026-10-16T03:59:46Z
+[collector] snapshot #050 2026-10-16T03:59:47Z
+[collector] snapshot #051 2026-10-16T03:59:48Z
+[collector] snapshot #052 2026-10-16T03:59:49Z
+[collector] snapshot #053 2026-10-16T03:59:50Z
+[collector] snapshot #054 2026-10-16T03:59:51Z
+[collector] snapshot #055 2026-10-16T03:59:52Z
+[collector] snapshot #056 2026-10-16T03:59:53Z
+[collector] snapshot #057 2026-10-16T03:59:54Z
+[collector] snapshot #058 2026-10-16T03:59:55Z
+[collector] snapshot #059 2026-10-16T03:59:56Z
+[collector] snapshot #060 2026-10-16T03:59:57Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho050-s5110-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s2-s3-rho050-s5110-r1  snapshots=60  sep=0.045  sha=c4f7ace01b17
+
+========================================================================
+[2026-10-16T03:59:58Z] RUN RN-load10M-s5016-r2            exec_index=12 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @10M per client
+[traffic] NORMAL: h2 -> srv2 TCP @10M per client
+[traffic] NORMAL: h3 -> srv1 TCP @10M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load10M-s5016-r2.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:00:16Z
+[collector] snapshot #002 2026-10-16T04:00:17Z
+[collector] snapshot #003 2026-10-16T04:00:18Z
+[collector] snapshot #004 2026-10-16T04:00:19Z
+[collector] snapshot #005 2026-10-16T04:00:20Z
+[collector] snapshot #006 2026-10-16T04:00:21Z
+[collector] snapshot #007 2026-10-16T04:00:22Z
+[collector] snapshot #008 2026-10-16T04:00:23Z
+[collector] snapshot #009 2026-10-16T04:00:24Z
+[collector] snapshot #010 2026-10-16T04:00:25Z
+[collector] snapshot #011 2026-10-16T04:00:26Z
+[collector] snapshot #012 2026-10-16T04:00:27Z
+[collector] snapshot #013 2026-10-16T04:00:28Z
+[collector] snapshot #014 2026-10-16T04:00:29Z
+[collector] snapshot #015 2026-10-16T04:00:30Z
+[collector] snapshot #016 2026-10-16T04:00:31Z
+[collector] snapshot #017 2026-10-16T04:00:32Z
+[collector] snapshot #018 2026-10-16T04:00:33Z
+[collector] snapshot #019 2026-10-16T04:00:34Z
+[collector] snapshot #020 2026-10-16T04:00:35Z
+[collector] snapshot #021 2026-10-16T04:00:36Z
+[collector] snapshot #022 2026-10-16T04:00:37Z
+[collector] snapshot #023 2026-10-16T04:00:38Z
+[collector] snapshot #024 2026-10-16T04:00:39Z
+[collector] snapshot #025 2026-10-16T04:00:40Z
+[collector] snapshot #026 2026-10-16T04:00:41Z
+[collector] snapshot #027 2026-10-16T04:00:42Z
+[collector] snapshot #028 2026-10-16T04:00:43Z
+[collector] snapshot #029 2026-10-16T04:00:44Z
+[collector] snapshot #030 2026-10-16T04:00:45Z
+[collector] snapshot #031 2026-10-16T04:00:46Z
+[collector] snapshot #032 2026-10-16T04:00:47Z
+[collector] snapshot #033 2026-10-16T04:00:48Z
+[collector] snapshot #034 2026-10-16T04:00:49Z
+[collector] snapshot #035 2026-10-16T04:00:50Z
+[collector] snapshot #036 2026-10-16T04:00:51Z
+[collector] snapshot #037 2026-10-16T04:00:52Z
+[collector] snapshot #038 2026-10-16T04:00:53Z
+[collector] snapshot #039 2026-10-16T04:00:54Z
+[collector] snapshot #040 2026-10-16T04:00:55Z
+[collector] snapshot #041 2026-10-16T04:00:56Z
+[collector] snapshot #042 2026-10-16T04:00:57Z
+[collector] snapshot #043 2026-10-16T04:00:58Z
+[collector] snapshot #044 2026-10-16T04:00:59Z
+[collector] snapshot #045 2026-10-16T04:01:00Z
+[collector] snapshot #046 2026-10-16T04:01:01Z
+[collector] snapshot #047 2026-10-16T04:01:02Z
+[collector] snapshot #048 2026-10-16T04:01:03Z
+[collector] snapshot #049 2026-10-16T04:01:04Z
+[collector] snapshot #050 2026-10-16T04:01:05Z
+[collector] snapshot #051 2026-10-16T04:01:06Z
+[collector] snapshot #052 2026-10-16T04:01:07Z
+[collector] snapshot #053 2026-10-16T04:01:08Z
+[collector] snapshot #054 2026-10-16T04:01:09Z
+[collector] snapshot #055 2026-10-16T04:01:10Z
+[collector] snapshot #056 2026-10-16T04:01:11Z
+[collector] snapshot #057 2026-10-16T04:01:12Z
+[collector] snapshot #058 2026-10-16T04:01:13Z
+[collector] snapshot #059 2026-10-16T04:01:14Z
+[collector] snapshot #060 2026-10-16T04:01:15Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load10M-s5016-r2.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load10M-s5016-r2  snapshots=60  sep=-  sha=7b0d6fb57a0d
+
+========================================================================
+[2026-10-16T04:01:16Z] RUN RD-degrade-s2-s3-rho150-s5107-r1 exec_index=13 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho150-s5107-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:01:34Z
+[collector] snapshot #002 2026-10-16T04:01:35Z
+[collector] snapshot #003 2026-10-16T04:01:36Z
+[collector] snapshot #004 2026-10-16T04:01:37Z
+[collector] snapshot #005 2026-10-16T04:01:38Z
+[collector] snapshot #006 2026-10-16T04:01:39Z
+[collector] snapshot #007 2026-10-16T04:01:40Z
+[collector] snapshot #008 2026-10-16T04:01:41Z
+[collector] snapshot #009 2026-10-16T04:01:42Z
+[collector] snapshot #010 2026-10-16T04:01:43Z
+[collector] snapshot #011 2026-10-16T04:01:44Z
+[collector] snapshot #012 2026-10-16T04:01:45Z
+[collector] snapshot #013 2026-10-16T04:01:46Z
+[collector] snapshot #014 2026-10-16T04:01:47Z
+[collector] snapshot #015 2026-10-16T04:01:48Z
+[collector] snapshot #016 2026-10-16T04:01:49Z
+[collector] snapshot #017 2026-10-16T04:01:50Z
+[collector] snapshot #018 2026-10-16T04:01:51Z
+[collector] snapshot #019 2026-10-16T04:01:52Z
+[collector] snapshot #020 2026-10-16T04:01:53Z
+[collector] snapshot #021 2026-10-16T04:01:54Z
+[gen] INJECT tick=20 t_rel=20.094 {'type': 'LinkDegrade', 'link_key': 's2-s3', 'factor': 0.7124, 'delay': '2ms', 'baseline': 5.0}
+[collector] snapshot #022 2026-10-16T04:01:55Z
+[collector] snapshot #023 2026-10-16T04:01:56Z
+[collector] snapshot #024 2026-10-16T04:01:57Z
+[collector] snapshot #025 2026-10-16T04:01:58Z
+[collector] snapshot #026 2026-10-16T04:01:59Z
+[collector] snapshot #027 2026-10-16T04:02:00Z
+[collector] snapshot #028 2026-10-16T04:02:01Z
+[collector] snapshot #029 2026-10-16T04:02:02Z
+[collector] snapshot #030 2026-10-16T04:02:03Z
+[collector] snapshot #031 2026-10-16T04:02:04Z
+[collector] snapshot #032 2026-10-16T04:02:05Z
+[collector] snapshot #033 2026-10-16T04:02:06Z
+[collector] snapshot #034 2026-10-16T04:02:07Z
+[collector] snapshot #035 2026-10-16T04:02:08Z
+[collector] snapshot #036 2026-10-16T04:02:09Z
+[collector] snapshot #037 2026-10-16T04:02:10Z
+[collector] snapshot #038 2026-10-16T04:02:11Z
+[collector] snapshot #039 2026-10-16T04:02:12Z
+[collector] snapshot #040 2026-10-16T04:02:13Z
+[collector] snapshot #041 2026-10-16T04:02:14Z
+[gen] REVERT tick=40 t_rel=40.105
+[collector] snapshot #042 2026-10-16T04:02:15Z
+[collector] snapshot #043 2026-10-16T04:02:16Z
+[collector] snapshot #044 2026-10-16T04:02:17Z
+[collector] snapshot #045 2026-10-16T04:02:18Z
+[collector] snapshot #046 2026-10-16T04:02:19Z
+[collector] snapshot #047 2026-10-16T04:02:20Z
+[collector] snapshot #048 2026-10-16T04:02:21Z
+[collector] snapshot #049 2026-10-16T04:02:22Z
+[collector] snapshot #050 2026-10-16T04:02:23Z
+[collector] snapshot #051 2026-10-16T04:02:24Z
+[collector] snapshot #052 2026-10-16T04:02:25Z
+[collector] snapshot #053 2026-10-16T04:02:26Z
+[collector] snapshot #054 2026-10-16T04:02:27Z
+[collector] snapshot #055 2026-10-16T04:02:28Z
+[collector] snapshot #056 2026-10-16T04:02:29Z
+[collector] snapshot #057 2026-10-16T04:02:30Z
+[collector] snapshot #058 2026-10-16T04:02:31Z
+[collector] snapshot #059 2026-10-16T04:02:32Z
+[collector] snapshot #060 2026-10-16T04:02:33Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s2-s3-rho150-s5107-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s2-s3-rho150-s5107-r1  snapshots=60  sep=59.359  sha=fef27b847d9c
+
+========================================================================
+[2026-10-16T04:02:34Z] RUN RD-degrade-s1-s2-rho080-s5104-r1 exec_index=14 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho080-s5104-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:02:52Z
+[collector] snapshot #002 2026-10-16T04:02:53Z
+[collector] snapshot #003 2026-10-16T04:02:54Z
+[collector] snapshot #004 2026-10-16T04:02:55Z
+[collector] snapshot #005 2026-10-16T04:02:56Z
+[collector] snapshot #006 2026-10-16T04:02:57Z
+[collector] snapshot #007 2026-10-16T04:02:58Z
+[collector] snapshot #008 2026-10-16T04:02:59Z
+[collector] snapshot #009 2026-10-16T04:03:00Z
+[collector] snapshot #010 2026-10-16T04:03:01Z
+[collector] snapshot #011 2026-10-16T04:03:02Z
+[collector] snapshot #012 2026-10-16T04:03:03Z
+[collector] snapshot #013 2026-10-16T04:03:04Z
+[collector] snapshot #014 2026-10-16T04:03:05Z
+[collector] snapshot #015 2026-10-16T04:03:06Z
+[collector] snapshot #016 2026-10-16T04:03:07Z
+[collector] snapshot #017 2026-10-16T04:03:08Z
+[collector] snapshot #018 2026-10-16T04:03:09Z
+[collector] snapshot #019 2026-10-16T04:03:10Z
+[collector] snapshot #020 2026-10-16T04:03:11Z
+[collector] snapshot #021 2026-10-16T04:03:12Z
+[gen] INJECT tick=20 t_rel=20.094 {'type': 'LinkDegrade', 'link_key': 's1-s2', 'factor': 0.7312, 'delay': '2ms', 'baseline': 20.0}
+[collector] snapshot #022 2026-10-16T04:03:13Z
+[collector] snapshot #023 2026-10-16T04:03:14Z
+[collector] snapshot #024 2026-10-16T04:03:15Z
+[collector] snapshot #025 2026-10-16T04:03:16Z
+[collector] snapshot #026 2026-10-16T04:03:17Z
+[collector] snapshot #027 2026-10-16T04:03:18Z
+[collector] snapshot #028 2026-10-16T04:03:19Z
+[collector] snapshot #029 2026-10-16T04:03:20Z
+[collector] snapshot #030 2026-10-16T04:03:21Z
+[collector] snapshot #031 2026-10-16T04:03:22Z
+[collector] snapshot #032 2026-10-16T04:03:23Z
+[collector] snapshot #033 2026-10-16T04:03:24Z
+[collector] snapshot #034 2026-10-16T04:03:25Z
+[collector] snapshot #035 2026-10-16T04:03:26Z
+[collector] snapshot #036 2026-10-16T04:03:27Z
+[collector] snapshot #037 2026-10-16T04:03:28Z
+[collector] snapshot #038 2026-10-16T04:03:29Z
+[collector] snapshot #039 2026-10-16T04:03:30Z
+[collector] snapshot #040 2026-10-16T04:03:31Z
+[collector] snapshot #041 2026-10-16T04:03:32Z
+[gen] REVERT tick=40 t_rel=40.108
+[collector] snapshot #042 2026-10-16T04:03:33Z
+[collector] snapshot #043 2026-10-16T04:03:34Z
+[collector] snapshot #044 2026-10-16T04:03:35Z
+[collector] snapshot #045 2026-10-16T04:03:36Z
+[collector] snapshot #046 2026-10-16T04:03:37Z
+[collector] snapshot #047 2026-10-16T04:03:38Z
+[collector] snapshot #048 2026-10-16T04:03:39Z
+[collector] snapshot #049 2026-10-16T04:03:40Z
+[collector] snapshot #050 2026-10-16T04:03:41Z
+[collector] snapshot #051 2026-10-16T04:03:42Z
+[collector] snapshot #052 2026-10-16T04:03:43Z
+[collector] snapshot #053 2026-10-16T04:03:44Z
+[collector] snapshot #054 2026-10-16T04:03:45Z
+[collector] snapshot #055 2026-10-16T04:03:46Z
+[collector] snapshot #056 2026-10-16T04:03:47Z
+[collector] snapshot #057 2026-10-16T04:03:48Z
+[collector] snapshot #058 2026-10-16T04:03:49Z
+[collector] snapshot #059 2026-10-16T04:03:50Z
+[collector] snapshot #060 2026-10-16T04:03:51Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho080-s5104-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s1-s2-rho080-s5104-r1  snapshots=60  sep=0.146  sha=a095ce30033c
+
+========================================================================
+[2026-10-16T04:03:52Z] RUN RO-ctl_admin_down-s1-s2-s5302-r2 exec_index=15 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RO-ctl_admin_down-s1-s2-s5302-r2.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:04:10Z
+[collector] snapshot #002 2026-10-16T04:04:11Z
+[collector] snapshot #003 2026-10-16T04:04:12Z
+[collector] snapshot #004 2026-10-16T04:04:13Z
+[collector] snapshot #005 2026-10-16T04:04:14Z
+[collector] snapshot #006 2026-10-16T04:04:15Z
+[collector] snapshot #007 2026-10-16T04:04:16Z
+[collector] snapshot #008 2026-10-16T04:04:17Z
+[collector] snapshot #009 2026-10-16T04:04:18Z
+[collector] snapshot #010 2026-10-16T04:04:19Z
+[collector] snapshot #011 2026-10-16T04:04:20Z
+[collector] snapshot #012 2026-10-16T04:04:21Z
+[collector] snapshot #013 2026-10-16T04:04:22Z
+[collector] snapshot #014 2026-10-16T04:04:23Z
+[collector] snapshot #015 2026-10-16T04:04:24Z
+[collector] snapshot #016 2026-10-16T04:04:25Z
+[collector] snapshot #017 2026-10-16T04:04:26Z
+[collector] snapshot #018 2026-10-16T04:04:27Z
+[collector] snapshot #019 2026-10-16T04:04:28Z
+[collector] snapshot #020 2026-10-16T04:04:29Z
+[collector] snapshot #021 2026-10-16T04:04:30Z
+[gen] INJECT tick=20 t_rel=20.153 {'type': 'LinkAdminDown', 'link_key': 's1-s2'}
+[collector] snapshot #022 2026-10-16T04:04:31Z
+[collector] snapshot #023 2026-10-16T04:04:32Z
+[collector] snapshot #024 2026-10-16T04:04:33Z
+[collector] snapshot #025 2026-10-16T04:04:34Z
+[collector] snapshot #026 2026-10-16T04:04:35Z
+[collector] snapshot #027 2026-10-16T04:04:36Z
+[collector] snapshot #028 2026-10-16T04:04:37Z
+[collector] snapshot #029 2026-10-16T04:04:38Z
+[collector] snapshot #030 2026-10-16T04:04:39Z
+[collector] snapshot #031 2026-10-16T04:04:40Z
+[collector] snapshot #032 2026-10-16T04:04:41Z
+[collector] snapshot #033 2026-10-16T04:04:42Z
+[collector] snapshot #034 2026-10-16T04:04:43Z
+[collector] snapshot #035 2026-10-16T04:04:44Z
+[collector] snapshot #036 2026-10-16T04:04:45Z
+[collector] snapshot #037 2026-10-16T04:04:46Z
+[collector] snapshot #038 2026-10-16T04:04:47Z
+[collector] snapshot #039 2026-10-16T04:04:48Z
+[collector] snapshot #040 2026-10-16T04:04:49Z
+[collector] snapshot #041 2026-10-16T04:04:50Z
+[gen] REVERT tick=40 t_rel=40.163
+[collector] snapshot #042 2026-10-16T04:04:51Z
+[collector] snapshot #043 2026-10-16T04:04:52Z
+[collector] snapshot #044 2026-10-16T04:04:53Z
+[collector] snapshot #045 2026-10-16T04:04:54Z
+[collector] snapshot #046 2026-10-16T04:04:55Z
+[collector] snapshot #047 2026-10-16T04:04:56Z
+[collector] snapshot #048 2026-10-16T04:04:57Z
+[collector] snapshot #049 2026-10-16T04:04:58Z
+[collector] snapshot #050 2026-10-16T04:04:59Z
+[collector] snapshot #051 2026-10-16T04:05:00Z
+[collector] snapshot #052 2026-10-16T04:05:01Z
+[collector] snapshot #053 2026-10-16T04:05:02Z
+[collector] snapshot #054 2026-10-16T04:05:03Z
+[collector] snapshot #055 2026-10-16T04:05:04Z
+[collector] snapshot #056 2026-10-16T04:05:05Z
+[collector] snapshot #057 2026-10-16T04:05:06Z
+[collector] snapshot #058 2026-10-16T04:05:07Z
+[collector] snapshot #059 2026-10-16T04:05:08Z
+[collector] snapshot #060 2026-10-16T04:05:09Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RO-ctl_admin_down-s1-s2-s5302-r2.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RO-ctl_admin_down-s1-s2-s5302-r2  snapshots=60  sep=100.0  sha=b8fe00fa2b6a
+
+========================================================================
+[2026-10-16T04:05:10Z] RUN RS-soak2M-s5001-r1             exec_index=16 split=r_set
+[gen] namespace=org.dt4n.ml selected=6 pending=6
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.ml:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controller đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:detector đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controlloop đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 20 bỏ qua, tổng 20 Thing ===
+
+========================================================================
+[2026-10-16T04:06:21Z] RUN RC-shift-s1-s2-s5203-r1        exec_index=18 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-shift-s1-s2-s5203-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:06:38Z
+[collector] snapshot #002 2026-10-16T04:06:39Z
+[collector] snapshot #003 2026-10-16T04:06:40Z
+[collector] snapshot #004 2026-10-16T04:06:41Z
+[collector] snapshot #005 2026-10-16T04:06:42Z
+[collector] snapshot #006 2026-10-16T04:06:43Z
+[collector] snapshot #007 2026-10-16T04:06:44Z
+[collector] snapshot #008 2026-10-16T04:06:45Z
+[collector] snapshot #009 2026-10-16T04:06:46Z
+[collector] snapshot #010 2026-10-16T04:06:47Z
+[collector] snapshot #011 2026-10-16T04:06:48Z
+[collector] snapshot #012 2026-10-16T04:06:49Z
+[collector] snapshot #013 2026-10-16T04:06:50Z
+[collector] snapshot #014 2026-10-16T04:06:51Z
+[collector] snapshot #015 2026-10-16T04:06:52Z
+[collector] snapshot #016 2026-10-16T04:06:53Z
+[collector] snapshot #017 2026-10-16T04:06:54Z
+[collector] snapshot #018 2026-10-16T04:06:55Z
+[collector] snapshot #019 2026-10-16T04:06:56Z
+[collector] snapshot #020 2026-10-16T04:06:57Z
+[collector] snapshot #021 2026-10-16T04:06:58Z
+[gen] INJECT tick=20 t_rel=20.156 {'type': 'CongestionShift', 'degrade_link': 's1-s2', 'factor': 0.8840558577139576, 'delay': '2ms', 'baseline': 20.0, 'flood_src': 'srv1', 'flood_dst': 'srv2', 'rate_mbps': 22}
+[collector] snapshot #022 2026-10-16T04:06:59Z
+[collector] snapshot #023 2026-10-16T04:07:00Z
+[collector] snapshot #024 2026-10-16T04:07:01Z
+[collector] snapshot #025 2026-10-16T04:07:02Z
+[collector] snapshot #026 2026-10-16T04:07:03Z
+[collector] snapshot #027 2026-10-16T04:07:04Z
+[collector] snapshot #028 2026-10-16T04:07:05Z
+[collector] snapshot #029 2026-10-16T04:07:06Z
+[collector] snapshot #030 2026-10-16T04:07:07Z
+[collector] snapshot #031 2026-10-16T04:07:08Z
+[collector] snapshot #032 2026-10-16T04:07:09Z
+[collector] snapshot #033 2026-10-16T04:07:10Z
+[collector] snapshot #034 2026-10-16T04:07:11Z
+[collector] snapshot #035 2026-10-16T04:07:12Z
+[collector] snapshot #036 2026-10-16T04:07:13Z
+[collector] snapshot #037 2026-10-16T04:07:14Z
+[collector] snapshot #038 2026-10-16T04:07:15Z
+[collector] snapshot #039 2026-10-16T04:07:16Z
+[collector] snapshot #040 2026-10-16T04:07:17Z
+[collector] snapshot #041 2026-10-16T04:07:18Z
+[gen] REVERT tick=40 t_rel=40.157
+[collector] snapshot #042 2026-10-16T04:07:19Z
+[collector] snapshot #043 2026-10-16T04:07:20Z
+[collector] snapshot #044 2026-10-16T04:07:21Z
+[collector] snapshot #045 2026-10-16T04:07:22Z
+[collector] snapshot #046 2026-10-16T04:07:23Z
+[collector] snapshot #047 2026-10-16T04:07:24Z
+[collector] snapshot #048 2026-10-16T04:07:25Z
+[collector] snapshot #049 2026-10-16T04:07:26Z
+[collector] snapshot #050 2026-10-16T04:07:27Z
+[collector] snapshot #051 2026-10-16T04:07:28Z
+[collector] snapshot #052 2026-10-16T04:07:29Z
+[collector] snapshot #053 2026-10-16T04:07:30Z
+[collector] snapshot #054 2026-10-16T04:07:31Z
+[collector] snapshot #055 2026-10-16T04:07:32Z
+[collector] snapshot #056 2026-10-16T04:07:33Z
+[collector] snapshot #057 2026-10-16T04:07:34Z
+[collector] snapshot #058 2026-10-16T04:07:35Z
+[collector] snapshot #059 2026-10-16T04:07:36Z
+[collector] snapshot #060 2026-10-16T04:07:37Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-shift-s1-s2-s5203-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RC-shift-s1-s2-s5203-r1  snapshots=60  sep=749.597  sha=41300eab0ef6
+
+========================================================================
+[2026-10-16T04:07:38Z] RUN RN-load8M-s5014-r2             exec_index=19 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @8M per client
+[traffic] NORMAL: h2 -> srv2 TCP @8M per client
+[traffic] NORMAL: h3 -> srv1 TCP @8M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load8M-s5014-r2.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:07:55Z
+[collector] snapshot #002 2026-10-16T04:07:56Z
+[collector] snapshot #003 2026-10-16T04:07:57Z
+[collector] snapshot #004 2026-10-16T04:07:58Z
+[collector] snapshot #005 2026-10-16T04:07:59Z
+[collector] snapshot #006 2026-10-16T04:08:00Z
+[collector] snapshot #007 2026-10-16T04:08:01Z
+[collector] snapshot #008 2026-10-16T04:08:02Z
+[collector] snapshot #009 2026-10-16T04:08:03Z
+[collector] snapshot #010 2026-10-16T04:08:04Z
+[collector] snapshot #011 2026-10-16T04:08:05Z
+[collector] snapshot #012 2026-10-16T04:08:06Z
+[collector] snapshot #013 2026-10-16T04:08:07Z
+[collector] snapshot #014 2026-10-16T04:08:08Z
+[collector] snapshot #015 2026-10-16T04:08:09Z
+[collector] snapshot #016 2026-10-16T04:08:10Z
+[collector] snapshot #017 2026-10-16T04:08:11Z
+[collector] snapshot #018 2026-10-16T04:08:12Z
+[collector] snapshot #019 2026-10-16T04:08:13Z
+[collector] snapshot #020 2026-10-16T04:08:14Z
+[collector] snapshot #021 2026-10-16T04:08:15Z
+[collector] snapshot #022 2026-10-16T04:08:16Z
+[collector] snapshot #023 2026-10-16T04:08:17Z
+[collector] snapshot #024 2026-10-16T04:08:18Z
+[collector] snapshot #025 2026-10-16T04:08:19Z
+[collector] snapshot #026 2026-10-16T04:08:20Z
+[collector] snapshot #027 2026-10-16T04:08:21Z
+[collector] snapshot #028 2026-10-16T04:08:22Z
+[collector] snapshot #029 2026-10-16T04:08:23Z
+[collector] snapshot #030 2026-10-16T04:08:24Z
+[collector] snapshot #031 2026-10-16T04:08:25Z
+[collector] snapshot #032 2026-10-16T04:08:26Z
+[collector] snapshot #033 2026-10-16T04:08:27Z
+[collector] snapshot #034 2026-10-16T04:08:28Z
+[collector] snapshot #035 2026-10-16T04:08:29Z
+[collector] snapshot #036 2026-10-16T04:08:30Z
+[collector] snapshot #037 2026-10-16T04:08:31Z
+[collector] snapshot #038 2026-10-16T04:08:32Z
+[collector] snapshot #039 2026-10-16T04:08:33Z
+[collector] snapshot #040 2026-10-16T04:08:34Z
+[collector] snapshot #041 2026-10-16T04:08:35Z
+[collector] snapshot #042 2026-10-16T04:08:36Z
+[collector] snapshot #043 2026-10-16T04:08:37Z
+[collector] snapshot #044 2026-10-16T04:08:38Z
+[collector] snapshot #045 2026-10-16T04:08:39Z
+[collector] snapshot #046 2026-10-16T04:08:40Z
+[collector] snapshot #047 2026-10-16T04:08:41Z
+[collector] snapshot #048 2026-10-16T04:08:42Z
+[collector] snapshot #049 2026-10-16T04:08:43Z
+[collector] snapshot #050 2026-10-16T04:08:44Z
+[collector] snapshot #051 2026-10-16T04:08:45Z
+[collector] snapshot #052 2026-10-16T04:08:46Z
+[collector] snapshot #053 2026-10-16T04:08:47Z
+[collector] snapshot #054 2026-10-16T04:08:48Z
+[collector] snapshot #055 2026-10-16T04:08:49Z
+[collector] snapshot #056 2026-10-16T04:08:50Z
+[collector] snapshot #057 2026-10-16T04:08:51Z
+[collector] snapshot #058 2026-10-16T04:08:52Z
+[collector] snapshot #059 2026-10-16T04:08:53Z
+[collector] snapshot #060 2026-10-16T04:08:54Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load8M-s5014-r2.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load8M-s5014-r2  snapshots=60  sep=-  sha=a0be828b1100
+
+========================================================================
+[2026-10-16T04:08:55Z] RUN RD-degrade-s1-s2-rho150-s5102-r1 exec_index=20 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho150-s5102-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:09:13Z
+[collector] snapshot #002 2026-10-16T04:09:14Z
+[collector] snapshot #003 2026-10-16T04:09:15Z
+[collector] snapshot #004 2026-10-16T04:09:16Z
+[collector] snapshot #005 2026-10-16T04:09:17Z
+[collector] snapshot #006 2026-10-16T04:09:18Z
+[collector] snapshot #007 2026-10-16T04:09:19Z
+[collector] snapshot #008 2026-10-16T04:09:20Z
+[collector] snapshot #009 2026-10-16T04:09:21Z
+[collector] snapshot #010 2026-10-16T04:09:22Z
+[collector] snapshot #011 2026-10-16T04:09:23Z
+[collector] snapshot #012 2026-10-16T04:09:24Z
+[collector] snapshot #013 2026-10-16T04:09:25Z
+[collector] snapshot #014 2026-10-16T04:09:26Z
+[collector] snapshot #015 2026-10-16T04:09:27Z
+[collector] snapshot #016 2026-10-16T04:09:28Z
+[collector] snapshot #017 2026-10-16T04:09:29Z
+[collector] snapshot #018 2026-10-16T04:09:30Z
+[collector] snapshot #019 2026-10-16T04:09:31Z
+[collector] snapshot #020 2026-10-16T04:09:32Z
+[collector] snapshot #021 2026-10-16T04:09:33Z
+[gen] INJECT tick=20 t_rel=20.111 {'type': 'LinkDegrade', 'link_key': 's1-s2', 'factor': 0.8567, 'delay': '2ms', 'baseline': 20.0}
+[collector] snapshot #022 2026-10-16T04:09:34Z
+[collector] snapshot #023 2026-10-16T04:09:35Z
+[collector] snapshot #024 2026-10-16T04:09:36Z
+[collector] snapshot #025 2026-10-16T04:09:37Z
+[collector] snapshot #026 2026-10-16T04:09:38Z
+[collector] snapshot #027 2026-10-16T04:09:39Z
+[collector] snapshot #028 2026-10-16T04:09:40Z
+[collector] snapshot #029 2026-10-16T04:09:41Z
+[collector] snapshot #030 2026-10-16T04:09:42Z
+[collector] snapshot #031 2026-10-16T04:09:43Z
+[collector] snapshot #032 2026-10-16T04:09:44Z
+[collector] snapshot #033 2026-10-16T04:09:45Z
+[collector] snapshot #034 2026-10-16T04:09:46Z
+[collector] snapshot #035 2026-10-16T04:09:47Z
+[collector] snapshot #036 2026-10-16T04:09:48Z
+[collector] snapshot #037 2026-10-16T04:09:49Z
+[collector] snapshot #038 2026-10-16T04:09:50Z
+[collector] snapshot #039 2026-10-16T04:09:51Z
+[collector] snapshot #040 2026-10-16T04:09:52Z
+[collector] snapshot #041 2026-10-16T04:09:53Z
+[gen] REVERT tick=40 t_rel=40.112
+[collector] snapshot #042 2026-10-16T04:09:54Z
+[collector] snapshot #043 2026-10-16T04:09:55Z
+[collector] snapshot #044 2026-10-16T04:09:56Z
+[collector] snapshot #045 2026-10-16T04:09:57Z
+[collector] snapshot #046 2026-10-16T04:09:58Z
+[collector] snapshot #047 2026-10-16T04:09:59Z
+[collector] snapshot #048 2026-10-16T04:10:00Z
+[collector] snapshot #049 2026-10-16T04:10:01Z
+[collector] snapshot #050 2026-10-16T04:10:02Z
+[collector] snapshot #051 2026-10-16T04:10:03Z
+[collector] snapshot #052 2026-10-16T04:10:04Z
+[collector] snapshot #053 2026-10-16T04:10:05Z
+[collector] snapshot #054 2026-10-16T04:10:06Z
+[collector] snapshot #055 2026-10-16T04:10:07Z
+[collector] snapshot #056 2026-10-16T04:10:08Z
+[collector] snapshot #057 2026-10-16T04:10:09Z
+[collector] snapshot #058 2026-10-16T04:10:10Z
+[collector] snapshot #059 2026-10-16T04:10:11Z
+[collector] snapshot #060 2026-10-16T04:10:12Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RD-degrade-s1-s2-rho150-s5102-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RD-degrade-s1-s2-rho150-s5102-r1  snapshots=60  sep=18.782  sha=011c06d0d360
+
+========================================================================
+[2026-10-16T04:10:13Z] RUN RC-flood-h2_to_srv2-s5202-r1   exec_index=21 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-flood-h2_to_srv2-s5202-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:10:31Z
+[collector] snapshot #002 2026-10-16T04:10:32Z
+[collector] snapshot #003 2026-10-16T04:10:33Z
+[collector] snapshot #004 2026-10-16T04:10:34Z
+[collector] snapshot #005 2026-10-16T04:10:35Z
+[collector] snapshot #006 2026-10-16T04:10:36Z
+[collector] snapshot #007 2026-10-16T04:10:37Z
+[collector] snapshot #008 2026-10-16T04:10:38Z
+[collector] snapshot #009 2026-10-16T04:10:39Z
+[collector] snapshot #010 2026-10-16T04:10:40Z
+[collector] snapshot #011 2026-10-16T04:10:41Z
+[collector] snapshot #012 2026-10-16T04:10:42Z
+[collector] snapshot #013 2026-10-16T04:10:43Z
+[collector] snapshot #014 2026-10-16T04:10:44Z
+[collector] snapshot #015 2026-10-16T04:10:45Z
+[collector] snapshot #016 2026-10-16T04:10:46Z
+[collector] snapshot #017 2026-10-16T04:10:47Z
+[collector] snapshot #018 2026-10-16T04:10:48Z
+[collector] snapshot #019 2026-10-16T04:10:49Z
+[collector] snapshot #020 2026-10-16T04:10:50Z
+[collector] snapshot #021 2026-10-16T04:10:51Z
+[gen] INJECT tick=20 t_rel=20.094 {'type': 'TrafficFlood', 'src': 'h2', 'dst': 'srv2', 'rate_mbps': 31}
+[collector] snapshot #022 2026-10-16T04:10:52Z
+[collector] snapshot #023 2026-10-16T04:10:53Z
+[collector] snapshot #024 2026-10-16T04:10:54Z
+[collector] snapshot #025 2026-10-16T04:10:55Z
+[collector] snapshot #026 2026-10-16T04:10:56Z
+[collector] snapshot #027 2026-10-16T04:10:57Z
+[collector] snapshot #028 2026-10-16T04:10:58Z
+[collector] snapshot #029 2026-10-16T04:10:59Z
+[collector] snapshot #030 2026-10-16T04:11:00Z
+[collector] snapshot #031 2026-10-16T04:11:01Z
+[collector] snapshot #032 2026-10-16T04:11:02Z
+[collector] snapshot #033 2026-10-16T04:11:03Z
+[collector] snapshot #034 2026-10-16T04:11:04Z
+[collector] snapshot #035 2026-10-16T04:11:05Z
+[collector] snapshot #036 2026-10-16T04:11:06Z
+[collector] snapshot #037 2026-10-16T04:11:07Z
+[collector] snapshot #038 2026-10-16T04:11:08Z
+[collector] snapshot #039 2026-10-16T04:11:09Z
+[collector] snapshot #040 2026-10-16T04:11:10Z
+[collector] snapshot #041 2026-10-16T04:11:11Z
+[gen] REVERT tick=40 t_rel=40.109
+[collector] snapshot #042 2026-10-16T04:11:12Z
+[collector] snapshot #043 2026-10-16T04:11:13Z
+[collector] snapshot #044 2026-10-16T04:11:14Z
+[collector] snapshot #045 2026-10-16T04:11:15Z
+[collector] snapshot #046 2026-10-16T04:11:16Z
+[collector] snapshot #047 2026-10-16T04:11:17Z
+[collector] snapshot #048 2026-10-16T04:11:18Z
+[collector] snapshot #049 2026-10-16T04:11:19Z
+[collector] snapshot #050 2026-10-16T04:11:20Z
+[collector] snapshot #051 2026-10-16T04:11:21Z
+[collector] snapshot #052 2026-10-16T04:11:22Z
+[collector] snapshot #053 2026-10-16T04:11:23Z
+[collector] snapshot #054 2026-10-16T04:11:24Z
+[collector] snapshot #055 2026-10-16T04:11:25Z
+[collector] snapshot #056 2026-10-16T04:11:26Z
+[collector] snapshot #057 2026-10-16T04:11:27Z
+[collector] snapshot #058 2026-10-16T04:11:28Z
+[collector] snapshot #059 2026-10-16T04:11:29Z
+[collector] snapshot #060 2026-10-16T04:11:30Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-flood-h2_to_srv2-s5202-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RC-flood-h2_to_srv2-s5202-r1  snapshots=60  sep=288.169  sha=261e534fdf89
+
+========================================================================
+[2026-10-16T04:11:31Z] RUN RN-load10M-s5015-r1            exec_index=22 split=r_set
+[traffic] đã dừng các iperf server
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @10M per client
+[traffic] NORMAL: h2 -> srv2 TCP @10M per client
+[traffic] NORMAL: h3 -> srv1 TCP @10M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load10M-s5015-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:11:49Z
+[collector] snapshot #002 2026-10-16T04:11:50Z
+[collector] snapshot #003 2026-10-16T04:11:51Z
+[collector] snapshot #004 2026-10-16T04:11:52Z
+[collector] snapshot #005 2026-10-16T04:11:53Z
+[collector] snapshot #006 2026-10-16T04:11:54Z
+[collector] snapshot #007 2026-10-16T04:11:55Z
+[collector] snapshot #008 2026-10-16T04:11:56Z
+[collector] snapshot #009 2026-10-16T04:11:57Z
+[collector] snapshot #010 2026-10-16T04:11:58Z
+[collector] snapshot #011 2026-10-16T04:11:59Z
+[collector] snapshot #012 2026-10-16T04:12:00Z
+[collector] snapshot #013 2026-10-16T04:12:01Z
+[collector] snapshot #014 2026-10-16T04:12:02Z
+[collector] snapshot #015 2026-10-16T04:12:03Z
+[collector] snapshot #016 2026-10-16T04:12:04Z
+[collector] snapshot #017 2026-10-16T04:12:05Z
+[collector] snapshot #018 2026-10-16T04:12:06Z
+[collector] snapshot #019 2026-10-16T04:12:07Z
+[collector] snapshot #020 2026-10-16T04:12:08Z
+[collector] snapshot #021 2026-10-16T04:12:09Z
+[collector] snapshot #022 2026-10-16T04:12:10Z
+[collector] snapshot #023 2026-10-16T04:12:11Z
+[collector] snapshot #024 2026-10-16T04:12:12Z
+[collector] snapshot #025 2026-10-16T04:12:13Z
+[collector] snapshot #026 2026-10-16T04:12:14Z
+[collector] snapshot #027 2026-10-16T04:12:15Z
+[collector] snapshot #028 2026-10-16T04:12:16Z
+[collector] snapshot #029 2026-10-16T04:12:17Z
+[collector] snapshot #030 2026-10-16T04:12:18Z
+[collector] snapshot #031 2026-10-16T04:12:19Z
+[collector] snapshot #032 2026-10-16T04:12:20Z
+[collector] snapshot #033 2026-10-16T04:12:21Z
+[collector] snapshot #034 2026-10-16T04:12:22Z
+[collector] snapshot #035 2026-10-16T04:12:23Z
+[collector] snapshot #036 2026-10-16T04:12:24Z
+[collector] snapshot #037 2026-10-16T04:12:25Z
+[collector] snapshot #038 2026-10-16T04:12:26Z
+[collector] snapshot #039 2026-10-16T04:12:27Z
+[collector] snapshot #040 2026-10-16T04:12:28Z
+[collector] snapshot #041 2026-10-16T04:12:29Z
+[collector] snapshot #042 2026-10-16T04:12:30Z
+[collector] snapshot #043 2026-10-16T04:12:31Z
+[collector] snapshot #044 2026-10-16T04:12:32Z
+[collector] snapshot #045 2026-10-16T04:12:33Z
+[collector] snapshot #046 2026-10-16T04:12:34Z
+[collector] snapshot #047 2026-10-16T04:12:35Z
+[collector] snapshot #048 2026-10-16T04:12:36Z
+[collector] snapshot #049 2026-10-16T04:12:37Z
+[collector] snapshot #050 2026-10-16T04:12:38Z
+[collector] snapshot #051 2026-10-16T04:12:39Z
+[collector] snapshot #052 2026-10-16T04:12:40Z
+[collector] snapshot #053 2026-10-16T04:12:41Z
+[collector] snapshot #054 2026-10-16T04:12:42Z
+[collector] snapshot #055 2026-10-16T04:12:43Z
+[collector] snapshot #056 2026-10-16T04:12:44Z
+[collector] snapshot #057 2026-10-16T04:12:45Z
+[collector] snapshot #058 2026-10-16T04:12:46Z
+[collector] snapshot #059 2026-10-16T04:12:47Z
+[collector] snapshot #060 2026-10-16T04:12:48Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RN-load10M-s5015-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RN-load10M-s5015-r1  snapshots=60  sep=-  sha=f4a046ad7c07
+
+========================================================================
+[2026-10-16T04:12:49Z] RUN RC-flood-h1_to_srv1-s5201-r1   exec_index=24 split=r_set
+[traffic] đã dừng các iperf server
+=== BOOTSTRAP (mode=create) ===
+[1] Policy:
+  ✅ policy org.dt4n.ml:default-policy (204)
+[3] Things:
+  ⏭️  org.dt4n.ml:host-h1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-h3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:host-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:switch-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h1-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h2-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-h3-s1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s1-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-s3 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s2-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:link-s3-srv2 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:path-h1-srv1 đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controller đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:detector đã tồn tại, bỏ qua
+  ⏭️  org.dt4n.ml:controlloop đã tồn tại, bỏ qua
+=== XONG: 0 tạo, 20 bỏ qua, tổng 20 Thing ===
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[traffic] đã dừng các iperf server
+[traffic] iperf server (TCP) bật nền trên srv1
+[traffic] iperf server (TCP) bật nền trên srv2
+[traffic] nền srv1->srv2 UDP @2Mbps qua bottleneck s2-s3
+[traffic] NORMAL: h1 -> srv1 TCP @2M per client
+[traffic] NORMAL: h2 -> srv2 TCP @2M per client
+[traffic] NORMAL: h3 -> srv1 TCP @2M per client
+[gen] profile=fixed, pre-roll 5s
+[collector] bắt đầu, interval=1.0s
+[collector] JSONL log  -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-flood-h1_to_srv1-s5201-r1.jsonl.partial (overwrite)
+[collector] snapshot #001 2026-10-16T04:13:13Z
+[collector] snapshot #002 2026-10-16T04:13:14Z
+[collector] snapshot #003 2026-10-16T04:13:15Z
+[collector] snapshot #004 2026-10-16T04:13:16Z
+[collector] snapshot #005 2026-10-16T04:13:17Z
+[collector] snapshot #006 2026-10-16T04:13:18Z
+[collector] snapshot #007 2026-10-16T04:13:19Z
+[collector] snapshot #008 2026-10-16T04:13:20Z
+[collector] snapshot #009 2026-10-16T04:13:21Z
+[collector] snapshot #010 2026-10-16T04:13:22Z
+[collector] snapshot #011 2026-10-16T04:13:23Z
+[collector] snapshot #012 2026-10-16T04:13:24Z
+[collector] snapshot #013 2026-10-16T04:13:25Z
+[collector] snapshot #014 2026-10-16T04:13:26Z
+[collector] snapshot #015 2026-10-16T04:13:27Z
+[collector] snapshot #016 2026-10-16T04:13:28Z
+[collector] snapshot #017 2026-10-16T04:13:29Z
+[collector] snapshot #018 2026-10-16T04:13:30Z
+[collector] snapshot #019 2026-10-16T04:13:31Z
+[collector] snapshot #020 2026-10-16T04:13:32Z
+[collector] snapshot #021 2026-10-16T04:13:33Z
+[gen] INJECT tick=20 t_rel=20.091 {'type': 'TrafficFlood', 'src': 'h1', 'dst': 'srv1', 'rate_mbps': 36}
+[collector] snapshot #022 2026-10-16T04:13:34Z
+[collector] snapshot #023 2026-10-16T04:13:35Z
+[collector] snapshot #024 2026-10-16T04:13:36Z
+[collector] snapshot #025 2026-10-16T04:13:37Z
+[collector] snapshot #026 2026-10-16T04:13:38Z
+[collector] snapshot #027 2026-10-16T04:13:39Z
+[collector] snapshot #028 2026-10-16T04:13:40Z
+[collector] snapshot #029 2026-10-16T04:13:41Z
+[collector] snapshot #030 2026-10-16T04:13:42Z
+[collector] snapshot #031 2026-10-16T04:13:43Z
+[collector] snapshot #032 2026-10-16T04:13:44Z
+[collector] snapshot #033 2026-10-16T04:13:45Z
+[collector] snapshot #034 2026-10-16T04:13:46Z
+[collector] snapshot #035 2026-10-16T04:13:47Z
+[collector] snapshot #036 2026-10-16T04:13:48Z
+[collector] snapshot #037 2026-10-16T04:13:49Z
+[collector] snapshot #038 2026-10-16T04:13:50Z
+[collector] snapshot #039 2026-10-16T04:13:51Z
+[collector] snapshot #040 2026-10-16T04:13:52Z
+[collector] snapshot #041 2026-10-16T04:13:53Z
+[gen] REVERT tick=40 t_rel=40.108
+[collector] snapshot #042 2026-10-16T04:13:54Z
+[collector] snapshot #043 2026-10-16T04:13:55Z
+[collector] snapshot #044 2026-10-16T04:13:56Z
+[collector] snapshot #045 2026-10-16T04:13:57Z
+[collector] snapshot #046 2026-10-16T04:13:58Z
+[collector] snapshot #047 2026-10-16T04:13:59Z
+[collector] snapshot #048 2026-10-16T04:14:00Z
+[collector] snapshot #049 2026-10-16T04:14:01Z
+[collector] snapshot #050 2026-10-16T04:14:02Z
+[collector] snapshot #051 2026-10-16T04:14:03Z
+[collector] snapshot #052 2026-10-16T04:14:04Z
+[collector] snapshot #053 2026-10-16T04:14:05Z
+[collector] snapshot #054 2026-10-16T04:14:06Z
+[collector] snapshot #055 2026-10-16T04:14:07Z
+[collector] snapshot #056 2026-10-16T04:14:08Z
+[collector] snapshot #057 2026-10-16T04:14:09Z
+[collector] snapshot #058 2026-10-16T04:14:10Z
+[collector] snapshot #059 2026-10-16T04:14:11Z
+[collector] snapshot #060 2026-10-16T04:14:12Z
+[collector] kết thúc. Đã ghi 60 snapshot -> /home/ubuntu/dt4n-core-gd4/data/phase5/gd4r/raw/RC-flood-h1_to_srv1-s5201-r1.jsonl.partial
+[traffic] đã dừng các iperf server
+[gen] OK     RC-flood-h1_to_srv1-s5201-r1  snapshots=60  sep=371.237  sha=6647660347d3
+[traffic] đã dừng các iperf server
+[gen] ok=22 failed=0 complete=False manifest=/home/ubuntu/dt4n-core-gd4/results/report/gd4r_manifest.json

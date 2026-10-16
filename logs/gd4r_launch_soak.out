@@ -1,0 +1,7 @@
+[launch] gd4r: 25 run tren may dt4n-research-01
+[launch] campaign=gd4r hop dong khop: 5cb3bbf2852e
+[launch] source_clean=True git_dirty=True commit=4e19e89d905a4a7f40f960c073a65aa2bdf29705
+[launch] mn -c (một lần duy nhất)
+[launch] controller sẵn sàng, namespace=org.dt4n.ml
+[launch] runner exit=0
+[launch] log: logs/gd4r_stdout.log
