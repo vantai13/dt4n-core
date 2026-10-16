@@ -1,0 +1,92 @@
+{
+  "campaign_id": "DT4N-GD4-REPLACE-S1008-GCP",
+  "design_locked": true,
+  "status": "planned_not_collected",
+  "n_runs": 1,
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "runs": [
+    {
+      "run_id": "N-vary-s1008-r4",
+      "group": "N",
+      "split": "train",
+      "profile": "normal_varying",
+      "load_mbps_per_client": null,
+      "load_schedule": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "fault": null,
+      "fault_target": null,
+      "seed": 1008,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 0,
+      "fault_parameters": {}
+    }
+  ],
+  "execution_order": [
+    "N-vary-s1008-r4"
+  ],
+  "split": {
+    "train": [
+      "N-vary-s1008-r4"
+    ],
+    "test": []
+  },
+  "replaces": "N-vary-s1008-r2",
+  "source_contract_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "gate": {
+    "client_traffic": {
+      "ratio": 0.5,
+      "min_fraction": 0.9,
+      "clients": [
+        "h1",
+        "h2",
+        "h3"
+      ]
+    }
+  },
+  "collection_host": "dt4n-research-01",
+  "reason": "Run thay thế gd2 (N-vary-s1008-r3) thu trên WSL2, khác máy với 7 run train còn lại và toàn bộ dữ liệu test/nghiệm thu; residual lớn nhất 0,182 so với 0,073 ở s1007. Thu lại record s1008 trên máy GCP.",
+  "provenance": {
+    "git_hash": "7e084c786a9ba76e3fd69cd80565362f2d23dc22",
+    "git_dirty": false,
+    "git_dirty_files": [],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "design_content_sha256": "a0c840b1a8c70f28471c64b66ad0e7c86943b627e89f76d11acec2002e3fb0a5"
+}
