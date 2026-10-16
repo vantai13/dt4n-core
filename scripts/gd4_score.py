@@ -87,7 +87,8 @@ def _published(trace, flags, channel):
 
 
 def score(release_path: Path, set_name: str, raw_dir: Path | None,
-          wanted: tuple = SCORED_GROUPS) -> dict:
+          wanted: tuple = SCORED_GROUPS, runs: tuple | None = None) -> dict:
+    """``runs``: chỉ chấm đúng các run này (run mới thu); đủ nhóm chỉ xét trên chúng."""
     spec = SETS[set_name]
     release = DetectorRelease.load(release_path)
     contract = json.loads((REPORT / spec['contract']).read_text(encoding='utf-8'))
@@ -95,8 +96,10 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
     raw = Path(raw_dir) if raw_dir else C.ROOT / spec['raw']
     records = {r['run_id']: r for r in contract['runs']}
     groups = {}
+    if runs is not None and not set(runs) <= set(records):
+        raise SystemExit('run ngoài hợp đồng: %s' % sorted(set(runs) - set(records)))
     for record in contract['runs']:
-        if record['group'] in wanted:
+        if record['group'] in wanted and (runs is None or record['run_id'] in runs):
             groups.setdefault(record['group'], []).append(record['run_id'])
     missing = [rid for ids in groups.values() for rid in ids
                if manifest['runs'].get(rid, {}).get('status') != 'ok'
@@ -104,7 +107,7 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
     if missing or set(groups) != set(wanted):
         raise SystemExit('nhóm %s chưa thu đủ: %s' % (sorted(wanted), sorted(missing)))
     order = [r['run_id'] for r in sorted(contract['runs'], key=lambda r: r['exec_index'])
-             if r['group'] in wanted]
+             if r['group'] in wanted and (runs is None or r['run_id'] in runs)]
 
     params = FSMParams(**release.content['fsm_params'])
     routing = Routing.load(C.ROOT / 'ditto/routing_table.json')
@@ -135,7 +138,7 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
         guards[run_id] = [bool(guard.update(snap)) for snap in snapshots]
 
     # Cổng lưu lượng cho các run đã thu nhưng không chấm (R-O): chỉ đọc đầu vào.
-    for record in sorted(contract['runs'], key=lambda r: r['exec_index']):
+    for record in sorted(contract['runs'], key=lambda r: r['exec_index']) if runs is None else []:
         rid = record['run_id']
         if rid in gate or manifest['runs'].get(rid, {}).get('status') != 'ok':
             continue
@@ -179,6 +182,7 @@ def score(release_path: Path, set_name: str, raw_dir: Path | None,
         'n_files_read': reader.n_files_read, 'n_runs_scored': len(order),
         'pass_conservation_mode': PASS_CONSERVATION_MODE,
         'groups': {g: len(v) for g, v in groups.items()},
+        'runs_filter': sorted(runs) if runs is not None else None,
     }
     return out
 
@@ -276,11 +280,13 @@ def main(argv=None) -> int:
     ap.add_argument('--check-6r', action='store_true')
     ap.add_argument('--groups', nargs='+', choices=SCORED_GROUPS, default=list(SCORED_GROUPS))
     ap.add_argument('--quiet', action='store_true', help='không in số ra màn hình')
+    ap.add_argument('--runs', nargs='+', help='chỉ chấm đúng các run này')
     args = ap.parse_args(argv)
     out = Path(args.out)
     if out.exists():
         raise SystemExit('Đã tồn tại, không ghi đè: %s' % out)
-    result = score(Path(args.release), args.set, args.raw_dir, tuple(args.groups))
+    result = score(Path(args.release), args.set, args.raw_dir, tuple(args.groups),
+                   tuple(args.runs) if args.runs else None)
     content = {'verdicts': verdicts(result), 'result': result,
                'written_at_utc': datetime.now(timezone.utc).isoformat(timespec='seconds')}
     if args.check_6r:
