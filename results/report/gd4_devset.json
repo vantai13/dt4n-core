@@ -1,0 +1,386 @@
+{
+  "content": {
+    "note": "Tập phát triển đã mở từ Phase 6: mọi số ở đây chỉ mô tả. Cửa sổ ức chế 8 s không đổi theo kết quả này.",
+    "envelope": {
+      "v1": {
+        "thresholds": {
+          "primary": {
+            "K": 31,
+            "E": 8.968806422101116
+          },
+          "indicator": {
+            "K": 0,
+            "E": 0.0
+          },
+          "rate_shared": {
+            "K": 31,
+            "E": 8.968806422101116
+          },
+          "loss_only": {
+            "K": 0,
+            "E": 0.0
+          }
+        },
+        "secondary_excess": {
+          "recall": 0.85625,
+          "fpr": 0.053488372093023255,
+          "tp": 137,
+          "fp": 23,
+          "n_positive": 160,
+          "n_negative": 430,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.475,
+            "flood": 1.0,
+            "shift": 0.95
+          },
+          "positions": {
+            "n_false_alarms": 23,
+            "n_in_normal_runs": 0,
+            "n_before_inject": 0,
+            "by_tick": {
+              "41": 4,
+              "42": 5,
+              "43": 4,
+              "44": 4,
+              "45": 4,
+              "46": 1,
+              "47": 1
+            },
+            "post_revert_ticks_span": [
+              41,
+              47
+            ],
+            "longest_post_revert_cluster_s": 7,
+            "cluster_by_run": {
+              "F-admin_down-s1-s2-s3001-r1": 1,
+              "F-admin_down-s1-s3-s3002-r1": 1,
+              "F-degrade-s1-s2-s3003-r1": 0,
+              "F-degrade-s2-s3-s3004-r1": 0,
+              "F-flood-h1_to_srv1-s3005-r1": 7,
+              "F-flood-h2_to_srv2-s3006-r1": 5,
+              "F-shift-s1-s2-s3007-r1": 0,
+              "F-shift-s1-s3-s3008-r1": 0
+            }
+          }
+        },
+        "secondary_dual": {
+          "recall": 0.79375,
+          "fpr": 0.004651162790697674,
+          "tp": 127,
+          "fp": 2,
+          "n_positive": 160,
+          "n_negative": 430,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          },
+          "positions": {
+            "n_false_alarms": 2,
+            "n_in_normal_runs": 0,
+            "n_before_inject": 0,
+            "by_tick": {
+              "41": 2
+            },
+            "post_revert_ticks_span": [
+              41,
+              41
+            ],
+            "longest_post_revert_cluster_s": 1,
+            "cluster_by_run": {
+              "F-admin_down-s1-s2-s3001-r1": 0,
+              "F-admin_down-s1-s3-s3002-r1": 0,
+              "F-degrade-s1-s2-s3003-r1": 0,
+              "F-degrade-s2-s3-s3004-r1": 0,
+              "F-flood-h1_to_srv1-s3005-r1": 1,
+              "F-flood-h2_to_srv2-s3006-r1": 1,
+              "F-shift-s1-s2-s3007-r1": 0,
+              "F-shift-s1-s3-s3008-r1": 0
+            }
+          }
+        },
+        "by_run_detected_ticks": {
+          "F-admin_down-s1-s2-s3001-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-admin_down-s1-s3-s3002-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-degrade-s1-s2-s3003-r1": {
+            "secondary_excess": 0,
+            "secondary_dual": 0
+          },
+          "F-degrade-s2-s3-s3004-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 10
+          },
+          "F-flood-h1_to_srv1-s3005-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-flood-h2_to_srv2-s3006-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 19
+          },
+          "F-shift-s1-s2-s3007-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 19
+          },
+          "F-shift-s1-s3-s3008-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 19
+          }
+        }
+      },
+      "v21": {
+        "thresholds": {
+          "primary": {
+            "K": 18,
+            "E": 5.608952607645111
+          },
+          "indicator": {
+            "K": 0,
+            "E": 0.0
+          },
+          "rate_shared": {
+            "K": 18,
+            "E": 5.608952607645111
+          },
+          "loss_only": {
+            "K": 0,
+            "E": 0.0
+          }
+        },
+        "secondary_excess": {
+          "recall": 0.85625,
+          "fpr": 0.053488372093023255,
+          "tp": 137,
+          "fp": 23,
+          "n_positive": 160,
+          "n_negative": 430,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.475,
+            "flood": 1.0,
+            "shift": 0.95
+          },
+          "positions": {
+            "n_false_alarms": 23,
+            "n_in_normal_runs": 0,
+            "n_before_inject": 0,
+            "by_tick": {
+              "41": 4,
+              "42": 5,
+              "43": 4,
+              "44": 4,
+              "45": 4,
+              "46": 1,
+              "47": 1
+            },
+            "post_revert_ticks_span": [
+              41,
+              47
+            ],
+            "longest_post_revert_cluster_s": 7,
+            "cluster_by_run": {
+              "F-admin_down-s1-s2-s3001-r1": 1,
+              "F-admin_down-s1-s3-s3002-r1": 1,
+              "F-degrade-s1-s2-s3003-r1": 0,
+              "F-degrade-s2-s3-s3004-r1": 0,
+              "F-flood-h1_to_srv1-s3005-r1": 7,
+              "F-flood-h2_to_srv2-s3006-r1": 5,
+              "F-shift-s1-s2-s3007-r1": 0,
+              "F-shift-s1-s3-s3008-r1": 0
+            }
+          }
+        },
+        "secondary_dual": {
+          "recall": 0.79375,
+          "fpr": 0.011627906976744186,
+          "tp": 127,
+          "fp": 5,
+          "n_positive": 160,
+          "n_negative": 430,
+          "recall_by_fault": {
+            "admin_down": 1.0,
+            "degrade": 0.25,
+            "flood": 0.975,
+            "shift": 0.95
+          },
+          "positions": {
+            "n_false_alarms": 5,
+            "n_in_normal_runs": 0,
+            "n_before_inject": 0,
+            "by_tick": {
+              "41": 2,
+              "42": 2,
+              "43": 1
+            },
+            "post_revert_ticks_span": [
+              41,
+              43
+            ],
+            "longest_post_revert_cluster_s": 3,
+            "cluster_by_run": {
+              "F-admin_down-s1-s2-s3001-r1": 0,
+              "F-admin_down-s1-s3-s3002-r1": 0,
+              "F-degrade-s1-s2-s3003-r1": 0,
+              "F-degrade-s2-s3-s3004-r1": 0,
+              "F-flood-h1_to_srv1-s3005-r1": 3,
+              "F-flood-h2_to_srv2-s3006-r1": 1,
+              "F-shift-s1-s2-s3007-r1": 0,
+              "F-shift-s1-s3-s3008-r1": 0
+            }
+          }
+        },
+        "by_run_detected_ticks": {
+          "F-admin_down-s1-s2-s3001-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-admin_down-s1-s3-s3002-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-degrade-s1-s2-s3003-r1": {
+            "secondary_excess": 0,
+            "secondary_dual": 0
+          },
+          "F-degrade-s2-s3-s3004-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 10
+          },
+          "F-flood-h1_to_srv1-s3005-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 20
+          },
+          "F-flood-h2_to_srv2-s3006-r1": {
+            "secondary_excess": 20,
+            "secondary_dual": 19
+          },
+          "F-shift-s1-s2-s3007-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 19
+          },
+          "F-shift-s1-s3-s3008-r1": {
+            "secondary_excess": 19,
+            "secondary_dual": 19
+          }
+        }
+      }
+    },
+    "iforest": {
+      "columns": 72,
+      "max_samples": 256,
+      "q": 0.01,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "v1": {
+        "n_train_rows": 464,
+        "train_run_ids": [
+          "N-load1M-s1001-r1",
+          "N-load1M-s1002-r2",
+          "N-load2M-s1003-r1",
+          "N-load2M-s1004-r2",
+          "N-load4M-s1005-r1",
+          "N-load4M-s1006-r2",
+          "N-vary-s1007-r1",
+          "N-vary-s1008-r2"
+        ],
+        "recall_mean": 0.00125,
+        "fpr_mean": 0.02372093023255814,
+        "per_seed": {
+          "0": {
+            "recall": 0.0,
+            "fpr": 0.023255813953488372,
+            "tp": 0,
+            "fp": 10
+          },
+          "1": {
+            "recall": 0.0,
+            "fpr": 0.01627906976744186,
+            "tp": 0,
+            "fp": 7
+          },
+          "2": {
+            "recall": 0.0,
+            "fpr": 0.020930232558139535,
+            "tp": 0,
+            "fp": 9
+          },
+          "3": {
+            "recall": 0.0,
+            "fpr": 0.020930232558139535,
+            "tp": 0,
+            "fp": 9
+          },
+          "4": {
+            "recall": 0.00625,
+            "fpr": 0.037209302325581395,
+            "tp": 1,
+            "fp": 16
+          }
+        }
+      },
+      "v21": {
+        "n_train_rows": 464,
+        "train_run_ids": [
+          "N-load1M-s1001-r1",
+          "N-load1M-s1002-r2",
+          "N-load2M-s1003-r1",
+          "N-load2M-s1004-r2",
+          "N-load4M-s1005-r1",
+          "N-load4M-s1006-r2",
+          "N-vary-s1007-r1",
+          "N-vary-s1008-r4"
+        ],
+        "recall_mean": 0.0,
+        "fpr_mean": 0.005581395348837209,
+        "per_seed": {
+          "0": {
+            "recall": 0.0,
+            "fpr": 0.0069767441860465115,
+            "tp": 0,
+            "fp": 3
+          },
+          "1": {
+            "recall": 0.0,
+            "fpr": 0.004651162790697674,
+            "tp": 0,
+            "fp": 2
+          },
+          "2": {
+            "recall": 0.0,
+            "fpr": 0.004651162790697674,
+            "tp": 0,
+            "fp": 2
+          },
+          "3": {
+            "recall": 0.0,
+            "fpr": 0.0069767441860465115,
+            "tp": 0,
+            "fp": 3
+          },
+          "4": {
+            "recall": 0.0,
+            "fpr": 0.004651162790697674,
+            "tp": 0,
+            "fp": 2
+          }
+        }
+      },
+      "v1_reproduces_phase6": true
+    },
+    "written_at_utc": "2026-10-16T04:32:28+00:00"
+  },
+  "content_sha256": "8670bd1fab07e693b00e1432ede1c394440a2124528a59992b2e39f9892fd308"
+}

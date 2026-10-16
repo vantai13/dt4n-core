@@ -1,0 +1,1598 @@
+{
+  "content": {
+    "verdicts": {
+      "S1": {
+        "value": 0.4,
+        "target": {
+          "op": ">=",
+          "value": 0.875,
+          "unit": "ty le su co"
+        },
+        "verdict": "FAIL",
+        "combined_descriptive": 0.6,
+        "by_rho": {
+          "envelope_only": {
+            "rho_ge_1_10": [
+              4,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          },
+          "combined": {
+            "rho_ge_1_10": [
+              6,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          }
+        }
+      },
+      "S4": {
+        "value_ms": 20000.5943775177,
+        "target": {
+          "op": "<=",
+          "value": 3000,
+          "unit": "ms"
+        },
+        "verdict": "FAIL",
+        "combined_value_ms": 11008.63265991211,
+        "all_values": {
+          "envelope_only": {
+            "n_detected": 4,
+            "n": 10,
+            "values_ms": [
+              1999.8841285705566,
+              2002.1576881408691,
+              2005.6993961334229,
+              20000.5943775177
+            ],
+            "median_ms": 2003.928542137146,
+            "min_ms": 1999.8841285705566,
+            "max_ms": 20000.5943775177
+          },
+          "combined": {
+            "n_detected": 6,
+            "n": 10,
+            "values_ms": [
+              1999.8841285705566,
+              2002.1576881408691,
+              2005.6993961334229,
+              3990.356683731079,
+              6001.278400421143,
+              11008.63265991211
+            ],
+            "median_ms": 2998.028039932251,
+            "min_ms": 1999.8841285705566,
+            "max_ms": 11008.63265991211
+          }
+        }
+      },
+      "S2": {
+        "verdict": "PENDING",
+        "note": "nhóm chưa thu, chưa chấm"
+      },
+      "S10": {
+        "verdict": "REPORT_ONLY",
+        "envelope_only": {
+          "RN-load6M-s5011-r1": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load6M-s5012-r2": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load8M-s5013-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load10M-s5015-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 49,
+            "fp_sensitive": 49,
+            "fp_residual": 45
+          },
+          "RN-load10M-s5016-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 49,
+            "fp_sensitive": 49,
+            "fp_residual": 45
+          }
+        }
+      },
+      "RC_descriptive": {
+        "envelope_only": {
+          "per_incident": {
+            "RC-flood-h1_to_srv1-s5201-r1": {
+              "detected": true,
+              "max_k": 17,
+              "first_tick": 22,
+              "t_detect_ms": 2002.2504329681396
+            },
+            "RC-flood-h2_to_srv2-s5202-r1": {
+              "detected": true,
+              "max_k": 21,
+              "first_tick": 21,
+              "t_detect_ms": 1003.7598609924316
+            },
+            "RC-shift-s1-s2-s5203-r1": {
+              "detected": true,
+              "max_k": 13,
+              "first_tick": 22,
+              "t_detect_ms": 2003.5762786865234
+            },
+            "RC-shift-s1-s3-s5204-r1": {
+              "detected": true,
+              "max_k": 13,
+              "first_tick": 22,
+              "t_detect_ms": 2004.079818725586
+            }
+          },
+          "ttd": {
+            "n_detected": 4,
+            "n": 4,
+            "values_ms": [
+              1003.7598609924316,
+              2002.2504329681396,
+              2003.5762786865234,
+              2004.079818725586
+            ],
+            "median_ms": 2002.9133558273315,
+            "min_ms": 1003.7598609924316,
+            "max_ms": 2004.079818725586
+          }
+        },
+        "combined": {
+          "per_incident": {
+            "RC-flood-h1_to_srv1-s5201-r1": {
+              "detected": true,
+              "max_k": 17,
+              "first_tick": 22,
+              "t_detect_ms": 2002.2504329681396
+            },
+            "RC-flood-h2_to_srv2-s5202-r1": {
+              "detected": true,
+              "max_k": 21,
+              "first_tick": 21,
+              "t_detect_ms": 1003.7598609924316
+            },
+            "RC-shift-s1-s2-s5203-r1": {
+              "detected": true,
+              "max_k": 13,
+              "first_tick": 22,
+              "t_detect_ms": 2003.5762786865234
+            },
+            "RC-shift-s1-s3-s5204-r1": {
+              "detected": true,
+              "max_k": 13,
+              "first_tick": 22,
+              "t_detect_ms": 2004.079818725586
+            }
+          },
+          "ttd": {
+            "n_detected": 4,
+            "n": 4,
+            "values_ms": [
+              1003.7598609924316,
+              2002.2504329681396,
+              2003.5762786865234,
+              2004.079818725586
+            ],
+            "median_ms": 2002.9133558273315,
+            "min_ms": 1003.7598609924316,
+            "max_ms": 2004.079818725586
+          }
+        }
+      },
+      "operational_guard": {
+        "threshold_mbps": 4.312610240000001,
+        "per_run": {
+          "RN-load6M-s5012-r2": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RD-degrade-s2-s3-rho080-s5109-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RD-degrade-s2-s3-rho125-s5108-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          },
+          "RD-degrade-s1-s2-rho050-s5105-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RC-shift-s1-s3-s5204-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          },
+          "RD-degrade-s1-s2-rho200-s5101-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 15,
+              "published_alarm_ticks": 15
+            }
+          },
+          "RD-degrade-s2-s3-rho200-s5106-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          },
+          "RN-load8M-s5013-r1": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RN-load6M-s5011-r1": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RD-degrade-s1-s2-rho125-s5103-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 10,
+              "published_alarm_ticks": 10
+            }
+          },
+          "RD-degrade-s2-s3-rho050-s5110-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RN-load10M-s5016-r2": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RD-degrade-s2-s3-rho150-s5107-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          },
+          "RD-degrade-s1-s2-rho080-s5104-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 0,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RC-shift-s1-s2-s5203-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          },
+          "RN-load8M-s5014-r2": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 59
+            },
+            "combined": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 59
+            }
+          },
+          "RD-degrade-s1-s2-rho150-s5102-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 1,
+              "published_alarm_ticks": 1
+            },
+            "combined": {
+              "fsm_alarm_ticks": 17,
+              "published_alarm_ticks": 17
+            }
+          },
+          "RC-flood-h2_to_srv2-s5202-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 20,
+              "published_alarm_ticks": 20
+            },
+            "combined": {
+              "fsm_alarm_ticks": 20,
+              "published_alarm_ticks": 20
+            }
+          },
+          "RN-load10M-s5015-r1": {
+            "guard_ticks": 59,
+            "n_ticks": 60,
+            "mode": "no_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            },
+            "combined": {
+              "fsm_alarm_ticks": 59,
+              "published_alarm_ticks": 0
+            }
+          },
+          "RC-flood-h1_to_srv1-s5201-r1": {
+            "guard_ticks": 0,
+            "n_ticks": 60,
+            "mode": "with_log",
+            "envelope_only": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            },
+            "combined": {
+              "fsm_alarm_ticks": 19,
+              "published_alarm_ticks": 19
+            }
+          }
+        }
+      }
+    },
+    "result": {
+      "S1_S4": {
+        "envelope_only": {
+          "summary": {
+            "n_incidents": 10,
+            "n_detected": 4,
+            "detection_rate": 0.4,
+            "t_detect_p95_ms": 20000.5943775177,
+            "t_detect_max_ms": 20000.5943775177,
+            "n_censored_channels_left_envelope": 1,
+            "n_censored_no_channel_left_envelope": 5
+          },
+          "per_incident": {
+            "RD-degrade-s1-s2-rho200-s5101-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho150-s5102-r1": {
+              "detected": true,
+              "max_k": 4,
+              "first_tick": 40,
+              "t_detect_ms": 20000.5943775177
+            },
+            "RD-degrade-s1-s2-rho125-s5103-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho080-s5104-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho050-s5105-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho200-s5106-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 1999.8841285705566
+            },
+            "RD-degrade-s2-s3-rho150-s5107-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 2002.1576881408691
+            },
+            "RD-degrade-s2-s3-rho125-s5108-r1": {
+              "detected": true,
+              "max_k": 3,
+              "first_tick": 22,
+              "t_detect_ms": 2005.6993961334229
+            },
+            "RD-degrade-s2-s3-rho080-s5109-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho050-s5110-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            }
+          }
+        },
+        "combined": {
+          "summary": {
+            "n_incidents": 10,
+            "n_detected": 6,
+            "detection_rate": 0.6,
+            "t_detect_p95_ms": 11008.63265991211,
+            "t_detect_max_ms": 11008.63265991211,
+            "n_censored_channels_left_envelope": 1,
+            "n_censored_no_channel_left_envelope": 3
+          },
+          "per_incident": {
+            "RD-degrade-s1-s2-rho200-s5101-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 26,
+              "t_detect_ms": 6001.278400421143
+            },
+            "RD-degrade-s1-s2-rho150-s5102-r1": {
+              "detected": true,
+              "max_k": 4,
+              "first_tick": 24,
+              "t_detect_ms": 3990.356683731079
+            },
+            "RD-degrade-s1-s2-rho125-s5103-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 31,
+              "t_detect_ms": 11008.63265991211
+            },
+            "RD-degrade-s1-s2-rho080-s5104-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho050-s5105-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho200-s5106-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 1999.8841285705566
+            },
+            "RD-degrade-s2-s3-rho150-s5107-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 2002.1576881408691
+            },
+            "RD-degrade-s2-s3-rho125-s5108-r1": {
+              "detected": true,
+              "max_k": 3,
+              "first_tick": 22,
+              "t_detect_ms": 2005.6993961334229
+            },
+            "RD-degrade-s2-s3-rho080-s5109-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho050-s5110-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            }
+          }
+        }
+      },
+      "S2_S3": {},
+      "S10": {
+        "envelope_only": {
+          "RN-load6M-s5011-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load6M-s5012-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s5013-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s5015-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 45,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s5016-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 45,
+              "undetermined_ticks": 0
+            }
+          }
+        },
+        "combined": {
+          "RN-load6M-s5011-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load6M-s5012-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s5013-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s5014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s5015-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 45,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s5016-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 49,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 45,
+              "undetermined_ticks": 0
+            }
+          }
+        }
+      },
+      "by_rho": {
+        "envelope_only": {
+          "rho_ge_1_10": [
+            4,
+            6
+          ],
+          "rho_le_0_90": [
+            0,
+            4
+          ]
+        },
+        "combined": {
+          "rho_ge_1_10": [
+            6,
+            6
+          ],
+          "rho_le_0_90": [
+            0,
+            4
+          ]
+        }
+      },
+      "RC": {
+        "envelope_only": {
+          "RC-flood-h1_to_srv1-s5201-r1": {
+            "detected": true,
+            "max_k": 17,
+            "first_tick": 22,
+            "t_detect_ms": 2002.2504329681396
+          },
+          "RC-flood-h2_to_srv2-s5202-r1": {
+            "detected": true,
+            "max_k": 21,
+            "first_tick": 21,
+            "t_detect_ms": 1003.7598609924316
+          },
+          "RC-shift-s1-s2-s5203-r1": {
+            "detected": true,
+            "max_k": 13,
+            "first_tick": 22,
+            "t_detect_ms": 2003.5762786865234
+          },
+          "RC-shift-s1-s3-s5204-r1": {
+            "detected": true,
+            "max_k": 13,
+            "first_tick": 22,
+            "t_detect_ms": 2004.079818725586
+          }
+        },
+        "combined": {
+          "RC-flood-h1_to_srv1-s5201-r1": {
+            "detected": true,
+            "max_k": 17,
+            "first_tick": 22,
+            "t_detect_ms": 2002.2504329681396
+          },
+          "RC-flood-h2_to_srv2-s5202-r1": {
+            "detected": true,
+            "max_k": 21,
+            "first_tick": 21,
+            "t_detect_ms": 1003.7598609924316
+          },
+          "RC-shift-s1-s2-s5203-r1": {
+            "detected": true,
+            "max_k": 13,
+            "first_tick": 22,
+            "t_detect_ms": 2003.5762786865234
+          },
+          "RC-shift-s1-s3-s5204-r1": {
+            "detected": true,
+            "max_k": 13,
+            "first_tick": 22,
+            "t_detect_ms": 2004.079818725586
+          }
+        }
+      },
+      "guard": {
+        "RN-load6M-s5012-r2": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RD-degrade-s2-s3-rho080-s5109-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RD-degrade-s2-s3-rho125-s5108-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        },
+        "RD-degrade-s1-s2-rho050-s5105-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RC-shift-s1-s3-s5204-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        },
+        "RD-degrade-s1-s2-rho200-s5101-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 15,
+            "published_alarm_ticks": 15
+          }
+        },
+        "RD-degrade-s2-s3-rho200-s5106-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        },
+        "RN-load8M-s5013-r1": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RN-load6M-s5011-r1": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RD-degrade-s1-s2-rho125-s5103-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 10,
+            "published_alarm_ticks": 10
+          }
+        },
+        "RD-degrade-s2-s3-rho050-s5110-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RN-load10M-s5016-r2": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RD-degrade-s2-s3-rho150-s5107-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        },
+        "RD-degrade-s1-s2-rho080-s5104-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 0,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RC-shift-s1-s2-s5203-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        },
+        "RN-load8M-s5014-r2": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 59
+          },
+          "combined": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 59
+          }
+        },
+        "RD-degrade-s1-s2-rho150-s5102-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 1,
+            "published_alarm_ticks": 1
+          },
+          "combined": {
+            "fsm_alarm_ticks": 17,
+            "published_alarm_ticks": 17
+          }
+        },
+        "RC-flood-h2_to_srv2-s5202-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 20,
+            "published_alarm_ticks": 20
+          },
+          "combined": {
+            "fsm_alarm_ticks": 20,
+            "published_alarm_ticks": 20
+          }
+        },
+        "RN-load10M-s5015-r1": {
+          "guard_ticks": 59,
+          "n_ticks": 60,
+          "mode": "no_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          },
+          "combined": {
+            "fsm_alarm_ticks": 59,
+            "published_alarm_ticks": 0
+          }
+        },
+        "RC-flood-h1_to_srv1-s5201-r1": {
+          "guard_ticks": 0,
+          "n_ticks": 60,
+          "mode": "with_log",
+          "envelope_only": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          },
+          "combined": {
+            "fsm_alarm_ticks": 19,
+            "published_alarm_ticks": 19
+          }
+        }
+      },
+      "guard_threshold_mbps": 4.312610240000001,
+      "residual_per_run": {
+        "RD-degrade-s1-s2-rho200-s5101-r1": {
+          "rho": 1.9952603906976736,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.8,
+          "background_ticks": 39,
+          "background_alarm_ticks": 1,
+          "alarm_ticks_all": 17,
+          "argmax_correct_ticks": 17,
+          "incremental_ticks": 16,
+          "residual_alarms_on_unscored_ticks": 2
+        },
+        "RD-degrade-s1-s2-rho150-s5102-r1": {
+          "rho": 1.5037375296580602,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.9,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 18,
+          "argmax_correct_ticks": 18,
+          "incremental_ticks": 17,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s1-s2-rho125-s5103-r1": {
+          "rho": 1.24993788372093,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.55,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 11,
+          "argmax_correct_ticks": 11,
+          "incremental_ticks": 11,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s1-s2-rho080-s5104-r1": {
+          "rho": 0.8010996130952379,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.05,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 1,
+          "argmax_correct_ticks": 1,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s1-s2-rho050-s5105-r1": {
+          "rho": 0.5013326325581394,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho200-s5106-r1": {
+          "rho": 2.0013241353732036,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 1.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 20,
+          "argmax_correct_ticks": 20,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s2-s3-rho150-s5107-r1": {
+          "rho": 1.499529401947149,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 1.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 20,
+          "argmax_correct_ticks": 20,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s2-s3-rho125-s5108-r1": {
+          "rho": 1.250412332657201,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho080-s5109-r1": {
+          "rho": 0.8001422255192878,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho050-s5110-r1": {
+          "rho": 0.5000047293381245,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        }
+      },
+      "client_gate": {
+        "RN-load6M-s5012-r2": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 6.4308,
+            "h2": 6.4307,
+            "h3": 6.4322
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 3.0
+        },
+        "RD-degrade-s2-s3-rho080-s5109-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1447,
+            "h2": 2.0871,
+            "h3": 2.1442
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s2-s3-rho125-s5108-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1449,
+            "h2": 2.0445,
+            "h3": 2.124
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s1-s2-rho050-s5105-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1442,
+            "h2": 2.1456,
+            "h3": 2.1444
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RC-shift-s1-s3-s5204-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1436,
+            "h2": 2.0991,
+            "h3": 2.1439
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s1-s2-rho200-s5101-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1447,
+            "h2": 2.1231,
+            "h3": 2.1434
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s2-s3-rho200-s5106-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.0817,
+            "h2": 2.0494,
+            "h3": 2.0697
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RN-load8M-s5013-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 8.564,
+            "h2": 8.5581,
+            "h3": 8.5488
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 4.0
+        },
+        "RN-load6M-s5011-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 6.3611,
+            "h2": 6.4314,
+            "h3": 6.4181
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 3.0
+        },
+        "RD-degrade-s1-s2-rho125-s5103-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1447,
+            "h2": 2.1098,
+            "h3": 2.1444
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s2-s3-rho050-s5110-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1447,
+            "h2": 2.1452,
+            "h3": 2.1227
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RN-load10M-s5016-r2": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 4.2486,
+            "h2": 10.7072,
+            "h3": 3.2142
+          },
+          "frac_ok": {
+            "h1": 0.9831,
+            "h2": 1.0,
+            "h3": 0.9831
+          },
+          "threshold_mbps": 5.0
+        },
+        "RD-degrade-s2-s3-rho150-s5107-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1446,
+            "h2": 2.1446,
+            "h3": 2.1441
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RD-degrade-s1-s2-rho080-s5104-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1453,
+            "h2": 2.1231,
+            "h3": 2.1441
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RC-shift-s1-s2-s5203-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1221,
+            "h2": 2.071,
+            "h3": 2.0823
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RN-load8M-s5014-r2": {
+          "ok": false,
+          "min_mbps": {
+            "h1": 0.0,
+            "h2": 8.5621,
+            "h3": 0.0
+          },
+          "frac_ok": {
+            "h1": 0.0,
+            "h2": 1.0,
+            "h3": 0.0
+          },
+          "threshold_mbps": 4.0
+        },
+        "RD-degrade-s1-s2-rho150-s5102-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1437,
+            "h2": 2.1349,
+            "h3": 2.1232
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RC-flood-h2_to_srv2-s5202-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1437,
+            "h2": 2.1451,
+            "h3": 2.1429
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RN-load10M-s5015-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 5.373,
+            "h2": 10.7177,
+            "h3": 5.4264
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 5.0
+        },
+        "RC-flood-h1_to_srv1-s5201-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1449,
+            "h2": 2.0869,
+            "h3": 2.1224
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RO-ctl_admin_down-s1-s2-s5301-r1": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.1447,
+            "h2": 2.1449,
+            "h3": 2.1449
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        },
+        "RO-ctl_admin_down-s1-s2-s5302-r2": {
+          "ok": true,
+          "min_mbps": {
+            "h1": 2.0825,
+            "h2": 2.0417,
+            "h3": 2.0291
+          },
+          "frac_ok": {
+            "h1": 1.0,
+            "h2": 1.0,
+            "h3": 1.0
+          },
+          "threshold_mbps": 1.0
+        }
+      },
+      "process": {
+        "release": "detector-release-1.0.0",
+        "release_sha256": "dc04a98dcab67dbc9ab8c25e3750742a2041cc505db31e8c855ee72675ea354c",
+        "set": "gd4r",
+        "contract_sha256": "5cb3bbf2852e1f51a294ee873cf985a3820a11acce2876fb3c30e345050982fc",
+        "n_files_read": 22,
+        "n_runs_scored": 20,
+        "pass_conservation_mode": "shadow",
+        "groups": {
+          "RN": 6,
+          "RD": 10,
+          "RC": 4
+        }
+      }
+    },
+    "written_at_utc": "2026-10-16T04:29:47+00:00"
+  },
+  "content_sha256": "598e2bc02f5269b30fd9ff9b6a17ff8d6543069cea596d655514c35d5c9b7980"
+}
