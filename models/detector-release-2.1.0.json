@@ -1,0 +1,52 @@
+{
+  "content": {
+    "schema": "DT4N-DETECTOR-RELEASE-1",
+    "version": "detector-release-2.1.0",
+    "components": {
+      "envelope": {
+        "name": "envelope-2.1.0",
+        "path": "models/envelope-2.1.0.json",
+        "content_sha256": "8df5c85d5eec59f995b38db02afa6a5e426a1b565a9203aae8ada818811d71a9"
+      },
+      "conservation": {
+        "name": "conservation-2.1.0",
+        "path": "results/report/gd4_conservation.json",
+        "content_sha256": "92b29abd74d3d077a2828abdafd7b418d943002c3bde86d73e82cb73321e57a2"
+      }
+    },
+    "conservation_mode": "active",
+    "collector_version": "v3-qdisc-ratevalid",
+    "warmup_ticks": 1,
+    "fsm_params": {
+      "n_suspect": 1,
+      "n_act": 2,
+      "release_m": 3,
+      "cooldown_s": 8.0
+    },
+    "scorer": "ml.serve_fast.FastOnlineScorer",
+    "suppression_radius_rule": "radius_with_detour for link-state admin_down interventions; radius for every other intervention",
+    "routing_table": {
+      "path": "ditto/routing_table.json",
+      "sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044"
+    },
+    "decided_by": {
+      "gd4": "chỉ đổi dữ liệu train (ml/gd4_retrain.py); FSM, luật ức chế, định tuyến, collector giữ như 1.0.0"
+    },
+    "operating_scope": "2 Mbps/client (moi nhom co cong cua R-campaign)",
+    "channels": {
+      "envelope": {
+        "drives": [
+          "suspect",
+          "act"
+        ]
+      },
+      "conservation": {
+        "drives": [
+          "suspect"
+        ],
+        "note": "không bao giờ dẫn tới act"
+      }
+    }
+  },
+  "content_sha256": "9df1b60c56db10380dd02b6867c9dfe9f7d81be202abc38a6dd3ee8b7c3475c3"
+}
