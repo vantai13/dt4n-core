@@ -1,0 +1,627 @@
+{
+  "content": {
+    "verdicts": {
+      "S1": {
+        "value": 0.3,
+        "target": {
+          "op": ">=",
+          "value": 0.875,
+          "unit": "ty le su co"
+        },
+        "verdict": "FAIL",
+        "combined_descriptive": 0.6,
+        "by_rho": {
+          "envelope_only": {
+            "rho_ge_1_10": [
+              3,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          },
+          "combined": {
+            "rho_ge_1_10": [
+              6,
+              6
+            ],
+            "rho_le_0_90": [
+              0,
+              4
+            ]
+          }
+        }
+      },
+      "S2": {
+        "value": 0.9994102664066693,
+        "target": {
+          "op": "<=",
+          "value": 3.0,
+          "unit": "su kien/gio",
+          "kind": "gioi han tren 95%"
+        },
+        "verdict": "PASS",
+        "combined_value": 0.9994102664066693,
+        "exposure_hours": 2.9975
+      },
+      "S4": {
+        "value_ms": 2007.1563720703125,
+        "target": {
+          "op": "<=",
+          "value": 3000,
+          "unit": "ms"
+        },
+        "verdict": "PASS",
+        "combined_value_ms": 11000.547885894775
+      },
+      "S10": {
+        "verdict": "REPORT_ONLY",
+        "envelope_only": {
+          "RN-load6M-s4011-r1": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load6M-s4012-r2": {
+            "alarm_ticks": 0,
+            "fp_strict": 0,
+            "fp_sensitive": 0,
+            "fp_residual": 0
+          },
+          "RN-load8M-s4013-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load8M-s4014-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 59,
+            "fp_sensitive": 59,
+            "fp_residual": 59
+          },
+          "RN-load10M-s4015-r1": {
+            "alarm_ticks": 59,
+            "fp_strict": 50,
+            "fp_sensitive": 50,
+            "fp_residual": 46
+          },
+          "RN-load10M-s4016-r2": {
+            "alarm_ticks": 59,
+            "fp_strict": 50,
+            "fp_sensitive": 50,
+            "fp_residual": 46
+          }
+        }
+      }
+    },
+    "result": {
+      "S1_S4": {
+        "envelope_only": {
+          "summary": {
+            "n_incidents": 10,
+            "n_detected": 3,
+            "detection_rate": 0.3,
+            "t_detect_p95_ms": 2007.1563720703125,
+            "t_detect_max_ms": 2007.1563720703125,
+            "n_censored_channels_left_envelope": 2,
+            "n_censored_no_channel_left_envelope": 5
+          },
+          "per_incident": {
+            "RD-degrade-s1-s2-rho200-s4101-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho150-s4102-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho125-s4103-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho080-s4104-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho050-s4105-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho200-s4106-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 2000.4212856292725
+            },
+            "RD-degrade-s2-s3-rho150-s4107-r1": {
+              "detected": true,
+              "max_k": 8,
+              "first_tick": 22,
+              "t_detect_ms": 2007.1563720703125
+            },
+            "RD-degrade-s2-s3-rho125-s4108-r1": {
+              "detected": true,
+              "max_k": 3,
+              "first_tick": 22,
+              "t_detect_ms": 1999.114990234375
+            },
+            "RD-degrade-s2-s3-rho080-s4109-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho050-s4110-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            }
+          }
+        },
+        "combined": {
+          "summary": {
+            "n_incidents": 10,
+            "n_detected": 6,
+            "detection_rate": 0.6,
+            "t_detect_p95_ms": 11000.547885894775,
+            "t_detect_max_ms": 11000.547885894775,
+            "n_censored_channels_left_envelope": 2,
+            "n_censored_no_channel_left_envelope": 2
+          },
+          "per_incident": {
+            "RD-degrade-s1-s2-rho200-s4101-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 30,
+              "t_detect_ms": 10001.209259033203
+            },
+            "RD-degrade-s1-s2-rho150-s4102-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 30,
+              "t_detect_ms": 10005.38420677185
+            },
+            "RD-degrade-s1-s2-rho125-s4103-r1": {
+              "detected": true,
+              "max_k": 0,
+              "first_tick": 31,
+              "t_detect_ms": 11000.547885894775
+            },
+            "RD-degrade-s1-s2-rho080-s4104-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s1-s2-rho050-s4105-r1": {
+              "detected": false,
+              "max_k": 0,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho200-s4106-r1": {
+              "detected": true,
+              "max_k": 7,
+              "first_tick": 22,
+              "t_detect_ms": 2000.4212856292725
+            },
+            "RD-degrade-s2-s3-rho150-s4107-r1": {
+              "detected": true,
+              "max_k": 8,
+              "first_tick": 22,
+              "t_detect_ms": 2007.1563720703125
+            },
+            "RD-degrade-s2-s3-rho125-s4108-r1": {
+              "detected": true,
+              "max_k": 3,
+              "first_tick": 22,
+              "t_detect_ms": 1999.114990234375
+            },
+            "RD-degrade-s2-s3-rho080-s4109-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            },
+            "RD-degrade-s2-s3-rho050-s4110-r1": {
+              "detected": false,
+              "max_k": 1,
+              "first_tick": null,
+              "t_detect_ms": null
+            }
+          }
+        }
+      },
+      "S2_S3": {
+        "envelope_only": {
+          "n_events": 0,
+          "at_risk_ticks": 10791,
+          "exposure_hours": 2.9975,
+          "rate_point_per_hour": 0.0,
+          "rate_upper_per_hour": 0.9994102664066693,
+          "mtbfa_lower_minutes": 60.03540489505583,
+          "alpha_one_sided": 0.05,
+          "sensitivity_raw_consecutive_runs": 0
+        },
+        "combined": {
+          "n_events": 0,
+          "at_risk_ticks": 10791,
+          "exposure_hours": 2.9975,
+          "rate_point_per_hour": 0.0,
+          "rate_upper_per_hour": 0.9994102664066693,
+          "mtbfa_lower_minutes": 60.03540489505583,
+          "alpha_one_sided": 0.05,
+          "sensitivity_raw_consecutive_runs": 0
+        }
+      },
+      "S10": {
+        "envelope_only": {
+          "RN-load6M-s4011-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load6M-s4012-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s4013-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s4014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s4015-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 46,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s4016-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 46,
+              "undetermined_ticks": 0
+            }
+          }
+        },
+        "combined": {
+          "RN-load6M-s4011-r1": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load6M-s4012-r2": {
+            "alarm_ticks": 0,
+            "raw_alarm_ticks": 0,
+            "col_a": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 0,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s4013-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load8M-s4014-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 59,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s4015-r1": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 46,
+              "undetermined_ticks": 0
+            }
+          },
+          "RN-load10M-s4016-r2": {
+            "alarm_ticks": 59,
+            "raw_alarm_ticks": 59,
+            "col_a": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_b": {
+              "fp_ticks": 50,
+              "undetermined_ticks": 0
+            },
+            "col_c": {
+              "fp_ticks": 46,
+              "undetermined_ticks": 0
+            }
+          }
+        }
+      },
+      "by_rho": {
+        "envelope_only": {
+          "rho_ge_1_10": [
+            3,
+            6
+          ],
+          "rho_le_0_90": [
+            0,
+            4
+          ]
+        },
+        "combined": {
+          "rho_ge_1_10": [
+            6,
+            6
+          ],
+          "rho_le_0_90": [
+            0,
+            4
+          ]
+        }
+      },
+      "residual_per_run": {
+        "RD-degrade-s1-s2-rho200-s4101-r1": {
+          "rho": 2.0015393860465105,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.6,
+          "background_ticks": 39,
+          "background_alarm_ticks": 1,
+          "alarm_ticks_all": 13,
+          "argmax_correct_ticks": 13,
+          "incremental_ticks": 12,
+          "residual_alarms_on_unscored_ticks": 2
+        },
+        "RD-degrade-s1-s2-rho150-s4102-r1": {
+          "rho": 1.5009695464061412,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.6,
+          "background_ticks": 39,
+          "background_alarm_ticks": 1,
+          "alarm_ticks_all": 13,
+          "argmax_correct_ticks": 13,
+          "incremental_ticks": 12,
+          "residual_alarms_on_unscored_ticks": 2
+        },
+        "RD-degrade-s1-s2-rho125-s4103-r1": {
+          "rho": 1.252507813953488,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.55,
+          "background_ticks": 39,
+          "background_alarm_ticks": 1,
+          "alarm_ticks_all": 12,
+          "argmax_correct_ticks": 12,
+          "incremental_ticks": 11,
+          "residual_alarms_on_unscored_ticks": 2
+        },
+        "RD-degrade-s1-s2-rho080-s4104-r1": {
+          "rho": 0.8001978720238093,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.05,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 1,
+          "argmax_correct_ticks": 1,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s1-s2-rho050-s4105-r1": {
+          "rho": 0.4990126976744185,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho200-s4106-r1": {
+          "rho": 1.999553973110802,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 1.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 20,
+          "argmax_correct_ticks": 20,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s2-s3-rho150-s4107-r1": {
+          "rho": 1.5003846453407514,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.95,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 19,
+          "argmax_correct_ticks": 19,
+          "incremental_ticks": 1,
+          "residual_alarms_on_unscored_ticks": 1
+        },
+        "RD-degrade-s2-s3-rho125-s4108-r1": {
+          "rho": 1.2497951434366852,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho080-s4109-r1": {
+          "rho": 0.7999842136498516,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        },
+        "RD-degrade-s2-s3-rho050-s4110-r1": {
+          "rho": 0.49972326880723306,
+          "fault_ticks": 20,
+          "residual_fault_fraction": 0.0,
+          "background_ticks": 39,
+          "background_alarm_ticks": 0,
+          "alarm_ticks_all": 0,
+          "argmax_correct_ticks": 0,
+          "incremental_ticks": 0,
+          "residual_alarms_on_unscored_ticks": 0
+        }
+      },
+      "process": {
+        "release": "detector-release-1.0.0",
+        "release_sha256": "dc04a98dcab67dbc9ab8c25e3750742a2041cc505db31e8c855ee72675ea354c",
+        "set": "6r",
+        "contract_sha256": "3ea21c675a716723ae0289ad10490483ceb8c31e976443f3fcc791bb1514f04f",
+        "n_files_read": 25,
+        "n_runs_scored": 25,
+        "pass_conservation_mode": "shadow",
+        "groups": {
+          "RS": 3,
+          "RN": 6,
+          "RD": 10,
+          "RC": 4,
+          "RO": 2
+        }
+      }
+    },
+    "written_at_utc": "2026-10-16T03:47:31+00:00",
+    "check_6r": {
+      "match": true,
+      "mismatches": []
+    }
+  },
+  "content_sha256": "30e227f69e22190c66dfea3a216d30ad166a21c1d555655956180db2a7e6ba5a"
+}
