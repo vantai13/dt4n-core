@@ -9,7 +9,8 @@
 # Ryu (đặt DT4N_RYU nếu ryu-manager không nằm trong PATH), sudo không hỏi mật khẩu.
 # Script tự kiểm môi trường, tự dọn Mininet và bật Ryu riêng cho từng runner (mn -c dừng
 # luôn Ryu, nên Ryu phải được bật lại trước mỗi runner), và ghi receipt vào
-# logs/chay_lai_vong_kin/<thời điểm>/ để không đụng results/report/.
+# logs/chay_lai_vong_kin/<thời điểm>/ (hoặc thư mục trong biến DT4N_RA) để không đụng results/report/.
+# Thường được gọi qua ket-qua-bao-cao/5.7-vong-kin/do_lai_tren_testbed.sh.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 ROOT=$PWD
@@ -23,7 +24,7 @@ export DT4N_RYU=$RYU
 
 "$PY" scripts/kiem_tra_moi_truong.py --testbed || { echo "Sửa các mục THIẾU ở trên rồi chạy lại."; exit 1; }
 
-OUT=$ROOT/logs/chay_lai_vong_kin/$(date -u +%Y%m%dT%H%M%SZ)
+OUT=${DT4N_RA:-$ROOT/logs/chay_lai_vong_kin/$(date -u +%Y%m%dT%H%M%SZ)}
 mkdir -p "$OUT"
 RYU_PID=""
 
@@ -48,14 +49,15 @@ tat_ryu() {
 trap tat_ryu EXIT
 
 chay() {
+  local ten=$2
   echo "== $1: bắt đầu $(date -u +%H:%M:%S) UTC, nhật ký $OUT/$1.out"
   bat_ryu "$1"
-  sudo -n -E env PYTHONPATH="$ROOT" "$PY" -u scripts/chay_lai_vong_kin.py "$1" "$OUT/gd4cl_$1.json" \
+  sudo -n -E env PYTHONPATH="$ROOT" "$PY" -u scripts/chay_lai_vong_kin.py "$1" "$OUT/$ten" \
     > "$OUT/$1.out" 2>&1 || echo "$1 kết thúc với lỗi, xem $OUT/$1.out"
   tat_ryu
   grep -E "^(bảo vệ|primary|theo kịch bản|sai mục tiêu)" "$OUT/$1.out" || true
 }
 
-if [ "$PHAN" != c1 ]; then chay ab; fi
-if [ "$PHAN" != ab ]; then chay c1; fi
-echo "Xong. Receipt mới ở $OUT, so với results/report/gd4cl_ab.json và gd4cl_c1.json."
+if [ "$PHAN" != c1 ]; then chay ab ab-bao-ve.json; fi
+if [ "$PHAN" != ab ]; then chay c1 thu-dinh-vi.json; fi
+echo "Xong. Receipt mới ở $OUT (ab-bao-ve.json, thu-dinh-vi.json), so với bản đã lưu trong ket-qua-bao-cao/5.7-vong-kin/."

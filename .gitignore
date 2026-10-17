@@ -255,3 +255,6 @@ logs/phase7_acceptance_ryu.log
 
 # GĐ1: file state cục bộ
 cloud/.state.json
+
+# --- Kết quả chạy lại cục bộ (ket-qua-bao-cao/<mục>/chay-lai/<thời điểm>/) ---
+ket-qua-bao-cao/**/chay-lai/

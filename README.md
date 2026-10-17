@@ -25,7 +25,7 @@ flowchart LR
 
 | Thư mục | Nội dung |
 |---|---|
-| `ket-qua-bao-cao/` | kết quả chính thức, sắp theo từng mục của báo cáo, kèm lệnh chạy lại |
+| `ket-qua-bao-cao/` | kết quả chính thức, sắp theo từng mục của báo cáo, tên tệp theo nội dung, kèm cách đọc và lệnh chạy lại |
 | `mininet/` | topology, Ryu (`controller_static.py`), tạo tải và sự cố, `run_sync.py`, `env_runner.py` |
 | `bridge/` | Sync Agent, Command Agent, collector, detector chạy trực tiếp (`detector_runner.py`) |
 | `ditto/` | cấu hình Ditto (Docker Compose), đặc tả topology, bảng định tuyến |
@@ -37,7 +37,7 @@ flowchart LR
 | `models/` | các bản detector; kết quả của báo cáo dùng `detector-release-2.1.0.json` |
 | `data/` | dữ liệu thô (tập phát triển, tập nghiệm thu) |
 | `results/` | tệp kết quả gốc mà các script ghi ra |
-| `scripts/` | script thí nghiệm, chấm điểm và tái lập |
+| `scripts/` | script thí nghiệm, chấm điểm và tái lập; [danh mục theo mục báo cáo](scripts/README.md) |
 | `test/` | bộ kiểm thử (pytest) |
 | `docs/` | tài liệu được các tệp tiêu chí ghim mã băm, giữ nguyên để kiểm toàn vẹn |
 | `archive/` | mã, kết quả và ghi chép của các giai đoạn phát triển trước; không cần để tái lập báo cáo |
@@ -111,23 +111,29 @@ Một lệnh tính lại mọi con số không cần testbed, rồi so khớp tu
 Bản đồ đầy đủ "mục báo cáo → tệp kết quả → lệnh chạy lại", gồm cả các phép đo cần testbed hay
 AWS, ở [ket-qua-bao-cao/README.md](ket-qua-bao-cao/README.md).
 
-### Chạy lại thí nghiệm vòng kín trên testbed
+### Chạy lại từng phần
+
+Mỗi mục của báo cáo có một thư mục trong `ket-qua-bao-cao/`, chứa cả kết quả đã lưu lẫn script
+chạy lại phần đó. Ví dụ:
 
 ```bash
-scripts/chay_vong_kin.sh        # A/B rồi phép thử định vị, khoảng 2 giờ 10 phút; hoặc thêm "ab" hay "c1"
+ket-qua-bao-cao/5.3-phat-hien-bat-thuong/kiem_tra_offline.sh   # offline, so khớp Mục 3.4 và 5.3
+ket-qua-bao-cao/5.2-dieu-khien-tu-xa/do_lai_do_tre_lenh.sh       # testbed, đo lại độ trễ lệnh
+ket-qua-bao-cao/5.7-vong-kin/do_lai_tren_testbed.sh             # testbed, vòng kín, khoảng 2 giờ 10 phút
 ```
 
-Script tự kiểm môi trường, dọn Mininet, bật Ryu riêng cho từng runner và ghi receipt vào
-`logs/chay_lai_vong_kin/<thời điểm>/`, không đụng tệp kết quả trong `results/report/`.
+Kết quả mới ghi vào `chay-lai/<thời điểm>/` ngay trong thư mục của mục, cùng tên với tệp đã lưu.
+Script không đè kết quả đã lưu, tự kiểm môi trường, dọn Mininet và bật Ryu khi cần. Danh sách đủ
+ở [ket-qua-bao-cao/README.md](ket-qua-bao-cao/README.md#mọi-script-chạy-lại).
 
 ### Yêu cầu khi chạy trên testbed
 
 - `sudo mn -c` dừng luôn mọi tiến trình `ryu-manager`, và mỗi runner tự gọi bước dọn này khi
-  kết thúc. Chạy hai runner liên tiếp thì phải bật lại Ryu ở giữa (`chay_vong_kin.sh` đã làm
+  kết thúc. Chạy hai runner liên tiếp thì phải bật lại Ryu ở giữa (các script trong `ket-qua-bao-cao/` đã làm
   việc này). Ryu đọc `ditto/port_map.json` theo đường dẫn tương đối, nên phải bật Ryu từ gốc của
   chính repo đang chạy thí nghiệm.
-- Các script tạo kết quả từ chối ghi đè tệp đã có trong `results/report/`. Muốn chạy lại thì
-  dùng script chạy lại tương ứng (ghi ra thư mục mới), hoặc chuyển tệp cũ đi trước.
+- Đừng gọi trực tiếp các runner trong `scripts/`: một số từ chối ghi đè tệp đã có trong
+  `results/report/`, một số khác ghi đè thẳng. Dùng script chạy lại trong `ket-qua-bao-cao/`.
 - Cấu hình thu dữ liệu (`--campaign gd4`, `gd4r`) chỉ chạy trên máy có tên `dt4n-research-01`
   và bỏ qua run đã có dữ liệu. Xem [README của thư mục kết quả](ket-qua-bao-cao/README.md#hai-lưu-ý-khi-chạy-lại).
 - Không chạy thí nghiệm khi một Mininet hay Ryu khác (ví dụ bản demo) đang chạy trên cùng máy.
