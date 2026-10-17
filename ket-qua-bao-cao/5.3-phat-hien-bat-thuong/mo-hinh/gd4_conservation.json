@@ -1,0 +1,183 @@
+{
+  "content": {
+    "version": "conservation-2.1.0",
+    "replaces": {
+      "name": "conservation-1.0.0",
+      "document": "results/report/phase6r_amendment_1.json",
+      "content_sha256": "15bd6a96793d7b1a262435d0073b343acded6e01bb4ce9053ecea6048d611929",
+      "R": 0.0796613817054327,
+      "owner": {
+        "run_id": "N-vary-s1008-r2",
+        "tick": 6,
+        "switch": "s1",
+        "config_id": "normal_varying|vary"
+      }
+    },
+    "detector": {
+      "name": "conservation_residual",
+      "artifact_version_planned": "conservation-1.0.0",
+      "envelope_artifact_unchanged": "models/envelope-1.0.0.json",
+      "formula": "r(S) = (sum_in(S) - sum_out(S)) / max(sum_in(S), floor)",
+      "floor_bps": 10000.0,
+      "floor_origin": "bang floor rxRate/txRate cua envelope; khong phai tham so moi",
+      "direction_source": "twin.link_direction.UPSTREAM_OF_CORE",
+      "direction_semantics": "counter tren interface UPSTREAM: txRate=up->down, rxRate=down->up",
+      "switches": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "incidence": {
+        "s1": [
+          [
+            "link-h1-s1.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-h1-s1.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-h2-s1.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-h2-s1.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-h3-s1.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-h3-s1.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-s1-s2.traffic.rxRate",
+            "in"
+          ],
+          [
+            "link-s1-s2.traffic.txRate",
+            "out"
+          ],
+          [
+            "link-s1-s3.traffic.rxRate",
+            "in"
+          ],
+          [
+            "link-s1-s3.traffic.txRate",
+            "out"
+          ]
+        ],
+        "s2": [
+          [
+            "link-s1-s2.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-s1-s2.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-s2-s3.traffic.rxRate",
+            "in"
+          ],
+          [
+            "link-s2-s3.traffic.txRate",
+            "out"
+          ],
+          [
+            "link-s2-srv1.traffic.rxRate",
+            "in"
+          ],
+          [
+            "link-s2-srv1.traffic.txRate",
+            "out"
+          ]
+        ],
+        "s3": [
+          [
+            "link-s1-s3.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-s1-s3.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-s2-s3.traffic.rxRate",
+            "out"
+          ],
+          [
+            "link-s2-s3.traffic.txRate",
+            "in"
+          ],
+          [
+            "link-s3-srv2.traffic.rxRate",
+            "in"
+          ],
+          [
+            "link-s3-srv2.traffic.txRate",
+            "out"
+          ]
+        ]
+      },
+      "stateless": true,
+      "judgeable": "moi cot incidence finite; nguoc lai unknown, KHONG normal",
+      "measures": "drop + tang backlog; khong phan biet drop voi xep hang"
+    },
+    "calibration": {
+      "R": 0.07527469320529563,
+      "rule": "R = max_{train rows} max_S r(S); alarm iff judgeable and r_max > R (strict, one-sided)",
+      "owner": {
+        "run_id": "N-vary-s1008-r4",
+        "tick": 1,
+        "switch": "s2",
+        "config_id": "normal_varying|vary"
+      },
+      "n_train_rows": 472,
+      "per_switch": {
+        "s1": {
+          "median": 0.0003213939595632569,
+          "std": 0.009656227606803876,
+          "min": -0.09586197251731682,
+          "max": 0.04728660493202732
+        },
+        "s2": {
+          "median": 5.5866955252439036e-05,
+          "std": 0.00735441037395372,
+          "min": -0.052202942979849565,
+          "max": 0.07527469320529563
+        },
+        "s3": {
+          "median": 1.3201436208316326e-05,
+          "std": 0.007928991382804795,
+          "min": -0.047628087617346944,
+          "max": 0.07251800312590508
+        }
+      },
+      "r_max_by_config": {
+        "normal_varying|vary": 0.075275,
+        "normal|1": 0.037674,
+        "normal|2": 0.021676,
+        "normal|4": 0.012133
+      },
+      "r_max_p99": 0.04564791914276701,
+      "rule_of_three_fpr_upper_per_tick": 0.006355932203389831,
+      "why_no_loco": "r(S) cua moi dong chi dung chinh dong do va topology dong bang; khong co tham so fit, nen held-out = in-sample. R van bi dong xau nhat cua train quyet dinh, nen phai bao owner."
+    },
+    "train_run_ids": [
+      "N-load1M-s1001-r1",
+      "N-load1M-s1002-r2",
+      "N-load2M-s1003-r1",
+      "N-load2M-s1004-r2",
+      "N-load4M-s1005-r1",
+      "N-load4M-s1006-r2",
+      "N-vary-s1007-r1",
+      "N-vary-s1008-r4"
+    ],
+    "built_at_utc": "2026-10-16T03:41:55+00:00"
+  },
+  "content_sha256": "92b29abd74d3d077a2828abdafd7b418d943002c3bde86d73e82cb73321e57a2"
+}

@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[1]
 os.chdir(root)
 env = dict(os.environ, PYTHONPATH=str(root), DT4N_NAMESPACE='org.dt4n.core')
 with open('logs/ml_controller.log','w') as f:
-    controller = subprocess.Popen(['/home/ubuntu/miniforge3/envs/sdn_net/bin/ryu-manager',
+    controller = subprocess.Popen([os.environ.get('DT4N_RYU', '/home/ubuntu/miniforge3/envs/sdn_net/bin/ryu-manager'),
                                    'mininet.controller_static','--ofp-tcp-listen-port','6653'],
                                   env=env, stdout=f, stderr=subprocess.STDOUT)
     try:

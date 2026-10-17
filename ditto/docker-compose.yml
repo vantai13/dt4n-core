@@ -16,13 +16,13 @@ services:
     deploy:
       resources:
         limits:
-          memory: 256m
+          memory: 1g        # nâng từ 256m của mẫu Ditto: 256m chạm trần sau vài giờ đo (GĐ4, sai lệch 7)
     restart: always
     networks:
       default:
         aliases:
           - mongodb
-    command: mongod --storageEngine wiredTiger --noscripting
+    command: mongod --storageEngine wiredTiger --wiredTigerCacheSizeGB 0.25 --noscripting
     user: mongodb
     ports:
       - 27017:27017

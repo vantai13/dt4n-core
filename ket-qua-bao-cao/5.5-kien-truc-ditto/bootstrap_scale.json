@@ -1,0 +1,18 @@
+{
+  "scope": "bootstrap only; not maximum Mininet capacity",
+  "client_hosts": 20,
+  "total_hosts": 22,
+  "switches": 3,
+  "expected_things": 52,
+  "readable_things": 52,
+  "first_s": 2.3459725060000665,
+  "repeat_s": 0.5979690090000531,
+  "first": {
+    "created": 52,
+    "skipped": 0
+  },
+  "repeat": {
+    "created": 0,
+    "skipped": 52
+  }
+}

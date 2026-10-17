@@ -1,0 +1,383 @@
+{
+  "content": {
+    "release": "detector-release-2.1.0",
+    "upper_bounds_mbps": {
+      "h1": 5.376,
+      "h2": 5.413,
+      "h3": 6.182
+    },
+    "note": "Xấp xỉ offline theo từng giây có tín hiệu dual; controller thật dùng trạng thái FSM đã công bố và tốc độ trên twin.",
+    "runs": {
+      "C-load2M-s2001-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "phase5_test",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "C-vary-s2002-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "phase5_test",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "F-admin_down-s1-s2-s3001-r1": {
+        "act_ticks": 20,
+        "old_rule": {
+          "khong_ung_vien": 20
+        },
+        "directional": {
+          "khong_ung_vien": 20
+        },
+        "set": "phase5_test",
+        "fault": "admin_down",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "F-admin_down-s1-s3-s3002-r1": {
+        "act_ticks": 20,
+        "old_rule": {
+          "khong_ung_vien": 20
+        },
+        "directional": {
+          "khong_ung_vien": 20
+        },
+        "set": "phase5_test",
+        "fault": "admin_down",
+        "target": "s1-s3",
+        "culprit": null
+      },
+      "F-degrade-s1-s2-s3003-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "phase5_test",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "F-degrade-s2-s3-s3004-r1": {
+        "act_ticks": 10,
+        "old_rule": {
+          "khong_ung_vien": 10
+        },
+        "directional": {
+          "khong_ung_vien": 10
+        },
+        "set": "phase5_test",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "F-flood-h1_to_srv1-s3005-r1": {
+        "act_ticks": 23,
+        "old_rule": {
+          "dung_thu_pham": 7,
+          "nhieu_ung_vien": 16
+        },
+        "directional": {
+          "dung_thu_pham": 23
+        },
+        "set": "phase5_test",
+        "fault": "flood",
+        "target": "h1->srv1",
+        "culprit": "h1"
+      },
+      "F-flood-h2_to_srv2-s3006-r1": {
+        "act_ticks": 20,
+        "old_rule": {
+          "dung_thu_pham": 20
+        },
+        "directional": {
+          "dung_thu_pham": 20
+        },
+        "set": "phase5_test",
+        "fault": "flood",
+        "target": "h2->srv2",
+        "culprit": "h2"
+      },
+      "F-shift-s1-s2-s3007-r1": {
+        "act_ticks": 20,
+        "old_rule": {
+          "sai_may": 13,
+          "nhieu_ung_vien": 7
+        },
+        "directional": {
+          "khong_ung_vien": 19,
+          "nhieu_ung_vien": 1
+        },
+        "set": "phase5_test",
+        "fault": "shift",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "F-shift-s1-s3-s3008-r1": {
+        "act_ticks": 19,
+        "old_rule": {
+          "khong_ung_vien": 13,
+          "sai_may": 3,
+          "nhieu_ung_vien": 3
+        },
+        "directional": {
+          "khong_ung_vien": 19
+        },
+        "set": "phase5_test",
+        "fault": "shift",
+        "target": "s1-s3",
+        "culprit": null
+      },
+      "RN-load6M-s5011-r1": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 59
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RN-load6M-s5012-r2": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 59
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RN-load8M-s5013-r1": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 59
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RN-load8M-s5014-r2": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 59
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RN-load10M-s5015-r1": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 58,
+          "sai_may": 1
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RN-load10M-s5016-r2": {
+        "act_ticks": 59,
+        "old_rule": {
+          "nhieu_ung_vien": 59
+        },
+        "directional": {
+          "nhieu_ung_vien": 58,
+          "sai_may": 1
+        },
+        "set": "gd4r",
+        "fault": null,
+        "target": null,
+        "culprit": null
+      },
+      "RD-degrade-s1-s2-rho200-s5101-r1": {
+        "act_ticks": 1,
+        "old_rule": {
+          "nhieu_ung_vien": 1
+        },
+        "directional": {
+          "nhieu_ung_vien": 1
+        },
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RD-degrade-s1-s2-rho150-s5102-r1": {
+        "act_ticks": 1,
+        "old_rule": {
+          "khong_ung_vien": 1
+        },
+        "directional": {
+          "khong_ung_vien": 1
+        },
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RD-degrade-s1-s2-rho125-s5103-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RD-degrade-s1-s2-rho080-s5104-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RD-degrade-s1-s2-rho050-s5105-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RD-degrade-s2-s3-rho200-s5106-r1": {
+        "act_ticks": 9,
+        "old_rule": {
+          "khong_ung_vien": 9
+        },
+        "directional": {
+          "khong_ung_vien": 9
+        },
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "RD-degrade-s2-s3-rho150-s5107-r1": {
+        "act_ticks": 4,
+        "old_rule": {
+          "khong_ung_vien": 4
+        },
+        "directional": {
+          "khong_ung_vien": 4
+        },
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "RD-degrade-s2-s3-rho125-s5108-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "RD-degrade-s2-s3-rho080-s5109-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "RD-degrade-s2-s3-rho050-s5110-r1": {
+        "act_ticks": 0,
+        "old_rule": {},
+        "directional": {},
+        "set": "gd4r",
+        "fault": "degrade",
+        "target": "s2-s3",
+        "culprit": null
+      },
+      "RC-flood-h1_to_srv1-s5201-r1": {
+        "act_ticks": 22,
+        "old_rule": {
+          "dung_thu_pham": 6,
+          "nhieu_ung_vien": 16
+        },
+        "directional": {
+          "dung_thu_pham": 20,
+          "nhieu_ung_vien": 2
+        },
+        "set": "gd4r",
+        "fault": "flood",
+        "target": "h1->srv1",
+        "culprit": "h1"
+      },
+      "RC-flood-h2_to_srv2-s5202-r1": {
+        "act_ticks": 20,
+        "old_rule": {
+          "dung_thu_pham": 20
+        },
+        "directional": {
+          "dung_thu_pham": 20
+        },
+        "set": "gd4r",
+        "fault": "flood",
+        "target": "h2->srv2",
+        "culprit": "h2"
+      },
+      "RC-shift-s1-s2-s5203-r1": {
+        "act_ticks": 21,
+        "old_rule": {
+          "sai_may": 7,
+          "nhieu_ung_vien": 14
+        },
+        "directional": {
+          "khong_ung_vien": 19,
+          "nhieu_ung_vien": 1,
+          "sai_may": 1
+        },
+        "set": "gd4r",
+        "fault": "shift",
+        "target": "s1-s2",
+        "culprit": null
+      },
+      "RC-shift-s1-s3-s5204-r1": {
+        "act_ticks": 19,
+        "old_rule": {
+          "sai_may": 4,
+          "nhieu_ung_vien": 11,
+          "khong_ung_vien": 4
+        },
+        "directional": {
+          "khong_ung_vien": 19
+        },
+        "set": "gd4r",
+        "fault": "shift",
+        "target": "s1-s3",
+        "culprit": null
+      }
+    },
+    "written_at_utc": "2026-10-16T10:16:34+00:00"
+  },
+  "content_sha256": "088a19f39d7100271036d00736da51e7caca42cfcd1cda0c25419afd582d9182"
+}

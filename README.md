@@ -1,245 +1,156 @@
-# DT4N Core
+# DT4N: Digital Twin cho mạng máy tính trên Eclipse Ditto
 
-Bản lõi đề tài bản sao số mạng, tách từ DT4N. Xem [PROVENANCE.md](PROVENANCE.md) và [báo cáo nghiệm thu](results/report/ACCEPTANCE.md). Tổng kết công việc và số đo: [SUMMARY.md](SUMMARY.md).
+Mã nguồn, dữ liệu và kết quả của đề tài nghiên cứu khoa học sinh viên
+"Phát triển quản lý mạng thông minh: triển khai và tự động hóa bản sao số của mạng"
+(Trường Đại học Công nghệ Thông tin, ĐHQG-HCM).
+
+Hệ thống gồm một testbed Mininet đóng vai mạng thật, một Digital Twin trên Eclipse Ditto được
+đồng bộ hai chiều với testbed, và các ứng dụng đọc hoặc điều khiển mạng qua twin: dashboard,
+phát hiện bất thường (detector), mô hình what-if, tự động hóa tài nguyên AWS và một vòng điều
+khiển kín trên testbed.
 
 ```mermaid
 flowchart LR
-  M[Mininet + OVS] --> C[Bridge collector / sync]
-  C --> D[Eclipse Ditto]
-  D --> U[Vue Dashboard]
-  U --> D
-  D --> A[Command Agent]
-  A --> M
+  M[Mininet + Open vSwitch + Ryu] -- Sync Agent --> D[Eclipse Ditto<br/>Digital Twin]
+  D -- inbox --> A[Command Agent] --> M
+  M -- collector riêng --> X[Detector] --> D
+  D --> U[Dashboard]
+  D --> W[What-if]
+  D --> K[Controller vòng kín] -- lệnh --> D
+  D --> CC[Cloud controller] --> AWS[AWS Auto Scaling Group]
+  AWS -- cloud collector --> D
 ```
 
-## Kiểm tra độc lập
+## Cấu trúc thư mục
 
-Đứng ở gốc kho, đặt PYTHONPATH để tránh nạp nhầm kho cũ:
+| Thư mục | Nội dung |
+|---|---|
+| `ket-qua-bao-cao/` | kết quả chính thức, sắp theo từng mục của báo cáo, kèm lệnh chạy lại |
+| `mininet/` | topology, Ryu (`controller_static.py`), tạo tải và sự cố, `run_sync.py`, `env_runner.py` |
+| `bridge/` | Sync Agent, Command Agent, collector, detector chạy trực tiếp (`detector_runner.py`) |
+| `ditto/` | cấu hình Ditto (Docker Compose), đặc tả topology, bảng định tuyến |
+| `ml/` | dữ liệu, envelope, residual, FSM, cấu hình các đợt thu dữ liệu, học detector |
+| `controller/` | controller vòng kín (định vị, chính sách, nhật ký) |
+| `cloud/` | tự động hóa AWS: cloud collector, cloud controller, actuator, thí nghiệm |
+| `whatif/` | mô hình what-if, kiểm hồi cứu và kiểm mù |
+| `dashboard/` | giao diện Vue |
+| `models/` | các bản detector; kết quả của báo cáo dùng `detector-release-2.1.0.json` |
+| `data/` | dữ liệu thô (tập phát triển, tập nghiệm thu) |
+| `results/` | tệp kết quả gốc mà các script ghi ra |
+| `scripts/` | script thí nghiệm, chấm điểm và tái lập |
+| `test/` | bộ kiểm thử (pytest) |
+| `docs/` | tài liệu được các tệp tiêu chí ghim mã băm, giữ nguyên để kiểm toàn vẹn |
+| `archive/` | mã, kết quả và ghi chép của các giai đoạn phát triển trước; không cần để tái lập báo cáo |
+
+## Tải về và cài đặt
+
+### 1. Tải mã nguồn và dữ liệu
 
 ```bash
-python3 -m venv --system-site-packages .venv
-.venv/bin/pip install -r requirements.txt
-export PYTHONPATH="$PWD"
-.venv/bin/python scripts/check_imports.py
-.venv/bin/python -m pytest -rs
-python3 -m mininet.gen_routes --spec ditto/topology_spec.json --out /tmp/rt_check.json
+git clone https://github.com/vantai13/dt4n-core.git
+cd dt4n-core
 ```
 
-Mininet thật cần Linux, quyền root, OVS, `mn`, `mnexec`, `tc`, `iperf`. Ryu chạy trong môi trường `sdn_net` của máy nghiệm thu; trên máy khác cài môi trường Ryu tương thích. Stub chỉ hỗ trợ import, không mô phỏng số liệu mạng.
+Dữ liệu dùng cho kết quả của báo cáo là tệp Git thường, có ngay sau khi clone. Không cần
+`git lfs pull`.
 
-## Dựng Ditto và chạy demo
+### 2. Môi trường phân tích (đủ để tái lập mọi kết quả offline)
 
-Trước khi bật Ditto trên clone sạch:
+Cần Python 3.11 trở lên.
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-phase6r.lock.v2.txt
+export PYTHONPATH="$PWD"
+.venv/bin/python scripts/kiem_tra_moi_truong.py   # kiểm thư viện và dữ liệu
+.venv/bin/python -m pytest -q                    # bộ kiểm thử, không cần Mininet
+```
+
+### 3. Testbed (chỉ cần khi muốn đo lại trên mạng giả lập)
+
+Linux có quyền root và sudo không hỏi mật khẩu, Mininet 2.3, Open vSwitch, iperf v2, Ryu 4.34
+(trong một môi trường Python riêng, ví dụ conda env `sdn_net`), Docker để chạy Eclipse Ditto
+3.9.1. Cấu hình máy dùng cho kết quả của báo cáo ở Bảng 4.1 của báo cáo.
 
 ```bash
 cp ditto/nginx.htpasswd.example ditto/nginx.htpasswd
-cd ditto
-docker compose up -d
-cd ..
+(cd ditto && docker compose up -d)          # tài khoản demo ditto/ditto
+export DT4N_RYU=/đường/dẫn/tới/ryu-manager  # nếu ryu-manager không nằm trong PATH
+.venv/bin/python scripts/kiem_tra_moi_truong.py --testbed
 ```
 
-Tài khoản demo là `ditto/ditto`. Không dựng thêm stack nếu cổng đang được stack khác sử dụng.
+Lệnh cuối kiểm sudo, Mininet, Open vSwitch, iperf, Ryu, Ditto, cổng 6653 và trần bộ nhớ của
+MongoDB (cần ít nhất 1 GiB, `ditto/docker-compose.yml` đã đặt sẵn), mục nào thiếu thì in cách sửa.
+
+### 4. AWS (chỉ cần cho Mục 5.6)
+
+Tài khoản AWS có quyền EC2, Auto Scaling và Elastic Load Balancing, region `ap-southeast-1`,
+môi trường Python có `boto3`. Thí nghiệm tạo máy t3.micro thật nên có phát sinh chi phí.
+
+## Tái lập kết quả của báo cáo
+
+Một lệnh tính lại mọi con số không cần testbed, rồi so khớp tuyệt đối với kết quả đã lưu:
 
 ```bash
-python3 -m bridge.diagnose
-python3 -m bridge.bootstrap --create --spec ditto/topology_spec.json
-sudo mn -c
-# Dọn Mininet TRƯỚC khi bật Ryu: mn -c có thể dừng Ryu.
+.venv/bin/python scripts/tai_lap_bao_cao.py
 ```
 
-Terminal controller:
+```
+3.4/5.3 Học lại detector 2.1 (K, E, biên, R, vùng vận hành)      KHỚP   K 18, E 5.6090, R 0.0753
+5.3.1   Tập phát triển: excess, dual, Isolation Forest           KHỚP   excess 137/160, 23/430; ...
+5.3.2a  Tập nghiệm thu: giảm băng thông, flood, dịch nút cổ chai KHỚP   S1 0.4, lớn nhất 20.0 s, R-C 4/4
+5.3.2b  Tập nghiệm thu: tải cao và bộ chặn vùng tải              KHỚP   6 run, giây còn báo động khi áp bộ chặn: 0
+5.3.2c  Tập nghiệm thu: chạy nền 2 giờ                           KHỚP   cận trên 1.50 lần/giờ trên 2.00 giờ
+5.4     What-if: kiểm hồi cứu                                    KHỚP   trong vùng: trung vị 0.009, lớn nhất 0.10 Mbps
+5.7     Vòng kín: kiểm offline luật chọn ứng viên                KHỚP   30 run
+6.2.2   Cơ chế bỏ sót trên link s1-s2                            KHỚP   excess lớn nhất giây 21-39: 1.00
+
+8 mục, 0 lệch hoặc lỗi.
+```
+
+Bản đồ đầy đủ "mục báo cáo → tệp kết quả → lệnh chạy lại", gồm cả các phép đo cần testbed hay
+AWS, ở [ket-qua-bao-cao/README.md](ket-qua-bao-cao/README.md).
+
+### Chạy lại thí nghiệm vòng kín trên testbed
 
 ```bash
-export PYTHONPATH="$PWD"
-ryu-manager mininet.controller_static --ofp-tcp-listen-port 6653
+scripts/chay_vong_kin.sh        # A/B rồi phép thử định vị, khoảng 2 giờ 10 phút; hoặc thêm "ab" hay "c1"
 ```
 
-Terminal network:
+Script tự kiểm môi trường, dọn Mininet, bật Ryu riêng cho từng runner và ghi receipt vào
+`logs/chay_lai_vong_kin/<thời điểm>/`, không đụng tệp kết quả trong `results/report/`.
+
+### Yêu cầu khi chạy trên testbed
+
+- `sudo mn -c` dừng luôn mọi tiến trình `ryu-manager`, và mỗi runner tự gọi bước dọn này khi
+  kết thúc. Chạy hai runner liên tiếp thì phải bật lại Ryu ở giữa (`chay_vong_kin.sh` đã làm
+  việc này). Ryu đọc `ditto/port_map.json` theo đường dẫn tương đối, nên phải bật Ryu từ gốc của
+  chính repo đang chạy thí nghiệm.
+- Các script tạo kết quả từ chối ghi đè tệp đã có trong `results/report/`. Muốn chạy lại thì
+  dùng script chạy lại tương ứng (ghi ra thư mục mới), hoặc chuyển tệp cũ đi trước.
+- Cấu hình thu dữ liệu (`--campaign gd4`, `gd4r`) chỉ chạy trên máy có tên `dt4n-research-01`
+  và bỏ qua run đã có dữ liệu. Xem [README của thư mục kết quả](ket-qua-bao-cao/README.md#hai-lưu-ý-khi-chạy-lại).
+- Không chạy thí nghiệm khi một Mininet hay Ryu khác (ví dụ bản demo) đang chạy trên cùng máy.
+
+## Chạy hệ thống để xem demo
+
+Mỗi lệnh chạy ở một terminal, từ gốc repo, với `PYTHONPATH="$PWD"`.
 
 ```bash
-sudo env PYTHONPATH="$PWD" /usr/bin/python3 -m mininet.run_sync --period 1
+sudo mn -c                                                        # dọn Mininet trước khi bật Ryu
+ryu-manager mininet.controller_static --ofp-tcp-listen-port 6653  # Ryu
+sudo env PYTHONPATH="$PWD" /usr/bin/python3 -m mininet.run_sync --period 1   # testbed + Sync Agent + Command Agent
+(cd dashboard && cp .env.example .env && npm ci && npm run dev)   # dashboard ở cổng 5173
+python3 -m whatif.server                                          # trang what-if ở 127.0.0.1:8091
 ```
 
-Terminal dashboard:
+## Tài liệu khác
 
-```bash
-cd dashboard
-cp .env.example .env
-npm ci
-npm run dev
-```
+- Nguồn gốc mã: [PROVENANCE.md](PROVENANCE.md)
+- Thư mục lưu trữ: [archive/README.md](archive/README.md)
 
-Trên VS Code Remote SSH, forward cổng **5173** để xem dashboard, **8765** để xem bảng kết quả `http://localhost:8765/report.html`. Bảng kết quả được phục vụ từ gốc kho bằng `python3 -m http.server 8765`.
+## Giới hạn
 
-## Chạy lại nghiệm thu tự động
-
-`scripts/run_acceptance.py` dùng mạng thật, đo 30 lần sync, 30 lần command, 30 cặp disable/enable flow, 20 event verify, 4 security live test và soak 1800 giây. Namespace thí nghiệm là `org.dt4n.core`; dashboard dùng `VITE_DITTO_NAMESPACE=org.dt4n.core`.
-
-```bash
-sudo mn -c
-export PYTHONPATH="$PWD"
-python3 scripts/run_network_suite.py
-python3 scripts/build_report.py
-```
-
-`scripts/run_network_suite.py` kiểm tra topo 5 client với spec mở rộng, rồi trở về topo 3 client cho nghiệm thu. Đường dẫn Ryu trong script là đường dẫn môi trường trên máy hiện tại; sửa nếu cài môi trường khác. Chỉ chạy một Mininet suite mỗi lần.
-
-Để đo UI/video cùng suite, sửa `dashboard/.env` thành `VITE_DITTO_NAMESPACE=org.dt4n.core` và bật Vite; cài Playwright trong `.venv`, chạy `playwright install chromium` và `playwright install-deps chromium` (cần root cho system deps). Sau khi bắt đầu suite, chạy `.venv/bin/python scripts/dashboard_live.py` ở terminal khác; script chờ tới soak để đo 30 cặp UI và lưu video. Chạy `.venv/bin/python scripts/dashboard_last_known.py` trước khi soak kết thúc để kiểm tra trạng thái sau khi network runner dừng.
-
-**Lưu ý lệnh trong hướng dẫn gốc:** `run_sync --long --duration 1800` không phải soak 30 phút. `--long` cần `--verify`, và duration của nhánh verify dài hạn dùng **phút**. Script nghiệm thu đo 1800 **giây** bằng đồng hồ monotonic.
-
-## File kết quả
-
-- `results/report/ACCEPTANCE.md`: tổng kết, bảng p50/p95 và giới hạn.
-- `results/report/latency_up.json`, `latency_command.json`: thống kê, từng mẫu làm tròn từ terminal, timeout; các lần chạy sau cũng lưu mẫu gốc.
-- `results/report/command_flow.json`: từng chặng của lệnh tự động; chưa thay thế phép đo UI thật.
-- `docs/phase-2/verify_report.json`: completeness, accuracy trạng thái link, event fidelity.
-- `results/report/soak_30min.json`: mẫu accuracy và RSS trong 30 phút.
-- `logs/snapshots_normal.jsonl`, `snapshots_flood.jsonl`: dữ liệu 60 giây mỗi kịch bản.
-- `logs/command_flow_measure.log`: bảng độ trễ từng chặng.
-- `results/report/dashboard_*.png`, `dashboard_*.json`: ảnh và kiểm chứng trình duyệt.
-
-Kết quả thí nghiệm không được thay thế bằng số kỳ vọng trong hướng dẫn. Bootstrap mở rộng chứng minh tạo/đọc Things, chưa xác định công suất tối đa mạng hay độ ổn định dài hạn với 20 client.
-
-### Dữ liệu thô R-campaign (Git LFS)
-
-`data/phase6r/raw/*.jsonl` và raw quarantine được lưu bằng Git LFS, tổng cộng
-khoảng 130 MB. Sau khi clone, tải dữ liệu thật bằng:
-
-```bash
-git lfs install
-git lfs pull
-```
-
-Nếu bỏ qua bước này, file `.jsonl` có thể chỉ là pointer; `head` sẽ hiện
-`version https://git-lfs.github.com/spec/v1` thay vì snapshot. Không cần tải raw
-vẫn kiểm được chuỗi toàn vẹn: các file `*.meta.json` và
-`results/report/phase6r_rcampaign_manifest.json` là file Git thường, chứa
-SHA-256 từng run và khớp với `oid` trong LFS pointer. Chạy
-`pytest test/test_rcampaign_manifest.py` để kiểm receipt ở cả hai chế độ.
-
-### Ổn định detector — Lesson 6R.6
-
-S4b/S5/S6/S8/S9/S13 đạt. S11 lần đầu thất bại trên cả hai run controller;
-receipt FAIL được giữ nguyên, sau đó amendment 7 sửa interval lease và detour
-radius mà không đổi ngưỡng. Lần đo thứ hai đạt 0 act entry + 21 suppressed tick
-trên mỗi run. Fast scorer v2 đạt p95 0,943 ms; soak 30 phút tăng 0,2852 MiB.
-[Hồ sơ, giới hạn và lệnh chạy](docs/phase-6r/07-stability.md),
-[model card v2](docs/phase-6r/model-card-v2.md),
-[receipt tổng v2](results/report/phase6r_stability_v2.json). Phase 8 vẫn bị
-khóa chờ S11 live + S12; nhãn và protected estimand S2/S3 vẫn chưa mở.
-
-### Vòng điều khiển kín — Phase 8 (closure 8.9: chưa đạt gate C1)
-
-Controller đọc twin như một consumer ngang hàng với dashboard, định vị **một**
-client thủ phạm, và giới hạn tốc độ tại link truy nhập của nó bằng
-`setBandwidth` — có thể đảo ngược, theo lịch backoff mũ, ghi log trước khi gửi
-lệnh. A/B 32 lượt live: **+1,893 Mbps** cho nạn nhân (CI95 [1,854; 1,931]);
-`act` → giới hạn có hiệu lực p95 **2032 ms**.
-
-**Không bật actuator tự động.** Đối chứng E1 ở 8.9 có 12/20 lượt nhắm sai mục
-tiêu, nên C1 FAIL và nghiệm thu strict trả 1. Chỉ dùng ở chế độ đề xuất để con
-người duyệt cho tới khi có amendment mới được preregister và đo lại.
-
-Tái lập hồ sơ closure:
-
-```bash
-git checkout phase/8-closure
-tar -xzf results/evidence/phase8/phase8_audits.tar.gz
-.venv/bin/python scripts/accept_phase8.py --strict  # rc=1 do C1 FAIL da niem phong
-```
-
-[System card v4.1](docs/SYSTEM_CARD_v4.md) ·
-[nghiệm thu 8.8](docs/phase-8/08-acceptance.md) ·
-[closure 8.9](docs/phase-8/09-closure.md)
-
-## Dữ liệu trước ML (bản v2)
-
-`run_sync` mặc định sinh TCP normal **2 Mbps/client** tới hai server luân phiên và UDP srv1→srv2 **2 Mbps**. Chọn `--traffic-profile server-only` để tái lập tải của nghiệm thu v1; `--traffic-profile idle` để tắt tải, hoặc `--traffic-profile flood --flood-rate 50M` cho flood. `run_phase1` có `--normal-rate`, `--rate` và `--server-bg-rate`.
-
-`traffic.lossPct` v2 là tỷ lệ drop tại leaf qdisc của **hai chiều egress link**, không phải loss end-to-end. Trước khi dùng cho ML, kiểm tra `qdiscValid == true`; bỏ mẫu warmup/reset/unavailable. `interfaceLossPct` giữ phép đo interface cũ để đối chiếu. Các trường `qdiscCounters`, `lossSource`, `qdiscDropDelta`, `qdiscSentDelta` cho phép kiểm tra nguồn và mẫu số. Không trộn trực tiếp loss v1 và v2.
-
-Chạy lại kiểm chứng dữ liệu và độ trễ ngẫu nhiên (mạng thật; chỉ một suite mỗi lần):
-
-```bash
-sudo mn -c
-PYTHONPATH="$PWD" python3 scripts/launch_ml_preflight.py
-python3 scripts/analyze_ml_preflight.py
-```
-
-Phép đo latency có tùy chọn `--randomize-phase --seed 20260915` khi gọi `run_sync --measure-latency` hoặc `--measure-command`. Giữ số đo fixed-settle v1 để đối chiếu; không coi chúng là worst-case đã chứng minh.
-
-Dữ liệu mới: `logs/ml_normal_v2.jsonl`, `ml_flood_v2.jsonl`, `ml_injection_v2.jsonl`. Đây là pilot kiểm chứng feature, chưa phải dataset train/test hay bằng chứng hiệu quả ML. Kết quả tổng hợp: `results/report/ml_dataset_summary.json`.
-
-Lệnh dashboard dùng Ditto `timeout=0`, sau đó xác nhận trạng thái qua sync/SSE. Outbox HTTP POST của agent là thông báo mới, không đảm bảo trả lời tương quan cho HTTP inbox đang chờ. Phép thử `timeout=3` và SSE gốc được lưu riêng ở `results/report/command_ack_timeout3.json`.
-
-## Kiểm toán feature — Lesson 5.1
-
-```bash
-.venv/bin/python -m pip install -r requirements-phase5.lock.txt
-.venv/bin/python -m scripts.audit_features
-.venv/bin/python -m scripts.plot_feature_audit
-.venv/bin/python -m pytest -rs
-```
-
-Chạy trên dữ liệu v2 có sẵn, không cần khởi động Mininet/Ditto. Báo cáo và giới hạn: [docs/phase-5/01-feature-audit.md](docs/phase-5/01-feature-audit.md). CSV/JSON/biểu đồ ở `results/report/feature_audit*`; chưa huấn luyện mô hình.
-
-Kiểm tra dữ liệu thiếu (Lesson5.2):
-
-```bash
-.venv/bin/python -m scripts.analyze_missing
-.venv/bin/python -m scripts.plot_missing
-```
-
-Chính sách và giới hạn: [docs/phase-5/02-missing-data.md](docs/phase-5/02-missing-data.md). Rate mới phải kiểm `rateValid`; dữ liệu v2 cũ giữ nguyên.
-
-Thiết kế chiến dịch Lesson5.3 đã khóa trước thu:
-
-```bash
-.venv/bin/python -m scripts.build_matrix
-.venv/bin/python -m scripts.plot_matrix
-```
-
-[Hợp đồng và giới hạn](docs/phase-5/03-experiment-matrix.md). Commit ma trận trước khi runner Lesson5.4 sinh dữ liệu.
-
-Kiểm chứng harness chuẩn bị Lesson5.4:
-
-```bash
-.venv/bin/python -m scripts.check_ml_campaign
-```
-
-[Báo cáo chuẩn bị và thu mạng thật](docs/phase-5/04-data-generation.md). Lệnh chỉ kiểm tra hợp đồng/kế hoạch, không khởi động mạng.
-
-### Chiến dịch Lesson5.4 đã thu và nghiệm thu
-
-18/18 run đạt, 1.080 snapshot; base rate test160/590=27,12%. 163testpassed/4skipped; 0ERROR/CRITICAL/Traceback trong18logaccepted. [Kết quả và cách chạy lại](docs/phase-5/04-data-generation.md), [manifest](results/report/ml_dataset_manifest.json), [audit](results/report/campaign_feature_audit.csv), [missing](results/report/campaign_missing_analysis.json).
-
-Raw được giữ local và có archive đã kiểm checksum18/18 theo [backup receipt](results/report/campaign_raw_backup.json); không nằm trong GitHub. Muốn audit/train từ clone cần khôi phục raw trước. Chưa đánh giá detector.
-
-
-Lesson 5.5 hoàn thành: 13/13 gate; 18 run/1.080 nhãn; chính160/590=27,12%; độ nhạy80/494=16,19%. Onset tối đa10 tick, recovery tối đa2 tick; giữ kết quả grace2 không đạt và công thức y cũ. [Báo cáo](docs/phase-5/05-ground-truth.md), [JSON](results/report/ground_truth.json), [biểu đồ](results/report/label_overlay.png).
-
-
-**Cập nhật Lesson 5.5b:** phép đo cũ chỉ xét onset của kênh mạnh nhất. Quét tất cả kênh dự kiến cho thấy onset sớm nhất **0 tick ở cả 8 run F**, bao gồm degrade s2–s3 trên txRate; lossPct mạnh nhất vẫn onset10. Chốt lại grace onset2/recovery2, độ nhạy144/558=25,81%; chính160/590 không đổi. Bản trước giữ ở `ground_truth_witness_grace10.json`; không diễn giải first-crossing trên nhiều kênh như bằng chứng nhân quả hay khả năng phát hiện chắc chắn của mô hình.
-
-
-Lesson 5.6: **72 feature, 464 train, 590 test**; missing26tick (8fault/18normal), recall ceiling theo chính sách unknown95%. Onset sớm nhất0 ở8F, strongest loss degrade vẫn10; grace2/2. [Dataset card](docs/phase-5/06-dataset-card.md), [manifest](results/report/ml_dataset_split_manifest.json).
-
-
-Phase 5 envelope hoàn tất: **71cột,35riêng,36giaoIF,33constantkhác;K=0,k_train_mean=0.0**. IF vẫn72feature/464train/590test. Đã đo synthetic sklearn1.8.0:constant0/200cây split,scorebất biến. K=0in-sample chưa bảo đảm FPR ngoài mẫu. [Card cập nhật](docs/phase-5/06-dataset-card.md), [đăng ký thực nghiệm](docs/phase-5/07-envelope-registration.md), [kết quả](results/report/if_constant_blindness.json).
-
-
-Lesson6.1: khóa5giả thuyết,10run dự đoán,metrics/thresholds/unknown/hybrid trong [phase6_prereg.json](results/report/phase6_prereg.json), SHA`975c63e7ddaf15cd4a0a2248a41544966d8b223c1bc166575be539c800072081`;[tài liệu](docs/phase-6/01-preregistration.md). Chưa fit/chấm điểm detector chiến dịch; manifestPhase5 giữ nguyên.
-
-## Tái lập Phase 6R
-
-```bash
-git lfs install && git lfs pull && git lfs fsck
-python3.13 -m venv .venv
-.venv/bin/pip install -r requirements-phase6r.lock.v2.txt
-.venv/bin/python -m pytest -q
-```
-
-`requirements-phase6r.lock.txt` (v1) được prereg 6R.7 ghim nhưng chứa đường
-dẫn conda cục bộ và không cài được từ máy khác; v2 tái tạo cùng phiên bản
-NumPy/Pandas bằng các requirement có thể cài từ package index.
+Mọi kết quả đo trên một topology 3 switch chạy trên một máy, tải tối đa 5 Mbps mỗi máy khách
+trong dữ liệu huấn luyện. Máy EC2 không mang lưu lượng của Mininet. Chi tiết ở Chương 6 của
+báo cáo.

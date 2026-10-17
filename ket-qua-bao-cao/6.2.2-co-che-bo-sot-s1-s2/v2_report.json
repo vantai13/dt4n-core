@@ -1,0 +1,202 @@
+{
+  "rules_version": "probe-rules-2",
+  "python": "3.13.13",
+  "runs": [
+    {
+      "run": "degrade_sensor_s1-s2_f0.8275_offoff_rev40_20260917T074237Z",
+      "condition": "C2_offload_off_s1-s2",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 2166053.7777777775,
+        "baseline_noise_per_tick": 15597.888888888889,
+        "n_window_ticks": 20,
+        "mean_packet_bytes_pre": 1487.073852295409,
+        "leaf_drop_packets": 462,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": false,
+        "backlog_bytes_pre_revert": 1492732,
+        "backlog_bytes_post_revert": 0,
+        "first_leaf_drop_tick": 37,
+        "qlen_at_first_drop": 1000,
+        "median_bytes_per_skb_in_queue": 1492.732,
+        "collector_drop_packets": 485,
+        "share_leaf": 0.3171796225970542,
+        "share_other": 0.0,
+        "share_backlog": 0.6891481713493931,
+        "closure": 1.0063277939464472,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": true,
+        "collector_sees": true,
+        "manipulation_offload_off": true,
+        "teardown_destroys_backlog": true
+      }
+    },
+    {
+      "run": "degrade_sensor_s1-s2_f0.8275_offoff_rev40_20260917T074718Z",
+      "condition": "C2_offload_off_s1-s2",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 2129642.4444444445,
+        "baseline_noise_per_tick": 11886.777777777777,
+        "n_window_ticks": 20,
+        "mean_packet_bytes_pre": 1487.0700128333096,
+        "leaf_drop_packets": 495,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": false,
+        "backlog_bytes_pre_revert": 1491344,
+        "backlog_bytes_post_revert": 6056,
+        "first_leaf_drop_tick": 37,
+        "qlen_at_first_drop": 999,
+        "median_bytes_per_skb_in_queue": 1494.1561561561562,
+        "collector_drop_packets": 496,
+        "share_leaf": 0.3456447152773165,
+        "share_other": 0.0,
+        "share_backlog": 0.7002790557121169,
+        "closure": 1.0459237709894333,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": true,
+        "collector_sees": true,
+        "manipulation_offload_off": true,
+        "teardown_destroys_backlog": true
+      }
+    },
+    {
+      "run": "degrade_sensor_s1-s2_f0.8275_offon_rev60_20260917T074047Z",
+      "condition": "C1_long_fault_s1-s2",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 3454023.111111111,
+        "baseline_noise_per_tick": 10312.222222222223,
+        "n_window_ticks": 40,
+        "mean_packet_bytes_pre": 1487.066172276098,
+        "leaf_drop_packets": 423,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": false,
+        "backlog_bytes_pre_revert": 2556078,
+        "backlog_bytes_post_revert": 6056,
+        "first_leaf_drop_tick": 45,
+        "qlen_at_first_drop": 980,
+        "median_bytes_per_skb_in_queue": 2844.2622950819673,
+        "collector_drop_packets": 423,
+        "share_leaf": 0.1821148760844393,
+        "share_other": 0.0,
+        "share_backlog": 0.740029211668403,
+        "closure": 0.9221440877528423,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": false,
+        "collector_sees": true,
+        "teardown_destroys_backlog": true
+      }
+    },
+    {
+      "run": "degrade_sensor_s1-s2_f0.8275_offon_rev60_20260917T074531Z",
+      "condition": "C1_long_fault_s1-s2",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 3331541.5555555555,
+        "baseline_noise_per_tick": 10360.111111111111,
+        "n_window_ticks": 40,
+        "mean_packet_bytes_pre": 1487.073852295409,
+        "leaf_drop_packets": 399,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": false,
+        "backlog_bytes_pre_revert": 2441046,
+        "backlog_bytes_post_revert": 7570,
+        "first_leaf_drop_tick": 45,
+        "qlen_at_first_drop": 970,
+        "median_bytes_per_skb_in_queue": 2861.129909365559,
+        "collector_drop_packets": 399,
+        "share_leaf": 0.1780984739861438,
+        "share_other": 0.0,
+        "share_backlog": 0.7327076547880371,
+        "closure": 0.9108061287741809,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": false,
+        "collector_sees": true,
+        "teardown_destroys_backlog": true
+      }
+    },
+    {
+      "run": "degrade_sensor_s2-s3_f0.8203_offon_rev40_20260917T073920Z",
+      "condition": "C0_control_s2-s3",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 2900457.111111111,
+        "baseline_noise_per_tick": 4554.555555555556,
+        "n_window_ticks": 20,
+        "mean_packet_bytes_pre": 1473.0410329985652,
+        "leaf_drop_packets": 967,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": true,
+        "backlog_bytes_pre_revert": 1485134,
+        "backlog_bytes_post_revert": 1512,
+        "first_leaf_drop_tick": 31,
+        "qlen_at_first_drop": 1000,
+        "median_bytes_per_skb_in_queue": 1475.1991991991993,
+        "collector_drop_packets": 969,
+        "share_leaf": 0.4911055824452235,
+        "share_other": 0.0,
+        "share_backlog": 0.5120344632267543,
+        "closure": 1.003140045671978,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": true,
+        "collector_sees": true,
+        "klass": true,
+        "teardown_destroys_backlog": true
+      }
+    },
+    {
+      "run": "degrade_sensor_s2-s3_f0.8203_offon_rev40_20260917T074404Z",
+      "condition": "C0_control_s2-s3",
+      "summary": {
+        "rules_version": "probe-rules-2",
+        "missing_bytes": 2905091.7777777775,
+        "baseline_noise_per_tick": 4313.111111111111,
+        "n_window_ticks": 20,
+        "mean_packet_bytes_pre": 1473.0298507462687,
+        "leaf_drop_packets": 967,
+        "kernel_or_ovs_drop_packets": 0,
+        "parent_qdisc_mirrors_leaf": true,
+        "backlog_bytes_pre_revert": 1490790,
+        "backlog_bytes_post_revert": 1512,
+        "first_leaf_drop_tick": 31,
+        "qlen_at_first_drop": 1000,
+        "median_bytes_per_skb_in_queue": 1478.03003003003,
+        "collector_drop_packets": 969,
+        "share_leaf": 0.49031837016909613,
+        "share_other": 0.0,
+        "share_backlog": 0.5131645104652651,
+        "closure": 1.0034828806343612,
+        "klass": "QUEUE_THEN_DROP"
+      },
+      "checks": {
+        "first_drop_in_window": true,
+        "queue_full_at_first_drop": true,
+        "collector_sees": true,
+        "klass": true,
+        "teardown_destroys_backlog": true
+      }
+    }
+  ],
+  "verdict": {
+    "measurement_trusted": true,
+    "conclusions": [
+      "GSO_EXPLAINS_DELAYED_DROP: tat offload -> drop trong 20 s"
+    ]
+  }
+}

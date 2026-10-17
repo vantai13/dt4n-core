@@ -5,7 +5,7 @@ commands=[('phase1_config5',['-m','mininet.run_phase1','--scenario','idle','--cl
 for name,args,spec in (commands[-1:] if os.environ.get("DT4N_RESUME_ACCEPTANCE")=="1" else commands):
  cenv=dict(env,DT4N_TOPOLOGY_SPEC=spec)
  with open('logs/controller_'+name+'.log','w') as f:
-  c=subprocess.Popen(['/home/ubuntu/miniforge3/envs/sdn_net/bin/ryu-manager','mininet.controller_static','--ofp-tcp-listen-port','6653'],env=cenv,stdout=f,stderr=subprocess.STDOUT)
+  c=subprocess.Popen([os.environ.get('DT4N_RYU', '/home/ubuntu/miniforge3/envs/sdn_net/bin/ryu-manager'),'mininet.controller_static','--ofp-tcp-listen-port','6653'],env=cenv,stdout=f,stderr=subprocess.STDOUT)
   try:
    for _ in range(50):
     try:

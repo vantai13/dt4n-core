@@ -18,7 +18,23 @@ import requests  # noqa: E402
 
 from bridge.ditto_common import DITTO_AUTH, DITTO_BASE_URL, NAMESPACE  # noqa: E402
 
-MONGO_CONTAINER = "dt4n-aoi-smoke-mongodb-1"
+MONGO_CONTAINER = "dt4n-aoi-smoke-mongodb-1"   # tên trên máy GCP của đề tài
+
+
+def mongo_container() -> str:
+    """Tên container MongoDB: DT4N_MONGO_CONTAINER, hoặc container đang chạy có tên chứa
+    'mongodb' (docker compose đặt tên theo thư mục, ví dụ ditto-mongodb-1), hoặc tên gốc."""
+    import os
+    name = os.environ.get("DT4N_MONGO_CONTAINER")
+    if name:
+        return name
+    try:
+        out = subprocess.run(["docker", "ps", "--format", "{{.Names}}"],
+                             capture_output=True, text=True, timeout=15, check=False).stdout
+    except (OSError, subprocess.SubprocessError):
+        return MONGO_CONTAINER
+    names = [n for n in out.split() if "mongodb" in n]
+    return names[0] if len(names) == 1 else MONGO_CONTAINER
 LATENCY_LIMIT_MS = 2000.0
 MEM_WARN_FRACTION = 0.90
 
@@ -46,7 +62,7 @@ def mongo_memory():
     try:
         out = subprocess.run(
             ["docker", "stats", "--no-stream", "--format", "{{.MemUsage}}",
-             MONGO_CONTAINER],
+             mongo_container()],
             capture_output=True, text=True, timeout=15, check=False).stdout
     except (OSError, subprocess.SubprocessError):
         return None, None

@@ -1,0 +1,1191 @@
+{
+  "content": {
+    "experiment": "GĐ4 định vị: detector 2.1 + luật chọn ứng viên theo chiều",
+    "release": "detector-release-2.1.0",
+    "prereg_sha256": "cdf64208f788f5110563d171cf3614d5701c29cbfcf7fae4d134cab27ac1c669",
+    "policy_sha256": "5b63aedd629be103a7a8cbfb67b43f8fdab1ed674451f4b5b91beccad1e50b68",
+    "localize_sha256": "9dba6b29ee259640f48bafc0ff2fa298c17b2b41ad99601f80994619a0776301",
+    "gd4cl_common_sha256": "772a4636fdf6fc03cb25cd14315e9e9466d54831f852ef9e5cd57e0ecbf3de59",
+    "seed": 20260921,
+    "plan": [
+      "stop_in_probe",
+      "h1_srv2",
+      "h3_srv1",
+      "h2_srv2",
+      "h2_srv2",
+      "h1_srv2",
+      "stop_in_probe",
+      "h3_srv1",
+      "h1_srv2",
+      "h3_srv1",
+      "h2_srv2",
+      "stop_in_probe",
+      "stop_in_probe",
+      "h3_srv1",
+      "h2_srv2",
+      "h1_srv2",
+      "stop_in_probe",
+      "h3_srv1",
+      "h2_srv2",
+      "h1_srv2"
+    ],
+    "health_before": {
+      "healthy": true,
+      "http_status": 200,
+      "error": null,
+      "latency_ms": 29.3,
+      "mongo_used_mib": 146.1,
+      "mongo_limit_mib": 1024.0,
+      "mongo_fraction": 0.143,
+      "memory_warning": false,
+      "checked_at": 1792201983.7356262
+    },
+    "n_trials": 20,
+    "n_aborted": 0,
+    "by_scenario": {
+      "h3_srv1": {
+        "correct_latch": 5,
+        "wrong_target": 0,
+        "silent": 0
+      },
+      "h2_srv2": {
+        "correct_latch": 5,
+        "wrong_target": 0,
+        "silent": 0
+      },
+      "h1_srv2": {
+        "correct_latch": 5,
+        "wrong_target": 0,
+        "silent": 0
+      },
+      "stop_in_probe": {
+        "correct_latch": 5,
+        "wrong_target": 0,
+        "silent": 0
+      }
+    },
+    "n_wrong_target": 0,
+    "n_correct_nonh1_culprit": 10,
+    "localization_pass": true,
+    "broad_scope": true,
+    "log_counts": {
+      "WARNING": 6
+    },
+    "trials": [
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "f7edcd9a3b7f6d6044f1f0c9c5d2b3fbee1bc9ab56b87e82eff76d64724936ea",
+        "scenario": "stop_in_probe",
+        "index": 0,
+        "t_flood": 1792202034.6220148,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 1.695730027525307,
+        "directional": {
+          "n_calls": 50,
+          "n_act_calls": 15,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/00_stop_in_probe.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "4c21d1430e075f3ecbd362f4aed61733a72d2fee45f844afb2ff66589f783b34",
+        "scenario": "h1_srv2",
+        "index": 1,
+        "t_flood": 1792202114.1646464,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 55,
+          "removed_on_act": {
+            "h1": 2,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/01_h1_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "6e5dd01a163233582d7191d82803539d09ff79f644cec7e316b46558834d1fe7",
+        "scenario": "h3_srv1",
+        "index": 2,
+        "t_flood": 1792202239.073302,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/02_h3_srv1.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "0ea2ba701239688d7d5d9b5649c3fb33f95d588284af2efaad4583e1507c3669",
+        "scenario": "h2_srv2",
+        "index": 3,
+        "t_flood": 1792202364.8414216,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 55,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 2,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/03_h2_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "f6dd12ac5f7dabdd79f2fc988496d8fe87b01edaf94bc248848ebdfdefd21e45",
+        "scenario": "h2_srv2",
+        "index": 4,
+        "t_flood": 1792202490.2188845,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 51,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/04_h2_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 3,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "8216e1c8cb0e0ac8f16d82d37f0c607408a16d70718767c34213ac7d6276ce23",
+        "scenario": "h1_srv2",
+        "index": 5,
+        "t_flood": 1792202615.7072206,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 1,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/05_h1_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 3,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "790541544891012520f8fdac83ff7b7069bc043f0770bd815c9ce968a215097e",
+        "scenario": "stop_in_probe",
+        "index": 6,
+        "t_flood": 1792202735.502018,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 0.8569995760742457,
+        "directional": {
+          "n_calls": 50,
+          "n_act_calls": 15,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/06_stop_in_probe.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "0cdc055f278291795d8a94af6c15194917a4192ef09a9396c90d83452448648b",
+        "scenario": "h3_srv1",
+        "index": 7,
+        "t_flood": 1792202820.8271163,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/07_h3_srv1.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "11e64b6ebd8af628c43e3134ba5a0394a5d2effef4944b47af6b934577affa85",
+        "scenario": "h1_srv2",
+        "index": 8,
+        "t_flood": 1792202946.2128267,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 52,
+          "removed_on_act": {
+            "h1": 2,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/08_h1_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "d626fca87725ff830ac394139d6e0ec35a48d91b3e106b0345fccd0e3b8037d6",
+        "scenario": "h3_srv1",
+        "index": 9,
+        "t_flood": 1792203071.6547515,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 2
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/09_h3_srv1.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "ae6b6ac75df812bdcfc509eb527b05c3619e4fbe4734645d275aa3aece87ba08",
+        "scenario": "h2_srv2",
+        "index": 10,
+        "t_flood": 1792203197.0855615,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 52,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 3,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/10_h2_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "4d85fa3de3c61f31e43cecf8c8fb32b5d8c590d371acb0938fde93b90c56a20d",
+        "scenario": "stop_in_probe",
+        "index": 11,
+        "t_flood": 1792203322.2114458,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 2.582600129468908,
+        "directional": {
+          "n_calls": 52,
+          "n_act_calls": 15,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/11_stop_in_probe.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 3,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "83111af6c93507be320017b36eff2fad31434c9bc7dd30078c815c215f8334e6",
+        "scenario": "stop_in_probe",
+        "index": 12,
+        "t_flood": 1792203403.2915783,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 0.16892378626517324,
+        "directional": {
+          "n_calls": 50,
+          "n_act_calls": 15,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/12_stop_in_probe.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "f0492e7c64cf2892138bc2a32b23d64096eff907d60c45fb4c51c54f48b723df",
+        "scenario": "h3_srv1",
+        "index": 13,
+        "t_flood": 1792203481.554024,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 51,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/13_h3_srv1.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "ae74500d7897b663c04bd1c5b564c3854748c3c5b67dbaf3249a871d2d391350",
+        "scenario": "h2_srv2",
+        "index": 14,
+        "t_flood": 1792203606.9897957,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 52,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 2,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/14_h2_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "bce5f8fc765c2d21f01a767c7b5c8b53f1b8b41d5dc79065565748f43c7656a3",
+        "scenario": "h1_srv2",
+        "index": 15,
+        "t_flood": 1792203727.0593572,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 2,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/15_h1_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "83575923e9364422550dd7f64916594c6ecf924d290deb7b26b83f753a116ab4",
+        "scenario": "stop_in_probe",
+        "index": 16,
+        "t_flood": 1792203852.4757974,
+        "src": "h1",
+        "dst": "srv1",
+        "culprit": "h1",
+        "victim": "h3",
+        "stop_offset_s": 1.4813446597156497,
+        "directional": {
+          "n_calls": 51,
+          "n_act_calls": 16,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/16_stop_in_probe.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h3-s1",
+          "h3-s1",
+          "h3-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h3",
+          "org.dt4n:host-srv1",
+          "org.dt4n:link-h3-s1",
+          "org.dt4n:link-s1-s2",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "5a817efd8f72c5ce01ec6d50b21d3c6f03033450bc22671c44bfb25079dd1987",
+        "scenario": "h3_srv1",
+        "index": 17,
+        "t_flood": 1792203937.6693246,
+        "src": "h3",
+        "dst": "srv1",
+        "culprit": "h3",
+        "victim": "h1",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 51,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/17_h3_srv1.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h2-s1",
+          "h2-s1",
+          "h2-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h2",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h2-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "a1613ce5457c041edcc2727867c52170eede9c9c204b475af8854531ea14de69",
+        "scenario": "h2_srv2",
+        "index": 18,
+        "t_flood": 1792204063.2622924,
+        "src": "h2",
+        "dst": "srv2",
+        "culprit": "h2",
+        "victim": null,
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 52,
+          "removed_on_act": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/18_h2_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 2,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      },
+      {
+        "outcome": "correct_latch",
+        "inject_links": [
+          "h1-s1",
+          "h1-s1",
+          "h1-s1"
+        ],
+        "wrong_links": [],
+        "first_act_affected": [
+          "org.dt4n:host-h1",
+          "org.dt4n:host-srv1",
+          "org.dt4n:host-srv2",
+          "org.dt4n:link-h1-s1",
+          "org.dt4n:link-s1-s3",
+          "org.dt4n:link-s2-s3",
+          "org.dt4n:link-s2-srv1",
+          "org.dt4n:link-s3-srv2"
+        ],
+        "n_probe_target_changed": 0,
+        "n_idle_quarantine": 0,
+        "idle_reasons": [
+          "idle_quiet"
+        ],
+        "audit_sha256": "bbdcb9b796f7c505b69232c7a59b6ae6ee5d836e199f97378479f0fe13531acb",
+        "scenario": "h1_srv2",
+        "index": 19,
+        "t_flood": 1792204188.8258414,
+        "src": "h1",
+        "dst": "srv2",
+        "culprit": "h1",
+        "victim": "h2",
+        "stop_offset_s": null,
+        "directional": {
+          "n_calls": 91,
+          "n_act_calls": 53,
+          "removed_on_act": {
+            "h1": 2,
+            "h2": 0,
+            "h3": 0
+          }
+        },
+        "audit": "logs/gd4cl_c1/20261017T015303Z/19_h1_srv2.jsonl",
+        "background_ready": {
+          "ok": true,
+          "tries": [
+            {
+              "attempt": 1,
+              "clients": 3,
+              "sending": false
+            },
+            {
+              "attempt": 2,
+              "clients": 4,
+              "sending": true
+            }
+          ]
+        },
+        "infra_recovery": []
+      }
+    ],
+    "written_at_utc": "2026-10-17T02:31:26+00:00"
+  },
+  "content_sha256": "e10439af429abc89f4bbb51a529b540274000528a5a34c3072dadf56e08fb17d"
+}
