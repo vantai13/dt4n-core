@@ -262,3 +262,5 @@ ket-qua-bao-cao/**/chay-lai/
 !ket-qua-bao-cao/5.3.3-su-co-link-chi-co-tcp/du-lieu-tho/*.ping.log
 # Hình của báo cáo, vẽ lại bằng ket-qua-bao-cao/<mục>/ve_hinh.sh (không vẽ tay).
 !ket-qua-bao-cao/**/hinh/*.png
+# Nhật ký câu hỏi của trang what-if, sinh ra mỗi lần dùng thử, không phải kết quả.
+logs/whatif_queries.jsonl

@@ -1,9 +1,0 @@
---- Bước 4: dry-run
-✅ set_capacity  cid=cloud-997c752ac28a  outcome=dry_run  before=0  after=0  (426 ms)
-{"lastCid":"cloud-997c752ac28a","lastAction":"set_capacity","lastParams":{"requested":2,"target":2},"lastReason":"thu dry-run","lastOutcome":"dry_run","lastOk":true,"dryRun":true,"tIntent":1.7919520179690695E9,"tResult":1.7919520184027264E9}
---- Bước 5: set 2 (lúc 11:27:10.011) rồi gửi lại
-✅ set_capacity  cid=cloud-a5c335b167c5  outcome=applied  before=0  after=2  (564 ms)
-✅ set_capacity  cid=cloud-58e4c046647c  outcome=noop  before=2  after=2  (425 ms)
---- Bước 6: replace i-05a0aeca0720ba44d (lúc 11:27:50.229) rồi gửi lại
-✅ replace_instance  cid=cloud-2b5fbb5ab1f7  outcome=applied  before=Healthy  after=Unhealthy  (466 ms)
-✅ replace_instance  cid=cloud-ae9aad94d1c6  outcome=noop_already_unhealthy  before=Unhealthy  after=Unhealthy  (435 ms)

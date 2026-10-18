@@ -1,7 +1,0 @@
-🧠 cloud controller: nhịp 2.0s, đọc org.dt4n:host-srv1 + org.dt4n:link-s2-srv1 + org.dt4n:cloud-pool
-11:42:16  srv1=up ρ=0.98 age=1.0s | cloud desired=0 healthy=0 age=4.2s  → target=0 [load=0 failover=0 ok]
-11:42:28  srv1=up ρ=1.00 age=1.0s | cloud desired=0 healthy=0 age=1.2s  → target=1 [load=1 failover=0 ok]  ⇒ set_capacity applied
-11:42:30  srv1=up ρ=1.00 age=1.0s | cloud desired=0 healthy=0 age=3.2s  → target=1 [load=1 failover=0 ok]  ⇒ set_capacity noop
-11:45:26  srv1=up ρ=0.21 age=0.9s | cloud desired=1 healthy=1 age=4.2s  → target=0 [load=0 failover=0 ok]  ⇒ set_capacity applied
-
-⏹  dừng controller.

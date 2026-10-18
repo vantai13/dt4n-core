@@ -1,4 +1,0 @@
-ALB : http://dt4n-alb-664619838.ap-southeast-1.elb.amazonaws.com
-ASG : desired=2  min=0  max=3  inService=2  tổng máy=2
-  - i-0b4e16c7f5c5a2538  ap-southeast-1b  lifecycle=InService    asgHealth=Healthy   albHealth=healthy
-  - i-0e0a89a5a9ff589aa  ap-southeast-1a  lifecycle=InService    asgHealth=Healthy   albHealth=healthy

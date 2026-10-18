@@ -1,2 +1,0 @@
-  ✅ org.dt4n:cloud-pool (201)
-  ⏭️  org.dt4n:cloud-pool đã tồn tại, bỏ qua

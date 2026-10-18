@@ -96,4 +96,11 @@ def test_ban_do_ten_that_khop_danh_sach_dong_bo():
     spec.loader.exec_module(mod)
     ten = mod.ban_do_ten()
     assert ten['results/report/command_flow.json'] == ('5.2-dieu-khien-tu-xa', 'thoi-gian-tung-chang.json')
-    assert len(ten) == 33
+    # Mỗi tệp gốc có đúng một tên đích; tệp chép tới hai chỗ lấy tên dễ đọc.
+    spec2 = importlib.util.spec_from_file_location('dong_bo', ROOT / 'scripts' / 'dong_bo_ket_qua_bao_cao.py')
+    dong_bo = importlib.util.module_from_spec(spec2)
+    spec2.loader.exec_module(dong_bo)
+    nguon = {src for pairs in dong_bo.MAP.values() for src, _ in pairs}
+    assert set(ten) == nguon
+    assert ten['results/probe/degrade_sensor_s1-s2_f0.8275_20260917T045444Z.analysis.json'] == (
+        '5.3.3-su-co-link-chi-co-tcp', 'hang-doi-offload-bat-lan-1.json')

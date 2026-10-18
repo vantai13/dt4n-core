@@ -30,7 +30,6 @@ khiển kín trên testbed.
 | `scripts/` | script thí nghiệm, chấm điểm và tái lập; [danh mục theo mục báo cáo](scripts/README.md) |
 | `test/` | bộ kiểm thử (pytest) |
 | `docs/` | tài liệu được các tệp tiêu chí ghim mã băm, giữ nguyên để kiểm toàn vẹn |
-| `archive/` | mã, kết quả và ghi chép của các giai đoạn phát triển trước; không cần để tái lập báo cáo |
 
 ## Tải về và cài đặt
 
@@ -143,7 +142,7 @@ python3 -m whatif.server                                          # trang what-i
 ## Tài liệu khác
 
 - Nguồn gốc mã: [PROVENANCE.md](PROVENANCE.md)
-- Thư mục lưu trữ: [archive/README.md](archive/README.md)
+- Mã và ghi chép của các giai đoạn phát triển trước nằm trong lịch sử git, đánh dấu bằng các tag `phase-*`.
 
 ## Giới hạn
 

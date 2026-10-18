@@ -1,8 +1,0 @@
-[launch] gd2: 1 run thay the cho N-vary-s1008-r2
-[launch] campaign=gd2 hop dong khop: 4333a1afb303
-[launch] source_clean=True git_dirty=True commit=62f14aef2c371f95bb3daf35c8248ef0b6dd935f
-[launch] mn -c (một lần duy nhất)
-[launch] controller sẵn sàng, namespace=org.dt4n.ml
-[launch] runner exit=0
-[launch] log: logs/gd2_stdout.log
-EXIT=0

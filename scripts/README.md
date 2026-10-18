@@ -106,4 +106,4 @@ nữa. Script nào được script của báo cáo import thì ghi ở cột "D�
 | | `run_phase8_c1_control.py` | `run_gd4cl_c1.py` |
 | | `phase8_replay.py`, `probe_phase8_actionability.py`, `probe_phase8_localization.py`, `run_phase8_s11_bw.py` | |
 
-Tài liệu của các giai đoạn này ở `archive/docs/`.
+Tài liệu của các giai đoạn này nằm trong lịch sử git, đánh dấu bằng các tag `phase-*`.

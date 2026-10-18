@@ -37,7 +37,13 @@ def ban_do_ten():
         'dong_bo', ROOT / 'scripts' / 'dong_bo_ket_qua_bao_cao.py')
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    return {src: (folder, name) for folder, pairs in mod.MAP.items() for src, name in pairs}
+    # Một tệp gốc có thể được chép tới hai chỗ (bản tên dễ đọc và bản trong du-lieu-tho/).
+    # Giữ chỗ được khai báo trước, là bản tên dễ đọc.
+    ten = {}
+    for folder, pairs in mod.MAP.items():
+        for src, name in pairs:
+            ten.setdefault(src, (folder, name))
+    return ten
 
 
 def chup(dirs):

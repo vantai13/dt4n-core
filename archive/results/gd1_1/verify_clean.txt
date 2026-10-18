@@ -1,6 +1,0 @@
-instances tag Project=dt4n: [('i-02716f2a9fea54f05', 'terminated'), ('i-09d87f834d53f9e1c', 'terminated')]
-ALB dt4n-*: []
-TG dt4n-*: []
-ASG dt4n-*: []
-SG dt4n-*: []
-LT dt4n-*: []
