@@ -258,3 +258,7 @@ cloud/.state.json
 
 # --- Kết quả chạy lại cục bộ (ket-qua-bao-cao/<mục>/chay-lai/<thời điểm>/) ---
 ket-qua-bao-cao/**/chay-lai/
+# Nhật ký ping của phép thử hàng đợi là dữ liệu thô của Mục 5.3.3, cần nộp cùng kết quả.
+!ket-qua-bao-cao/5.3.3-su-co-link-chi-co-tcp/du-lieu-tho/*.ping.log
+# Hình của báo cáo, vẽ lại bằng ket-qua-bao-cao/<mục>/ve_hinh.sh (không vẽ tay).
+!ket-qua-bao-cao/**/hinh/*.png

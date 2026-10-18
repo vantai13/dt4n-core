@@ -9,17 +9,7 @@ Hệ thống gồm một testbed Mininet đóng vai mạng thật, một Digital
 phát hiện bất thường (detector), mô hình what-if, tự động hóa tài nguyên AWS và một vòng điều
 khiển kín trên testbed.
 
-```mermaid
-flowchart LR
-  M[Mininet + Open vSwitch + Ryu] -- Sync Agent --> D[Eclipse Ditto<br/>Digital Twin]
-  D -- inbox --> A[Command Agent] --> M
-  M -- collector riêng --> X[Detector] --> D
-  D --> U[Dashboard]
-  D --> W[What-if]
-  D --> K[Controller vòng kín] -- lệnh --> D
-  D --> CC[Cloud controller] --> AWS[AWS Auto Scaling Group]
-  AWS -- cloud collector --> D
-```
+![Kiến trúc tổng thể của DT4N](docs/hinh/kien-truc.png)
 
 ## Cấu trúc thư mục
 
@@ -35,7 +25,7 @@ flowchart LR
 | `whatif/` | mô hình what-if, kiểm hồi cứu và kiểm mù |
 | `dashboard/` | giao diện Vue |
 | `models/` | các bản detector; kết quả của báo cáo dùng `detector-release-2.1.0.json` |
-| `data/` | dữ liệu thô (tập phát triển, tập nghiệm thu) |
+| `data/` | dữ liệu thô (tập phát triển, tập kiểm tra độc lập) |
 | `results/` | tệp kết quả gốc mà các script ghi ra |
 | `scripts/` | script thí nghiệm, chấm điểm và tái lập; [danh mục theo mục báo cáo](scripts/README.md) |
 | `test/` | bộ kiểm thử (pytest) |
@@ -96,14 +86,14 @@ Một lệnh tính lại mọi con số không cần testbed, rồi so khớp tu
 ```
 
 ```
-3.4/5.3 Học lại detector 2.1 (K, E, biên, R, vùng vận hành)      KHỚP   K 18, E 5.6090, R 0.0753
-5.3.1   Tập phát triển: excess, dual, Isolation Forest           KHỚP   excess 137/160, 23/430; ...
-5.3.2a  Tập nghiệm thu: giảm băng thông, flood, dịch nút cổ chai KHỚP   S1 0.4, lớn nhất 20.0 s, R-C 4/4
-5.3.2b  Tập nghiệm thu: tải cao và bộ chặn vùng tải              KHỚP   6 run, giây còn báo động khi áp bộ chặn: 0
-5.3.2c  Tập nghiệm thu: chạy nền 2 giờ                           KHỚP   cận trên 1.50 lần/giờ trên 2.00 giờ
-5.4     What-if: kiểm hồi cứu                                    KHỚP   trong vùng: trung vị 0.009, lớn nhất 0.10 Mbps
-5.7     Vòng kín: kiểm offline luật chọn ứng viên                KHỚP   30 run
-6.2.2   Cơ chế bỏ sót trên link s1-s2                            KHỚP   excess lớn nhất giây 21-39: 1.00
+3.4/5.3 Học lại detector 2.1 (K, E, biên, R, vùng vận hành)            KHỚP   K 18, E 5.6090, R 0.0753
+5.3.1   Tập phát triển: excess, dual, Isolation Forest                 KHỚP   excess 137/160, 23/430; ...
+5.3.2a  Tập kiểm tra độc lập: giảm băng thông, flood, dịch nút cổ chai KHỚP   S1 0.4, lớn nhất 20.0 s, R-C 4/4
+5.3.2b  Tập kiểm tra độc lập: tải cao và bộ chặn vùng tải              KHỚP   6 run, giây còn báo động khi áp bộ chặn: 0
+5.3.2c  Tập kiểm tra độc lập: chạy nền 2 giờ                           KHỚP   cận trên 1.50 lần/giờ trên 2.00 giờ
+5.3.3   Link chỉ có TCP: excess trên 5 run s1-s2                       KHỚP   excess lớn nhất giây 21-39: 1.00
+5.4     What-if: kiểm hồi cứu                                          KHỚP   trong vùng: trung vị 0.009, lớn nhất 0.10 Mbps
+5.7     Vòng kín: kiểm offline luật chọn ứng viên                      KHỚP   30 run
 
 8 mục, 0 lệch hoặc lỗi.
 ```
@@ -158,5 +148,5 @@ python3 -m whatif.server                                          # trang what-i
 ## Giới hạn
 
 Mọi kết quả đo trên một topology 3 switch chạy trên một máy, tải tối đa 5 Mbps mỗi máy khách
-trong dữ liệu huấn luyện. Máy EC2 không mang lưu lượng của Mininet. Chi tiết ở Chương 6 của
+trong dữ liệu huấn luyện. Máy EC2 không mang lưu lượng của Mininet. Chi tiết ở Mục 5.9 của
 báo cáo.

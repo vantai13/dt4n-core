@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-# Vẽ lại Hình 5.1, Hình 5.2 và sinh lại Bảng 5.6 thẳng từ tệp kết quả. Offline.
+# Vẽ lại mọi hình của Chương 5 và sinh lại bảng kiểm mù what-if. Offline, chạy trong khoảng một phút.
 #
 #   ket-qua-bao-cao/hinh-va-bang/ve_lai.sh
 #
-# Kết quả ở hinh-va-bang/chay-lai/<thời điểm>/: do-tre-xep-hang.pdf, ab-tung-luot.pdf, whatif-blind.tex.
+# Hình của từng mục do script trong thư mục mục đó vẽ (<mục>/ve_hinh.sh), và được ghi đè vào
+# <mục>/hinh/. Bảng kiểm mù ghi vào hinh-va-bang/chay-lai/<thời điểm>/whatif-blind.tex.
 source "$(dirname "$0")/../_chung.sh"
+for muc in 5.1-phan-chieu-trang-thai 5.3.3-su-co-link-chi-co-tcp 5.4-what-if 5.7-vong-kin; do
+  echo "== $muc"
+  bash "ket-qua-bao-cao/$muc/ve_hinh.sh"
+done
 mkdir -p "$RA"
-"$PY" -I ket-qua-bao-cao/hinh-va-bang/ve_hinh_ch5.py "$ROOT" "$RA"
-"$PY" ket-qua-bao-cao/hinh-va-bang/receipt_to_table.py results/gd3/blind_result.json "$RA/whatif-blind.tex"
-xong "So với hình và bảng trong báo cáo (thư mục figures/ và tables/ của mã nguồn LaTeX)"
+"$PY" ket-qua-bao-cao/hinh-va-bang/receipt_to_table.py ket-qua-bao-cao/5.4-what-if/kiem-mu-ket-qua.json "$RA/whatif-blind.tex"
+echo "Bảng kiểm mù: $RA/whatif-blind.tex"

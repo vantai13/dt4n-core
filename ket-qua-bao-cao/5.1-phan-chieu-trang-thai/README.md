@@ -1,4 +1,4 @@
-# 5.1 Phản chiếu trạng thái mạng (ND1)
+# 5.1 Phản chiếu trạng thái mạng
 
 Câu hỏi của mục: twin có đủ, đúng và kịp so với testbed không. Mọi phép đo ở đây đi theo **luồng
 đồng bộ lên**: Mininet đổi trạng thái, Sync Agent đọc mạng mỗi 1 s và đẩy phần thay đổi lên Ditto.
@@ -40,8 +40,9 @@ ngẫu nhiên 0-1 s, để thời điểm tắt rơi ngẫu nhiên so với chu 
 | `result.timeouts` | số lần twin không phản ánh kịp (0) |
 | `load_profile` | tải lúc đo: chỉ có luồng UDP 2 Mbps srv1 tới srv2, máy khách rảnh |
 
-Các giá trị rải đều trong khoảng 0,2-1 s, vì độ trễ chủ yếu là thời gian chờ Sync Agent tới nhịp
-đọc kế tiếp.
+Các giá trị rải đều trong khoảng 0,2-1 s. Phân bố này phù hợp với cách giải thích rằng độ trễ chủ
+yếu là thời gian chờ Sync Agent tới chu kỳ đọc kế tiếp, nhưng giải thích này chưa được kiểm riêng
+(Mục 5.2 của báo cáo).
 
 ### `chay-lien-tuc-30-phut.json`
 
@@ -53,6 +54,17 @@ Các giá trị rải đều trong khoảng 0,2-1 s, vì độ trễ chủ yếu
 
 Lần không khớp nằm ở `samples[0].accuracy.discrepancies`: twin còn ghi link h1-s1 `down` do phép
 thử trước để lại, trong khi link thật đã bật. Từ lần kiểm thứ hai trở đi, mọi lần đều khớp 8/8.
+
+## Hình
+
+![Độ trễ xếp hạng](hinh/do-tre-xep-hang.png)
+
+`hinh/do-tre-xep-hang` (Hình 5.1 của báo cáo) vẽ 30 lần đo độ trễ đồng bộ lên của mục này và 30
+lần đo độ trễ lệnh của Mục 5.2, mỗi chuỗi xếp từ nhỏ tới lớn. Trục ngang là thứ hạng của lần đo.
+Các chấm gần như nằm trên một đường thẳng, nghĩa là độ trễ rải đều trong khoảng đo được, khớp với
+giả thuyết thời gian chờ chu kỳ đọc 1 s của collector.
+
+Vẽ lại bằng `ve_hinh.sh` (offline, vài giây). Script vẽ là `hinh/ve_hinh.py`.
 
 ## Chạy lại
 

@@ -1,0 +1,62 @@
+
+== C-load2M-s2001-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+
+== C-vary-s2002-r1  [lịch tải đổi -> giả định nhu cầu đứng yên bị phá]
+   9 chiều link được chấm; 7 chiều sai >= 0.25 Mbps
+   h3->s1     dự đoán   4.29  đo   2.72  sai  +1.57  [giả định phá]
+   h1->s1     dự đoán   2.43  đo   3.58  sai  -1.15  [giả định phá]
+   s2->srv1   dự đoán   6.72  đo   6.30  sai  +0.43  [giả định phá]
+   s1->s2     dự đoán   6.72  đo   6.30  sai  +0.43  [giả định phá]
+   s3->srv2   dự đoán   4.66  đo   4.95  sai  -0.29  [giả định phá]
+   s1->s3     dự đoán   2.50  đo   2.79  sai  -0.28  [giả định phá]
+   h2->s1     dự đoán   2.50  đo   2.75  sai  -0.25  [giả định phá]
+
+== F-admin_down-s1-s2-s3001-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+
+== F-admin_down-s1-s3-s3002-r1
+   8 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+
+== F-degrade-s1-s2-s3003-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+   mất s1-s2    dự đoán  19.8%  đo   0.0%  sai +19.8 điểm  [ngoài]
+
+== F-degrade-s2-s3-s3004-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+   mất s2-s3    dự đoán  53.6%  đo  31.1%  sai +22.6 điểm  [trong]
+   [hậu nghiệm] s2-s3: hàng đợi đầy sau ~10.5 s -> mất gói từ tick ~30.5; đo: từ tick 31, sau đó mất trung bình 51.8% (dự đoán 53.6%)
+
+== F-flood-h1_to_srv1-s3005-r1
+   9 chiều link được chấm; 1 chiều sai >= 0.25 Mbps
+   h3->s1     dự đoán   2.16  đo   0.43  sai  +1.73  [ngoài]
+   mất h1-s1    dự đoán  59.3%  đo  50.0%  sai  +9.3 điểm  [ngoài]
+   mất s1-s2    dự đoán   9.7%  đo   0.8%  sai  +9.0 điểm  [ngoài]
+
+== F-flood-h2_to_srv2-s3006-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+   mất h2-s1    dự đoán  44.7%  đo  34.9%  sai  +9.8 điểm  [ngoài]
+   mất s3-srv2  dự đoán   9.7%  đo   8.5%  sai  +1.2 điểm  [ngoài]
+
+== F-shift-s1-s2-s3007-r1
+   9 chiều link được chấm; 1 chiều sai >= 0.25 Mbps
+   h3->s1     dự đoán   2.16  đo   0.82  sai  +1.34  [ngoài]
+   mất s1-s2    dự đoán  41.4%  đo   0.0%  sai +41.4 điểm  [ngoài]
+   mất s2-s3    dự đoán  75.0%  đo  75.0%  sai  +0.0 điểm  [trong]
+   mất s2-srv1  dự đoán  20.5%  đo  16.8%  sai  +3.7 điểm  [trong]
+
+== F-shift-s1-s3-s3008-r1
+   9 chiều link được chấm; 0 chiều sai >= 0.25 Mbps
+   mất s1-s3    dự đoán  26.0%  đo   0.0%  sai +26.0 điểm  [ngoài]
+   mất s2-s3    dự đoán  75.0%  đo  74.9%  sai  +0.1 điểm  [trong]
+   mất s2-srv1  dự đoán   9.7%  đo   8.2%  sai  +1.5 điểm  [trong]
+
+=== TỔNG KẾT tải từng chiều (Mbps)
+   trong         n=62  trung vị |sai| 0.009  lớn nhất 0.10  trung vị sai tương đối 0.3%  tỉ lệ sai <= 10%: 100%
+   ngoài         n=18  trung vị |sai| 0.054  lớn nhất 1.73  trung vị sai tương đối 2.2%  tỉ lệ sai <= 10%: 89%
+   giả định phá  n=9   trung vị |sai| 0.290  lớn nhất 1.57  trung vị sai tương đối 6.8%  tỉ lệ sai <= 10%: 67%
+=== TỔNG KẾT mất gói (điểm phần trăm)
+   trong         n=5   trung vị |sai| 1.5  lớn nhất 22.6
+   ngoài         n=7   trung vị |sai| 9.8  lớn nhất 41.4
+
+receipt: results/report/gd3_whatif_validation.json

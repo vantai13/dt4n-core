@@ -1,4 +1,4 @@
-# 5.2 Điều khiển từ xa (ND2)
+# 5.2 Điều khiển từ xa và độ trễ của twin
 
 Câu hỏi của mục: gửi lệnh qua twin thì bao lâu mạng thật đổi, và làm sao biết lệnh đã có hiệu
 lực. Đây là **luồng lệnh xuống**:
@@ -65,8 +65,9 @@ khoảng 12 ms. Gần như toàn bộ phần còn lại là thời gian chờ �
 Hai giới hạn của tệp này:
 
 - **Tổng bị khóa pha.** Trước mỗi lệnh, script bật lại link, chờ twin khớp rồi chờ thêm đúng 1 s,
-  nên lệnh luôn rơi vào gần cùng một chỗ trong chu kỳ 1 s của Sync Agent. Vì thế `total_ms` gần
-  như cố định (khoảng 662 ms cho lệnh tắt, 864 ms cho lệnh bật) và không đại diện. Báo cáo chỉ
+  nên lệnh luôn rơi vào gần cùng một chỗ trong chu kỳ 1 s của Sync Agent. Vì thế `total_ms` dồn
+  vào hai cụm hẹp, 653-665 ms và 862-877 ms, và cả lệnh tắt lẫn lệnh bật đều có ở hai cụm (tắt
+  11 và 19 lệnh, bật 14 và 16 lệnh), nên tổng này không đại diện. Báo cáo chỉ
   dùng tệp này để chỉ ra route, exec, push mỗi chặng vài ms; độ trễ chính thức lấy ở `do-tre-lenh.json`.
 - Không có dashboard thật: script gửi lệnh theo đúng đường của dashboard, nhưng STATE_OK là lúc
   script thấy giá trị mới, không phải lúc trình duyệt vẽ lại.
@@ -84,6 +85,11 @@ Hai lần gửi `disableLink` có chờ phản hồi 3 s (lần thứ hai kèm c
 Kết luận: SSE không có kênh trả lời gắn với yêu cầu ban đầu, nên Ditto không bao giờ nhận được
 phản hồi đúng nghĩa. Hệ thống vì thế gửi lệnh với `timeout=0` và xác nhận lệnh bằng trạng thái
 quay về twin.
+
+## Hình
+
+Độ trễ lệnh được vẽ chung với độ trễ đồng bộ lên trong hình `do-tre-xep-hang` của Mục 5.1
+(`../5.1-phan-chieu-trang-thai/hinh/`).
 
 ## Chạy lại
 

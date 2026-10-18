@@ -1,0 +1,218 @@
+{
+  "run_id": "N-vary-s1008-r4",
+  "sha256": "8de09407eca720e392e97851f5955466d2a818a5beb3363913129e1480e16bb7",
+  "design_content_sha256": "a0c840b1a8c70f28471c64b66ad0e7c86943b627e89f76d11acec2002e3fb0a5",
+  "collection_provenance": {
+    "git_hash": "647c555d6f4b79149d05b4eec157f36054107cbf",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/gd4_controller.log",
+      "logs/gd4_gen_N-vary-s1008-r4.log",
+      "logs/gd4_startup.log",
+      "logs/gd4_stdout.log"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "record": {
+    "run_id": "N-vary-s1008-r4",
+    "group": "N",
+    "split": "train",
+    "profile": "normal_varying",
+    "load_mbps_per_client": null,
+    "load_schedule": [
+      [
+        0,
+        1.0
+      ],
+      [
+        10,
+        3.0
+      ],
+      [
+        20,
+        2.0
+      ],
+      [
+        30,
+        5.0
+      ],
+      [
+        40,
+        1.0
+      ],
+      [
+        50,
+        4.0
+      ]
+    ],
+    "fault": null,
+    "fault_target": null,
+    "seed": 1008,
+    "t_inject": null,
+    "t_revert": null,
+    "duration_sec": 60,
+    "expected_links": [],
+    "exec_index": 0,
+    "fault_parameters": {}
+  },
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "traffic_plan": {
+    "mode": "varying",
+    "schedule_nominal": [
+      [
+        0,
+        1.0
+      ],
+      [
+        10,
+        3.0
+      ],
+      [
+        20,
+        2.0
+      ],
+      [
+        30,
+        5.0
+      ],
+      [
+        40,
+        1.0
+      ],
+      [
+        50,
+        4.0
+      ]
+    ],
+    "schedule_with_preroll": [
+      [
+        0,
+        1.0
+      ],
+      [
+        5,
+        1.0
+      ],
+      [
+        15,
+        3.0
+      ],
+      [
+        25,
+        2.0
+      ],
+      [
+        35,
+        5.0
+      ],
+      [
+        45,
+        1.0
+      ],
+      [
+        55,
+        4.0
+      ]
+    ],
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 10.562792051000088,
+    "reset_steady_ok": true,
+    "reset_wait_s": 6.461697830000048,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.09500618934631347,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4278,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 0.06445243699999992,
+      "kill_iperf": 0.39613105400007953,
+      "restore_links": 0.19667335700000876,
+      "flush_arp": 0.008089840000138793,
+      "reset_cache": 1.3172000080885482e-05,
+      "start_traffic": 2.6048040829998627,
+      "steady_wait": 6.461697830000048,
+      "health_gate": 0.21081074300013825,
+      "refresh_twin": 0.3974411520000558,
+      "data_fresh_wait": 0.21308371000009174
+    }
+  },
+  "events": [],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 472,
+    "qdisc_invalid_ok": true,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 472,
+    "rate_invalid_ok": true,
+    "links_down_in_normal_run": [],
+    "no_unexpected_down": true,
+    "events_complete": true,
+    "passed": true,
+    "failed_gates": [],
+    "client_traffic_threshold_mbps": 0.5,
+    "client_traffic_min_fraction": 0.9,
+    "client_traffic": {
+      "h1": {
+        "n_ticks": 59,
+        "frac_ok": 1.0,
+        "min_mbps": 1.0718,
+        "median_mbps": 3.217
+      },
+      "h2": {
+        "n_ticks": 59,
+        "frac_ok": 1.0,
+        "min_mbps": 1.0717,
+        "median_mbps": 3.2198
+      },
+      "h3": {
+        "n_ticks": 59,
+        "frac_ok": 1.0,
+        "min_mbps": 0.8105,
+        "median_mbps": 4.275
+      }
+    },
+    "client_traffic_ok": true,
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-10-16T03:37:06Z",
+  "finished_utc": "2026-10-16T03:38:24Z",
+  "status": "ok",
+  "campaign": "gd4"
+}

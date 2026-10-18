@@ -1,0 +1,654 @@
+{
+  "design_locked": true,
+  "status": "planned_not_collected",
+  "routing_table_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044",
+  "topology_spec_sha256": "be3534b9ea25805e8cb39e8f5ad6032645906c1eadef7a25fd04e22b66b4a946",
+  "constants": {
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20260915
+  },
+  "provenance": {
+    "git_hash": "5518cca1492ef84e6b0418433ebcde01aa544797",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "logs/command_flow.log",
+      "mininet/traffic.py",
+      "results/report/feature_audit.csv",
+      "rl/scenarios.py",
+      "docs/phase-5/03-experiment-matrix.generated.md",
+      "logs/build_matrix.log",
+      "logs/phase53_pytest.log",
+      "ml/design.py",
+      "results/report/experiment_matrix.json",
+      "results/report/phase53_pytest.xml",
+      "scripts/build_matrix.py",
+      "test/test_ml_design.py"
+    ]
+  },
+  "n_runs": 18,
+  "execution_order": [
+    "F-shift-s1-s2-s3007-r1",
+    "F-degrade-s1-s2-s3003-r1",
+    "F-degrade-s2-s3-s3004-r1",
+    "N-vary-s1007-r1",
+    "N-load4M-s1005-r1",
+    "C-vary-s2002-r1",
+    "F-admin_down-s1-s2-s3001-r1",
+    "F-flood-h2_to_srv2-s3006-r1",
+    "F-flood-h1_to_srv1-s3005-r1",
+    "F-shift-s1-s3-s3008-r1",
+    "N-load1M-s1001-r1",
+    "N-vary-s1008-r2",
+    "F-admin_down-s1-s3-s3002-r1",
+    "N-load4M-s1006-r2",
+    "N-load1M-s1002-r2",
+    "N-load2M-s1004-r2",
+    "N-load2M-s1003-r1",
+    "C-load2M-s2001-r1"
+  ],
+  "split": {
+    "train": [
+      "N-load1M-s1001-r1",
+      "N-load1M-s1002-r2",
+      "N-load2M-s1003-r1",
+      "N-load2M-s1004-r2",
+      "N-load4M-s1005-r1",
+      "N-load4M-s1006-r2",
+      "N-vary-s1007-r1",
+      "N-vary-s1008-r2"
+    ],
+    "test": [
+      "C-load2M-s2001-r1",
+      "C-vary-s2002-r1",
+      "F-admin_down-s1-s2-s3001-r1",
+      "F-admin_down-s1-s3-s3002-r1",
+      "F-degrade-s1-s2-s3003-r1",
+      "F-degrade-s2-s3-s3004-r1",
+      "F-flood-h1_to_srv1-s3005-r1",
+      "F-flood-h2_to_srv2-s3006-r1",
+      "F-shift-s1-s2-s3007-r1",
+      "F-shift-s1-s3-s3008-r1"
+    ]
+  },
+  "expected_base_rate_test": 0.2712,
+  "link_coverage": {
+    "h1-s1": {
+      "covered": true,
+      "flows": [
+        "h1->srv1"
+      ]
+    },
+    "h2-s1": {
+      "covered": true,
+      "flows": [
+        "h2->srv2"
+      ]
+    },
+    "h3-s1": {
+      "covered": true,
+      "flows": [
+        "h3->srv1"
+      ]
+    },
+    "s1-s2": {
+      "covered": true,
+      "flows": [
+        "h1->srv1",
+        "h3->srv1"
+      ]
+    },
+    "s1-s3": {
+      "covered": true,
+      "flows": [
+        "h2->srv2"
+      ]
+    },
+    "s2-s3": {
+      "covered": true,
+      "flows": [
+        "srv1->srv2"
+      ]
+    },
+    "s2-srv1": {
+      "covered": true,
+      "flows": [
+        "h1->srv1",
+        "h3->srv1",
+        "srv1->srv2"
+      ]
+    },
+    "s3-srv2": {
+      "covered": true,
+      "flows": [
+        "h2->srv2",
+        "srv1->srv2"
+      ]
+    }
+  },
+  "validation": {
+    "n_runs": 18,
+    "run_specs_valid": true,
+    "all_links_covered": true,
+    "routes_match_committed_table": true,
+    "n_runs_ge_10": true,
+    "run_id_unique": true,
+    "seed_unique": true,
+    "no_run_in_both_splits": true,
+    "n_normal_load_levels": 3,
+    "load_levels_ge_3": true,
+    "has_varying_load_profile": true,
+    "n_fault_types": 4,
+    "fault_types_ge_3": true,
+    "no_fault_in_train": true,
+    "test_has_normal_control": true,
+    "every_normal_config_has_2_seeds": true,
+    "expected_base_rate": 0.2712,
+    "base_rate_in_10_40_pct": true,
+    "dumb_always_normal_accuracy": 0.7288,
+    "fault_target_covers_links": [
+      "h1->srv1",
+      "h2->srv2",
+      "s1-s2",
+      "s1-s3",
+      "s2-s3"
+    ],
+    "all_pass": true
+  },
+  "runs": [
+    {
+      "run_id": "N-load1M-s1001-r1",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 1.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1001,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 10,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-load1M-s1002-r2",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 1.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1002,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 14,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-load2M-s1003-r1",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1003,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 16,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-load2M-s1004-r2",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1004,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 15,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-load4M-s1005-r1",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 4.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1005,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 4,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-load4M-s1006-r2",
+      "group": "N",
+      "split": "train",
+      "profile": "normal",
+      "load_mbps_per_client": 4.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 1006,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 13,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-vary-s1007-r1",
+      "group": "N",
+      "split": "train",
+      "profile": "normal_varying",
+      "load_mbps_per_client": null,
+      "load_schedule": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "fault": null,
+      "fault_target": null,
+      "seed": 1007,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 3,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "N-vary-s1008-r2",
+      "group": "N",
+      "split": "train",
+      "profile": "normal_varying",
+      "load_mbps_per_client": null,
+      "load_schedule": [
+        [
+          0,
+          1.0
+        ],
+        [
+          10,
+          3.0
+        ],
+        [
+          20,
+          2.0
+        ],
+        [
+          30,
+          5.0
+        ],
+        [
+          40,
+          1.0
+        ],
+        [
+          50,
+          4.0
+        ]
+      ],
+      "fault": null,
+      "fault_target": null,
+      "seed": 1008,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 11,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "C-load2M-s2001-r1",
+      "group": "C",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": null,
+      "fault_target": null,
+      "seed": 2001,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 17,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "C-vary-s2002-r1",
+      "group": "C",
+      "split": "test",
+      "profile": "normal_varying",
+      "load_mbps_per_client": null,
+      "load_schedule": [
+        [
+          0,
+          4.0
+        ],
+        [
+          10,
+          1.0
+        ],
+        [
+          20,
+          5.0
+        ],
+        [
+          30,
+          2.0
+        ],
+        [
+          40,
+          3.0
+        ],
+        [
+          50,
+          1.0
+        ]
+      ],
+      "fault": null,
+      "fault_target": null,
+      "seed": 2002,
+      "t_inject": null,
+      "t_revert": null,
+      "duration_sec": 60,
+      "expected_links": [],
+      "exec_index": 5,
+      "fault_parameters": {}
+    },
+    {
+      "run_id": "F-admin_down-s1-s2-s3001-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "admin_down",
+      "fault_target": "s1-s2",
+      "seed": 3001,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "exec_index": 6,
+      "fault_parameters": {
+        "link_key": "s1-s2"
+      }
+    },
+    {
+      "run_id": "F-admin_down-s1-s3-s3002-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "admin_down",
+      "fault_target": "s1-s3",
+      "seed": 3002,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h2-s1",
+        "s1-s3",
+        "s3-srv2"
+      ],
+      "exec_index": 12,
+      "fault_parameters": {
+        "link_key": "s1-s3"
+      }
+    },
+    {
+      "run_id": "F-degrade-s1-s2-s3003-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s1-s2",
+      "seed": 3003,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "exec_index": 1,
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.8274722320107196,
+        "delay": "2ms",
+        "baseline": 20.0
+      }
+    },
+    {
+      "run_id": "F-degrade-s2-s3-s3004-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "degrade",
+      "fault_target": "s2-s3",
+      "seed": 3004,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "exec_index": 2,
+      "fault_parameters": {
+        "link_key": "s2-s3",
+        "factor": 0.82029833678748,
+        "delay": "2ms",
+        "baseline": 5.0
+      }
+    },
+    {
+      "run_id": "F-flood-h1_to_srv1-s3005-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "flood",
+      "fault_target": "h1->srv1",
+      "seed": 3005,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "s1-s2",
+        "s2-srv1"
+      ],
+      "exec_index": 8,
+      "fault_parameters": {
+        "src": "h1",
+        "dst": "srv1",
+        "rate_mbps": 47
+      }
+    },
+    {
+      "run_id": "F-flood-h2_to_srv2-s3006-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "flood",
+      "fault_target": "h2->srv2",
+      "seed": 3006,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h2-s1",
+        "s1-s3",
+        "s3-srv2"
+      ],
+      "exec_index": 7,
+      "fault_parameters": {
+        "src": "h2",
+        "dst": "srv2",
+        "rate_mbps": 34
+      }
+    },
+    {
+      "run_id": "F-shift-s1-s2-s3007-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "shift",
+      "fault_target": "s1-s2",
+      "seed": 3007,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h1-s1",
+        "h3-s1",
+        "s1-s2",
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "exec_index": 0,
+      "fault_parameters": {
+        "link_key": "s1-s2",
+        "factor": 0.8735327491524845,
+        "delay": "2ms",
+        "baseline": 20.0,
+        "flood_src": "srv1",
+        "flood_dst": "srv2",
+        "rate_mbps": 23
+      }
+    },
+    {
+      "run_id": "F-shift-s1-s3-s3008-r1",
+      "group": "F",
+      "split": "test",
+      "profile": "normal",
+      "load_mbps_per_client": 2.0,
+      "load_schedule": null,
+      "fault": "shift",
+      "fault_target": "s1-s3",
+      "seed": 3008,
+      "t_inject": 20.0,
+      "t_revert": 40.0,
+      "duration_sec": 60,
+      "expected_links": [
+        "h2-s1",
+        "s1-s3",
+        "s2-s3",
+        "s2-srv1",
+        "s3-srv2"
+      ],
+      "exec_index": 9,
+      "fault_parameters": {
+        "link_key": "s1-s3",
+        "factor": 0.9199889245291656,
+        "delay": "2ms",
+        "baseline": 20.0,
+        "flood_src": "srv1",
+        "flood_dst": "srv2",
+        "rate_mbps": 20
+      }
+    }
+  ],
+  "example_snapshot_metadata": {
+    "run_id": "F-shift-s1-s3-s3008-r1",
+    "group": "F",
+    "split": "test",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "shift",
+    "fault_target": "s1-s3",
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "seed": 3008,
+    "exec_index": 9,
+    "period_sec": 1.0,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "duration_sec": 60,
+    "collector_version": "v3-qdisc-ratevalid",
+    "git_hash": "5518cca1492ef84e6b0418433ebcde01aa544797",
+    "git_dirty": true
+  },
+  "notes": [
+    "Fault CHỈ có ở tập test: unsupervised anomaly detection phải học \"bình thường\" từ dữ liệu bình thường.",
+    "Tập test có 2 run normal đối chứng, nếu không thì KHÔNG đo được FPR.",
+    "Thứ tự chạy ngẫu nhiên hóa để khử nhiễu trôi theo thời gian của máy.",
+    "Nền của mọi run fault là normal TCP 2 Mbps -> nền giữ giống với đối chứng; flood/shift vẫn thêm UDP nên không tách riêng tác động protocol và load.",
+    "link dự kiến đổi tính TỪ bảng định tuyến tĩnh, không phải phỏng đoán; Lesson 5.5 sẽ đối chiếu thực tế với dự đoán này.",
+    "Expected links are routing-based hypotheses, not guaranteed measured effect or detection coverage. Independent experimental units are runs/events, not 160 independent fault ticks."
+  ],
+  "design_content_sha256": "80b94fb9a53e2341562641cc737cf0dc1a720c203b18d6168a2b58baca1d640c",
+  "provenance_scope": "design-generation working tree; collection must record its own committed source and dirty state"
+}

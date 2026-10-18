@@ -1,0 +1,56 @@
+{
+  "kind": "sensor_probe_not_dataset",
+  "args": {
+    "link": "s1-s2",
+    "factor": 0.8274722320107196,
+    "duration": 80,
+    "inject": 20,
+    "revert": 60,
+    "warmup": 15,
+    "out": "results/probe",
+    "offload": "on"
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.023229987999912,
+      "new_bw_mbps": 3.4505553597856076
+    },
+    {
+      "kind": "revert",
+      "tick": 60,
+      "t_rel": 60.05973014699998
+    }
+  ],
+  "n_samples": 81,
+  "git_hash": "f54d8503e829df4817c28ca5e67923a1410d013d",
+  "kernel": "6.8.0-1066-gcp",
+  "tc_version": "tc utility, iproute2-5.15.0, libbpf 0.5.0",
+  "python": "3.10.12",
+  "collector_unchanged": true,
+  "python_executable": "/usr/bin/python3",
+  "env_DT4N_PORT_MAP": "/home/ubuntu/dt4n-core/ditto/port_map.json",
+  "port_map_sha256": "d8f336e2fb153622d89833a8599c5114cb5a37a0603d2dace1ced26cb69b60e8",
+  "offload_requested": "on",
+  "offload_errors": [],
+  "offload_observed": {
+    "h1-eth0": [
+      "generic-receive-offload: off",
+      "generic-segmentation-offload: on",
+      "tcp-segmentation-offload: on"
+    ],
+    "s1-eth1": [
+      "generic-receive-offload: off",
+      "generic-segmentation-offload: on",
+      "tcp-segmentation-offload: on"
+    ],
+    "s2-eth1": [
+      "generic-receive-offload: off",
+      "generic-segmentation-offload: on",
+      "tcp-segmentation-offload: on"
+    ]
+  },
+  "traffic": "normal 2M/client TCP + srv1->srv2 UDP 2M, giong Phase 5",
+  "written_at_utc": "2026-09-17T07:47:14+00:00"
+}

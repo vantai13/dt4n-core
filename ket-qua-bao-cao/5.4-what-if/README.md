@@ -1,4 +1,4 @@
-# 5.4 Phân tích what-if (MT2)
+# 5.4 Phân tích what-if
 
 What-if là mô hình giải tích (cộng tải theo đường đi, so với dung lượng link), không học từ dữ liệu.
 
@@ -9,6 +9,10 @@ What-if là mô hình giải tích (cộng tải theo đường đi, so với du
 | `kiem-hoi-cuu.json` | kiểm hồi cứu trên 10 run kiểm tra: trong vùng hợp lệ 62 chiều link, sai số tải trung vị 0,009 Mbps, lớn nhất 0,10 Mbps; ngoài vùng 18 chiều, lớn nhất 1,73 Mbps; sai số mất gói | `results/report/gd3_whatif_validation.json` |
 | `kiem-mu-du-doan.json` | dự đoán của phép kiểm mù, đã commit vào git trước khi đo | `results/gd3/blind_predictions.json` |
 | `kiem-mu-ket-qua.json` | chấm 10 dự đoán của hai tình huống chưa từng chạy: 10/10 trong ngưỡng; Bảng 5.6 sinh tự động từ tệp này | `results/gd3/blind_result.json` |
+| `kiem-hoi-cuu-bang-tung-run.txt` | bảng đầy đủ của phép kiểm hồi cứu, từng run và từng chiều link, kèm bảng tổng kết cuối tệp | `results/gd3/validate.txt` |
+
+Phép kiểm hồi cứu chạy trên mười run kiểm tra của tập phát triển. Dữ liệu thô của chúng nằm ở
+[`../5.3-phat-hien-bat-thuong/du-lieu/tap-phat-trien/`](../5.3-phat-hien-bat-thuong/du-lieu/tap-phat-trien/).
 
 ## Đọc tệp
 
@@ -22,6 +26,17 @@ What-if là mô hình giải tích (cộng tải theo đường đi, so với du
 | `kiem-mu-ket-qua.json` | `predictions_sha256`, `predictions_commit` | ràng buộc kết quả với đúng tệp dự đoán đã commit trước khi đo |
 | | `cases.<tình huống>.items[]` | từng dự đoán: `pred` dự đoán, `meas` đo được, `tol` ngưỡng, `verdict` |
 | | `summary` | `pass` 10 / `n` 10 |
+
+## Hình
+
+![Kiểm mù what-if](hinh/whatif-du-doan-vs-do.png)
+
+`hinh/whatif-du-doan-vs-do` (Hình 5.3 của báo cáo) đặt tải dự đoán ghi trước (trục ngang) cạnh tải
+đo được (trục dọc) cho 7 dự đoán tải của phép kiểm mù. Điểm nằm trên đường chéo là dự đoán đúng
+bằng số đo. Ô vuông là dự đoán đối chứng cho link không liên quan, nơi mô hình phải đoán là tải
+không đổi. Dự đoán mất gói và thời điểm bắt đầu mất gói khác đơn vị nên chỉ có trong bảng kiểm mù.
+
+Vẽ lại bằng `ve_hinh.sh` (offline, vài giây). Script vẽ là `hinh/ve_hinh.py`.
 
 ## Chạy lại
 

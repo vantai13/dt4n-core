@@ -1,0 +1,268 @@
+{
+  "run_id": "RC-shift-s1-s2-s5203-r1",
+  "sha256": "41300eab0ef6eb584f7bf1eba2b4cef3b63e92ad20c2c264e7feb6a841758f2c",
+  "design_content_sha256": "5cb3bbf2852e1f51a294ee873cf985a3820a11acce2876fb3c30e345050982fc",
+  "collection_provenance": {
+    "git_hash": "4e19e89d905a4a7f40f960c073a65aa2bdf29705",
+    "git_dirty": true,
+    "git_dirty_files": [
+      "data/phase5/gd4r/",
+      "logs/gd4r_RC-shift-s1-s2-s5203-r1.log",
+      "logs/gd4r_RC-shift-s1-s3-s5204-r1.log",
+      "logs/gd4r_RD-degrade-s1-s2-rho050-s5105-r1.log",
+      "logs/gd4r_RD-degrade-s1-s2-rho080-s5104-r1.log",
+      "logs/gd4r_RD-degrade-s1-s2-rho125-s5103-r1.log",
+      "logs/gd4r_RD-degrade-s1-s2-rho200-s5101-r1.log",
+      "logs/gd4r_RD-degrade-s2-s3-rho050-s5110-r1.log",
+      "logs/gd4r_RD-degrade-s2-s3-rho080-s5109-r1.log",
+      "logs/gd4r_RD-degrade-s2-s3-rho125-s5108-r1.log",
+      "logs/gd4r_RD-degrade-s2-s3-rho150-s5107-r1.log",
+      "logs/gd4r_RD-degrade-s2-s3-rho200-s5106-r1.log",
+      "logs/gd4r_RN-load10M-s5016-r2.log",
+      "logs/gd4r_RN-load6M-s5011-r1.log",
+      "logs/gd4r_RN-load6M-s5012-r2.log",
+      "logs/gd4r_RN-load8M-s5013-r1.log",
+      "logs/gd4r_RO-ctl_admin_down-s1-s2-s5301-r1.log",
+      "logs/gd4r_RO-ctl_admin_down-s1-s2-s5302-r2.log",
+      "logs/gd4r_RS-soak2M-s5001-r1.log",
+      "logs/gd4r_controller.log",
+      "logs/gd4r_startup.log",
+      "logs/gd4r_stdout.log",
+      "results/report/gd4r_manifest.json"
+    ],
+    "source_dirty_files": [],
+    "source_dirty": false
+  },
+  "record": {
+    "run_id": "RC-shift-s1-s2-s5203-r1",
+    "group": "RC",
+    "split": "r_set",
+    "role": "HIEU CHINH",
+    "profile": "normal",
+    "load_mbps_per_client": 2.0,
+    "load_schedule": null,
+    "fault": "shift",
+    "fault_target": "s1-s2",
+    "seed": 5203,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "duration_sec": 60,
+    "expected_links": [
+      "h1-s1",
+      "h3-s1",
+      "s1-s2",
+      "s2-s3",
+      "s2-srv1",
+      "s3-srv2"
+    ],
+    "fault_parameters": {
+      "link_key": "s1-s2",
+      "factor": 0.8840558577139576,
+      "delay": "2ms",
+      "baseline": 20.0,
+      "flood_src": "srv1",
+      "flood_dst": "srv2",
+      "rate_mbps": 22
+    },
+    "intervention": {
+      "actor": "harness",
+      "log_inject": false,
+      "log_revert": true
+    },
+    "exec_index": 18
+  },
+  "constants": {
+    "campaign_id": "DT4N-GD4-RCAMPAIGN",
+    "duration_sec": 60,
+    "pre_roll_sec": 5,
+    "warmup_ticks": 1,
+    "period_sec": 1.0,
+    "t_inject": 20.0,
+    "t_revert": 40.0,
+    "collector_version": "v3-qdisc-ratevalid",
+    "exec_order_seed": 20261016,
+    "soak_duration_sec": 3600
+  },
+  "traffic_plan": {
+    "mode": "fixed",
+    "normal_rate": "2M",
+    "iperf_seconds": 75,
+    "server_bg_rate": 2.0
+  },
+  "reset_info": {
+    "reset_mode": "soft",
+    "reset_total_s": 9.410872131999895,
+    "reset_steady_ok": true,
+    "reset_wait_s": 5.634600908999801,
+    "reset_fresh_push_ok": true,
+    "reset_fresh_push_ok_n": 16,
+    "reset_fresh_push_total": 16,
+    "reset_fresh_ok": true,
+    "reset_aoi_norm": 0.05738755226135254,
+    "reset_dirty": false,
+    "iperf_count": 7,
+    "iperf_baseline": 7,
+    "iperf_leaked": false,
+    "health": {
+      "throughput_norm": 0.4287,
+      "attempts": 0,
+      "recovered_by_hard_reset": false
+    },
+    "active_scenarios": [],
+    "timings": {
+      "revert_scenarios": 0.06514840399995592,
+      "kill_iperf": 0.38082367200013323,
+      "restore_links": 0.20315178000009837,
+      "flush_arp": 0.008178234999832057,
+      "reset_cache": 1.0612999631121056e-05,
+      "start_traffic": 2.6060729040000297,
+      "steady_wait": 5.634600908999801,
+      "health_gate": 0.10976469400020505,
+      "refresh_twin": 0.2940066979999756,
+      "data_fresh_wait": 0.10164822600017942
+    }
+  },
+  "events": [
+    {
+      "kind": "inject",
+      "tick": 20,
+      "t_rel": 20.155591,
+      "t_source": 1792123619.0023558,
+      "completed_t_rel": 20.519778,
+      "apply_ms": 364.2,
+      "scenario": {
+        "type": "CongestionShift",
+        "degrade_link": "s1-s2",
+        "factor": 0.8840558577139576,
+        "delay": "2ms",
+        "baseline": 20.0,
+        "flood_src": "srv1",
+        "flood_dst": "srv2",
+        "rate_mbps": 22
+      }
+    },
+    {
+      "kind": "revert",
+      "tick": 40,
+      "t_rel": 40.156613,
+      "t_source": 1792123638.6966784,
+      "completed_t_rel": 40.213804,
+      "apply_ms": 57.2
+    }
+  ],
+  "checks": {
+    "n_snapshots": 60,
+    "expected_ticks": 60,
+    "embedded_ticks_ok": true,
+    "tick_count_ok": true,
+    "run_id_uniform": true,
+    "collector_version": [
+      "v3-qdisc-ratevalid"
+    ],
+    "collector_version_uniform": true,
+    "t_rel_monotonic": true,
+    "baseline_link_presence_ok": true,
+    "qdisc_invalid_fraction_baseline": 0.0,
+    "qdisc_samples_baseline": 160,
+    "qdisc_invalid_ok": true,
+    "qdisc_invalid_fraction_fault": 0.0063,
+    "rate_invalid_fraction_baseline": 0.0,
+    "rate_samples_baseline": 160,
+    "rate_invalid_ok": true,
+    "rate_invalid_fraction_fault": 0.0,
+    "events_complete": true,
+    "event_ticks_ok": true,
+    "inject_t_rel": 20.155591,
+    "revert_t_rel": 40.156613,
+    "inject_on_time": true,
+    "revert_on_time": true,
+    "per_link": {
+      "link-h1-s1": {
+        "rxRate": 0.395,
+        "txRate": 6.617,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-h3-s1": {
+        "rxRate": 0.404,
+        "txRate": 6.945,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s1-s2": {
+        "rxRate": 0.798,
+        "txRate": 25.271,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      },
+      "link-s2-s3": {
+        "rxRate": 0.0,
+        "txRate": 35.528,
+        "lossPct": 749.597,
+        "state_up": 0.0
+      },
+      "link-s2-srv1": {
+        "rxRate": 221.842,
+        "txRate": 25.241,
+        "lossPct": 113.376,
+        "state_up": 0.0
+      },
+      "link-s3-srv2": {
+        "rxRate": 0.02,
+        "txRate": 35.545,
+        "lossPct": 0.0,
+        "state_up": 0.0
+      }
+    },
+    "max_separation": 749.597,
+    "signal_present": true,
+    "passed": true,
+    "failed_gates": [],
+    "runtime_error_count": 0,
+    "runtime_log_ok": true
+  },
+  "label_convention": "point-wise; label[t]=1 iff inject_tick < t <= revert_tick; grace=2 ticks",
+  "started_utc": "2026-10-16T04:06:21Z",
+  "finished_utc": "2026-10-16T04:07:38Z",
+  "status": "ok",
+  "campaign": "gd4r",
+  "interventions": [
+    {
+      "id": "RC-shift-s1-s2-s5203-r1:revert",
+      "t_start": 1792123638.6392581,
+      "tick": 40,
+      "actor": "harness",
+      "action": "revert:shift",
+      "targets": {
+        "links": [
+          "s1-s2"
+        ],
+        "flows": [
+          [
+            "srv1",
+            "srv2"
+          ]
+        ]
+      },
+      "blast_radius": [
+        "host-h1",
+        "host-h2",
+        "host-h3",
+        "host-srv1",
+        "host-srv2",
+        "link-h1-s1",
+        "link-h2-s1",
+        "link-h3-s1",
+        "link-s1-s2",
+        "link-s1-s3",
+        "link-s2-s3",
+        "link-s2-srv1",
+        "link-s3-srv2",
+        "switch-s1",
+        "switch-s2",
+        "switch-s3"
+      ],
+      "routing_sha256": "284590782efb80d2baf969e29093b529e31e98638769b9e04077b691005c4044"
+    }
+  ]
+}

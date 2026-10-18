@@ -10,3 +10,4 @@ PY=.venv/bin/python
 export PYTHONPATH=$PWD
 "$PY" scripts/tai_lap_bao_cao.py
 "$PY" scripts/dong_bo_ket_qua_bao_cao.py --check
+"$PY" scripts/xuat_csv_du_lieu.py --check

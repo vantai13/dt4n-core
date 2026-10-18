@@ -3,111 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DT4N · Thử trước khi làm</title>
+<title>DT4N · Thử trước khi làm (what-if)</title>
 <style>
-  :root { --ink:#1d2433; --muted:#5b6475; --line:#d9dee7; --bg:#f6f7f9; --card:#fff;
-          --ok:#2e7d32; --warm:#e0a106; --hot:#c62828; --off:#9aa3b2; --accent:#1f5fbf; }
+  /* Màu lấy từ dashboard (dashboard/src), giữ tiết chế: ít phát sáng, chữ thường. */
+  :root { --bg:#0f172a; --panel:#1e293b; --line:#334155; --ink:#e2e8f0; --muted:#94a3b8;
+          --dim:#64748b; --cyan:#00F7F7; --host:#0ea5e9; --switch:#f97316;
+          --ok:#22d3ee; --warm:#f97316; --hot:#ef4444; --off:#475569; --input:#020617; }
   * { box-sizing: border-box; }
-  body { margin:0; font:14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-         color:var(--ink); background:var(--bg); }
-  header { padding:14px 20px; background:var(--card); border-bottom:1px solid var(--line); }
-  header h1 { margin:0; font-size:18px; }
-  header p { margin:2px 0 0; color:var(--muted); }
-  main { display:grid; grid-template-columns: 340px 1fr; gap:16px; padding:16px 20px; }
-  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; }
-  .card h2 { margin:0 0 10px; font-size:15px; }
-  label { display:block; margin:6px 0 2px; color:var(--muted); font-size:12px; }
-  select, input[type=number] { width:100%; padding:5px 6px; border:1px solid var(--line);
-         border-radius:5px; font:inherit; background:#fff; }
-  .row { display:flex; gap:6px; align-items:end; }
-  .row > * { flex:1; }
-  .check { display:flex; gap:6px; align-items:center; margin:8px 0 0; color:var(--ink); font-size:13px; }
-  button { font:inherit; border-radius:6px; padding:6px 10px; cursor:pointer;
-           border:1px solid var(--line); background:#fff; }
-  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); width:100%;
-                   margin-top:12px; padding:8px; font-weight:600; }
-  button.x { flex:0 0 auto; padding:4px 8px; color:var(--hot); }
-  .action { border:1px dashed var(--line); border-radius:6px; padding:8px; margin-top:8px; }
-  .action .title { font-weight:600; display:flex; justify-content:space-between; align-items:center; }
-  .banner { padding:8px 10px; border-radius:6px; background:#eef3fb; color:#244a87; margin-bottom:12px; }
-  .warn { background:#fff6e0; color:#7a5300; border-radius:6px; padding:8px 10px; margin:0 0 12px; }
-  .warn li { margin:2px 0; }
-  .error { background:#fdecec; color:#8a1c1c; border-radius:6px; padding:8px 10px; margin-bottom:12px; }
-  .topos { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
-  @media (max-width: 1100px) { .topos { grid-template-columns: 1fr; } }
-  .topo h3 { margin:0 0 4px; font-size:13px; color:var(--muted); font-weight:600; }
-  svg { width:100%; height:auto; background:#fbfcfd; border:1px solid var(--line); border-radius:6px; }
-  svg text { font-size:11px; paint-order:stroke; stroke:#fbfcfd; stroke-width:3px; }
-  svg .node circle { fill:#fff; stroke:var(--ink); stroke-width:1.5; }
-  svg .node text { font-weight:600; stroke:none; }
-  .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:8px 0 14px; }
-  .legend i { display:inline-block; width:18px; height:4px; vertical-align:middle; margin-right:4px; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--muted);
+               font:14px/1.5 Arial, sans-serif; }
+  .app { display:flex; flex-direction:column; min-height:100vh; }
+  .app-header { display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+                padding:16px 24px; border-bottom:1px solid var(--line); }
+  .brand { color:var(--cyan); font-size:1.15rem; font-weight:700; }
+  .sub { color:var(--dim); font-size:0.85rem; }
+  .main { display:grid; grid-template-columns:minmax(0,1fr) 340px; flex:1; min-height:0; }
+  @media (max-width: 1000px) { .main { grid-template-columns:1fr; } }
+  .results { min-width:0; padding:20px 24px; }
+  .side { background:var(--panel); border-left:1px solid var(--line); padding:20px; }
+  h2 { color:var(--ink); font-size:1rem; margin:0 0 12px; }
+  .group { padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid var(--line); }
+  .group h3 { color:var(--cyan); font-size:0.9rem; margin:0 0 6px; }
+  label { display:block; margin:10px 0 4px; color:var(--muted); font-size:0.82rem; }
+  select, input[type=number] { width:100%; min-width:0; background:var(--input); border:1px solid var(--line);
+         border-radius:6px; color:var(--ink); padding:7px 9px; font:inherit; }
+  select:focus, input:focus { outline:none; border-color:var(--host); }
+  .row { display:flex; gap:8px; align-items:end; }
+  .row > * { flex:1; min-width:0; }
+  .check { display:flex; gap:8px; align-items:flex-start; margin:10px 0 0; color:var(--muted); font-size:0.85rem; }
+  .check input { margin-top:3px; accent-color:var(--host); }
+  button { font:inherit; border-radius:6px; cursor:pointer; }
+  .btn-add { flex:0 0 auto; background:transparent; color:var(--ink); border:1px solid var(--line); padding:7px 12px; }
+  .btn-add:hover { border-color:var(--muted); }
+  .btn-ask { width:100%; border:none; padding:10px; background:var(--host); color:#fff; font-weight:700; }
+  .btn-ask:hover { background:#0284c7; }
+  button.x { flex:0 0 auto; background:transparent; border:none; color:var(--dim); padding:0 2px; font-size:0.8rem; }
+  button.x:hover { color:#fca5a5; }
+  .action { background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:8px 10px; margin-top:8px; }
+  .action .title { color:var(--ink); font-size:0.88rem; display:flex; justify-content:space-between; align-items:center; }
+  .action label { margin-top:6px; }
+  .empty { color:var(--dim); font-size:0.85rem; margin-top:8px; }
+  .meta { color:var(--muted); font-size:0.85rem; margin:0 0 14px; }
+  .warn { border-left:3px solid #f59e0b; background:#1f1a0b; color:#fcd34d; padding:8px 12px;
+          margin:0 0 14px; font-size:0.85rem; }
+  .warn ul { margin:4px 0 0; padding-left:18px; }
+  .error { border-left:3px solid var(--hot); background:#2a1414; color:#fca5a5; padding:8px 12px; margin-bottom:14px; }
+  .placeholder { color:var(--dim); padding:48px 0; text-align:center; }
+  .topos { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width: 1300px) { .topos { grid-template-columns:1fr; } }
+  .topo h3 { color:var(--muted); font-size:0.85rem; font-weight:700; margin:0 0 6px; }
+  .diagram { border:1px solid var(--line); border-radius:8px; background:#0b1222; }
+  svg { display:block; width:100%; height:auto; }
+  svg text { font-size:11px; fill:var(--muted); paint-order:stroke; stroke:#0b1222; stroke-width:3px; }
+  svg .node circle { fill:#0b1222; stroke-width:2; }
+  svg .node.host circle { stroke:var(--host); }
+  svg .node.switch circle { stroke:var(--switch); }
+  svg .node text { font-size:12px; fill:var(--ink); }
+  .legend { display:flex; gap:16px; flex-wrap:wrap; font-size:0.8rem; margin:10px 0 4px; }
+  .legend i { display:inline-block; width:18px; height:3px; vertical-align:middle; margin-right:6px; }
+  .hint { color:var(--dim); font-size:0.8rem; margin:0 0 16px; }
   table { border-collapse:collapse; width:100%; }
-  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); font-variant-numeric: tabular-nums; }
-  th { color:var(--muted); font-weight:600; font-size:12px; }
-  td.flag { color:var(--muted); }
-  .tag { display:inline-block; font-size:11px; padding:1px 6px; border-radius:10px; margin-left:4px; }
-  .tag.flag { background:#fff0d6; color:#7a5300; }
-  .tag.victim { background:#fdecec; color:#8a1c1c; }
-  .tag.dead { background:#eceff3; color:#4b5563; }
-  .muted { color:var(--muted); }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; }
+  th { color:var(--muted); font-weight:400; font-size:0.82rem; }
+  td { color:var(--ink); }
+  td.flag { color:var(--dim); }
+  .tag { font-size:0.75rem; margin-left:8px; }
+  .tag.flag { color:#fbbf24; }
+  .tag.victim { color:#f87171; }
+  .tag.dead { color:var(--dim); }
 </style>
 </head>
 <body>
-<header>
-  <h1>DT4N · Thử trước khi làm (what-if)</h1>
-  <p>Dự đoán trên bản số của mạng. Trang này <strong>không gửi lệnh nào</strong> xuống mạng.</p>
+<div class="app">
+<header class="app-header">
+  <div class="brand">DT4N what-if</div>
+  <div class="sub">Dự đoán trên bản số, không gửi lệnh nào xuống mạng</div>
 </header>
-<main>
-  <section class="card" aria-label="Thiết lập câu hỏi">
-    <h2>1. Đầu vào</h2>
-    <label for="source">Lấy trạng thái từ</label>
-    <select id="source">
-      <option value="twin">Twin đang chạy (Ditto)</option>
-      <option value="snapshot">Snapshot Phase 5 (không cần Ditto)</option>
-    </select>
-    <div id="snapBox" hidden>
-      <div class="row">
-        <div><label for="run">Run</label><select id="run"></select></div>
-        <div style="flex:0 0 70px"><label for="tick">Tick</label>
-          <input id="tick" type="number" min="0" max="59" value="30"></div>
-      </div>
-    </div>
-    <label class="check"><input id="restore" type="checkbox">
-      Coi luồng đã lùi sẽ quay lại mức cấu hình</label>
-    <label class="check"><input id="stale" type="checkbox">
-      Vẫn trả lời khi twin chưa đủ tươi</label>
+<div class="main">
+  <section class="results" aria-live="polite">
+    <h2>Kết quả</h2>
+    <div id="out"><div class="placeholder">Chưa có kết quả. Chọn trạng thái và thay đổi ở cột bên phải, rồi bấm Dự đoán.</div></div>
+  </section>
 
-    <h2 style="margin-top:18px">2. Hành động muốn thử</h2>
-    <div class="row">
-      <select id="newOp" aria-label="Loại hành động">
-        <option value="setBandwidth">Đặt băng thông link</option>
-        <option value="disableLink">Tắt link</option>
-        <option value="enableLink">Bật link</option>
-        <option value="addDemand">Thêm luồng UDP (flood)</option>
+  <aside class="side" aria-label="Thiết lập câu hỏi">
+    <div class="group">
+      <h3>Trạng thái mạng</h3>
+      <label for="source">Lấy từ</label>
+      <select id="source">
+        <option value="twin">Twin đang chạy (Ditto)</option>
+        <option value="snapshot">Dữ liệu đã ghi (không cần Ditto)</option>
       </select>
-      <button id="addBtn" style="flex:0 0 auto">+ Thêm</button>
+      <div id="snapBox" hidden>
+        <div class="row">
+          <div><label for="run">Run</label><select id="run"></select></div>
+          <div style="flex:0 0 72px"><label for="tick">Giây</label>
+            <input id="tick" type="number" min="0" max="59" value="30"></div>
+        </div>
+      </div>
+      <label class="check"><input id="restore" type="checkbox">
+        <span>Coi luồng TCP đã giảm tốc sẽ gửi lại đủ mức cấu hình</span></label>
+      <label class="check"><input id="stale" type="checkbox">
+        <span>Vẫn dự đoán khi dữ liệu twin đã cũ</span></label>
     </div>
-    <div id="actions"></div>
-    <button id="askBtn" class="primary">Dự đoán</button>
-  </section>
 
-  <section class="card" aria-live="polite">
-    <h2>3. Kết quả</h2>
-    <div class="banner">Ô màu theo ρ = tải / dung lượng của chiều nặng hơn. Số có
-      <span class="tag flag">ngoài vùng hợp lệ</span> là luồng TCP đi qua link nghẽn:
-      mô hình không đoán đúng TCP lùi, <strong>đừng dựa vào số đó để chọn</strong>.</div>
-    <div id="out" class="muted">Chọn đầu vào, thêm hành động (hoặc không) rồi bấm “Dự đoán”.</div>
-  </section>
-</main>
+    <div class="group">
+      <h3>Thay đổi muốn thử</h3>
+      <div class="row">
+        <select id="newOp" aria-label="Loại thay đổi">
+          <option value="setBandwidth">Đặt băng thông link</option>
+          <option value="disableLink">Tắt link</option>
+          <option value="enableLink">Bật link</option>
+          <option value="addDemand">Thêm luồng UDP</option>
+        </select>
+        <button id="addBtn" class="btn-add">Thêm</button>
+      </div>
+      <div id="actions"></div>
+      <div id="noAction" class="empty">Chưa có thay đổi nào, kết quả sẽ chỉ là trạng thái hiện tại.</div>
+    </div>
+    <button id="askBtn" class="btn-ask">Dự đoán</button>
+  </aside>
+</div>
+</div>
 
 <script>
 'use strict';
 const LINKS = ['h1-s1','h2-s1','h3-s1','s1-s2','s1-s3','s2-s3','s2-srv1','s3-srv2'];
 const HOSTS = ['h1','h2','h3','srv1','srv2'];
-const POS = { h1:[40,50], h2:[40,140], h3:[40,230], s1:[165,140], s2:[310,60], s3:[310,220],
-              srv1:[460,60], srv2:[460,220] };
+const SWITCHES = new Set(['s1','s2','s3']);
+const POS = { h1:[55,60], h2:[55,160], h3:[55,260], s1:[190,160], s2:[340,75], s3:[340,245],
+              srv1:[485,75], srv2:[485,245] };
 const $ = (id) => document.getElementById(id);
 const el = (tag, attrs = {}, text) => {
   const n = document.createElement(tag);
@@ -121,6 +145,8 @@ const svgEl = (tag, attrs = {}, text) => {
   if (text !== undefined) n.textContent = text;
   return n;
 };
+const TITLE = { 'không làm gì': 'Hiện tại', 'sau hành động': 'Sau thay đổi' };
+const title = (l) => TITLE[l] || l;
 const fmt = (x) => (x === null || x === undefined) ? '–' : Number(x).toFixed(2);
 const short = (name) => name.split('/')[0].replace('->', '→');
 
@@ -131,14 +157,15 @@ function selectOf(options, value) {
   if (value) s.value = value;
   return s;
 }
+function syncEmpty() { $('noAction').hidden = $('actions').children.length > 0; }
 function addAction(op) {
   const box = el('div', { class: 'action' });
   box.dataset.op = op;
   const names = { setBandwidth: 'Đặt băng thông', disableLink: 'Tắt link',
                   enableLink: 'Bật link', addDemand: 'Thêm luồng UDP' };
   const title = el('div', { class: 'title' }, names[op]);
-  const del = el('button', { class: 'x', 'aria-label': 'Bỏ hành động' }, '✕');
-  del.onclick = () => box.remove();
+  const del = el('button', { class: 'x', 'aria-label': 'Bỏ thay đổi này' }, 'bỏ');
+  del.onclick = () => { box.remove(); syncEmpty(); };
   title.appendChild(del);
   box.appendChild(title);
   const row = el('div', { class: 'row' });
@@ -151,6 +178,7 @@ function addAction(op) {
   }
   box.appendChild(row);
   $('actions').appendChild(box);
+  syncEmpty();
 }
 function num(v) { const i = el('input', { type: 'number', min: '0.1', step: '0.1' }); i.value = v; return i; }
 function wrap(text, input, field) {
@@ -176,7 +204,8 @@ function colorOf(rho, down) {
 function drawTopo(pred, title) {
   const wrapDiv = el('div', { class: 'topo' });
   wrapDiv.appendChild(el('h3', {}, title));
-  const svg = svgEl('svg', { viewBox: '0 0 500 270', role: 'img', 'aria-label': title });
+  const box = el('div', { class: 'diagram' });
+  const svg = svgEl('svg', { viewBox: '0 0 540 320', role: 'img', 'aria-label': title });
   const flagged = new Set(pred.summary.outside_validity);
   for (const key of LINKS) {
     const [a, b] = key.split('-');
@@ -186,28 +215,32 @@ function drawTopo(pred, title) {
     const heavy = !ab ? ba : !ba ? ab : (ab.rho >= ba.rho ? ab : ba);
     const dir = heavy === ab ? `${a}→${b}` : `${b}→${a}`;
     const rho = heavy ? heavy.rho : 0;
-    svg.appendChild(svgEl('line', { x1, y1, x2, y2, stroke: colorOf(rho, down),
-      'stroke-width': down ? 3 : 4 + Math.min(rho, 2) * 2, 'stroke-dasharray': down ? '6 5' : '' }));
+    const color = colorOf(rho, down);
+    const line = svgEl('line', { x1, y1, x2, y2, stroke: color,
+      'stroke-width': down ? 2.5 : 2.5 + Math.min(rho, 2) * 1.5, 'stroke-dasharray': down ? '8 6' : '',
+      'stroke-linecap': 'round' });
+    svg.appendChild(line);
     // nhãn đặt lệch VUÔNG GÓC với đường kẻ (luôn về phía trên/trái) để không đè lên nét
     const len = Math.hypot(x2 - x1, y2 - y1);
     let nx = -(y2 - y1) / len, ny = (x2 - x1) / len;
     if (ny > 0) { nx = -nx; ny = -ny; }
-    const lx = (x1 + x2) / 2 + nx * 12, ly = (y1 + y2) / 2 + ny * 12 + 4;
+    const lx = (x1 + x2) / 2 + nx * 13, ly = (y1 + y2) / 2 + ny * 13 + 4;
     const anchor = Math.abs(nx) > 0.9 ? (nx < 0 ? 'end' : 'start') : 'middle';
-    if (down) svg.appendChild(svgEl('text', { x: lx, y: ly, 'text-anchor': anchor }, '✕ tắt'));
+    if (down) svg.appendChild(svgEl('text', { x: lx, y: ly, 'text-anchor': anchor }, 'tắt'));
     else if (heavy && heavy.load > 0.05) {
-      const warn = heavy.flows.some((f) => flagged.has(f)) && rho > 1 ? ' ⚠' : '';
-      svg.appendChild(svgEl('text', { x: lx, y: ly, 'text-anchor': anchor },
-                            `${dir} ρ ${rho.toFixed(2)}${warn}`));
+      const t = svgEl('text', { x: lx, y: ly, 'text-anchor': anchor }, `${dir} ρ ${rho.toFixed(2)}`);
+      if (rho >= 0.7) t.setAttribute('style', `fill:${color}`);
+      svg.appendChild(t);
     }
   }
   for (const [name, [x, y]] of Object.entries(POS)) {
-    const g = svgEl('g', { class: 'node' });
-    g.append(svgEl('circle', { cx: x, cy: y, r: 17 }),
-             svgEl('text', { x, y: y + 4, 'text-anchor': 'middle' }, name));
+    const g = svgEl('g', { class: 'node ' + (SWITCHES.has(name) ? 'switch' : 'host') });
+    g.append(svgEl('circle', { cx: x, cy: y, r: 18 }),
+             svgEl('text', { x, y: y + 34, 'text-anchor': 'middle' }, name));
     svg.appendChild(g);
   }
-  wrapDiv.appendChild(svg);
+  box.appendChild(svg);
+  wrapDiv.appendChild(box);
   return wrapDiv;
 }
 
@@ -216,8 +249,8 @@ function flowTable(result) {
   const labels = Object.keys(result);
   const table = el('table');
   const head = el('tr');
-  head.appendChild(el('th', {}, 'Luồng (Mbps tới đích)'));
-  labels.forEach((l) => head.appendChild(el('th', {}, l)));
+  head.appendChild(el('th', {}, 'Luồng, Mbps tới đích'));
+  labels.forEach((l) => head.appendChild(el('th', {}, title(l))));
   table.appendChild(head);
   const names = Object.keys(result[labels[0]].prediction.flows);
   for (const n of names) {
@@ -239,8 +272,7 @@ function flowTable(result) {
 // ---------------------------------------------------------------- hỏi server
 async function ask() {
   const out = $('out');
-  out.className = '';
-  out.replaceChildren(el('p', { class: 'muted' }, 'Đang dự đoán…'));
+  out.replaceChildren(el('div', { class: 'placeholder' }, 'Đang tính...'));
   const payload = { source: $('source').value, restore_nominal: $('restore').checked,
                     allow_stale: $('stale').checked, actions: readActions() };
   if (payload.source === 'snapshot') { payload.run = $('run').value; payload.tick = Number($('tick').value); }
@@ -250,7 +282,7 @@ async function ask() {
                                           body: JSON.stringify(payload) });
     status = res.status; body = await res.json();
   } catch (e) {
-    out.replaceChildren(el('div', { class: 'error' }, 'Không gọi được server what-if: ' + e));
+    out.replaceChildren(el('div', { class: 'error' }, 'Không kết nối được tới server what-if: ' + e));
     return;
   }
   out.replaceChildren();
@@ -260,24 +292,26 @@ async function ask() {
     return;
   }
   const rep = body.report;
-  const info = el('p', { class: 'muted' },
-    `Nguồn: ${rep.source}. Tuổi dữ liệu lớn nhất: ${rep.max_age_s === null ? '–' : rep.max_age_s.toFixed(1) + ' s'}. ` +
-    `Link tắt: ${rep.down.join(', ') || '–'}.`);
-  out.appendChild(info);
+  const age = rep.max_age_s === null ? '' : `, dữ liệu cũ nhất ${rep.max_age_s.toFixed(1)} s`;
+  const downTxt = rep.down.length ? `, link đang tắt: ${rep.down.join(', ')}` : '';
+  out.appendChild(el('p', { class: 'meta' }, `Trạng thái lấy từ ${rep.source}${age}${downTxt}.`));
   if (rep.warnings.length) out.appendChild(warnList(rep.warnings));
   const topos = el('div', { class: 'topos' });
-  for (const [label, r] of Object.entries(body.result)) topos.appendChild(drawTopo(r.prediction, label));
+  for (const [label, r] of Object.entries(body.result)) topos.appendChild(drawTopo(r.prediction, title(label)));
   out.appendChild(topos);
   const legend = el('div', { class: 'legend' });
-  [['var(--ok)', 'ρ < 0,7'], ['var(--warm)', '0,7 ≤ ρ < 1'], ['var(--hot)', 'ρ ≥ 1 (mất gói)'],
+  [['var(--ok)', 'ρ dưới 0,7'], ['var(--warm)', 'ρ từ 0,7 tới 1'], ['var(--hot)', 'ρ từ 1 trở lên, có mất gói'],
    ['var(--off)', 'link tắt']].forEach(([c, t]) => {
     const s = el('span'); const i = el('i'); i.style.background = c; s.append(i, t); legend.appendChild(s);
   });
-  out.append(legend, flowTable(body.result), el('p', { class: 'muted' }, body.note));
+  const flagged = Object.values(body.result).some((r) => r.prediction.summary.outside_validity.length);
+  const hint = el('p', { class: 'hint' }, 'ρ là tải chia dung lượng, lấy theo chiều nặng hơn của link.' +
+    (flagged ? ' Luồng TCP qua link nghẽn được đánh dấu "ngoài vùng hợp lệ". Mô hình không tính được lúc TCP giảm tốc, nên đừng dùng các con số đó để so sánh.' : ''));
+  out.append(legend, hint, flowTable(body.result));
 }
 function warnList(items) {
   const box = el('div', { class: 'warn' });
-  box.appendChild(el('strong', {}, 'Cảnh báo về đầu vào'));
+  box.appendChild(el('div', {}, 'Lưu ý về dữ liệu đầu vào:'));
   const ul = el('ul');
   items.forEach((w) => ul.appendChild(el('li', {}, w)));
   box.appendChild(ul);

@@ -154,7 +154,7 @@ def muc_what_if():
 
 
 def muc_s1s2():
-    """6.2.2: excess và cột chỉ báo trên 5 run giảm băng thông s1-s2."""
+    """5.3.3: excess và cột chỉ báo trên 5 run giảm băng thông s1-s2."""
     import gd4_s1s2_excess as S
     from ml.acceptance_guard import SnapshotReader
     from ml.release import DetectorRelease
@@ -198,12 +198,12 @@ def muc_vong_kin_offline():
 MUC = (
     ('3.4/5.3', 'Học lại detector 2.1 (K, E, biên, R, vùng vận hành)', muc_hoc_lai),
     ('5.3.1', 'Tập phát triển: excess, dual, Isolation Forest', muc_tap_phat_trien),
-    ('5.3.2a', 'Tập nghiệm thu: giảm băng thông, flood, dịch nút cổ chai', muc_giam_bang_thong_va_flood),
-    ('5.3.2b', 'Tập nghiệm thu: tải cao và bộ chặn vùng tải', muc_tai_cao),
-    ('5.3.2c', 'Tập nghiệm thu: chạy nền 2 giờ', muc_chay_nen),
+    ('5.3.2a', 'Tập kiểm tra độc lập: giảm băng thông, flood, dịch nút cổ chai', muc_giam_bang_thong_va_flood),
+    ('5.3.2b', 'Tập kiểm tra độc lập: tải cao và bộ chặn vùng tải', muc_tai_cao),
+    ('5.3.2c', 'Tập kiểm tra độc lập: chạy nền 2 giờ', muc_chay_nen),
+    ('5.3.3', 'Link chỉ có TCP: excess trên 5 run s1-s2', muc_s1s2),
     ('5.4', 'What-if: kiểm hồi cứu', muc_what_if),
     ('5.7', 'Vòng kín: kiểm offline luật chọn ứng viên', muc_vong_kin_offline),
-    ('6.2.2', 'Cơ chế bỏ sót trên link s1-s2', muc_s1s2),
 )
 
 
@@ -223,7 +223,7 @@ def main(argv=None) -> int:
             problems, note, status = [repr(exc)], traceback.format_exc(limit=2), 'LỖI'
         failed += status in ('LỆCH', 'LỖI')
         rows.append((code, title, status, time.monotonic() - t0, note, problems or []))
-        print('%-7s %-56s %-6s %5.0f s  %s' % (code, title, status, rows[-1][3],
+        print('%-7s %-62s %-6s %5.0f s  %s' % (code, title, status, rows[-1][3],
                                               note.splitlines()[0] if note else ''), flush=True)
         for p in (problems or [])[:5] if status in ('LỆCH', 'LỖI') else []:
             print('        - %s' % p)

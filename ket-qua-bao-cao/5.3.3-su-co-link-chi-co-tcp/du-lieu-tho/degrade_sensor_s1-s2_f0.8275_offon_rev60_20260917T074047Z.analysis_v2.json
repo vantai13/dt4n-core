@@ -1,0 +1,29 @@
+{
+  "summary": {
+    "rules_version": "probe-rules-2",
+    "missing_bytes": 3454023.111111111,
+    "baseline_noise_per_tick": 10312.222222222223,
+    "n_window_ticks": 40,
+    "mean_packet_bytes_pre": 1487.066172276098,
+    "leaf_drop_packets": 423,
+    "kernel_or_ovs_drop_packets": 0,
+    "parent_qdisc_mirrors_leaf": false,
+    "backlog_bytes_pre_revert": 2556078,
+    "backlog_bytes_post_revert": 6056,
+    "first_leaf_drop_tick": 45,
+    "qlen_at_first_drop": 980,
+    "median_bytes_per_skb_in_queue": 2844.2622950819673,
+    "collector_drop_packets": 423,
+    "share_leaf": 0.1821148760844393,
+    "share_other": 0.0,
+    "share_backlog": 0.740029211668403,
+    "closure": 0.9221440877528423,
+    "klass": "QUEUE_THEN_DROP"
+  },
+  "checks": {
+    "first_drop_in_window": true,
+    "queue_full_at_first_drop": false,
+    "collector_sees": true,
+    "teardown_destroys_backlog": true
+  }
+}

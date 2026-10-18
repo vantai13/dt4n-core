@@ -1,11 +1,13 @@
-# 5.6 Tự động hóa lai với AWS (ND4)
+# 5.6 Tự động hóa tài nguyên đám mây
 
 ## Tệp kết quả
 
 | Tệp | Dùng ở báo cáo | Tệp gốc |
 |---|---|---|
 | `tung-luot.jsonl` | mỗi dòng là một lượt: kịch bản, mốc thời gian từng chặng, số lệnh, số máy mong muốn, đạt hay không, lượt không hợp lệ | `results/cloud/gd1_trials.jsonl` |
-| `tong-hop-theo-kich-ban.json` | tổng hợp theo kịch bản: 5/5 lượt đạt ở quá tải, mất kết nối, thay máy; đối chứng yên tĩnh 0 lệnh; cân bằng tải 50/50 | `results/cloud/gd1_receipt.json` |
+| `tong-hop-theo-kich-ban.json` | tổng hợp theo kịch bản: 5/5 lượt đạt ở quá tải, mất kết nối, thay máy; đối chứng tải bình thường 0 lệnh; cân bằng tải 50/50 | `results/cloud/gd1_receipt.json` |
+| `nhat-ky-cloud-controller.jsonl` | nhật ký từng quyết định của cloud controller: đầu vào, mức tải, mức dự phòng, số máy mong muốn, nối bằng mã băm. Bản ghi `seq` 92-97 là lượt 4 của kịch bản mất kết nối, khi ASG lên 2 máy trong pha phục hồi (Mục 5.6, 5.8) | `logs/cloud_controller_audit.jsonl` |
+| `du-lieu-tho/samples_<kịch bản>_rep<lượt>_<mã>.jsonl` | mẫu twin và AWS ghi trong suốt từng lượt: hệ số tải, trạng thái srv1, số máy mong muốn, đang chạy, sẵn sàng (đạt kiểm tra tình trạng của Load Balancer) | `results/cloud/samples_*.jsonl` |
 
 Bảng 5.7 (kết quả theo kịch bản) và Bảng 5.8 (thời gian từng chặng, trung vị [nhỏ nhất; lớn nhất])
 tính từ `tung-luot.jsonl`.
@@ -15,7 +17,7 @@ tính từ `tung-luot.jsonl`.
 | Tệp | Trường | Ý nghĩa |
 |---|---|---|
 | `tung-luot.jsonl` | `scenario`, `rep`, `outcome` | kịch bản (`flood`, `linkdown`, `replace`, `quiet`, `lb`), lượt thứ mấy, `PASS`, `FAIL` hoặc `INVALID` |
-| | `metrics.t_inject`, `t_onset`, `t_decision`, `t_applied`, `t_inservice`, `t_healthy` | mốc thời gian: gây sự cố, twin thấy, controller quyết định, AWS nhận lệnh, máy mới vào dịch vụ, máy khỏe |
+| | `metrics.t_inject`, `t_onset`, `t_decision`, `t_applied`, `t_inservice`, `t_healthy` | mốc thời gian: gây sự cố, twin ghi nhận sự cố, controller quyết định, AWS nhận lệnh, máy mới vào dịch vụ, máy sẵn sàng |
 | `tong-hop-theo-kich-ban.json` | `criteria` | điều kiện đạt của từng kịch bản |
 | | `summary.<kịch bản>.n_pass` / `n_counted` | số lượt đạt trên số lượt được tính |
 | | `summary.<kịch bản>.segments` | thời gian từng chặng của Bảng 5.8, ví dụ `onset_to_decision_s`, `decision_to_applied_s` (`median`, `min`, `max`) |
@@ -49,8 +51,8 @@ Các kịch bản (mỗi lệnh một lượt, lặp `--rep 1` tới `--rep 5`):
 python3 -m cloud.experiment trial flood --rep 1           # quá tải, cần cloud.controller đang chạy
 python3 -m cloud.experiment trial linkdown --rep 1        # mất kết nối srv1, cần cloud.controller
 python3 -m cloud.experiment trial replace --rep 1 --prep  # thay máy, phải TẮT cloud.controller
-python3 -m cloud.experiment quiet --minutes 10            # đối chứng yên tĩnh, cần cloud.controller
-python3 -m cloud.experiment lb --n 100                    # cân bằng tải, tắt controller, cần 2 máy khỏe
+python3 -m cloud.experiment quiet --minutes 10            # đối chứng tải bình thường, cần cloud.controller
+python3 -m cloud.experiment lb --n 100                    # cân bằng tải, tắt controller, cần 2 máy sẵn sàng
 python3 -m cloud.experiment report                        # ghi bảng và receipt
 python3 -m cloud.infra down                               # dọn sạch tài nguyên AWS
 ```
