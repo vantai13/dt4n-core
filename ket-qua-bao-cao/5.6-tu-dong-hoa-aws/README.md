@@ -1,5 +1,11 @@
 # 5.6 Tự động hóa tài nguyên đám mây
 
+Cloud controller đọc tải và trạng thái của srv1 trên twin, tính số máy EC2 mong muốn và nhờ
+actuator gọi API của AWS. Cloud collector đọc lại trạng thái Auto Scaling Group và ghi vào Thing
+`cloud-pool`. Máy EC2 không mang lưu lượng của Mininet.
+
+![Tự động hóa tài nguyên đám mây](../../docs/hinh/dam-may.png)
+
 ## Tệp kết quả
 
 | Tệp | Dùng ở báo cáo | Tệp gốc |

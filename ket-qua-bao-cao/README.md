@@ -79,14 +79,14 @@ rồi trả tệp cũ về.
 
 | Mục báo cáo | Thư mục | Nội dung | Mức chạy lại |
 |---|---|---|---|
-| 5.1 Phản chiếu trạng thái mạng | [5.1-phan-chieu-trang-thai](5.1-phan-chieu-trang-thai/) | đối chiếu thực thể, 20 lần tắt link, độ trễ đồng bộ, chạy 30 phút | testbed |
-| 5.2 Điều khiển từ xa và độ trễ của twin | [5.2-dieu-khien-tu-xa](5.2-dieu-khien-tu-xa/) | độ trễ lệnh, thời gian từng chặng, HTTP 408 | testbed |
+| 5.1 Đồng bộ trạng thái mạng lên twin | [5.1-phan-chieu-trang-thai](5.1-phan-chieu-trang-thai/) | đối chiếu thực thể, 20 lần tắt link, độ trễ đồng bộ, chạy 30 phút | testbed |
+| 5.2 Điều khiển testbed qua twin | [5.2-dieu-khien-tu-xa](5.2-dieu-khien-tu-xa/) | độ trễ lệnh, thời gian từng chặng, HTTP 408 | testbed |
 | 5.3 Phát hiện bất thường | [5.3-phat-hien-bat-thuong](5.3-phat-hien-bat-thuong/) | dữ liệu thô 42 run, mô hình, tập phát triển, tập kiểm tra độc lập, tiêu chí ghi trước | offline (chấm), testbed (thu dữ liệu) |
 | 5.3.3 Sự cố trên link chỉ có lưu lượng TCP | [5.3.3-su-co-link-chi-co-tcp](5.3.3-su-co-link-chi-co-tcp/) | excess trên 5 run giảm băng thông s1-s2, phép thử hàng đợi | offline, testbed |
 | 5.4 Phân tích what-if | [5.4-what-if](5.4-what-if/) | kiểm hồi cứu, kiểm mù | offline, testbed |
 | 5.5 Mô hình dữ liệu trên Eclipse Ditto | [5.5-mo-hinh-du-lieu-ditto](5.5-mo-hinh-du-lieu-ditto/) | khởi tạo 52 Thing cho topology 22 host | cần Ditto |
 | 5.6 Tự động hóa tài nguyên đám mây | [5.6-tu-dong-hoa-aws](5.6-tu-dong-hoa-aws/) | ba kịch bản lặp, đối chứng, cân bằng tải | testbed và AWS |
-| 5.7 Vòng kín giảm thiểu trên testbed | [5.7-vong-kin](5.7-vong-kin/) | A/B bảo vệ, phép thử định vị | testbed |
+| 5.7 Vòng điều khiển kín trên testbed | [5.7-vong-kin](5.7-vong-kin/) | A/B bảo vệ, phép thử định vị | testbed |
 | Hình và bảng tự sinh | [hinh-va-bang](hinh-va-bang/) | script vẽ hình độ trễ, hình A/B, bảng kiểm mù | offline |
 
 ## Dữ liệu thô

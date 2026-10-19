@@ -27,7 +27,7 @@ hỏi mật khẩu; **Ditto** chỉ cần Ditto.
 
 ## 2. Theo mục báo cáo
 
-### 5.1 Phản chiếu trạng thái và 5.2 Điều khiển từ xa
+### 5.1 Đồng bộ trạng thái mạng lên twin và 5.2 Điều khiển testbed qua twin
 
 Hai mục này dùng chung hai launcher. Cả hai **ghi đè `results/report/`**, nên hãy chạy trên bản clone riêng.
 

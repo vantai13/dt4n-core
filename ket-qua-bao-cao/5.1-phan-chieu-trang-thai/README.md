@@ -1,7 +1,10 @@
-# 5.1 Phản chiếu trạng thái mạng
+# 5.1 Đồng bộ trạng thái mạng lên twin
 
 Câu hỏi của mục: twin có đủ, đúng và kịp so với testbed không. Mọi phép đo ở đây đi theo **luồng
-đồng bộ lên**: Mininet đổi trạng thái, Sync Agent đọc mạng mỗi 1 s và đẩy phần thay đổi lên Ditto.
+đồng bộ lên**, cột bên phải của hình dưới: Mininet đổi trạng thái, Sync Agent đọc mạng mỗi 1 s và
+đẩy phần thay đổi lên Ditto, rồi Ditto đẩy tiếp tới dashboard qua SSE.
+
+![Hai luồng đồng bộ giữa testbed và Digital Twin](../../docs/hinh/luong-dong-bo.png)
 
 ## Tệp kết quả
 
@@ -9,7 +12,7 @@ Câu hỏi của mục: twin có đủ, đúng và kịp so với testbed không
 |---|---|---|
 | `doi-chieu-va-20-lan-tat-link.json` | Bảng 5.1, ba dòng Đủ, Đúng, Bắt được sự kiện | `results/report/verification.json` |
 | `do-tre-dong-bo-len.json` | Bảng 5.1 dòng Kịp thời, Hình 5.1 (đường "đồng bộ lên") | `results/report/latency_up_randomized.json` |
-| `chay-lien-tuc-30-phut.json` | Bảng 5.1 dòng Bền, đoạn sau bảng | `results/report/soak_30min.json` |
+| `chay-lien-tuc-30-phut.json` | Bảng 5.1 dòng Ổn định lâu dài, đoạn sau bảng | `results/report/soak_30min.json` |
 
 ## Đọc tệp
 

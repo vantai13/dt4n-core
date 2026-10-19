@@ -3,6 +3,12 @@
 Mọi kết quả ở mục này là của một mô hình detector duy nhất (phiên bản 2.1.0), học trên tám run
 huấn luyện và cố định trước khi thu tập kiểm tra độc lập (Mục 3.4 và 4.3 của báo cáo).
 
+Detector lấy số liệu thẳng từ Mininet qua collector riêng, chấm bằng hai kênh envelope và
+residual, rồi đưa qua máy trạng thái (FSM) trước khi ghi kết luận lên Thing detector trên Ditto.
+Nhật ký can thiệp của controller vòng kín dùng để bỏ qua các báo động do chính can thiệp gây ra.
+
+![Phân hệ phát hiện bất thường](../../docs/hinh/phat-hien.png)
+
 Thứ tự đọc: `du-lieu/` (dữ liệu thô, xem mục cuối) → `mo-hinh/` (mô hình học được gì) → `tieu-chi-ghi-truoc/` (đạt là thế nào, ghi trước
 khi đo) → `tap-phat-trien/` (Bảng 5.2, 5.3) → `tap-kiem-tra-doc-lap/` (Bảng 5.4, 5.5). Phân tích
 sự cố trên link chỉ có TCP (Mục 5.3.3) nằm ở thư mục riêng

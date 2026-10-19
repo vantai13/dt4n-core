@@ -1,12 +1,13 @@
-# 5.2 Điều khiển từ xa và độ trễ của twin
+# 5.2 Điều khiển testbed qua twin
 
 Câu hỏi của mục: gửi lệnh qua twin thì bao lâu mạng thật đổi, và làm sao biết lệnh đã có hiệu
-lực. Đây là **luồng lệnh xuống**:
+lực. Đây là **luồng lệnh xuống**, cột bên trái của hình:
 
-```
-dashboard hoặc controller ──POST──▶ inbox của Thing controller trên Ditto
-        ──SSE──▶ Command Agent (kiểm lệnh, chống lặp, thực thi) ──▶ Mininet
-```
+![Hai luồng đồng bộ giữa testbed và Digital Twin](../../docs/hinh/luong-dong-bo.png)
+
+1. Dashboard hoặc controller vòng kín gửi lệnh (HTTP POST) vào inbox của Thing `controller` trên Ditto.
+2. Ditto chuyển lệnh tới Command Agent qua SSE.
+3. Command Agent kiểm lệnh có hợp lệ không, bỏ qua lệnh lặp lại, rồi thực thi trên Mininet.
 
 Muốn biết lệnh đã có hiệu lực, phải chờ trạng thái mới quay về twin qua luồng đồng bộ lên
 (Mục 5.1). Vì vậy độ trễ lệnh đo được gồm **cả đường xuống lẫn đường lên**.

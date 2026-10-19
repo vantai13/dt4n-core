@@ -1,4 +1,4 @@
-# 5.7 Vòng kín giảm thiểu trên testbed
+# 5.7 Vòng điều khiển kín trên testbed
 
 Vòng kín: detector báo nghẽn, controller chọn một máy khách và giới hạn băng thông của máy đó
 qua lệnh gửi tới twin, rồi gỡ thử giới hạn theo lịch. Controller chọn ứng viên theo chiều: chỉ
